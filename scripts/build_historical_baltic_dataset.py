@@ -62,7 +62,11 @@ def summarize_items(items: List[Dict[str, Any]]) -> Dict[str, Any]:
             "overall_level": "low"
         }
 
-    scores = [int(item.get("hybrid_threat_score", 0)) for item in items]
+    scores = [
+        int(item.get("hybrid_threat_score", 0))
+        for item in items
+    ]
+
     total = sum(scores)
     average = round(total / len(scores), 2)
     highest = max(scores)
@@ -174,10 +178,28 @@ def top_items(items: List[Dict[str, Any]], limit: int = 10) -> List[Dict[str, An
     ]
 
 
-def build_record(target_date, items: List[Dict[str, Any]], rolling_days: int) -> Dict[str, Any]:
-    start_date = target_date - timedelta(days=rolling_days - 1)
+def filter_items_by_date(items: List[Dict[str, Any]], target_date) -> List[Dict[str, Any]]:
+    output = []
 
-    window_items = []
+    for item in items:
+        published_date = parse_date(item.get("published_at"))
+
+        if not published_date:
+            continue
+
+        if published_date == target_date:
+            output.append(item)
+
+    return output
+
+
+def filter_items_by_rolling_window(
+    items: List[Dict[str, Any]],
+    target_date,
+    rolling_days: int
+) -> List[Dict[str, Any]]:
+    start_date = target_date - timedelta(days=rolling_days - 1)
+    output = []
 
     for item in items:
         published_date = parse_date(item.get("published_at"))
@@ -186,26 +208,63 @@ def build_record(target_date, items: List[Dict[str, Any]], rolling_days: int) ->
             continue
 
         if start_date <= published_date <= target_date:
-            window_items.append(item)
+            output.append(item)
+
+    return output
+
+
+def build_record(
+    target_date,
+    items: List[Dict[str, Any]],
+    rolling_days: int
+) -> Dict[str, Any]:
+
+    rolling_start_date = target_date - timedelta(days=rolling_days - 1)
+
+    rolling_items = filter_items_by_rolling_window(
+        items=items,
+        target_date=target_date,
+        rolling_days=rolling_days
+    )
+
+    daily_items = filter_items_by_date(
+        items=items,
+        target_date=target_date
+    )
 
     return {
         "date": target_date.isoformat(),
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "input_generated_at": datetime.now(timezone.utc).isoformat(),
+
         "window": {
             "type": "rolling",
             "days": rolling_days,
-            "start_date": start_date.isoformat(),
+            "start_date": rolling_start_date.isoformat(),
             "end_date": target_date.isoformat()
         },
-        "overall": summarize_items(window_items),
-        "countries": summarize_countries(window_items),
-        "categories": summarize_categories(window_items),
-        "top_items": top_items(window_items)
+
+        "overall": summarize_items(rolling_items),
+        "countries": summarize_countries(rolling_items),
+        "categories": summarize_categories(rolling_items),
+        "top_items": top_items(rolling_items),
+
+        "daily_activity": {
+            "description": "Daily activity is calculated only from items published on the displayed date.",
+            "overall": summarize_items(daily_items),
+            "countries": summarize_countries(daily_items),
+            "categories": summarize_categories(daily_items),
+            "top_items": top_items(daily_items)
+        }
     }
 
 
-def build_history(scored_data: Dict[str, Any], days: int, rolling_days: int) -> Dict[str, Any]:
+def build_history(
+    scored_data: Dict[str, Any],
+    days: int,
+    rolling_days: int
+) -> Dict[str, Any]:
+
     today = datetime.now(timezone.utc).date()
     start_date = today - timedelta(days=days - 1)
 
@@ -215,6 +274,7 @@ def build_history(scored_data: Dict[str, Any], days: int, rolling_days: int) -> 
 
     for index in range(days):
         current_date = start_date + timedelta(days=index)
+
         records.append(
             build_record(
                 target_date=current_date,
@@ -224,7 +284,7 @@ def build_history(scored_data: Dict[str, Any], days: int, rolling_days: int) -> 
         )
 
     return {
-        "project": "baltic-hybrid-threat-monitor",
+        "project": "baltic-hybrid-monitor",
         "region": "Baltic states and Poland",
         "created_at": datetime.now(timezone.utc).isoformat(),
         "updated_at": datetime.now(timezone.utc).isoformat(),
@@ -233,7 +293,11 @@ def build_history(scored_data: Dict[str, Any], days: int, rolling_days: int) -> 
             "description": "Historical backfill generated from currently collected scored items using published_at dates.",
             "warning": "This is a backfill based on available collected RSS results. It is suitable for initializing the dashboard, but it is not a complete historical archive.",
             "days": days,
-            "rolling_days": rolling_days
+            "rolling_days": rolling_days,
+            "metrics": {
+                "overall": "Threat Index calculated from the rolling window ending on each displayed date.",
+                "daily_activity": "Daily Activity Index calculated only from items published on each displayed date."
+            }
         },
         "records": records
     }
@@ -255,7 +319,7 @@ def main() -> None:
         "--rolling-days",
         type=int,
         default=14,
-        help="Rolling window used for each daily snapshot. Default: 14."
+        help="Rolling window used for the Threat Index. Default: 14."
     )
 
     args = parser.parse_args()
@@ -271,7 +335,7 @@ def main() -> None:
     save_json(HISTORY_OUTPUT, history)
     save_json(DOCS_HISTORY_OUTPUT, history)
 
-    print(f"Historical dataset generated.")
+    print("Historical dataset generated.")
     print(f"Days: {args.days}")
     print(f"Rolling window: {args.rolling_days}")
     print(f"Saved: {HISTORY_OUTPUT}")
