@@ -2,7 +2,7 @@
   "project": "baltic-hybrid-threat-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-07-04T20:40:48.596757+00:00",
-  "updated_at": "2026-07-04T21:26:58.857244+00:00",
+  "updated_at": "2026-07-04T21:41:13.558446+00:00",
   "record_count": 14,
   "method": {
     "description": "Historical backfill generated from currently collected scored items using published_at dates.",
@@ -2716,12 +2716,12 @@
     },
     {
       "date": "2026-07-04",
-      "generated_at": "2026-07-04T21:26:58.857190+00:00",
-      "input_generated_at": "2026-07-04T21:26:58.801695+00:00",
+      "generated_at": "2026-07-04T21:41:13.558401+00:00",
+      "input_generated_at": "2026-07-04T21:41:13.505251+00:00",
       "overall": {
-        "incident_count": 196,
-        "score_total": 2723,
-        "average_score": 13.89,
+        "incident_count": 197,
+        "score_total": 2787,
+        "average_score": 14.15,
         "highest_score": 32,
         "overall_level": "high"
       },
@@ -2757,31 +2757,32 @@
           }
         },
         "Lithuania": {
-          "incident_count": 15,
-          "score_total": 195,
-          "average_score": 13.0,
-          "highest_score": 24,
+          "incident_count": 16,
+          "score_total": 227,
+          "average_score": 14.19,
+          "highest_score": 32,
           "level": "high",
           "categories": {
+            "gps_interference": 6,
+            "drone_incident": 1,
             "border_pressure": 2,
             "military_provocation": 1,
             "sabotage": 3,
-            "gps_interference": 5,
             "critical_infrastructure": 1
           }
         },
         "Poland": {
-          "incident_count": 110,
-          "score_total": 1551,
-          "average_score": 14.1,
+          "incident_count": 113,
+          "score_total": 1630,
+          "average_score": 14.42,
           "highest_score": 32,
           "level": "high",
           "categories": {
-            "gps_interference": 8,
-            "drone_incident": 5,
+            "gps_interference": 9,
+            "drone_incident": 6,
             "critical_infrastructure": 23,
-            "border_pressure": 14,
-            "migration_pressure": 11,
+            "border_pressure": 17,
+            "migration_pressure": 13,
             "military_provocation": 7,
             "cyber": 22,
             "espionage": 6,
@@ -2793,15 +2794,15 @@
         "gps_interference": {
           "category": "gps_interference",
           "incident_count": 41,
-          "score_total": 546,
-          "average_score": 13.32,
+          "score_total": 568,
+          "average_score": 13.85,
           "highest_score": 32
         },
         "drone_incident": {
           "category": "drone_incident",
-          "incident_count": 12,
-          "score_total": 262,
-          "average_score": 21.83,
+          "incident_count": 13,
+          "score_total": 294,
+          "average_score": 22.62,
           "highest_score": 32
         },
         "critical_infrastructure": {
@@ -2813,16 +2814,16 @@
         },
         "border_pressure": {
           "category": "border_pressure",
-          "incident_count": 20,
-          "score_total": 317,
-          "average_score": 15.85,
+          "incident_count": 23,
+          "score_total": 375,
+          "average_score": 16.3,
           "highest_score": 30
         },
         "migration_pressure": {
           "category": "migration_pressure",
-          "incident_count": 13,
-          "score_total": 218,
-          "average_score": 16.77,
+          "incident_count": 15,
+          "score_total": 257,
+          "average_score": 17.13,
           "highest_score": 30
         },
         "military_provocation": {
@@ -2862,6 +2863,23 @@
         }
       },
       "top_items": [
+        {
+          "id": "53886e8155e1e537",
+          "title": "Russian GPS Jamming Near Kaliningrad Disrupts Lithuanian Coast, Causing Drones to Crash or Fly Out of Control - The Baltic Sentinel",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSGVFWUVOQnBDVDJKVGU4SDY4WWF5eWVnQ0p6SlR4Y0g5aG9mTnAwYmJDQlZFalVZVWpuZDlCNzNzci1UNmFRV2Y4YW8xNl9CRkgtY0pDWDRuSjJMOUw1Z1pBTm5RLUZuSXFtR2laTFdORURfd2ZpQk50WjJvM2Zpa3E3N2pIMjNSYTBwUXBPLW5NMkx3ZXVDQ3RtckVJc2V0TVRtLW9tTTlCR0FUVXdNWXgyNWcxYW5zYm5pZmxBa2NLQmc3YkRTRDE1dzE1czNlVnlsSkhmVVhTQQ?oc=5",
+          "published_at": "2025-06-11T07:00:00+00:00",
+          "source_name": "Google News - Baltic GPS jamming",
+          "countries": [
+            "Lithuania",
+            "Poland"
+          ],
+          "categories": [
+            "gps_interference",
+            "drone_incident"
+          ],
+          "hybrid_threat_score": 32,
+          "hybrid_threat_level": "critical"
+        },
         {
           "id": "b39d85349638158d",
           "title": "Russian Jamming From Kaliningrad Is Sending Ukrainian Drones Toward NATO States, Telegraph Reports - UNITED24 Media",
@@ -2996,22 +3014,6 @@
           "title": "Poland says it repelled major cyberattack on power grid, blames Russia - The Record from Recorded Future News",
           "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE4tV1R0YTg3R1lVZEhncXhwRnRfR1Mzc1dpbDl2RUNtY19UU3ZLYnd1V2UzaERwbDFNOUY5UWQ5MThYczRVcDhFNzAtYlJnSWwyWnBVanpNVE9yYWxpVzlsSjVOSGc?oc=5",
           "published_at": "2026-01-14T08:00:00+00:00",
-          "source_name": "Google News - Baltic cyber attack Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "cyber",
-            "critical_infrastructure"
-          ],
-          "hybrid_threat_score": 25,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "a9aa462258ce96cc",
-          "title": "After major Poland energy grid cyberattack, CISA issues warning to U.S. audience - CyberScoop",
-          "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9uVnJueGxVUXcwb2NBY2NDc3FENlpWRTNzM2p6UENZeHJ4a244cTVUMHg5V29XXzFIQ1RlUTVtWjBIM0llUzd3YVhhUXQ1OUx4ZUgxcUUyUi1pTTl1bUZIeGlkenZFcDdZTExsS1R3TUE5NWdwS2lZY1A5Z2tNaWM?oc=5",
-          "published_at": "2026-02-10T08:00:00+00:00",
           "source_name": "Google News - Baltic cyber attack Russia",
           "countries": [
             "Poland"

@@ -1,8 +1,8 @@
 {
   "project": "baltic-hybrid-threat-monitor",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-07-04T21:26:58.801695+00:00",
-  "input_generated_at": "2026-07-04T21:26:58.725540+00:00",
+  "generated_at": "2026-07-04T21:41:13.505251+00:00",
+  "input_generated_at": "2026-07-04T21:41:13.436529+00:00",
   "method": {
     "description": "Simple rule-based scoring model following the conflict-end-matrix style.",
     "score_components": [
@@ -21,9 +21,9 @@
     }
   },
   "overall_summary": {
-    "incident_count": 196,
-    "score_total": 2723,
-    "average_score": 13.89,
+    "incident_count": 197,
+    "score_total": 2787,
+    "average_score": 14.15,
     "highest_score": 32,
     "overall_level": "high"
   },
@@ -62,32 +62,33 @@
     },
     "Lithuania": {
       "country": "Lithuania",
-      "incident_count": 15,
-      "score_total": 195,
-      "average_score": 13.0,
-      "highest_score": 24,
+      "incident_count": 16,
+      "score_total": 227,
+      "average_score": 14.19,
+      "highest_score": 32,
       "level": "high",
       "categories": {
+        "gps_interference": 6,
+        "drone_incident": 1,
         "border_pressure": 2,
         "military_provocation": 1,
         "sabotage": 3,
-        "gps_interference": 5,
         "critical_infrastructure": 1
       }
     },
     "Poland": {
       "country": "Poland",
-      "incident_count": 110,
-      "score_total": 1551,
-      "average_score": 14.1,
+      "incident_count": 113,
+      "score_total": 1630,
+      "average_score": 14.42,
       "highest_score": 32,
       "level": "high",
       "categories": {
-        "gps_interference": 8,
-        "drone_incident": 5,
+        "gps_interference": 9,
+        "drone_incident": 6,
         "critical_infrastructure": 23,
-        "border_pressure": 14,
-        "migration_pressure": 11,
+        "border_pressure": 17,
+        "migration_pressure": 13,
         "military_provocation": 7,
         "cyber": 22,
         "espionage": 6,
@@ -99,15 +100,15 @@
     "gps_interference": {
       "category": "gps_interference",
       "incident_count": 41,
-      "score_total": 546,
-      "average_score": 13.32,
+      "score_total": 568,
+      "average_score": 13.85,
       "highest_score": 32
     },
     "drone_incident": {
       "category": "drone_incident",
-      "incident_count": 12,
-      "score_total": 262,
-      "average_score": 21.83,
+      "incident_count": 13,
+      "score_total": 294,
+      "average_score": 22.62,
       "highest_score": 32
     },
     "critical_infrastructure": {
@@ -119,16 +120,16 @@
     },
     "border_pressure": {
       "category": "border_pressure",
-      "incident_count": 20,
-      "score_total": 317,
-      "average_score": 15.85,
+      "incident_count": 23,
+      "score_total": 375,
+      "average_score": 16.3,
       "highest_score": 30
     },
     "migration_pressure": {
       "category": "migration_pressure",
-      "incident_count": 13,
-      "score_total": 218,
-      "average_score": 16.77,
+      "incident_count": 15,
+      "score_total": 257,
+      "average_score": 17.13,
       "highest_score": 30
     },
     "military_provocation": {
@@ -169,6 +170,27 @@
   },
   "items": [
     {
+      "id": "53886e8155e1e537",
+      "title": "Russian GPS Jamming Near Kaliningrad Disrupts Lithuanian Coast, Causing Drones to Crash or Fly Out of Control - The Baltic Sentinel",
+      "summary": "Russian GPS Jamming Near Kaliningrad Disrupts Lithuanian Coast, Causing Drones to Crash or Fly Out of Control &nbsp;&nbsp; The Baltic Sentinel",
+      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSGVFWUVOQnBDVDJKVGU4SDY4WWF5eWVnQ0p6SlR4Y0g5aG9mTnAwYmJDQlZFalVZVWpuZDlCNzNzci1UNmFRV2Y4YW8xNl9CRkgtY0pDWDRuSjJMOUw1Z1pBTm5RLUZuSXFtR2laTFdORURfd2ZpQk50WjJvM2Zpa3E3N2pIMjNSYTBwUXBPLW5NMkx3ZXVDQ3RtckVJc2V0TVRtLW9tTTlCR0FUVXdNWXgyNWcxYW5zYm5pZmxBa2NLQmc3YkRTRDE1dzE1czNlVnlsSkhmVVhTQQ?oc=5",
+      "published_at": "2025-06-11T07:00:00+00:00",
+      "source_name": "Google News - Baltic GPS jamming",
+      "source_type": "news_search",
+      "countries": [
+        "Lithuania",
+        "Poland"
+      ],
+      "categories": [
+        "gps_interference",
+        "drone_incident"
+      ],
+      "relevance_score": 11.0,
+      "collected_at": "2026-07-04T21:41:13.435536+00:00",
+      "hybrid_threat_score": 32,
+      "hybrid_threat_level": "critical"
+    },
+    {
       "id": "b39d85349638158d",
       "title": "Russian Jamming From Kaliningrad Is Sending Ukrainian Drones Toward NATO States, Telegraph Reports - UNITED24 Media",
       "summary": "Russian Jamming From Kaliningrad Is Sending Ukrainian Drones Toward NATO States, Telegraph Reports &nbsp;&nbsp; UNITED24 Media",
@@ -185,7 +207,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 10.5,
-      "collected_at": "2026-07-04T21:26:58.718369+00:00",
+      "collected_at": "2026-07-04T21:41:13.429709+00:00",
       "hybrid_threat_score": 32,
       "hybrid_threat_level": "critical"
     },
@@ -206,7 +228,7 @@
         "migration_pressure"
       ],
       "relevance_score": 10.45,
-      "collected_at": "2026-07-04T21:26:58.244233+00:00",
+      "collected_at": "2026-07-04T21:41:12.881661+00:00",
       "hybrid_threat_score": 30,
       "hybrid_threat_level": "critical"
     },
@@ -227,7 +249,7 @@
         "military_provocation"
       ],
       "relevance_score": 9.0,
-      "collected_at": "2026-07-04T21:26:56.622159+00:00",
+      "collected_at": "2026-07-04T21:41:11.020208+00:00",
       "hybrid_threat_score": 28,
       "hybrid_threat_level": "critical"
     },
@@ -245,7 +267,7 @@
         "drone_incident"
       ],
       "relevance_score": 6.6,
-      "collected_at": "2026-07-04T21:26:57.192761+00:00",
+      "collected_at": "2026-07-04T21:41:11.698088+00:00",
       "hybrid_threat_score": 26,
       "hybrid_threat_level": "critical"
     },
@@ -267,7 +289,7 @@
         "migration_pressure"
       ],
       "relevance_score": 9.35,
-      "collected_at": "2026-07-04T21:26:58.240748+00:00",
+      "collected_at": "2026-07-04T21:41:12.878745+00:00",
       "hybrid_threat_score": 25,
       "hybrid_threat_level": "critical"
     },
@@ -287,7 +309,7 @@
         "espionage"
       ],
       "relevance_score": 7.0,
-      "collected_at": "2026-07-04T21:26:57.722129+00:00",
+      "collected_at": "2026-07-04T21:41:12.277401+00:00",
       "hybrid_threat_score": 25,
       "hybrid_threat_level": "critical"
     },
@@ -307,7 +329,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 6.0,
-      "collected_at": "2026-07-04T21:26:57.722473+00:00",
+      "collected_at": "2026-07-04T21:41:12.277729+00:00",
       "hybrid_threat_score": 25,
       "hybrid_threat_level": "critical"
     },
@@ -325,7 +347,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 6.0,
-      "collected_at": "2026-07-04T21:26:57.727327+00:00",
+      "collected_at": "2026-07-04T21:41:12.282463+00:00",
       "hybrid_threat_score": 25,
       "hybrid_threat_level": "critical"
     },
@@ -345,7 +367,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 6.0,
-      "collected_at": "2026-07-04T21:26:57.727470+00:00",
+      "collected_at": "2026-07-04T21:41:12.282607+00:00",
       "hybrid_threat_score": 25,
       "hybrid_threat_level": "critical"
     },
@@ -365,7 +387,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 5.0,
-      "collected_at": "2026-07-04T21:26:57.721976+00:00",
+      "collected_at": "2026-07-04T21:41:12.277253+00:00",
       "hybrid_threat_score": 25,
       "hybrid_threat_level": "critical"
     },
@@ -386,7 +408,7 @@
         "military_provocation"
       ],
       "relevance_score": 9.9,
-      "collected_at": "2026-07-04T21:26:58.246081+00:00",
+      "collected_at": "2026-07-04T21:41:12.883129+00:00",
       "hybrid_threat_score": 24,
       "hybrid_threat_level": "critical"
     },
@@ -406,7 +428,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 7.7,
-      "collected_at": "2026-07-04T21:26:57.192470+00:00",
+      "collected_at": "2026-07-04T21:41:11.697800+00:00",
       "hybrid_threat_score": 24,
       "hybrid_threat_level": "critical"
     },
@@ -426,7 +448,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 7.7,
-      "collected_at": "2026-07-04T21:26:57.194603+00:00",
+      "collected_at": "2026-07-04T21:41:11.699892+00:00",
       "hybrid_threat_score": 24,
       "hybrid_threat_level": "critical"
     },
@@ -446,7 +468,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 7.7,
-      "collected_at": "2026-07-04T21:26:57.196557+00:00",
+      "collected_at": "2026-07-04T21:41:11.701827+00:00",
       "hybrid_threat_score": 24,
       "hybrid_threat_level": "critical"
     },
@@ -466,7 +488,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 7.0,
-      "collected_at": "2026-07-04T21:26:57.724042+00:00",
+      "collected_at": "2026-07-04T21:41:12.279290+00:00",
       "hybrid_threat_score": 24,
       "hybrid_threat_level": "critical"
     },
@@ -485,7 +507,7 @@
         "sabotage"
       ],
       "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:57.190453+00:00",
+      "collected_at": "2026-07-04T21:41:11.695792+00:00",
       "hybrid_threat_score": 24,
       "hybrid_threat_level": "critical"
     },
@@ -506,7 +528,7 @@
         "border_pressure"
       ],
       "relevance_score": 7.15,
-      "collected_at": "2026-07-04T21:26:58.242698+00:00",
+      "collected_at": "2026-07-04T21:41:12.879898+00:00",
       "hybrid_threat_score": 23,
       "hybrid_threat_level": "critical"
     },
@@ -524,7 +546,7 @@
         "gps_interference"
       ],
       "relevance_score": 7.0,
-      "collected_at": "2026-07-04T21:26:56.627123+00:00",
+      "collected_at": "2026-07-04T21:41:11.025106+00:00",
       "hybrid_threat_score": 23,
       "hybrid_threat_level": "critical"
     },
@@ -543,8 +565,27 @@
         "sabotage"
       ],
       "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:57.192043+00:00",
+      "collected_at": "2026-07-04T21:41:11.697366+00:00",
       "hybrid_threat_score": 23,
+      "hybrid_threat_level": "critical"
+    },
+    {
+      "id": "10dc197fc49c9f47",
+      "title": "War everywhere? Why the crisis on the Polish-Belarusian border is not a hybrid attack - Stiftung Wissenschaft und Politik (SWP)",
+      "summary": "War everywhere? Why the crisis on the Polish-Belarusian border is not a hybrid attack &nbsp;&nbsp; Stiftung Wissenschaft und Politik (SWP)",
+      "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcWoyLUxqUHlyNGlSX09ENkpTNENBOVA2WERpa3U5X2RkaFJ2eVozRXdyWjB5X3lKaDloRlc0cjJ4ZVJPeGlHVXN4cDJzMmVMYVdDTEpOdmczY1AtS1Y0YS1VZFB5NWJoZDM3UFRJbDNxd1pFaU1DNzl3T0xpdVNhS2NYVXlGeDhvR0lCSmdXTWtSMDBlLXdNTVU4MUFRRWVsLUNRd2RTZzRkdlJFcWFpUjlnWFFwUXVEeFg0WUNYMU4?oc=5",
+      "published_at": "2021-11-19T08:00:00+00:00",
+      "source_name": "Google News - Poland Belarus border hybrid",
+      "source_type": "news_search",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "border_pressure"
+      ],
+      "relevance_score": 6.05,
+      "collected_at": "2026-07-04T21:41:12.884748+00:00",
+      "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
     {
@@ -553,15 +594,15 @@
       "summary": "Shadow War: From Drones to Immigration, Inside Russia's Hybrid Assault Against NATO &nbsp;&nbsp; cbn.com",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNaGp1Z1IxeDBXQUVkYWs0ZUQ5QkRaRHVnb0Y0OERpQlBXdVd1ZjlxbDhLblVBWHZULUpmY2Y1VVhsTUN1TGd0Q3ZWU0NoNmJsYUJua3p1V2tkV2xxcE94SFBZMEdMb19TMU1jdlp3SC0wcjFxeHlDT3diT3pISHBQcm4wMlVRdzFlWjFuX3EzM2wtNkUxdkMzTEhlRHJ0VHpf?oc=5",
       "published_at": "2026-06-09T07:00:00+00:00",
-      "source_name": "Google News - Poland Belarus border hybrid",
+      "source_name": "Google News - Baltic Russia hybrid threat",
       "source_type": "news_search",
       "countries": [],
       "categories": [
         "drone_incident",
         "migration_pressure"
       ],
-      "relevance_score": 6.6,
-      "collected_at": "2026-07-04T21:26:58.240467+00:00",
+      "relevance_score": 6.0,
+      "collected_at": "2026-07-04T21:41:11.022031+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -581,7 +622,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 6.0,
-      "collected_at": "2026-07-04T21:26:57.721770+00:00",
+      "collected_at": "2026-07-04T21:41:12.277080+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -601,7 +642,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 6.0,
-      "collected_at": "2026-07-04T21:26:57.722969+00:00",
+      "collected_at": "2026-07-04T21:41:12.278058+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -621,7 +662,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 6.0,
-      "collected_at": "2026-07-04T21:26:57.726420+00:00",
+      "collected_at": "2026-07-04T21:41:12.281722+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -641,7 +682,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 6.0,
-      "collected_at": "2026-07-04T21:26:57.727035+00:00",
+      "collected_at": "2026-07-04T21:41:12.282150+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -660,7 +701,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:57.725768+00:00",
+      "collected_at": "2026-07-04T21:41:12.280924+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -680,7 +721,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 5.0,
-      "collected_at": "2026-07-04T21:26:57.722622+00:00",
+      "collected_at": "2026-07-04T21:41:12.277887+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -700,7 +741,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 5.0,
-      "collected_at": "2026-07-04T21:26:57.723116+00:00",
+      "collected_at": "2026-07-04T21:41:12.278380+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -720,7 +761,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 5.0,
-      "collected_at": "2026-07-04T21:26:57.723418+00:00",
+      "collected_at": "2026-07-04T21:41:12.278675+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -740,7 +781,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 5.0,
-      "collected_at": "2026-07-04T21:26:57.725035+00:00",
+      "collected_at": "2026-07-04T21:41:12.280209+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -760,7 +801,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 5.0,
-      "collected_at": "2026-07-04T21:26:57.725464+00:00",
+      "collected_at": "2026-07-04T21:41:12.280787+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -780,7 +821,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 5.0,
-      "collected_at": "2026-07-04T21:26:57.727179+00:00",
+      "collected_at": "2026-07-04T21:41:12.282321+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -800,7 +841,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 5.0,
-      "collected_at": "2026-07-04T21:26:57.727625+00:00",
+      "collected_at": "2026-07-04T21:41:12.282758+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -819,7 +860,7 @@
         "sabotage"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.189960+00:00",
+      "collected_at": "2026-07-04T21:41:11.695318+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -838,7 +879,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:58.239782+00:00",
+      "collected_at": "2026-07-04T21:41:12.878100+00:00",
       "hybrid_threat_score": 22,
       "hybrid_threat_level": "critical"
     },
@@ -856,7 +897,7 @@
         "drone_incident"
       ],
       "relevance_score": 4.0,
-      "collected_at": "2026-07-04T21:26:56.626811+00:00",
+      "collected_at": "2026-07-04T21:41:11.024823+00:00",
       "hybrid_threat_score": 20,
       "hybrid_threat_level": "critical"
     },
@@ -876,7 +917,7 @@
         "migration_pressure"
       ],
       "relevance_score": 8.8,
-      "collected_at": "2026-07-04T21:26:58.245779+00:00",
+      "collected_at": "2026-07-04T21:41:12.883591+00:00",
       "hybrid_threat_score": 19,
       "hybrid_threat_level": "critical"
     },
@@ -896,7 +937,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 7.7,
-      "collected_at": "2026-07-04T21:26:57.190618+00:00",
+      "collected_at": "2026-07-04T21:41:11.695942+00:00",
       "hybrid_threat_score": 19,
       "hybrid_threat_level": "critical"
     },
@@ -915,7 +956,7 @@
         "sabotage"
       ],
       "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:57.191877+00:00",
+      "collected_at": "2026-07-04T21:41:11.697197+00:00",
       "hybrid_threat_score": 19,
       "hybrid_threat_level": "critical"
     },
@@ -934,14 +975,14 @@
         "drone_incident"
       ],
       "relevance_score": 6.5,
-      "collected_at": "2026-07-04T21:26:56.626104+00:00",
+      "collected_at": "2026-07-04T21:41:11.024094+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
     {
-      "id": "b2dc2513220da916",
-      "title": "Russian Electronic Warfare Units in Kaliningrad Are Redirecting Ukrainian Drones Toward Finland and Baltic States - Мілітарний",
-      "summary": "Russian Electronic Warfare Units in Kaliningrad Are Redirecting Ukrainian Drones Toward Finland and Baltic States &nbsp;&nbsp; Мілітарний",
+      "id": "cc17fe6bddf59eaf",
+      "title": "Russian Electronic Warfare Units in Kaliningrad Are Redirecting Ukrainian Drones Toward Finland and Baltic States - Militarnyi",
+      "summary": "Russian Electronic Warfare Units in Kaliningrad Are Redirecting Ukrainian Drones Toward Finland and Baltic States &nbsp;&nbsp; Militarnyi",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNTlJaQ2g3dE1OM3VZRk0xT3JhZEZLQnFWalFwU2E3bEVVTkdNWWd0ejR4a3dRRzZxVGZxczZJUFdqQ1hxRlRCT0tOM01uT0RMdTJEd0Z4dThKejhzLVBvNW9tanBrZU5pY3lpMFMtaV9EMVFlY3hyQmFVT0pLYklBZGEyMDRiZEwwOW1FWTUzdmRCTFpITVdDVEljbnRSOVBk?oc=5",
       "published_at": "2026-05-25T14:35:31+00:00",
       "source_name": "Google News - Baltic GPS jamming",
@@ -953,7 +994,7 @@
         "drone_incident"
       ],
       "relevance_score": 6.5,
-      "collected_at": "2026-07-04T21:26:58.719700+00:00",
+      "collected_at": "2026-07-04T21:41:13.430965+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -972,7 +1013,7 @@
         "drone_incident"
       ],
       "relevance_score": 6.5,
-      "collected_at": "2026-07-04T21:26:58.720190+00:00",
+      "collected_at": "2026-07-04T21:41:13.431441+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -991,7 +1032,7 @@
         "sabotage"
       ],
       "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:57.190786+00:00",
+      "collected_at": "2026-07-04T21:41:11.696107+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1010,7 +1051,7 @@
         "sabotage"
       ],
       "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:57.190956+00:00",
+      "collected_at": "2026-07-04T21:41:11.696274+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1029,7 +1070,7 @@
         "sabotage"
       ],
       "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:57.192923+00:00",
+      "collected_at": "2026-07-04T21:41:11.698248+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1048,7 +1089,7 @@
         "sabotage"
       ],
       "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:57.193211+00:00",
+      "collected_at": "2026-07-04T21:41:11.698523+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1067,7 +1108,7 @@
         "sabotage"
       ],
       "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:57.195467+00:00",
+      "collected_at": "2026-07-04T21:41:11.700744+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1087,7 +1128,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 6.0,
-      "collected_at": "2026-07-04T21:26:58.720018+00:00",
+      "collected_at": "2026-07-04T21:41:13.431268+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1105,7 +1146,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 6.0,
-      "collected_at": "2026-07-04T21:26:58.724251+00:00",
+      "collected_at": "2026-07-04T21:41:13.435232+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1124,7 +1165,7 @@
         "drone_incident"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:56.628845+00:00",
+      "collected_at": "2026-07-04T21:41:11.026665+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1141,7 +1182,7 @@
         "cyber"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:57.728099+00:00",
+      "collected_at": "2026-07-04T21:41:12.283053+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1160,7 +1201,7 @@
         "cyber"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:57.729148+00:00",
+      "collected_at": "2026-07-04T21:41:12.284250+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1170,15 +1211,15 @@
       "summary": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent &nbsp;&nbsp; Meduza",
       "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n0gHzAUFVX3lxTE53U2NXendxdjJTOWZnWEQ5OXNrUklqbndLdUdHcG5OTTAzdk5Tamd1TmI3Q3p0ekJrYTRrMTVlVUFTWE5HNDUzbmo5Y3diZkhuWDBmTm1HOHkwZlNIZ2t1aVZyeFFmWTljQ05aZU5mN1FOU1RtLXRrcWp4ellVU3FNakh3MVhGNWxVOHp3UWJXTTRKc19lcGxoanJHNHloSThmTnpRdk91V29mclFUUkRKWHM0RmJTQjJ1V3A5ZzdsV3pPazljd3oxNUZoNy0yTE9PeXl2VVpLb1pJS2VPenBTVkkyUEc1cS0wbHQ4ODNWQzFwcw?oc=5",
       "published_at": "2026-06-23T07:00:00+00:00",
-      "source_name": "Google News - Poland Belarus border hybrid",
+      "source_name": "Google News - Baltic Russia hybrid threat",
       "source_type": "news_search",
       "countries": [
         "Latvia",
         "Poland"
       ],
       "categories": [],
-      "relevance_score": 4.4,
-      "collected_at": "2026-07-04T21:26:58.240315+00:00",
+      "relevance_score": 4.0,
+      "collected_at": "2026-07-04T21:41:11.020033+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1196,7 +1237,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 4.0,
-      "collected_at": "2026-07-04T21:26:57.726717+00:00",
+      "collected_at": "2026-07-04T21:41:12.281866+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1211,7 +1252,7 @@
       "countries": [],
       "categories": [],
       "relevance_score": 3.3,
-      "collected_at": "2026-07-04T21:26:58.244998+00:00",
+      "collected_at": "2026-07-04T21:41:12.883299+00:00",
       "hybrid_threat_score": 18,
       "hybrid_threat_level": "critical"
     },
@@ -1230,7 +1271,7 @@
         "espionage"
       ],
       "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:57.192186+00:00",
+      "collected_at": "2026-07-04T21:41:11.697521+00:00",
       "hybrid_threat_score": 17,
       "hybrid_threat_level": "high"
     },
@@ -1249,7 +1290,7 @@
         "espionage"
       ],
       "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:57.196689+00:00",
+      "collected_at": "2026-07-04T21:41:11.701961+00:00",
       "hybrid_threat_score": 17,
       "hybrid_threat_level": "high"
     },
@@ -1267,7 +1308,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 6.0,
-      "collected_at": "2026-07-04T21:26:58.725124+00:00",
+      "collected_at": "2026-07-04T21:41:13.436382+00:00",
       "hybrid_threat_score": 17,
       "hybrid_threat_level": "high"
     },
@@ -1286,7 +1327,7 @@
         "drone_incident"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:56.627287+00:00",
+      "collected_at": "2026-07-04T21:41:11.025293+00:00",
       "hybrid_threat_score": 17,
       "hybrid_threat_level": "high"
     },
@@ -1304,7 +1345,24 @@
         "military_provocation"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.241208+00:00",
+      "collected_at": "2026-07-04T21:41:12.879345+00:00",
+      "hybrid_threat_score": 17,
+      "hybrid_threat_level": "high"
+    },
+    {
+      "id": "6760986df24bb0d9",
+      "title": "Hybrid attacks on EU borders by the regimes in Minsk and Moscow | Other events | Events | LIBE | Committees - European Parliament",
+      "summary": "Hybrid attacks on EU borders by the regimes in Minsk and Moscow | Other events | Events | LIBE | Committees &nbsp;&nbsp; European Parliament",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNRFJQZXBZQi1ReGRFZ2pscko4VjMxUml0eUhGRVR5UzBwVnNpdmdITDVGcmlkYlpnc3gyLWlXV05BdGVIbDhkUlFJcFVMOXlUR2t4a1VzMEJuMzhNbDVNODVUREhZbEp0VktDM3BHNGpkTGVZVEZZVGx2dGZ2R0J3TFNUeVBJXzJfN0xBekVKRkVKYVpDVlBLc1pTVlNoUGxXYVVoS3FtMEZPcWlPRnlaSWRjSE9BSzBGcEE?oc=5",
+      "published_at": "2025-03-04T02:29:06+00:00",
+      "source_name": "Google News - Poland Belarus border hybrid",
+      "source_type": "news_search",
+      "countries": [],
+      "categories": [
+        "border_pressure"
+      ],
+      "relevance_score": 3.85,
+      "collected_at": "2026-07-04T21:41:12.884606+00:00",
       "hybrid_threat_score": 17,
       "hybrid_threat_level": "high"
     },
@@ -1321,7 +1379,7 @@
         "cyber"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:57.721410+00:00",
+      "collected_at": "2026-07-04T21:41:12.276740+00:00",
       "hybrid_threat_score": 17,
       "hybrid_threat_level": "high"
     },
@@ -1338,7 +1396,7 @@
         "cyber"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:57.723266+00:00",
+      "collected_at": "2026-07-04T21:41:12.278528+00:00",
       "hybrid_threat_score": 17,
       "hybrid_threat_level": "high"
     },
@@ -1355,7 +1413,7 @@
         "cyber"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:57.726888+00:00",
+      "collected_at": "2026-07-04T21:41:12.282012+00:00",
       "hybrid_threat_score": 17,
       "hybrid_threat_level": "high"
     },
@@ -1375,16 +1433,16 @@
         "migration_pressure"
       ],
       "relevance_score": 7.7,
-      "collected_at": "2026-07-04T21:26:58.244389+00:00",
+      "collected_at": "2026-07-04T21:41:12.881813+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
     {
-      "id": "7524c55eb0abaf92",
-      "title": "Poland wants China to pressure Russia to stop \"hybrid operation\" with migrants at border – Bloomberg - Українська правда",
-      "summary": "Poland wants China to pressure Russia to stop \"hybrid operation\" with migrants at border – Bloomberg &nbsp;&nbsp; Українська правда",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9HUGpMNmtKVHBOZVZNSWxMQVRzbHBQUV9sN1VmWFZvYlJVakM4VXZWNzBfN0NTaEJhYzA4WWdDNG1rM3hlbHBQbzI4R2NxcHBEalM3bmUzb1kyZHZ4UV80QnVMd1nSAXBBVV95cUxPckJ5eW5fU3R6M1BRMG5lQkdCRzUtRW5pX3lLMWxHdkFVa0dVZlU3V0w1OG9YWjFOOU1hSzQ3VkdNUTM2cXotekRCS0t2QjhXYkw4MnhVLS1zZ0R1V29rU1YzTHg4ZG9pT2hKTVMyZ0xM?oc=5",
-      "published_at": "2025-09-15T07:00:00+00:00",
+      "id": "91ffca5d375dc566",
+      "title": "Poland-Belarus border: Military standoff is a 'hybrid war' scene of frozen refugees and razor-wire fences - Courthouse News",
+      "summary": "Poland-Belarus border: Military standoff is a 'hybrid war' scene of frozen refugees and razor-wire fences &nbsp;&nbsp; Courthouse News",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQTlpoUlJ5RXF4bGtxLW9zellUVVdSa1BTREMxc2NqcG5rQkI5Sks5M0ZKVGJOSmJkZG4tSVdMYzhmTHZvdkJiTE1qNXpCZ2JmZERORVZLd2tsTmROcVBfSTNoenFBeW5UazBDaWJmWEhaRlFLU0N2RC1TcEp1dVNNMEJSRzZkcXlWUUhyQ1RLMXlFaG9QamF5TThKQ1g1VlhQa3FGYkkteFF6RldyMUFleW5Ma1k0UEJFYW5zWDBOVXh3SGFPZy02MlRjbTNWbXc?oc=5",
+      "published_at": "2021-11-10T08:00:00+00:00",
       "source_name": "Google News - Poland Belarus border hybrid",
       "source_type": "news_search",
       "countries": [
@@ -1395,7 +1453,27 @@
         "migration_pressure"
       ],
       "relevance_score": 7.7,
-      "collected_at": "2026-07-04T21:26:58.245161+00:00",
+      "collected_at": "2026-07-04T21:41:12.882423+00:00",
+      "hybrid_threat_score": 16,
+      "hybrid_threat_level": "high"
+    },
+    {
+      "id": "9d4e37f0c1c09b30",
+      "title": "Belarus border crisis marks dangerous escalation in Putin’s hybrid war - Atlantic Council",
+      "summary": "Belarus border crisis marks dangerous escalation in Putin’s hybrid war &nbsp;&nbsp; Atlantic Council",
+      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOV2dkS2FZN0o2RUs2eHRfY2lVcDlwMkVfYmNpbXBFS202T0gzeVRDUjkxT0JCcFdsVDNyUXh3RTAya25aUGJiQ2RPZHFBSnNHUVdWY18tUHhXbDl5eXdKVVJnZmpDenJmU1lhSnlOSDd4T3JxQW95eTltTGw0MHBEamtJbHRJYlh3MERyWjMzVGtFMjZ2elA4TkRXanBGclh2aDdwSWRuVUF1OFpCN1FQbkpsMlRoWDRTN3ByaFln?oc=5",
+      "published_at": "2021-11-14T08:00:00+00:00",
+      "source_name": "Google News - Poland Belarus border hybrid",
+      "source_type": "news_search",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "border_pressure",
+        "migration_pressure"
+      ],
+      "relevance_score": 7.7,
+      "collected_at": "2026-07-04T21:41:12.882714+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1415,7 +1493,27 @@
         "migration_pressure"
       ],
       "relevance_score": 7.7,
-      "collected_at": "2026-07-04T21:26:58.245315+00:00",
+      "collected_at": "2026-07-04T21:41:12.882996+00:00",
+      "hybrid_threat_score": 16,
+      "hybrid_threat_level": "high"
+    },
+    {
+      "id": "7524c55eb0abaf92",
+      "title": "Poland wants China to pressure Russia to stop \"hybrid operation\" with migrants at border – Bloomberg - Українська правда",
+      "summary": "Poland wants China to pressure Russia to stop \"hybrid operation\" with migrants at border – Bloomberg &nbsp;&nbsp; Українська правда",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9HUGpMNmtKVHBOZVZNSWxMQVRzbHBQUV9sN1VmWFZvYlJVakM4VXZWNzBfN0NTaEJhYzA4WWdDNG1rM3hlbHBQbzI4R2NxcHBEalM3bmUzb1kyZHZ4UV80QnVMd1nSAXBBVV95cUxPckJ5eW5fU3R6M1BRMG5lQkdCRzUtRW5pX3lLMWxHdkFVa0dVZlU3V0w1OG9YWjFOOU1hSzQ3VkdNUTM2cXotekRCS0t2QjhXYkw4MnhVLS1zZ0R1V29rU1YzTHg4ZG9pT2hKTVMyZ0xM?oc=5",
+      "published_at": "2025-09-15T07:00:00+00:00",
+      "source_name": "Google News - Poland Belarus border hybrid",
+      "source_type": "news_search",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "border_pressure",
+        "migration_pressure"
+      ],
+      "relevance_score": 7.7,
+      "collected_at": "2026-07-04T21:41:12.883750+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1434,7 +1532,7 @@
         "gps_interference"
       ],
       "relevance_score": 7.5,
-      "collected_at": "2026-07-04T21:26:58.724532+00:00",
+      "collected_at": "2026-07-04T21:41:13.435814+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1453,7 +1551,7 @@
         "sabotage"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.189730+00:00",
+      "collected_at": "2026-07-04T21:41:11.695106+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1472,7 +1570,7 @@
         "sabotage"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.190120+00:00",
+      "collected_at": "2026-07-04T21:41:11.695472+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1491,7 +1589,7 @@
         "sabotage"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.191100+00:00",
+      "collected_at": "2026-07-04T21:41:11.696418+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1510,7 +1608,7 @@
         "sabotage"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.191250+00:00",
+      "collected_at": "2026-07-04T21:41:11.696568+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1529,7 +1627,7 @@
         "sabotage"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.191402+00:00",
+      "collected_at": "2026-07-04T21:41:11.696724+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1548,7 +1646,7 @@
         "sabotage"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.191708+00:00",
+      "collected_at": "2026-07-04T21:41:11.697036+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1567,7 +1665,7 @@
         "sabotage"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.194470+00:00",
+      "collected_at": "2026-07-04T21:41:11.699759+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1584,7 +1682,7 @@
         "sabotage"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.195126+00:00",
+      "collected_at": "2026-07-04T21:41:11.700451+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1601,7 +1699,7 @@
         "sabotage"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.195639+00:00",
+      "collected_at": "2026-07-04T21:41:11.700903+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1620,7 +1718,7 @@
         "sabotage"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.197438+00:00",
+      "collected_at": "2026-07-04T21:41:11.702729+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1639,7 +1737,7 @@
         "cyber"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:57.724641+00:00",
+      "collected_at": "2026-07-04T21:41:12.279880+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1658,7 +1756,7 @@
         "cyber"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:57.727941+00:00",
+      "collected_at": "2026-07-04T21:41:12.283214+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1675,7 +1773,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.717896+00:00",
+      "collected_at": "2026-07-04T21:41:13.429256+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1692,7 +1790,7 @@
       ],
       "categories": [],
       "relevance_score": 4.0,
-      "collected_at": "2026-07-04T21:26:56.622333+00:00",
+      "collected_at": "2026-07-04T21:41:11.020390+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1709,7 +1807,7 @@
         "gps_interference"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:58.719053+00:00",
+      "collected_at": "2026-07-04T21:41:13.430348+00:00",
       "hybrid_threat_score": 16,
       "hybrid_threat_level": "high"
     },
@@ -1728,7 +1826,27 @@
         "border_pressure"
       ],
       "relevance_score": 7.15,
-      "collected_at": "2026-07-04T21:26:58.246221+00:00",
+      "collected_at": "2026-07-04T21:41:12.883438+00:00",
+      "hybrid_threat_score": 15,
+      "hybrid_threat_level": "high"
+    },
+    {
+      "id": "bbfee050979344e5",
+      "title": "Thousands of Migrants Stuck At Polish-Belarusian Border; EU To Widen Sanctions Against Minsk - Radio Free Europe/Radio Liberty",
+      "summary": "Thousands of Migrants Stuck At Polish-Belarusian Border; EU To Widen Sanctions Against Minsk &nbsp;&nbsp; Radio Free Europe/Radio Liberty",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9xYUdjOUt5NnBFcjRIRXNBOHdUbVJRbS14SjdsNzdjVEVESHpBVGpoSUpBMEEwbXk0bTktNG1HYjFrOEllS1pkTVJwRjFDcUdkSHJaejVGVFRMYTZYdWVBWHNnUXJrazUxd211N0kxRE51SHpGZDhV?oc=5",
+      "published_at": "2021-11-10T08:00:00+00:00",
+      "source_name": "Google News - Poland Belarus border hybrid",
+      "source_type": "news_search",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "border_pressure",
+        "migration_pressure"
+      ],
+      "relevance_score": 6.6,
+      "collected_at": "2026-07-04T21:41:12.883896+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1748,7 +1866,7 @@
         "migration_pressure"
       ],
       "relevance_score": 6.6,
-      "collected_at": "2026-07-04T21:26:58.246490+00:00",
+      "collected_at": "2026-07-04T21:41:12.884461+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1766,7 +1884,7 @@
         "espionage"
       ],
       "relevance_score": 5.0,
-      "collected_at": "2026-07-04T21:26:57.725325+00:00",
+      "collected_at": "2026-07-04T21:41:12.280353+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1785,7 +1903,7 @@
         "cyber"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:57.723858+00:00",
+      "collected_at": "2026-07-04T21:41:12.279098+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1804,7 +1922,7 @@
         "cyber"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:57.728998+00:00",
+      "collected_at": "2026-07-04T21:41:12.284084+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1821,7 +1939,7 @@
         "sabotage"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:57.192331+00:00",
+      "collected_at": "2026-07-04T21:41:11.697664+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1838,7 +1956,7 @@
         "sabotage"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:57.194313+00:00",
+      "collected_at": "2026-07-04T21:41:11.699603+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1855,7 +1973,7 @@
         "sabotage"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:57.197150+00:00",
+      "collected_at": "2026-07-04T21:41:11.702430+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1872,7 +1990,7 @@
         "cyber"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:57.721584+00:00",
+      "collected_at": "2026-07-04T21:41:12.276903+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1891,7 +2009,7 @@
         "cyber"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:57.723689+00:00",
+      "collected_at": "2026-07-04T21:41:12.278947+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1910,7 +2028,7 @@
         "cyber"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:57.726096+00:00",
+      "collected_at": "2026-07-04T21:41:12.281247+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1927,7 +2045,7 @@
         "drone_incident"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:58.720488+00:00",
+      "collected_at": "2026-07-04T21:41:13.431733+00:00",
       "hybrid_threat_score": 15,
       "hybrid_threat_level": "high"
     },
@@ -1946,7 +2064,7 @@
         "migration_pressure"
       ],
       "relevance_score": 7.15,
-      "collected_at": "2026-07-04T21:26:58.242866+00:00",
+      "collected_at": "2026-07-04T21:41:12.880367+00:00",
       "hybrid_threat_score": 14,
       "hybrid_threat_level": "high"
     },
@@ -1965,26 +2083,7 @@
         "border_pressure"
       ],
       "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:58.241781+00:00",
-      "hybrid_threat_score": 14,
-      "hybrid_threat_level": "high"
-    },
-    {
-      "id": "b413d45123b9f7a9",
-      "title": "Poland presents plan to fortify border to Russia, Belarus - DW.com",
-      "summary": "Poland presents plan to fortify border to Russia, Belarus &nbsp;&nbsp; DW.com",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOWVdzV3JBdEVGU0lEUVd5azFrZnVvblRLS2ZZeWdzaHZEOE91Y3pOVEhaa1JWYTVVWGlvM2dVelhxSzgyUUlIbnNLM3dfSmpWV2xzT0hIOUVJMHFzLUtNMGZWdGpzYlp6RWdGV0pfZGVsZV83OFRJb3NhalZ1VlNIaG5iRk5DT1pSdmJVdmJ6T1BFSVHSAZMBQVVfeXFMTW1KUUZ5RkpOaHpWWGtKZG5mUjcxOU5tQUN1X3QwY1A1cmlBTWZ0Y3ZMb1RLek5hTC1OQ2xWVGNVTHVwcXN5em5RT3RuRkVqMThuSUFXSC1KUUxSUmN3Z1RWOHBtZldKOTctaVh2WmZNWTl5SUtCVy1MU1VSOEJ3V3h4d3Nuc2JxR0tKdmtYd0hxNHJV?oc=5",
-      "published_at": "2024-05-27T07:00:00+00:00",
-      "source_name": "Google News - Poland Belarus border hybrid",
-      "source_type": "news_search",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "border_pressure"
-      ],
-      "relevance_score": 6.05,
-      "collected_at": "2026-07-04T21:26:58.247079+00:00",
+      "collected_at": "2026-07-04T21:41:12.879763+00:00",
       "hybrid_threat_score": 14,
       "hybrid_threat_level": "high"
     },
@@ -2002,7 +2101,7 @@
         "migration_pressure"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.241513+00:00",
+      "collected_at": "2026-07-04T21:41:12.879625+00:00",
       "hybrid_threat_score": 14,
       "hybrid_threat_level": "high"
     },
@@ -2019,7 +2118,7 @@
         "gps_interference"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.718065+00:00",
+      "collected_at": "2026-07-04T21:41:13.429409+00:00",
       "hybrid_threat_score": 14,
       "hybrid_threat_level": "high"
     },
@@ -2036,7 +2135,7 @@
         "gps_interference"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.719209+00:00",
+      "collected_at": "2026-07-04T21:41:13.430504+00:00",
       "hybrid_threat_score": 14,
       "hybrid_threat_level": "high"
     },
@@ -2053,7 +2152,7 @@
         "gps_interference"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.721117+00:00",
+      "collected_at": "2026-07-04T21:41:13.432319+00:00",
       "hybrid_threat_score": 14,
       "hybrid_threat_level": "high"
     },
@@ -2072,7 +2171,7 @@
         "gps_interference"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.721966+00:00",
+      "collected_at": "2026-07-04T21:41:13.433139+00:00",
       "hybrid_threat_score": 14,
       "hybrid_threat_level": "high"
     },
@@ -2091,7 +2190,7 @@
         "gps_interference"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.724980+00:00",
+      "collected_at": "2026-07-04T21:41:13.436246+00:00",
       "hybrid_threat_score": 14,
       "hybrid_threat_level": "high"
     },
@@ -2108,24 +2207,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.721669+00:00",
-      "hybrid_threat_score": 14,
-      "hybrid_threat_level": "high"
-    },
-    {
-      "id": "faae60dbbdbf41f9",
-      "title": "Will Lukashenko attack Ukraine? SSU general outlines three reasons for Belarus drills near the border - ТСН",
-      "summary": "Will Lukashenko attack Ukraine? SSU general outlines three reasons for Belarus drills near the border &nbsp;&nbsp; ТСН",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNSWUxaDZPd2ROQXZlZFFwZ1c5TVFpczRhbUFaOFlycG5sX2tad2tRWlh5Wm5NdEMwT2FnUXFVMS10X0s4a0t1SjJzV2ZUWUlrbWFOSHpqR2x2OEEyX0FxWkRiTjNhcnpoWGJlN2kxalFVandveDFEclVOUlJWT1RvcWFLRlNJRU0xY0ZBWmpqbTVPdk5HX1hxS0IxS21QSHZKY29SOEk0TUd0MlZ5YjVlc1JtNWpIOUNJSWpmcmZNMm9UdV9mX1BSY1BFNnpOS3dPVldHSE5DY9IB3AFBVV95cUxOV2w4a2twRmh5ZjRwZXktTG1UMGk5c1R3SHJZczdMZ09EU0Iwb3JLeVhzMG41RnJ3VkxFOWtIUFBCSTUxbjMySmVtX0Zpdi1QRzdKUjJLQ0Qya2ZNZDhXaG13NzVQV29vYmZtbnBQakE2NXNvc2Zwd3RzV0ZvVnltUWFXVjIyYklPUTZ5bkdNZmZudXJpNFFxVU95WGhJUnc4Q3dKYS1pdE95WFI2dkdMa0FlWjJqc1ZxSmxuSmlDeVVJX0swSDN3Ty1zOHY1RHdqUUxIbXViSF9wVDA4?oc=5",
-      "published_at": "2026-03-19T07:00:00+00:00",
-      "source_name": "Google News - Poland Belarus border hybrid",
-      "source_type": "news_search",
-      "countries": [],
-      "categories": [
-        "border_pressure"
-      ],
-      "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:58.242557+00:00",
+      "collected_at": "2026-07-04T21:41:13.432867+00:00",
       "hybrid_threat_score": 14,
       "hybrid_threat_level": "high"
     },
@@ -2142,7 +2224,7 @@
         "cyber"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:57.728243+00:00",
+      "collected_at": "2026-07-04T21:41:12.283362+00:00",
       "hybrid_threat_score": 14,
       "hybrid_threat_level": "high"
     },
@@ -2159,7 +2241,7 @@
         "cyber"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:57.728388+00:00",
+      "collected_at": "2026-07-04T21:41:12.283504+00:00",
       "hybrid_threat_score": 14,
       "hybrid_threat_level": "high"
     },
@@ -2178,14 +2260,14 @@
         "military_provocation"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:56.625182+00:00",
+      "collected_at": "2026-07-04T21:41:11.023191+00:00",
       "hybrid_threat_score": 13,
       "hybrid_threat_level": "high"
     },
     {
-      "id": "3bc86b4a548388c8",
-      "title": "Russia Intensifies GPS Jamming in the Baltic Sea Near Finland - Мілітарний",
-      "summary": "Russia Intensifies GPS Jamming in the Baltic Sea Near Finland &nbsp;&nbsp; Мілітарний",
+      "id": "ae001f389d210c99",
+      "title": "Russia Intensifies GPS Jamming in the Baltic Sea Near Finland - Militarnyi",
+      "summary": "Russia Intensifies GPS Jamming in the Baltic Sea Near Finland &nbsp;&nbsp; Militarnyi",
       "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxONjRQeVptQ19TaHdSTWtpcTZHbnhLaHZEMUxRZ1QxX1YycmtpUFhnRUlqakhJbzM4RHlVVU1nM1VDcXhELVA5OFAwOGRSREtsa3d4VkJPbEw5UmEwSmFjNTdzN0Rvdy1TeUNrZWU3bGFPNUpjVzJhbE1MTllacnZEVldJWlk0Q2lyVnh6RjBuRjZuZWYzY2ZLVw?oc=5",
       "published_at": "2026-05-26T08:20:51+00:00",
       "source_name": "Google News - Baltic GPS jamming",
@@ -2195,7 +2277,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.718538+00:00",
+      "collected_at": "2026-07-04T21:41:13.429848+00:00",
       "hybrid_threat_score": 13,
       "hybrid_threat_level": "high"
     },
@@ -2212,7 +2294,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.720646+00:00",
+      "collected_at": "2026-07-04T21:41:13.431883+00:00",
       "hybrid_threat_score": 13,
       "hybrid_threat_level": "high"
     },
@@ -2229,7 +2311,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.721268+00:00",
+      "collected_at": "2026-07-04T21:41:13.432467+00:00",
       "hybrid_threat_score": 13,
       "hybrid_threat_level": "high"
     },
@@ -2246,7 +2328,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.721402+00:00",
+      "collected_at": "2026-07-04T21:41:13.432601+00:00",
       "hybrid_threat_score": 13,
       "hybrid_threat_level": "high"
     },
@@ -2263,7 +2345,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.722425+00:00",
+      "collected_at": "2026-07-04T21:41:13.433614+00:00",
       "hybrid_threat_score": 13,
       "hybrid_threat_level": "high"
     },
@@ -2280,7 +2362,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.724385+00:00",
+      "collected_at": "2026-07-04T21:41:13.435677+00:00",
       "hybrid_threat_score": 13,
       "hybrid_threat_level": "high"
     },
@@ -2299,7 +2381,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.724670+00:00",
+      "collected_at": "2026-07-04T21:41:13.435953+00:00",
       "hybrid_threat_score": 13,
       "hybrid_threat_level": "high"
     },
@@ -2317,7 +2399,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 4.0,
-      "collected_at": "2026-07-04T21:26:58.723939+00:00",
+      "collected_at": "2026-07-04T21:41:13.434936+00:00",
       "hybrid_threat_score": 13,
       "hybrid_threat_level": "high"
     },
@@ -2336,7 +2418,7 @@
         "sabotage"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:57.192603+00:00",
+      "collected_at": "2026-07-04T21:41:11.697934+00:00",
       "hybrid_threat_score": 13,
       "hybrid_threat_level": "high"
     },
@@ -2355,7 +2437,7 @@
         "gps_interference"
       ],
       "relevance_score": 6.5,
-      "collected_at": "2026-07-04T21:26:58.722709+00:00",
+      "collected_at": "2026-07-04T21:41:13.433902+00:00",
       "hybrid_threat_score": 12,
       "hybrid_threat_level": "high"
     },
@@ -2374,7 +2456,7 @@
         "military_provocation"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:56.622677+00:00",
+      "collected_at": "2026-07-04T21:41:11.020730+00:00",
       "hybrid_threat_score": 12,
       "hybrid_threat_level": "high"
     },
@@ -2393,7 +2475,7 @@
         "gps_interference"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.723632+00:00",
+      "collected_at": "2026-07-04T21:41:13.434793+00:00",
       "hybrid_threat_score": 12,
       "hybrid_threat_level": "high"
     },
@@ -2412,7 +2494,7 @@
         "migration_pressure"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:58.240153+00:00",
+      "collected_at": "2026-07-04T21:41:12.878460+00:00",
       "hybrid_threat_score": 12,
       "hybrid_threat_level": "high"
     },
@@ -2431,7 +2513,7 @@
         "cyber"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:57.724852+00:00",
+      "collected_at": "2026-07-04T21:41:12.280030+00:00",
       "hybrid_threat_score": 12,
       "hybrid_threat_level": "high"
     },
@@ -2448,7 +2530,7 @@
         "gps_interference"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:58.722286+00:00",
+      "collected_at": "2026-07-04T21:41:13.433475+00:00",
       "hybrid_threat_score": 12,
       "hybrid_threat_level": "high"
     },
@@ -2467,7 +2549,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 2.5,
-      "collected_at": "2026-07-04T21:26:57.728813+00:00",
+      "collected_at": "2026-07-04T21:41:12.283928+00:00",
       "hybrid_threat_score": 12,
       "hybrid_threat_level": "high"
     },
@@ -2486,7 +2568,7 @@
         "gps_interference"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.720791+00:00",
+      "collected_at": "2026-07-04T21:41:13.432023+00:00",
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "elevated"
     },
@@ -2505,7 +2587,7 @@
         "gps_interference"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.722149+00:00",
+      "collected_at": "2026-07-04T21:41:13.433336+00:00",
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "elevated"
     },
@@ -2522,7 +2604,7 @@
         "gps_interference"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.722569+00:00",
+      "collected_at": "2026-07-04T21:41:13.433757+00:00",
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "elevated"
     },
@@ -2541,7 +2623,7 @@
         "gps_interference"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.723058+00:00",
+      "collected_at": "2026-07-04T21:41:13.434366+00:00",
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "elevated"
     },
@@ -2560,7 +2642,7 @@
         "gps_interference"
       ],
       "relevance_score": 5.5,
-      "collected_at": "2026-07-04T21:26:58.724101+00:00",
+      "collected_at": "2026-07-04T21:41:13.435393+00:00",
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "elevated"
     },
@@ -2579,7 +2661,7 @@
         "military_provocation"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:57.190298+00:00",
+      "collected_at": "2026-07-04T21:41:11.695636+00:00",
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "elevated"
     },
@@ -2598,7 +2680,7 @@
         "critical_infrastructure"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:58.241362+00:00",
+      "collected_at": "2026-07-04T21:41:12.879020+00:00",
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "elevated"
     },
@@ -2617,7 +2699,7 @@
         "migration_pressure"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:58.245456+00:00",
+      "collected_at": "2026-07-04T21:41:12.882845+00:00",
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "elevated"
     },
@@ -2636,7 +2718,7 @@
         "disinformation"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:57.193957+00:00",
+      "collected_at": "2026-07-04T21:41:11.699257+00:00",
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "elevated"
     },
@@ -2653,7 +2735,7 @@
         "gps_interference"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:58.723779+00:00",
+      "collected_at": "2026-07-04T21:41:13.435069+00:00",
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "elevated"
     },
@@ -2672,7 +2754,7 @@
         "cyber"
       ],
       "relevance_score": 2.5,
-      "collected_at": "2026-07-04T21:26:57.724481+00:00",
+      "collected_at": "2026-07-04T21:41:12.279727+00:00",
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "elevated"
     },
@@ -2691,7 +2773,7 @@
         "border_pressure"
       ],
       "relevance_score": 4.95,
-      "collected_at": "2026-07-04T21:26:58.244685+00:00",
+      "collected_at": "2026-07-04T21:41:12.881965+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2708,7 +2790,7 @@
         "cyber"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:57.725950+00:00",
+      "collected_at": "2026-07-04T21:41:12.281082+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2727,7 +2809,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.717653+00:00",
+      "collected_at": "2026-07-04T21:41:13.429067+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2744,7 +2826,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.718216+00:00",
+      "collected_at": "2026-07-04T21:41:13.429554+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2761,7 +2843,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.718873+00:00",
+      "collected_at": "2026-07-04T21:41:13.430152+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2780,7 +2862,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.719369+00:00",
+      "collected_at": "2026-07-04T21:41:13.430660+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2797,7 +2879,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.719530+00:00",
+      "collected_at": "2026-07-04T21:41:13.430817+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2814,7 +2896,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.721531+00:00",
+      "collected_at": "2026-07-04T21:41:13.432731+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2831,7 +2913,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.721803+00:00",
+      "collected_at": "2026-07-04T21:41:13.433002+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2848,7 +2930,7 @@
         "border_pressure"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.723200+00:00",
+      "collected_at": "2026-07-04T21:41:13.434219+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2865,24 +2947,7 @@
         "gps_interference"
       ],
       "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.723347+00:00",
-      "hybrid_threat_score": 10,
-      "hybrid_threat_level": "elevated"
-    },
-    {
-      "id": "4ddf66f7f3a7f6e8",
-      "title": "Baltic GPS Disruption Traced to Russian Electronic Warfare Sites - UNITED24 Media",
-      "summary": "Baltic GPS Disruption Traced to Russian Electronic Warfare Sites &nbsp;&nbsp; UNITED24 Media",
-      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNdjRWdkJtZWg4T084clM2a3k2ckNYTU9nV0JqSldXb1M3YWUyRGxRSFU2UklSWnNHSWhGV292dVpZNnlzSWotNDVLMnJwbGpiTXZKNi15Ml9seUJVUG5wSk5lc05kV2VES21Bdkh6eFdHeFZIQlExeTRQQzBLcU5KU0F6NllScWNRX0F6VWpEX056TVJuUjV1TEZsLW8zU2RjRWQ4U0FjMndad2drUExwUWlOZGROUlZaQXc?oc=5",
-      "published_at": "2025-07-03T07:00:00+00:00",
-      "source_name": "Google News - Baltic GPS jamming",
-      "source_type": "news_search",
-      "countries": [],
-      "categories": [
-        "gps_interference"
-      ],
-      "relevance_score": 4.5,
-      "collected_at": "2026-07-04T21:26:58.725266+00:00",
+      "collected_at": "2026-07-04T21:41:13.434514+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2891,7 +2956,7 @@
       "title": "Balloons from Belarus cross into Polish airspace for a third night - AP News",
       "summary": "Balloons from Belarus cross into Polish airspace for a third night &nbsp;&nbsp; AP News",
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOaUxqUnotbEp1YkdOR2N2YnBmYkdERi1kRDl5ZEtsR2ZCUmdKN3RaalRNMVNPUXRET2hpT3kwWlFSNFF0ZTZDeVoxbzk1MkZuakFqb3lFb0ZjdG13SWdBcjVrTUNMb0l0ODhEa1dnQVhYLWlyUmJ0cVdPTmZSTHFBWXl5N2swaDhLaXBCVnh0TUJoS0dZN0xkNXNwYVNyR1o1RmhxNndhZUVva2x3a1g1OTRrcUg?oc=5",
-      "published_at": "2026-02-02T08:00:00+00:00",
+      "published_at": "2026-02-02T12:02:45+00:00",
       "source_name": "Google News - Poland Belarus border hybrid",
       "source_type": "news_search",
       "countries": [
@@ -2901,14 +2966,14 @@
         "military_provocation"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:58.240917+00:00",
+      "collected_at": "2026-07-04T21:41:12.879162+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
     {
-      "id": "adb764c3c6833fd9",
-      "title": "Europe Announces Sanctions Over GPS Jamming in the Baltics - Мілітарний",
-      "summary": "Europe Announces Sanctions Over GPS Jamming in the Baltics &nbsp;&nbsp; Мілітарний",
+      "id": "260daecba98b2d6e",
+      "title": "Europe Announces Sanctions Over GPS Jamming in the Baltics - Militarnyi",
+      "summary": "Europe Announces Sanctions Over GPS Jamming in the Baltics &nbsp;&nbsp; Militarnyi",
       "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeEZpaEpqcTFaUkUyS1czOHQySkp2T1VGNTVtUmR6SnAwcmZOYmtlNDlFZ29IVXItQkowVzZkUHdjb21hUlZfdDA1T1lfZ2RDYlJuYmlkYjNpTy1WdF93X1RoVFRlRzNRWXJxdFlZMG9LdnR6VUNBZGpmTmV4SFpveXRFOXJfS2pqc3haNGtkQWN4YU5V?oc=5",
       "published_at": "2025-07-16T06:46:29+00:00",
       "source_name": "Google News - Baltic GPS jamming",
@@ -2918,7 +2983,7 @@
         "gps_interference"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:58.724817+00:00",
+      "collected_at": "2026-07-04T21:41:13.436090+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2935,7 +3000,7 @@
       ],
       "categories": [],
       "relevance_score": 2.0,
-      "collected_at": "2026-07-04T21:26:56.621431+00:00",
+      "collected_at": "2026-07-04T21:41:11.019533+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2952,7 +3017,7 @@
       ],
       "categories": [],
       "relevance_score": 2.0,
-      "collected_at": "2026-07-04T21:26:56.625645+00:00",
+      "collected_at": "2026-07-04T21:41:11.023669+00:00",
       "hybrid_threat_score": 10,
       "hybrid_threat_level": "elevated"
     },
@@ -2971,7 +3036,7 @@
         "espionage"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:57.193652+00:00",
+      "collected_at": "2026-07-04T21:41:11.698958+00:00",
       "hybrid_threat_score": 9,
       "hybrid_threat_level": "elevated"
     },
@@ -2988,7 +3053,7 @@
         "border_pressure"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:57.195803+00:00",
+      "collected_at": "2026-07-04T21:41:11.701066+00:00",
       "hybrid_threat_score": 9,
       "hybrid_threat_level": "elevated"
     },
@@ -3007,7 +3072,7 @@
         "espionage"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:57.196820+00:00",
+      "collected_at": "2026-07-04T21:41:11.702095+00:00",
       "hybrid_threat_score": 9,
       "hybrid_threat_level": "elevated"
     },
@@ -3026,7 +3091,7 @@
         "espionage"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:57.196999+00:00",
+      "collected_at": "2026-07-04T21:41:11.702279+00:00",
       "hybrid_threat_score": 9,
       "hybrid_threat_level": "elevated"
     },
@@ -3043,7 +3108,7 @@
         "border_pressure"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:58.243487+00:00",
+      "collected_at": "2026-07-04T21:41:12.880795+00:00",
       "hybrid_threat_score": 9,
       "hybrid_threat_level": "elevated"
     },
@@ -3060,7 +3125,7 @@
         "espionage"
       ],
       "relevance_score": 3.5,
-      "collected_at": "2026-07-04T21:26:57.726264+00:00",
+      "collected_at": "2026-07-04T21:41:12.281416+00:00",
       "hybrid_threat_score": 9,
       "hybrid_threat_level": "elevated"
     },
@@ -3077,7 +3142,7 @@
       ],
       "categories": [],
       "relevance_score": 3.0,
-      "collected_at": "2026-07-04T21:26:57.726572+00:00",
+      "collected_at": "2026-07-04T21:41:12.281572+00:00",
       "hybrid_threat_score": 9,
       "hybrid_threat_level": "elevated"
     },
@@ -3094,7 +3159,7 @@
       ],
       "categories": [],
       "relevance_score": 2.0,
-      "collected_at": "2026-07-04T21:26:56.624179+00:00",
+      "collected_at": "2026-07-04T21:41:11.022351+00:00",
       "hybrid_threat_score": 9,
       "hybrid_threat_level": "elevated"
     },
@@ -3111,42 +3176,8 @@
       ],
       "categories": [],
       "relevance_score": 2.0,
-      "collected_at": "2026-07-04T21:26:56.624606+00:00",
+      "collected_at": "2026-07-04T21:41:11.022630+00:00",
       "hybrid_threat_score": 9,
-      "hybrid_threat_level": "elevated"
-    },
-    {
-      "id": "8ac454f15587fc8d",
-      "title": "Belarusian KGB Linked to Russian Hybrid Operations Against Ukraine and EU - Odessa Journal",
-      "summary": "Belarusian KGB Linked to Russian Hybrid Operations Against Ukraine and EU &nbsp;&nbsp; Odessa Journal",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZVNjZ0tWX0E3aUFNWEstOHJ3Y3pGdko5MDhwaERObWV1NmFNdG5lUjVNTUF5dWxiTGxPYUV5TGlnY0J6MlpOczIyX1YxM3BRTTM0SS1oaFV5THRoSXFCTVc2dEhKSFVXajFFOTBJdVEyejhzN1hKM25kRExEZU1YUnFYY2VrS0lhOWV1bW5JTkZiUHZtUF9ERU4xajVlNGJJTmY0?oc=5",
-      "published_at": "2026-01-23T08:00:00+00:00",
-      "source_name": "Google News - Poland Belarus border hybrid",
-      "source_type": "news_search",
-      "countries": [],
-      "categories": [],
-      "relevance_score": 4.4,
-      "collected_at": "2026-07-04T21:26:58.243177+00:00",
-      "hybrid_threat_score": 8,
-      "hybrid_threat_level": "elevated"
-    },
-    {
-      "id": "71fdca93d6c1dbf5",
-      "title": "Belarus ramping up migrant flows to Poland, Kyiv warns - TVP World",
-      "summary": "Belarus ramping up migrant flows to Poland, Kyiv warns &nbsp;&nbsp; TVP World",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNWmt4U2ZfV01SRURjVWlWbmRGM2xkZlJvOEdpYmxFT2FzOG5rX0F0NUVQM1NkekRDVjl6cDZkTjY1SlBtVVZ4emRXazN6cmwwVXNBWTljcmRGYXI4b2FDRHVhMTNfeVpDcDFlMjB5dFBVZXZnOTdGRm5vSmVtQnpWLUpTVEh2dDYwME94Ry1tbGF1RFl2WWtRNU9mRzFLN1lCWE9j?oc=5",
-      "published_at": "2025-07-26T07:00:00+00:00",
-      "source_name": "Google News - Poland Belarus border hybrid",
-      "source_type": "news_search",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "migration_pressure"
-      ],
-      "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:58.246774+00:00",
-      "hybrid_threat_score": 8,
       "hybrid_threat_level": "elevated"
     },
     {
@@ -3164,7 +3195,7 @@
         "border_pressure"
       ],
       "relevance_score": 3.85,
-      "collected_at": "2026-07-04T21:26:58.245619+00:00",
+      "collected_at": "2026-07-04T21:41:12.882109+00:00",
       "hybrid_threat_score": 7,
       "hybrid_threat_level": "elevated"
     },
@@ -3179,7 +3210,7 @@
       "countries": [],
       "categories": [],
       "relevance_score": 3.0,
-      "collected_at": "2026-07-04T21:26:56.624316+00:00",
+      "collected_at": "2026-07-04T21:41:11.022485+00:00",
       "hybrid_threat_score": 7,
       "hybrid_threat_level": "elevated"
     },
@@ -3196,7 +3227,7 @@
       ],
       "categories": [],
       "relevance_score": 3.0,
-      "collected_at": "2026-07-04T21:26:56.625342+00:00",
+      "collected_at": "2026-07-04T21:41:11.023360+00:00",
       "hybrid_threat_score": 7,
       "hybrid_threat_level": "elevated"
     },
@@ -3205,7 +3236,7 @@
       "title": "Germany Scraps €18 Billion F126 Frigate Program as NATO Races to Counter Russian Submarine Threat in Baltic Sea - Defence Security Asia",
       "summary": "Germany Scraps €18 Billion F126 Frigate Program as NATO Races to Counter Russian Submarine Threat in Baltic Sea &nbsp;&nbsp; Defence Security Asia",
       "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPQnhQVHgxbWFMb0VlSHRyUEJENUFKeVlPay1BZzJFbFFvZmhwUENpSE1rNm1HUzhaWXRMUXlDQUtiMEtkYnpTWFRTNmFmZGlLb0hab1RFMU5FT2V2Z3NZSkhkRmhlNDUyNVZTamMwTlpfUEh1dzI4azZ6bng0WkVKMFVZRFMzanVQd3RYVlZWSWJlb29xU3Q5TVpTdHBqZUViYUY5d3BJYVI2UFU?oc=5",
-      "published_at": "2026-06-24T17:08:56+00:00",
+      "published_at": "2026-06-25T07:00:00+00:00",
       "source_name": "Google News - Baltic Russia hybrid threat",
       "source_type": "news_search",
       "countries": [
@@ -3213,7 +3244,7 @@
       ],
       "categories": [],
       "relevance_score": 3.0,
-      "collected_at": "2026-07-04T21:26:56.627940+00:00",
+      "collected_at": "2026-07-04T21:41:11.025896+00:00",
       "hybrid_threat_score": 7,
       "hybrid_threat_level": "elevated"
     },
@@ -3228,7 +3259,7 @@
       "countries": [],
       "categories": [],
       "relevance_score": 3.0,
-      "collected_at": "2026-07-04T21:26:56.628105+00:00",
+      "collected_at": "2026-07-04T21:41:11.026063+00:00",
       "hybrid_threat_score": 7,
       "hybrid_threat_level": "elevated"
     },
@@ -3245,7 +3276,7 @@
       ],
       "categories": [],
       "relevance_score": 3.3,
-      "collected_at": "2026-07-04T21:26:57.193066+00:00",
+      "collected_at": "2026-07-04T21:41:11.698382+00:00",
       "hybrid_threat_score": 6,
       "hybrid_threat_level": "guarded"
     },
@@ -3260,7 +3291,7 @@
       "countries": [],
       "categories": [],
       "relevance_score": 3.0,
-      "collected_at": "2026-07-04T21:26:56.623571+00:00",
+      "collected_at": "2026-07-04T21:41:11.021610+00:00",
       "hybrid_threat_score": 6,
       "hybrid_threat_level": "guarded"
     },
@@ -3277,7 +3308,7 @@
       ],
       "categories": [],
       "relevance_score": 3.0,
-      "collected_at": "2026-07-04T21:26:56.624903+00:00",
+      "collected_at": "2026-07-04T21:41:11.022897+00:00",
       "hybrid_threat_score": 6,
       "hybrid_threat_level": "guarded"
     },
@@ -3294,7 +3325,7 @@
       ],
       "categories": [],
       "relevance_score": 3.0,
-      "collected_at": "2026-07-04T21:26:58.722901+00:00",
+      "collected_at": "2026-07-04T21:41:13.434056+00:00",
       "hybrid_threat_score": 6,
       "hybrid_threat_level": "guarded"
     },
@@ -3311,7 +3342,7 @@
       ],
       "categories": [],
       "relevance_score": 3.3,
-      "collected_at": "2026-07-04T21:26:57.193789+00:00",
+      "collected_at": "2026-07-04T21:41:11.699090+00:00",
       "hybrid_threat_score": 5,
       "hybrid_threat_level": "guarded"
     },
@@ -3328,7 +3359,7 @@
       ],
       "categories": [],
       "relevance_score": 3.3,
-      "collected_at": "2026-07-04T21:26:57.194970+00:00",
+      "collected_at": "2026-07-04T21:41:11.700221+00:00",
       "hybrid_threat_score": 5,
       "hybrid_threat_level": "guarded"
     },
@@ -3345,7 +3376,7 @@
       ],
       "categories": [],
       "relevance_score": 3.3,
-      "collected_at": "2026-07-04T21:26:57.195261+00:00",
+      "collected_at": "2026-07-04T21:41:11.700597+00:00",
       "hybrid_threat_score": 5,
       "hybrid_threat_level": "guarded"
     },
@@ -3362,7 +3393,7 @@
       ],
       "categories": [],
       "relevance_score": 3.3,
-      "collected_at": "2026-07-04T21:26:58.239977+00:00",
+      "collected_at": "2026-07-04T21:41:12.878292+00:00",
       "hybrid_threat_score": 5,
       "hybrid_threat_level": "guarded"
     },
@@ -3379,7 +3410,7 @@
       ],
       "categories": [],
       "relevance_score": 3.3,
-      "collected_at": "2026-07-04T21:26:58.244847+00:00",
+      "collected_at": "2026-07-04T21:41:12.882564+00:00",
       "hybrid_threat_score": 5,
       "hybrid_threat_level": "guarded"
     },
@@ -3396,7 +3427,7 @@
       ],
       "categories": [],
       "relevance_score": 3.3,
-      "collected_at": "2026-07-04T21:26:58.246944+00:00",
+      "collected_at": "2026-07-04T21:41:12.884329+00:00",
       "hybrid_threat_score": 5,
       "hybrid_threat_level": "guarded"
     },
@@ -3413,7 +3444,7 @@
       ],
       "categories": [],
       "relevance_score": 3.0,
-      "collected_at": "2026-07-04T21:26:56.626254+00:00",
+      "collected_at": "2026-07-04T21:41:11.024270+00:00",
       "hybrid_threat_score": 5,
       "hybrid_threat_level": "guarded"
     },
@@ -3430,7 +3461,7 @@
       ],
       "categories": [],
       "relevance_score": 3.0,
-      "collected_at": "2026-07-04T21:26:56.628400+00:00",
+      "collected_at": "2026-07-04T21:41:11.026381+00:00",
       "hybrid_threat_score": 5,
       "hybrid_threat_level": "guarded"
     },
@@ -3447,7 +3478,7 @@
       ],
       "categories": [],
       "relevance_score": 2.0,
-      "collected_at": "2026-07-04T21:26:56.621211+00:00",
+      "collected_at": "2026-07-04T21:41:11.019342+00:00",
       "hybrid_threat_score": 5,
       "hybrid_threat_level": "guarded"
     },
@@ -3464,7 +3495,7 @@
       ],
       "categories": [],
       "relevance_score": 2.0,
-      "collected_at": "2026-07-04T21:26:56.624037+00:00",
+      "collected_at": "2026-07-04T21:41:11.022204+00:00",
       "hybrid_threat_score": 5,
       "hybrid_threat_level": "guarded"
     },
@@ -3481,7 +3512,7 @@
       ],
       "categories": [],
       "relevance_score": 2.2,
-      "collected_at": "2026-07-04T21:26:57.191559+00:00",
+      "collected_at": "2026-07-04T21:41:11.696883+00:00",
       "hybrid_threat_score": 4,
       "hybrid_threat_level": "guarded"
     },
@@ -3498,7 +3529,7 @@
       ],
       "categories": [],
       "relevance_score": 2.2,
-      "collected_at": "2026-07-04T21:26:57.193499+00:00",
+      "collected_at": "2026-07-04T21:41:11.698808+00:00",
       "hybrid_threat_score": 4,
       "hybrid_threat_level": "guarded"
     },
@@ -3515,7 +3546,7 @@
       ],
       "categories": [],
       "relevance_score": 2.2,
-      "collected_at": "2026-07-04T21:26:57.195969+00:00",
+      "collected_at": "2026-07-04T21:41:11.701249+00:00",
       "hybrid_threat_score": 4,
       "hybrid_threat_level": "guarded"
     },
@@ -3532,7 +3563,7 @@
       ],
       "categories": [],
       "relevance_score": 2.2,
-      "collected_at": "2026-07-04T21:26:57.196110+00:00",
+      "collected_at": "2026-07-04T21:41:11.701394+00:00",
       "hybrid_threat_score": 4,
       "hybrid_threat_level": "guarded"
     },
@@ -3549,7 +3580,7 @@
       ],
       "categories": [],
       "relevance_score": 2.2,
-      "collected_at": "2026-07-04T21:26:58.243782+00:00",
+      "collected_at": "2026-07-04T21:41:12.881395+00:00",
       "hybrid_threat_score": 4,
       "hybrid_threat_level": "guarded"
     },
@@ -3566,7 +3597,7 @@
       ],
       "categories": [],
       "relevance_score": 2.2,
-      "collected_at": "2026-07-04T21:26:58.246639+00:00",
+      "collected_at": "2026-07-04T21:41:12.885030+00:00",
       "hybrid_threat_score": 4,
       "hybrid_threat_level": "guarded"
     },
@@ -3583,7 +3614,7 @@
       ],
       "categories": [],
       "relevance_score": 2.0,
-      "collected_at": "2026-07-04T21:26:56.622515+00:00",
+      "collected_at": "2026-07-04T21:41:11.020570+00:00",
       "hybrid_threat_score": 4,
       "hybrid_threat_level": "guarded"
     },
@@ -3600,7 +3631,7 @@
       ],
       "categories": [],
       "relevance_score": 2.0,
-      "collected_at": "2026-07-04T21:26:56.623012+00:00",
+      "collected_at": "2026-07-04T21:41:11.021029+00:00",
       "hybrid_threat_score": 4,
       "hybrid_threat_level": "guarded"
     },
@@ -3617,7 +3648,7 @@
       ],
       "categories": [],
       "relevance_score": 2.0,
-      "collected_at": "2026-07-04T21:26:56.628250+00:00",
+      "collected_at": "2026-07-04T21:41:11.026224+00:00",
       "hybrid_threat_score": 4,
       "hybrid_threat_level": "guarded"
     },
@@ -3634,7 +3665,7 @@
       ],
       "categories": [],
       "relevance_score": 2.2,
-      "collected_at": "2026-07-04T21:26:58.243626+00:00",
+      "collected_at": "2026-07-04T21:41:12.881070+00:00",
       "hybrid_threat_score": 2,
       "hybrid_threat_level": "low"
     },
@@ -3651,7 +3682,7 @@
       ],
       "categories": [],
       "relevance_score": 2.0,
-      "collected_at": "2026-07-04T21:26:57.725614+00:00",
+      "collected_at": "2026-07-04T21:41:12.280648+00:00",
       "hybrid_threat_score": 2,
       "hybrid_threat_level": "low"
     },
@@ -3668,7 +3699,7 @@
       ],
       "categories": [],
       "relevance_score": 2.0,
-      "collected_at": "2026-07-04T21:26:58.718708+00:00",
+      "collected_at": "2026-07-04T21:41:13.430013+00:00",
       "hybrid_threat_score": 2,
       "hybrid_threat_level": "low"
     },
@@ -3685,7 +3716,7 @@
       ],
       "categories": [],
       "relevance_score": 1.1,
-      "collected_at": "2026-07-04T21:26:57.196257+00:00",
+      "collected_at": "2026-07-04T21:41:11.701528+00:00",
       "hybrid_threat_score": 1,
       "hybrid_threat_level": "low"
     },
@@ -3702,7 +3733,7 @@
       ],
       "categories": [],
       "relevance_score": 1.1,
-      "collected_at": "2026-07-04T21:26:57.197287+00:00",
+      "collected_at": "2026-07-04T21:41:11.702569+00:00",
       "hybrid_threat_score": 1,
       "hybrid_threat_level": "low"
     },
@@ -3719,7 +3750,7 @@
       ],
       "categories": [],
       "relevance_score": 1.0,
-      "collected_at": "2026-07-04T21:26:56.627598+00:00",
+      "collected_at": "2026-07-04T21:41:11.025435+00:00",
       "hybrid_threat_score": 1,
       "hybrid_threat_level": "low"
     },
@@ -3729,14 +3760,14 @@
       "summary": "How Lithuania is navigating security as Pax Americana fades &nbsp;&nbsp; European Consortium for Political Research (ECPR)",
       "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNYTNyZTZGd18zMmZTTk8wZVVwS0NWSXd4YmVLQkJab0JPcmpaUE9WZW9Yb2pEVHMxUnFzSFFHZ3R3VjdGazkxYk14OVBTeHFyWFdfMGVDMGJlN0tPOEFpQkpIY0MtZWNILUdVVnJWUzRjdnFWWnFGWFRrTnkxbmlDRVAxRmFUWDZ3M2hHcg?oc=5",
       "published_at": "2026-04-17T07:00:00+00:00",
-      "source_name": "Google News - Baltic Russia hybrid threat",
+      "source_name": "Google News - Baltic cyber attack Russia",
       "source_type": "news_search",
       "countries": [
         "Lithuania"
       ],
       "categories": [],
       "relevance_score": 1.0,
-      "collected_at": "2026-07-04T21:26:56.628674+00:00",
+      "collected_at": "2026-07-04T21:41:12.278229+00:00",
       "hybrid_threat_score": 1,
       "hybrid_threat_level": "low"
     }
