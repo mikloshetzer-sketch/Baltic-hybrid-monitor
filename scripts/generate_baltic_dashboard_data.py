@@ -32,115 +32,66 @@ def save_json(path: Path, payload: Dict[str, Any]) -> None:
 
 
 def latest_records(history: Dict[str, Any], limit: int = 30) -> List[Dict[str, Any]]:
-    records = history.get("records", [])
-    return records[-limit:]
-
-
-def calculate_change(records: List[Dict[str, Any]], field_path: List[str]) -> float:
-    if len(records) < 2:
-        return 0
-
-    latest = records[-1]
-    previous = records[-2]
-
-    def get_value(record: Dict[str, Any]) -> float:
-        value = record
-        for field in field_path:
-            value = value.get(field, {})
-        return float(value) if isinstance(value, (int, float)) else 0
-
-    return round(get_value(latest) - get_value(previous), 2)
+    return history.get("records", [])[-limit:]
 
 
 def get_latest_record(records: List[Dict[str, Any]]) -> Dict[str, Any]:
-    if not records:
-        return {}
-    return records[-1]
+    return records[-1] if records else {}
 
 
-def build_country_cards(records: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    latest = get_latest_record(records)
-    latest_countries = latest.get("countries", {})
+def calculate_change(records: List[Dict[str, Any]], path: List[str]) -> float:
+    if len(records) < 2:
+        return 0
 
-    cards = []
+    def get_value(record: Dict[str, Any]) -> float:
+        value = record
+        for key in path:
+            value = value.get(key, {})
+        return float(value) if isinstance(value, (int, float)) else 0
 
-    for country in COUNTRIES:
-        current = latest_countries.get(country, {})
-        change = calculate_change(
-            records,
-            ["countries", country, "average_score"]
-        )
-
-        cards.append({
-            "country": country,
-            "incident_count": current.get("incident_count", 0),
-            "average_score": current.get("average_score", 0),
-            "highest_score": current.get("highest_score", 0),
-            "level": current.get("level", "low"),
-            "change": change,
-            "categories": current.get("categories", {})
-        })
-
-    return cards
-
-
-def build_category_cards(records: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-    latest = get_latest_record(records)
-    categories = latest.get("categories", {})
-
-    cards = []
-
-    for category, data in categories.items():
-        cards.append({
-            "category": category,
-            "incident_count": data.get("incident_count", 0),
-            "average_score": data.get("average_score", 0),
-            "highest_score": data.get("highest_score", 0)
-        })
-
-    return sorted(
-        cards,
-        key=lambda x: x.get("incident_count", 0),
-        reverse=True
-    )
+    return round(get_value(records[-1]) - get_value(records[-2]), 2)
 
 
 def build_history_chart_data(records: List[Dict[str, Any]]) -> Dict[str, Any]:
     return {
-        "labels": [
-            record.get("date")
-            for record in records
-        ],
-        "overall_average_score": [
-            record.get("overall", {}).get("average_score", 0)
-            for record in records
-        ],
-        "overall_incident_count": [
-            record.get("overall", {}).get("incident_count", 0)
-            for record in records
-        ],
-        "country_average_scores": {
-            country: [
-                record.get("countries", {}).get(country, {}).get("average_score", 0)
+        "labels": [record.get("date") for record in records],
+
+        "threat_index": {
+            "overall_average_score": [
+                record.get("overall", {}).get("average_score", 0)
                 for record in records
-            ]
-            for country in COUNTRIES
+            ],
+            "overall_incident_count": [
+                record.get("overall", {}).get("incident_count", 0)
+                for record in records
+            ],
+            "country_average_scores": {
+                country: [
+                    record.get("countries", {}).get(country, {}).get("average_score", 0)
+                    for record in records
+                ]
+                for country in COUNTRIES
+            }
         },
-        "country_incident_counts": {
-            country: [
-                record.get("countries", {}).get(country, {}).get("incident_count", 0)
+
+        "daily_activity": {
+            "overall_average_score": [
+                record.get("daily_activity", {}).get("overall", {}).get("average_score", 0)
                 for record in records
-            ]
-            for country in COUNTRIES
+            ],
+            "overall_incident_count": [
+                record.get("daily_activity", {}).get("overall", {}).get("incident_count", 0)
+                for record in records
+            ],
+            "country_average_scores": {
+                country: [
+                    record.get("daily_activity", {}).get("countries", {}).get(country, {}).get("average_score", 0)
+                    for record in records
+                ]
+                for country in COUNTRIES
+            }
         }
     }
-
-
-def build_top_items(records: List[Dict[str, Any]], limit: int = 20) -> List[Dict[str, Any]]:
-    latest = get_latest_record(records)
-    items = latest.get("top_items", [])
-
-    return items[:limit]
 
 
 def build_window_info(records: List[Dict[str, Any]]) -> Dict[str, Any]:
@@ -158,9 +109,11 @@ def build_window_info(records: List[Dict[str, Any]]) -> Dict[str, Any]:
 def build_dashboard(scored: Dict[str, Any], history: Dict[str, Any]) -> Dict[str, Any]:
     records = latest_records(history, limit=30)
     latest = get_latest_record(records)
-    latest_overall = latest.get("overall", {})
 
-    dashboard = {
+    latest_overall = latest.get("overall", {})
+    latest_daily = latest.get("daily_activity", {}).get("overall", {})
+
+    return {
         "project": "baltic-hybrid-monitor",
         "title": "Baltic Hybrid Threat Monitor",
         "subtitle": "Daily OSINT monitoring of Russian hybrid threats in the Baltic states and Poland",
@@ -168,45 +121,39 @@ def build_dashboard(scored: Dict[str, Any], history: Dict[str, Any]) -> Dict[str
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "latest_update": latest.get("generated_at") or scored.get("generated_at"),
         "current_window": build_window_info(records),
+
         "summary": {
-            "incident_count": latest_overall.get("incident_count", 0),
-            "score_total": latest_overall.get("score_total", 0),
-            "average_score": latest_overall.get("average_score", 0),
-            "highest_score": latest_overall.get("highest_score", 0),
-            "overall_level": latest_overall.get("overall_level", "low"),
-            "average_score_change": calculate_change(
-                records,
-                ["overall", "average_score"]
-            ),
-            "incident_count_change": calculate_change(
-                records,
-                ["overall", "incident_count"]
-            )
+            "threat_index": {
+                "incident_count": latest_overall.get("incident_count", 0),
+                "score_total": latest_overall.get("score_total", 0),
+                "average_score": latest_overall.get("average_score", 0),
+                "highest_score": latest_overall.get("highest_score", 0),
+                "overall_level": latest_overall.get("overall_level", "low"),
+                "average_score_change": calculate_change(records, ["overall", "average_score"]),
+                "incident_count_change": calculate_change(records, ["overall", "incident_count"])
+            },
+            "daily_activity": {
+                "incident_count": latest_daily.get("incident_count", 0),
+                "score_total": latest_daily.get("score_total", 0),
+                "average_score": latest_daily.get("average_score", 0),
+                "highest_score": latest_daily.get("highest_score", 0),
+                "overall_level": latest_daily.get("overall_level", "low"),
+                "average_score_change": calculate_change(records, ["daily_activity", "overall", "average_score"]),
+                "incident_count_change": calculate_change(records, ["daily_activity", "overall", "incident_count"])
+            }
         },
-        "country_cards": build_country_cards(records),
-        "category_cards": build_category_cards(records),
+
         "history": build_history_chart_data(records),
-        "top_items": build_top_items(records, limit=20),
+
         "methodology": {
             "model": "Rule-based OSINT scoring model based on the conflict-end-matrix structure.",
-            "inputs": [
-                "RSS news search feeds",
-                "optional CEE Security Map JSON feed",
-                "country and category keyword detection",
-                "rule-based escalation scoring",
-                "rolling-window historical snapshots"
-            ],
-            "dashboard_interpretation": [
-                "The summary indicators describe the latest available history record, not the full raw dataset.",
-                "The incident count refers to the current rolling window.",
-                "Each point in the chart represents the assessment ending on the displayed date.",
-                "Moving averages smooth the displayed history series and do not represent separate daily event counts."
-            ],
+            "metrics": {
+                "threat_index": "Threat Index is calculated from the rolling window ending on each displayed date.",
+                "daily_activity": "Daily Activity is calculated only from items published on the displayed date."
+            },
             "warning": "This dashboard is an OSINT monitoring aid. It does not confirm attribution and should not be treated as an official threat assessment."
         }
     }
-
-    return dashboard
 
 
 def main() -> None:
