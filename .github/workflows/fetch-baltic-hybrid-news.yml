@@ -1,0 +1,42 @@
+name: Fetch Baltic Hybrid Threat News
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: "20 5 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  fetch-baltic-hybrid-news:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Fetch Baltic hybrid threat news
+        env:
+          CEE_SECURITY_MAP_JSON_URL: ${{ secrets.CEE_SECURITY_MAP_JSON_URL }}
+        run: |
+          python scripts/fetch_baltic_hybrid_news.py
+
+      - name: Commit updated data
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add data/baltic_hybrid_raw_news.json docs/data/baltic_hybrid_raw_news.json
+          git commit -m "Update Baltic hybrid threat raw news" || echo "No changes to commit"
+          git push
