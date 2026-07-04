@@ -12,7 +12,7 @@ permissions:
 jobs:
   fetch-baltic-hybrid-news:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: Checkout repository
@@ -25,18 +25,27 @@ jobs:
 
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Fetch Baltic hybrid threat news
+      - name: Fetch Baltic hybrid news
         env:
           CEE_SECURITY_MAP_JSON_URL: ${{ secrets.CEE_SECURITY_MAP_JSON_URL }}
         run: |
           python scripts/fetch_baltic_hybrid_news.py
 
-      - name: Commit updated data
+      - name: Score Baltic hybrid news
+        run: |
+          python scripts/score_baltic_hybrid_news.py
+
+      - name: Commit generated files
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add data/baltic_hybrid_raw_news.json docs/data/baltic_hybrid_raw_news.json
-          git commit -m "Update Baltic hybrid threat raw news" || echo "No changes to commit"
+
+          git add data/
+          git add docs/data/
+
+          git commit -m "Daily Baltic Hybrid Threat update" || echo "Nothing to commit"
+
           git push
