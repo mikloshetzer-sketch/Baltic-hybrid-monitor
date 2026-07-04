@@ -1,83 +1,214 @@
 <!DOCTYPE html>
 <html lang="hu">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Baltic Hybrid Threat Monitor</title>
+    <meta charset="UTF-8" />
 
-  <link rel="stylesheet" href="./css/style.css" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0" />
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Baltic Hybrid Threat Monitor</title>
+
+    <link rel="stylesheet"
+          href="./css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 
 <body>
-  <main class="page-shell">
-    <header class="app-header">
-      <div>
-        <p class="brand-label">TÖRÉSVONALAK MONITOR</p>
-        <p class="eyebrow">OSINT strategic overview</p>
-        <h1>Baltic Hybrid Threat Monitor</h1>
-        <p class="subtitle">
-          Daily monitoring of Russian hybrid threats in Estonia, Latvia, Lithuania and Poland.
-        </p>
-      </div>
 
-      <div class="status-box">
-        <span class="status-label">Last update</span>
-        <strong id="lastUpdate">–</strong>
-      </div>
-    </header>
+    <main class="page-shell">
 
-    <section class="summary-grid" aria-label="Summary indicators">
-      <article class="summary-card">
-        <span>Overall average score</span>
-        <strong id="overallScore">–</strong>
-      </article>
+        <header class="app-header">
 
-      <article class="summary-card">
-        <span>Incident count</span>
-        <strong id="incidentCount">–</strong>
-      </article>
+            <div>
 
-      <article class="summary-card">
-        <span>Overall level</span>
-        <strong id="overallLevel">–</strong>
-      </article>
-    </section>
+                <p class="brand-label">
+                    TÖRÉSVONALAK MONITOR
+                </p>
 
-    <section class="panel">
-      <div class="panel-header">
-        <div>
-          <h2>Hybrid threat score trend</h2>
-          <p>
-            Select countries to compare them with the regional average.
-          </p>
-        </div>
-      </div>
+                <p class="eyebrow">
+                    OSINT Strategic Overview
+                </p>
 
-      <div class="chart-controls" id="chartControls">
-        <label><input type="checkbox" value="overall" checked /> Regional average</label>
-        <label><input type="checkbox" value="Estonia" checked /> Estonia</label>
-        <label><input type="checkbox" value="Latvia" checked /> Latvia</label>
-        <label><input type="checkbox" value="Lithuania" checked /> Lithuania</label>
-        <label><input type="checkbox" value="Poland" checked /> Poland</label>
-      </div>
+                <h1>
+                    Baltic Hybrid Threat Monitor
+                </h1>
 
-      <div class="chart-container">
-        <canvas id="threatTrendChart"></canvas>
-      </div>
+                <p class="subtitle">
+                    Daily monitoring of Russian hybrid threats in Estonia,
+                    Latvia, Lithuania and Poland.
+                </p>
 
-      <p class="method-note">
-        The chart uses the average hybrid threat score from the generated dashboard JSON.
-        The model is rule-based and should be interpreted as an OSINT monitoring aid, not as an official threat assessment.
-      </p>
-    </section>
-  </main>
+            </div>
 
-  <script src="./js/api.js"></script>
-  <script src="./js/ui.js"></script>
-  <script src="./js/chart.js"></script>
-  <script src="./js/app.js"></script>
+            <div class="status-box">
+
+                <span class="status-label">
+                    Last Update
+                </span>
+
+                <strong id="lastUpdate">
+                    —
+                </strong>
+
+            </div>
+
+        </header>
+
+        <section class="summary-grid">
+
+            <article class="summary-card">
+
+                <span>
+                    Overall Average Score
+                </span>
+
+                <strong id="overallScore">
+                    —
+                </strong>
+
+            </article>
+
+            <article class="summary-card">
+
+                <span>
+                    Incident Count
+                </span>
+
+                <strong id="incidentCount">
+                    —
+                </strong>
+
+            </article>
+
+            <article class="summary-card">
+
+                <span>
+                    Overall Threat Level
+                </span>
+
+                <strong id="overallLevel">
+                    —
+                </strong>
+
+            </article>
+
+        </section>
+
+        <section class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <h2>
+                        Hybrid Threat Trend
+                    </h2>
+
+                    <p>
+
+                        Compare the regional average with the monitored
+                        Baltic countries.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="chart-controls"
+                 id="chartControls">
+
+                <label>
+
+                    <input type="checkbox"
+                           value="overall"
+                           checked>
+
+                    Regional Average
+
+                </label>
+
+                <label>
+
+                    <input type="checkbox"
+                           value="trend"
+                           checked>
+
+                    Regional Trend Line
+
+                </label>
+
+                <label>
+
+                    <input type="checkbox"
+                           value="Estonia"
+                           checked>
+
+                    Estonia
+
+                </label>
+
+                <label>
+
+                    <input type="checkbox"
+                           value="Latvia"
+                           checked>
+
+                    Latvia
+
+                </label>
+
+                <label>
+
+                    <input type="checkbox"
+                           value="Lithuania"
+                           checked>
+
+                    Lithuania
+
+                </label>
+
+                <label>
+
+                    <input type="checkbox"
+                           value="Poland"
+                           checked>
+
+                    Poland
+
+                </label>
+
+            </div>
+
+            <div class="chart-container">
+
+                <canvas id="threatTrendChart"></canvas>
+
+            </div>
+
+            <p class="method-note">
+
+                This chart displays the calculated hybrid threat score
+                over time. The regional average can be compared with the
+                individual monitored countries. The dashed trend line
+                represents the long-term direction of the regional threat
+                level.
+
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/ui.js"></script>
+    <script src="./js/chart.js"></script>
+    <script src="./js/app.js"></script>
+
 </body>
+
 </html>
