@@ -12,7 +12,7 @@ permissions:
 jobs:
   fetch-baltic-hybrid-news:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
@@ -42,7 +42,11 @@ jobs:
         run: |
           python scripts/update_baltic_hybrid_history.py
 
-      - name: Commit generated files
+      - name: Generate dashboard data
+        run: |
+          python scripts/generate_baltic_dashboard_data.py
+
+      - name: Commit generated data
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
