@@ -38,6 +38,10 @@ jobs:
         run: |
           python scripts/score_baltic_hybrid_news.py
 
+      - name: Update Baltic hybrid history
+        run: |
+          python scripts/update_baltic_hybrid_history.py
+
       - name: Commit generated files
         run: |
           git config user.name "github-actions"
