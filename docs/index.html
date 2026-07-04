@@ -33,17 +33,17 @@
 
     <section class="summary-grid">
       <article class="summary-card">
-        <span>Overall average score</span>
+        <span id="scoreCardLabel">Threat Index</span>
         <strong id="overallScore">—</strong>
       </article>
 
       <article class="summary-card">
-        <span>Incident count</span>
+        <span id="incidentCardLabel">Incidents in window</span>
         <strong id="incidentCount">—</strong>
       </article>
 
       <article class="summary-card">
-        <span>Overall threat level</span>
+        <span id="levelCardLabel">Threat level</span>
         <strong id="overallLevel">—</strong>
       </article>
     </section>
@@ -51,11 +51,25 @@
     <section class="chart-panel">
       <div class="chart-panel-header">
         <div>
-          <h2>Hybrid Threat Trend</h2>
-          <p>
+          <h2 id="chartTitle">Hybrid Threat Trend</h2>
+          <p id="chartSubtitle">
             Compare the regional average with the monitored Baltic countries.
           </p>
         </div>
+      </div>
+
+      <div class="metric-controls" aria-label="Metric mode">
+        <span class="control-title">Metric</span>
+
+        <label>
+          <input type="radio" name="metricMode" value="threat_index" checked />
+          Threat Index
+        </label>
+
+        <label>
+          <input type="radio" name="metricMode" value="daily_activity" />
+          Daily Activity
+        </label>
       </div>
 
       <div class="view-controls" aria-label="View mode">
@@ -78,7 +92,7 @@
       </div>
 
       <p class="method-note light-note" id="chartMethodNote">
-        Each point represents the hybrid threat score calculated for the displayed date.
+        Each point represents the selected metric calculated for the displayed date.
       </p>
     </section>
 
