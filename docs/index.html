@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Baltic Hybrid Threat Monitor</title>
+
+  <link rel="stylesheet" href="./css/style.css" />
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <main class="page-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">OSINT monitoring dashboard</p>
+        <h1>Baltic Hybrid Threat Monitor</h1>
+        <p class="subtitle">
+          Daily monitoring of Russian hybrid threats in Estonia, Latvia, Lithuania and Poland.
+        </p>
+      </div>
+
+      <div class="status-box">
+        <span class="status-label">Last update</span>
+        <strong id="lastUpdate">–</strong>
+      </div>
+    </header>
+
+    <section class="summary-grid" aria-label="Summary indicators">
+      <article class="summary-card">
+        <span>Overall average score</span>
+        <strong id="overallScore">–</strong>
+      </article>
+
+      <article class="summary-card">
+        <span>Incident count</span>
+        <strong id="incidentCount">–</strong>
+      </article>
+
+      <article class="summary-card">
+        <span>Overall level</span>
+        <strong id="overallLevel">–</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <div>
+          <h2>Hybrid threat score trend</h2>
+          <p>
+            Select countries to compare them with the regional average.
+          </p>
+        </div>
+      </div>
+
+      <div class="chart-controls" id="chartControls">
+        <label>
+          <input type="checkbox" value="overall" checked />
+          Overall average
+        </label>
+
+        <label>
+          <input type="checkbox" value="Estonia" checked />
+          Estonia
+        </label>
+
+        <label>
+          <input type="checkbox" value="Latvia" checked />
+          Latvia
+        </label>
+
+        <label>
+          <input type="checkbox" value="Lithuania" checked />
+          Lithuania
+        </label>
+
+        <label>
+          <input type="checkbox" value="Poland" checked />
+          Poland
+        </label>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="threatTrendChart"></canvas>
+      </div>
+
+      <p class="method-note">
+        The chart uses the average hybrid threat score from the generated dashboard JSON.
+        The model is rule-based and should be interpreted as an OSINT monitoring aid, not as an official threat assessment.
+      </p>
+    </section>
+  </main>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/chart.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
