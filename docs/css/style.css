@@ -2,7 +2,6 @@
   --bg-main: #06101f;
   --bg-shell: #071426;
   --bg-card: #111827;
-  --bg-card-soft: #172033;
 
   --chart-bg: #ffffff;
   --chart-border: #dbeafe;
@@ -13,8 +12,6 @@
   --border-soft: #22344d;
 
   --accent: #38bdf8;
-  --accent-soft: rgba(56, 189, 248, 0.16);
-
   --text-main: #f8fafc;
   --text-muted: #9db4cc;
   --text-soft: #cbd5e1;
@@ -183,11 +180,48 @@ h1 {
   font-weight: 700;
 }
 
+.metric-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 18px 0 12px;
+  padding: 12px 16px;
+  border: 1px solid #dbeafe;
+  border-radius: 12px;
+  background: #f8fbff;
+}
+
+.metric-controls .control-title {
+  margin-right: 6px;
+  color: #334155;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.metric-controls label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #0f172a;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.metric-controls input {
+  accent-color: #0284c7;
+}
+
 .view-controls {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin: 18px 0 16px;
+  margin: 14px 0 16px;
 }
 
 .mode-btn {
