@@ -49,7 +49,6 @@
     </section>
 
     <section class="chart-panel">
-
       <div class="chart-panel-header">
         <div>
           <h2>Hybrid Threat Trend</h2>
@@ -59,15 +58,15 @@
         </div>
       </div>
 
-      <div class="view-controls">
+      <div class="view-controls" aria-label="View mode">
         <button class="mode-btn active" data-mode="daily">Daily</button>
-        <button class="mode-btn" data-mode="ma7">7-day moving average</button>
-        <button class="mode-btn" data-mode="ma14">14-day moving average</button>
-        <button class="mode-btn" data-mode="trend">Trend line</button>
+        <button class="mode-btn" data-mode="ma7">7-Day Rolling Average</button>
+        <button class="mode-btn" data-mode="ma14">14-Day Rolling Average</button>
+        <button class="mode-btn" data-mode="trend">Regional Linear Trend</button>
       </div>
 
       <div class="chart-controls" id="chartControls">
-        <label><input type="checkbox" value="overall" checked /> Regional average</label>
+        <label><input type="checkbox" value="overall" checked /> Regional Average</label>
         <label><input type="checkbox" value="Estonia" checked /> Estonia</label>
         <label><input type="checkbox" value="Latvia" checked /> Latvia</label>
         <label><input type="checkbox" value="Lithuania" checked /> Lithuania</label>
@@ -78,11 +77,9 @@
         <canvas id="threatTrendChart"></canvas>
       </div>
 
-      <p class="method-note light-note">
-        This chart displays the calculated hybrid threat score over time.
-        You can switch between daily values, moving averages and the regional trend line.
+      <p class="method-note light-note" id="chartMethodNote">
+        Each point represents the hybrid threat score calculated for the displayed date.
       </p>
-
     </section>
 
   </main>
