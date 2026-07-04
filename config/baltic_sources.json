@@ -1,0 +1,57 @@
+{
+  "project": "baltic-hybrid-threat-monitor",
+  "region": "Baltic states and Poland",
+  "countries": ["Estonia", "Latvia", "Lithuania", "Poland"],
+  "threat_categories": [
+    "sabotage",
+    "cyber",
+    "disinformation",
+    "border_pressure",
+    "gps_interference",
+    "drone_incident",
+    "military_provocation",
+    "critical_infrastructure",
+    "espionage",
+    "migration_pressure"
+  ],
+  "rss_sources": [
+    {
+      "name": "Google News - Baltic Russia hybrid threat",
+      "url": "https://news.google.com/rss/search?q=%28Baltic%20OR%20Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland%29%20Russia%20hybrid%20threat&hl=en-US&gl=US&ceid=US:en",
+      "type": "news_search",
+      "weight": 1.0
+    },
+    {
+      "name": "Google News - Baltic sabotage Russia",
+      "url": "https://news.google.com/rss/search?q=%28Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland%29%20Russia%20sabotage&hl=en-US&gl=US&ceid=US:en",
+      "type": "news_search",
+      "weight": 1.1
+    },
+    {
+      "name": "Google News - Baltic cyber attack Russia",
+      "url": "https://news.google.com/rss/search?q=%28Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland%29%20Russia%20cyber%20attack&hl=en-US&gl=US&ceid=US:en",
+      "type": "news_search",
+      "weight": 1.0
+    },
+    {
+      "name": "Google News - Poland Belarus border hybrid",
+      "url": "https://news.google.com/rss/search?q=Poland%20Belarus%20border%20hybrid%20Russia&hl=en-US&gl=US&ceid=US:en",
+      "type": "news_search",
+      "weight": 1.1
+    },
+    {
+      "name": "Google News - Baltic GPS jamming",
+      "url": "https://news.google.com/rss/search?q=Baltic%20GPS%20jamming%20Russia%20Kaliningrad&hl=en-US&gl=US&ceid=US:en",
+      "type": "news_search",
+      "weight": 1.0
+    }
+  ],
+  "external_json_feeds": [
+    {
+      "name": "CEE Security Map optional feed",
+      "env_var": "CEE_SECURITY_MAP_JSON_URL",
+      "type": "external_repo",
+      "weight": 1.2
+    }
+  ]
+}
