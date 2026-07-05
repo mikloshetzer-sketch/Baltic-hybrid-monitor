@@ -2,7 +2,7 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-07-05T19:40:58.358879+00:00",
-  "updated_at": "2026-07-05T19:40:58.358880+00:00",
+  "updated_at": "2026-07-05T19:48:58.268287+00:00",
   "record_count": 14,
   "method": {
     "description": "Historical backfill generated from currently collected scored items using published_at dates.",
@@ -1421,111 +1421,325 @@
     },
     {
       "date": "2026-07-05",
-      "generated_at": "2026-07-05T19:40:58.358867+00:00",
-      "input_generated_at": "2026-07-05T19:40:58.358869+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-22",
-        "end_date": "2026-07-05"
-      },
+      "generated_at": "2026-07-05T19:48:58.268192+00:00",
+      "input_generated_at": "2026-07-05T19:48:58.143422+00:00",
       "overall": {
-        "incident_count": 0,
-        "score_total": 0,
-        "average_score": 0,
-        "highest_score": 0,
-        "overall_level": "low"
+        "incident_count": 965,
+        "score_total": 21671,
+        "average_score": 22.46,
+        "highest_score": 54,
+        "overall_level": "high"
       },
       "countries": {
         "Estonia": {
-          "country": "Estonia",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        }
-      },
-      "categories": {},
-      "top_items": [],
-      "daily_activity": {
-        "description": "Daily activity is calculated only from items published on the displayed date.",
-        "overall": {
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "overall_level": "low"
-        },
-        "countries": {
-          "Estonia": {
-            "country": "Estonia",
-            "incident_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0,
-            "level": "low",
-            "categories": {}
-          },
-          "Latvia": {
-            "country": "Latvia",
-            "incident_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0,
-            "level": "low",
-            "categories": {}
-          },
-          "Lithuania": {
-            "country": "Lithuania",
-            "incident_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0,
-            "level": "low",
-            "categories": {}
-          },
-          "Poland": {
-            "country": "Poland",
-            "incident_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0,
-            "level": "low",
-            "categories": {}
+          "incident_count": 105,
+          "score_total": 2205,
+          "average_score": 21.0,
+          "highest_score": 44,
+          "level": "elevated",
+          "categories": {
+            "drone_incident": 17,
+            "sabotage": 5,
+            "critical_infrastructure": 12,
+            "cyber": 19,
+            "gps_interference": 3,
+            "military_provocation": 4,
+            "espionage": 3,
+            "migration_pressure": 1,
+            "border_pressure": 2,
+            "disinformation": 7
           }
         },
-        "categories": {},
-        "top_items": []
-      }
+        "Latvia": {
+          "incident_count": 139,
+          "score_total": 3260,
+          "average_score": 23.45,
+          "highest_score": 52,
+          "level": "high",
+          "categories": {
+            "border_pressure": 6,
+            "critical_infrastructure": 8,
+            "migration_pressure": 18,
+            "cyber": 36,
+            "drone_incident": 38,
+            "military_provocation": 6,
+            "espionage": 1,
+            "sabotage": 2,
+            "disinformation": 5
+          }
+        },
+        "Lithuania": {
+          "incident_count": 139,
+          "score_total": 2781,
+          "average_score": 20.01,
+          "highest_score": 44,
+          "level": "elevated",
+          "categories": {
+            "drone_incident": 11,
+            "gps_interference": 6,
+            "sabotage": 13,
+            "cyber": 14,
+            "military_provocation": 3,
+            "espionage": 3,
+            "border_pressure": 1,
+            "migration_pressure": 15,
+            "disinformation": 6,
+            "critical_infrastructure": 6
+          }
+        },
+        "Poland": {
+          "incident_count": 361,
+          "score_total": 8364,
+          "average_score": 23.17,
+          "highest_score": 54,
+          "level": "high",
+          "categories": {
+            "cyber": 73,
+            "critical_infrastructure": 49,
+            "border_pressure": 16,
+            "migration_pressure": 37,
+            "military_provocation": 30,
+            "sabotage": 36,
+            "disinformation": 18,
+            "drone_incident": 13,
+            "espionage": 18,
+            "gps_interference": 2
+          }
+        }
+      },
+      "categories": {
+        "cyber": {
+          "category": "cyber",
+          "incident_count": 162,
+          "score_total": 4733,
+          "average_score": 29.22,
+          "highest_score": 54
+        },
+        "critical_infrastructure": {
+          "category": "critical_infrastructure",
+          "incident_count": 122,
+          "score_total": 4092,
+          "average_score": 33.54,
+          "highest_score": 54
+        },
+        "gps_interference": {
+          "category": "gps_interference",
+          "incident_count": 51,
+          "score_total": 1312,
+          "average_score": 25.73,
+          "highest_score": 53
+        },
+        "drone_incident": {
+          "category": "drone_incident",
+          "incident_count": 122,
+          "score_total": 3406,
+          "average_score": 27.92,
+          "highest_score": 53
+        },
+        "border_pressure": {
+          "category": "border_pressure",
+          "incident_count": 24,
+          "score_total": 814,
+          "average_score": 33.92,
+          "highest_score": 52
+        },
+        "migration_pressure": {
+          "category": "migration_pressure",
+          "incident_count": 63,
+          "score_total": 1588,
+          "average_score": 25.21,
+          "highest_score": 52
+        },
+        "sabotage": {
+          "category": "sabotage",
+          "incident_count": 102,
+          "score_total": 3302,
+          "average_score": 32.37,
+          "highest_score": 52
+        },
+        "military_provocation": {
+          "category": "military_provocation",
+          "incident_count": 57,
+          "score_total": 1936,
+          "average_score": 33.96,
+          "highest_score": 51
+        },
+        "disinformation": {
+          "category": "disinformation",
+          "incident_count": 51,
+          "score_total": 1167,
+          "average_score": 22.88,
+          "highest_score": 51
+        },
+        "espionage": {
+          "category": "espionage",
+          "incident_count": 31,
+          "score_total": 942,
+          "average_score": 30.39,
+          "highest_score": 49
+        }
+      },
+      "top_items": [
+        {
+          "id": "65079af60d61168c",
+          "title": "ESET attributes DynoWiper-powered attack on Poland’s power grid to Russia-aligned Sandworm group - Industrial Cyber",
+          "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxQSjRob1VsOXlvOWZDeHRBd1lyYVYwLW9XbUdONnF2V2hmamhTemV5N24zWHRxR3M2Z1BySWxjalJrZUd4QktoZkx4S2l3ZEVTSWF0RDBQamFvS3phLVBja2g5T1ZEVTZlZmQ3ZWZEYTJHMHRwR0lWWnRNRVgtcVNxdTFqcElLc2U1amNvVTYtU2pZLURua0xEYTZhVXZlVFlZUG9zSktuZGp3VHA0cnZISXRqTzFaSThvSGFkLVJoWEpPUng3aWZNNUNpenRacGNvalpsclJCajd6cWZlaUhhcTl1QXlOY2l4STFUdFBEUQ?oc=5",
+          "published_at": "2026-01-26T08:00:00+00:00",
+          "source_name": "Google News - Baltic critical infrastructure Russia",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "cyber",
+            "critical_infrastructure"
+          ],
+          "hybrid_threat_score": 54,
+          "hybrid_threat_level": "critical"
+        },
+        {
+          "id": "d3ad3b107dacf8fd",
+          "title": "Russian Jamming From Kaliningrad Is Sending Ukrainian Drones Toward NATO States, Telegraph Reports - UNITED24 Media",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOQzBnZ1NkOUgxekJfMlBTTkRxenlvcnZ3NEdaUHI4bEgyZ2d6bzZ4NVdsNTRlX3k2RVFLcFo1QzlpMTRiMXJrcHpDTGxuRkNNLXpBcHNmNVpBcHh1amtxVFA5cTBaWmhHc3hQamNnbzJuTXlydHNtWjlxYWtYNGJkY2FiWWFnNTdsTk12UW16UnV5QXNxT1hHb0NTYUx3SFJNVzdJdVZmOGNPV3Z6dFFrRkI4S3pNa1pTRGxudXFxSmxRSUlzWW1IYXRERDF6WVJPWGRGUTV2d2xDMEZQ?oc=5",
+          "published_at": "2026-05-25T07:00:00+00:00",
+          "source_name": "Google News - Baltic GPS jamming",
+          "countries": [],
+          "categories": [
+            "gps_interference",
+            "drone_incident",
+            "critical_infrastructure"
+          ],
+          "hybrid_threat_score": 53,
+          "hybrid_threat_level": "critical"
+        },
+        {
+          "id": "eea832ec8069c7bb",
+          "title": "Latvia: Baltic media reports cite ongoing migrant pressure at Belarus border - InfoMigrants",
+          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOX2NxMzdrYlNQRnVBdVR3OEpDWS1ZcnRnaHZZbGVuX1RUcjhSSWVCQUppNTUwcnE1QXYwWDg2cUhDb2xmZzdWVzBMdHNCX3JXVG9wallyR0hVYTZpYjh5YndXcU14UGloWTdCRV8wbWpnRnYwaWdMZDQ1RWhMSGczcmVBUUc0U3hDdXk4TDRPc0tVYjBIUXg3UDVWTkVVUGZSeGprOF9QdlVGV21EVU9RNUNNN1o0Q2hDWEE?oc=5",
+          "published_at": "2026-04-29T07:00:00+00:00",
+          "source_name": "Google News - Polish Border Guard Belarus",
+          "countries": [
+            "Latvia",
+            "Poland"
+          ],
+          "categories": [
+            "border_pressure",
+            "critical_infrastructure",
+            "migration_pressure"
+          ],
+          "hybrid_threat_score": 52,
+          "hybrid_threat_level": "critical"
+        },
+        {
+          "id": "2807956eb3f3d15b",
+          "title": "Undersea Cable Sabotage? China and Russia in the Baltic Sea Battlefield - Clearance Jobs",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTmVMRWJOS2tXbFp6VHhJMnotQUl2ZnJDNDRaNWhuTUxTTGEwNXBmTEFiVGtjUV81Nll0OWpBZ2RUOGkxQ2V1UkFFYXpXNWl4RHJMWjA4MV9zTU01QVBYSHUyYzNLaVpHSzBzYklsSG9SNEdtOWdhcHdwdnFSQ1pWaXlSNlVRR3NaUXdYOGREZThiZXpTNnVHS2c4SWRwODY2elBPNnlld0drV0xQbm9yaFg3SQ?oc=5",
+          "published_at": "2024-11-20T08:00:00+00:00",
+          "source_name": "Google News - Baltic Sea infrastructure sabotage",
+          "countries": [],
+          "categories": [
+            "sabotage",
+            "critical_infrastructure"
+          ],
+          "hybrid_threat_score": 52,
+          "hybrid_threat_level": "critical"
+        },
+        {
+          "id": "9d813773f49b9666",
+          "title": "Russia may be preparing provocation in Baltics or Poland: Report - Türkiye Today",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOaTcxcFY1eDRhLVloYzU4NFJob2RZeHV2RVh0aWRxc0RIRVFIWmdrcTEtSnFTeGRZd2FfOTFBSnhCT1NZSVF0eUJZWWRITng0TGthbmF3b183ZTNmWXRRN1R1YzRIRzNDcnNYeEdiZUtMd2lLajVWeVhxY2JDdWIzU0lGTWdWQ1ZJX0I3WnVuanNoQ1JlYnB2SDljZ0M5SlRCWG83c0RLSEcxQQ?oc=5",
+          "published_at": "2026-06-26T08:01:23+00:00",
+          "source_name": "Google News - NATO Eastern Flank Baltic Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "cyber",
+            "military_provocation",
+            "critical_infrastructure"
+          ],
+          "hybrid_threat_score": 51,
+          "hybrid_threat_level": "critical"
+        },
+        {
+          "id": "145da563db4595a5",
+          "title": "Poland Water Treatment Plants ICS Breached by Russian and Belarusian APTs: 2025 Attack Exposes Critical Infrastructure Security Gaps - Rescana",
+          "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxQdWhTZkZsS0otTlEwU2c0S0hseWxPajloa0JsMHpueHR2RzdVaFh2bGZuTFdmWGx0YVhlUWRMRTZ5Z3ZFSTFLYWNuTXZ0a1NjTG5jbWQ0MXBTR3E3NDZjVzI3amdPS1ZOR202Y255REl5YVZiU0gxaUMweHNXS3Q4bllpQ09NSnVRWm5kRVRHWnBzai1rd2V4NEhxWUUxRTVqM0dLcVBlY2xaNklUOFRIRW55RjRad2NUMEZ1SXVzNWhreWRBUzR6Zkxmc3FOclFlRVNoS1VLamdrZWpDNmNldmVSWQ?oc=5",
+          "published_at": "2026-05-10T07:00:00+00:00",
+          "source_name": "Google News - Baltic critical infrastructure Russia",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "cyber",
+            "critical_infrastructure"
+          ],
+          "hybrid_threat_score": 51,
+          "hybrid_threat_level": "critical"
+        },
+        {
+          "id": "aa2ceb138f9c5ff9",
+          "title": "NATO ally Romania reports increased rate of Russian drone incursions, fighter alerts - ABC News - Breaking News, Latest News and Videos",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOS1FkREFFYnFZUHN0RVRCMHJLbWZsSjlmb3BZcGZCS0hGZmZlRW95aXJEeUYxV1JORHFTdEJNaU9kdmVXWHV2dm1WdFJvLTlGZldUSVcxTURYQXlmSEliSWFWMllISk5aRENaU0tSR3FlcGFGOG1Xc3FTU2xER2lBOWUzdDladVdqQ1hWZk5RZUdpbW03NGRFaVc4WlN0SkVKQ1hJTWZxaHhXbEnSAbABQVVfeXFMTUtpelRVWkk5REphRjJ0NDFOTTRjRVVZb3hBM1o4SWI3a0RUUUtvUGRIZkVxemVveE5seVYxdk5xQnlCMXFTUDdXd2tXdzI2ajFyaHhSbThfTnltMEkyOEwzbTZ3d3JJSi1jVFBkRm93WVNxU2FRWHBteHBJOTRFYl90QVFuLVFkaXE0UGRoS1llVXY1cFE4d0xFWl9RLW5tcExhYXE4M0ZpTXFnZkgwcUw?oc=5",
+          "published_at": "2026-05-02T07:00:00+00:00",
+          "source_name": "Google News - Baltic airspace violation Russia",
+          "countries": [],
+          "categories": [
+            "drone_incident",
+            "military_provocation",
+            "critical_infrastructure"
+          ],
+          "hybrid_threat_score": 51,
+          "hybrid_threat_level": "critical"
+        },
+        {
+          "id": "3a64cd17bf5379a2",
+          "title": "“Japan and EU Build Subsea Cable Alliance to Counter ‘China-Russia Communications Network Sabotage,’ Also Cooperate on New Arctic Sea Route” - economy.ac",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBBclVQWWlFSHRnbEItTWhhbThOdWJaN3hUUE9nZ2tVSVJLbWoyeVhQaHR4dElTV00wTjh0Um9MTXVCNTFnMWowT3hlWTJIWWZfb29pYmhjaw?oc=5",
+          "published_at": "2026-04-28T07:00:00+00:00",
+          "source_name": "Google News - Baltic Sea cable damage Russia",
+          "countries": [],
+          "categories": [
+            "sabotage",
+            "critical_infrastructure"
+          ],
+          "hybrid_threat_score": 51,
+          "hybrid_threat_level": "critical"
+        },
+        {
+          "id": "5e11b36a606640c7",
+          "title": "CERT Polska reports coordinated cyber sabotage targeting Poland’s energy infrastructure - Digital Watch Observatory",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5nVlVzV2ZMdS1ncUx0MjRyUEtHSkVQd296ZmdVa3JUM2czUGp6WDdXOEhVdUxjWFgyejVidzc4eXR6N2hHSTJCSldCNTRaQU9PVk4wbFdDN01hS0d0cjdtVUJIWVJzbG01R2ppTlJTMi0zZw?oc=5",
+          "published_at": "2026-02-03T08:00:00+00:00",
+          "source_name": "Google News - CERT Polska Russia cyber",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "sabotage",
+            "cyber",
+            "critical_infrastructure"
+          ],
+          "hybrid_threat_score": 51,
+          "hybrid_threat_level": "critical"
+        },
+        {
+          "id": "66768a3468668156",
+          "title": "The Situation on the Poland-Belarus Border: Background, Geopolitics, Narratives - Warsaw Institute",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOSFZpNkJLR1hKZHJhVGNiZVp4OFZQZ0UzNVFJcTFYNmJKRnVadEJfZnFDVjBJYy12emltSkNkcEhfOEVZM0k4bUdVSlRCUmtfQmZ3S0N5YmFNaFZCTkNMaE0yREg1WXlqVHBqcjZXUVo5cWVKM0QxbGROeHBZd3JJbXktemp2LU52WGowNm1HYW14LUNHWGx2MmJ3?oc=5",
+          "published_at": "2021-12-23T08:00:00+00:00",
+          "source_name": "Google News - Polish Border Guard Belarus",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "cyber",
+            "disinformation",
+            "border_pressure"
+          ],
+          "hybrid_threat_score": 51,
+          "hybrid_threat_level": "critical"
+        }
+      ]
     }
   ]
 }
