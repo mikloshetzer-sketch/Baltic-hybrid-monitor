@@ -1,3036 +1,30 @@
 {
-  "project": "baltic-hybrid-threat-monitor",
+  "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
-  "created_at": "2026-07-04T20:40:48.596757+00:00",
-  "updated_at": "2026-07-05T19:39:58.886144+00:00",
-  "record_count": 15,
+  "created_at": "2026-07-05T19:40:58.358879+00:00",
+  "updated_at": "2026-07-05T19:40:58.358880+00:00",
+  "record_count": 14,
   "method": {
     "description": "Historical backfill generated from currently collected scored items using published_at dates.",
     "warning": "This is a backfill based on available collected RSS results. It is suitable for initializing the dashboard, but it is not a complete historical archive.",
     "days": 14,
-    "rolling_days": 14
+    "rolling_days": 14,
+    "metrics": {
+      "overall": "Threat Index calculated from the rolling window ending on each displayed date.",
+      "daily_activity": "Daily Activity Index calculated only from items published on each displayed date."
+    }
   },
   "records": [
     {
-      "date": "2026-06-21",
-      "generated_at": "2026-07-04T20:40:48.595345+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.595350+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-08",
-        "end_date": "2026-06-21"
-      },
-      "overall": {
-        "incident_count": 8,
-        "score_total": 52,
-        "average_score": 6.5,
-        "highest_score": 22,
-        "overall_level": "guarded"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5,
-          "level": "guarded",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 5,
-          "score_total": 15,
-          "average_score": 3.0,
-          "highest_score": 7,
-          "level": "guarded",
-          "categories": {}
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 22,
-          "average_score": 22.0,
-          "highest_score": 22
-        },
-        "migration_pressure": {
-          "category": "migration_pressure",
-          "incident_count": 1,
-          "score_total": 22,
-          "average_score": 22.0,
-          "highest_score": 22
-        },
-        "gps_interference": {
-          "category": "gps_interference",
-          "incident_count": 1,
-          "score_total": 10,
-          "average_score": 10.0,
-          "highest_score": 10
-        }
-      },
-      "top_items": [
-        {
-          "id": "d8ed079f15e61e4f",
-          "title": "Shadow War: From Drones to Immigration, Inside Russia's Hybrid Assault Against NATO - cbn.com",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNaGp1Z1IxeDBXQUVkYWs0ZUQ5QkRaRHVnb0Y0OERpQlBXdVd1ZjlxbDhLblVBWHZULUpmY2Y1VVhsTUN1TGd0Q3ZWU0NoNmJsYUJua3p1V2tkV2xxcE94SFBZMEdMb19TMU1jdlp3SC0wcjFxeHlDT3diT3pISHBQcm4wMlVRdzFlWjFuX3EzM2wtNkUxdkMzTEhlRHJ0VHpf?oc=5",
-          "published_at": "2026-06-09T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [],
-          "categories": [
-            "drone_incident",
-            "migration_pressure"
-          ],
-          "hybrid_threat_score": 22,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "63ff95aa6e775fe8",
-          "title": "Spanish defence minister's jet suffers GPS disturbance near Russian enclave - Sky News",
-          "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPejNUM3Bxem1yOXZrbUViUWp3WVdjYTlBZllQN1B5MmsyYkxBb2pxQVVFeHlfVFhZYldqUTVLV0RKMFhpMldBNjFKYnFEMS1WeDZNaDd0cUlPU1h4RnJMYU5JWFJwVG5IV3VidmREOVJGd3lUdUpyLW5ET1ZCdzdrWkFINnhMdFR4b0xaYjIxMmdtQjNlLThTTlJZLUMxM2s5a3VyS1pZdGpQM0FPZ0lJ?oc=5",
-          "published_at": "2026-06-08T07:00:00+00:00",
-          "source_name": "Google News - Baltic GPS jamming",
-          "countries": [],
-          "categories": [
-            "gps_interference"
-          ],
-          "hybrid_threat_score": 10,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "24bbd86a548fba9e",
-          "title": "Poland says Russia waging 'full-scale cognitive war' as hybrid threat concerns grow - Anadolu Ajansı",
-          "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxNYU1CdDRSVEloZ3lFQlRoMnNiTEk0Wlpjdkt3MmVwRk43aFpIQ2dzbVBfU185X2FXVzdwd3EwUGtOWklMcE1hVU1zLWpoM0p5c2p5d0x2ZHk4MVpFajJRNjN6SHFCclM0Yks3cXpJeEsyZVdwM19KVW9WNmU1bWQtYU5LMmx2Tl96UVVGejJkRThWcl9RU2hLcHlGekxMalUtNnFCRlJfbXQ1TDB2cHVIa1JhbjJmUlFocWNpZ0pR?oc=5",
-          "published_at": "2026-06-08T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "033420a792ebff8f",
-          "title": "Estonia to quarantine emails sent from Russian .ru domain before they reach government officials - The Record from Recorded Future News",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE14czNNMTkxTlY4VVpORHh3MFpkMnc5VkZxNENROWJiMS12NmpiZlNDcFVCaHBWSW9Wa3lXajgzYlRtbUJoTjluNmpORGVIb3d5ZTNCWFZ3YzhlemJyeEVubU5rNkVIaVlB?oc=5",
-          "published_at": "2026-06-15T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "guarded"
-        },
-        {
-          "id": "e097edb3fc9455c8",
-          "title": "Russia waging “full-scale cognitive war against us”, warns Poland’s foreign minister - Notes From Poland",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQdDZFckVIZXJlVVBBR0ZOMlQwR2FhVHk3WnBKUFNrc1ltd1owWnFqdk9meEktWm1xYkhlYWZiOWZKcXhjOHpkNTdrWkpWZDNXaENMRkZUeXVFbm9sVk45VEl5bkpGR1hiMzQ3UDR1TV95ZW5ncXd4Wm1XRzNvTDZQb2hoTVNtVzBsMEJyNy1DVnptNTRiMjdyRFhzcWd3QTNlWUs5cTVXdURiTTBfM2RpQlBhdkJBUG1kY0R3NQ?oc=5",
-          "published_at": "2026-06-09T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 4,
-          "hybrid_threat_level": "guarded"
-        },
-        {
-          "id": "245537296bea44a1",
-          "title": "Kaliningrad’s Electronic Warfare SHOCKS Europe – Spain’s Defense Minister Targeted? Josh Hokit (VAIEjN5pC9) - Mshale",
-          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1HQUQ0bllvTXJBT2UxQTZWMlp6eW9meEgtdVB5VVF5c0RPZjYxR2tDQlM1QW1RN2s2blFMME9wV1RjX2ZRTkN0YUpRb2tyd2tQWDI4TEFFeVNLVnM?oc=5",
-          "published_at": "2026-06-08T14:51:39+00:00",
-          "source_name": "Google News - Baltic GPS jamming",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 2,
-          "hybrid_threat_level": "low"
-        },
-        {
-          "id": "133ee904f9254f40",
-          "title": "Suspect in killing of artist critical of Putin arrested in Poland - 1News",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPRTlRc3JOMjdjOFoxWEI5SFJIM295Z2toRlFhT0VOZktMcnJGU0FLcnkyMnZrODg4RlQ1dE1MWXVzcElheXk3Q0M5SkZnX2xKYkNNbFpnUkIzaE1PejdqU0RvUHNXc1MtMVo1eUpjUTlvZ0NOaE9yQ1FOR2I1VlRITVpta3FJTTFqODBlZmw2azJRYWZSYlVqdDFwT0ZzT1RoTGhJ?oc=5",
-          "published_at": "2026-06-19T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 1,
-          "hybrid_threat_level": "low"
-        },
-        {
-          "id": "0dafef5d9db27e71",
-          "title": "Poland prepares to stand its ground with massive new civil defence programme - France 24",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNLVpzdUxOcDNmN2Z4Yk10ajJtREJSNkhtZ3hOZnQ3NkpKekJ0ZHljQnBaTkZabUJQUGZUaHpfUHlwYklxUHZJZy1IalNSaXBydFd2bDQwSzRPQy1pT3A1cWduU0ZsWmxyV3ViRHZSNGRfQncwODRQcTFsUS1ReDE1ZnhVUC04MEg1eVI1LWd1M0RzZF9EdG5lU3JjR2ljdk0?oc=5",
-          "published_at": "2026-06-11T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 1,
-          "hybrid_threat_level": "low"
-        }
-      ]
-    },
-    {
       "date": "2026-06-22",
-      "generated_at": "2026-07-04T20:40:48.595475+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.595477+00:00",
+      "generated_at": "2026-07-05T19:40:58.358613+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358621+00:00",
       "window": {
         "type": "rolling",
         "days": 14,
         "start_date": "2026-06-09",
         "end_date": "2026-06-22"
       },
-      "overall": {
-        "incident_count": 5,
-        "score_total": 33,
-        "average_score": 6.6,
-        "highest_score": 22,
-        "overall_level": "guarded"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5,
-          "level": "guarded",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 3,
-          "score_total": 6,
-          "average_score": 2.0,
-          "highest_score": 4,
-          "level": "low",
-          "categories": {}
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 22,
-          "average_score": 22.0,
-          "highest_score": 22
-        },
-        "migration_pressure": {
-          "category": "migration_pressure",
-          "incident_count": 1,
-          "score_total": 22,
-          "average_score": 22.0,
-          "highest_score": 22
-        }
-      },
-      "top_items": [
-        {
-          "id": "d8ed079f15e61e4f",
-          "title": "Shadow War: From Drones to Immigration, Inside Russia's Hybrid Assault Against NATO - cbn.com",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNaGp1Z1IxeDBXQUVkYWs0ZUQ5QkRaRHVnb0Y0OERpQlBXdVd1ZjlxbDhLblVBWHZULUpmY2Y1VVhsTUN1TGd0Q3ZWU0NoNmJsYUJua3p1V2tkV2xxcE94SFBZMEdMb19TMU1jdlp3SC0wcjFxeHlDT3diT3pISHBQcm4wMlVRdzFlWjFuX3EzM2wtNkUxdkMzTEhlRHJ0VHpf?oc=5",
-          "published_at": "2026-06-09T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [],
-          "categories": [
-            "drone_incident",
-            "migration_pressure"
-          ],
-          "hybrid_threat_score": 22,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "033420a792ebff8f",
-          "title": "Estonia to quarantine emails sent from Russian .ru domain before they reach government officials - The Record from Recorded Future News",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE14czNNMTkxTlY4VVpORHh3MFpkMnc5VkZxNENROWJiMS12NmpiZlNDcFVCaHBWSW9Wa3lXajgzYlRtbUJoTjluNmpORGVIb3d5ZTNCWFZ3YzhlemJyeEVubU5rNkVIaVlB?oc=5",
-          "published_at": "2026-06-15T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "guarded"
-        },
-        {
-          "id": "e097edb3fc9455c8",
-          "title": "Russia waging “full-scale cognitive war against us”, warns Poland’s foreign minister - Notes From Poland",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQdDZFckVIZXJlVVBBR0ZOMlQwR2FhVHk3WnBKUFNrc1ltd1owWnFqdk9meEktWm1xYkhlYWZiOWZKcXhjOHpkNTdrWkpWZDNXaENMRkZUeXVFbm9sVk45VEl5bkpGR1hiMzQ3UDR1TV95ZW5ncXd4Wm1XRzNvTDZQb2hoTVNtVzBsMEJyNy1DVnptNTRiMjdyRFhzcWd3QTNlWUs5cTVXdURiTTBfM2RpQlBhdkJBUG1kY0R3NQ?oc=5",
-          "published_at": "2026-06-09T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 4,
-          "hybrid_threat_level": "guarded"
-        },
-        {
-          "id": "133ee904f9254f40",
-          "title": "Suspect in killing of artist critical of Putin arrested in Poland - 1News",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPRTlRc3JOMjdjOFoxWEI5SFJIM295Z2toRlFhT0VOZktMcnJGU0FLcnkyMnZrODg4RlQ1dE1MWXVzcElheXk3Q0M5SkZnX2xKYkNNbFpnUkIzaE1PejdqU0RvUHNXc1MtMVo1eUpjUTlvZ0NOaE9yQ1FOR2I1VlRITVpta3FJTTFqODBlZmw2azJRYWZSYlVqdDFwT0ZzT1RoTGhJ?oc=5",
-          "published_at": "2026-06-19T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 1,
-          "hybrid_threat_level": "low"
-        },
-        {
-          "id": "0dafef5d9db27e71",
-          "title": "Poland prepares to stand its ground with massive new civil defence programme - France 24",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNLVpzdUxOcDNmN2Z4Yk10ajJtREJSNkhtZ3hOZnQ3NkpKekJ0ZHljQnBaTkZabUJQUGZUaHpfUHlwYklxUHZJZy1IalNSaXBydFd2bDQwSzRPQy1pT3A1cWduU0ZsWmxyV3ViRHZSNGRfQncwODRQcTFsUS1ReDE1ZnhVUC04MEg1eVI1LWd1M0RzZF9EdG5lU3JjR2ljdk0?oc=5",
-          "published_at": "2026-06-11T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 1,
-          "hybrid_threat_level": "low"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-23",
-      "generated_at": "2026-07-04T20:40:48.595567+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.595570+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-10",
-        "end_date": "2026-06-23"
-      },
-      "overall": {
-        "incident_count": 6,
-        "score_total": 71,
-        "average_score": 11.83,
-        "highest_score": 28,
-        "overall_level": "elevated"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5,
-          "level": "guarded",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 3,
-          "score_total": 64,
-          "average_score": 21.33,
-          "highest_score": 28,
-          "level": "critical",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 5,
-          "score_total": 66,
-          "average_score": 13.2,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        }
-      },
-      "top_items": [
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "11b67904b0008f21",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "60cb077638bab3b1",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n0gHzAUFVX3lxTE53U2NXendxdjJTOWZnWEQ5OXNrUklqbndLdUdHcG5OTTAzdk5Tamd1TmI3Q3p0ekJrYTRrMTVlVUFTWE5HNDUzbmo5Y3diZkhuWDBmTm1HOHkwZlNIZ2t1aVZyeFFmWTljQ05aZU5mN1FOU1RtLXRrcWp4ellVU3FNakh3MVhGNWxVOHp3UWJXTTRKc19lcGxoanJHNHloSThmTnpRdk91V29mclFUUkRKWHM0RmJTQjJ1V3A5ZzdsV3pPazljd3oxNUZoNy0yTE9PeXl2VVpLb1pJS2VPenBTVkkyUEc1cS0wbHQ4ODNWQzFwcw?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "033420a792ebff8f",
-          "title": "Estonia to quarantine emails sent from Russian .ru domain before they reach government officials - The Record from Recorded Future News",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE14czNNMTkxTlY4VVpORHh3MFpkMnc5VkZxNENROWJiMS12NmpiZlNDcFVCaHBWSW9Wa3lXajgzYlRtbUJoTjluNmpORGVIb3d5ZTNCWFZ3YzhlemJyeEVubU5rNkVIaVlB?oc=5",
-          "published_at": "2026-06-15T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "guarded"
-        },
-        {
-          "id": "133ee904f9254f40",
-          "title": "Suspect in killing of artist critical of Putin arrested in Poland - 1News",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPRTlRc3JOMjdjOFoxWEI5SFJIM295Z2toRlFhT0VOZktMcnJGU0FLcnkyMnZrODg4RlQ1dE1MWXVzcElheXk3Q0M5SkZnX2xKYkNNbFpnUkIzaE1PejdqU0RvUHNXc1MtMVo1eUpjUTlvZ0NOaE9yQ1FOR2I1VlRITVpta3FJTTFqODBlZmw2azJRYWZSYlVqdDFwT0ZzT1RoTGhJ?oc=5",
-          "published_at": "2026-06-19T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 1,
-          "hybrid_threat_level": "low"
-        },
-        {
-          "id": "0dafef5d9db27e71",
-          "title": "Poland prepares to stand its ground with massive new civil defence programme - France 24",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNLVpzdUxOcDNmN2Z4Yk10ajJtREJSNkhtZ3hOZnQ3NkpKekJ0ZHljQnBaTkZabUJQUGZUaHpfUHlwYklxUHZJZy1IalNSaXBydFd2bDQwSzRPQy1pT3A1cWduU0ZsWmxyV3ViRHZSNGRfQncwODRQcTFsUS1ReDE1ZnhVUC04MEg1eVI1LWd1M0RzZF9EdG5lU3JjR2ljdk0?oc=5",
-          "published_at": "2026-06-11T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 1,
-          "hybrid_threat_level": "low"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-24",
-      "generated_at": "2026-07-04T20:40:48.595661+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.595663+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-11",
-        "end_date": "2026-06-24"
-      },
-      "overall": {
-        "incident_count": 8,
-        "score_total": 88,
-        "average_score": 11.0,
-        "highest_score": 28,
-        "overall_level": "elevated"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5,
-          "level": "guarded",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 4,
-          "score_total": 71,
-          "average_score": 17.75,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 6,
-          "score_total": 76,
-          "average_score": 12.67,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        }
-      },
-      "top_items": [
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "11b67904b0008f21",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "60cb077638bab3b1",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n0gHzAUFVX3lxTE53U2NXendxdjJTOWZnWEQ5OXNrUklqbndLdUdHcG5OTTAzdk5Tamd1TmI3Q3p0ekJrYTRrMTVlVUFTWE5HNDUzbmo5Y3diZkhuWDBmTm1HOHkwZlNIZ2t1aVZyeFFmWTljQ05aZU5mN1FOU1RtLXRrcWp4ellVU3FNakh3MVhGNWxVOHp3UWJXTTRKc19lcGxoanJHNHloSThmTnpRdk91V29mclFUUkRKWHM0RmJTQjJ1V3A5ZzdsV3pPazljd3oxNUZoNy0yTE9PeXl2VVpLb1pJS2VPenBTVkkyUEc1cS0wbHQ4ODNWQzFwcw?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "2c63ef07745cc805",
-          "title": "Poland warns Russia may be preparing 'false flag' attack after Putin threats - Anadolu Ajansı",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQcFdnSllJX1k3b09weTl3RGJKeWFSRnhKdXppZ1Z1LXNnLWRWLVcyOVNxZWl5UTdZaFRVb2dYcXhPWkFkMTNpUVYyeE40WjlwQW9Xdko2SWJ3Nks1OHN2X1RpYk1NWEZQQmoxa0FqaFpfTWRSRkhHM1o0UUEtSHE4aUlmNncyN0lGdzIzNG9hWW0wbmN5cVFvNFZUVEZEVklEbnVRUkdfZDNFRFkxc0ZScEtXdzE?oc=5",
-          "published_at": "2026-06-24T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 10,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "c8767fe1f3baa090",
-          "title": "Germany Scraps €18 Billion F126 Frigate Program as NATO Races to Counter Russian Submarine Threat in Baltic Sea - Defence Security Asia",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPQnhQVHgxbWFMb0VlSHRyUEJENUFKeVlPay1BZzJFbFFvZmhwUENpSE1rNm1HUzhaWXRMUXlDQUtiMEtkYnpTWFRTNmFmZGlLb0hab1RFMU5FT2V2Z3NZSkhkRmhlNDUyNVZTamMwTlpfUEh1dzI4azZ6bng0WkVKMFVZRFMzanVQd3RYVlZWSWJlb29xU3Q5TVpTdHBqZUViYUY5d3BJYVI2UFU?oc=5",
-          "published_at": "2026-06-24T17:08:56+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "033420a792ebff8f",
-          "title": "Estonia to quarantine emails sent from Russian .ru domain before they reach government officials - The Record from Recorded Future News",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE14czNNMTkxTlY4VVpORHh3MFpkMnc5VkZxNENROWJiMS12NmpiZlNDcFVCaHBWSW9Wa3lXajgzYlRtbUJoTjluNmpORGVIb3d5ZTNCWFZ3YzhlemJyeEVubU5rNkVIaVlB?oc=5",
-          "published_at": "2026-06-15T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "guarded"
-        },
-        {
-          "id": "133ee904f9254f40",
-          "title": "Suspect in killing of artist critical of Putin arrested in Poland - 1News",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPRTlRc3JOMjdjOFoxWEI5SFJIM295Z2toRlFhT0VOZktMcnJGU0FLcnkyMnZrODg4RlQ1dE1MWXVzcElheXk3Q0M5SkZnX2xKYkNNbFpnUkIzaE1PejdqU0RvUHNXc1MtMVo1eUpjUTlvZ0NOaE9yQ1FOR2I1VlRITVpta3FJTTFqODBlZmw2azJRYWZSYlVqdDFwT0ZzT1RoTGhJ?oc=5",
-          "published_at": "2026-06-19T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 1,
-          "hybrid_threat_level": "low"
-        },
-        {
-          "id": "0dafef5d9db27e71",
-          "title": "Poland prepares to stand its ground with massive new civil defence programme - France 24",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNLVpzdUxOcDNmN2Z4Yk10ajJtREJSNkhtZ3hOZnQ3NkpKekJ0ZHljQnBaTkZabUJQUGZUaHpfUHlwYklxUHZJZy1IalNSaXBydFd2bDQwSzRPQy1pT3A1cWduU0ZsWmxyV3ViRHZSNGRfQncwODRQcTFsUS1ReDE1ZnhVUC04MEg1eVI1LWd1M0RzZF9EdG5lU3JjR2ljdk0?oc=5",
-          "published_at": "2026-06-11T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 1,
-          "hybrid_threat_level": "low"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-25",
-      "generated_at": "2026-07-04T20:40:48.595762+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.595765+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-12",
-        "end_date": "2026-06-25"
-      },
-      "overall": {
-        "incident_count": 7,
-        "score_total": 87,
-        "average_score": 12.43,
-        "highest_score": 28,
-        "overall_level": "high"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5,
-          "level": "guarded",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 4,
-          "score_total": 71,
-          "average_score": 17.75,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 5,
-          "score_total": 75,
-          "average_score": 15.0,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        }
-      },
-      "top_items": [
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "11b67904b0008f21",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "60cb077638bab3b1",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n0gHzAUFVX3lxTE53U2NXendxdjJTOWZnWEQ5OXNrUklqbndLdUdHcG5OTTAzdk5Tamd1TmI3Q3p0ekJrYTRrMTVlVUFTWE5HNDUzbmo5Y3diZkhuWDBmTm1HOHkwZlNIZ2t1aVZyeFFmWTljQ05aZU5mN1FOU1RtLXRrcWp4ellVU3FNakh3MVhGNWxVOHp3UWJXTTRKc19lcGxoanJHNHloSThmTnpRdk91V29mclFUUkRKWHM0RmJTQjJ1V3A5ZzdsV3pPazljd3oxNUZoNy0yTE9PeXl2VVpLb1pJS2VPenBTVkkyUEc1cS0wbHQ4ODNWQzFwcw?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "2c63ef07745cc805",
-          "title": "Poland warns Russia may be preparing 'false flag' attack after Putin threats - Anadolu Ajansı",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQcFdnSllJX1k3b09weTl3RGJKeWFSRnhKdXppZ1Z1LXNnLWRWLVcyOVNxZWl5UTdZaFRVb2dYcXhPWkFkMTNpUVYyeE40WjlwQW9Xdko2SWJ3Nks1OHN2X1RpYk1NWEZQQmoxa0FqaFpfTWRSRkhHM1o0UUEtSHE4aUlmNncyN0lGdzIzNG9hWW0wbmN5cVFvNFZUVEZEVklEbnVRUkdfZDNFRFkxc0ZScEtXdzE?oc=5",
-          "published_at": "2026-06-24T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 10,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "c8767fe1f3baa090",
-          "title": "Germany Scraps €18 Billion F126 Frigate Program as NATO Races to Counter Russian Submarine Threat in Baltic Sea - Defence Security Asia",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPQnhQVHgxbWFMb0VlSHRyUEJENUFKeVlPay1BZzJFbFFvZmhwUENpSE1rNm1HUzhaWXRMUXlDQUtiMEtkYnpTWFRTNmFmZGlLb0hab1RFMU5FT2V2Z3NZSkhkRmhlNDUyNVZTamMwTlpfUEh1dzI4azZ6bng0WkVKMFVZRFMzanVQd3RYVlZWSWJlb29xU3Q5TVpTdHBqZUViYUY5d3BJYVI2UFU?oc=5",
-          "published_at": "2026-06-24T17:08:56+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "033420a792ebff8f",
-          "title": "Estonia to quarantine emails sent from Russian .ru domain before they reach government officials - The Record from Recorded Future News",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE14czNNMTkxTlY4VVpORHh3MFpkMnc5VkZxNENROWJiMS12NmpiZlNDcFVCaHBWSW9Wa3lXajgzYlRtbUJoTjluNmpORGVIb3d5ZTNCWFZ3YzhlemJyeEVubU5rNkVIaVlB?oc=5",
-          "published_at": "2026-06-15T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "guarded"
-        },
-        {
-          "id": "133ee904f9254f40",
-          "title": "Suspect in killing of artist critical of Putin arrested in Poland - 1News",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPRTlRc3JOMjdjOFoxWEI5SFJIM295Z2toRlFhT0VOZktMcnJGU0FLcnkyMnZrODg4RlQ1dE1MWXVzcElheXk3Q0M5SkZnX2xKYkNNbFpnUkIzaE1PejdqU0RvUHNXc1MtMVo1eUpjUTlvZ0NOaE9yQ1FOR2I1VlRITVpta3FJTTFqODBlZmw2azJRYWZSYlVqdDFwT0ZzT1RoTGhJ?oc=5",
-          "published_at": "2026-06-19T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 1,
-          "hybrid_threat_level": "low"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-26",
-      "generated_at": "2026-07-04T20:40:48.595848+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.595850+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-13",
-        "end_date": "2026-06-26"
-      },
-      "overall": {
-        "incident_count": 10,
-        "score_total": 118,
-        "average_score": 11.8,
-        "highest_score": 28,
-        "overall_level": "elevated"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5,
-          "level": "guarded",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 4,
-          "score_total": 71,
-          "average_score": 17.75,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 7,
-          "score_total": 99,
-          "average_score": 14.14,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 3
-          }
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 3,
-          "score_total": 52,
-          "average_score": 17.33,
-          "highest_score": 28
-        }
-      },
-      "top_items": [
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "11b67904b0008f21",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "60cb077638bab3b1",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n0gHzAUFVX3lxTE53U2NXendxdjJTOWZnWEQ5OXNrUklqbndLdUdHcG5OTTAzdk5Tamd1TmI3Q3p0ekJrYTRrMTVlVUFTWE5HNDUzbmo5Y3diZkhuWDBmTm1HOHkwZlNIZ2t1aVZyeFFmWTljQ05aZU5mN1FOU1RtLXRrcWp4ellVU3FNakh3MVhGNWxVOHp3UWJXTTRKc19lcGxoanJHNHloSThmTnpRdk91V29mclFUUkRKWHM0RmJTQjJ1V3A5ZzdsV3pPazljd3oxNUZoNy0yTE9PeXl2VVpLb1pJS2VPenBTVkkyUEc1cS0wbHQ4ODNWQzFwcw?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "41e641c8df955814",
-          "title": "NATO allies warn of possible Russian provocations in Baltics, Poland - MSN",
-          "url": "https://news.google.com/rss/articles/CBMisAJBVV95cUxNdC1BNjN1VkdMcncwV2JqQ2xyQ25oNUV6VkpIb3FUVTBBbkhjcUpNS1pLYXEyMGo4OU5Zc3VHaDRRQ1JRYWxxdVU1ZDRISkFVWUtVRjMtSzM3T3hESnpOa3RBRElpdW5OSExxcXpWU3FSTkNaejZpRUpoeS1PQXAxUlB2elp6bV9nVGliZlB6cVpPRWdWQjlSa3JldF9yaDJhR3NnOEVrX2V0SG95Q1RsekVweE50Sm15Ykl1RWh4QUxzS3JDVWNiMFBJMUhqYzZ0NUZtY2o3N3huVGZrNTlFVC1yemV3TXpOamdSNEpYTW1XX3NZdHd0TEp3LWF0dENacFZ3OW50akhwTDBBSFJFYnRFTko3X1EtWWJOSFBXbUJESlVDSlZHZkpNb2hoem9I?oc=5",
-          "published_at": "2026-06-26T00:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 13,
-          "hybrid_threat_level": "high"
-        },
-        {
-          "id": "7bdb3d379902dfbb",
-          "title": "Russia preparing possible ‘provocation’ in Baltic states or Poland, sources say - The Guardian",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPa3llSW9ZbWYxQjRaOEFqdnVCVkhFWmM0eEZyX21vQk5pWHpOMU03bm1JOUh2TUY4X1NvNVpvY2RlN0lWTDBUVnlSYVQ0RlJBTVpXLXc5UUVWelRMeHpid1A3c2ZnOFV0Snh0Qk1OTUozVFJnMTBtc2JtekE5SHZOaHhWT1lsLXdVb2w3Mk9B?oc=5",
-          "published_at": "2026-06-26T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 11,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "2c63ef07745cc805",
-          "title": "Poland warns Russia may be preparing 'false flag' attack after Putin threats - Anadolu Ajansı",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQcFdnSllJX1k3b09weTl3RGJKeWFSRnhKdXppZ1Z1LXNnLWRWLVcyOVNxZWl5UTdZaFRVb2dYcXhPWkFkMTNpUVYyeE40WjlwQW9Xdko2SWJ3Nks1OHN2X1RpYk1NWEZQQmoxa0FqaFpfTWRSRkhHM1o0UUEtSHE4aUlmNncyN0lGdzIzNG9hWW0wbmN5cVFvNFZUVEZEVklEbnVRUkdfZDNFRFkxc0ZScEtXdzE?oc=5",
-          "published_at": "2026-06-24T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 10,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "d0a8cb4981638849",
-          "title": "NATO members warn of Russian hybrid threat to eastern flank - MSN",
-          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOOEY0Q3dIRU1BZ3pPMnYzYy11NFRJRmVSbDhtNkZzeEhLR2FTR2J5UGltbDZMbFdZR2QyWHRZMjdDM3NjVnZtaVVpbjRZazltMkpIVmZ0RDRXelgtV00yMGFuWjRGWGNhaV96ZVo3VXNSbjQ2ZXVjSXU4M3gwS3VYSW1EaGo2OUd0MkNiQ1pvaGhBS2lIb0VEWkxVbFBQNXpLbkF5blVOdEM3ZkRUbXJIRVYtUHZPNXVxTHJjNWV1QkYwbUZZcV9zM28tMnJkR2d4bFpKZ1A0dFg4bFd5X3E1NTJzWTZZMVpaU0tHT20xS0o0TWs?oc=5",
-          "published_at": "2026-06-26T16:52:22+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [],
-          "categories": [],
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "c8767fe1f3baa090",
-          "title": "Germany Scraps €18 Billion F126 Frigate Program as NATO Races to Counter Russian Submarine Threat in Baltic Sea - Defence Security Asia",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPQnhQVHgxbWFMb0VlSHRyUEJENUFKeVlPay1BZzJFbFFvZmhwUENpSE1rNm1HUzhaWXRMUXlDQUtiMEtkYnpTWFRTNmFmZGlLb0hab1RFMU5FT2V2Z3NZSkhkRmhlNDUyNVZTamMwTlpfUEh1dzI4azZ6bng0WkVKMFVZRFMzanVQd3RYVlZWSWJlb29xU3Q5TVpTdHBqZUViYUY5d3BJYVI2UFU?oc=5",
-          "published_at": "2026-06-24T17:08:56+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "033420a792ebff8f",
-          "title": "Estonia to quarantine emails sent from Russian .ru domain before they reach government officials - The Record from Recorded Future News",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE14czNNMTkxTlY4VVpORHh3MFpkMnc5VkZxNENROWJiMS12NmpiZlNDcFVCaHBWSW9Wa3lXajgzYlRtbUJoTjluNmpORGVIb3d5ZTNCWFZ3YzhlemJyeEVubU5rNkVIaVlB?oc=5",
-          "published_at": "2026-06-15T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "guarded"
-        },
-        {
-          "id": "133ee904f9254f40",
-          "title": "Suspect in killing of artist critical of Putin arrested in Poland - 1News",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPRTlRc3JOMjdjOFoxWEI5SFJIM295Z2toRlFhT0VOZktMcnJGU0FLcnkyMnZrODg4RlQ1dE1MWXVzcElheXk3Q0M5SkZnX2xKYkNNbFpnUkIzaE1PejdqU0RvUHNXc1MtMVo1eUpjUTlvZ0NOaE9yQ1FOR2I1VlRITVpta3FJTTFqODBlZmw2azJRYWZSYlVqdDFwT0ZzT1RoTGhJ?oc=5",
-          "published_at": "2026-06-19T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 1,
-          "hybrid_threat_level": "low"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-27",
-      "generated_at": "2026-07-04T20:40:48.595941+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.595943+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-14",
-        "end_date": "2026-06-27"
-      },
-      "overall": {
-        "incident_count": 10,
-        "score_total": 118,
-        "average_score": 11.8,
-        "highest_score": 28,
-        "overall_level": "elevated"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5,
-          "level": "guarded",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 4,
-          "score_total": 71,
-          "average_score": 17.75,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 7,
-          "score_total": 99,
-          "average_score": 14.14,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 3
-          }
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 3,
-          "score_total": 52,
-          "average_score": 17.33,
-          "highest_score": 28
-        }
-      },
-      "top_items": [
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "11b67904b0008f21",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "60cb077638bab3b1",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n0gHzAUFVX3lxTE53U2NXendxdjJTOWZnWEQ5OXNrUklqbndLdUdHcG5OTTAzdk5Tamd1TmI3Q3p0ekJrYTRrMTVlVUFTWE5HNDUzbmo5Y3diZkhuWDBmTm1HOHkwZlNIZ2t1aVZyeFFmWTljQ05aZU5mN1FOU1RtLXRrcWp4ellVU3FNakh3MVhGNWxVOHp3UWJXTTRKc19lcGxoanJHNHloSThmTnpRdk91V29mclFUUkRKWHM0RmJTQjJ1V3A5ZzdsV3pPazljd3oxNUZoNy0yTE9PeXl2VVpLb1pJS2VPenBTVkkyUEc1cS0wbHQ4ODNWQzFwcw?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "41e641c8df955814",
-          "title": "NATO allies warn of possible Russian provocations in Baltics, Poland - MSN",
-          "url": "https://news.google.com/rss/articles/CBMisAJBVV95cUxNdC1BNjN1VkdMcncwV2JqQ2xyQ25oNUV6VkpIb3FUVTBBbkhjcUpNS1pLYXEyMGo4OU5Zc3VHaDRRQ1JRYWxxdVU1ZDRISkFVWUtVRjMtSzM3T3hESnpOa3RBRElpdW5OSExxcXpWU3FSTkNaejZpRUpoeS1PQXAxUlB2elp6bV9nVGliZlB6cVpPRWdWQjlSa3JldF9yaDJhR3NnOEVrX2V0SG95Q1RsekVweE50Sm15Ykl1RWh4QUxzS3JDVWNiMFBJMUhqYzZ0NUZtY2o3N3huVGZrNTlFVC1yemV3TXpOamdSNEpYTW1XX3NZdHd0TEp3LWF0dENacFZ3OW50akhwTDBBSFJFYnRFTko3X1EtWWJOSFBXbUJESlVDSlZHZkpNb2hoem9I?oc=5",
-          "published_at": "2026-06-26T00:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 13,
-          "hybrid_threat_level": "high"
-        },
-        {
-          "id": "7bdb3d379902dfbb",
-          "title": "Russia preparing possible ‘provocation’ in Baltic states or Poland, sources say - The Guardian",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPa3llSW9ZbWYxQjRaOEFqdnVCVkhFWmM0eEZyX21vQk5pWHpOMU03bm1JOUh2TUY4X1NvNVpvY2RlN0lWTDBUVnlSYVQ0RlJBTVpXLXc5UUVWelRMeHpid1A3c2ZnOFV0Snh0Qk1OTUozVFJnMTBtc2JtekE5SHZOaHhWT1lsLXdVb2w3Mk9B?oc=5",
-          "published_at": "2026-06-26T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 11,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "2c63ef07745cc805",
-          "title": "Poland warns Russia may be preparing 'false flag' attack after Putin threats - Anadolu Ajansı",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQcFdnSllJX1k3b09weTl3RGJKeWFSRnhKdXppZ1Z1LXNnLWRWLVcyOVNxZWl5UTdZaFRVb2dYcXhPWkFkMTNpUVYyeE40WjlwQW9Xdko2SWJ3Nks1OHN2X1RpYk1NWEZQQmoxa0FqaFpfTWRSRkhHM1o0UUEtSHE4aUlmNncyN0lGdzIzNG9hWW0wbmN5cVFvNFZUVEZEVklEbnVRUkdfZDNFRFkxc0ZScEtXdzE?oc=5",
-          "published_at": "2026-06-24T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 10,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "d0a8cb4981638849",
-          "title": "NATO members warn of Russian hybrid threat to eastern flank - MSN",
-          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOOEY0Q3dIRU1BZ3pPMnYzYy11NFRJRmVSbDhtNkZzeEhLR2FTR2J5UGltbDZMbFdZR2QyWHRZMjdDM3NjVnZtaVVpbjRZazltMkpIVmZ0RDRXelgtV00yMGFuWjRGWGNhaV96ZVo3VXNSbjQ2ZXVjSXU4M3gwS3VYSW1EaGo2OUd0MkNiQ1pvaGhBS2lIb0VEWkxVbFBQNXpLbkF5blVOdEM3ZkRUbXJIRVYtUHZPNXVxTHJjNWV1QkYwbUZZcV9zM28tMnJkR2d4bFpKZ1A0dFg4bFd5X3E1NTJzWTZZMVpaU0tHT20xS0o0TWs?oc=5",
-          "published_at": "2026-06-26T16:52:22+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [],
-          "categories": [],
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "c8767fe1f3baa090",
-          "title": "Germany Scraps €18 Billion F126 Frigate Program as NATO Races to Counter Russian Submarine Threat in Baltic Sea - Defence Security Asia",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPQnhQVHgxbWFMb0VlSHRyUEJENUFKeVlPay1BZzJFbFFvZmhwUENpSE1rNm1HUzhaWXRMUXlDQUtiMEtkYnpTWFRTNmFmZGlLb0hab1RFMU5FT2V2Z3NZSkhkRmhlNDUyNVZTamMwTlpfUEh1dzI4azZ6bng0WkVKMFVZRFMzanVQd3RYVlZWSWJlb29xU3Q5TVpTdHBqZUViYUY5d3BJYVI2UFU?oc=5",
-          "published_at": "2026-06-24T17:08:56+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "033420a792ebff8f",
-          "title": "Estonia to quarantine emails sent from Russian .ru domain before they reach government officials - The Record from Recorded Future News",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE14czNNMTkxTlY4VVpORHh3MFpkMnc5VkZxNENROWJiMS12NmpiZlNDcFVCaHBWSW9Wa3lXajgzYlRtbUJoTjluNmpORGVIb3d5ZTNCWFZ3YzhlemJyeEVubU5rNkVIaVlB?oc=5",
-          "published_at": "2026-06-15T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "guarded"
-        },
-        {
-          "id": "133ee904f9254f40",
-          "title": "Suspect in killing of artist critical of Putin arrested in Poland - 1News",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPRTlRc3JOMjdjOFoxWEI5SFJIM295Z2toRlFhT0VOZktMcnJGU0FLcnkyMnZrODg4RlQ1dE1MWXVzcElheXk3Q0M5SkZnX2xKYkNNbFpnUkIzaE1PejdqU0RvUHNXc1MtMVo1eUpjUTlvZ0NOaE9yQ1FOR2I1VlRITVpta3FJTTFqODBlZmw2azJRYWZSYlVqdDFwT0ZzT1RoTGhJ?oc=5",
-          "published_at": "2026-06-19T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 1,
-          "hybrid_threat_level": "low"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-28",
-      "generated_at": "2026-07-04T20:40:48.596076+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.596078+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-15",
-        "end_date": "2026-06-28"
-      },
-      "overall": {
-        "incident_count": 11,
-        "score_total": 127,
-        "average_score": 11.55,
-        "highest_score": 28,
-        "overall_level": "elevated"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5,
-          "level": "guarded",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 4,
-          "score_total": 71,
-          "average_score": 17.75,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 8,
-          "score_total": 108,
-          "average_score": 13.5,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 3
-          }
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 3,
-          "score_total": 52,
-          "average_score": 17.33,
-          "highest_score": 28
-        }
-      },
-      "top_items": [
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "11b67904b0008f21",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "60cb077638bab3b1",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n0gHzAUFVX3lxTE53U2NXendxdjJTOWZnWEQ5OXNrUklqbndLdUdHcG5OTTAzdk5Tamd1TmI3Q3p0ekJrYTRrMTVlVUFTWE5HNDUzbmo5Y3diZkhuWDBmTm1HOHkwZlNIZ2t1aVZyeFFmWTljQ05aZU5mN1FOU1RtLXRrcWp4ellVU3FNakh3MVhGNWxVOHp3UWJXTTRKc19lcGxoanJHNHloSThmTnpRdk91V29mclFUUkRKWHM0RmJTQjJ1V3A5ZzdsV3pPazljd3oxNUZoNy0yTE9PeXl2VVpLb1pJS2VPenBTVkkyUEc1cS0wbHQ4ODNWQzFwcw?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "41e641c8df955814",
-          "title": "NATO allies warn of possible Russian provocations in Baltics, Poland - MSN",
-          "url": "https://news.google.com/rss/articles/CBMisAJBVV95cUxNdC1BNjN1VkdMcncwV2JqQ2xyQ25oNUV6VkpIb3FUVTBBbkhjcUpNS1pLYXEyMGo4OU5Zc3VHaDRRQ1JRYWxxdVU1ZDRISkFVWUtVRjMtSzM3T3hESnpOa3RBRElpdW5OSExxcXpWU3FSTkNaejZpRUpoeS1PQXAxUlB2elp6bV9nVGliZlB6cVpPRWdWQjlSa3JldF9yaDJhR3NnOEVrX2V0SG95Q1RsekVweE50Sm15Ykl1RWh4QUxzS3JDVWNiMFBJMUhqYzZ0NUZtY2o3N3huVGZrNTlFVC1yemV3TXpOamdSNEpYTW1XX3NZdHd0TEp3LWF0dENacFZ3OW50akhwTDBBSFJFYnRFTko3X1EtWWJOSFBXbUJESlVDSlZHZkpNb2hoem9I?oc=5",
-          "published_at": "2026-06-26T00:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 13,
-          "hybrid_threat_level": "high"
-        },
-        {
-          "id": "7bdb3d379902dfbb",
-          "title": "Russia preparing possible ‘provocation’ in Baltic states or Poland, sources say - The Guardian",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPa3llSW9ZbWYxQjRaOEFqdnVCVkhFWmM0eEZyX21vQk5pWHpOMU03bm1JOUh2TUY4X1NvNVpvY2RlN0lWTDBUVnlSYVQ0RlJBTVpXLXc5UUVWelRMeHpid1A3c2ZnOFV0Snh0Qk1OTUozVFJnMTBtc2JtekE5SHZOaHhWT1lsLXdVb2w3Mk9B?oc=5",
-          "published_at": "2026-06-26T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 11,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "2c63ef07745cc805",
-          "title": "Poland warns Russia may be preparing 'false flag' attack after Putin threats - Anadolu Ajansı",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQcFdnSllJX1k3b09weTl3RGJKeWFSRnhKdXppZ1Z1LXNnLWRWLVcyOVNxZWl5UTdZaFRVb2dYcXhPWkFkMTNpUVYyeE40WjlwQW9Xdko2SWJ3Nks1OHN2X1RpYk1NWEZQQmoxa0FqaFpfTWRSRkhHM1o0UUEtSHE4aUlmNncyN0lGdzIzNG9hWW0wbmN5cVFvNFZUVEZEVklEbnVRUkdfZDNFRFkxc0ZScEtXdzE?oc=5",
-          "published_at": "2026-06-24T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 10,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "5925896f42566c95",
-          "title": "Poland warns Russia may stage false-flag attack amid rising tensions - MSN",
-          "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPcE41clRXMkFLTlFQUklfS25XT1hhekxvU2NrekZHRUd0dWhXR2NYcXU0NDRXaUJFQWEtTnRHLUxGRXdhbzVPRU9NNjZLS2pQajFUOEE4MEVGN0xkZGdGSnhYUmFFZG5wQkxaWXdGMHA1QnlfdDdSTFZOWDlDU0xLd3FEZE8zVTI4eHNZRG1ibFpGYjVMT1V0aER3OTRtMGx4alMzQW1pMkhxTDN1c2pwMkhCV2V1TXBZQzlBbXJmM0JueklFY19QUzR4ZlFUM1JCRlEwclktZHZoNjJSUEVUWTgyX3djemFuSGlKZDZRRHZrY2J2RUFfbkFaZ2dDM1k?oc=5",
-          "published_at": "2026-06-28T20:43:14+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 9,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "d0a8cb4981638849",
-          "title": "NATO members warn of Russian hybrid threat to eastern flank - MSN",
-          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOOEY0Q3dIRU1BZ3pPMnYzYy11NFRJRmVSbDhtNkZzeEhLR2FTR2J5UGltbDZMbFdZR2QyWHRZMjdDM3NjVnZtaVVpbjRZazltMkpIVmZ0RDRXelgtV00yMGFuWjRGWGNhaV96ZVo3VXNSbjQ2ZXVjSXU4M3gwS3VYSW1EaGo2OUd0MkNiQ1pvaGhBS2lIb0VEWkxVbFBQNXpLbkF5blVOdEM3ZkRUbXJIRVYtUHZPNXVxTHJjNWV1QkYwbUZZcV9zM28tMnJkR2d4bFpKZ1A0dFg4bFd5X3E1NTJzWTZZMVpaU0tHT20xS0o0TWs?oc=5",
-          "published_at": "2026-06-26T16:52:22+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [],
-          "categories": [],
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "c8767fe1f3baa090",
-          "title": "Germany Scraps €18 Billion F126 Frigate Program as NATO Races to Counter Russian Submarine Threat in Baltic Sea - Defence Security Asia",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPQnhQVHgxbWFMb0VlSHRyUEJENUFKeVlPay1BZzJFbFFvZmhwUENpSE1rNm1HUzhaWXRMUXlDQUtiMEtkYnpTWFRTNmFmZGlLb0hab1RFMU5FT2V2Z3NZSkhkRmhlNDUyNVZTamMwTlpfUEh1dzI4azZ6bng0WkVKMFVZRFMzanVQd3RYVlZWSWJlb29xU3Q5TVpTdHBqZUViYUY5d3BJYVI2UFU?oc=5",
-          "published_at": "2026-06-24T17:08:56+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "033420a792ebff8f",
-          "title": "Estonia to quarantine emails sent from Russian .ru domain before they reach government officials - The Record from Recorded Future News",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE14czNNMTkxTlY4VVpORHh3MFpkMnc5VkZxNENROWJiMS12NmpiZlNDcFVCaHBWSW9Wa3lXajgzYlRtbUJoTjluNmpORGVIb3d5ZTNCWFZ3YzhlemJyeEVubU5rNkVIaVlB?oc=5",
-          "published_at": "2026-06-15T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "guarded"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-29",
-      "generated_at": "2026-07-04T20:40:48.596169+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.596172+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-16",
-        "end_date": "2026-06-29"
-      },
-      "overall": {
-        "incident_count": 13,
-        "score_total": 172,
-        "average_score": 13.23,
-        "highest_score": 28,
-        "overall_level": "high"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 4,
-          "score_total": 71,
-          "average_score": 17.75,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 2,
-          "score_total": 46,
-          "average_score": 23.0,
-          "highest_score": 24,
-          "level": "critical",
-          "categories": {
-            "sabotage": 2
-          }
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 9,
-          "score_total": 112,
-          "average_score": 12.44,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 3
-          }
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 3,
-          "score_total": 52,
-          "average_score": 17.33,
-          "highest_score": 28
-        },
-        "sabotage": {
-          "category": "sabotage",
-          "incident_count": 2,
-          "score_total": 46,
-          "average_score": 23.0,
-          "highest_score": 24
-        }
-      },
-      "top_items": [
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "a96a6da4001202aa",
-          "title": "Lithuania sees no signs of Russian attack on Baltics but warns of sabotage risk - The New Voice of Ukraine",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQS0RFTENSd2NfYUZzRFE5MkttUi1JM3lkUzBKQVpKcWxWSHlaeXdKYVpaazRtT2EzZ1B4VTlPYm5aTzMzSS0zVERiQnRvNEk4Umt6TGpHNUlJSE53aXhWRGhldkMwXzFiMjMwc2pVb2I2ZF85MmdjUk5Zak5VT3IwZURHMHhVN0ZzbHNTZkZQSVpTWkxTNnllNDN6ckpoN09mNy1QWm5OY1haYXNZanpRaEU1VzU5Q2JmcUVfdEtUd9IBtAFBVV95cUxNdHZVLXg0TWJtZjlnVC1uYkFpTFpVYmhJY19aMWQzTXVEZzVhSGEzek4wLUpVZTVXZHlUc1cxVGttTkRFOHFkNjBHTjRrcmp5UDZJY3pKWUkzLXhVeEdhRmZOU2lXRjFfRnl3Y0ZRQzJiUGlXbDBieDN0UnBBSWt0SG9pZUVHTjRXaHRvY0NYMS03akVIVDJ6aXVxNEVrRUNEc1ZiNG51M184WllZc3JWaXZhMHA?oc=5",
-          "published_at": "2026-06-29T13:30:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 24,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "4cfb56350a803f27",
-          "title": "Lithuania says no signs of Russia preparing attack on Baltic states, but sabotage threat remains high - Українська правда",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5fTHE3UWpRdEFsd3FWaFZaZWN2SnNPakFreGt2aU1maEV2RV9idi1rQkt5d2dqZ0h5RW1mVG1lWFRlMWhTbTRrb3JIMnUyaTBFRXpwWWtYR3l6S2lHY2M1cDdVQU_SAXBBVV95cUxPQ1BRcjRLN3NxUF9aRXFKdUVMdnpMR3FnVXZZOE5hQXdyM2RJWXRfVGlGVEZCMkNjbU9KNVRvRlpnR3BlcnFLeUdSdkZzOWlwaDcxNHFGTFI3TnRMcDFmX2gwVXdpQ2d2YV9mM2tHRTN2?oc=5",
-          "published_at": "2026-06-29T09:26:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 22,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "11b67904b0008f21",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "60cb077638bab3b1",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n0gHzAUFVX3lxTE53U2NXendxdjJTOWZnWEQ5OXNrUklqbndLdUdHcG5OTTAzdk5Tamd1TmI3Q3p0ekJrYTRrMTVlVUFTWE5HNDUzbmo5Y3diZkhuWDBmTm1HOHkwZlNIZ2t1aVZyeFFmWTljQ05aZU5mN1FOU1RtLXRrcWp4ellVU3FNakh3MVhGNWxVOHp3UWJXTTRKc19lcGxoanJHNHloSThmTnpRdk91V29mclFUUkRKWHM0RmJTQjJ1V3A5ZzdsV3pPazljd3oxNUZoNy0yTE9PeXl2VVpLb1pJS2VPenBTVkkyUEc1cS0wbHQ4ODNWQzFwcw?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "41e641c8df955814",
-          "title": "NATO allies warn of possible Russian provocations in Baltics, Poland - MSN",
-          "url": "https://news.google.com/rss/articles/CBMisAJBVV95cUxNdC1BNjN1VkdMcncwV2JqQ2xyQ25oNUV6VkpIb3FUVTBBbkhjcUpNS1pLYXEyMGo4OU5Zc3VHaDRRQ1JRYWxxdVU1ZDRISkFVWUtVRjMtSzM3T3hESnpOa3RBRElpdW5OSExxcXpWU3FSTkNaejZpRUpoeS1PQXAxUlB2elp6bV9nVGliZlB6cVpPRWdWQjlSa3JldF9yaDJhR3NnOEVrX2V0SG95Q1RsekVweE50Sm15Ykl1RWh4QUxzS3JDVWNiMFBJMUhqYzZ0NUZtY2o3N3huVGZrNTlFVC1yemV3TXpOamdSNEpYTW1XX3NZdHd0TEp3LWF0dENacFZ3OW50akhwTDBBSFJFYnRFTko3X1EtWWJOSFBXbUJESlVDSlZHZkpNb2hoem9I?oc=5",
-          "published_at": "2026-06-26T00:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 13,
-          "hybrid_threat_level": "high"
-        },
-        {
-          "id": "7bdb3d379902dfbb",
-          "title": "Russia preparing possible ‘provocation’ in Baltic states or Poland, sources say - The Guardian",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPa3llSW9ZbWYxQjRaOEFqdnVCVkhFWmM0eEZyX21vQk5pWHpOMU03bm1JOUh2TUY4X1NvNVpvY2RlN0lWTDBUVnlSYVQ0RlJBTVpXLXc5UUVWelRMeHpid1A3c2ZnOFV0Snh0Qk1OTUozVFJnMTBtc2JtekE5SHZOaHhWT1lsLXdVb2w3Mk9B?oc=5",
-          "published_at": "2026-06-26T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 11,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "2c63ef07745cc805",
-          "title": "Poland warns Russia may be preparing 'false flag' attack after Putin threats - Anadolu Ajansı",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQcFdnSllJX1k3b09weTl3RGJKeWFSRnhKdXppZ1Z1LXNnLWRWLVcyOVNxZWl5UTdZaFRVb2dYcXhPWkFkMTNpUVYyeE40WjlwQW9Xdko2SWJ3Nks1OHN2X1RpYk1NWEZQQmoxa0FqaFpfTWRSRkhHM1o0UUEtSHE4aUlmNncyN0lGdzIzNG9hWW0wbmN5cVFvNFZUVEZEVklEbnVRUkdfZDNFRFkxc0ZScEtXdzE?oc=5",
-          "published_at": "2026-06-24T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 10,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "5925896f42566c95",
-          "title": "Poland warns Russia may stage false-flag attack amid rising tensions - MSN",
-          "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPcE41clRXMkFLTlFQUklfS25XT1hhekxvU2NrekZHRUd0dWhXR2NYcXU0NDRXaUJFQWEtTnRHLUxGRXdhbzVPRU9NNjZLS2pQajFUOEE4MEVGN0xkZGdGSnhYUmFFZG5wQkxaWXdGMHA1QnlfdDdSTFZOWDlDU0xLd3FEZE8zVTI4eHNZRG1ibFpGYjVMT1V0aER3OTRtMGx4alMzQW1pMkhxTDN1c2pwMkhCV2V1TXBZQzlBbXJmM0JueklFY19QUzR4ZlFUM1JCRlEwclktZHZoNjJSUEVUWTgyX3djemFuSGlKZDZRRHZrY2J2RUFfbkFaZ2dDM1k?oc=5",
-          "published_at": "2026-06-28T20:43:14+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 9,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "d0a8cb4981638849",
-          "title": "NATO members warn of Russian hybrid threat to eastern flank - MSN",
-          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOOEY0Q3dIRU1BZ3pPMnYzYy11NFRJRmVSbDhtNkZzeEhLR2FTR2J5UGltbDZMbFdZR2QyWHRZMjdDM3NjVnZtaVVpbjRZazltMkpIVmZ0RDRXelgtV00yMGFuWjRGWGNhaV96ZVo3VXNSbjQ2ZXVjSXU4M3gwS3VYSW1EaGo2OUd0MkNiQ1pvaGhBS2lIb0VEWkxVbFBQNXpLbkF5blVOdEM3ZkRUbXJIRVYtUHZPNXVxTHJjNWV1QkYwbUZZcV9zM28tMnJkR2d4bFpKZ1A0dFg4bFd5X3E1NTJzWTZZMVpaU0tHT20xS0o0TWs?oc=5",
-          "published_at": "2026-06-26T16:52:22+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [],
-          "categories": [],
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "elevated"
-        }
-      ]
-    },
-    {
-      "date": "2026-06-30",
-      "generated_at": "2026-07-04T20:40:48.596267+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.596269+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-17",
-        "end_date": "2026-06-30"
-      },
-      "overall": {
-        "incident_count": 14,
-        "score_total": 176,
-        "average_score": 12.57,
-        "highest_score": 28,
-        "overall_level": "high"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 4,
-          "score_total": 71,
-          "average_score": 17.75,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 2,
-          "score_total": 46,
-          "average_score": 23.0,
-          "highest_score": 24,
-          "level": "critical",
-          "categories": {
-            "sabotage": 2
-          }
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 10,
-          "score_total": 116,
-          "average_score": 11.6,
-          "highest_score": 28,
-          "level": "elevated",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 3
-          }
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 3,
-          "score_total": 52,
-          "average_score": 17.33,
-          "highest_score": 28
-        },
-        "sabotage": {
-          "category": "sabotage",
-          "incident_count": 2,
-          "score_total": 46,
-          "average_score": 23.0,
-          "highest_score": 24
-        }
-      },
-      "top_items": [
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "a96a6da4001202aa",
-          "title": "Lithuania sees no signs of Russian attack on Baltics but warns of sabotage risk - The New Voice of Ukraine",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQS0RFTENSd2NfYUZzRFE5MkttUi1JM3lkUzBKQVpKcWxWSHlaeXdKYVpaazRtT2EzZ1B4VTlPYm5aTzMzSS0zVERiQnRvNEk4Umt6TGpHNUlJSE53aXhWRGhldkMwXzFiMjMwc2pVb2I2ZF85MmdjUk5Zak5VT3IwZURHMHhVN0ZzbHNTZkZQSVpTWkxTNnllNDN6ckpoN09mNy1QWm5OY1haYXNZanpRaEU1VzU5Q2JmcUVfdEtUd9IBtAFBVV95cUxNdHZVLXg0TWJtZjlnVC1uYkFpTFpVYmhJY19aMWQzTXVEZzVhSGEzek4wLUpVZTVXZHlUc1cxVGttTkRFOHFkNjBHTjRrcmp5UDZJY3pKWUkzLXhVeEdhRmZOU2lXRjFfRnl3Y0ZRQzJiUGlXbDBieDN0UnBBSWt0SG9pZUVHTjRXaHRvY0NYMS03akVIVDJ6aXVxNEVrRUNEc1ZiNG51M184WllZc3JWaXZhMHA?oc=5",
-          "published_at": "2026-06-29T13:30:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 24,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "4cfb56350a803f27",
-          "title": "Lithuania says no signs of Russia preparing attack on Baltic states, but sabotage threat remains high - Українська правда",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5fTHE3UWpRdEFsd3FWaFZaZWN2SnNPakFreGt2aU1maEV2RV9idi1rQkt5d2dqZ0h5RW1mVG1lWFRlMWhTbTRrb3JIMnUyaTBFRXpwWWtYR3l6S2lHY2M1cDdVQU_SAXBBVV95cUxPQ1BRcjRLN3NxUF9aRXFKdUVMdnpMR3FnVXZZOE5hQXdyM2RJWXRfVGlGVEZCMkNjbU9KNVRvRlpnR3BlcnFLeUdSdkZzOWlwaDcxNHFGTFI3TnRMcDFmX2gwVXdpQ2d2YV9mM2tHRTN2?oc=5",
-          "published_at": "2026-06-29T09:26:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 22,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "11b67904b0008f21",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "60cb077638bab3b1",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n0gHzAUFVX3lxTE53U2NXendxdjJTOWZnWEQ5OXNrUklqbndLdUdHcG5OTTAzdk5Tamd1TmI3Q3p0ekJrYTRrMTVlVUFTWE5HNDUzbmo5Y3diZkhuWDBmTm1HOHkwZlNIZ2t1aVZyeFFmWTljQ05aZU5mN1FOU1RtLXRrcWp4ellVU3FNakh3MVhGNWxVOHp3UWJXTTRKc19lcGxoanJHNHloSThmTnpRdk91V29mclFUUkRKWHM0RmJTQjJ1V3A5ZzdsV3pPazljd3oxNUZoNy0yTE9PeXl2VVpLb1pJS2VPenBTVkkyUEc1cS0wbHQ4ODNWQzFwcw?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "41e641c8df955814",
-          "title": "NATO allies warn of possible Russian provocations in Baltics, Poland - MSN",
-          "url": "https://news.google.com/rss/articles/CBMisAJBVV95cUxNdC1BNjN1VkdMcncwV2JqQ2xyQ25oNUV6VkpIb3FUVTBBbkhjcUpNS1pLYXEyMGo4OU5Zc3VHaDRRQ1JRYWxxdVU1ZDRISkFVWUtVRjMtSzM3T3hESnpOa3RBRElpdW5OSExxcXpWU3FSTkNaejZpRUpoeS1PQXAxUlB2elp6bV9nVGliZlB6cVpPRWdWQjlSa3JldF9yaDJhR3NnOEVrX2V0SG95Q1RsekVweE50Sm15Ykl1RWh4QUxzS3JDVWNiMFBJMUhqYzZ0NUZtY2o3N3huVGZrNTlFVC1yemV3TXpOamdSNEpYTW1XX3NZdHd0TEp3LWF0dENacFZ3OW50akhwTDBBSFJFYnRFTko3X1EtWWJOSFBXbUJESlVDSlZHZkpNb2hoem9I?oc=5",
-          "published_at": "2026-06-26T00:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 13,
-          "hybrid_threat_level": "high"
-        },
-        {
-          "id": "7bdb3d379902dfbb",
-          "title": "Russia preparing possible ‘provocation’ in Baltic states or Poland, sources say - The Guardian",
-          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPa3llSW9ZbWYxQjRaOEFqdnVCVkhFWmM0eEZyX21vQk5pWHpOMU03bm1JOUh2TUY4X1NvNVpvY2RlN0lWTDBUVnlSYVQ0RlJBTVpXLXc5UUVWelRMeHpid1A3c2ZnOFV0Snh0Qk1OTUozVFJnMTBtc2JtekE5SHZOaHhWT1lsLXdVb2w3Mk9B?oc=5",
-          "published_at": "2026-06-26T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 11,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "2c63ef07745cc805",
-          "title": "Poland warns Russia may be preparing 'false flag' attack after Putin threats - Anadolu Ajansı",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQcFdnSllJX1k3b09weTl3RGJKeWFSRnhKdXppZ1Z1LXNnLWRWLVcyOVNxZWl5UTdZaFRVb2dYcXhPWkFkMTNpUVYyeE40WjlwQW9Xdko2SWJ3Nks1OHN2X1RpYk1NWEZQQmoxa0FqaFpfTWRSRkhHM1o0UUEtSHE4aUlmNncyN0lGdzIzNG9hWW0wbmN5cVFvNFZUVEZEVklEbnVRUkdfZDNFRFkxc0ZScEtXdzE?oc=5",
-          "published_at": "2026-06-24T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 10,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "5925896f42566c95",
-          "title": "Poland warns Russia may stage false-flag attack amid rising tensions - MSN",
-          "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxPcE41clRXMkFLTlFQUklfS25XT1hhekxvU2NrekZHRUd0dWhXR2NYcXU0NDRXaUJFQWEtTnRHLUxGRXdhbzVPRU9NNjZLS2pQajFUOEE4MEVGN0xkZGdGSnhYUmFFZG5wQkxaWXdGMHA1QnlfdDdSTFZOWDlDU0xLd3FEZE8zVTI4eHNZRG1ibFpGYjVMT1V0aER3OTRtMGx4alMzQW1pMkhxTDN1c2pwMkhCV2V1TXBZQzlBbXJmM0JueklFY19QUzR4ZlFUM1JCRlEwclktZHZoNjJSUEVUWTgyX3djemFuSGlKZDZRRHZrY2J2RUFfbkFaZ2dDM1k?oc=5",
-          "published_at": "2026-06-28T20:43:14+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 9,
-          "hybrid_threat_level": "elevated"
-        },
-        {
-          "id": "d0a8cb4981638849",
-          "title": "NATO members warn of Russian hybrid threat to eastern flank - MSN",
-          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxOOEY0Q3dIRU1BZ3pPMnYzYy11NFRJRmVSbDhtNkZzeEhLR2FTR2J5UGltbDZMbFdZR2QyWHRZMjdDM3NjVnZtaVVpbjRZazltMkpIVmZ0RDRXelgtV00yMGFuWjRGWGNhaV96ZVo3VXNSbjQ2ZXVjSXU4M3gwS3VYSW1EaGo2OUd0MkNiQ1pvaGhBS2lIb0VEWkxVbFBQNXpLbkF5blVOdEM3ZkRUbXJIRVYtUHZPNXVxTHJjNWV1QkYwbUZZcV9zM28tMnJkR2d4bFpKZ1A0dFg4bFd5X3E1NTJzWTZZMVpaU0tHT20xS0o0TWs?oc=5",
-          "published_at": "2026-06-26T16:52:22+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [],
-          "categories": [],
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "elevated"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-01",
-      "generated_at": "2026-07-04T20:40:48.596363+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.596365+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-18",
-        "end_date": "2026-07-01"
-      },
-      "overall": {
-        "incident_count": 24,
-        "score_total": 349,
-        "average_score": 14.54,
-        "highest_score": 28,
-        "overall_level": "high"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 4,
-          "score_total": 71,
-          "average_score": 17.75,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 2,
-          "score_total": 46,
-          "average_score": 23.0,
-          "highest_score": 24,
-          "level": "critical",
-          "categories": {
-            "sabotage": 2
-          }
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 19,
-          "score_total": 274,
-          "average_score": 14.42,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 3,
-            "sabotage": 8
-          }
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 3,
-          "score_total": 52,
-          "average_score": 17.33,
-          "highest_score": 28
-        },
-        "sabotage": {
-          "category": "sabotage",
-          "incident_count": 11,
-          "score_total": 203,
-          "average_score": 18.45,
-          "highest_score": 24
-        }
-      },
-      "top_items": [
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "a96a6da4001202aa",
-          "title": "Lithuania sees no signs of Russian attack on Baltics but warns of sabotage risk - The New Voice of Ukraine",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQS0RFTENSd2NfYUZzRFE5MkttUi1JM3lkUzBKQVpKcWxWSHlaeXdKYVpaazRtT2EzZ1B4VTlPYm5aTzMzSS0zVERiQnRvNEk4Umt6TGpHNUlJSE53aXhWRGhldkMwXzFiMjMwc2pVb2I2ZF85MmdjUk5Zak5VT3IwZURHMHhVN0ZzbHNTZkZQSVpTWkxTNnllNDN6ckpoN09mNy1QWm5OY1haYXNZanpRaEU1VzU5Q2JmcUVfdEtUd9IBtAFBVV95cUxNdHZVLXg0TWJtZjlnVC1uYkFpTFpVYmhJY19aMWQzTXVEZzVhSGEzek4wLUpVZTVXZHlUc1cxVGttTkRFOHFkNjBHTjRrcmp5UDZJY3pKWUkzLXhVeEdhRmZOU2lXRjFfRnl3Y0ZRQzJiUGlXbDBieDN0UnBBSWt0SG9pZUVHTjRXaHRvY0NYMS03akVIVDJ6aXVxNEVrRUNEc1ZiNG51M184WllZc3JWaXZhMHA?oc=5",
-          "published_at": "2026-06-29T13:30:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 24,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "fa8ae700147f29fb",
-          "title": "Poland warns of Russian sabotage and urges preparation for possible attacks - Demócrata",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOZktfYlpaRjlmZTZXVFliQVItZ0J3eDdzYWFtWFR2T1N5WlVicG9GTzVweWVDc0Z6RFpFYVh3ckRNZEN6LTFLRGRMZjZqbkJKMVNEei1lcFJiT3Nfb2laTkp4b1lXOXZEci1EYTZOZXRKSlpaSExLLWxVZXVLbElmaTFhb3RQQUtvVXhyZHlSSUh6WmlaRmQ5Tnl2SW5ybVNsbXNxM0NNUW11UmhGZm13akQ2Qm8za0UzX1HSAb8BQVVfeXFMTy0xSjNJMWdoaWtvQnpaV2pjbzFOYi0tWTVwOTdEWWd5NkpqR0lDLXJtSjNDRGhvcXgzQzNQelNxOXlnY1luMGpvM3BSVXBuUDNUTnZUMEttUXdlOUs4R0hMblYyTEhIV1R0MEFGSHhTRW5KNFlISUs4eVdMTkJ6aU5tVVdwS1lfcktHZENKNGduMG5kTWNETU9aTGgzQnVxNzU2MXRmVWh4WUdFSzNJdXo4UkRua1VxSnJPYnRjVkk?oc=5",
-          "published_at": "2026-07-01T10:44:51+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 23,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "4cfb56350a803f27",
-          "title": "Lithuania says no signs of Russia preparing attack on Baltic states, but sabotage threat remains high - Українська правда",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5fTHE3UWpRdEFsd3FWaFZaZWN2SnNPakFreGt2aU1maEV2RV9idi1rQkt5d2dqZ0h5RW1mVG1lWFRlMWhTbTRrb3JIMnUyaTBFRXpwWWtYR3l6S2lHY2M1cDdVQU_SAXBBVV95cUxPQ1BRcjRLN3NxUF9aRXFKdUVMdnpMR3FnVXZZOE5hQXdyM2RJWXRfVGlGVEZCMkNjbU9KNVRvRlpnR3BlcnFLeUdSdkZzOWlwaDcxNHFGTFI3TnRMcDFmX2gwVXdpQ2d2YV9mM2tHRTN2?oc=5",
-          "published_at": "2026-06-29T09:26:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 22,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "3197a53f4042baea",
-          "title": "Poland on Alert: Threat of Russian Sabotage Looms Amidst Rising Tensions - Devdiscourse",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNTWhPb0s1MGMwMEFZOFV2SUFzT0FMSUZqNy1pN3FjX1lvTHRWd3VaN0x1elBfODM5dVRPSEVZZXktYWNkMC1DdU5ScU9GdGJZQ1laOHVNNXpLNTJSVmw4VU9yc1c2aHprOXZfbWkwa0NRTWIxblZVaUlQa0xVSlRHSU94UlI5TXNlbFZpdkthWGNGY3lfQS1FSmIyZG5ScHJiZzNqVjJ4NU5Obi1EbWRNam5WR1RlT3BOWHoySWdXTTRFMS050gHKAUFVX3lxTE9pT1FKN3JNcGVGRFpLeXlYV29razNxTENRMkdfc0VsSmFndEg1T0RxY2R0UHJfaEk3enlHVnBtdTBqazJKV1pvVTJGNWVpbFBDQXljbTZDMzQ0Sk1SdHF0cnlUZDBZLVBIX2JzSUl3R1Y3X0djZFQ0aHBzcEFvRW80VkVzbXN0VmxETnVoM1EyUzRUNnRDa2V6V3IxT05WNHBwWVpWbUU4aUFKVGN4LUJpbWotejhnM1l6YXYyYW1jZGdiWGg0dXRfaFE?oc=5",
-          "published_at": "2026-07-01T07:43:16+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 19,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "f600e32ff2d19485",
-          "title": "Poland prepares for Russian sabotage to prevent tensions between Poles and Ukrainians - Reuters - Українські Національні Новини (УНН)",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOa2tjV1VlQkZ0NGdOZmVmbm1qX0NCY0VZeEtUUzVocTNxVUJOcF93ei1Ib09nUW9TcHlwQVZvc1ZnYi1RVk56ZlJqRkJEa0tNOEhxcTZFWlBJazBzZ3NFbWVHSkdQakdic0drX1IwemJQdS1IakhxcmM2Tk1OdEx3bnhSVkdDVmZhTkxWN0xTd0xCZjZ1WWQ5bzFVYmI1ZU9jR0VmMUp1ZWo4YnVtNHNZTkZrZ1FGTTNZZUdj0gG6AUFVX3lxTE5sbC1WTU1ZV2xuaU9WZWpsMktvdDlQUVJlTjBqYVRYWk9HSkJ6d1VDLWJiWjJ6cXE5ODNCX2hSMG1KcHJkX05GY1FpYnp5RzUyWFhTb2tNWmk3MzhuTjZzb0NKRmhXV3FtSUNaaWxEVTNWR1VNNWcyYlMxOEhOTkhlNmxQclJKQWRIcG9SNXRkRVlUZEVFNFVfNF96d2J3dTh1SkRteWZLZm40MmZ3MmlNMWVlNS1NX0g0QQ?oc=5",
-          "published_at": "2026-07-01T12:27:23+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "20a7b720ce96cfa7",
-          "title": "Poland warns of possible Russian sabotage amid strains with Ukraine - Polskie Radio",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORktXNk10aVcyTE0yYkZ1dENfT0xrOGh6dmU1YjQ0cFVURWpYZ2cyQUJpR1BLcmtVcFMwTHI5NXE2WE9vRE53bjhqdklvbXlEX1pKejZEWGlCdWMyZTRiVWxWX1I1ZldZZUJTMXNYMVlSMEpmYWRFbHdkWDlCbzhiejk4TDRROTV5MzFoUGx3S0ctd0ZSOWdYOHhBSVJlbThURWxrcW9XMXNFTnZmeG5nTmZMamRvbElBSzRoXw?oc=5",
-          "published_at": "2026-07-01T08:30:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "11b67904b0008f21",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "60cb077638bab3b1",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n0gHzAUFVX3lxTE53U2NXendxdjJTOWZnWEQ5OXNrUklqbndLdUdHcG5OTTAzdk5Tamd1TmI3Q3p0ekJrYTRrMTVlVUFTWE5HNDUzbmo5Y3diZkhuWDBmTm1HOHkwZlNIZ2t1aVZyeFFmWTljQ05aZU5mN1FOU1RtLXRrcWp4ellVU3FNakh3MVhGNWxVOHp3UWJXTTRKc19lcGxoanJHNHloSThmTnpRdk91V29mclFUUkRKWHM0RmJTQjJ1V3A5ZzdsV3pPazljd3oxNUZoNy0yTE9PeXl2VVpLb1pJS2VPenBTVkkyUEc1cS0wbHQ4ODNWQzFwcw?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "9e67ca93486a1107",
-          "title": "Poland warns Russia seeks to exploit Ukraine tensions with sabotage operations - Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQdGNZQnZSazhzRWRvTFhYQjQ0NG9NYmhMdGRmQUxYLTkzUUlrMUtRTll5TlFkbG5DM2hzdU1SSVJCSnJqVHFKcE5IUUdWcE9ZSXJySkF5dUpHTWZmVFZLdnRLeHdtVkUxU2piUUllWEFscmdzbVFhMU1vWk1VbW40TkM1UVJrWVBaZnNlSHI4RVNqWlFOTnZlaXotaWRjbFdOdUJQMjVqVDlUNW5udnBCbTU5YTNKOGk3?oc=5",
-          "published_at": "2026-07-01T07:47:43+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 16,
-          "hybrid_threat_level": "high"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-02",
-      "generated_at": "2026-07-04T20:40:48.596470+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.596472+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-19",
-        "end_date": "2026-07-02"
-      },
-      "overall": {
-        "incident_count": 24,
-        "score_total": 349,
-        "average_score": 14.54,
-        "highest_score": 28,
-        "overall_level": "high"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 4,
-          "score_total": 71,
-          "average_score": 17.75,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 2,
-          "score_total": 46,
-          "average_score": 23.0,
-          "highest_score": 24,
-          "level": "critical",
-          "categories": {
-            "sabotage": 2
-          }
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 19,
-          "score_total": 274,
-          "average_score": 14.42,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 3,
-            "sabotage": 8
-          }
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 3,
-          "score_total": 52,
-          "average_score": 17.33,
-          "highest_score": 28
-        },
-        "sabotage": {
-          "category": "sabotage",
-          "incident_count": 11,
-          "score_total": 203,
-          "average_score": 18.45,
-          "highest_score": 24
-        }
-      },
-      "top_items": [
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "a96a6da4001202aa",
-          "title": "Lithuania sees no signs of Russian attack on Baltics but warns of sabotage risk - The New Voice of Ukraine",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQS0RFTENSd2NfYUZzRFE5MkttUi1JM3lkUzBKQVpKcWxWSHlaeXdKYVpaazRtT2EzZ1B4VTlPYm5aTzMzSS0zVERiQnRvNEk4Umt6TGpHNUlJSE53aXhWRGhldkMwXzFiMjMwc2pVb2I2ZF85MmdjUk5Zak5VT3IwZURHMHhVN0ZzbHNTZkZQSVpTWkxTNnllNDN6ckpoN09mNy1QWm5OY1haYXNZanpRaEU1VzU5Q2JmcUVfdEtUd9IBtAFBVV95cUxNdHZVLXg0TWJtZjlnVC1uYkFpTFpVYmhJY19aMWQzTXVEZzVhSGEzek4wLUpVZTVXZHlUc1cxVGttTkRFOHFkNjBHTjRrcmp5UDZJY3pKWUkzLXhVeEdhRmZOU2lXRjFfRnl3Y0ZRQzJiUGlXbDBieDN0UnBBSWt0SG9pZUVHTjRXaHRvY0NYMS03akVIVDJ6aXVxNEVrRUNEc1ZiNG51M184WllZc3JWaXZhMHA?oc=5",
-          "published_at": "2026-06-29T13:30:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 24,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "fa8ae700147f29fb",
-          "title": "Poland warns of Russian sabotage and urges preparation for possible attacks - Demócrata",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOZktfYlpaRjlmZTZXVFliQVItZ0J3eDdzYWFtWFR2T1N5WlVicG9GTzVweWVDc0Z6RFpFYVh3ckRNZEN6LTFLRGRMZjZqbkJKMVNEei1lcFJiT3Nfb2laTkp4b1lXOXZEci1EYTZOZXRKSlpaSExLLWxVZXVLbElmaTFhb3RQQUtvVXhyZHlSSUh6WmlaRmQ5Tnl2SW5ybVNsbXNxM0NNUW11UmhGZm13akQ2Qm8za0UzX1HSAb8BQVVfeXFMTy0xSjNJMWdoaWtvQnpaV2pjbzFOYi0tWTVwOTdEWWd5NkpqR0lDLXJtSjNDRGhvcXgzQzNQelNxOXlnY1luMGpvM3BSVXBuUDNUTnZUMEttUXdlOUs4R0hMblYyTEhIV1R0MEFGSHhTRW5KNFlISUs4eVdMTkJ6aU5tVVdwS1lfcktHZENKNGduMG5kTWNETU9aTGgzQnVxNzU2MXRmVWh4WUdFSzNJdXo4UkRua1VxSnJPYnRjVkk?oc=5",
-          "published_at": "2026-07-01T10:44:51+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 23,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "4cfb56350a803f27",
-          "title": "Lithuania says no signs of Russia preparing attack on Baltic states, but sabotage threat remains high - Українська правда",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5fTHE3UWpRdEFsd3FWaFZaZWN2SnNPakFreGt2aU1maEV2RV9idi1rQkt5d2dqZ0h5RW1mVG1lWFRlMWhTbTRrb3JIMnUyaTBFRXpwWWtYR3l6S2lHY2M1cDdVQU_SAXBBVV95cUxPQ1BRcjRLN3NxUF9aRXFKdUVMdnpMR3FnVXZZOE5hQXdyM2RJWXRfVGlGVEZCMkNjbU9KNVRvRlpnR3BlcnFLeUdSdkZzOWlwaDcxNHFGTFI3TnRMcDFmX2gwVXdpQ2d2YV9mM2tHRTN2?oc=5",
-          "published_at": "2026-06-29T09:26:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 22,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "3197a53f4042baea",
-          "title": "Poland on Alert: Threat of Russian Sabotage Looms Amidst Rising Tensions - Devdiscourse",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNTWhPb0s1MGMwMEFZOFV2SUFzT0FMSUZqNy1pN3FjX1lvTHRWd3VaN0x1elBfODM5dVRPSEVZZXktYWNkMC1DdU5ScU9GdGJZQ1laOHVNNXpLNTJSVmw4VU9yc1c2aHprOXZfbWkwa0NRTWIxblZVaUlQa0xVSlRHSU94UlI5TXNlbFZpdkthWGNGY3lfQS1FSmIyZG5ScHJiZzNqVjJ4NU5Obi1EbWRNam5WR1RlT3BOWHoySWdXTTRFMS050gHKAUFVX3lxTE9pT1FKN3JNcGVGRFpLeXlYV29razNxTENRMkdfc0VsSmFndEg1T0RxY2R0UHJfaEk3enlHVnBtdTBqazJKV1pvVTJGNWVpbFBDQXljbTZDMzQ0Sk1SdHF0cnlUZDBZLVBIX2JzSUl3R1Y3X0djZFQ0aHBzcEFvRW80VkVzbXN0VmxETnVoM1EyUzRUNnRDa2V6V3IxT05WNHBwWVpWbUU4aUFKVGN4LUJpbWotejhnM1l6YXYyYW1jZGdiWGg0dXRfaFE?oc=5",
-          "published_at": "2026-07-01T07:43:16+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 19,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "f600e32ff2d19485",
-          "title": "Poland prepares for Russian sabotage to prevent tensions between Poles and Ukrainians - Reuters - Українські Національні Новини (УНН)",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOa2tjV1VlQkZ0NGdOZmVmbm1qX0NCY0VZeEtUUzVocTNxVUJOcF93ei1Ib09nUW9TcHlwQVZvc1ZnYi1RVk56ZlJqRkJEa0tNOEhxcTZFWlBJazBzZ3NFbWVHSkdQakdic0drX1IwemJQdS1IakhxcmM2Tk1OdEx3bnhSVkdDVmZhTkxWN0xTd0xCZjZ1WWQ5bzFVYmI1ZU9jR0VmMUp1ZWo4YnVtNHNZTkZrZ1FGTTNZZUdj0gG6AUFVX3lxTE5sbC1WTU1ZV2xuaU9WZWpsMktvdDlQUVJlTjBqYVRYWk9HSkJ6d1VDLWJiWjJ6cXE5ODNCX2hSMG1KcHJkX05GY1FpYnp5RzUyWFhTb2tNWmk3MzhuTjZzb0NKRmhXV3FtSUNaaWxEVTNWR1VNNWcyYlMxOEhOTkhlNmxQclJKQWRIcG9SNXRkRVlUZEVFNFVfNF96d2J3dTh1SkRteWZLZm40MmZ3MmlNMWVlNS1NX0g0QQ?oc=5",
-          "published_at": "2026-07-01T12:27:23+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "20a7b720ce96cfa7",
-          "title": "Poland warns of possible Russian sabotage amid strains with Ukraine - Polskie Radio",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORktXNk10aVcyTE0yYkZ1dENfT0xrOGh6dmU1YjQ0cFVURWpYZ2cyQUJpR1BLcmtVcFMwTHI5NXE2WE9vRE53bjhqdklvbXlEX1pKejZEWGlCdWMyZTRiVWxWX1I1ZldZZUJTMXNYMVlSMEpmYWRFbHdkWDlCbzhiejk4TDRROTV5MzFoUGx3S0ctd0ZSOWdYOHhBSVJlbThURWxrcW9XMXNFTnZmeG5nTmZMamRvbElBSzRoXw?oc=5",
-          "published_at": "2026-07-01T08:30:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "11b67904b0008f21",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "60cb077638bab3b1",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n0gHzAUFVX3lxTE53U2NXendxdjJTOWZnWEQ5OXNrUklqbndLdUdHcG5OTTAzdk5Tamd1TmI3Q3p0ekJrYTRrMTVlVUFTWE5HNDUzbmo5Y3diZkhuWDBmTm1HOHkwZlNIZ2t1aVZyeFFmWTljQ05aZU5mN1FOU1RtLXRrcWp4ellVU3FNakh3MVhGNWxVOHp3UWJXTTRKc19lcGxoanJHNHloSThmTnpRdk91V29mclFUUkRKWHM0RmJTQjJ1V3A5ZzdsV3pPazljd3oxNUZoNy0yTE9PeXl2VVpLb1pJS2VPenBTVkkyUEc1cS0wbHQ4ODNWQzFwcw?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "9e67ca93486a1107",
-          "title": "Poland warns Russia seeks to exploit Ukraine tensions with sabotage operations - Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQdGNZQnZSazhzRWRvTFhYQjQ0NG9NYmhMdGRmQUxYLTkzUUlrMUtRTll5TlFkbG5DM2hzdU1SSVJCSnJqVHFKcE5IUUdWcE9ZSXJySkF5dUpHTWZmVFZLdnRLeHdtVkUxU2piUUllWEFscmdzbVFhMU1vWk1VbW40TkM1UVJrWVBaZnNlSHI4RVNqWlFOTnZlaXotaWRjbFdOdUJQMjVqVDlUNW5udnBCbTU5YTNKOGk3?oc=5",
-          "published_at": "2026-07-01T07:47:43+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 16,
-          "hybrid_threat_level": "high"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-03",
-      "generated_at": "2026-07-04T20:40:48.596573+00:00",
-      "input_generated_at": "2026-07-04T20:40:48.596575+00:00",
-      "window": {
-        "type": "rolling",
-        "days": 14,
-        "start_date": "2026-06-20",
-        "end_date": "2026-07-03"
-      },
-      "overall": {
-        "incident_count": 30,
-        "score_total": 431,
-        "average_score": 14.37,
-        "highest_score": 28,
-        "overall_level": "high"
-      },
-      "countries": {
-        "Estonia": {
-          "country": "Estonia",
-          "incident_count": 0,
-          "score_total": 0,
-          "average_score": 0,
-          "highest_score": 0,
-          "level": "low",
-          "categories": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "incident_count": 4,
-          "score_total": 71,
-          "average_score": 17.75,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 1
-          }
-        },
-        "Lithuania": {
-          "country": "Lithuania",
-          "incident_count": 2,
-          "score_total": 46,
-          "average_score": 23.0,
-          "highest_score": 24,
-          "level": "critical",
-          "categories": {
-            "sabotage": 2
-          }
-        },
-        "Poland": {
-          "country": "Poland",
-          "incident_count": 25,
-          "score_total": 356,
-          "average_score": 14.24,
-          "highest_score": 28,
-          "level": "high",
-          "categories": {
-            "drone_incident": 1,
-            "military_provocation": 5,
-            "sabotage": 8,
-            "critical_infrastructure": 2
-          }
-        }
-      },
-      "categories": {
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 1,
-          "score_total": 28,
-          "average_score": 28.0,
-          "highest_score": 28
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 5,
-          "score_total": 83,
-          "average_score": 16.6,
-          "highest_score": 28
-        },
-        "sabotage": {
-          "category": "sabotage",
-          "incident_count": 11,
-          "score_total": 203,
-          "average_score": 18.45,
-          "highest_score": 24
-        },
-        "critical_infrastructure": {
-          "category": "critical_infrastructure",
-          "incident_count": 2,
-          "score_total": 41,
-          "average_score": 20.5,
-          "highest_score": 22
-        }
-      },
-      "top_items": [
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "a96a6da4001202aa",
-          "title": "Lithuania sees no signs of Russian attack on Baltics but warns of sabotage risk - The New Voice of Ukraine",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQS0RFTENSd2NfYUZzRFE5MkttUi1JM3lkUzBKQVpKcWxWSHlaeXdKYVpaazRtT2EzZ1B4VTlPYm5aTzMzSS0zVERiQnRvNEk4Umt6TGpHNUlJSE53aXhWRGhldkMwXzFiMjMwc2pVb2I2ZF85MmdjUk5Zak5VT3IwZURHMHhVN0ZzbHNTZkZQSVpTWkxTNnllNDN6ckpoN09mNy1QWm5OY1haYXNZanpRaEU1VzU5Q2JmcUVfdEtUd9IBtAFBVV95cUxNdHZVLXg0TWJtZjlnVC1uYkFpTFpVYmhJY19aMWQzTXVEZzVhSGEzek4wLUpVZTVXZHlUc1cxVGttTkRFOHFkNjBHTjRrcmp5UDZJY3pKWUkzLXhVeEdhRmZOU2lXRjFfRnl3Y0ZRQzJiUGlXbDBieDN0UnBBSWt0SG9pZUVHTjRXaHRvY0NYMS03akVIVDJ6aXVxNEVrRUNEc1ZiNG51M184WllZc3JWaXZhMHA?oc=5",
-          "published_at": "2026-06-29T13:30:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 24,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "fa8ae700147f29fb",
-          "title": "Poland warns of Russian sabotage and urges preparation for possible attacks - Demócrata",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOZktfYlpaRjlmZTZXVFliQVItZ0J3eDdzYWFtWFR2T1N5WlVicG9GTzVweWVDc0Z6RFpFYVh3ckRNZEN6LTFLRGRMZjZqbkJKMVNEei1lcFJiT3Nfb2laTkp4b1lXOXZEci1EYTZOZXRKSlpaSExLLWxVZXVLbElmaTFhb3RQQUtvVXhyZHlSSUh6WmlaRmQ5Tnl2SW5ybVNsbXNxM0NNUW11UmhGZm13akQ2Qm8za0UzX1HSAb8BQVVfeXFMTy0xSjNJMWdoaWtvQnpaV2pjbzFOYi0tWTVwOTdEWWd5NkpqR0lDLXJtSjNDRGhvcXgzQzNQelNxOXlnY1luMGpvM3BSVXBuUDNUTnZUMEttUXdlOUs4R0hMblYyTEhIV1R0MEFGSHhTRW5KNFlISUs4eVdMTkJ6aU5tVVdwS1lfcktHZENKNGduMG5kTWNETU9aTGgzQnVxNzU2MXRmVWh4WUdFSzNJdXo4UkRua1VxSnJPYnRjVkk?oc=5",
-          "published_at": "2026-07-01T10:44:51+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 23,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "4cfb56350a803f27",
-          "title": "Lithuania says no signs of Russia preparing attack on Baltic states, but sabotage threat remains high - Українська правда",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5fTHE3UWpRdEFsd3FWaFZaZWN2SnNPakFreGt2aU1maEV2RV9idi1rQkt5d2dqZ0h5RW1mVG1lWFRlMWhTbTRrb3JIMnUyaTBFRXpwWWtYR3l6S2lHY2M1cDdVQU_SAXBBVV95cUxPQ1BRcjRLN3NxUF9aRXFKdUVMdnpMR3FnVXZZOE5hQXdyM2RJWXRfVGlGVEZCMkNjbU9KNVRvRlpnR3BlcnFLeUdSdkZzOWlwaDcxNHFGTFI3TnRMcDFmX2gwVXdpQ2d2YV9mM2tHRTN2?oc=5",
-          "published_at": "2026-06-29T09:26:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 22,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "63832d3aec5f936d",
-          "title": "US reportedly warned Poland that Russia may \"test NATO\" with hybrid attack - Українська правда",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5kbmE0NUxmckdGOXN5UUN6SDRYVllWQnBNbF9jMVJTblZfbzFtNWVXM3cxYndkYkREaVZ5Vnc0TzYyaHRVcFRFSVVTV1p4ZXFqX3plRUE2eXg4cmpMdzNVWnBjVEvSAXBBVV95cUxOamptOGNWejB2TENZbkZRMkx3ME43d3M3Z2ZnTmtwb1RZb2xLRmpzR2V6SXlBZ0MwUXctTlpIWGJlNE9zMDdVaWZXLUNmVlJLT0x6RlNraUdxY3ZvX3RDb1dWTDU4dlhfdlNVTTEzRGVu?oc=5",
-          "published_at": "2026-07-03T10:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "critical_infrastructure"
-          ],
-          "hybrid_threat_score": 22,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "0ac3c1ae0b13d34d",
-          "title": "Next months may be 'critical,' Tusk says amid reports of planned Russian provocation against Poland - The Kyiv Independent",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNWU16UDVoX0F3Uzh3STc1VW1uN2VBWmg4bTdody1KSkNCa29rLXJrNnN5YlEwYVRneHQ1WjlZU040bEllNEtZTi1oWUN3Z0hSeUdJS3dVc3hOWGxaQkFQSlBsa2RWSmtLSm9YUnhxNUo2OGE4X0RnTWQ2dnRjby1LYXl6Tmpzd3F3ZmFpZzB1VUFDMTNEY1prbVU0SllUY2JWV2xWUUNnRFJIem5xdkVPYWdVbmxfRW1RZG1wNVBHZw?oc=5",
-          "published_at": "2026-07-03T14:44:54+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "military_provocation",
-            "critical_infrastructure"
-          ],
-          "hybrid_threat_score": 19,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "3197a53f4042baea",
-          "title": "Poland on Alert: Threat of Russian Sabotage Looms Amidst Rising Tensions - Devdiscourse",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNTWhPb0s1MGMwMEFZOFV2SUFzT0FMSUZqNy1pN3FjX1lvTHRWd3VaN0x1elBfODM5dVRPSEVZZXktYWNkMC1DdU5ScU9GdGJZQ1laOHVNNXpLNTJSVmw4VU9yc1c2aHprOXZfbWkwa0NRTWIxblZVaUlQa0xVSlRHSU94UlI5TXNlbFZpdkthWGNGY3lfQS1FSmIyZG5ScHJiZzNqVjJ4NU5Obi1EbWRNam5WR1RlT3BOWHoySWdXTTRFMS050gHKAUFVX3lxTE9pT1FKN3JNcGVGRFpLeXlYV29razNxTENRMkdfc0VsSmFndEg1T0RxY2R0UHJfaEk3enlHVnBtdTBqazJKV1pvVTJGNWVpbFBDQXljbTZDMzQ0Sk1SdHF0cnlUZDBZLVBIX2JzSUl3R1Y3X0djZFQ0aHBzcEFvRW80VkVzbXN0VmxETnVoM1EyUzRUNnRDa2V6V3IxT05WNHBwWVpWbUU4aUFKVGN4LUJpbWotejhnM1l6YXYyYW1jZGdiWGg0dXRfaFE?oc=5",
-          "published_at": "2026-07-01T07:43:16+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 19,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "f600e32ff2d19485",
-          "title": "Poland prepares for Russian sabotage to prevent tensions between Poles and Ukrainians - Reuters - Українські Національні Новини (УНН)",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOa2tjV1VlQkZ0NGdOZmVmbm1qX0NCY0VZeEtUUzVocTNxVUJOcF93ei1Ib09nUW9TcHlwQVZvc1ZnYi1RVk56ZlJqRkJEa0tNOEhxcTZFWlBJazBzZ3NFbWVHSkdQakdic0drX1IwemJQdS1IakhxcmM2Tk1OdEx3bnhSVkdDVmZhTkxWN0xTd0xCZjZ1WWQ5bzFVYmI1ZU9jR0VmMUp1ZWo4YnVtNHNZTkZrZ1FGTTNZZUdj0gG6AUFVX3lxTE5sbC1WTU1ZV2xuaU9WZWpsMktvdDlQUVJlTjBqYVRYWk9HSkJ6d1VDLWJiWjJ6cXE5ODNCX2hSMG1KcHJkX05GY1FpYnp5RzUyWFhTb2tNWmk3MzhuTjZzb0NKRmhXV3FtSUNaaWxEVTNWR1VNNWcyYlMxOEhOTkhlNmxQclJKQWRIcG9SNXRkRVlUZEVFNFVfNF96d2J3dTh1SkRteWZLZm40MmZ3MmlNMWVlNS1NX0g0QQ?oc=5",
-          "published_at": "2026-07-01T12:27:23+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "20a7b720ce96cfa7",
-          "title": "Poland warns of possible Russian sabotage amid strains with Ukraine - Polskie Radio",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxORktXNk10aVcyTE0yYkZ1dENfT0xrOGh6dmU1YjQ0cFVURWpYZ2cyQUJpR1BLcmtVcFMwTHI5NXE2WE9vRE53bjhqdklvbXlEX1pKejZEWGlCdWMyZTRiVWxWX1I1ZldZZUJTMXNYMVlSMEpmYWRFbHdkWDlCbzhiejk4TDRROTV5MzFoUGx3S0ctd0ZSOWdYOHhBSVJlbThURWxrcW9XMXNFTnZmeG5nTmZMamRvbElBSzRoXw?oc=5",
-          "published_at": "2026-07-01T08:30:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "11b67904b0008f21",
-          "title": "Latvia warns that Russia is planning hybrid attacks on the Baltics and Poland but says full-scale war is not imminent - Meduza",
-          "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObEp1SUo3MDk3dThYSzloTnpnRDllclZCaVRxTlRBUjVRclZRYVk1RUVRb1BOOW5MWDVnVXZES1ZKNjBaY0NDeEd0emJiQXJyVzhCc0FlYlFlVV9CY2Ezek1LWE9nM3U4dHppV3RwcnVIdkRhRlQ0NEh4OHhObllnS3RVM3RFNDZvczZ6SU5LcFd1cVZPQzl4V3ZXYW1MU1AyWnA3SlRnSkZ6TFR0dDhIdTFRazZJSE9wMndNaHNtRU1PQ29GelYtNnBSdF9GblR0VjlZbHp6SlRieXRpM05rMDZnRl83Ri04WG5NSE1n?oc=5",
-          "published_at": "2026-06-23T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [],
-          "hybrid_threat_score": 18,
-          "hybrid_threat_level": "critical"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-04",
-      "generated_at": "2026-07-04T21:41:13.558401+00:00",
-      "input_generated_at": "2026-07-04T21:41:13.505251+00:00",
-      "overall": {
-        "incident_count": 197,
-        "score_total": 2787,
-        "average_score": 14.15,
-        "highest_score": 32,
-        "overall_level": "high"
-      },
-      "countries": {
-        "Estonia": {
-          "incident_count": 6,
-          "score_total": 78,
-          "average_score": 13.0,
-          "highest_score": 24,
-          "level": "high",
-          "categories": {
-            "sabotage": 2,
-            "critical_infrastructure": 1,
-            "cyber": 1,
-            "gps_interference": 1
-          }
-        },
-        "Latvia": {
-          "incident_count": 12,
-          "score_total": 221,
-          "average_score": 18.42,
-          "highest_score": 28,
-          "level": "critical",
-          "categories": {
-            "drone_incident": 4,
-            "military_provocation": 1,
-            "border_pressure": 2,
-            "critical_infrastructure": 2,
-            "migration_pressure": 1,
-            "cyber": 2,
-            "sabotage": 1,
-            "disinformation": 1
-          }
-        },
-        "Lithuania": {
-          "incident_count": 16,
-          "score_total": 227,
-          "average_score": 14.19,
-          "highest_score": 32,
-          "level": "high",
-          "categories": {
-            "gps_interference": 6,
-            "drone_incident": 1,
-            "border_pressure": 2,
-            "military_provocation": 1,
-            "sabotage": 3,
-            "critical_infrastructure": 1
-          }
-        },
-        "Poland": {
-          "incident_count": 113,
-          "score_total": 1630,
-          "average_score": 14.42,
-          "highest_score": 32,
-          "level": "high",
-          "categories": {
-            "gps_interference": 9,
-            "drone_incident": 6,
-            "critical_infrastructure": 23,
-            "border_pressure": 17,
-            "migration_pressure": 13,
-            "military_provocation": 7,
-            "cyber": 22,
-            "espionage": 6,
-            "sabotage": 15
-          }
-        }
-      },
-      "categories": {
-        "gps_interference": {
-          "category": "gps_interference",
-          "incident_count": 41,
-          "score_total": 568,
-          "average_score": 13.85,
-          "highest_score": 32
-        },
-        "drone_incident": {
-          "category": "drone_incident",
-          "incident_count": 13,
-          "score_total": 294,
-          "average_score": 22.62,
-          "highest_score": 32
-        },
-        "critical_infrastructure": {
-          "category": "critical_infrastructure",
-          "incident_count": 31,
-          "score_total": 665,
-          "average_score": 21.45,
-          "highest_score": 32
-        },
-        "border_pressure": {
-          "category": "border_pressure",
-          "incident_count": 23,
-          "score_total": 375,
-          "average_score": 16.3,
-          "highest_score": 30
-        },
-        "migration_pressure": {
-          "category": "migration_pressure",
-          "incident_count": 15,
-          "score_total": 257,
-          "average_score": 17.13,
-          "highest_score": 30
-        },
-        "military_provocation": {
-          "category": "military_provocation",
-          "incident_count": 8,
-          "score_total": 134,
-          "average_score": 16.75,
-          "highest_score": 28
-        },
-        "sabotage": {
-          "category": "sabotage",
-          "incident_count": 28,
-          "score_total": 517,
-          "average_score": 18.46,
-          "highest_score": 26
-        },
-        "cyber": {
-          "category": "cyber",
-          "incident_count": 36,
-          "score_total": 679,
-          "average_score": 18.86,
-          "highest_score": 25
-        },
-        "espionage": {
-          "category": "espionage",
-          "incident_count": 8,
-          "score_total": 110,
-          "average_score": 13.75,
-          "highest_score": 25
-        },
-        "disinformation": {
-          "category": "disinformation",
-          "incident_count": 2,
-          "score_total": 31,
-          "average_score": 15.5,
-          "highest_score": 20
-        }
-      },
-      "top_items": [
-        {
-          "id": "53886e8155e1e537",
-          "title": "Russian GPS Jamming Near Kaliningrad Disrupts Lithuanian Coast, Causing Drones to Crash or Fly Out of Control - The Baltic Sentinel",
-          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPSGVFWUVOQnBDVDJKVGU4SDY4WWF5eWVnQ0p6SlR4Y0g5aG9mTnAwYmJDQlZFalVZVWpuZDlCNzNzci1UNmFRV2Y4YW8xNl9CRkgtY0pDWDRuSjJMOUw1Z1pBTm5RLUZuSXFtR2laTFdORURfd2ZpQk50WjJvM2Zpa3E3N2pIMjNSYTBwUXBPLW5NMkx3ZXVDQ3RtckVJc2V0TVRtLW9tTTlCR0FUVXdNWXgyNWcxYW5zYm5pZmxBa2NLQmc3YkRTRDE1dzE1czNlVnlsSkhmVVhTQQ?oc=5",
-          "published_at": "2025-06-11T07:00:00+00:00",
-          "source_name": "Google News - Baltic GPS jamming",
-          "countries": [
-            "Lithuania",
-            "Poland"
-          ],
-          "categories": [
-            "gps_interference",
-            "drone_incident"
-          ],
-          "hybrid_threat_score": 32,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "b39d85349638158d",
-          "title": "Russian Jamming From Kaliningrad Is Sending Ukrainian Drones Toward NATO States, Telegraph Reports - UNITED24 Media",
-          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOQzBnZ1NkOUgxekJfMlBTTkRxenlvcnZ3NEdaUHI4bEgyZ2d6bzZ4NVdsNTRlX3k2RVFLcFo1QzlpMTRiMXJrcHpDTGxuRkNNLXpBcHNmNVpBcHh1amtxVFA5cTBaWmhHc3hQamNnbzJuTXlydHNtWjlxYWtYNGJkY2FiWWFnNTdsTk12UW16UnV5QXNxT1hHb0NTYUx3SFJNVzdJdVZmOGNPV3Z6dFFrRkI4S3pNa1pTRGxudXFxSmxRSUlzWW1IYXRERDF6WVJPWGRGUTV2d2xDMEZQ?oc=5",
-          "published_at": "2026-05-25T07:00:00+00:00",
-          "source_name": "Google News - Baltic GPS jamming",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "gps_interference",
-            "drone_incident",
-            "critical_infrastructure"
-          ],
-          "hybrid_threat_score": 32,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "567cc3163299c743",
-          "title": "Poland Begins Anti-Drone Installation on Belarus Border to Counter Hybrid Threats - UNITED24 Media",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQRi1zWngybE5tMmlmVFJ0TTFIeFQ0MExEbmtPSW5zM1E4aDBfQ25ldE40Z2tiQVZlUnVldW9iZkJsT000WkgzSlEyTHRJa3oyT1RLR0liRmZlaG5ST0FSN2ZvQ01fTzNqYVE0WmxQZjh4OTlSdVFkZFJLZkV0OXpKMGljajVhTk5UU2kwN093cHBOZ2EtdGNBQzVUUzlRcEFqOURaMzdmMXY2aUgxOURQcGRmcFhkSFVIMHVsRVBkTVRLUFE?oc=5",
-          "published_at": "2025-12-23T08:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "border_pressure",
-            "drone_incident",
-            "migration_pressure"
-          ],
-          "hybrid_threat_score": 30,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "ac8c8fc1c7d2cdb0",
-          "title": "Latvia Warns of Russian Missile, Drone Provocations Targeting Baltic States and Poland - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBGSEZVWWVYejVOVHd2OU90Z0tRRmJnRTRTSnppMFM3NUtsQzdBeEZ5OUhqV1Vibkg4SjlwRTlCQkhYV1FtYjJyUjV4NA?oc=5",
-          "published_at": "2026-06-23T16:35:06+00:00",
-          "source_name": "Google News - Baltic Russia hybrid threat",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident",
-            "military_provocation"
-          ],
-          "hybrid_threat_score": 28,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "3598e891e3299641",
-          "title": "Putin’s invisible front: Drones, sabotage, and hybrid warfare test Europe - EL PAÍS English",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOTFowd3FtZXA3UHA0MEY4akFyaXF6M0ZDMVVOR3lOS3lLbXYyZk4xOEg2TGtYbGJFazNjSzBBZXN0Z2RjODNQUS02dzRLUG9meWpOcGNtTDN6aVlpbkIzQVVuYzlFOVJBNkM0a29UY2xaRzE1ZGV6eGI1X0g5bmZaV2wyYU5wOXZJaW9NcmZqRlYxMmR3YVpXTTBxYk10cnJBMWdjU1ZXZTFsM3o3SkppcDBVUS1IWDR4a1gxNUoxNkwxSHla0gHYAUFVX3lxTE53NzF3QTVwQUhBLTFoYjBoNGpXZUZiUm5HbEpFVEZqQmdzdWtodWpxZkhRTGo1Y3FrcEJZTFJhTS1YWkY4S2lzcTI5bmFxcTRBd29MX09TUDljaHZacmNnV2E0Yng5RFcyekpzcG9xYWJtSkxJQlpfTExfckR5MVlvZWFOZWRicFlWREs2WjVWckpxU2xJSS1kRW5waHZISXVfcVV0bHdISk5JaWJzSXlBZWw1OXp0Y1Jfa2RRQ2libk5oRGtuZ3ZoMkV1Q25UY29nYnpTN0xnRQ?oc=5",
-          "published_at": "2026-06-05T07:00:00+00:00",
-          "source_name": "Google News - Baltic sabotage Russia",
-          "countries": [],
-          "categories": [
-            "sabotage",
-            "drone_incident"
-          ],
-          "hybrid_threat_score": 26,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "c721711573f4133d",
-          "title": "Latvia: Baltic media reports cite ongoing migrant pressure at Belarus border - InfoMigrants",
-          "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOX2NxMzdrYlNQRnVBdVR3OEpDWS1ZcnRnaHZZbGVuX1RUcjhSSWVCQUppNTUwcnE1QXYwWDg2cUhDb2xmZzdWVzBMdHNCX3JXVG9wallyR0hVYTZpYjh5YndXcU14UGloWTdCRV8wbWpnRnYwaWdMZDQ1RWhMSGczcmVBUUc0U3hDdXk4TDRPc0tVYjBIUXg3UDVWTkVVUGZSeGprOF9QdlVGV21EVU9RNUNNN1o0Q2hDWEE?oc=5",
-          "published_at": "2026-04-29T07:00:00+00:00",
-          "source_name": "Google News - Poland Belarus border hybrid",
-          "countries": [
-            "Latvia",
-            "Poland"
-          ],
-          "categories": [
-            "border_pressure",
-            "critical_infrastructure",
-            "migration_pressure"
-          ],
-          "hybrid_threat_score": 25,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "811267a219cb967f",
-          "title": "Polish officials blame Russian domestic spy agency for Dec 29 cyberattacks - Reuters",
-          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPWkl1YWpIMUNsT19TTGFPanhGeUM0Vi1tWUM5UkF0TUJQeWVtbTJDc011eC1JdkFpUHEyOVZENVRmUjI2TkZ0MEZrVm1ONVVBUUgyaHVCOENQMDluZVg0MmFINWxiNmF5R0pMSGtEV3FaSC1tdEdQd3RMV0pDMnlTREJOeERmMVBfcGhfUTdpdm5mdTlmU2FsTGtOVHFUZDVwRjhtRF9MeGdZNDl5Q0lKR2dWUmJEazFi?oc=5",
-          "published_at": "2026-01-30T08:00:00+00:00",
-          "source_name": "Google News - Baltic cyber attack Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "cyber",
-            "espionage"
-          ],
-          "hybrid_threat_score": 25,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "1ce7dd5f4e31a347",
-          "title": "Russia Targets Poland’s Water Infrastructure Following Cyberattacks on Energy Grid, Intelligence Warns - UNITED24 Media",
-          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPbjhUTkFLUGhmOUtVRUU1dGtad1RUOUNzUmQ5OVdMeVIzN0J6VERmbHlfWm1qNlVpZFY5ZU9XMGNOM0NBX0ZDLUVIVVZzSUZaVXItbnNwTGxpZmVxUEVDdDhfYThyT0J2NUFUaXFqUk5sZm53RW9JOTRfNThqLVRiNWVUZy1HVEx6UU5oXzFkUWczXzlBWU1uMk9rNEFhZ1NOZTRxVy1OZ3g5RDZqclM1S1Mxb1Y0MHZ2dFhDTVlhcEU4S3B6aVYzLTdOdERCQ05NWjdzSA?oc=5",
-          "published_at": "2026-05-11T07:00:00+00:00",
-          "source_name": "Google News - Baltic cyber attack Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "cyber",
-            "critical_infrastructure"
-          ],
-          "hybrid_threat_score": 25,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "4872cf61ca04cc01",
-          "title": "Sweden blames pro-Russian group for cyberattack last year on its energy infrastructure - The Washington Post",
-          "url": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQVnNqenJOcGY0bXlTeHFzYmZQS0dhYjFzbF9YSzNaZV9RSFY3S281UDFhMWJLVG5FVk9Mcm9ENGZ2QlgtVzNTVDBqcFI1X0o3WEI3Zk1aU1NZU194alpMMkJyZUxmOWR4Z0VlUW4tZy1wX1BtV0o3RDE1WWtnRGxsRUdMVkJaUXhfRGs5MDhTb1h3b2tFMlF5NGVsTURuWXlIMS1qakNzamFQUU5FdlJFOVNBbk1uV2hMQmhJaU5RMEtrOEViSW95dWs0Qk9qcWk3Yi1JOVk4bm1NQUxSQ2lqNHI3VXFLSTg?oc=5",
-          "published_at": "2026-04-15T07:00:00+00:00",
-          "source_name": "Google News - Baltic cyber attack Russia",
-          "countries": [],
-          "categories": [
-            "cyber",
-            "critical_infrastructure"
-          ],
-          "hybrid_threat_score": 25,
-          "hybrid_threat_level": "critical"
-        },
-        {
-          "id": "73a9f61853d4bf7e",
-          "title": "Poland says it repelled major cyberattack on power grid, blames Russia - The Record from Recorded Future News",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE4tV1R0YTg3R1lVZEhncXhwRnRfR1Mzc1dpbDl2RUNtY19UU3ZLYnd1V2UzaERwbDFNOUY5UWQ5MThYczRVcDhFNzAtYlJnSWwyWnBVanpNVE9yYWxpVzlsSjVOSGc?oc=5",
-          "published_at": "2026-01-14T08:00:00+00:00",
-          "source_name": "Google News - Baltic cyber attack Russia",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "cyber",
-            "critical_infrastructure"
-          ],
-          "hybrid_threat_score": 25,
-          "hybrid_threat_level": "critical"
-        }
-      ]
-    },
-    {
-      "date": "2026-07-05",
-      "generated_at": "2026-07-05T19:39:58.886123+00:00",
-      "input_generated_at": "2026-07-05T19:39:58.841551+00:00",
       "overall": {
         "incident_count": 0,
         "score_total": 0,
@@ -3040,6 +34,7 @@
       },
       "countries": {
         "Estonia": {
+          "country": "Estonia",
           "incident_count": 0,
           "score_total": 0,
           "average_score": 0,
@@ -3048,6 +43,7 @@
           "categories": {}
         },
         "Latvia": {
+          "country": "Latvia",
           "incident_count": 0,
           "score_total": 0,
           "average_score": 0,
@@ -3056,6 +52,7 @@
           "categories": {}
         },
         "Lithuania": {
+          "country": "Lithuania",
           "incident_count": 0,
           "score_total": 0,
           "average_score": 0,
@@ -3064,6 +61,7 @@
           "categories": {}
         },
         "Poland": {
+          "country": "Poland",
           "incident_count": 0,
           "score_total": 0,
           "average_score": 0,
@@ -3073,7 +71,1461 @@
         }
       },
       "categories": {},
-      "top_items": []
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-06-23",
+      "generated_at": "2026-07-05T19:40:58.358650+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358652+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-10",
+        "end_date": "2026-06-23"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "generated_at": "2026-07-05T19:40:58.358667+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358669+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-11",
+        "end_date": "2026-06-24"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-06-25",
+      "generated_at": "2026-07-05T19:40:58.358687+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358689+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-12",
+        "end_date": "2026-06-25"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-06-26",
+      "generated_at": "2026-07-05T19:40:58.358705+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358707+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-13",
+        "end_date": "2026-06-26"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-06-27",
+      "generated_at": "2026-07-05T19:40:58.358724+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358726+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-14",
+        "end_date": "2026-06-27"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-06-28",
+      "generated_at": "2026-07-05T19:40:58.358741+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358742+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-15",
+        "end_date": "2026-06-28"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-06-29",
+      "generated_at": "2026-07-05T19:40:58.358764+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358766+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-16",
+        "end_date": "2026-06-29"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "generated_at": "2026-07-05T19:40:58.358782+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358783+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-17",
+        "end_date": "2026-06-30"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-07-01",
+      "generated_at": "2026-07-05T19:40:58.358801+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358803+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-18",
+        "end_date": "2026-07-01"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-07-02",
+      "generated_at": "2026-07-05T19:40:58.358816+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358817+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-19",
+        "end_date": "2026-07-02"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "generated_at": "2026-07-05T19:40:58.358835+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358837+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-20",
+        "end_date": "2026-07-03"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-07-04",
+      "generated_at": "2026-07-05T19:40:58.358850+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358852+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-21",
+        "end_date": "2026-07-04"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
+    },
+    {
+      "date": "2026-07-05",
+      "generated_at": "2026-07-05T19:40:58.358867+00:00",
+      "input_generated_at": "2026-07-05T19:40:58.358869+00:00",
+      "window": {
+        "type": "rolling",
+        "days": 14,
+        "start_date": "2026-06-22",
+        "end_date": "2026-07-05"
+      },
+      "overall": {
+        "incident_count": 0,
+        "score_total": 0,
+        "average_score": 0,
+        "highest_score": 0,
+        "overall_level": "low"
+      },
+      "countries": {
+        "Estonia": {
+          "country": "Estonia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "level": "low",
+          "categories": {}
+        }
+      },
+      "categories": {},
+      "top_items": [],
+      "daily_activity": {
+        "description": "Daily activity is calculated only from items published on the displayed date.",
+        "overall": {
+          "incident_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "incident_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "top_items": []
+      }
     }
   ]
 }
