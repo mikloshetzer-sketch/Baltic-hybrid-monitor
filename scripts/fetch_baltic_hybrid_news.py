@@ -4,7 +4,7 @@ import re
 import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 from urllib.parse import urlparse
 
 import feedparser
@@ -175,7 +175,7 @@ def stable_id(*parts: str) -> str:
 
 def canonical_title(title: str) -> str:
     title = title.lower()
-    title = re.sub(r"\s*-\s*[^-]{2,60}$", "", title)
+    title = re.sub(r"\s*-\s*[^-]{2,80}$", "", title)
     title = re.sub(r"[^a-z0-9áéíóöőúüűąćęłńóśźż ]+", " ", title)
     title = re.sub(r"\s+", " ", title)
     return title.strip()
@@ -219,7 +219,7 @@ def detect_from_keywords(text: str, mapping: Dict[str, List[str]]) -> List[str]:
     return found
 
 
-def detect_countries(text: str, source_country: str = None) -> List[str]:
+def detect_countries(text: str, source_country: Optional[str] = None) -> List[str]:
     found = detect_from_keywords(text, COUNTRY_KEYWORDS)
 
     if source_country and source_country not in found:
@@ -256,7 +256,8 @@ def rough_relevance_score(
         "hybrid", "sabotage", "cyber", "cyberattack", "gps", "gnss",
         "jamming", "spoofing", "border", "drone", "uav", "provocation",
         "espionage", "critical infrastructure", "airspace", "kaliningrad",
-        "belarus", "nato", "russia", "russian", "kremlin"
+        "belarus", "nato", "russia", "russian", "kremlin", "baltic",
+        "poland", "estonia", "latvia", "lithuania"
     ]
 
     for term in strong_terms:
@@ -285,28 +286,27 @@ def should_keep_item(
 ) -> bool:
     text = normalize_for_matching(f"{title} {summary}")
 
-    if is_low_quality_url(url):
-        return False
-
-    if not countries and not categories:
-        return False
-
-    if "Russia" not in actors and "Belarus" not in actors and "NATO" not in actors:
-        if score < 5:
-            return False
-
-    if score < 3:
-        return False
-
     irrelevant_terms = [
         "sports", "football", "basketball", "celebrity", "movie",
-        "music festival", "tourism guide"
+        "music festival", "tourism guide", "recipe", "fashion"
     ]
 
     if any(term in text for term in irrelevant_terms):
         return False
 
-    return True
+    if is_low_quality_url(url):
+        return False
+
+    # Kevésbé szigorú szűrés:
+    # ha van ország, kategória vagy szereplő, megtartjuk.
+    if countries or categories or actors:
+        return True
+
+    # Ha nincs felismerés, de a relevancia elég magas, akkor is megtartjuk.
+    if score >= 3:
+        return True
+
+    return False
 
 
 def build_item(
@@ -315,7 +315,7 @@ def build_item(
     url: str,
     published_at: str,
     source: Dict[str, Any]
-) -> Dict[str, Any] | None:
+) -> Optional[Dict[str, Any]]:
     source_weight = float(source.get("weight", 1.0))
     source_country = source.get("country")
 
@@ -346,8 +346,14 @@ def build_item(
     ):
         return None
 
+    item_id = stable_id(
+        canonical_title(title),
+        published_at[:10],
+        source.get("name", "")
+    )
+
     return {
-        "id": stable_id(canonical_title(title), published_at[:10]),
+        "id": item_id,
         "title": title,
         "summary": summary,
         "url": url,
@@ -501,7 +507,8 @@ def main() -> None:
                 "actor detection",
                 "location detection",
                 "improved relevance scoring",
-                "canonical title deduplication"
+                "canonical title deduplication",
+                "relaxed relevance filter"
             ]
         },
         "items": unique_items
