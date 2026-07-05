@@ -1,5 +1,6 @@
+
 {
-  "project": "baltic-hybrid-threat-monitor",
+  "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "countries": ["Estonia", "Latvia", "Lithuania", "Poland"],
   "threat_categories": [
@@ -17,19 +18,19 @@
   "rss_sources": [
     {
       "name": "Google News - Baltic Russia hybrid threat",
-      "url": "https://news.google.com/rss/search?q=%28Baltic%20OR%20Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland%29%20Russia%20hybrid%20threat&hl=en-US&gl=US&ceid=US:en",
+      "url": "https://news.google.com/rss/search?q=(Baltic%20OR%20Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland)%20Russia%20hybrid%20threat&hl=en-US&gl=US&ceid=US:en",
       "type": "news_search",
       "weight": 1.0
     },
     {
       "name": "Google News - Baltic sabotage Russia",
-      "url": "https://news.google.com/rss/search?q=%28Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland%29%20Russia%20sabotage&hl=en-US&gl=US&ceid=US:en",
+      "url": "https://news.google.com/rss/search?q=(Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland)%20Russia%20sabotage&hl=en-US&gl=US&ceid=US:en",
       "type": "news_search",
       "weight": 1.1
     },
     {
       "name": "Google News - Baltic cyber attack Russia",
-      "url": "https://news.google.com/rss/search?q=%28Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland%29%20Russia%20cyber%20attack&hl=en-US&gl=US&ceid=US:en",
+      "url": "https://news.google.com/rss/search?q=(Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland)%20Russia%20cyber%20attack&hl=en-US&gl=US&ceid=US:en",
       "type": "news_search",
       "weight": 1.0
     },
@@ -44,6 +45,216 @@
       "url": "https://news.google.com/rss/search?q=Baltic%20GPS%20jamming%20Russia%20Kaliningrad&hl=en-US&gl=US&ceid=US:en",
       "type": "news_search",
       "weight": 1.0
+    },
+
+    {
+      "name": "Google News - NATO Baltic hybrid threat",
+      "url": "https://news.google.com/rss/search?q=NATO%20Baltic%20Russia%20hybrid%20threat&hl=en-US&gl=US&ceid=US:en",
+      "type": "official_context",
+      "weight": 1.2
+    },
+    {
+      "name": "Google News - NATO Eastern Flank Baltic Poland",
+      "url": "https://news.google.com/rss/search?q=NATO%20Eastern%20Flank%20Baltic%20Poland%20Russia&hl=en-US&gl=US&ceid=US:en",
+      "type": "official_context",
+      "weight": 1.2
+    },
+    {
+      "name": "Google News - Baltic airspace violation Russia",
+      "url": "https://news.google.com/rss/search?q=(Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland)%20Russia%20airspace%20violation&hl=en-US&gl=US&ceid=US:en",
+      "type": "military_air",
+      "weight": 1.15
+    },
+    {
+      "name": "Google News - Baltic drone incident Russia",
+      "url": "https://news.google.com/rss/search?q=(Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland)%20Russia%20drone%20incident&hl=en-US&gl=US&ceid=US:en",
+      "type": "drone_incident",
+      "weight": 1.15
+    },
+    {
+      "name": "Google News - Baltic critical infrastructure Russia",
+      "url": "https://news.google.com/rss/search?q=(Baltic%20OR%20Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland)%20Russia%20critical%20infrastructure%20attack&hl=en-US&gl=US&ceid=US:en",
+      "type": "critical_infrastructure",
+      "weight": 1.2
+    },
+    {
+      "name": "Google News - Baltic Sea infrastructure sabotage",
+      "url": "https://news.google.com/rss/search?q=Baltic%20Sea%20infrastructure%20sabotage%20Russia%20cable%20pipeline&hl=en-US&gl=US&ceid=US:en",
+      "type": "maritime_infrastructure",
+      "weight": 1.2
+    },
+    {
+      "name": "Google News - Baltic Sea cable damage Russia",
+      "url": "https://news.google.com/rss/search?q=Baltic%20Sea%20cable%20damage%20Russia%20sabotage&hl=en-US&gl=US&ceid=US:en",
+      "type": "maritime_infrastructure",
+      "weight": 1.2
+    },
+
+    {
+      "name": "Google News - Estonia Russia hybrid threat",
+      "url": "https://news.google.com/rss/search?q=Estonia%20Russia%20hybrid%20threat%20cyber%20sabotage%20border&hl=en-US&gl=US&ceid=US:en",
+      "type": "country_focus",
+      "country": "Estonia",
+      "weight": 1.05
+    },
+    {
+      "name": "Google News - Latvia Russia hybrid threat",
+      "url": "https://news.google.com/rss/search?q=Latvia%20Russia%20hybrid%20threat%20cyber%20sabotage%20border&hl=en-US&gl=US&ceid=US:en",
+      "type": "country_focus",
+      "country": "Latvia",
+      "weight": 1.05
+    },
+    {
+      "name": "Google News - Lithuania Russia hybrid threat",
+      "url": "https://news.google.com/rss/search?q=Lithuania%20Russia%20hybrid%20threat%20cyber%20sabotage%20border&hl=en-US&gl=US&ceid=US:en",
+      "type": "country_focus",
+      "country": "Lithuania",
+      "weight": 1.05
+    },
+    {
+      "name": "Google News - Poland Russia hybrid threat",
+      "url": "https://news.google.com/rss/search?q=Poland%20Russia%20hybrid%20threat%20cyber%20sabotage%20border&hl=en-US&gl=US&ceid=US:en",
+      "type": "country_focus",
+      "country": "Poland",
+      "weight": 1.05
+    },
+
+    {
+      "name": "Google News - ERR Estonia Russia security",
+      "url": "https://news.google.com/rss/search?q=site:err.ee%20Estonia%20Russia%20security%20hybrid%20cyber%20sabotage&hl=en-US&gl=US&ceid=US:en",
+      "type": "regional_media",
+      "country": "Estonia",
+      "weight": 1.1
+    },
+    {
+      "name": "Google News - LSM Latvia Russia security",
+      "url": "https://news.google.com/rss/search?q=site:lsm.lv%20Latvia%20Russia%20security%20hybrid%20cyber%20sabotage&hl=en-US&gl=US&ceid=US:en",
+      "type": "regional_media",
+      "country": "Latvia",
+      "weight": 1.1
+    },
+    {
+      "name": "Google News - LRT Lithuania Russia security",
+      "url": "https://news.google.com/rss/search?q=site:lrt.lt%20Lithuania%20Russia%20security%20hybrid%20cyber%20sabotage&hl=en-US&gl=US&ceid=US:en",
+      "type": "regional_media",
+      "country": "Lithuania",
+      "weight": 1.1
+    },
+    {
+      "name": "Google News - Polish Radio Russia hybrid threat",
+      "url": "https://news.google.com/rss/search?q=site:polskieradio.pl%20Poland%20Russia%20hybrid%20threat%20sabotage%20cyber&hl=en-US&gl=US&ceid=US:en",
+      "type": "regional_media",
+      "country": "Poland",
+      "weight": 1.1
+    },
+    {
+      "name": "Google News - Notes From Poland Russia sabotage",
+      "url": "https://news.google.com/rss/search?q=site:notesfrompoland.com%20Poland%20Russia%20sabotage%20hybrid%20threat&hl=en-US&gl=US&ceid=US:en",
+      "type": "regional_media",
+      "country": "Poland",
+      "weight": 1.05
+    },
+
+    {
+      "name": "Google News - CERT Estonia cyber threat",
+      "url": "https://news.google.com/rss/search?q=Estonia%20CERT%20Russia%20cyber%20attack%20threat&hl=en-US&gl=US&ceid=US:en",
+      "type": "cyber_official",
+      "country": "Estonia",
+      "weight": 1.2
+    },
+    {
+      "name": "Google News - CERT Latvia cyber threat",
+      "url": "https://news.google.com/rss/search?q=Latvia%20CERT%20Russia%20cyber%20attack%20threat&hl=en-US&gl=US&ceid=US:en",
+      "type": "cyber_official",
+      "country": "Latvia",
+      "weight": 1.2
+    },
+    {
+      "name": "Google News - Lithuania cyber security Russia",
+      "url": "https://news.google.com/rss/search?q=Lithuania%20cyber%20security%20Russia%20attack%20CERT&hl=en-US&gl=US&ceid=US:en",
+      "type": "cyber_official",
+      "country": "Lithuania",
+      "weight": 1.2
+    },
+    {
+      "name": "Google News - CERT Polska Russia cyber",
+      "url": "https://news.google.com/rss/search?q=CERT%20Polska%20Russia%20cyber%20attack%20Poland&hl=en-US&gl=US&ceid=US:en",
+      "type": "cyber_official",
+      "country": "Poland",
+      "weight": 1.2
+    },
+
+    {
+      "name": "Google News - EUvsDisinfo Baltic Russia",
+      "url": "https://news.google.com/rss/search?q=EUvsDisinfo%20Baltic%20Russia%20disinformation%20Poland%20Estonia%20Latvia%20Lithuania&hl=en-US&gl=US&ceid=US:en",
+      "type": "disinformation",
+      "weight": 1.15
+    },
+    {
+      "name": "Google News - Baltic disinformation Russia",
+      "url": "https://news.google.com/rss/search?q=(Estonia%20OR%20Latvia%20OR%20Lithuania%20OR%20Poland)%20Russia%20disinformation%20propaganda&hl=en-US&gl=US&ceid=US:en",
+      "type": "disinformation",
+      "weight": 1.05
+    },
+    {
+      "name": "Google News - DFRLab Baltic Russia disinformation",
+      "url": "https://news.google.com/rss/search?q=DFRLab%20Baltic%20Russia%20disinformation%20Poland%20Estonia%20Latvia%20Lithuania&hl=en-US&gl=US&ceid=US:en",
+      "type": "disinformation_osint",
+      "weight": 1.1
+    },
+
+    {
+      "name": "Google News - BleepingComputer Baltic Russia cyber",
+      "url": "https://news.google.com/rss/search?q=site:bleepingcomputer.com%20Russia%20cyber%20Poland%20Baltic%20Estonia%20Latvia%20Lithuania&hl=en-US&gl=US&ceid=US:en",
+      "type": "cyber_media",
+      "weight": 1.05
+    },
+    {
+      "name": "Google News - The Record Baltic Russia cyber",
+      "url": "https://news.google.com/rss/search?q=site:therecord.media%20Russia%20cyber%20Poland%20Baltic%20Estonia%20Latvia%20Lithuania&hl=en-US&gl=US&ceid=US:en",
+      "type": "cyber_media",
+      "weight": 1.05
+    },
+    {
+      "name": "Google News - Security Affairs Baltic Russia cyber",
+      "url": "https://news.google.com/rss/search?q=site:securityaffairs.com%20Russia%20cyber%20Poland%20Baltic%20Estonia%20Latvia%20Lithuania&hl=en-US&gl=US&ceid=US:en",
+      "type": "cyber_media",
+      "weight": 1.0
+    },
+
+    {
+      "name": "Google News - Polish Border Guard Belarus",
+      "url": "https://news.google.com/rss/search?q=Polish%20Border%20Guard%20Belarus%20border%20migrants%20hybrid%20operation&hl=en-US&gl=US&ceid=US:en",
+      "type": "border_security",
+      "country": "Poland",
+      "weight": 1.2
+    },
+    {
+      "name": "Google News - Latvia Belarus border migrants",
+      "url": "https://news.google.com/rss/search?q=Latvia%20Belarus%20border%20migrants%20hybrid%20Russia&hl=en-US&gl=US&ceid=US:en",
+      "type": "border_security",
+      "country": "Latvia",
+      "weight": 1.1
+    },
+    {
+      "name": "Google News - Lithuania Belarus border migrants",
+      "url": "https://news.google.com/rss/search?q=Lithuania%20Belarus%20border%20migrants%20hybrid%20Russia&hl=en-US&gl=US&ceid=US:en",
+      "type": "border_security",
+      "country": "Lithuania",
+      "weight": 1.1
+    },
+
+    {
+      "name": "Google News - Suwalki Gap Russia Belarus",
+      "url": "https://news.google.com/rss/search?q=Suwalki%20Gap%20Russia%20Belarus%20NATO%20Poland%20Lithuania&hl=en-US&gl=US&ceid=US:en",
+      "type": "strategic_hotspot",
+      "weight": 1.15
+    },
+    {
+      "name": "Google News - Kaliningrad hybrid threat",
+      "url": "https://news.google.com/rss/search?q=Kaliningrad%20Russia%20hybrid%20threat%20GPS%20jamming%20Baltic%20Poland%20Lithuania&hl=en-US&gl=US&ceid=US:en",
+      "type": "strategic_hotspot",
+      "weight": 1.15
     }
   ],
   "external_json_feeds": [
