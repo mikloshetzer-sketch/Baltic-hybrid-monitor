@@ -11,57 +11,109 @@ SCORED_OUTPUT = ROOT / "data" / "baltic_hybrid_scored_news.json"
 DOCS_OUTPUT = ROOT / "docs" / "data" / "baltic_hybrid_scored_news.json"
 
 
-COUNTRY_BASE = {
-    "Estonia": 0,
-    "Latvia": 0,
-    "Lithuania": 0,
-    "Poland": 0
-}
+COUNTRIES = ["Estonia", "Latvia", "Lithuania", "Poland"]
 
 
 CATEGORY_WEIGHTS = {
-    "sabotage": 5,
-    "cyber": 4,
-    "disinformation": 3,
-    "border_pressure": 4,
-    "gps_interference": 4,
-    "drone_incident": 5,
-    "military_provocation": 5,
-    "critical_infrastructure": 5,
-    "espionage": 4,
-    "migration_pressure": 3
+    "sabotage": 8,
+    "cyber": 7,
+    "critical_infrastructure": 8,
+    "military_provocation": 7,
+    "drone_incident": 7,
+    "gps_interference": 6,
+    "espionage": 6,
+    "border_pressure": 5,
+    "migration_pressure": 4,
+    "disinformation": 4
+}
+
+
+ACTOR_WEIGHTS = {
+    "Russia": 3,
+    "Belarus": 3,
+    "GRU": 4,
+    "FSB": 4,
+    "Sandworm": 4,
+    "NATO": 2,
+    "EU": 1
+}
+
+
+LOCATION_WEIGHTS = {
+    "Kaliningrad": 4,
+    "Suwalki Gap": 4,
+    "Baltic Sea": 3,
+    "Belarus Border": 3,
+    "Poland-Belarus Border": 3,
+    "Narva": 2,
+    "Riga": 1,
+    "Tallinn": 1,
+    "Vilnius": 1,
+    "Klaipeda": 2,
+    "Gdansk": 2
+}
+
+
+SOURCE_TYPE_WEIGHTS = {
+    "official_context": 2,
+    "cyber_official": 3,
+    "border_security": 3,
+    "regional_media": 2,
+    "cyber_media": 2,
+    "disinformation": 2,
+    "disinformation_osint": 2,
+    "military_air": 2,
+    "drone_incident": 2,
+    "critical_infrastructure": 2,
+    "maritime_infrastructure": 2,
+    "strategic_hotspot": 2,
+    "country_focus": 1,
+    "news_search": 0,
+    "external_repo": 2
 }
 
 
 ESCALATION_KEYWORDS = {
-    "high": [
-        "attack",
+    "critical": [
         "sabotage",
         "explosion",
-        "drone",
         "airspace violation",
         "critical infrastructure",
-        "military provocation",
-        "arrested spy",
+        "power grid",
+        "undersea cable",
+        "subsea cable",
+        "pipeline",
+        "spy",
         "espionage",
+        "ransomware",
+        "wiper",
+        "missile",
+        "drone attack",
         "hybrid attack"
     ],
-    "medium": [
+    "high": [
         "cyberattack",
+        "cyber attack",
         "ddos",
         "gps jamming",
-        "border pressure",
+        "gnss jamming",
+        "spoofing",
+        "border provocation",
+        "military provocation",
+        "fighter jet",
+        "scramble",
+        "intercept",
         "migration pressure",
+        "cognitive warfare"
+    ],
+    "medium": [
         "propaganda",
         "disinformation",
-        "interference",
-        "warning"
-    ],
-    "low": [
-        "concern",
-        "risk",
+        "influence operation",
+        "border pressure",
+        "warning",
         "threat",
-        "monitoring",
+        "risk",
         "preparedness",
         "exercise"
     ]
@@ -85,15 +137,15 @@ def text_blob(item: Dict[str, Any]) -> str:
 def keyword_score(text: str) -> int:
     score = 0
 
-    for word in ESCALATION_KEYWORDS["high"]:
+    for word in ESCALATION_KEYWORDS["critical"]:
         if word in text:
             score += 5
 
-    for word in ESCALATION_KEYWORDS["medium"]:
+    for word in ESCALATION_KEYWORDS["high"]:
         if word in text:
             score += 3
 
-    for word in ESCALATION_KEYWORDS["low"]:
+    for word in ESCALATION_KEYWORDS["medium"]:
         if word in text:
             score += 1
 
@@ -101,50 +153,138 @@ def keyword_score(text: str) -> int:
 
 
 def category_score(categories: List[str]) -> int:
-    score = 0
+    return sum(CATEGORY_WEIGHTS.get(category, 0) for category in categories)
 
-    for category in categories:
-        score += CATEGORY_WEIGHTS.get(category, 0)
 
-    return score
+def actor_score(actors: List[str]) -> int:
+    return sum(ACTOR_WEIGHTS.get(actor, 0) for actor in actors)
+
+
+def location_score(locations: List[str]) -> int:
+    return sum(LOCATION_WEIGHTS.get(location, 0) for location in locations)
+
+
+def source_score(item: Dict[str, Any]) -> int:
+    source_type = item.get("source_type", "news_search")
+    base = SOURCE_TYPE_WEIGHTS.get(source_type, 0)
+
+    source_weight = float(item.get("source_weight", 1.0))
+
+    if source_weight >= 1.2:
+        base += 2
+    elif source_weight >= 1.1:
+        base += 1
+
+    return base
+
+
+def country_spread_bonus(countries: List[str]) -> int:
+    if len(countries) >= 3:
+        return 3
+    if len(countries) == 2:
+        return 2
+    if len(countries) == 1:
+        return 1
+    return 0
+
+
+def category_diversity_bonus(categories: List[str]) -> int:
+    if len(categories) >= 3:
+        return 3
+    if len(categories) == 2:
+        return 2
+    if len(categories) == 1:
+        return 1
+    return 0
+
+
+def strategic_modifier(item: Dict[str, Any]) -> int:
+    text = text_blob(item)
+    categories = item.get("categories", [])
+    actors = item.get("actors", [])
+    locations = item.get("locations", [])
+
+    modifier = 0
+
+    if "Russia" in actors and "NATO" in actors:
+        modifier += 2
+
+    if "Belarus" in actors and "border_pressure" in categories:
+        modifier += 2
+
+    if "Kaliningrad" in locations and "gps_interference" in categories:
+        modifier += 3
+
+    if "Suwalki Gap" in locations:
+        modifier += 3
+
+    if "Baltic Sea" in locations and "critical_infrastructure" in categories:
+        modifier += 3
+
+    if "cyber" in categories and "critical_infrastructure" in categories:
+        modifier += 3
+
+    if "drone_incident" in categories and "military_provocation" in categories:
+        modifier += 2
+
+    if "full-scale war is not imminent" in text:
+        modifier -= 2
+
+    if "no signs of russian attack" in text:
+        modifier -= 2
+
+    return modifier
 
 
 def classify_level(score: int) -> str:
-    if score >= 18:
+    if score >= 32:
         return "critical"
-    if score >= 12:
+    if score >= 22:
         return "high"
-    if score >= 7:
+    if score >= 12:
         return "elevated"
-    if score >= 3:
+    if score >= 5:
         return "guarded"
     return "low"
 
 
 def score_item(item: Dict[str, Any]) -> Dict[str, Any]:
     text = text_blob(item)
+
     categories = item.get("categories", [])
-    base_relevance = float(item.get("relevance_score", 0))
+    actors = item.get("actors", [])
+    locations = item.get("locations", [])
+    countries = item.get("countries", [])
+
+    relevance = float(item.get("relevance_score", 0))
 
     score = 0
-    score += int(base_relevance)
+    score += int(round(relevance))
     score += keyword_score(text)
     score += category_score(categories)
+    score += actor_score(actors)
+    score += location_score(locations)
+    score += source_score(item)
+    score += country_spread_bonus(countries)
+    score += category_diversity_bonus(categories)
+    score += strategic_modifier(item)
 
-    if len(item.get("countries", [])) > 1:
-        score += 2
-
-    if "russia" in text or "russian" in text:
-        score += 2
-
-    if "belarus" in text:
-        score += 2
-
-    if "nato" in text:
-        score += 1
+    if score < 0:
+        score = 0
 
     item["hybrid_threat_score"] = score
     item["hybrid_threat_level"] = classify_level(score)
+    item["score_breakdown"] = {
+        "relevance": int(round(relevance)),
+        "keywords": keyword_score(text),
+        "categories": category_score(categories),
+        "actors": actor_score(actors),
+        "locations": location_score(locations),
+        "source": source_score(item),
+        "country_spread": country_spread_bonus(countries),
+        "category_diversity": category_diversity_bonus(categories),
+        "strategic_modifier": strategic_modifier(item)
+    }
 
     return item
 
@@ -158,16 +298,17 @@ def build_country_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
             "average_score": 0,
             "highest_score": 0,
             "level": "low",
-            "categories": {}
+            "categories": {},
+            "actors": {},
+            "locations": {}
         }
-        for country in COUNTRY_BASE.keys()
+        for country in COUNTRIES
     }
 
     for item in items:
-        countries = item.get("countries", [])
         score = int(item.get("hybrid_threat_score", 0))
 
-        for country in countries:
+        for country in item.get("countries", []):
             if country not in summary:
                 continue
 
@@ -181,6 +322,16 @@ def build_country_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
             for category in item.get("categories", []):
                 summary[country]["categories"][category] = (
                     summary[country]["categories"].get(category, 0) + 1
+                )
+
+            for actor in item.get("actors", []):
+                summary[country]["actors"][actor] = (
+                    summary[country]["actors"].get(actor, 0) + 1
+                )
+
+            for location in item.get("locations", []):
+                summary[country]["locations"][location] = (
+                    summary[country]["locations"].get(location, 0) + 1
                 )
 
     for country, data in summary.items():
@@ -228,6 +379,72 @@ def build_category_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
     return summary
 
 
+def build_actor_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
+    summary = {}
+
+    for item in items:
+        score = int(item.get("hybrid_threat_score", 0))
+
+        for actor in item.get("actors", []):
+            if actor not in summary:
+                summary[actor] = {
+                    "actor": actor,
+                    "incident_count": 0,
+                    "score_total": 0,
+                    "average_score": 0,
+                    "highest_score": 0
+                }
+
+            summary[actor]["incident_count"] += 1
+            summary[actor]["score_total"] += score
+            summary[actor]["highest_score"] = max(
+                summary[actor]["highest_score"],
+                score
+            )
+
+    for actor, data in summary.items():
+        if data["incident_count"] > 0:
+            data["average_score"] = round(
+                data["score_total"] / data["incident_count"],
+                2
+            )
+
+    return summary
+
+
+def build_location_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
+    summary = {}
+
+    for item in items:
+        score = int(item.get("hybrid_threat_score", 0))
+
+        for location in item.get("locations", []):
+            if location not in summary:
+                summary[location] = {
+                    "location": location,
+                    "incident_count": 0,
+                    "score_total": 0,
+                    "average_score": 0,
+                    "highest_score": 0
+                }
+
+            summary[location]["incident_count"] += 1
+            summary[location]["score_total"] += score
+            summary[location]["highest_score"] = max(
+                summary[location]["highest_score"],
+                score
+            )
+
+    for location, data in summary.items():
+        if data["incident_count"] > 0:
+            data["average_score"] = round(
+                data["score_total"] / data["incident_count"],
+                2
+            )
+
+    return summary
+
+
 def build_overall_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
     if not items:
         return {
@@ -263,30 +480,36 @@ def main() -> None:
     )
 
     payload = {
-        "project": raw_data.get("project", "baltic-hybrid-threat-monitor"),
+        "project": raw_data.get("project", "baltic-hybrid-monitor"),
         "region": raw_data.get("region", "Baltic states and Poland"),
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "input_generated_at": raw_data.get("generated_at"),
         "method": {
-            "description": "Simple rule-based scoring model following the conflict-end-matrix style.",
+            "description": "Rule-based Baltic hybrid threat scoring model with actor, location, category and source-type modifiers.",
             "score_components": [
                 "raw relevance score",
                 "hybrid escalation keywords",
                 "threat category weights",
-                "multi-country relevance bonus",
-                "Russia/Belarus/NATO keyword modifiers"
+                "actor weights",
+                "strategic location weights",
+                "source-type weights",
+                "country spread bonus",
+                "category diversity bonus",
+                "strategic modifiers"
             ],
             "levels": {
-                "low": "0-2",
-                "guarded": "3-6",
-                "elevated": "7-11",
-                "high": "12-17",
-                "critical": "18+"
+                "low": "0-4",
+                "guarded": "5-11",
+                "elevated": "12-21",
+                "high": "22-31",
+                "critical": "32+"
             }
         },
         "overall_summary": build_overall_summary(scored_items),
         "country_summary": build_country_summary(scored_items),
         "category_summary": build_category_summary(scored_items),
+        "actor_summary": build_actor_summary(scored_items),
+        "location_summary": build_location_summary(scored_items),
         "items": scored_items
     }
 
