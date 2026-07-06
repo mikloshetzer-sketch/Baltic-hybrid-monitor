@@ -3,33 +3,23 @@ window.BalticUI = (() => {
     if (!dateString) return "—";
     const date = new Date(dateString);
     return date.toLocaleString("hu-HU", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit"
+      year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"
     });
   }
 
   function formatNumber(value, digits = 0) {
     const number = Number(value || 0);
     if (!Number.isFinite(number)) return "—";
-    return number.toLocaleString("hu-HU", {
-      minimumFractionDigits: digits,
-      maximumFractionDigits: digits
-    });
+    return number.toLocaleString("hu-HU", { minimumFractionDigits: digits, maximumFractionDigits: digits });
   }
 
   function titleCase(value) {
-    return String(value || "")
-      .replaceAll("_", " ")
-      .replace(/\b\w/g, char => char.toUpperCase());
+    return String(value || "").replaceAll("_", " ").replace(/\b\w/g, char => char.toUpperCase());
   }
 
   function setText(id, value) {
     const element = document.getElementById(id);
-    if (!element) return;
-    element.textContent = value;
+    if (element) element.textContent = value;
   }
 
   function updateHeader(data) {
@@ -54,7 +44,6 @@ window.BalticUI = (() => {
   function renderBars(targetId, items, nameKey) {
     const target = document.getElementById(targetId);
     if (!target) return;
-
     const maxScore = maxValue(items, "score_total");
 
     target.innerHTML = items.slice(0, 10).map(item => {
@@ -67,9 +56,7 @@ window.BalticUI = (() => {
             <span>${titleCase(name)}</span>
             <strong>${formatNumber(item.event_count)} events</strong>
           </div>
-          <div class="bar-track">
-            <div class="bar-fill" style="width:${width}%"></div>
-          </div>
+          <div class="bar-track"><div class="bar-fill" style="width:${width}%"></div></div>
           <small>${formatNumber(item.score_total)} score · avg ${formatNumber(item.average_score, 2)}</small>
         </div>
       `;
@@ -80,9 +67,7 @@ window.BalticUI = (() => {
     const target = document.getElementById("countryOverview");
     if (!target) return;
 
-    const countries = data.country_cards || [];
-
-    target.innerHTML = countries.map(country => `
+    target.innerHTML = (data.country_cards || []).map(country => `
       <article class="country-card">
         <div class="country-card-top">
           <h3>${country.country}</h3>
@@ -104,15 +89,8 @@ window.BalticUI = (() => {
       <div class="event-row">
         <div class="event-score">${formatNumber(event.hybrid_threat_score)}</div>
         <div>
-          <a href="${event.url || "#"}" target="_blank" rel="noopener noreferrer">
-            ${event.title || "Untitled event"}
-          </a>
-          <small>
-            ${event.primary_country || "Regional"} ·
-            ${titleCase(event.event_subtype)} ·
-            ${formatNumber(event.source_count)} sources ·
-            confidence ${formatNumber(event.confidence_score)}
-          </small>
+          <a href="${event.url || "#"}" target="_blank" rel="noopener noreferrer">${event.title || "Untitled event"}</a>
+          <small>${event.primary_country || "Regional"} · ${titleCase(event.event_subtype)} · ${formatNumber(event.source_count)} sources · confidence ${formatNumber(event.confidence_score)}</small>
         </div>
       </div>
     `).join("");
@@ -121,14 +99,8 @@ window.BalticUI = (() => {
   function renderEvents(data) {
     const critical = document.getElementById("criticalEvents");
     const latest = document.getElementById("latestEvents");
-
-    if (critical) {
-      critical.innerHTML = eventRows(data.top_events || [], 10);
-    }
-
-    if (latest) {
-      latest.innerHTML = eventRows(data.recent_events || [], 10);
-    }
+    if (critical) critical.innerHTML = eventRows(data.top_events || [], 10);
+    if (latest) latest.innerHTML = eventRows(data.recent_events || [], 10);
   }
 
   function renderMethodology(data) {
@@ -136,11 +108,7 @@ window.BalticUI = (() => {
     const pipeline = document.getElementById("methodPipeline");
     const ontology = document.getElementById("eventOntology");
 
-    if (pipeline) {
-      pipeline.innerHTML = (methodology.pipeline || [])
-        .map(item => `<li>${item}</li>`)
-        .join("");
-    }
+    if (pipeline) pipeline.innerHTML = (methodology.pipeline || []).map(item => `<li>${item}</li>`).join("");
 
     if (ontology) {
       ontology.innerHTML = Object.entries(methodology.event_subtypes || {})
@@ -166,7 +134,5 @@ window.BalticUI = (() => {
     renderMethodology(data);
   }
 
-  return {
-    updateDashboard
-  };
+  return { updateDashboard };
 })();
