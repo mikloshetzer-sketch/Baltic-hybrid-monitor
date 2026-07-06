@@ -20,6 +20,29 @@ STOPWORDS = {
 }
 
 
+OPERATIONAL_TERMS = [
+    "drone", "uav", "airspace", "scramble", "fighter jet", "intercept",
+    "gps", "gnss", "jamming", "spoofing", "sabotage", "explosion",
+    "cyberattack", "cyber attack", "ddos", "malware", "ransomware",
+    "espionage", "spy", "border crossing", "border incident",
+    "belarus border", "undersea cable", "pipeline", "critical infrastructure",
+    "missile", "attack", "incursion"
+]
+
+STRATEGIC_TERMS = [
+    "nato summit", "summit", "sanctions", "defence package", "defense package",
+    "military exercise", "air policing", "eastern flank", "deterrence",
+    "resilience", "security strategy", "cybersecurity reserve",
+    "nis2", "preparedness", "strategic", "allied unity"
+]
+
+BACKGROUND_TERMS = [
+    "framework", "awareness", "training", "exercise", "capabilities",
+    "maturity", "ecosystem", "challenge", "investment", "cyber hygiene",
+    "strategy to empower", "preparedness diy"
+]
+
+
 def load_json(path: Path) -> Dict[str, Any]:
     if not path.exists():
         raise FileNotFoundError(f"Missing input file: {path}")
@@ -40,6 +63,11 @@ def normalize(text: str) -> str:
     text = re.sub(r"[^a-z0-9áéíóöőúüűąćęłńóśźż\- ]+", " ", text)
     text = re.sub(r"\s+", " ", text)
     return text.strip()
+
+
+def contains_any(text: str, terms: List[str]) -> bool:
+    low = normalize(text)
+    return any(term in low for term in terms)
 
 
 def tokenize(text: str) -> Set[str]:
@@ -105,7 +133,7 @@ def unique_merge(existing: List[str], new_values: List[str]) -> List[str]:
     return output
 
 
-def choose_primary_country(countries: List[str], related_items: List[Dict[str, Any]]) -> str:
+def choose_primary_country(related_items: List[Dict[str, Any]]) -> str:
     counts: Dict[str, int] = {}
 
     for item in related_items:
@@ -148,24 +176,73 @@ def calculate_confidence(source_count: int, source_group_count: int) -> Dict[str
     }
 
 
+def classify_event_type(event: Dict[str, Any]) -> str:
+    text = " ".join([
+        str(event.get("title", "")),
+        str(event.get("summary", "")),
+        " ".join(event.get("categories", [])),
+        " ".join(event.get("actors", [])),
+        " ".join(event.get("locations", []))
+    ])
+
+    categories = set(event.get("categories", []))
+    actors = set(event.get("actors", []))
+
+    operational_categories = {
+        "sabotage",
+        "cyber",
+        "gps_interference",
+        "drone_incident",
+        "military_provocation",
+        "critical_infrastructure",
+        "espionage",
+        "border_pressure",
+        "migration_pressure"
+    }
+
+    if categories & operational_categories and (
+        contains_any(text, OPERATIONAL_TERMS) or "Russia" in actors or "Belarus" in actors
+    ):
+        return "operational"
+
+    if contains_any(text, OPERATIONAL_TERMS):
+        return "operational"
+
+    if contains_any(text, STRATEGIC_TERMS):
+        return "strategic"
+
+    if "NATO" in actors and ("Russia" in actors or "Belarus" in actors):
+        return "strategic"
+
+    if "EU" in actors and categories:
+        return "strategic"
+
+    if contains_any(text, BACKGROUND_TERMS):
+        return "background"
+
+    if categories == {"cyber"} and "EU" in actors:
+        return "background"
+
+    if categories:
+        return "strategic"
+
+    return "background"
+
+
 def create_event_from_item(item: Dict[str, Any]) -> Dict[str, Any]:
     source_name = item.get("source_name", "Unknown source")
     source_group = item.get("source_group", "unknown")
 
     event_seed = normalize(item.get("title", "")) + item.get("published_at", "")[:10]
-
     confidence = calculate_confidence(1, 1)
 
-    return {
+    event = {
         "event_id": stable_id(event_seed),
         "title": item.get("title", ""),
         "summary": item.get("summary", ""),
         "url": item.get("url", ""),
         "published_at": item.get("published_at"),
-        "primary_country": choose_primary_country(
-            item.get("countries", []),
-            [item]
-        ),
+        "primary_country": choose_primary_country([item]),
         "countries": item.get("countries", []),
         "categories": item.get("categories", []),
         "actors": item.get("actors", []),
@@ -182,6 +259,9 @@ def create_event_from_item(item: Dict[str, Any]) -> Dict[str, Any]:
         "confidence_score": confidence["confidence_score"],
         "collection_methods": [item.get("collection_method", "rss")]
     }
+
+    event["event_type"] = classify_event_type(event)
+    return event
 
 
 def merge_item_into_event(item: Dict[str, Any], event: Dict[str, Any]) -> None:
@@ -205,10 +285,7 @@ def merge_item_into_event(item: Dict[str, Any], event: Dict[str, Any]) -> None:
     event["related_urls"] = unique_merge(event.get("related_urls", []), [item.get("url", "")])
 
     event["source_count"] = len(event.get("source_names", []))
-    event["primary_country"] = choose_primary_country(
-        event.get("countries", []),
-        event["related_items"]
-    )
+    event["primary_country"] = choose_primary_country(event["related_items"])
 
     event["relevance_score"] = round(
         sum(float(i.get("relevance_score", 0)) for i in event["related_items"]) /
@@ -223,6 +300,7 @@ def merge_item_into_event(item: Dict[str, Any], event: Dict[str, Any]) -> None:
 
     event["confidence"] = confidence["confidence"]
     event["confidence_score"] = confidence["confidence_score"]
+    event["event_type"] = classify_event_type(event)
 
 
 def cluster_items(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -265,8 +343,16 @@ def build_summary(events: List[Dict[str, Any]]) -> Dict[str, Any]:
     by_country: Dict[str, int] = {}
     by_category: Dict[str, int] = {}
     by_actor: Dict[str, int] = {}
+    by_event_type: Dict[str, int] = {
+        "operational": 0,
+        "strategic": 0,
+        "background": 0
+    }
 
     for event in events:
+        event_type = event.get("event_type", "background")
+        by_event_type[event_type] = by_event_type.get(event_type, 0) + 1
+
         primary = event.get("primary_country", "Regional")
         by_country[primary] = by_country.get(primary, 0) + 1
 
@@ -277,6 +363,7 @@ def build_summary(events: List[Dict[str, Any]]) -> Dict[str, Any]:
             by_actor[actor] = by_actor.get(actor, 0) + 1
 
     return {
+        "by_event_type": by_event_type,
         "by_primary_country": dict(sorted(by_country.items())),
         "by_category": dict(sorted(by_category.items())),
         "by_actor": dict(sorted(by_actor.items()))
@@ -301,13 +388,14 @@ def main() -> None:
         "merged_item_count": len(items) - len(output_events),
         "summary": build_summary(output_events),
         "method": {
-            "description": "Event clustering v2 for Baltic hybrid threat monitoring.",
+            "description": "Event clustering v2 with event type classification for Baltic hybrid threat monitoring.",
             "rules": [
                 "merge items with high title similarity",
                 "merge moderately similar items when actor/category/country context overlaps",
                 "calculate primary country",
                 "calculate source count",
                 "calculate confidence score",
+                "classify event_type as operational, strategic or background",
                 "preserve related titles and URLs"
             ]
         },
