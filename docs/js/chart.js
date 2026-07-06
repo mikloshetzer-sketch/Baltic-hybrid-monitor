@@ -4,17 +4,17 @@ window.BalticChart = (() => {
   let currentMetricMode = "threat_index";
 
   const COLORS = {
-    overall: "#f8fafc",
-    trend: "#94a3b8",
-    incident: "#ef4444",
-    activity: "#fb923c",
-    indicator: "#22d3ee",
-    assessment: "#94a3b8",
-    Estonia: "#38bdf8",
-    Latvia: "#fb923c",
-    Lithuania: "#22c55e",
-    Poland: "#ef4444",
-    Regional: "#a78bfa"
+    overall: "#0f172a",
+    trend: "#64748b",
+    incident: "#dc2626",
+    activity: "#ea580c",
+    indicator: "#0891b2",
+    assessment: "#64748b",
+    Estonia: "#0284c7",
+    Latvia: "#ea580c",
+    Lithuania: "#16a34a",
+    Poland: "#dc2626",
+    Regional: "#7c3aed"
   };
 
   const COUNTRIES = ["Estonia", "Latvia", "Lithuania", "Poland", "Regional"];
@@ -52,9 +52,7 @@ window.BalticChart = (() => {
   }
 
   function titleCase(value) {
-    return String(value || "")
-      .replaceAll("_", " ")
-      .replace(/\b\w/g, character => character.toUpperCase());
+    return String(value || "").replaceAll("_", " ").replace(/\b\w/g, character => character.toUpperCase());
   }
 
   function getSelectedCountries() {
@@ -70,9 +68,7 @@ window.BalticChart = (() => {
       return {
         labels,
         overall_average_score: (history.incident_count || []).map((value, index) =>
-          numberOrZero(value) +
-          numberOrZero((history.activity_count || [])[index]) +
-          numberOrZero((history.indicator_count || [])[index])
+          numberOrZero(value) + numberOrZero((history.activity_count || [])[index]) + numberOrZero((history.indicator_count || [])[index])
         ),
         subtype_scores: {
           incident: history.incident_count || [],
@@ -112,7 +108,6 @@ window.BalticChart = (() => {
     if (n < 2) return cleanValues;
 
     let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
-
     cleanValues.forEach((y, x) => {
       sumX += x;
       sumY += y;
@@ -246,14 +241,14 @@ window.BalticChart = (() => {
           title: {
             display: true,
             text: `${METRIC_LABELS[currentMetricMode]} — ${VIEW_LABELS[currentViewMode]}`,
-            color: "#e5f2ff",
+            color: "#0f172a",
             font: { size: 14, weight: "bold" },
             padding: { bottom: 12 }
           },
           legend: {
             position: "top",
             labels: {
-              color: "#e5f2ff",
+              color: "#0f172a",
               usePointStyle: true,
               boxWidth: 12,
               padding: 18,
@@ -266,32 +261,30 @@ window.BalticChart = (() => {
             borderWidth: 1,
             titleColor: "#ffffff",
             bodyColor: "#ffffff",
-            callbacks: {
-              label: context => `${context.dataset.label}: ${context.raw}`
-            }
+            callbacks: { label: context => `${context.dataset.label}: ${context.raw}` }
           }
         },
         scales: {
           x: {
             ticks: {
-              color: "#cbd5e1",
+              color: "#334155",
               maxRotation: 0,
               autoSkip: true,
               font: { size: 11, weight: "bold" }
             },
-            grid: { color: "rgba(148, 163, 184, 0.14)" }
+            grid: { color: "rgba(148, 163, 184, 0.20)" }
           },
           y: {
             beginAtZero: true,
             ticks: {
-              color: "#cbd5e1",
+              color: "#334155",
               font: { size: 11, weight: "bold" }
             },
-            grid: { color: "rgba(148, 163, 184, 0.16)" },
+            grid: { color: "rgba(148, 163, 184, 0.22)" },
             title: {
               display: true,
               text: currentMetricMode === "threat_index" ? "Threat Index Score" : "Event Count",
-              color: "#cbd5e1",
+              color: "#475569",
               font: { size: 12, weight: "bold" }
             }
           }
