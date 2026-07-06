@@ -1,50 +1,56 @@
 {
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-07-06T09:14:01.951666+00:00",
-  "input_generated_at": "2026-07-06T09:13:58.520019+00:00",
+  "generated_at": "2026-07-06T09:22:25.157530+00:00",
+  "input_generated_at": "2026-07-06T09:22:21.688324+00:00",
   "raw_item_count": 825,
   "filtered_item_count": 700,
-  "event_count": 574,
-  "merged_item_count": 126,
+  "event_count": 573,
+  "merged_item_count": 127,
   "summary": {
+    "by_event_type": {
+      "operational": 360,
+      "strategic": 95,
+      "background": 118
+    },
     "by_primary_country": {
       "Estonia": 48,
       "Latvia": 54,
       "Lithuania": 32,
-      "Poland": 173,
+      "Poland": 172,
       "Regional": 267
     },
     "by_category": {
-      "border_pressure": 9,
+      "border_pressure": 8,
       "critical_infrastructure": 78,
       "cyber": 107,
       "disinformation": 45,
       "drone_incident": 97,
       "espionage": 18,
       "gps_interference": 41,
-      "migration_pressure": 15,
+      "migration_pressure": 14,
       "military_provocation": 39,
       "sabotage": 47
     },
     "by_actor": {
       "Belarus": 48,
-      "EU": 157,
+      "EU": 156,
       "FSB": 1,
       "GRU": 3,
       "NATO": 130,
-      "Russia": 367,
+      "Russia": 366,
       "Sandworm": 3
     }
   },
   "method": {
-    "description": "Event clustering v2 for Baltic hybrid threat monitoring.",
+    "description": "Event clustering v2 with event type classification for Baltic hybrid threat monitoring.",
     "rules": [
       "merge items with high title similarity",
       "merge moderately similar items when actor/category/country context overlaps",
       "calculate primary country",
       "calculate source count",
       "calculate confidence score",
+      "classify event_type as operational, strategic or background",
       "preserve related titles and URLs"
     ]
   },
@@ -54,7 +60,7 @@
       "title": "Updated International Strategy to empower the EU Cybersecurity Ecosystem",
       "summary": "",
       "url": "https://www.enisa.europa.eu/news/updated-international-strategy-to-empower-the-eu-cybersecurity-ecosystem ",
-      "published_at": "2026-07-06T09:13:53.606359+00:00",
+      "published_at": "2026-07-06T09:22:16.589046+00:00",
       "primary_country": "Regional",
       "countries": [],
       "categories": [
@@ -83,14 +89,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "bd1b82bf307da97a",
       "title": "Cybersecurity Preparedness DIY: Build Your Own Cybersecurity Exercise",
       "summary": "",
       "url": "https://www.enisa.europa.eu/news/cybersecurity-preparedness-diy-build-your-own-cybersecurity-exercise ",
-      "published_at": "2026-07-06T09:13:53.606243+00:00",
+      "published_at": "2026-07-06T09:22:16.588928+00:00",
       "primary_country": "Regional",
       "countries": [],
       "categories": [
@@ -117,14 +124,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "36db1108ea889fb6",
       "title": "Assess your National Cybersecurity Capabilities and Maturity with the updated ENISA Framework",
       "summary": "",
       "url": "https://www.enisa.europa.eu/news/assess-your-national-cybersecurity-capabilities-and-maturity-with-the-updated-enisa-framework ",
-      "published_at": "2026-07-06T09:13:53.606004+00:00",
+      "published_at": "2026-07-06T09:22:16.588703+00:00",
       "primary_country": "Regional",
       "countries": [],
       "categories": [
@@ -153,14 +161,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "7cb80eef91db90b9",
       "title": "5th consecutive victory for Team Europe, the still undefeated EU Champions of the International Cybersecurity Challenge",
       "summary": "",
       "url": "https://www.enisa.europa.eu/news/5th-consecutive-victory-for-team-europe-the-still-undefeated-eu-champions-of-the-international-cybersecurity-challenge ",
-      "published_at": "2026-07-06T09:13:53.605731+00:00",
+      "published_at": "2026-07-06T09:22:16.588458+00:00",
       "primary_country": "Regional",
       "countries": [],
       "categories": [
@@ -189,14 +198,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "4ac7b8d3f26c9f93",
       "title": "Cyber Europe 2026: All eyes on the EU’s collective response and resilience",
       "summary": "",
       "url": "https://www.enisa.europa.eu/news/cyber-europe-2026-all-eyes-on-the-eus-collective-response-and-resilience ",
-      "published_at": "2026-07-06T09:13:53.605474+00:00",
+      "published_at": "2026-07-06T09:22:16.588188+00:00",
       "primary_country": "Regional",
       "countries": [],
       "categories": [
@@ -225,14 +235,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "8b079f5fab3fe189",
       "title": "ENISA to operate the EU Cybersecurity Reserve with EUR 36 million",
       "summary": "",
       "url": "https://www.enisa.europa.eu/news/enisa-to-operate-the-eu-cybersecurity-reserve-with-eur-36-million",
-      "published_at": "2026-07-06T09:13:53.605148+00:00",
+      "published_at": "2026-07-06T09:22:16.587877+00:00",
       "primary_country": "Regional",
       "countries": [],
       "categories": [
@@ -261,14 +272,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "09dc07fed9d39bd5",
       "title": "What’s Driving Cybersecurity Investments and where lie the challenges?",
       "summary": "",
       "url": "https://www.enisa.europa.eu/news/whats-driving-cybersecurity-investments-and-where-lie-the-challenges",
-      "published_at": "2026-07-06T09:13:53.604988+00:00",
+      "published_at": "2026-07-06T09:22:16.587725+00:00",
       "primary_country": "Regional",
       "countries": [],
       "categories": [
@@ -295,14 +307,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "e1144eb8ad73c7f8",
       "title": "Kyiv death toll rises to 17 after Russia's largest air assault on capital since war began",
       "summary": "",
       "url": "https://www.polskieradio.pl/395/9766/Artykul/3704362,kyiv-death-toll-rises-to-17-after-russias-largest-air-assault-on-capital-since-war-began",
-      "published_at": "2026-07-06T09:13:48.494330+00:00",
+      "published_at": "2026-07-06T09:22:11.717599+00:00",
       "primary_country": "Poland",
       "countries": [
         "Poland"
@@ -331,14 +344,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "e06998e9582dc3c8",
       "title": "Polish ministers say NATO summit will showcase allied unity 03.07.2026 23:55",
       "summary": "",
       "url": "https://www.polskieradio.pl/395/7784/Artykul/3705002,polish-ministers-say-nato-summit-will-showcase-allied-unity",
-      "published_at": "2026-07-06T09:13:48.493944+00:00",
+      "published_at": "2026-07-06T09:22:11.717184+00:00",
       "primary_country": "Poland",
       "countries": [
         "Poland"
@@ -367,14 +381,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "89928d2301c90fbe",
       "title": "Poland to declassify Ukraine military aid amid Patriot missile claims 05.07.2026 16:30",
       "summary": "",
       "url": "https://www.polskieradio.pl/395/7784/Artykul/3705294,poland-to-declassify-ukraine-military-aid-amid-patriot-missile-claims",
-      "published_at": "2026-07-06T09:13:48.493780+00:00",
+      "published_at": "2026-07-06T09:22:11.717039+00:00",
       "primary_country": "Poland",
       "countries": [
         "Poland"
@@ -403,14 +418,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "dfcd15d796bd4533",
       "title": "War in Ukraine Russia launches new massive attack on Kyiv, killing at least 11; Poland scrambles fighter jets",
       "summary": "",
       "url": "https://www.polskieradio.pl/395/9766/Artykul/3705462,russia-launches-new-massive-attack-on-kyiv-killing-at-least-11-poland-scrambles-fighter-jets",
-      "published_at": "2026-07-06T09:13:48.493608+00:00",
+      "published_at": "2026-07-06T09:22:11.716865+00:00",
       "primary_country": "Poland",
       "countries": [
         "Poland"
@@ -441,14 +457,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "409d44e193285fe0",
       "title": "Russian speakers in Lithuania turn to Ukrainian, Polish after driving test language ban",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/2976335/russian-speakers-in-lithuania-turn-to-ukrainian-polish-after-driving-test-language-ban",
-      "published_at": "2026-07-06T09:13:46.190015+00:00",
+      "published_at": "2026-07-06T09:22:09.529666+00:00",
       "primary_country": "Regional",
       "countries": [
         "Lithuania",
@@ -478,14 +495,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "99c8692d43f32bc4",
       "title": "Amid Russia warnings, Baltics brace for âhybridâ rather than conventional threats",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/2977158/amid-russia-warnings-baltics-brace-for-hybrid-rather-than-conventional-threats",
-      "published_at": "2026-07-06T09:13:46.189697+00:00",
+      "published_at": "2026-07-06T09:22:09.529390+00:00",
       "primary_country": "Lithuania",
       "countries": [
         "Lithuania"
@@ -514,14 +532,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "c56df7e3ed686c59",
       "title": "Lithuanian president's adviser targeted by fake Ukrainian official call, suspects Kremlin",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/2978098/lithuanian-president-s-adviser-targeted-by-fake-ukrainian-official-call-suspects-kremlin",
-      "published_at": "2026-07-06T09:13:46.189561+00:00",
+      "published_at": "2026-07-06T09:22:09.529227+00:00",
       "primary_country": "Lithuania",
       "countries": [
         "Lithuania"
@@ -550,56 +569,64 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "26735c6d9a7c98ba",
       "title": "Russian invasion of Ukraine",
       "summary": "",
       "url": "https://www.lrt.lt/en/tag/russian-invasion-of-ukraine",
-      "published_at": "2026-07-06T09:13:46.189467+00:00",
+      "published_at": "2026-07-06T09:22:09.529133+00:00",
       "primary_country": "Regional",
       "countries": [
         "Lithuania",
-        "Latvia"
+        "Latvia",
+        "Poland"
       ],
-      "categories": [],
+      "categories": [
+        "disinformation"
+      ],
       "actors": [
         "Russia"
       ],
       "locations": [],
-      "relevance_score": 7.94,
-      "source_count": 2,
+      "relevance_score": 8.62,
+      "source_count": 3,
       "source_names": [
         "LRT English Lithuania",
-        "Google News - CERT Latvia cyber threat"
+        "Google News - CERT Latvia cyber threat",
+        "Google News - Baltic disinformation Russia"
       ],
       "source_groups": [
         "direct_regional_media",
         "google_news_search"
       ],
-      "related_item_count": 2,
+      "related_item_count": 3,
       "related_titles": [
         "Russian invasion of Ukraine",
-        "Ukraine: Disk-wiping Attacks Precede Russian Invasion - SECURITY.COM"
+        "Ukraine: Disk-wiping Attacks Precede Russian Invasion - SECURITY.COM",
+        "Russian Disinformation War Against Poland After the Invasion of Ukraine - Warsaw Institute"
       ],
       "related_urls": [
         "https://www.lrt.lt/en/tag/russian-invasion-of-ukraine",
-        "https://news.google.com/rss/articles/CBMifkFVX3lxTE1wWHlLc0dWbHRjdXJEcVdmTjQ3dnpJbUlYcVMyQzJlanZpdERPRmJYZUJuQmtnd1M0MDBSNVZlUjJrY1pqdFZnekRnOC1VcFZRLXhtMUI2b0lHRTlvU3dJQXNHcGRhcVJPOTMxZHVsbWw1LUJlZk1PYXAxS0FqUQ?oc=5"
+        "https://news.google.com/rss/articles/CBMifkFVX3lxTE1wWHlLc0dWbHRjdXJEcVdmTjQ3dnpJbUlYcVMyQzJlanZpdERPRmJYZUJuQmtnd1M0MDBSNVZlUjJrY1pqdFZnekRnOC1VcFZRLXhtMUI2b0lHRTlvU3dJQXNHcGRhcVJPOTMxZHVsbWw1LUJlZk1PYXAxS0FqUQ?oc=5",
+        "https://news.google.com/rss/articles/CBMiogFBVV95cUxPS2dIS1ljN3d3TFM2Mm1yV1VXYU5SZnRIOU01ZWM2MHNWOXRUbGpRZk1qZm1YcGpOWFdiQW0zcVZ1QmZKdHhVandMQlVTLTdvdFlUSjMtdVdkT19vd3ZOWkFmZGRWczJJdG5hWWNyUmVBMFltN3V0bzlJY2Qxb2gtLTdTMWZSQURuaXlvZjktaHYxU1d3NGMzWlJBUlNyVDRDUVE?oc=5"
       ],
       "confidence": "medium",
-      "confidence_score": 56,
+      "confidence_score": 64,
       "collection_methods": [
         "html_fallback",
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "e55b29a9eb5e7a72",
       "title": "Lithuania president expects Trump to say NATO is âsacredâ at Ankara summit",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/2979063/lithuania-president-expects-trump-to-say-nato-is-sacred-at-ankara-summit",
-      "published_at": "2026-07-06T09:13:46.189328+00:00",
+      "published_at": "2026-07-06T09:22:09.528995+00:00",
       "primary_country": "Lithuania",
       "countries": [
         "Lithuania"
@@ -628,14 +655,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "db18d6d88e079c01",
       "title": "Lithuaniaâs Kesko Senukai says it has exited Belarus",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/2979095/lithuania-s-kesko-senukai-says-it-has-exited-belarus",
-      "published_at": "2026-07-06T09:13:46.189205+00:00",
+      "published_at": "2026-07-06T09:22:09.528872+00:00",
       "primary_country": "Lithuania",
       "countries": [
         "Lithuania"
@@ -664,14 +692,15 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "dcfb616925f638e7",
       "title": "Lithuaniaâs incoming government softens language on Belarus isolation",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/2979342/lithuania-s-incoming-government-softens-language-on-belarus-isolation",
-      "published_at": "2026-07-06T09:13:46.188937+00:00",
+      "published_at": "2026-07-06T09:22:09.528609+00:00",
       "primary_country": "Lithuania",
       "countries": [
         "Lithuania"
@@ -700,7 +729,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "html_fallback"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "ab1e6c78e93e21fd",
@@ -740,7 +770,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "9ba7ce6924136c06",
@@ -777,7 +808,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "095ab3b36a5f343f",
@@ -817,7 +849,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "8b0c5e9bd2cca9f2",
@@ -855,7 +888,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "e2ea1ef237762363",
@@ -891,7 +925,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "499f2ddfb057f055",
@@ -929,7 +964,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "82def96acc1f0768",
@@ -965,7 +1001,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "d4d59d3570fb1553",
@@ -1002,7 +1039,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "58f6dfba01e78adb",
@@ -1040,7 +1078,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "2e063e7d122f6999",
@@ -1082,7 +1121,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "38748eade242f139",
@@ -1116,7 +1156,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "531da9d5df99269b",
@@ -1152,7 +1193,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "70b003be6d92704e",
@@ -1188,7 +1230,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8253cbde341aab25",
@@ -1223,7 +1266,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "cb84d32544e0524e",
@@ -1259,7 +1303,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "47570625570cbfad",
@@ -1295,7 +1340,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "4557c11cde97b9af",
@@ -1338,7 +1384,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "fae1d9dad636a6dc",
@@ -1374,7 +1421,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "790e1dacbea01999",
@@ -1433,7 +1481,8 @@
       "confidence_score": 59,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "bd7c01eca61638c3",
@@ -1469,7 +1518,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "948ab4725ee721e7",
@@ -1510,7 +1560,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "0b2dd7153f029bd5",
@@ -1551,7 +1602,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "26113d2d26206e33",
@@ -1588,7 +1640,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "74f93b305c3f3a16",
@@ -1639,7 +1692,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "c9c7c11b1fc72498",
@@ -1684,7 +1738,8 @@
       "confidence_score": 59,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8a920e0d5fbb0115",
@@ -1722,7 +1777,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b9f51f34c3f4ec29",
@@ -1758,7 +1814,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "2c0b21a2fa6161b6",
@@ -1794,7 +1851,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "0abac479323bb0e4",
@@ -1828,7 +1886,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "168021a50214e062",
@@ -1864,7 +1923,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "71c2236366215bb9",
@@ -1905,7 +1965,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "982a82b0c54b87c1",
@@ -1948,7 +2009,8 @@
       "confidence_score": 59,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "a2a9682242ef166f",
@@ -1984,7 +2046,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b2fdb361abe75c9b",
@@ -2020,7 +2083,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "89ee2d6c8672e65b",
@@ -2064,7 +2128,8 @@
       "confidence_score": 56,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "69c9632052f8be3d",
@@ -2099,7 +2164,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "1ae792bf43a6d138",
@@ -2138,7 +2204,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "479e200fe84bbc7d",
@@ -2184,7 +2251,8 @@
       "confidence_score": 59,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d1f1dcb0647342bf",
@@ -2220,7 +2288,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "cb3a7cb97a0adbb6",
@@ -2257,7 +2326,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "52d5d80bb83e1a09",
@@ -2295,7 +2365,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "51327b6e964dc7fa",
@@ -2331,7 +2402,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "b59dff96783d47ec",
@@ -2367,7 +2439,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "87ab8a1522a6f361",
@@ -2403,7 +2476,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a0532d548b22d95f",
@@ -2444,7 +2518,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "82a3a964ec074013",
@@ -2481,7 +2556,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "749758717c74314a",
@@ -2519,7 +2595,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a865bfbd93807a54",
@@ -2555,7 +2632,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "89236282268ac566",
@@ -2589,7 +2667,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "972f958f8af9c5f2",
@@ -2623,7 +2702,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "3fbabedc2b7f9a4f",
@@ -2659,7 +2739,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "35941b3643de31a7",
@@ -2693,7 +2774,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "048d5a414240e9b9",
@@ -2728,7 +2810,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "7042c1cb91c4c268",
@@ -2764,7 +2847,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "716bfc5b2d542e3c",
@@ -2802,7 +2886,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d5d3d978b5d2c0de",
@@ -2838,7 +2923,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a5d80a589e2ccac1",
@@ -2874,7 +2960,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "f6a4bfa0d2659a5f",
@@ -2912,7 +2999,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "93772a087da24664",
@@ -2948,7 +3036,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5a88c1b60a4a2e28",
@@ -2982,7 +3071,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "fce4ee56a6ce60c5",
@@ -3016,7 +3106,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "f516e07de36a69df",
@@ -3052,7 +3143,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "636e5c03fe9a9698",
@@ -3089,7 +3181,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a66e990bf1370868",
@@ -3130,7 +3223,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "4cbb2d76c07e6d3d",
@@ -3166,7 +3260,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "d7eafa9be1b08c57",
@@ -3201,7 +3296,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "329eafd7fbd3d7ba",
@@ -3242,7 +3338,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "2a569e7da6e55048",
@@ -3291,7 +3388,8 @@
       "confidence_score": 67,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "19569bac0094ee88",
@@ -3329,7 +3427,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "90037df515a5c659",
@@ -3371,7 +3470,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "08c71647f8fe7765",
@@ -3407,7 +3507,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "e77fd0af039c499f",
@@ -3446,7 +3547,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "30d5db2286a31a3c",
@@ -3489,7 +3591,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a9f606b63a4800d3",
@@ -3534,7 +3637,8 @@
       "confidence_score": 59,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "67f604ff39a63a86",
@@ -3576,7 +3680,8 @@
       "confidence_score": 56,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "20fba3928e0542f0",
@@ -3619,7 +3724,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "c328ac96efacb706",
@@ -3657,7 +3763,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "2ad709e9d8f3e55f",
@@ -3691,7 +3798,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "c9fcfadf7f7a3f93",
@@ -3727,7 +3835,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b15aad6c17b7a5f6",
@@ -3765,7 +3874,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "d478ce3f7b072905",
@@ -3800,7 +3910,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "05409caaddf87048",
@@ -3844,7 +3955,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6bfbe117c8de33a4",
@@ -3878,7 +3990,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "1735c0daf632ab07",
@@ -3920,7 +4033,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f6b8c3417f95ed8c",
@@ -3957,7 +4071,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5623f607077b1853",
@@ -4002,7 +4117,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "853c2e499e260c06",
@@ -4039,7 +4155,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "4abc7ec7664dafae",
@@ -4076,7 +4193,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "923ad6a571b63112",
@@ -4114,7 +4232,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "4a971a7fa9f64b1b",
@@ -4152,7 +4271,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "3556d9baecf476d1",
@@ -4190,7 +4310,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "32e6b7a88f3184e2",
@@ -4227,7 +4348,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "d50e7c0ffa96ce4c",
@@ -4269,7 +4391,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d394f056989a6f09",
@@ -4306,7 +4429,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "20dc20f18a1ab688",
@@ -4342,7 +4466,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "2b474b19a0661e54",
@@ -4380,7 +4505,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "40e83ede60ca3b11",
@@ -4418,7 +4544,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "fdb7be1924889957",
@@ -4454,7 +4581,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6bc81659b37af910",
@@ -4497,7 +4625,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "68dc088f92d413fa",
@@ -4532,7 +4661,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "f60279790245f972",
@@ -4577,7 +4707,8 @@
       "confidence_score": 67,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "e67643eb878f7d18",
@@ -4614,7 +4745,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "37b0fac19cda6176",
@@ -4648,7 +4780,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "79214c12aeba338f",
@@ -4684,7 +4817,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "0404c79a6bb796f2",
@@ -4720,7 +4854,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "10f2e2676be3edc3",
@@ -4757,7 +4892,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "577d2a54148b3048",
@@ -4796,7 +4932,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "87f31204edf76d32",
@@ -4833,7 +4970,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "a50f2779ef9a8da8",
@@ -4873,7 +5011,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "c3e72dffc017a9be",
@@ -4913,7 +5052,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "45be958f26172041",
@@ -4954,7 +5094,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "17f23f530d6d8e7d",
@@ -4990,7 +5131,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "64a4d9453d08aedb",
@@ -5028,7 +5170,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ef6f5ef97c5a8f7c",
@@ -5062,7 +5205,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "1fda978a1ef031f9",
@@ -5098,7 +5242,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "5d9fcd4579bd1276",
@@ -5135,7 +5280,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "a9917af7319e30d9",
@@ -5171,7 +5317,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "e798e79a409382c9",
@@ -5207,7 +5354,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "aad1083e51c3ffc8",
@@ -5244,7 +5392,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "92e345d66e52c4c3",
@@ -5284,7 +5433,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "8e019400a25e9caa",
@@ -5319,7 +5469,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "4452de584fa31fa5",
@@ -5355,7 +5506,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "276b9008ba64d5d4",
@@ -5391,7 +5543,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d4c5cd359bc2e093",
@@ -5427,7 +5580,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a169984801908241",
@@ -5465,7 +5619,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7be1e1bbc07541a4",
@@ -5505,7 +5660,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f03e6c2af5f587b5",
@@ -5542,7 +5698,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f24397b680401fb4",
@@ -5583,7 +5740,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "ff5bdda0d3dac921",
@@ -5626,7 +5784,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "1df44603bccddca2",
@@ -5662,7 +5821,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a9a39790fa832608",
@@ -5713,7 +5873,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "183b3e2ca24685c5",
@@ -5753,7 +5914,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "0c442ce42539bc4f",
@@ -5793,7 +5955,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "0abf32f9f3f554ea",
@@ -5831,7 +5994,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "e8a0fbe5d61b58af",
@@ -5870,7 +6034,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "31baf527726e0bdf",
@@ -5915,7 +6080,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "eda8a0d69ffb203b",
@@ -5960,7 +6126,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "c4da0539e2bd0dc0",
@@ -5998,7 +6165,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f803a6e34e28dca3",
@@ -6036,7 +6204,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "29865e899d59bb32",
@@ -6070,7 +6239,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "de6770152302b089",
@@ -6107,7 +6277,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "fc099934f5fcf263",
@@ -6144,7 +6315,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b5151d41648449e8",
@@ -6182,7 +6354,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "e27cb1446a8e9ee8",
@@ -6218,7 +6391,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "9bd209ebea6413e1",
@@ -6257,7 +6431,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "48048cc4437589f8",
@@ -6294,7 +6469,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "38c321c4e6f2d4fb",
@@ -6328,7 +6504,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "1d6332a2687a60de",
@@ -6362,7 +6539,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "3271f5b4b716adf1",
@@ -6401,7 +6579,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7b0acf14079f1b6d",
@@ -6436,7 +6615,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "423b45e5421f03c3",
@@ -6472,7 +6652,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "38233bb3696dfabd",
@@ -6506,7 +6687,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "bc4a778fc76a65ce",
@@ -6540,7 +6722,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "9933f3bb911efee4",
@@ -6576,7 +6759,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8b675b126bf01143",
@@ -6612,7 +6796,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "381e7ae98afd540c",
@@ -6654,7 +6839,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "990d7ba987498618",
@@ -6694,7 +6880,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "154518c5cfb3c071",
@@ -6731,7 +6918,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a946d82c99bb0f85",
@@ -6769,7 +6957,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "9aa730ecb6331614",
@@ -6805,7 +6994,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "0eee38b6744bd327",
@@ -6843,7 +7033,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5dffd06623d94344",
@@ -6879,7 +7070,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "62d0c1b869c95e2a",
@@ -6915,7 +7107,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7b1eaffab826a7c0",
@@ -6951,7 +7144,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "3b7aa1de802bd555",
@@ -6988,7 +7182,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "8dacb27aeb99373c",
@@ -7025,7 +7220,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "088b15a6cc1773d7",
@@ -7063,7 +7259,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "76149d794f62a5f9",
@@ -7101,7 +7298,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "80bf01b1e7b50f57",
@@ -7137,7 +7335,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "3058f54760bf5152",
@@ -7174,7 +7373,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "907d51375382b3dd",
@@ -7221,7 +7421,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a3524433a3ebf4fc",
@@ -7259,7 +7460,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "41b357f76de7319e",
@@ -7304,7 +7506,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "20e45df74b77132b",
@@ -7340,7 +7543,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "de2ebcbf4ede1c59",
@@ -7377,7 +7581,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d69ccc2a66026498",
@@ -7413,7 +7618,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "afa15a5b62e3cc00",
@@ -7447,7 +7653,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "fb24b1d1be827563",
@@ -7495,7 +7702,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "54908e4e7c496d73",
@@ -7533,7 +7741,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "71bc7868a2c4e154",
@@ -7568,7 +7777,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "74f09a46f34b3982",
@@ -7602,7 +7812,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "bb065ca778794975",
@@ -7640,7 +7851,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "53b323df12f06e14",
@@ -7680,7 +7892,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "26c27be9cc5e5044",
@@ -7719,7 +7932,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "aa3b2e4d464456fa",
@@ -7754,7 +7968,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d46f25213eb1d883",
@@ -7791,7 +8006,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "723de407cce508b7",
@@ -7827,7 +8043,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "45e08a69a667d236",
@@ -7861,7 +8078,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "2321109d06efc89c",
@@ -7897,7 +8115,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "f5008c38d964b959",
@@ -7935,7 +8154,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "e716da26ce864b29",
@@ -7978,7 +8198,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "585c0f73ec2b8c6b",
@@ -8020,7 +8241,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "9ac9a2b734223a7c",
@@ -8058,7 +8280,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "c5e77a29537ae93d",
@@ -8096,7 +8319,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "1058b5a93dce9c4a",
@@ -8130,7 +8354,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f95867cd75700f12",
@@ -8164,7 +8389,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ead12ec1f6430701",
@@ -8200,7 +8426,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "2442e35f49ac6dfb",
@@ -8243,7 +8470,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7a60544a2b16f2c3",
@@ -8281,7 +8509,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "e01ba8a04a3c1fe7",
@@ -8321,7 +8550,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b2aad84b93e8dfc6",
@@ -8360,7 +8590,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6a2d0051c435e7cd",
@@ -8403,7 +8634,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "da32aad816e25561",
@@ -8445,7 +8677,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "bcebf9d0488193e1",
@@ -8485,7 +8718,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "3825fd45344f78ae",
@@ -8522,7 +8756,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "0fb23cb4b75d0ebe",
@@ -8558,7 +8793,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "bd28f40a0eae797c",
@@ -8601,7 +8837,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7a56bc04a1c59ecf",
@@ -8643,7 +8880,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "adabb0fbdd75c687",
@@ -8685,7 +8923,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "11f4f0c42dd56e29",
@@ -8724,7 +8963,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "e380980c05d7dcae",
@@ -8760,7 +9000,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "e73dce37f3c92c89",
@@ -8798,7 +9039,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "f9a1fd057bfe2a7f",
@@ -8834,7 +9076,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5d2ca3478bb6617e",
@@ -8871,7 +9114,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5295f9fcf068ee03",
@@ -8905,7 +9149,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "dfd9d00f36ac7809",
@@ -8941,7 +9186,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "27c16ed8f1c6e608",
@@ -8994,7 +9240,8 @@
       "confidence_score": 75,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "bf3638fc971104af",
@@ -9034,7 +9281,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5499c0d67ab5de29",
@@ -9072,7 +9320,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "2af04af1d84e1700",
@@ -9107,7 +9356,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "9d01da07051ea96f",
@@ -9155,7 +9405,8 @@
       "confidence_score": 59,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "cd75d37284dd66fe",
@@ -9190,7 +9441,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "c3312d21544de6e2",
@@ -9225,7 +9477,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "4d93bc2218962661",
@@ -9261,7 +9514,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "45d192cf9c8da2a5",
@@ -9296,7 +9550,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "8a1a327a26709a21",
@@ -9332,7 +9587,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "9800241235a56f37",
@@ -9370,7 +9626,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a3abd00f7e2140a5",
@@ -9405,7 +9662,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "e557810c1dea79ae",
@@ -9441,7 +9699,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5c83e3ba7d4607b2",
@@ -9480,7 +9739,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "229b94aa02667462",
@@ -9515,7 +9775,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "d7247303513665e8",
@@ -9551,7 +9812,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "e8e0ac67dad0a1e8",
@@ -9587,7 +9849,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "3ae67c05cca82f95",
@@ -9623,7 +9886,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "da6830bedc1b29bf",
@@ -9663,7 +9927,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7a17a84e62940594",
@@ -9703,7 +9968,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "edc02f22e66592cd",
@@ -9741,7 +10007,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8400e4797b0f5301",
@@ -9777,7 +10044,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5a67a9ef003ebb3d",
@@ -9811,7 +10079,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "97892b08a0c3bc29",
@@ -9847,7 +10116,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "6368e51440e6fb94",
@@ -9882,7 +10152,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "eec36ecfd56129c0",
@@ -9920,7 +10191,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "650be39a2fba7f9e",
@@ -9958,7 +10230,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d2cab06e87510c4b",
@@ -9999,7 +10272,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "bfb140cc9bfb61b9",
@@ -10038,7 +10312,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8bff434d3ce1f2af",
@@ -10080,7 +10355,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7ac63a1383472210",
@@ -10118,7 +10394,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "357b543c18567cbc",
@@ -10157,7 +10434,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "3718f8f11cd2b503",
@@ -10196,7 +10474,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d303c087faa457ef",
@@ -10236,7 +10515,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7debceb58e3b732a",
@@ -10275,7 +10555,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "802801b88d285784",
@@ -10311,7 +10592,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "48411dd80eae05e2",
@@ -10347,7 +10629,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "80af2311e2ac047c",
@@ -10390,7 +10673,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f122d4bb94ba5d28",
@@ -10428,7 +10712,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ecdf4791f7b36dbc",
@@ -10477,7 +10762,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b027ad5f197c4df8",
@@ -10520,7 +10806,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "56c8c2fbeef7285d",
@@ -10560,7 +10847,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a9832f0a1bf9cbf1",
@@ -10596,7 +10884,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "31a894ecf7c70b34",
@@ -10632,7 +10921,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8b22a461656bdcb5",
@@ -10672,7 +10962,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "0aeb725b84f77811",
@@ -10709,7 +11000,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "c891ed3829070875",
@@ -10744,7 +11036,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "fc80a0e5b0375317",
@@ -10781,7 +11074,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6a87e02e9eece6c5",
@@ -10817,7 +11111,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a666a2cf931fba56",
@@ -10853,7 +11148,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "93b835a295337086",
@@ -10890,7 +11186,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "4227c0fc7364b055",
@@ -10932,7 +11229,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "cda27274f5581960",
@@ -10967,7 +11265,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "09363459fbe25fff",
@@ -11004,7 +11303,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ae22138bee7da3f1",
@@ -11040,7 +11340,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "dd8758a41244793d",
@@ -11076,7 +11377,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b7fb346cc94fea97",
@@ -11112,7 +11414,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "632b8e1fb2bc6a22",
@@ -11149,7 +11452,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "db7bd729615aa319",
@@ -11185,7 +11489,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "012a7e5919e63d0e",
@@ -11223,7 +11528,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "eeeaf7c37556bf3e",
@@ -11260,7 +11566,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "d07aa8f32597559c",
@@ -11298,7 +11605,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "4a244968a289c0cb",
@@ -11335,7 +11643,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "53d059faa511f5a9",
@@ -11372,7 +11681,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "88b66069276de266",
@@ -11408,7 +11718,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "0f1ab838b9744d0e",
@@ -11444,7 +11755,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "33ba822586b5e0dd",
@@ -11478,7 +11790,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "1f5aa33758d95f6b",
@@ -11514,7 +11827,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "2857618d3667cf12",
@@ -11552,7 +11866,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7471427c6909142c",
@@ -11588,7 +11903,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "9f2987e71191b0ff",
@@ -11626,7 +11942,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "610d3a658a321312",
@@ -11664,7 +11981,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "648b57c35a51614f",
@@ -11700,7 +12018,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "3e551fb6e1b85d10",
@@ -11742,7 +12061,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7ec455175c58d22c",
@@ -11778,7 +12098,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f3897292cd3dc2fa",
@@ -11821,7 +12142,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "9988ff1bc3f3e5c0",
@@ -11860,7 +12182,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "84a2ccac88fd5b92",
@@ -11897,7 +12220,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d775555ec0d35167",
@@ -11934,7 +12258,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "bfa303e754b14f74",
@@ -11972,7 +12297,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f6023bbe4854ef84",
@@ -12011,7 +12337,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "818013734d6f8e63",
@@ -12052,7 +12379,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ef8bef44058a4cae",
@@ -12092,7 +12420,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "4b19eb334f370d9f",
@@ -12132,7 +12461,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d92a714c335d33d5",
@@ -12166,7 +12496,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "74eab6f639a8719e",
@@ -12204,7 +12535,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ad3510a67c8c4f5a",
@@ -12242,7 +12574,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "1dbbf93bcfb11714",
@@ -12279,7 +12612,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7394259e5ad16300",
@@ -12316,7 +12650,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7c8395e6b8845e44",
@@ -12352,7 +12687,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "64563277f25a4e3a",
@@ -12388,7 +12724,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "470024697e9dbf50",
@@ -12427,7 +12764,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6c1085e8a5bf08ab",
@@ -12463,7 +12801,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6cf6305a3f84d9f4",
@@ -12503,7 +12842,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "827d62efe36a2738",
@@ -12543,7 +12883,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "74f030923e8fbc83",
@@ -12579,7 +12920,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "014f9d66bd512902",
@@ -12615,7 +12957,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "1ba746316e1fe19c",
@@ -12653,7 +12996,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "3a9c5185fa1538a9",
@@ -12689,7 +13033,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "b3796e7e74c3edd0",
@@ -12726,7 +13071,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d24ad4c985fae2e7",
@@ -12766,7 +13112,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d9613bc29d83d7a4",
@@ -12805,7 +13152,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "2b73d566d0c689c1",
@@ -12843,7 +13191,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "d1f911f880553561",
@@ -12881,7 +13230,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6c7958fdc73c5657",
@@ -12917,7 +13267,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "eb47884139b496d1",
@@ -12954,7 +13305,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "eefcdfa6aa7e120f",
@@ -12990,7 +13342,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "65ea4c123bcb56de",
@@ -13026,7 +13379,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "f4716d1ce726667d",
@@ -13065,7 +13419,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "53531e110e5456c6",
@@ -13104,7 +13459,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "62844ba375418082",
@@ -13138,7 +13494,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "77dbe26474c13777",
@@ -13173,7 +13530,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "27ddaa0268701a7b",
@@ -13207,7 +13565,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "0e5777d959d4583e",
@@ -13242,7 +13601,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "1cb7d92d9cab03d6",
@@ -13278,7 +13638,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "1f5e91d1e988c45b",
@@ -13317,7 +13678,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f44c9618cb5243b8",
@@ -13352,7 +13714,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ccb1cf1736ba5645",
@@ -13390,7 +13753,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6f87141ff2c392db",
@@ -13427,7 +13791,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6316499af51ec9f0",
@@ -13463,7 +13828,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ccb449bd91b43793",
@@ -13499,7 +13865,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "03ec0f2e74058da4",
@@ -13533,7 +13900,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "58229b8d0743aca2",
@@ -13570,7 +13938,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d698bbff18ef1e37",
@@ -13607,7 +13976,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "af926e28ded34b58",
@@ -13643,7 +14013,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "4f4464cfcc101f88",
@@ -13681,7 +14052,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7445398ed016e161",
@@ -13720,7 +14092,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "0a49412a1315e1d3",
@@ -13755,7 +14128,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "21141f6dcd0293e8",
@@ -13794,7 +14168,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "48cfa93121a4e651",
@@ -13831,7 +14206,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "7d1be1d59cf831a6",
@@ -13866,7 +14242,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "fb4eac02dad585ed",
@@ -13902,7 +14279,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "fea0efb267c3e9d1",
@@ -13940,7 +14318,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "aa0bc99e7c8a7553",
@@ -13977,7 +14356,45 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
+    },
+    {
+      "event_id": "fcaefe7e216718f1",
+      "title": "Balloons from Belarus cross into Polish airspace for a third night - AP News",
+      "summary": "Balloons from Belarus cross into Polish airspace for a third night AP News",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOaUxqUnotbEp1YkdOR2N2YnBmYkdERi1kRDl5ZEtsR2ZCUmdKN3RaalRNMVNPUXRET2hpT3kwWlFSNFF0ZTZDeVoxbzk1MkZuakFqb3lFb0ZjdG13SWdBcjVrTUNMb0l0ODhEa1dnQVhYLWlyUmJ0cVdPTmZSTHFBWXl5N2swaDhLaXBCVnh0TUJoS0dZN0xkNXNwYVNyR1o1RmhxNndhZUVva2x3a1g1OTRrcUg?oc=5",
+      "published_at": "2026-02-02T08:00:00+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Belarus"
+      ],
+      "locations": [],
+      "relevance_score": 6.32,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Poland Belarus border hybrid"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Balloons from Belarus cross into Polish airspace for a third night - AP News"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMitAFBVV95cUxOaUxqUnotbEp1YkdOR2N2YnBmYkdERi1kRDl5ZEtsR2ZCUmdKN3RaalRNMVNPUXRET2hpT3kwWlFSNFF0ZTZDeVoxbzk1MkZuakFqb3lFb0ZjdG13SWdBcjVrTUNMb0l0ODhEa1dnQVhYLWlyUmJ0cVdPTmZSTHFBWXl5N2swaDhLaXBCVnh0TUJoS0dZN0xkNXNwYVNyR1o1RmhxNndhZUVva2x3a1g1OTRrcUg?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 43,
+      "collection_methods": [
+        "rss"
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "825105cf31f95eb1",
@@ -14013,7 +14430,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d524b1d61865b4ad",
@@ -14050,7 +14468,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "2273e70e04f6e58f",
@@ -14091,7 +14510,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "1db08fe53ad8db3b",
@@ -14131,7 +14551,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "32cf499d7843fb23",
@@ -14169,7 +14590,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6bdf4bbd92ece1b3",
@@ -14206,7 +14628,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7787a80f7195739d",
@@ -14246,7 +14669,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ee3f349bb23be159",
@@ -14285,7 +14709,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "4ab74d6d5b461e44",
@@ -14322,7 +14747,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "1cece280009bfe39",
@@ -14359,7 +14785,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5529918ef9a99ac2",
@@ -14398,7 +14825,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "c806231e51820702",
@@ -14432,7 +14860,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "c55940485ced7922",
@@ -14472,7 +14901,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8a3ec9353cc7d879",
@@ -14508,7 +14938,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "51c458138c823379",
@@ -14551,7 +14982,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5a2bf53ca5264348",
@@ -14587,7 +15019,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "80d2cdb1f8476f90",
@@ -14627,7 +15060,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ae3f4c410e06592d",
@@ -14664,7 +15098,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "197d0f493c42f74d",
@@ -14707,7 +15142,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "3f09e88178e2474f",
@@ -14746,7 +15182,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "cc35432d12323388",
@@ -14783,7 +15220,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "01e7c3d59201043c",
@@ -14821,7 +15259,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "7b76abbf0a3600fa",
@@ -14860,7 +15299,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6ff576e46d28c907",
@@ -14897,7 +15337,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "06387be006670829",
@@ -14935,7 +15376,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "280150216f5fc3c9",
@@ -14973,7 +15415,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "a864b416f12c7b26",
@@ -15010,7 +15453,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "9b175ac89cb64493",
@@ -15046,7 +15490,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "39d79a23e18ffa36",
@@ -15085,7 +15530,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "ce782e28198d3eb5",
@@ -15123,7 +15569,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d353fad8e4d97ea8",
@@ -15159,7 +15606,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "05e0b88fae8bd4d3",
@@ -15193,7 +15641,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "9ff70901879e9e33",
@@ -15230,7 +15679,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "fec4b851f2ea6f88",
@@ -15266,7 +15716,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "2a5d8372ecdb658f",
@@ -15302,7 +15753,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ca8133b6715bf1f1",
@@ -15338,7 +15790,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "6531497ff78d53e7",
@@ -15374,7 +15827,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "2eea717b84fa7d8a",
@@ -15413,7 +15867,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f658fd40d4bf671c",
@@ -15454,7 +15909,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "00d8109929ba9abf",
@@ -15488,7 +15944,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "bb865181a1028bf9",
@@ -15526,7 +15983,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "66eb0fac1e87632e",
@@ -15562,7 +16020,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "1796d61793e8574d",
@@ -15599,7 +16058,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "3dd093bfdc3999fe",
@@ -15635,7 +16095,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "27145f2a98e8e7dc",
@@ -15670,7 +16131,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "9f2952686f613247",
@@ -15704,7 +16166,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "0c2b88f8cfe4a6fe",
@@ -15740,7 +16203,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "0922ea68f5554d8d",
@@ -15774,7 +16238,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "27c34e68bb01e687",
@@ -15811,7 +16276,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b6fefe8d4fc9f224",
@@ -15847,7 +16313,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "0aab0a728466e0d5",
@@ -15883,7 +16350,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "985d1d80d295301f",
@@ -15920,7 +16388,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "aeeb8e5b305a0c87",
@@ -15954,7 +16423,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "56b0a6eaaeabda9c",
@@ -15991,7 +16461,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8cce16d76d17a3bc",
@@ -16030,7 +16501,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "bb15a434bdfce678",
@@ -16071,7 +16543,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "3fe11a1a89e42e23",
@@ -16108,7 +16581,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "46c79771c509761b",
@@ -16148,7 +16622,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "12abc90c97c691df",
@@ -16185,7 +16660,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "254b408988ad3f5b",
@@ -16220,7 +16696,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "e85ec1faa1b624b3",
@@ -16256,7 +16733,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "d68b59e9a5dbac43",
@@ -16290,7 +16768,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "14d030ab77314b1e",
@@ -16327,7 +16806,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "1aafb2d74c60c887",
@@ -16364,7 +16844,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "611c27ffaa33d840",
@@ -16401,7 +16882,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "5952baff334a6dd8",
@@ -16440,7 +16922,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a07888ac52c5e017",
@@ -16476,7 +16959,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5791e1821366488f",
@@ -16514,7 +16998,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "fbf5d02bcbf8f4fd",
@@ -16550,7 +17035,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "7d5e7df3aed6b817",
@@ -16586,7 +17072,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "bab7094c038a6727",
@@ -16622,7 +17109,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "98c0e10805aad543",
@@ -16660,7 +17148,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8cb8ee510b3f2753",
@@ -16696,7 +17185,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a83bc02537b0f52d",
@@ -16732,7 +17222,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "491b7d61d08253ce",
@@ -16770,7 +17261,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "336d1b5169e9d6fa",
@@ -16806,7 +17298,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "9df89012861ac268",
@@ -16844,7 +17337,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "937d8696918625fa",
@@ -16882,7 +17376,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "fb998af68a8f0f75",
@@ -16919,7 +17414,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "86a39c0664e0333b",
@@ -16954,7 +17450,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "9a5d60c02c478c16",
@@ -16990,7 +17487,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "90707d4eddd7fcca",
@@ -17028,7 +17526,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "3a123343f768b98d",
@@ -17064,7 +17563,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "d1584f09b0cb4ba3",
@@ -17100,7 +17600,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "ace6924e2c4efc2b",
@@ -17139,7 +17640,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f943bcfd93cda739",
@@ -17174,7 +17676,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "bfa3c48807842a80",
@@ -17216,7 +17719,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ddc354e2f693ad50",
@@ -17254,7 +17758,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d5cd3e68b6845539",
@@ -17297,7 +17802,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8d6e2fbe45834b37",
@@ -17333,7 +17839,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "ed36c50f017d2adc",
@@ -17368,7 +17875,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "745f1d75158c419c",
@@ -17405,7 +17913,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "255670f76d62a4d7",
@@ -17442,7 +17951,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "4e1ee45fa7b0973e",
@@ -17478,7 +17988,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "a74b2b5a71da6d2f",
@@ -17517,7 +18028,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "68eaef1574714f1c",
@@ -17551,7 +18063,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "73f728489019dfcf",
@@ -17588,7 +18101,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "9d7c249ba65f4441",
@@ -17626,7 +18140,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "894229910f32c045",
@@ -17664,7 +18179,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "3e3076c30b44720d",
@@ -17698,7 +18214,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "e14d5e80177273cb",
@@ -17732,7 +18249,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "30d4292d6009f127",
@@ -17771,7 +18289,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "32b58b1eeeaf37ee",
@@ -17812,7 +18331,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8609db389ab09a20",
@@ -17848,7 +18368,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b192cf7a463749c1",
@@ -17884,7 +18405,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "67ba7a76dd8ed501",
@@ -17922,7 +18444,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "31deaa78393322f8",
@@ -17961,7 +18484,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "68248faba51e986d",
@@ -17997,7 +18521,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "65e692a595295f92",
@@ -18033,7 +18558,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "4e9b560962a40486",
@@ -18075,7 +18601,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "68f0c6eccf039057",
@@ -18111,7 +18638,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7d782b4ddde4764b",
@@ -18146,7 +18674,45 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
+    },
+    {
+      "event_id": "526f6eb82c19f354",
+      "title": "Research exposes Russia as jamming culprit - GPS World",
+      "summary": "Research exposes Russia as jamming culprit GPS World",
+      "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBYbHVKR3RvelNtQ1BCVm5heTJId09rLXRocmZnODg2SzE4ZXZKSVdyRVNMUnBGS0xXTUo0SmhvUkJ2RG83TzdPdFp3SWVRODgxd2p6T1B1Q1V2emdPYzliWGFEZkQtMnh6ZC1rT1phZGdlUEVWUTN3?oc=5",
+      "published_at": "2025-07-07T07:00:00+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "gps_interference"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "relevance_score": 8.25,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Baltic GPS jamming"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Research exposes Russia as jamming culprit - GPS World"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMid0FVX3lxTFBYbHVKR3RvelNtQ1BCVm5heTJId09rLXRocmZnODg2SzE4ZXZKSVdyRVNMUnBGS0xXTUo0SmhvUkJ2RG83TzdPdFp3SWVRODgxd2p6T1B1Q1V2emdPYzliWGFEZkQtMnh6ZC1rT1phZGdlUEVWUTN3?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 43,
+      "collection_methods": [
+        "rss"
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "02a8e17b8805c463",
@@ -18186,7 +18752,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "84e41cc4ac45e989",
@@ -18224,7 +18791,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a98fc2b4c8e5a96d",
@@ -18260,7 +18828,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a3ff5b263a33a135",
@@ -18298,7 +18867,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "fbd652c68c761206",
@@ -18335,7 +18905,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6d8047bb12d28ae9",
@@ -18376,7 +18947,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "4f3df8cf382d9f5f",
@@ -18417,7 +18989,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7af261359fe7eb89",
@@ -18453,7 +19026,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "32bb7976db44573c",
@@ -18489,7 +19063,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "830313ffca9f36c2",
@@ -18523,7 +19098,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "077404fc3ebe77bf",
@@ -18561,7 +19137,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "e2273c55972d349a",
@@ -18598,7 +19175,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "764f967a7470cc1c",
@@ -18634,7 +19212,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "915791e6c5dca6e7",
@@ -18671,7 +19250,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "494f842f1878d72b",
@@ -18705,7 +19285,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "1184d157e0eaa474",
@@ -18741,50 +19322,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
-    },
-    {
-      "event_id": "935dbe8ed41e4aa4",
-      "title": "EU and Migration: Will the New Pact Hold at the Poland-Belarus Border? - Bloomsbury Intelligence and Security Institute (BISI)",
-      "summary": "EU and Migration: Will the New Pact Hold at the Poland-Belarus Border? Bloomsbury Intelligence and Security Institute (BISI)",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOWE5rcmFkX0JGcmtpZFBNVnFsUXlIQmh4SXkyWXItX3RocFNST3BwOTIzWFJ3M19uU2xFa1BKZTV0VC1BNnotOUFLdVB2Wk5ERTVZeFBoOUJiWXh2cXYxREpHcDJsTU15Tm85MUF2aVNmQjdMMDNaaEFhbTFDcU5TMU0ydGIwVnp0SjhuRF9VTnJNWWkzd3RReC1KWFo?oc=5",
-      "published_at": "2025-03-21T07:00:00+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
       ],
-      "categories": [
-        "border_pressure",
-        "migration_pressure"
-      ],
-      "actors": [
-        "Belarus",
-        "EU"
-      ],
-      "locations": [
-        "Belarus Border",
-        "Poland-Belarus Border"
-      ],
-      "relevance_score": 17.82,
-      "source_count": 1,
-      "source_names": [
-        "Google News - Poland Belarus border hybrid"
-      ],
-      "source_groups": [
-        "google_news_search"
-      ],
-      "related_item_count": 1,
-      "related_titles": [
-        "EU and Migration: Will the New Pact Hold at the Poland-Belarus Border? - Bloomsbury Intelligence and Security Institute (BISI)"
-      ],
-      "related_urls": [
-        "https://news.google.com/rss/articles/CBMinAFBVV95cUxOWE5rcmFkX0JGcmtpZFBNVnFsUXlIQmh4SXkyWXItX3RocFNST3BwOTIzWFJ3M19uU2xFa1BKZTV0VC1BNnotOUFLdVB2Wk5ERTVZeFBoOUJiWXh2cXYxREpHcDJsTU15Tm85MUF2aVNmQjdMMDNaaEFhbTFDcU5TMU0ydGIwVnp0SjhuRF9VTnJNWWkzd3RReC1KWFo?oc=5"
-      ],
-      "confidence": "low",
-      "confidence_score": 43,
-      "collection_methods": [
-        "rss"
-      ]
+      "event_type": "operational"
     },
     {
       "event_id": "c397d2ec99dcc8c0",
@@ -18818,7 +19357,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "ddd59ff390160022",
@@ -18854,7 +19394,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "29685e80689ad53e",
@@ -18893,7 +19434,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "334f2621aa5ddaa8",
@@ -18929,7 +19471,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "bdf4340be55aef1a",
@@ -18965,7 +19508,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "d9d53c8509762565",
@@ -18999,7 +19543,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "80b3c7af1f0ee748",
@@ -19041,7 +19586,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "4da52941aedbbccd",
@@ -19077,7 +19623,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "395f4ed5e2bd7d69",
@@ -19114,7 +19661,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "6a6c796cf669d369",
@@ -19151,7 +19699,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a0437e8c67f09afc",
@@ -19189,7 +19738,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "a054363d6c1df1e8",
@@ -19225,7 +19775,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "157aa41784169a6d",
@@ -19263,7 +19814,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "98c0fe7231980a2b",
@@ -19302,45 +19854,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
-    },
-    {
-      "event_id": "3c901e30fec4c412",
-      "title": "Russian Disinformation and its Influence on the Energy Sector in V4 Countries - Warsaw Institute",
-      "summary": "Russian Disinformation and its Influence on the Energy Sector in V4 Countries Warsaw Institute",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOenhWSTJfdDlrdExMY1huM1hiMjk3dmlsd2REaVpqQWw5S25vOTZsZE1JVGdwVU1MSU0zcnlMTEZMU0l2TWJ5VGNHYWIzY19VLTlwQjdZN1k4M3lId1VkenhUVUF4dW1XNDBUUTNqYVhXeXZEQUpkdEFfM20ydzdkaWdnVk9GUWFOZGw3UEI3OTE3UG16dEFZaUxHb1ExZnFFYVBwUFUwa255Zw?oc=5",
-      "published_at": "2024-11-25T08:00:00+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
       ],
-      "categories": [
-        "disinformation"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "relevance_score": 9.97,
-      "source_count": 1,
-      "source_names": [
-        "Google News - Baltic disinformation Russia"
-      ],
-      "source_groups": [
-        "google_news_search"
-      ],
-      "related_item_count": 1,
-      "related_titles": [
-        "Russian Disinformation and its Influence on the Energy Sector in V4 Countries - Warsaw Institute"
-      ],
-      "related_urls": [
-        "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOenhWSTJfdDlrdExMY1huM1hiMjk3dmlsd2REaVpqQWw5S25vOTZsZE1JVGdwVU1MSU0zcnlMTEZMU0l2TWJ5VGNHYWIzY19VLTlwQjdZN1k4M3lId1VkenhUVUF4dW1XNDBUUTNqYVhXeXZEQUpkdEFfM20ydzdkaWdnVk9GUWFOZGw3UEI3OTE3UG16dEFZaUxHb1ExZnFFYVBwUFUwa255Zw?oc=5"
-      ],
-      "confidence": "low",
-      "confidence_score": 43,
-      "collection_methods": [
-        "rss"
-      ]
+      "event_type": "operational"
     },
     {
       "event_id": "4a4c20218013cca0",
@@ -19376,7 +19891,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b838b725d42677c9",
@@ -19415,7 +19931,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "5380f366aae664f5",
@@ -19451,7 +19968,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b77472cd21ea9fef",
@@ -19490,7 +20008,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7afc3a6848fe0b2a",
@@ -19525,7 +20044,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "6e8896b4b7253f0a",
@@ -19567,7 +20087,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "842a231727a7c797",
@@ -19605,7 +20126,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "b8c1e522fc1a3462",
@@ -19643,7 +20165,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "21f07eee0251a506",
@@ -19680,7 +20203,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "196041b6a0c8bcae",
@@ -19723,7 +20247,8 @@
       "confidence_score": 51,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "db093a67047a66fd",
@@ -19760,7 +20285,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "72983e524d3cc393",
@@ -19797,7 +20323,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "c8a8012d49495ba1",
@@ -19831,7 +20358,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "73376b5a6c4a9bf9",
@@ -19870,7 +20398,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "8893d9196ea7235c",
@@ -19907,7 +20436,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "2620b8f0b794c088",
@@ -19943,7 +20473,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "9c7c49fc03609e78",
@@ -19983,7 +20514,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "98cbb5affe7a5ee6",
@@ -20024,7 +20556,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "cbed0eb2810e0453",
@@ -20063,7 +20596,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "9403f62541526896",
@@ -20101,7 +20635,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f52e3b6263e4fab2",
@@ -20138,7 +20673,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "270c939ebdd8539d",
@@ -20174,7 +20710,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "4817d4265dfdaf5b",
@@ -20213,43 +20750,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
-    },
-    {
-      "event_id": "ca7b791c8e3f55cf",
-      "title": "Russian GPS jamming threatens air disaster, warn Baltic ministers - Financial Times",
-      "summary": "Russian GPS jamming threatens air disaster, warn Baltic ministers Financial Times",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWG0yS2dRd0Fvd1ltXzNNTDVSS2RNUDlFTlJvRGdzOWk1N2xZeGVzVEFTZzhsb2lXbk1jRGtGbWZHdnFVZVlyMzBwcDQxYnBWQW1zREdXU3NiNEMxN043SXV3cS1QbjFZNFR4OHpQZGFvNml0LTN5MzFqV2tWZDB2ckt6Qlo?oc=5",
-      "published_at": "2024-04-28T07:00:00+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "categories": [
-        "gps_interference"
       ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "relevance_score": 11.55,
-      "source_count": 1,
-      "source_names": [
-        "Google News - Baltic GPS jamming"
-      ],
-      "source_groups": [
-        "google_news_search"
-      ],
-      "related_item_count": 1,
-      "related_titles": [
-        "Russian GPS jamming threatens air disaster, warn Baltic ministers - Financial Times"
-      ],
-      "related_urls": [
-        "https://news.google.com/rss/articles/CBMihAFBVV95cUxOWG0yS2dRd0Fvd1ltXzNNTDVSS2RNUDlFTlJvRGdzOWk1N2xZeGVzVEFTZzhsb2lXbk1jRGtGbWZHdnFVZVlyMzBwcDQxYnBWQW1zREdXU3NiNEMxN043SXV3cS1QbjFZNFR4OHpQZGFvNml0LTN5MzFqV2tWZDB2ckt6Qlo?oc=5"
-      ],
-      "confidence": "low",
-      "confidence_score": 43,
-      "collection_methods": [
-        "rss"
-      ]
+      "event_type": "operational"
     },
     {
       "event_id": "9c169a4d88aa7c6d",
@@ -20287,7 +20789,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "6a8fd717402bcd08",
@@ -20323,7 +20826,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f976a052f6d2cc2c",
@@ -20361,7 +20865,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "0610723998b80c66",
@@ -20397,7 +20902,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "bb8afd6e809d4bcf",
@@ -20434,7 +20940,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "1c9a2d7ccce69882",
@@ -20470,7 +20977,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ceac92243eeb9283",
@@ -20511,7 +21019,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "ddbcb652079f7be4",
@@ -20549,7 +21058,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "b9347413240e3982",
@@ -20584,7 +21094,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "54c98762ae29b851",
@@ -20623,7 +21134,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "2e87555686af5f20",
@@ -20666,7 +21178,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "a8da021432129ad9",
@@ -20704,7 +21217,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "27f541a3560f076f",
@@ -20742,7 +21256,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "246d93def4594e45",
@@ -20779,7 +21294,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "2885d7cd1a877f79",
@@ -20817,7 +21333,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "101bff49140dbe6c",
@@ -20853,7 +21370,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "25cbfee339d97a88",
@@ -20890,7 +21408,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "63f8190394048a44",
@@ -20928,7 +21447,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "3774fcf9a42a06fb",
@@ -20967,7 +21487,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7910e30f0c5d58c1",
@@ -21004,7 +21525,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "04471f9e8dc94c51",
@@ -21039,7 +21561,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "8210e33a3c8efac0",
@@ -21078,7 +21601,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "2bffe3a0b7324c71",
@@ -21117,7 +21641,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "9d3c11f3a174a296",
@@ -21156,7 +21681,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "1339dc7f1b181165",
@@ -21190,7 +21716,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "538127e82a333b3d",
@@ -21226,7 +21753,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "063876a6b9b7c0ee",
@@ -21264,7 +21792,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "e11e9dcd480408d4",
@@ -21301,7 +21830,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "background"
     },
     {
       "event_id": "48da83694089ae3e",
@@ -21339,7 +21869,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "80ad22bb8ed77b93",
@@ -21377,7 +21908,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "f7b84338dbde7499",
@@ -21413,7 +21945,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "7e7369c66f189f95",
@@ -21451,7 +21984,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "7a78516019eab29d",
@@ -21489,7 +22023,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "5c56ababaa10c197",
@@ -21525,7 +22060,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "2e2a471554b57aa6",
@@ -21561,7 +22097,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "b73819fffbbb37db",
@@ -21599,7 +22136,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     },
     {
       "event_id": "e54a9f0e81966e8a",
@@ -21635,7 +22173,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "strategic"
     },
     {
       "event_id": "2d97be75658e8702",
@@ -21675,7 +22214,8 @@
       "confidence_score": 43,
       "collection_methods": [
         "rss"
-      ]
+      ],
+      "event_type": "operational"
     }
   ]
 }
