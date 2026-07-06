@@ -3,180 +3,104 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Baltic Hybrid Threat Monitor</title>
 
-  <link rel="stylesheet" href="./style.css" />
-
+  <link rel="stylesheet" href="./css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-  <div class="page-shell">
-    <header class="topbar">
-      <div class="brand-block">
-        <div class="brand-mark">T</div>
-        <div>
-          <div class="brand-name">Törésvonalak Monitor Network</div>
-          <h1>Baltic Hybrid Threat Monitor</h1>
-          <p id="dashboard-subtitle">
-            Event-based OSINT monitoring of hybrid threats in the Baltic states and Poland
-          </p>
-        </div>
+  <main class="page-shell">
+
+    <header class="app-header">
+      <div>
+        <p class="brand-label">TÖRÉSVONALAK MONITOR</p>
+        <p class="eyebrow">OSINT STRATEGIC OVERVIEW</p>
+
+        <h1>Baltic Hybrid Threat Monitor</h1>
+
+        <p class="subtitle">
+          Daily monitoring of Russian hybrid threats in Estonia, Latvia, Lithuania and Poland.
+        </p>
       </div>
 
-      <div class="status-block">
-        <span id="version-badge" class="badge">Threat Intelligence Engine</span>
-        <span id="latest-update">Loading...</span>
+      <div class="status-box">
+        <span class="status-label">Last update</span>
+        <strong id="lastUpdate">—</strong>
       </div>
     </header>
 
-    <main>
-      <section class="hero-grid">
-        <article class="main-score-card">
-          <div class="section-label">Threat Index</div>
-          <div class="score-row">
-            <div id="threat-index" class="threat-score">--</div>
-            <div>
-              <div id="threat-level" class="threat-level">Loading</div>
-              <div class="muted">Event-based operational threat level</div>
-            </div>
-          </div>
-          <div class="score-bar">
-            <div id="threat-score-fill" class="score-fill"></div>
-          </div>
-          <p class="card-note">
-            The index is calculated from incidents, activities and indicators. Assessments are kept as background and do not raise the operational threat index.
+    <section class="summary-grid">
+      <article class="summary-card">
+        <span id="scoreCardLabel">Threat Index</span>
+        <strong id="overallScore">—</strong>
+      </article>
+
+      <article class="summary-card">
+        <span id="incidentCardLabel">Incidents in window</span>
+        <strong id="incidentCount">—</strong>
+      </article>
+
+      <article class="summary-card">
+        <span id="levelCardLabel">Threat level</span>
+        <strong id="overallLevel">—</strong>
+      </article>
+    </section>
+
+    <section class="chart-panel">
+      <div class="chart-panel-header">
+        <div>
+          <h2 id="chartTitle">Hybrid Threat Trend</h2>
+          <p id="chartSubtitle">
+            Compare the regional average with the monitored Baltic countries.
           </p>
-        </article>
-
-        <article class="data-quality-card">
-          <div class="section-label">Pipeline</div>
-          <div class="pipeline-row">
-            <div>
-              <strong id="raw-count">--</strong>
-              <span>Raw news</span>
-            </div>
-            <div>
-              <strong id="filtered-count">--</strong>
-              <span>Filtered</span>
-            </div>
-            <div>
-              <strong id="event-count">--</strong>
-              <span>Events</span>
-            </div>
-          </div>
-          <p id="data-quality-note" class="card-note">Loading data quality...</p>
-        </article>
-      </section>
-
-      <section class="subtype-grid" id="subtype-cards">
-        <article class="mini-card">
-          <div class="section-label">Incident</div>
-          <strong>--</strong>
-          <span>Loading</span>
-        </article>
-      </section>
-
-      <section class="content-grid">
-        <article class="panel wide">
-          <div class="panel-header">
-            <div>
-              <div class="section-label">Trend</div>
-              <h2>Threat Index and event activity</h2>
-            </div>
-
-            <div class="metric-switch">
-              <button class="metric-btn active" data-chart-mode="threat">Threat Index</button>
-              <button class="metric-btn" data-chart-mode="subtypes">Subtypes</button>
-              <button class="metric-btn" data-chart-mode="countries">Countries</button>
-            </div>
-          </div>
-
-          <div class="chart-wrap">
-            <canvas id="main-chart"></canvas>
-          </div>
-        </article>
-
-        <article class="panel">
-          <div class="panel-header">
-            <div>
-              <div class="section-label">Top Drivers</div>
-              <h2>Threat categories</h2>
-            </div>
-          </div>
-          <div id="category-drivers" class="driver-list"></div>
-        </article>
-      </section>
-
-      <section class="content-grid">
-        <article class="panel">
-          <div class="panel-header">
-            <div>
-              <div class="section-label">Actors</div>
-              <h2>Actor exposure</h2>
-            </div>
-          </div>
-          <div id="actor-drivers" class="driver-list"></div>
-        </article>
-
-        <article class="panel wide">
-          <div class="panel-header">
-            <div>
-              <div class="section-label">Countries</div>
-              <h2>Country overview</h2>
-            </div>
-          </div>
-          <div id="country-cards" class="country-grid"></div>
-        </article>
-      </section>
-
-      <section class="panel">
-        <div class="panel-header">
-          <div>
-            <div class="section-label">Critical Watchlist</div>
-            <h2>Top scored events</h2>
-          </div>
-          <span class="muted">Ranked by threat score and confidence</span>
         </div>
+      </div>
 
-        <div id="top-events" class="event-list"></div>
-      </section>
+      <div class="metric-controls" aria-label="Metric mode">
+        <span class="control-title">Metric</span>
 
-      <section class="panel">
-        <div class="panel-header">
-          <div>
-            <div class="section-label">Latest</div>
-            <h2>Recent events</h2>
-          </div>
-        </div>
+        <label>
+          <input type="radio" name="metricMode" value="threat_index" checked />
+          Threat Index
+        </label>
 
-        <div id="recent-events" class="event-list compact"></div>
-      </section>
+        <label>
+          <input type="radio" name="metricMode" value="daily_activity" />
+          Daily Activity
+        </label>
+      </div>
 
-      <section class="methodology panel">
-        <div class="panel-header">
-          <div>
-            <div class="section-label">Methodology</div>
-            <h2>How the monitor works</h2>
-          </div>
-        </div>
+      <div class="view-controls" aria-label="View mode">
+        <button class="mode-btn active" data-mode="daily">Daily</button>
+        <button class="mode-btn" data-mode="ma7">7-Day Rolling Average</button>
+        <button class="mode-btn" data-mode="ma14">14-Day Rolling Average</button>
+        <button class="mode-btn" data-mode="trend">Regional Linear Trend</button>
+      </div>
 
-        <div class="method-grid">
-          <div>
-            <h3>Pipeline</h3>
-            <ul id="method-pipeline"></ul>
-          </div>
-          <div>
-            <h3>Event ontology</h3>
-            <div id="event-ontology" class="ontology-list"></div>
-          </div>
-        </div>
+      <div class="chart-controls" id="chartControls">
+        <label><input type="checkbox" value="overall" checked /> Regional Average</label>
+        <label><input type="checkbox" value="Estonia" checked /> Estonia</label>
+        <label><input type="checkbox" value="Latvia" checked /> Latvia</label>
+        <label><input type="checkbox" value="Lithuania" checked /> Lithuania</label>
+        <label><input type="checkbox" value="Poland" checked /> Poland</label>
+      </div>
 
-        <p id="method-warning" class="warning-note"></p>
-      </section>
-    </main>
-  </div>
+      <div class="chart-container light-chart">
+        <canvas id="threatTrendChart"></canvas>
+      </div>
 
-  <script src="./dashboard.js"></script>
+      <p class="method-note light-note" id="chartMethodNote">
+        Each point represents the selected metric calculated for the displayed date.
+      </p>
+    </section>
+
+  </main>
+
+  <script src="./js/api.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/chart.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 </html>
