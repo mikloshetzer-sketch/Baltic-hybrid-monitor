@@ -4,17 +4,17 @@ window.BalticChart = (() => {
   let currentMetricMode = "threat_index";
 
   const COLORS = {
-    overall: "#111827",
-    trend: "#64748b",
-    incident: "#dc2626",
-    activity: "#f97316",
-    indicator: "#0284c7",
-    assessment: "#64748b",
-    Estonia: "#0284c7",
-    Latvia: "#f97316",
-    Lithuania: "#16a34a",
-    Poland: "#dc2626",
-    Regional: "#7c3aed"
+    overall: "#f8fafc",
+    trend: "#94a3b8",
+    incident: "#ef4444",
+    activity: "#fb923c",
+    indicator: "#22d3ee",
+    assessment: "#94a3b8",
+    Estonia: "#38bdf8",
+    Latvia: "#fb923c",
+    Lithuania: "#22c55e",
+    Poland: "#ef4444",
+    Regional: "#a78bfa"
   };
 
   const COUNTRIES = ["Estonia", "Latvia", "Lithuania", "Poland", "Regional"];
@@ -33,35 +33,22 @@ window.BalticChart = (() => {
 
   const METHOD_NOTES = {
     threat_index: {
-      daily:
-        "Threat Index: each point represents the event-based operational threat index for the displayed date.",
-      ma7:
-        "Threat Index: each point represents the 7-day moving average of the event-based threat index.",
-      ma14:
-        "Threat Index: each point represents the 14-day moving average of the event-based threat index.",
-      trend:
-        "Threat Index: the dashed line represents the linear trend of the regional threat index over the selected period."
+      daily: "Threat Index: each point represents the event-based operational threat index for the displayed date.",
+      ma7: "Threat Index: each point represents the 7-day moving average of the event-based threat index.",
+      ma14: "Threat Index: each point represents the 14-day moving average of the event-based threat index.",
+      trend: "Threat Index: the dashed line represents the linear trend of the regional threat index over the selected period."
     },
     daily_activity: {
-      daily:
-        "Event Activity: each point shows the number of classified events by subtype on the displayed date.",
-      ma7:
-        "Event Activity: each point represents the 7-day moving average of classified event activity.",
-      ma14:
-        "Event Activity: each point represents the 14-day moving average of classified event activity.",
-      trend:
-        "Event Activity: the dashed line represents the linear trend of total operational activity over the selected period."
+      daily: "Event Activity: each point shows classified events by subtype on the displayed date.",
+      ma7: "Event Activity: each point represents the 7-day moving average of classified event activity.",
+      ma14: "Event Activity: each point represents the 14-day moving average of classified event activity.",
+      trend: "Event Activity: the dashed line represents the linear trend of total operational activity over the selected period."
     }
   };
 
   function numberOrZero(value) {
     const number = Number(value);
     return Number.isFinite(number) ? number : 0;
-  }
-
-  function formatScore(value) {
-    const number = numberOrZero(value);
-    return number.toFixed(2);
   }
 
   function titleCase(value) {
@@ -71,35 +58,22 @@ window.BalticChart = (() => {
   }
 
   function getSelectedCountries() {
-    const inputs = Array.from(
-      document.querySelectorAll("#chartControls input:checked")
-    );
-
-    if (inputs.length === 0) {
-      return ["overall"];
-    }
-
-    return inputs.map(input => input.value);
-  }
-
-  function getHistory(data) {
-    return data.history || {};
+    const inputs = Array.from(document.querySelectorAll("#chartControls input:checked"));
+    return inputs.length === 0 ? ["overall"] : inputs.map(input => input.value);
   }
 
   function buildMetricData(data) {
-    const history = getHistory(data);
+    const history = data.history || {};
     const labels = Array.isArray(history.labels) ? history.labels : [];
 
     if (currentMetricMode === "daily_activity") {
       return {
         labels,
-        overall_average_score: (history.incident_count || []).map((value, index) => {
-          return (
-            numberOrZero(value) +
-            numberOrZero((history.activity_count || [])[index]) +
-            numberOrZero((history.indicator_count || [])[index])
-          );
-        }),
+        overall_average_score: (history.incident_count || []).map((value, index) =>
+          numberOrZero(value) +
+          numberOrZero((history.activity_count || [])[index]) +
+          numberOrZero((history.indicator_count || [])[index])
+        ),
         subtype_scores: {
           incident: history.incident_count || [],
           activity: history.activity_count || [],
@@ -126,13 +100,8 @@ window.BalticChart = (() => {
   function movingAverage(values, windowSize) {
     return values.map((_, index) => {
       const start = Math.max(0, index - windowSize + 1);
-      const slice = values
-        .slice(start, index + 1)
-        .map(value => numberOrZero(value));
-
-      const average =
-        slice.reduce((sum, value) => sum + value, 0) / Math.max(slice.length, 1);
-
+      const slice = values.slice(start, index + 1).map(value => numberOrZero(value));
+      const average = slice.reduce((sum, value) => sum + value, 0) / Math.max(slice.length, 1);
       return Number(average.toFixed(2));
     });
   }
@@ -140,13 +109,9 @@ window.BalticChart = (() => {
   function calculateLinearTrend(values) {
     const cleanValues = values.map(value => numberOrZero(value));
     const n = cleanValues.length;
-
     if (n < 2) return cleanValues;
 
-    let sumX = 0;
-    let sumY = 0;
-    let sumXY = 0;
-    let sumXX = 0;
+    let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
 
     cleanValues.forEach((y, x) => {
       sumX += x;
@@ -156,35 +121,24 @@ window.BalticChart = (() => {
     });
 
     const denominator = n * sumXX - sumX * sumX;
-
     if (denominator === 0) return cleanValues;
 
     const slope = (n * sumXY - sumX * sumY) / denominator;
     const intercept = (sumY - slope * sumX) / n;
 
-    return cleanValues.map((_, x) =>
-      Number((intercept + slope * x).toFixed(2))
-    );
+    return cleanValues.map((_, x) => Number((intercept + slope * x).toFixed(2)));
   }
 
   function transformValues(values) {
     const cleanValues = (values || []).map(value => numberOrZero(value));
-
-    if (currentViewMode === "ma7") {
-      return movingAverage(cleanValues, 7);
-    }
-
-    if (currentViewMode === "ma14") {
-      return movingAverage(cleanValues, 14);
-    }
-
+    if (currentViewMode === "ma7") return movingAverage(cleanValues, 7);
+    if (currentViewMode === "ma14") return movingAverage(cleanValues, 14);
     return cleanValues;
   }
 
   function updateMethodNote() {
     const note = document.getElementById("chartMethodNote");
     if (!note) return;
-
     const metricNotes = METHOD_NOTES[currentMetricMode] || METHOD_NOTES.threat_index;
     note.textContent = metricNotes[currentViewMode] || metricNotes.daily;
   }
@@ -193,100 +147,14 @@ window.BalticChart = (() => {
     const title = document.getElementById("chartTitle");
     const subtitle = document.getElementById("chartSubtitle");
 
-    if (title) {
-      title.textContent = `${METRIC_LABELS[currentMetricMode]} Trend`;
-    }
+    if (title) title.textContent = `${METRIC_LABELS[currentMetricMode]} Trend`;
 
     if (subtitle) {
       subtitle.textContent =
         currentMetricMode === "threat_index"
           ? "Threat Index shows the current event-based operational hybrid threat level across the monitored region."
-          : "Event Activity shows the volume of incidents, activities, indicators and assessments detected in the OSINT pipeline.";
+          : "Event Activity shows incidents, activities, indicators and assessments detected in the OSINT pipeline.";
     }
-  }
-
-  function updateMetricSummary(data) {
-    const summary = data.summary || {};
-
-    const scoreLabel = document.getElementById("scoreCardLabel");
-    const incidentLabel = document.getElementById("incidentCardLabel");
-    const levelLabel = document.getElementById("levelCardLabel");
-
-    const scoreValue = document.getElementById("overallScore");
-    const incidentValue = document.getElementById("incidentCount");
-    const levelValue = document.getElementById("overallLevel");
-
-    if (scoreLabel) {
-      scoreLabel.textContent =
-        currentMetricMode === "threat_index"
-          ? "Threat Index"
-          : "Event Activity";
-    }
-
-    if (incidentLabel) {
-      incidentLabel.textContent =
-        currentMetricMode === "threat_index"
-          ? "Operational incidents"
-          : "Classified events";
-    }
-
-    if (levelLabel) {
-      levelLabel.textContent =
-        currentMetricMode === "threat_index"
-          ? "Threat level"
-          : "Activity level";
-    }
-
-    if (scoreValue) {
-      const value =
-        currentMetricMode === "threat_index"
-          ? summary.threat_index
-          : summary.event_count;
-
-      scoreValue.textContent =
-        typeof value === "number" ? formatScore(value) : "—";
-    }
-
-    if (incidentValue) {
-      const value =
-        currentMetricMode === "threat_index"
-          ? summary.incident_count
-          : `${summary.incident_count || 0} / ${summary.activity_count || 0} / ${summary.indicator_count || 0}`;
-
-      incidentValue.textContent = value ?? "—";
-    }
-
-    if (levelValue) {
-      levelValue.textContent =
-        currentMetricMode === "threat_index"
-          ? String(summary.threat_level || "—").toUpperCase()
-          : `${summary.assessment_count || 0} ASSESSMENTS`;
-    }
-
-    updateOptionalCards(data);
-  }
-
-  function updateOptionalCards(data) {
-    const summary = data.summary || {};
-    const subtypeCards = data.subtype_cards || [];
-
-    const setIfExists = (id, value) => {
-      const element = document.getElementById(id);
-      if (element) element.textContent = value;
-    };
-
-    setIfExists("threatIndexValue", formatScore(summary.threat_index));
-    setIfExists("threatLevelValue", String(summary.threat_level || "—").toUpperCase());
-    setIfExists("eventCountValue", summary.event_count ?? "—");
-    setIfExists("rawNewsValue", summary.raw_item_count ?? "—");
-    setIfExists("filteredNewsValue", summary.filtered_item_count ?? "—");
-    setIfExists("clusteredEventsValue", summary.clustered_event_count ?? summary.event_count ?? "—");
-
-    subtypeCards.forEach(card => {
-      const subtype = card.subtype;
-      setIfExists(`${subtype}Count`, card.event_count ?? "—");
-      setIfExists(`${subtype}Score`, formatScore(card.average_score));
-    });
   }
 
   function createDatasets(metricData, selectedCountries) {
@@ -304,7 +172,6 @@ window.BalticChart = (() => {
         pointHoverRadius: 0,
         tension: 0
       });
-
       return datasets;
     }
 
@@ -321,7 +188,6 @@ window.BalticChart = (() => {
           tension: 0.32
         });
       });
-
       return datasets;
     }
 
@@ -340,9 +206,7 @@ window.BalticChart = (() => {
 
     COUNTRIES.forEach(country => {
       if (!selectedCountries.includes(country)) return;
-
       const values = metricData.country_average_scores[country] || [];
-
       datasets.push({
         label: country,
         data: transformValues(values),
@@ -361,20 +225,14 @@ window.BalticChart = (() => {
   function render(data) {
     const metricData = buildMetricData(data);
     const canvas = document.getElementById("threatTrendChart");
-
     if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
 
     updateMethodNote();
     updateHeaderText();
-    updateMetricSummary(data);
 
-    if (chart) {
-      chart.destroy();
-    }
+    if (chart) chart.destroy();
 
-    chart = new Chart(ctx, {
+    chart = new Chart(canvas.getContext("2d"), {
       type: "line",
       data: {
         labels: metricData.labels,
@@ -383,87 +241,58 @@ window.BalticChart = (() => {
       options: {
         responsive: true,
         maintainAspectRatio: false,
-        interaction: {
-          mode: "index",
-          intersect: false
-        },
+        interaction: { mode: "index", intersect: false },
         plugins: {
           title: {
             display: true,
             text: `${METRIC_LABELS[currentMetricMode]} — ${VIEW_LABELS[currentViewMode]}`,
-            color: "#111827",
-            font: {
-              size: 14,
-              weight: "bold"
-            },
-            padding: {
-              bottom: 12
-            }
+            color: "#e5f2ff",
+            font: { size: 14, weight: "bold" },
+            padding: { bottom: 12 }
           },
           legend: {
             position: "top",
             labels: {
-              color: "#111827",
+              color: "#e5f2ff",
               usePointStyle: true,
               boxWidth: 12,
               padding: 18,
-              font: {
-                size: 12,
-                weight: "bold"
-              }
+              font: { size: 12, weight: "bold" }
             }
           },
           tooltip: {
-            backgroundColor: "#0b1628",
+            backgroundColor: "#020817",
             borderColor: "#38bdf8",
             borderWidth: 1,
             titleColor: "#ffffff",
             bodyColor: "#ffffff",
             callbacks: {
-              label: function(context) {
-                return `${context.dataset.label}: ${context.raw}`;
-              }
+              label: context => `${context.dataset.label}: ${context.raw}`
             }
           }
         },
         scales: {
           x: {
             ticks: {
-              color: "#475569",
+              color: "#cbd5e1",
               maxRotation: 0,
               autoSkip: true,
-              font: {
-                size: 11,
-                weight: "bold"
-              }
+              font: { size: 11, weight: "bold" }
             },
-            grid: {
-              color: "rgba(148, 163, 184, 0.28)"
-            }
+            grid: { color: "rgba(148, 163, 184, 0.14)" }
           },
           y: {
             beginAtZero: true,
             ticks: {
-              color: "#475569",
-              font: {
-                size: 11,
-                weight: "bold"
-              }
+              color: "#cbd5e1",
+              font: { size: 11, weight: "bold" }
             },
-            grid: {
-              color: "rgba(148, 163, 184, 0.28)"
-            },
+            grid: { color: "rgba(148, 163, 184, 0.16)" },
             title: {
               display: true,
-              text:
-                currentMetricMode === "threat_index"
-                  ? "Threat Index Score"
-                  : "Event Count",
-              color: "#334155",
-              font: {
-                size: 12,
-                weight: "bold"
-              }
+              text: currentMetricMode === "threat_index" ? "Threat Index Score" : "Event Count",
+              color: "#cbd5e1",
+              font: { size: 12, weight: "bold" }
             }
           }
         }
@@ -498,9 +327,7 @@ window.BalticChart = (() => {
 
   function setupCheckboxes(data) {
     document.querySelectorAll("#chartControls input").forEach(input => {
-      input.addEventListener("change", () => {
-        render(data);
-      });
+      input.addEventListener("change", () => render(data));
     });
   }
 
@@ -512,7 +339,5 @@ window.BalticChart = (() => {
     setupCheckboxes(data);
   }
 
-  return {
-    initialize
-  };
+  return { initialize };
 })();
