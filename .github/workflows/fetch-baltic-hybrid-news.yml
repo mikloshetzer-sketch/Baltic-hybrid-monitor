@@ -28,6 +28,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Check RSS sources
+        run: |
+          python scripts/check_baltic_rss_sources.py
+
       - name: Fetch Baltic hybrid news
         env:
           CEE_SECURITY_MAP_JSON_URL: ${{ secrets.CEE_SECURITY_MAP_JSON_URL }}
@@ -38,22 +42,32 @@ jobs:
         run: |
           python scripts/score_baltic_hybrid_news.py
 
-      - name: Update Baltic hybrid history
+      - name: Build historical Baltic dataset
         run: |
-          python scripts/update_baltic_hybrid_history.py
+          python scripts/build_historical_baltic_dataset.py --days 14 --rolling-days 14
 
       - name: Generate dashboard data
         run: |
           python scripts/generate_baltic_dashboard_data.py
 
-      - name: Commit generated data
+      - name: Commit updated Baltic data
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git add data/
-          git add docs/data/
+          git add data/baltic_rss_status.json
+          git add docs/data/baltic_rss_status.json
 
-          git commit -m "Daily Baltic Hybrid Threat update" || echo "Nothing to commit"
+          git add data/baltic_hybrid_raw_news.json
+          git add docs/data/baltic_hybrid_raw_news.json
 
+          git add data/baltic_hybrid_scored_news.json
+          git add docs/data/baltic_hybrid_scored_news.json
+
+          git add data/baltic_hybrid_history.json
+          git add docs/data/baltic_hybrid_history.json
+
+          git add docs/data/baltic_dashboard.json
+
+          git commit -m "Update Baltic hybrid threat monitor data" || echo "Nothing to commit"
           git push
