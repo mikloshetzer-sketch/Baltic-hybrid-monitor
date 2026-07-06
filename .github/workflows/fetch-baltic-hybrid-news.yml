@@ -12,7 +12,7 @@ permissions:
 jobs:
   fetch-baltic-hybrid-news:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
 
     steps:
       - name: Checkout repository
@@ -27,6 +27,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install reportlab
 
       - name: Check RSS sources
         run: |
@@ -58,7 +59,11 @@ jobs:
         run: |
           python scripts/generate_baltic_dashboard_data.py
 
-      - name: Commit updated Baltic data
+      - name: Generate daily PDF report
+        run: |
+          python scripts/generate_baltic_daily_report.py
+
+      - name: Commit updated Baltic data and reports
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
@@ -83,5 +88,8 @@ jobs:
 
           git add docs/data/baltic_dashboard.json
 
-          git commit -m "Update Baltic hybrid threat monitor data" || echo "Nothing to commit"
+          git add docs/reports/latest-baltic-hybrid-threat-report.pdf
+          git add docs/reports/archive/*.pdf
+
+          git commit -m "Update Baltic hybrid threat monitor data and daily report" || echo "Nothing to commit"
           git push
