@@ -5,10 +5,11 @@ import hashlib
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any, Optional
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 
 import feedparser
 import requests
+from bs4 import BeautifulSoup
 from dateutil import parser as date_parser
 
 
@@ -20,106 +21,35 @@ DOCS_OUTPUT = ROOT / "docs" / "data" / "baltic_hybrid_raw_news.json"
 
 
 COUNTRY_KEYWORDS = {
-    "Estonia": [
-        "estonia", "estonian", "tallinn", "narva", "tartu",
-        "ida-viru", "ida-virumaa", "estonian defence forces"
-    ],
-    "Latvia": [
-        "latvia", "latvian", "riga", "daugavpils", "latgale",
-        "latvian national armed forces"
-    ],
-    "Lithuania": [
-        "lithuania", "lithuanian", "vilnius", "kaunas", "klaipeda",
-        "klaipėda", "suwalki", "suwałki"
-    ],
-    "Poland": [
-        "poland", "polish", "warsaw", "bialystok", "białystok",
-        "suwalki", "suwałki", "gdańsk", "gdansk",
-        "polish border guard", "polish armed forces"
-    ]
+    "Estonia": ["estonia", "estonian", "tallinn", "narva", "tartu", "ida-viru", "ida-virumaa"],
+    "Latvia": ["latvia", "latvian", "riga", "daugavpils", "latgale"],
+    "Lithuania": ["lithuania", "lithuanian", "vilnius", "kaunas", "klaipeda", "klaipėda", "suwalki", "suwałki"],
+    "Poland": ["poland", "polish", "warsaw", "bialystok", "białystok", "suwalki", "suwałki", "gdańsk", "gdansk"]
 }
 
 
 CATEGORY_KEYWORDS = {
-    "sabotage": [
-        "sabotage", "arson", "explosion", "explosive", "rail sabotage",
-        "railway sabotage", "infrastructure sabotage", "vandalism",
-        "attack on infrastructure", "covert operation", "subversion"
-    ],
-    "cyber": [
-        "cyber", "cyberattack", "cyber attack", "ddos", "malware",
-        "ransomware", "phishing", "hack", "hacking", "apt",
-        "wiper", "zero-day", "credential theft", "sandworm",
-        "electrum", "ics", "industrial control", "power grid cyber"
-    ],
-    "disinformation": [
-        "disinformation", "misinformation", "propaganda", "fake news",
-        "influence operation", "influence campaign", "cognitive war",
-        "cognitive warfare", "information warfare", "bot network",
-        "social media manipulation", "narrative", "kremlin narrative"
-    ],
-    "border_pressure": [
-        "border pressure", "border crossing", "border incident",
-        "border provocation", "border crisis", "illegal crossing",
-        "belarus border", "frontier", "pushback"
-    ],
-    "gps_interference": [
-        "gps", "gnss", "jamming", "spoofing", "navigation interference",
-        "satellite navigation", "signal interference", "kaliningrad jamming",
-        "aviation disruption"
-    ],
-    "drone_incident": [
-        "drone", "uav", "unmanned aerial", "shahed", "loitering munition",
-        "airspace violation", "airspace incursion", "drone debris"
-    ],
-    "military_provocation": [
-        "military provocation", "provocation", "fighter jet", "fighter",
-        "scramble", "intercept", "missile", "missile launch",
-        "warship", "frigate", "submarine", "strategic bomber",
-        "military exercise", "troop movement", "zapad", "air policing",
-        "nato air policing"
-    ],
-    "critical_infrastructure": [
-        "critical infrastructure", "power grid", "energy grid", "electricity",
-        "pipeline", "lng", "substation", "transformer", "railway",
-        "rail", "port", "harbour", "airport", "telecom", "undersea cable",
-        "subsea cable", "cable damage", "balticconnector", "data cable"
-    ],
-    "espionage": [
-        "spy", "spying", "espionage", "intelligence service", "agent",
-        "fsb", "gru", "svr", "recruited", "foreign intelligence",
-        "counterintelligence", "arrested spy"
-    ],
-    "migration_pressure": [
-        "migration", "migrant", "migrants", "asylum", "instrumentalised migration",
-        "weaponized migration", "belarus migrants", "border migrants"
-    ]
+    "sabotage": ["sabotage", "arson", "explosion", "explosive", "rail sabotage", "infrastructure sabotage", "subversion"],
+    "cyber": ["cyber", "cyberattack", "cyber attack", "ddos", "malware", "ransomware", "phishing", "hack", "hacking", "apt", "wiper", "zero-day", "credential theft"],
+    "disinformation": ["disinformation", "misinformation", "propaganda", "fake news", "influence operation", "cognitive war", "cognitive warfare", "information warfare", "bot network"],
+    "border_pressure": ["border pressure", "border crossing", "border incident", "border provocation", "border crisis", "illegal crossing", "belarus border", "pushback"],
+    "gps_interference": ["gps", "gnss", "jamming", "spoofing", "navigation interference", "satellite navigation", "signal interference"],
+    "drone_incident": ["drone", "uav", "unmanned aerial", "shahed", "airspace violation", "airspace incursion", "drone debris"],
+    "military_provocation": ["military provocation", "provocation", "fighter jet", "scramble", "intercept", "missile", "warship", "frigate", "submarine", "military exercise", "air policing"],
+    "critical_infrastructure": ["critical infrastructure", "power grid", "energy grid", "pipeline", "lng", "substation", "railway", "port", "harbour", "airport", "telecom", "undersea cable", "subsea cable", "cable damage"],
+    "espionage": ["spy", "spying", "espionage", "intelligence service", "agent", "fsb", "gru", "svr", "counterintelligence"],
+    "migration_pressure": ["migration", "migrant", "migrants", "asylum", "instrumentalised migration", "weaponized migration", "belarus migrants"]
 }
 
 
 ACTOR_KEYWORDS = {
-    "Russia": [
-        "russia", "russian", "moscow", "kremlin", "putin",
-        "russian federation"
-    ],
-    "Belarus": [
-        "belarus", "belarusian", "minsk", "lukashenko"
-    ],
-    "NATO": [
-        "nato", "allied", "alliance", "eastern flank", "air policing"
-    ],
-    "EU": [
-        "european union", "eu", "eeas", "enisa", "frontex"
-    ],
-    "GRU": [
-        "gru", "russian military intelligence"
-    ],
-    "FSB": [
-        "fsb", "russian domestic spy agency", "federal security service"
-    ],
-    "Sandworm": [
-        "sandworm", "electrum"
-    ]
+    "Russia": ["russia", "russian", "moscow", "kremlin", "putin", "russian federation"],
+    "Belarus": ["belarus", "belarusian", "minsk", "lukashenko"],
+    "NATO": ["nato", "allied", "alliance", "eastern flank", "air policing"],
+    "EU": ["european union", "eu", "eeas", "enisa", "frontex"],
+    "GRU": ["gru", "russian military intelligence"],
+    "FSB": ["fsb", "federal security service"],
+    "Sandworm": ["sandworm", "electrum"]
 }
 
 
@@ -145,6 +75,15 @@ LOW_QUALITY_DOMAINS = [
     "facebook.com",
     "reddit.com"
 ]
+
+
+FALLBACK_HOMEPAGES = {
+    "LRT English Lithuania": "https://www.lrt.lt/en/news-in-english",
+    "Polish Radio English": "https://www.polskieradio.pl/395",
+    "TVP World": "https://tvpworld.com/",
+    "NATO News": "https://www.nato.int/cps/en/natohq/news.htm",
+    "ENISA News": "https://www.enisa.europa.eu/news"
+}
 
 
 def load_config() -> Dict[str, Any]:
@@ -297,12 +236,9 @@ def should_keep_item(
     if is_low_quality_url(url):
         return False
 
-    # Kevésbé szigorú szűrés:
-    # ha van ország, kategória vagy szereplő, megtartjuk.
     if countries or categories or actors:
         return True
 
-    # Ha nincs felismerés, de a relevancia elég magas, akkor is megtartjuk.
     if score >= 3:
         return True
 
@@ -361,6 +297,7 @@ def build_item(
         "published_at": published_at,
         "source_name": source.get("name", "Unknown source"),
         "source_type": source.get("type", "rss"),
+        "source_group": source.get("source_group", "unknown"),
         "source_weight": source_weight,
         "countries": countries,
         "categories": categories,
@@ -373,6 +310,10 @@ def build_item(
 
 def fetch_rss_source(source: Dict[str, Any]) -> List[Dict[str, Any]]:
     parsed = feedparser.parse(source["url"])
+
+    if len(parsed.entries) == 0 and source.get("name") in FALLBACK_HOMEPAGES:
+        return fetch_html_fallback_source(source)
+
     items = []
 
     for entry in parsed.entries[:50]:
@@ -390,6 +331,65 @@ def fetch_rss_source(source: Dict[str, Any]) -> List[Dict[str, Any]]:
         )
 
         if item:
+            items.append(item)
+
+    return items
+
+
+def fetch_html_fallback_source(source: Dict[str, Any]) -> List[Dict[str, Any]]:
+    homepage = FALLBACK_HOMEPAGES.get(source.get("name"))
+
+    if not homepage:
+        return []
+
+    try:
+        response = requests.get(
+            homepage,
+            timeout=25,
+            headers={
+                "User-Agent": "Mozilla/5.0 BalticHybridMonitor/1.0"
+            }
+        )
+        response.raise_for_status()
+    except Exception:
+        return []
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    candidates = []
+
+    for link in soup.find_all("a", href=True):
+        title = clean_text(link.get_text(" ", strip=True))
+        href = link.get("href", "")
+
+        if not title or len(title) < 20:
+            continue
+
+        absolute_url = urljoin(homepage, href)
+
+        if absolute_url in [item.get("url") for item in candidates]:
+            continue
+
+        candidates.append({
+            "title": title,
+            "url": absolute_url
+        })
+
+        if len(candidates) >= 40:
+            break
+
+    items = []
+
+    for candidate in candidates:
+        item = build_item(
+            title=candidate["title"],
+            summary="",
+            url=candidate["url"],
+            published_at=datetime.now(timezone.utc).isoformat(),
+            source=source
+        )
+
+        if item:
+            item["collection_method"] = "html_fallback"
             items.append(item)
 
     return items
@@ -416,6 +416,7 @@ def fetch_external_json_feed(feed: Dict[str, Any]) -> List[Dict[str, Any]]:
             "published_at": datetime.now(timezone.utc).isoformat(),
             "source_name": feed["name"],
             "source_type": "external_error",
+            "source_group": feed.get("source_group", "external_json"),
             "source_weight": float(feed.get("weight", 1.0)),
             "countries": [],
             "categories": [],
@@ -481,6 +482,31 @@ def deduplicate(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     )
 
 
+def build_source_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
+    summary = {}
+
+    for item in items:
+        source_name = item.get("source_name", "Unknown source")
+
+        if source_name not in summary:
+            summary[source_name] = {
+                "source_name": source_name,
+                "source_group": item.get("source_group", "unknown"),
+                "source_type": item.get("source_type", "unknown"),
+                "item_count": 0
+            }
+
+        summary[source_name]["item_count"] += 1
+
+    return dict(
+        sorted(
+            summary.items(),
+            key=lambda pair: pair[1]["item_count"],
+            reverse=True
+        )
+    )
+
+
 def main() -> None:
     config = load_config()
     all_items = []
@@ -498,8 +524,9 @@ def main() -> None:
         "region": config.get("region", "Baltic states and Poland"),
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "item_count": len(unique_items),
+        "source_summary": build_source_summary(unique_items),
         "method": {
-            "description": "RSS and optional external JSON collection for Baltic and Poland hybrid threat monitoring.",
+            "description": "RSS, HTML fallback and optional external JSON collection for Baltic and Poland hybrid threat monitoring.",
             "countries": config.get("countries", []),
             "categories": config.get("threat_categories", []),
             "features": [
@@ -508,7 +535,8 @@ def main() -> None:
                 "location detection",
                 "improved relevance scoring",
                 "canonical title deduplication",
-                "relaxed relevance filter"
+                "relaxed relevance filter",
+                "HTML fallback for problematic RSS feeds"
             ]
         },
         "items": unique_items
