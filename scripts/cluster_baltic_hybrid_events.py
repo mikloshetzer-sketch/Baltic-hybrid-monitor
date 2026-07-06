@@ -30,35 +30,53 @@ LOCATION_COUNTRY_HINTS = {
     "Tallinn": ["Estonia"],
     "Vilnius": ["Lithuania"],
     "Klaipeda": ["Lithuania"],
-    "Gdansk": ["Poland"]
+    "Gdansk": ["Poland"],
+    "Baltic Sea": ["Estonia", "Latvia", "Lithuania", "Poland"]
 }
 
 STOPWORDS = {
     "the", "and", "for", "with", "from", "that", "this", "into", "over",
     "after", "before", "about", "amid", "says", "said", "new", "latest",
-    "update", "updated", "report", "reports", "article", "news", "live"
+    "update", "updated", "report", "reports", "article", "news", "live",
+    "will", "have", "has", "are", "was", "were", "its", "their"
 }
 
-OPERATIONAL_TERMS = [
-    "drone", "uav", "airspace", "scramble", "fighter jet", "intercept",
-    "gps", "gnss", "jamming", "spoofing", "sabotage", "explosion",
-    "cyberattack", "cyber attack", "ddos", "malware", "ransomware",
-    "espionage", "spy", "border crossing", "border incident",
-    "belarus border", "undersea cable", "pipeline", "critical infrastructure",
-    "missile", "attack", "incursion"
+INCIDENT_TERMS = [
+    "drone crash", "drone flies", "drone incident", "drone attack",
+    "airspace violation", "airspace incursion", "airspace alert",
+    "gps jamming", "gnss jamming", "spoofing", "navigation interference",
+    "sabotage", "explosion", "arson", "cable damage", "undersea cable",
+    "subsea cable", "pipeline damage", "cyberattack", "cyber attack",
+    "ddos", "malware", "ransomware", "wiper", "phishing campaign",
+    "espionage", "spy", "spying", "arrested spy", "border crossing",
+    "border incident", "border breach", "missile", "attack", "incursion",
+    "fighter jets scrambled", "scrambles fighter jets", "scramble fighter",
+    "critical infrastructure attack"
 ]
 
-STRATEGIC_TERMS = [
-    "nato summit", "summit", "sanctions", "defence package", "defense package",
-    "military exercise", "air policing", "eastern flank", "deterrence",
-    "resilience", "security strategy", "cybersecurity reserve",
-    "nis2", "preparedness", "strategic", "allied unity"
+ACTIVITY_TERMS = [
+    "military exercise", "air policing", "patrol", "deployment",
+    "troop movement", "readiness", "deterrence", "defence package",
+    "defense package", "military aid", "nato summit", "summit",
+    "sanctions", "border guard", "border protection", "eastern flank",
+    "allied unity", "mobilisation", "mobilization", "preparedness",
+    "security package", "joint exercise"
 ]
 
-BACKGROUND_TERMS = [
-    "framework", "awareness", "training", "exercise", "capabilities",
-    "maturity", "ecosystem", "challenge", "investment", "cyber hygiene",
-    "strategy to empower", "preparedness diy"
+INDICATOR_TERMS = [
+    "warning", "warns", "threat", "risk", "concern", "alert",
+    "assessment", "intelligence warning", "hybrid threat",
+    "russia threatens", "kremlin threat", "cyber warning",
+    "gps warning", "preparedness warning", "disinformation campaign",
+    "propaganda campaign", "influence operation"
+]
+
+ASSESSMENT_TERMS = [
+    "framework", "strategy", "strategic", "analysis", "report",
+    "study", "white paper", "ecosystem", "capabilities", "maturity",
+    "training", "awareness", "cyber hygiene", "challenge",
+    "investment", "conference", "reserve", "policy", "guidance",
+    "implementation", "exercise diy"
 ]
 
 
@@ -122,12 +140,12 @@ def shared_context(item: Dict[str, Any], event: Dict[str, Any]) -> bool:
 
 
 def should_merge(item: Dict[str, Any], event: Dict[str, Any]) -> bool:
-    score = similarity(tokenize(item.get("title", "")), tokenize(event.get("title", "")))
+    title_score = similarity(tokenize(item.get("title", "")), tokenize(event.get("title", "")))
 
-    if score >= 0.44:
+    if title_score >= 0.44:
         return True
 
-    if score >= 0.30 and shared_context(item, event):
+    if title_score >= 0.30 and shared_context(item, event):
         return True
 
     return False
@@ -211,10 +229,22 @@ def choose_primary_country_v2(event: Dict[str, Any]) -> str:
     return top_country
 
 
-def calculate_confidence(source_count: int, source_group_count: int) -> Dict[str, Any]:
-    score = 30
+def calculate_confidence(source_count: int, source_group_count: int, source_names: List[str]) -> Dict[str, Any]:
+    official_sources = [
+        "NATO", "ENISA", "EUvsDisinfo", "CERT", "Ministry", "MOD",
+        "Border Guard", "Defence", "Defense"
+    ]
+
+    score = 25
     score += min(source_count, 6) * 8
     score += min(source_group_count, 4) * 5
+
+    if any(any(key.lower() in source.lower() for key in official_sources) for source in source_names):
+        score += 10
+
+    if source_count >= 3 and source_group_count >= 2:
+        score += 8
+
     score = min(score, 100)
 
     if score >= 80:
@@ -229,7 +259,7 @@ def calculate_confidence(source_count: int, source_group_count: int) -> Dict[str
     return {"confidence": label, "confidence_score": score}
 
 
-def classify_event_type(event: Dict[str, Any]) -> str:
+def classify_event_subtype(event: Dict[str, Any]) -> str:
     text = " ".join([
         str(event.get("title", "")),
         str(event.get("summary", "")),
@@ -241,38 +271,51 @@ def classify_event_type(event: Dict[str, Any]) -> str:
     categories = set(event.get("categories", []))
     actors = set(event.get("actors", []))
 
-    operational_categories = {
-        "sabotage", "cyber", "gps_interference", "drone_incident",
-        "military_provocation", "critical_infrastructure", "espionage",
-        "border_pressure", "migration_pressure"
-    }
+    if contains_any(text, INCIDENT_TERMS):
+        return "incident"
 
-    if categories & operational_categories and (
-        contains_any(text, OPERATIONAL_TERMS) or "Russia" in actors or "Belarus" in actors
+    if categories & {"drone_incident", "gps_interference", "sabotage", "espionage"}:
+        if "Russia" in actors or "Belarus" in actors or contains_any(text, INCIDENT_TERMS):
+            return "incident"
+
+    if categories & {"cyber"} and (
+        contains_any(text, ["cyberattack", "cyber attack", "ddos", "malware", "ransomware", "wiper"])
+        or "Sandworm" in actors or "GRU" in actors or "FSB" in actors
     ):
-        return "operational"
+        return "incident"
 
-    if contains_any(text, OPERATIONAL_TERMS):
-        return "operational"
+    if categories & {"border_pressure", "migration_pressure"} and (
+        "Belarus" in actors or contains_any(text, ["border crossing", "border incident", "migrant pressure"])
+    ):
+        return "incident"
 
-    if contains_any(text, STRATEGIC_TERMS):
-        return "strategic"
+    if contains_any(text, ACTIVITY_TERMS):
+        return "activity"
 
     if "NATO" in actors and ("Russia" in actors or "Belarus" in actors):
-        return "strategic"
+        return "activity"
+
+    if contains_any(text, INDICATOR_TERMS):
+        return "indicator"
+
+    if categories & {"disinformation"}:
+        return "indicator"
+
+    if contains_any(text, ASSESSMENT_TERMS):
+        return "assessment"
 
     if "EU" in actors and categories:
-        return "strategic"
-
-    if contains_any(text, BACKGROUND_TERMS):
-        return "background"
-
-    if categories == {"cyber"} and "EU" in actors:
-        return "background"
+        return "assessment"
 
     if categories:
-        return "strategic"
+        return "indicator"
 
+    return "assessment"
+
+
+def classify_event_type(event_subtype: str) -> str:
+    if event_subtype in {"incident", "activity", "indicator"}:
+        return "operational"
     return "background"
 
 
@@ -280,7 +323,7 @@ def create_event_from_item(item: Dict[str, Any]) -> Dict[str, Any]:
     source_name = item.get("source_name", "Unknown source")
     source_group = item.get("source_group", "unknown")
     event_seed = normalize(item.get("title", "")) + item.get("published_at", "")[:10]
-    confidence = calculate_confidence(1, 1)
+    confidence = calculate_confidence(1, 1, [source_name])
 
     event = {
         "event_id": stable_id(event_seed),
@@ -306,7 +349,8 @@ def create_event_from_item(item: Dict[str, Any]) -> Dict[str, Any]:
     }
 
     event["primary_country"] = choose_primary_country_v2(event)
-    event["event_type"] = classify_event_type(event)
+    event["event_subtype"] = classify_event_subtype(event)
+    event["event_type"] = classify_event_type(event["event_subtype"])
     return event
 
 
@@ -336,11 +380,17 @@ def merge_item_into_event(item: Dict[str, Any], event: Dict[str, Any]) -> None:
         2
     )
 
-    confidence = calculate_confidence(event["source_count"], len(event.get("source_groups", [])))
+    confidence = calculate_confidence(
+        event["source_count"],
+        len(event.get("source_groups", [])),
+        event.get("source_names", [])
+    )
+
     event["confidence"] = confidence["confidence"]
     event["confidence_score"] = confidence["confidence_score"]
     event["primary_country"] = choose_primary_country_v2(event)
-    event["event_type"] = classify_event_type(event)
+    event["event_subtype"] = classify_event_subtype(event)
+    event["event_type"] = classify_event_type(event["event_subtype"])
 
 
 def cluster_items(items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
@@ -379,15 +429,20 @@ def build_summary(events: List[Dict[str, Any]]) -> Dict[str, Any]:
     by_country: Dict[str, int] = {}
     by_category: Dict[str, int] = {}
     by_actor: Dict[str, int] = {}
-    by_event_type: Dict[str, int] = {
-        "operational": 0,
-        "strategic": 0,
-        "background": 0
+    by_event_type: Dict[str, int] = {"operational": 0, "background": 0}
+    by_event_subtype: Dict[str, int] = {
+        "incident": 0,
+        "activity": 0,
+        "indicator": 0,
+        "assessment": 0
     }
 
     for event in events:
         event_type = event.get("event_type", "background")
+        event_subtype = event.get("event_subtype", "assessment")
+
         by_event_type[event_type] = by_event_type.get(event_type, 0) + 1
+        by_event_subtype[event_subtype] = by_event_subtype.get(event_subtype, 0) + 1
 
         primary = event.get("primary_country", "Regional")
         by_country[primary] = by_country.get(primary, 0) + 1
@@ -400,6 +455,7 @@ def build_summary(events: List[Dict[str, Any]]) -> Dict[str, Any]:
 
     return {
         "by_event_type": by_event_type,
+        "by_event_subtype": by_event_subtype,
         "by_primary_country": dict(sorted(by_country.items())),
         "by_category": dict(sorted(by_category.items())),
         "by_actor": dict(sorted(by_actor.items()))
@@ -424,16 +480,22 @@ def main() -> None:
         "merged_item_count": len(items) - len(output_events),
         "summary": build_summary(output_events),
         "method": {
-            "description": "Event clustering v2 with event type classification and primary country engine v2.",
+            "description": "Threat Intelligence Engine v1.0 event clustering with ontology subtype classification.",
             "rules": [
                 "merge items with high title similarity",
                 "merge moderately similar items when actor/category/country context overlaps",
                 "calculate primary country using weighted title, summary, URL, location and related item signals",
-                "calculate source count",
-                "calculate confidence score",
-                "classify event_type as operational, strategic or background",
+                "calculate confidence score using source count, source diversity and official-source bonus",
+                "classify event_type as operational or background",
+                "classify event_subtype as incident, activity, indicator or assessment",
                 "preserve related titles and URLs"
-            ]
+            ],
+            "threat_ontology": {
+                "incident": "confirmed or reported operational incident",
+                "activity": "military, political or security activity that shapes risk",
+                "indicator": "early warning or information signal",
+                "assessment": "strategic, institutional or analytical background"
+            }
         },
         "events": output_events
     }
