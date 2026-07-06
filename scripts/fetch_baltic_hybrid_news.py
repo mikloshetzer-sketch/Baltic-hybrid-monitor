@@ -69,11 +69,38 @@ LOCATION_KEYWORDS = {
 
 
 LOW_QUALITY_DOMAINS = [
-    "youtube.com",
-    "youtu.be",
-    "tiktok.com",
-    "facebook.com",
-    "reddit.com"
+    "youtube.com", "youtu.be", "tiktok.com", "facebook.com", "reddit.com"
+]
+
+
+HARD_EXCLUDE_TERMS = [
+    "sports", "football", "basketball", "tennis", "volleyball",
+    "celebrity", "movie", "film", "music festival", "concert",
+    "chopin", "violin", "orchestra", "theatre", "theater",
+    "recipe", "fashion", "tourism guide", "weather",
+    "mountaineering", "charity drive", "parade", "culture",
+    "flamingo", "climate neutral agency"
+]
+
+
+STATIC_PAGE_TERMS = [
+    "member countries", "secretary general", "permanent representatives",
+    "audit reports", "financial statements", "performance audit",
+    "organization", "nato structure", "cybersecurity material",
+    "awareness and cyber hygiene", "cybersecurity policies",
+    "state of cybersecurity in the eu", "for national / eu authorities",
+    "topic", "topics", "press office"
+]
+
+
+REQUIRED_SECURITY_TERMS = [
+    "russia", "russian", "belarus", "belarusian", "kremlin", "moscow",
+    "nato", "security", "defence", "defense", "military", "war",
+    "hybrid", "sabotage", "cyber", "attack", "threat", "border",
+    "drone", "uav", "airspace", "gps", "gnss", "jamming", "spoofing",
+    "disinformation", "propaganda", "espionage", "spy", "critical infrastructure",
+    "infrastructure", "migration", "sanctions", "intelligence", "kaliningrad",
+    "suwalki", "baltic sea", "eastern flank"
 ]
 
 
@@ -102,7 +129,7 @@ def clean_text(value: str) -> str:
 def normalize_for_matching(value: str) -> str:
     value = value.lower()
     value = re.sub(r"https?://\S+", " ", value)
-    value = re.sub(r"[^a-z0-9áéíóöőúüűąćęłńóśźż\- ]+", " ", value)
+    value = re.sub(r"[^a-z0-9áéíóöőúüűąćęłńóśźż\- /]+", " ", value)
     value = re.sub(r"\s+", " ", value)
     return value.strip()
 
@@ -179,6 +206,11 @@ def detect_locations(text: str) -> List[str]:
     return detect_from_keywords(text, LOCATION_KEYWORDS)
 
 
+def contains_any(text: str, terms: List[str]) -> bool:
+    low = normalize_for_matching(text)
+    return any(term in low for term in terms)
+
+
 def rough_relevance_score(
     text: str,
     source_weight: float,
@@ -191,27 +223,50 @@ def rough_relevance_score(
 
     base = 0.0
 
-    strong_terms = [
-        "hybrid", "sabotage", "cyber", "cyberattack", "gps", "gnss",
-        "jamming", "spoofing", "border", "drone", "uav", "provocation",
-        "espionage", "critical infrastructure", "airspace", "kaliningrad",
-        "belarus", "nato", "russia", "russian", "kremlin", "baltic",
-        "poland", "estonia", "latvia", "lithuania"
-    ]
-
-    for term in strong_terms:
+    for term in REQUIRED_SECURITY_TERMS:
         if term in low:
             base += 1.0
 
     base += len(countries) * 1.0
-    base += len(categories) * 1.8
-    base += len(actors) * 0.8
-    base += len(locations) * 0.8
+    base += len(categories) * 2.0
+    base += len(actors) * 1.0
+    base += len(locations) * 1.0
 
     if "Russia" in actors or "Belarus" in actors:
-        base += 1.0
+        base += 1.5
 
     return round(base * source_weight, 2)
+
+
+def is_relevant_html_candidate(title: str, url: str, source_name: str) -> bool:
+    text = normalize_for_matching(f"{title} {url}")
+
+    if len(title.strip()) < 25:
+        return False
+
+    if contains_any(text, HARD_EXCLUDE_TERMS):
+        return False
+
+    if contains_any(text, STATIC_PAGE_TERMS):
+        return False
+
+    if source_name == "NATO News":
+        if "/news/" not in url and "news.htm" not in url:
+            return False
+
+    if source_name == "ENISA News":
+        if "/news/" not in url:
+            return False
+
+    if source_name == "Polish Radio English":
+        if not contains_any(text, REQUIRED_SECURITY_TERMS):
+            return False
+
+    if source_name in ["LRT English Lithuania", "TVP World"]:
+        if not contains_any(text, REQUIRED_SECURITY_TERMS):
+            return False
+
+    return True
 
 
 def should_keep_item(
@@ -221,20 +276,28 @@ def should_keep_item(
     categories: List[str],
     actors: List[str],
     score: float,
-    url: str
+    url: str,
+    collection_method: str = "rss"
 ) -> bool:
-    text = normalize_for_matching(f"{title} {summary}")
-
-    irrelevant_terms = [
-        "sports", "football", "basketball", "celebrity", "movie",
-        "music festival", "tourism guide", "recipe", "fashion"
-    ]
-
-    if any(term in text for term in irrelevant_terms):
-        return False
+    text = normalize_for_matching(f"{title} {summary} {url}")
 
     if is_low_quality_url(url):
         return False
+
+    if contains_any(text, HARD_EXCLUDE_TERMS):
+        return False
+
+    if collection_method == "html_fallback":
+        if contains_any(text, STATIC_PAGE_TERMS):
+            return False
+
+        if not contains_any(text, REQUIRED_SECURITY_TERMS):
+            return False
+
+        if not (categories or actors or score >= 4):
+            return False
+
+        return True
 
     if countries or categories or actors:
         return True
@@ -250,12 +313,13 @@ def build_item(
     summary: str,
     url: str,
     published_at: str,
-    source: Dict[str, Any]
+    source: Dict[str, Any],
+    collection_method: str = "rss"
 ) -> Optional[Dict[str, Any]]:
     source_weight = float(source.get("weight", 1.0))
     source_country = source.get("country")
 
-    combined = f"{title} {summary}"
+    combined = f"{title} {summary} {url}"
 
     countries = detect_countries(combined, source_country=source_country)
     categories = detect_categories(combined)
@@ -278,7 +342,8 @@ def build_item(
         categories=categories,
         actors=actors,
         score=relevance,
-        url=url
+        url=url,
+        collection_method=collection_method
     ):
         return None
 
@@ -304,6 +369,7 @@ def build_item(
         "actors": actors,
         "locations": locations,
         "relevance_score": relevance,
+        "collection_method": collection_method,
         "collected_at": datetime.now(timezone.utc).isoformat()
     }
 
@@ -327,7 +393,8 @@ def fetch_rss_source(source: Dict[str, Any]) -> List[Dict[str, Any]]:
             summary=summary,
             url=link,
             published_at=published_at,
-            source=source
+            source=source,
+            collection_method="rss"
         )
 
         if item:
@@ -337,7 +404,8 @@ def fetch_rss_source(source: Dict[str, Any]) -> List[Dict[str, Any]]:
 
 
 def fetch_html_fallback_source(source: Dict[str, Any]) -> List[Dict[str, Any]]:
-    homepage = FALLBACK_HOMEPAGES.get(source.get("name"))
+    source_name = source.get("name")
+    homepage = FALLBACK_HOMEPAGES.get(source_name)
 
     if not homepage:
         return []
@@ -346,9 +414,7 @@ def fetch_html_fallback_source(source: Dict[str, Any]) -> List[Dict[str, Any]]:
         response = requests.get(
             homepage,
             timeout=25,
-            headers={
-                "User-Agent": "Mozilla/5.0 BalticHybridMonitor/1.0"
-            }
+            headers={"User-Agent": "Mozilla/5.0 BalticHybridMonitor/1.0"}
         )
         response.raise_for_status()
     except Exception:
@@ -356,25 +422,27 @@ def fetch_html_fallback_source(source: Dict[str, Any]) -> List[Dict[str, Any]]:
 
     soup = BeautifulSoup(response.text, "html.parser")
     candidates = []
+    seen_urls = set()
 
     for link in soup.find_all("a", href=True):
         title = clean_text(link.get_text(" ", strip=True))
         href = link.get("href", "")
-
-        if not title or len(title) < 20:
-            continue
-
         absolute_url = urljoin(homepage, href)
 
-        if absolute_url in [item.get("url") for item in candidates]:
+        if absolute_url in seen_urls:
             continue
+
+        if not is_relevant_html_candidate(title, absolute_url, source_name):
+            continue
+
+        seen_urls.add(absolute_url)
 
         candidates.append({
             "title": title,
             "url": absolute_url
         })
 
-        if len(candidates) >= 40:
+        if len(candidates) >= 25:
             break
 
     items = []
@@ -385,11 +453,11 @@ def fetch_html_fallback_source(source: Dict[str, Any]) -> List[Dict[str, Any]]:
             summary="",
             url=candidate["url"],
             published_at=datetime.now(timezone.utc).isoformat(),
-            source=source
+            source=source,
+            collection_method="html_fallback"
         )
 
         if item:
-            item["collection_method"] = "html_fallback"
             items.append(item)
 
     return items
@@ -423,6 +491,7 @@ def fetch_external_json_feed(feed: Dict[str, Any]) -> List[Dict[str, Any]]:
             "actors": [],
             "locations": [],
             "relevance_score": 0,
+            "collection_method": "external_json_error",
             "collected_at": datetime.now(timezone.utc).isoformat()
         }]
 
@@ -443,7 +512,8 @@ def fetch_external_json_feed(feed: Dict[str, Any]) -> List[Dict[str, Any]]:
             summary=summary,
             url=item_url,
             published_at=published_at,
-            source=feed
+            source=feed,
+            collection_method="external_json"
         )
 
         if item:
@@ -493,10 +563,21 @@ def build_source_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
                 "source_name": source_name,
                 "source_group": item.get("source_group", "unknown"),
                 "source_type": item.get("source_type", "unknown"),
-                "item_count": 0
+                "item_count": 0,
+                "rss_count": 0,
+                "html_fallback_count": 0,
+                "external_json_count": 0
             }
 
         summary[source_name]["item_count"] += 1
+
+        method = item.get("collection_method", "rss")
+        if method == "html_fallback":
+            summary[source_name]["html_fallback_count"] += 1
+        elif method == "external_json":
+            summary[source_name]["external_json_count"] += 1
+        else:
+            summary[source_name]["rss_count"] += 1
 
     return dict(
         sorted(
@@ -526,7 +607,7 @@ def main() -> None:
         "item_count": len(unique_items),
         "source_summary": build_source_summary(unique_items),
         "method": {
-            "description": "RSS, HTML fallback and optional external JSON collection for Baltic and Poland hybrid threat monitoring.",
+            "description": "RSS, filtered HTML fallback and optional external JSON collection for Baltic and Poland hybrid threat monitoring.",
             "countries": config.get("countries", []),
             "categories": config.get("threat_categories", []),
             "features": [
@@ -535,8 +616,10 @@ def main() -> None:
                 "location detection",
                 "improved relevance scoring",
                 "canonical title deduplication",
-                "relaxed relevance filter",
-                "HTML fallback for problematic RSS feeds"
+                "relaxed RSS relevance filter",
+                "strict HTML fallback relevance filter",
+                "static page filtering",
+                "culture/sport/noise filtering"
             ]
         },
         "items": unique_items
