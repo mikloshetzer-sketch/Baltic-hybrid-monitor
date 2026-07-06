@@ -6,90 +6,86 @@ from typing import Dict, List, Any
 
 ROOT = Path(__file__).resolve().parents[1]
 
-FILTERED_INPUT = ROOT / "data" / "baltic_hybrid_filtered_news.json"
+CLUSTERED_INPUT = ROOT / "data" / "baltic_hybrid_clustered_events.json"
 SCORED_OUTPUT = ROOT / "data" / "baltic_hybrid_scored_news.json"
 DOCS_OUTPUT = ROOT / "docs" / "data" / "baltic_hybrid_scored_news.json"
 
 
-COUNTRIES = ["Estonia", "Latvia", "Lithuania", "Poland"]
+COUNTRIES = ["Estonia", "Latvia", "Lithuania", "Poland", "Regional"]
 
 
 CATEGORY_WEIGHTS = {
-    "sabotage": 8,
-    "cyber": 7,
-    "critical_infrastructure": 8,
-    "military_provocation": 7,
-    "drone_incident": 7,
-    "gps_interference": 6,
-    "espionage": 6,
-    "border_pressure": 5,
-    "migration_pressure": 4,
-    "disinformation": 4
+    "sabotage": 18,
+    "critical_infrastructure": 17,
+    "drone_incident": 16,
+    "gps_interference": 15,
+    "cyber": 14,
+    "espionage": 13,
+    "military_provocation": 12,
+    "border_pressure": 10,
+    "migration_pressure": 8,
+    "disinformation": 7
+}
+
+
+SUBTYPE_WEIGHTS = {
+    "incident": 1.00,
+    "activity": 0.45,
+    "indicator": 0.25,
+    "assessment": 0.00
+}
+
+
+CONFIDENCE_MULTIPLIERS = {
+    "very_high": 1.20,
+    "high": 1.10,
+    "medium": 1.00,
+    "low": 0.85
 }
 
 
 ACTOR_WEIGHTS = {
-    "Russia": 3,
-    "Belarus": 3,
-    "GRU": 4,
-    "FSB": 4,
-    "Sandworm": 4,
-    "NATO": 2,
-    "EU": 1
+    "Russia": 8,
+    "Belarus": 6,
+    "GRU": 8,
+    "FSB": 8,
+    "Sandworm": 8,
+    "NATO": 4,
+    "EU": 2
 }
 
 
 LOCATION_WEIGHTS = {
-    "Kaliningrad": 4,
-    "Suwalki Gap": 4,
-    "Baltic Sea": 3,
-    "Belarus Border": 3,
-    "Poland-Belarus Border": 3,
-    "Narva": 2,
-    "Riga": 1,
-    "Tallinn": 1,
-    "Vilnius": 1,
-    "Klaipeda": 2,
-    "Gdansk": 2
+    "Kaliningrad": 8,
+    "Suwalki Gap": 9,
+    "Baltic Sea": 6,
+    "Belarus Border": 7,
+    "Poland-Belarus Border": 8,
+    "Narva": 5,
+    "Riga": 3,
+    "Tallinn": 3,
+    "Vilnius": 3,
+    "Klaipeda": 4,
+    "Gdansk": 4
 }
 
 
-SOURCE_TYPE_WEIGHTS = {
-    "official_context": 2,
-    "cyber_official": 3,
-    "border_security": 3,
-    "regional_media": 2,
-    "cyber_media": 2,
-    "disinformation": 2,
-    "disinformation_osint": 2,
-    "military_air": 2,
-    "drone_incident": 2,
-    "critical_infrastructure": 2,
-    "maritime_infrastructure": 2,
-    "strategic_hotspot": 2,
-    "country_focus": 1,
-    "news_search": 0,
-    "external_repo": 2
-}
-
-
-ESCALATION_KEYWORDS = {
+ESCALATION_TERMS = {
     "critical": [
         "sabotage",
         "explosion",
         "airspace violation",
         "critical infrastructure",
-        "power grid",
         "undersea cable",
         "subsea cable",
         "pipeline",
-        "spy",
-        "espionage",
         "ransomware",
         "wiper",
         "missile",
         "drone attack",
-        "hybrid attack"
+        "hybrid attack",
+        "spy",
+        "espionage"
     ],
     "high": [
         "cyberattack",
@@ -98,57 +94,72 @@ ESCALATION_KEYWORDS = {
         "gps jamming",
         "gnss jamming",
         "spoofing",
-        "border provocation",
+        "border incident",
+        "border crossing",
         "military provocation",
         "fighter jet",
         "scramble",
         "intercept",
         "migration pressure",
-        "cognitive warfare"
+        "disinformation campaign"
     ],
     "medium": [
-        "propaganda",
-        "disinformation",
-        "influence operation",
-        "border pressure",
         "warning",
         "threat",
         "risk",
         "preparedness",
-        "exercise"
+        "exercise",
+        "sanctions",
+        "eastern flank",
+        "air policing"
     ]
 }
 
 
-def load_filtered_data() -> Dict[str, Any]:
-    if not FILTERED_INPUT.exists():
+def load_clustered_data() -> Dict[str, Any]:
+    if not CLUSTERED_INPUT.exists():
         raise FileNotFoundError(
-            f"Missing filtered input file: {FILTERED_INPUT}. "
-            "Run scripts/fetch_baltic_hybrid_news.py and "
-            "scripts/filter_baltic_hybrid_news.py first."
+            f"Missing clustered input file: {CLUSTERED_INPUT}. "
+            "Run scripts/fetch_baltic_hybrid_news.py, "
+            "scripts/filter_baltic_hybrid_news.py and "
+            "scripts/cluster_baltic_hybrid_events.py first."
         )
 
-    return json.loads(FILTERED_INPUT.read_text(encoding="utf-8"))
+    return json.loads(CLUSTERED_INPUT.read_text(encoding="utf-8"))
 
 
-def text_blob(item: Dict[str, Any]) -> str:
-    return f"{item.get('title', '')} {item.get('summary', '')}".lower()
+def save_json(path: Path, payload: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8"
+    )
+
+
+def text_blob(event: Dict[str, Any]) -> str:
+    return " ".join([
+        str(event.get("title", "")),
+        str(event.get("summary", "")),
+        " ".join(event.get("categories", [])),
+        " ".join(event.get("actors", [])),
+        " ".join(event.get("locations", []))
+    ]).lower()
 
 
 def keyword_score(text: str) -> int:
     score = 0
 
-    for word in ESCALATION_KEYWORDS["critical"]:
-        if word in text:
+    for term in ESCALATION_TERMS["critical"]:
+        if term in text:
+            score += 8
+
+    for term in ESCALATION_TERMS["high"]:
+        if term in text:
             score += 5
 
-    for word in ESCALATION_KEYWORDS["high"]:
-        if word in text:
-            score += 3
-
-    for word in ESCALATION_KEYWORDS["medium"]:
-        if word in text:
-            score += 1
+    for term in ESCALATION_TERMS["medium"]:
+        if term in text:
+            score += 2
 
     return score
 
@@ -165,375 +176,373 @@ def location_score(locations: List[str]) -> int:
     return sum(LOCATION_WEIGHTS.get(location, 0) for location in locations)
 
 
-def source_score(item: Dict[str, Any]) -> int:
-    source_type = item.get("source_type", "news_search")
-    base = SOURCE_TYPE_WEIGHTS.get(source_type, 0)
+def source_confirmation_score(event: Dict[str, Any]) -> int:
+    source_count = int(event.get("source_count", 1))
+    related_item_count = int(event.get("related_item_count", 1))
+    confidence_score = int(event.get("confidence_score", 0))
 
-    source_weight = float(item.get("source_weight", 1.0))
+    score = 0
+    score += min(source_count, 6) * 3
+    score += min(related_item_count, 8) * 1
 
-    if source_weight >= 1.25:
-        base += 2
-    elif source_weight >= 1.1:
-        base += 1
+    if confidence_score >= 80:
+        score += 8
+    elif confidence_score >= 65:
+        score += 5
+    elif confidence_score >= 50:
+        score += 3
 
-    return base
-
-
-def country_spread_bonus(countries: List[str]) -> int:
-    if len(countries) >= 3:
-        return 3
-    if len(countries) == 2:
-        return 2
-    if len(countries) == 1:
-        return 1
-    return 0
+    return score
 
 
-def category_diversity_bonus(categories: List[str]) -> int:
-    if len(categories) >= 3:
-        return 3
-    if len(categories) == 2:
-        return 2
-    if len(categories) == 1:
-        return 1
-    return 0
-
-
-def strategic_modifier(item: Dict[str, Any]) -> int:
-    text = text_blob(item)
-    categories = item.get("categories", [])
-    actors = item.get("actors", [])
-    locations = item.get("locations", [])
+def strategic_modifier(event: Dict[str, Any]) -> int:
+    categories = set(event.get("categories", []))
+    actors = set(event.get("actors", []))
+    locations = set(event.get("locations", []))
+    text = text_blob(event)
 
     modifier = 0
 
     if "Russia" in actors and "NATO" in actors:
-        modifier += 2
+        modifier += 5
 
-    if "Belarus" in actors and "border_pressure" in categories:
-        modifier += 2
+    if "Belarus" in actors and ("border_pressure" in categories or "migration_pressure" in categories):
+        modifier += 5
 
     if "Kaliningrad" in locations and "gps_interference" in categories:
-        modifier += 3
+        modifier += 6
 
     if "Suwalki Gap" in locations:
-        modifier += 3
+        modifier += 7
 
     if "Baltic Sea" in locations and "critical_infrastructure" in categories:
-        modifier += 3
+        modifier += 6
 
     if "cyber" in categories and "critical_infrastructure" in categories:
-        modifier += 3
+        modifier += 5
 
     if "drone_incident" in categories and "military_provocation" in categories:
-        modifier += 2
-
-    if "full-scale war is not imminent" in text:
-        modifier -= 2
+        modifier += 4
 
     if "no signs of russian attack" in text:
-        modifier -= 2
+        modifier -= 5
+
+    if "full-scale war is not imminent" in text:
+        modifier -= 4
 
     return modifier
 
 
 def classify_level(score: int) -> str:
-    if score >= 40:
+    if score >= 80:
         return "critical"
-    if score >= 30:
+    if score >= 60:
         return "high"
-    if score >= 20:
+    if score >= 40:
         return "elevated"
-    if score >= 10:
+    if score >= 20:
         return "guarded"
     return "low"
 
 
-def score_item(item: Dict[str, Any]) -> Dict[str, Any]:
-    text = text_blob(item)
+def score_event(event: Dict[str, Any]) -> Dict[str, Any]:
+    text = text_blob(event)
 
-    categories = item.get("categories", [])
-    actors = item.get("actors", [])
-    locations = item.get("locations", [])
-    countries = item.get("countries", [])
+    subtype = event.get("event_subtype", "assessment")
+    confidence = event.get("confidence", "low")
 
-    relevance = float(item.get("relevance_score", 0))
+    base_score = 0
+    base_score += int(round(float(event.get("relevance_score", 0))))
+    base_score += keyword_score(text)
+    base_score += category_score(event.get("categories", []))
+    base_score += actor_score(event.get("actors", []))
+    base_score += location_score(event.get("locations", []))
+    base_score += source_confirmation_score(event)
+    base_score += strategic_modifier(event)
 
-    score = 0
-    score += int(round(relevance))
-    score += keyword_score(text)
-    score += category_score(categories)
-    score += actor_score(actors)
-    score += location_score(locations)
-    score += source_score(item)
-    score += country_spread_bonus(countries)
-    score += category_diversity_bonus(categories)
-    score += strategic_modifier(item)
+    if base_score < 0:
+        base_score = 0
 
-    if score < 0:
-        score = 0
+    subtype_weight = SUBTYPE_WEIGHTS.get(subtype, 0.0)
+    confidence_multiplier = CONFIDENCE_MULTIPLIERS.get(confidence, 0.85)
 
-    item["hybrid_threat_score"] = score
-    item["hybrid_threat_level"] = classify_level(score)
-    item["score_breakdown"] = {
-        "relevance": int(round(relevance)),
+    weighted_score = round(base_score * subtype_weight * confidence_multiplier, 2)
+
+    if subtype == "assessment":
+        weighted_score = 0
+
+    event["hybrid_threat_score"] = int(round(weighted_score))
+    event["hybrid_threat_level"] = classify_level(event["hybrid_threat_score"])
+    event["score_breakdown"] = {
+        "raw_base_score": base_score,
+        "relevance": int(round(float(event.get("relevance_score", 0)))),
         "keywords": keyword_score(text),
-        "categories": category_score(categories),
-        "actors": actor_score(actors),
-        "locations": location_score(locations),
-        "source": source_score(item),
-        "country_spread": country_spread_bonus(countries),
-        "category_diversity": category_diversity_bonus(categories),
-        "strategic_modifier": strategic_modifier(item)
+        "categories": category_score(event.get("categories", [])),
+        "actors": actor_score(event.get("actors", [])),
+        "locations": location_score(event.get("locations", [])),
+        "source_confirmation": source_confirmation_score(event),
+        "strategic_modifier": strategic_modifier(event),
+        "event_subtype": subtype,
+        "subtype_weight": subtype_weight,
+        "confidence": confidence,
+        "confidence_multiplier": confidence_multiplier,
+        "weighted_score": weighted_score
     }
 
-    return item
+    return event
 
 
-def build_country_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
+def build_country_summary(events: List[Dict[str, Any]]) -> Dict[str, Any]:
     summary = {
         country: {
             "country": country,
+            "event_count": 0,
             "incident_count": 0,
+            "activity_count": 0,
+            "indicator_count": 0,
+            "assessment_count": 0,
             "score_total": 0,
             "average_score": 0,
             "highest_score": 0,
             "level": "low",
             "categories": {},
-            "actors": {},
-            "locations": {}
+            "actors": {}
         }
         for country in COUNTRIES
     }
 
-    for item in items:
-        score = int(item.get("hybrid_threat_score", 0))
+    for event in events:
+        primary_country = event.get("primary_country", "Regional")
+        if primary_country not in summary:
+            primary_country = "Regional"
 
-        for country in item.get("countries", []):
-            if country not in summary:
-                continue
+        subtype = event.get("event_subtype", "assessment")
+        score = int(event.get("hybrid_threat_score", 0))
 
-            summary[country]["incident_count"] += 1
-            summary[country]["score_total"] += score
-            summary[country]["highest_score"] = max(
-                summary[country]["highest_score"],
-                score
-            )
+        data = summary[primary_country]
+        data["event_count"] += 1
+        data["score_total"] += score
+        data["highest_score"] = max(data["highest_score"], score)
 
-            for category in item.get("categories", []):
-                summary[country]["categories"][category] = (
-                    summary[country]["categories"].get(category, 0) + 1
-                )
+        if subtype == "incident":
+            data["incident_count"] += 1
+        elif subtype == "activity":
+            data["activity_count"] += 1
+        elif subtype == "indicator":
+            data["indicator_count"] += 1
+        else:
+            data["assessment_count"] += 1
 
-            for actor in item.get("actors", []):
-                summary[country]["actors"][actor] = (
-                    summary[country]["actors"].get(actor, 0) + 1
-                )
+        for category in event.get("categories", []):
+            data["categories"][category] = data["categories"].get(category, 0) + 1
 
-            for location in item.get("locations", []):
-                summary[country]["locations"][location] = (
-                    summary[country]["locations"].get(location, 0) + 1
-                )
+        for actor in event.get("actors", []):
+            data["actors"][actor] = data["actors"].get(actor, 0) + 1
 
     for country, data in summary.items():
-        if data["incident_count"] > 0:
-            data["average_score"] = round(
-                data["score_total"] / data["incident_count"],
-                2
-            )
+        if data["event_count"] > 0:
+            data["average_score"] = round(data["score_total"] / data["event_count"], 2)
 
         data["level"] = classify_level(int(data["average_score"]))
 
     return summary
 
 
-def build_category_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
-    summary = {}
+def build_category_summary(events: List[Dict[str, Any]]) -> Dict[str, Any]:
+    summary: Dict[str, Any] = {}
 
-    for item in items:
-        score = int(item.get("hybrid_threat_score", 0))
+    for event in events:
+        score = int(event.get("hybrid_threat_score", 0))
 
-        for category in item.get("categories", []):
+        for category in event.get("categories", []):
             if category not in summary:
                 summary[category] = {
                     "category": category,
-                    "incident_count": 0,
+                    "event_count": 0,
                     "score_total": 0,
                     "average_score": 0,
                     "highest_score": 0
                 }
 
-            summary[category]["incident_count"] += 1
+            summary[category]["event_count"] += 1
             summary[category]["score_total"] += score
-            summary[category]["highest_score"] = max(
-                summary[category]["highest_score"],
-                score
-            )
+            summary[category]["highest_score"] = max(summary[category]["highest_score"], score)
 
     for category, data in summary.items():
-        if data["incident_count"] > 0:
-            data["average_score"] = round(
-                data["score_total"] / data["incident_count"],
-                2
-            )
+        if data["event_count"] > 0:
+            data["average_score"] = round(data["score_total"] / data["event_count"], 2)
 
-    return summary
+    return dict(sorted(summary.items(), key=lambda pair: pair[1]["score_total"], reverse=True))
 
 
-def build_actor_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
-    summary = {}
+def build_actor_summary(events: List[Dict[str, Any]]) -> Dict[str, Any]:
+    summary: Dict[str, Any] = {}
 
-    for item in items:
-        score = int(item.get("hybrid_threat_score", 0))
+    for event in events:
+        score = int(event.get("hybrid_threat_score", 0))
 
-        for actor in item.get("actors", []):
+        for actor in event.get("actors", []):
             if actor not in summary:
                 summary[actor] = {
                     "actor": actor,
-                    "incident_count": 0,
+                    "event_count": 0,
                     "score_total": 0,
                     "average_score": 0,
                     "highest_score": 0
                 }
 
-            summary[actor]["incident_count"] += 1
+            summary[actor]["event_count"] += 1
             summary[actor]["score_total"] += score
-            summary[actor]["highest_score"] = max(
-                summary[actor]["highest_score"],
-                score
-            )
+            summary[actor]["highest_score"] = max(summary[actor]["highest_score"], score)
 
     for actor, data in summary.items():
-        if data["incident_count"] > 0:
-            data["average_score"] = round(
-                data["score_total"] / data["incident_count"],
-                2
-            )
+        if data["event_count"] > 0:
+            data["average_score"] = round(data["score_total"] / data["event_count"], 2)
+
+    return dict(sorted(summary.items(), key=lambda pair: pair[1]["score_total"], reverse=True))
+
+
+def build_subtype_summary(events: List[Dict[str, Any]]) -> Dict[str, Any]:
+    summary = {
+        "incident": {"event_count": 0, "score_total": 0, "average_score": 0},
+        "activity": {"event_count": 0, "score_total": 0, "average_score": 0},
+        "indicator": {"event_count": 0, "score_total": 0, "average_score": 0},
+        "assessment": {"event_count": 0, "score_total": 0, "average_score": 0}
+    }
+
+    for event in events:
+        subtype = event.get("event_subtype", "assessment")
+        if subtype not in summary:
+            subtype = "assessment"
+
+        score = int(event.get("hybrid_threat_score", 0))
+        summary[subtype]["event_count"] += 1
+        summary[subtype]["score_total"] += score
+
+    for subtype, data in summary.items():
+        if data["event_count"] > 0:
+            data["average_score"] = round(data["score_total"] / data["event_count"], 2)
 
     return summary
 
 
-def build_location_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
-    summary = {}
-
-    for item in items:
-        score = int(item.get("hybrid_threat_score", 0))
-
-        for location in item.get("locations", []):
-            if location not in summary:
-                summary[location] = {
-                    "location": location,
-                    "incident_count": 0,
-                    "score_total": 0,
-                    "average_score": 0,
-                    "highest_score": 0
-                }
-
-            summary[location]["incident_count"] += 1
-            summary[location]["score_total"] += score
-            summary[location]["highest_score"] = max(
-                summary[location]["highest_score"],
-                score
-            )
-
-    for location, data in summary.items():
-        if data["incident_count"] > 0:
-            data["average_score"] = round(
-                data["score_total"] / data["incident_count"],
-                2
-            )
-
-    return summary
-
-
-def build_overall_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
-    if not items:
+def build_overall_summary(events: List[Dict[str, Any]]) -> Dict[str, Any]:
+    if not events:
         return {
+            "event_count": 0,
             "incident_count": 0,
+            "activity_count": 0,
+            "indicator_count": 0,
+            "assessment_count": 0,
             "score_total": 0,
             "average_score": 0,
             "highest_score": 0,
+            "threat_index": 0,
             "overall_level": "low"
         }
 
-    score_total = sum(int(item.get("hybrid_threat_score", 0)) for item in items)
-    highest_score = max(int(item.get("hybrid_threat_score", 0)) for item in items)
-    average_score = round(score_total / len(items), 2)
+    score_total = sum(int(event.get("hybrid_threat_score", 0)) for event in events)
+    highest_score = max(int(event.get("hybrid_threat_score", 0)) for event in events)
+    average_score = round(score_total / len(events), 2)
+
+    incident_count = sum(1 for event in events if event.get("event_subtype") == "incident")
+    activity_count = sum(1 for event in events if event.get("event_subtype") == "activity")
+    indicator_count = sum(1 for event in events if event.get("event_subtype") == "indicator")
+    assessment_count = sum(1 for event in events if event.get("event_subtype") == "assessment")
+
+    operational_events = [
+        event for event in events
+        if event.get("event_subtype") in {"incident", "activity", "indicator"}
+    ]
+
+    if operational_events:
+        threat_index = round(
+            sum(int(event.get("hybrid_threat_score", 0)) for event in operational_events) /
+            len(operational_events),
+            2
+        )
+    else:
+        threat_index = 0
 
     return {
-        "incident_count": len(items),
+        "event_count": len(events),
+        "incident_count": incident_count,
+        "activity_count": activity_count,
+        "indicator_count": indicator_count,
+        "assessment_count": assessment_count,
         "score_total": score_total,
         "average_score": average_score,
         "highest_score": highest_score,
-        "overall_level": classify_level(int(average_score))
+        "threat_index": threat_index,
+        "overall_level": classify_level(int(threat_index))
     }
 
 
 def main() -> None:
-    filtered_data = load_filtered_data()
-    items = filtered_data.get("items", [])
+    clustered = load_clustered_data()
+    events = clustered.get("events", [])
 
-    scored_items = [score_item(item) for item in items]
-    scored_items = sorted(
-        scored_items,
-        key=lambda x: x.get("hybrid_threat_score", 0),
+    scored_events = [score_event(event) for event in events]
+    scored_events = sorted(
+        scored_events,
+        key=lambda event: (
+            event.get("hybrid_threat_score", 0),
+            event.get("confidence_score", 0),
+            event.get("published_at", "")
+        ),
         reverse=True
     )
 
     payload = {
-        "project": filtered_data.get("project", "baltic-hybrid-monitor"),
-        "region": filtered_data.get("region", "Baltic states and Poland"),
+        "project": clustered.get("project", "baltic-hybrid-monitor"),
+        "region": clustered.get("region", "Baltic states and Poland"),
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "input_generated_at": filtered_data.get("generated_at"),
-        "raw_item_count": filtered_data.get("raw_item_count"),
-        "filtered_item_count": filtered_data.get("item_count"),
-        "removed_count": filtered_data.get("removed_count"),
+        "input_generated_at": clustered.get("generated_at"),
+        "raw_item_count": clustered.get("raw_item_count"),
+        "filtered_item_count": clustered.get("filtered_item_count"),
+        "clustered_event_count": clustered.get("event_count"),
+        "merged_item_count": clustered.get("merged_item_count"),
         "method": {
-            "description": "Rule-based Baltic hybrid threat scoring model using filtered threat-relevant items.",
-            "input": "data/baltic_hybrid_filtered_news.json",
+            "description": "Threat Score Engine v2 using clustered events and threat ontology subtypes.",
+            "input": "data/baltic_hybrid_clustered_events.json",
             "score_components": [
-                "raw relevance score",
+                "event relevance score",
                 "hybrid escalation keywords",
                 "threat category weights",
                 "actor weights",
                 "strategic location weights",
-                "source-type weights",
-                "country spread bonus",
-                "category diversity bonus",
-                "strategic modifiers"
+                "source confirmation",
+                "strategic modifiers",
+                "event subtype weighting",
+                "confidence multiplier"
             ],
+            "subtype_weights": SUBTYPE_WEIGHTS,
+            "confidence_multipliers": CONFIDENCE_MULTIPLIERS,
             "levels": {
-                "low": "0-9",
-                "guarded": "10-19",
-                "elevated": "20-29",
-                "high": "30-39",
-                "critical": "40+"
+                "low": "0-19",
+                "guarded": "20-39",
+                "elevated": "40-59",
+                "high": "60-79",
+                "critical": "80+"
             }
         },
-        "overall_summary": build_overall_summary(scored_items),
-        "country_summary": build_country_summary(scored_items),
-        "category_summary": build_category_summary(scored_items),
-        "actor_summary": build_actor_summary(scored_items),
-        "location_summary": build_location_summary(scored_items),
-        "items": scored_items
+        "overall_summary": build_overall_summary(scored_events),
+        "country_summary": build_country_summary(scored_events),
+        "category_summary": build_category_summary(scored_events),
+        "actor_summary": build_actor_summary(scored_events),
+        "subtype_summary": build_subtype_summary(scored_events),
+        "items": scored_events,
+        "events": scored_events
     }
 
-    SCORED_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
-    DOCS_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    save_json(SCORED_OUTPUT, payload)
+    save_json(DOCS_OUTPUT, payload)
 
-    SCORED_OUTPUT.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2),
-        encoding="utf-8"
-    )
-
-    DOCS_OUTPUT.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2),
-        encoding="utf-8"
-    )
-
-    print(f"Saved scored data to {SCORED_OUTPUT}")
-    print(f"Saved public scored data to {DOCS_OUTPUT}")
-    print(f"Items scored: {len(scored_items)}")
+    print(f"Saved scored event data to {SCORED_OUTPUT}")
+    print(f"Saved public scored event data to {DOCS_OUTPUT}")
+    print(f"Events scored: {len(scored_events)}")
+    print(f"Threat index: {payload['overall_summary']['threat_index']}")
+    print(f"Overall level: {payload['overall_summary']['overall_level']}")
 
 
 if __name__ == "__main__":
