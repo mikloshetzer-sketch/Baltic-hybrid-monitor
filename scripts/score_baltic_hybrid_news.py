@@ -6,7 +6,7 @@ from typing import Dict, List, Any
 
 ROOT = Path(__file__).resolve().parents[1]
 
-RAW_INPUT = ROOT / "data" / "baltic_hybrid_raw_news.json"
+FILTERED_INPUT = ROOT / "data" / "baltic_hybrid_filtered_news.json"
 SCORED_OUTPUT = ROOT / "data" / "baltic_hybrid_scored_news.json"
 DOCS_OUTPUT = ROOT / "docs" / "data" / "baltic_hybrid_scored_news.json"
 
@@ -120,14 +120,15 @@ ESCALATION_KEYWORDS = {
 }
 
 
-def load_raw_data() -> Dict[str, Any]:
-    if not RAW_INPUT.exists():
+def load_filtered_data() -> Dict[str, Any]:
+    if not FILTERED_INPUT.exists():
         raise FileNotFoundError(
-            f"Missing raw input file: {RAW_INPUT}. "
-            "Run scripts/fetch_baltic_hybrid_news.py first."
+            f"Missing filtered input file: {FILTERED_INPUT}. "
+            "Run scripts/fetch_baltic_hybrid_news.py and "
+            "scripts/filter_baltic_hybrid_news.py first."
         )
 
-    return json.loads(RAW_INPUT.read_text(encoding="utf-8"))
+    return json.loads(FILTERED_INPUT.read_text(encoding="utf-8"))
 
 
 def text_blob(item: Dict[str, Any]) -> str:
@@ -170,7 +171,7 @@ def source_score(item: Dict[str, Any]) -> int:
 
     source_weight = float(item.get("source_weight", 1.0))
 
-    if source_weight >= 1.2:
+    if source_weight >= 1.25:
         base += 2
     elif source_weight >= 1.1:
         base += 1
@@ -237,13 +238,13 @@ def strategic_modifier(item: Dict[str, Any]) -> int:
 
 
 def classify_level(score: int) -> str:
-    if score >= 32:
+    if score >= 40:
         return "critical"
-    if score >= 22:
+    if score >= 30:
         return "high"
-    if score >= 12:
+    if score >= 20:
         return "elevated"
-    if score >= 5:
+    if score >= 10:
         return "guarded"
     return "low"
 
@@ -469,8 +470,8 @@ def build_overall_summary(items: List[Dict[str, Any]]) -> Dict[str, Any]:
 
 
 def main() -> None:
-    raw_data = load_raw_data()
-    items = raw_data.get("items", [])
+    filtered_data = load_filtered_data()
+    items = filtered_data.get("items", [])
 
     scored_items = [score_item(item) for item in items]
     scored_items = sorted(
@@ -480,12 +481,16 @@ def main() -> None:
     )
 
     payload = {
-        "project": raw_data.get("project", "baltic-hybrid-monitor"),
-        "region": raw_data.get("region", "Baltic states and Poland"),
+        "project": filtered_data.get("project", "baltic-hybrid-monitor"),
+        "region": filtered_data.get("region", "Baltic states and Poland"),
         "generated_at": datetime.now(timezone.utc).isoformat(),
-        "input_generated_at": raw_data.get("generated_at"),
+        "input_generated_at": filtered_data.get("generated_at"),
+        "raw_item_count": filtered_data.get("raw_item_count"),
+        "filtered_item_count": filtered_data.get("item_count"),
+        "removed_count": filtered_data.get("removed_count"),
         "method": {
-            "description": "Rule-based Baltic hybrid threat scoring model with actor, location, category and source-type modifiers.",
+            "description": "Rule-based Baltic hybrid threat scoring model using filtered threat-relevant items.",
+            "input": "data/baltic_hybrid_filtered_news.json",
             "score_components": [
                 "raw relevance score",
                 "hybrid escalation keywords",
@@ -498,11 +503,11 @@ def main() -> None:
                 "strategic modifiers"
             ],
             "levels": {
-                "low": "0-4",
-                "guarded": "5-11",
-                "elevated": "12-21",
-                "high": "22-31",
-                "critical": "32+"
+                "low": "0-9",
+                "guarded": "10-19",
+                "elevated": "20-29",
+                "high": "30-39",
+                "critical": "40+"
             }
         },
         "overall_summary": build_overall_summary(scored_items),
