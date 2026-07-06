@@ -3,11 +3,7 @@ window.BalticAPI = (() => {
 
   async function fetchJson(url) {
     const response = await fetch(url, { cache: "no-store" });
-
-    if (!response.ok) {
-      throw new Error(`Failed to load ${url}. Status: ${response.status}`);
-    }
-
+    if (!response.ok) throw new Error(`Failed to load ${url}. Status: ${response.status}`);
     return await response.json();
   }
 
@@ -33,7 +29,5 @@ window.BalticAPI = (() => {
     return data;
   }
 
-  return {
-    loadDashboardData
-  };
+  return { loadDashboardData };
 })();
