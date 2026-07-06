@@ -21,30 +21,46 @@
         <h1>Baltic Hybrid Threat Monitor</h1>
 
         <p class="subtitle">
-          Daily monitoring of Russian hybrid threats in Estonia, Latvia, Lithuania and Poland.
+          Event-based OSINT monitoring of hybrid threats in Estonia, Latvia, Lithuania and Poland.
         </p>
       </div>
 
       <div class="status-box">
         <span class="status-label">Last update</span>
         <strong id="lastUpdate">—</strong>
+        <small id="engineVersion">Threat Intelligence Engine</small>
       </div>
     </header>
 
-    <section class="summary-grid">
-      <article class="summary-card">
+    <section class="kpi-grid">
+      <article class="kpi-card kpi-purple">
         <span id="scoreCardLabel">Threat Index</span>
         <strong id="overallScore">—</strong>
+        <small id="overallLevel">—</small>
       </article>
 
-      <article class="summary-card">
-        <span id="incidentCardLabel">Incidents in window</span>
+      <article class="kpi-card kpi-red">
+        <span id="incidentCardLabel">Operational incidents</span>
         <strong id="incidentCount">—</strong>
+        <small>Incident subtype</small>
       </article>
 
-      <article class="summary-card">
-        <span id="levelCardLabel">Threat level</span>
-        <strong id="overallLevel">—</strong>
+      <article class="kpi-card kpi-orange">
+        <span>Activity</span>
+        <strong id="activityCount">—</strong>
+        <small>Security activity</small>
+      </article>
+
+      <article class="kpi-card kpi-cyan">
+        <span>Indicators</span>
+        <strong id="indicatorCount">—</strong>
+        <small>Early warning signals</small>
+      </article>
+
+      <article class="kpi-card kpi-green">
+        <span>Assessments</span>
+        <strong id="assessmentCount">—</strong>
+        <small>Background analysis</small>
       </article>
     </section>
 
@@ -68,7 +84,7 @@
 
         <label>
           <input type="radio" name="metricMode" value="daily_activity" />
-          Daily Activity
+          Event Activity
         </label>
       </div>
 
@@ -85,6 +101,7 @@
         <label><input type="checkbox" value="Latvia" checked /> Latvia</label>
         <label><input type="checkbox" value="Lithuania" checked /> Lithuania</label>
         <label><input type="checkbox" value="Poland" checked /> Poland</label>
+        <label><input type="checkbox" value="Regional" /> Regional</label>
       </div>
 
       <div class="chart-container light-chart">
@@ -94,6 +111,71 @@
       <p class="method-note light-note" id="chartMethodNote">
         Each point represents the selected metric calculated for the displayed date.
       </p>
+    </section>
+
+    <section class="two-column-grid">
+      <article class="dashboard-panel">
+        <div class="panel-heading">
+          <p>TOP THREAT DRIVERS</p>
+          <h2>Threat categories</h2>
+        </div>
+        <div id="categoryDrivers" class="bar-list"></div>
+      </article>
+
+      <article class="dashboard-panel">
+        <div class="panel-heading">
+          <p>ACTOR EXPOSURE</p>
+          <h2>Key actors</h2>
+        </div>
+        <div id="actorDrivers" class="bar-list"></div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel">
+      <div class="panel-heading">
+        <p>COUNTRY OVERVIEW</p>
+        <h2>Regional distribution</h2>
+      </div>
+      <div id="countryOverview" class="country-grid"></div>
+    </section>
+
+    <section class="two-column-grid bottom-grid">
+      <article class="dashboard-panel">
+        <div class="panel-heading">
+          <p>CRITICAL EVENTS</p>
+          <h2>Top scored events</h2>
+        </div>
+        <div id="criticalEvents" class="event-table"></div>
+      </article>
+
+      <article class="dashboard-panel">
+        <div class="panel-heading">
+          <p>LATEST EVENTS</p>
+          <h2>Most recent signals</h2>
+        </div>
+        <div id="latestEvents" class="event-table"></div>
+      </article>
+    </section>
+
+    <section class="dashboard-panel methodology-panel">
+      <div class="panel-heading">
+        <p>METHODOLOGY</p>
+        <h2>How the Threat Index is built</h2>
+      </div>
+
+      <div class="methodology-grid">
+        <div>
+          <h3>Pipeline</h3>
+          <ul id="methodPipeline"></ul>
+        </div>
+
+        <div>
+          <h3>Event ontology</h3>
+          <div id="eventOntology" class="ontology-grid"></div>
+        </div>
+      </div>
+
+      <p id="methodWarning" class="disclaimer"></p>
     </section>
 
   </main>
