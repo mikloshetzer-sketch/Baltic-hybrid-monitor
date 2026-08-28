@@ -26,18 +26,34 @@ COUNTRIES = [
 # BASIC IO
 # ---------------------------------------------------------------------
 
-def load_json(path: Path, default: Any = None) -> Any:
+def load_json(
+    path: Path,
+    default: Any = None
+) -> Any:
+
     if not path.exists():
         return default
 
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return json.loads(
+            path.read_text(
+                encoding="utf-8"
+            )
+        )
+
     except json.JSONDecodeError:
         return default
 
 
-def save_json(path: Path, payload: Dict[str, Any]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
+def save_json(
+    path: Path,
+    payload: Dict[str, Any]
+) -> None:
+
+    path.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
 
     path.write_text(
         json.dumps(
@@ -53,26 +69,43 @@ def save_json(path: Path, payload: Dict[str, Any]) -> None:
 # DATE HANDLING
 # ---------------------------------------------------------------------
 
-def parse_datetime(value: Optional[str]) -> Optional[datetime]:
+def parse_datetime(
+    value: Optional[str]
+) -> Optional[datetime]:
+
     if not value:
         return None
 
     try:
+
         dt = datetime.fromisoformat(
-            str(value).replace("Z", "+00:00")
+            str(value).replace(
+                "Z",
+                "+00:00"
+            )
         )
 
         if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
 
-        return dt.astimezone(timezone.utc)
+            dt = dt.replace(
+                tzinfo=timezone.utc
+            )
+
+        return dt.astimezone(
+            timezone.utc
+        )
 
     except Exception:
         return None
 
 
-def parse_date(value: Optional[str]):
-    dt = parse_datetime(value)
+def parse_date(
+    value: Optional[str]
+):
+
+    dt = parse_datetime(
+        value
+    )
 
     if dt is None:
         return None
@@ -81,20 +114,19 @@ def parse_date(value: Optional[str]):
 
 
 def utc_today():
-    return datetime.now(timezone.utc).date()
+
+    return datetime.now(
+        timezone.utc
+    ).date()
 
 
 # ---------------------------------------------------------------------
 # LEVEL CLASSIFICATION
 # ---------------------------------------------------------------------
 
-def classify_level(score: float) -> str:
-    """
-    Daily / rolling average threat level.
-
-    Thresholds intentionally follow the existing historical
-    dashboard logic instead of the individual-event 0–100 scale.
-    """
+def classify_level(
+    score: float
+) -> str:
 
     if score >= 18:
         return "critical"
@@ -115,8 +147,12 @@ def classify_level(score: float) -> str:
 # EVENT HELPERS
 # ---------------------------------------------------------------------
 
-def event_score(item: Dict[str, Any]) -> int:
+def event_score(
+    item: Dict[str, Any]
+) -> int:
+
     try:
+
         return int(
             round(
                 float(
@@ -127,11 +163,15 @@ def event_score(item: Dict[str, Any]) -> int:
                 )
             )
         )
+
     except Exception:
         return 0
 
 
-def event_subtype(item: Dict[str, Any]) -> str:
+def event_subtype(
+    item: Dict[str, Any]
+) -> str:
+
     subtype = str(
         item.get(
             "event_subtype",
@@ -139,26 +179,26 @@ def event_subtype(item: Dict[str, Any]) -> str:
         )
     ).lower()
 
-    if subtype not in {
+    valid = {
         "incident",
         "activity",
         "indicator",
         "assessment"
-    }:
+    }
+
+    if subtype not in valid:
         return "assessment"
 
     return subtype
 
 
-def event_layer(item: Dict[str, Any]) -> str:
-    """
-    Analytical layer for the future Intelligence Matrix.
+def event_layer(
+    item: Dict[str, Any]
+) -> str:
 
-    This does NOT replace event_subtype or categories.
-    It provides an additional analytical grouping.
-    """
-
-    subtype = event_subtype(item)
+    subtype = event_subtype(
+        item
+    )
 
     categories = set(
         item.get(
@@ -199,14 +239,19 @@ def filter_items_by_date(
     for item in items:
 
         published_date = parse_date(
-            item.get("published_at")
+            item.get(
+                "published_at"
+            )
         )
 
         if published_date is None:
             continue
 
         if published_date == target_date:
-            output.append(item)
+
+            output.append(
+                item
+            )
 
     return output
 
@@ -217,8 +262,11 @@ def filter_items_by_window(
     days: int
 ) -> List[Dict[str, Any]]:
 
-    start_date = target_date - timedelta(
-        days=days - 1
+    start_date = (
+        target_date
+        - timedelta(
+            days=days - 1
+        )
     )
 
     output = []
@@ -226,20 +274,29 @@ def filter_items_by_window(
     for item in items:
 
         published_date = parse_date(
-            item.get("published_at")
+            item.get(
+                "published_at"
+            )
         )
 
         if published_date is None:
             continue
 
-        if start_date <= published_date <= target_date:
-            output.append(item)
+        if (
+            start_date
+            <= published_date
+            <= target_date
+        ):
+
+            output.append(
+                item
+            )
 
     return output
 
 
 # ---------------------------------------------------------------------
-# SUMMARIES
+# SUMMARY
 # ---------------------------------------------------------------------
 
 def summarize_items(
@@ -247,6 +304,7 @@ def summarize_items(
 ) -> Dict[str, Any]:
 
     if not items:
+
         return {
             "event_count": 0,
             "incident_count": 0,
@@ -260,7 +318,9 @@ def summarize_items(
         }
 
     scores = [
-        event_score(item)
+        event_score(
+            item
+        )
         for item in items
     ]
 
@@ -273,42 +333,64 @@ def summarize_items(
 
     for item in items:
 
-        subtype = event_subtype(item)
+        subtype = event_subtype(
+            item
+        )
 
-        subtype_counts[subtype] += 1
+        subtype_counts[
+            subtype
+        ] += 1
 
-    total = sum(scores)
+    total = sum(
+        scores
+    )
 
     average = round(
         total / len(items),
         2
     )
 
-    highest = max(scores)
+    highest = max(
+        scores
+    )
 
     return {
-        "event_count": len(items),
+        "event_count":
+            len(items),
 
         "incident_count":
-            subtype_counts["incident"],
+            subtype_counts[
+                "incident"
+            ],
 
         "activity_count":
-            subtype_counts["activity"],
+            subtype_counts[
+                "activity"
+            ],
 
         "indicator_count":
-            subtype_counts["indicator"],
+            subtype_counts[
+                "indicator"
+            ],
 
         "assessment_count":
-            subtype_counts["assessment"],
+            subtype_counts[
+                "assessment"
+            ],
 
-        "score_total": total,
+        "score_total":
+            total,
 
-        "average_score": average,
+        "average_score":
+            average,
 
-        "highest_score": highest,
+        "highest_score":
+            highest,
 
         "overall_level":
-            classify_level(average)
+            classify_level(
+                average
+            )
     }
 
 
@@ -337,10 +419,15 @@ def summarize_countries(
                 primary_country == country
                 or country in countries
             ):
-                country_items.append(item)
+
+                country_items.append(
+                    item
+                )
 
         scores = [
-            event_score(item)
+            event_score(
+                item
+            )
             for item in country_items
         ]
 
@@ -353,7 +440,9 @@ def summarize_countries(
                 []
             ):
 
-                categories[category] = (
+                categories[
+                    category
+                ] = (
                     categories.get(
                         category,
                         0
@@ -361,25 +450,38 @@ def summarize_countries(
                     + 1
                 )
 
-        total = sum(scores)
+        total = sum(
+            scores
+        )
 
         if country_items:
+
             average = round(
-                total / len(country_items),
+                total / len(
+                    country_items
+                ),
                 2
             )
 
-            highest = max(scores)
+            highest = max(
+                scores
+            )
 
         else:
+
             average = 0
             highest = 0
 
-        output[country] = {
-            "country": country,
+        output[
+            country
+        ] = {
+            "country":
+                country,
 
             "event_count":
-                len(country_items),
+                len(
+                    country_items
+                ),
 
             "score_total":
                 total,
@@ -410,7 +512,9 @@ def summarize_categories(
 
     for item in items:
 
-        score = event_score(item)
+        score = event_score(
+            item
+        )
 
         for category in item.get(
             "categories",
@@ -419,26 +523,45 @@ def summarize_categories(
 
             if category not in output:
 
-                output[category] = {
-                    "category": category,
-                    "event_count": 0,
-                    "score_total": 0,
-                    "average_score": 0,
-                    "highest_score": 0
+                output[
+                    category
+                ] = {
+                    "category":
+                        category,
+
+                    "event_count":
+                        0,
+
+                    "score_total":
+                        0,
+
+                    "average_score":
+                        0,
+
+                    "highest_score":
+                        0
                 }
 
-            output[category][
+            output[
+                category
+            ][
                 "event_count"
             ] += 1
 
-            output[category][
+            output[
+                category
+            ][
                 "score_total"
             ] += score
 
-            output[category][
+            output[
+                category
+            ][
                 "highest_score"
             ] = max(
-                output[category][
+                output[
+                    category
+                ][
                     "highest_score"
                 ],
                 score
@@ -446,9 +569,10 @@ def summarize_categories(
 
     for category, data in output.items():
 
-        count = data[
-            "event_count"
-        ]
+        count = data.get(
+            "event_count",
+            0
+        )
 
         if count > 0:
 
@@ -457,7 +581,8 @@ def summarize_categories(
             ] = round(
                 data[
                     "score_total"
-                ] / count,
+                ]
+                / count,
                 2
             )
 
@@ -465,9 +590,10 @@ def summarize_categories(
         sorted(
             output.items(),
             key=lambda pair:
-                pair[1][
-                    "score_total"
-                ],
+                pair[1].get(
+                    "score_total",
+                    0
+                ),
             reverse=True
         )
     )
@@ -477,7 +603,7 @@ def summarize_layers(
     items: List[Dict[str, Any]]
 ) -> Dict[str, Any]:
 
-    layers = {
+    layer_items = {
         "information": [],
         "early_warning": [],
         "operational": [],
@@ -486,22 +612,31 @@ def summarize_layers(
 
     for item in items:
 
-        layer = event_layer(item)
+        layer = event_layer(
+            item
+        )
 
-        layers.setdefault(
+        layer_items.setdefault(
             layer,
             []
-        ).append(item)
+        ).append(
+            item
+        )
 
     output = {}
 
-    for layer, layer_items in layers.items():
+    for (
+        layer,
+        items_for_layer
+    ) in layer_items.items():
 
         summary = summarize_items(
-            layer_items
+            items_for_layer
         )
 
-        output[layer] = {
+        output[
+            layer
+        ] = {
             "event_count":
                 summary[
                     "event_count"
@@ -547,13 +682,19 @@ def top_items(
 
         output.append({
             "id":
-                item.get("id"),
+                item.get(
+                    "id"
+                ),
 
             "title":
-                item.get("title"),
+                item.get(
+                    "title"
+                ),
 
             "url":
-                item.get("url"),
+                item.get(
+                    "url"
+                ),
 
             "published_at":
                 item.get(
@@ -634,6 +775,7 @@ def determine_hotspot(
 ) -> Dict[str, Any]:
 
     if not items:
+
         return {
             "location": None,
             "score": 0,
@@ -641,7 +783,6 @@ def determine_hotspot(
         }
 
     location_scores = {}
-
     location_counts = {}
 
     for item in items:
@@ -675,94 +816,101 @@ def determine_hotspot(
                 + 1
             )
 
-    if not location_scores:
-
-        country_scores = {}
-
-        country_counts = {}
-
-        for item in items:
-
-            score = event_score(
-                item
-            )
-
-            country = item.get(
-                "primary_country"
-            )
-
-            if not country:
-
-                countries = item.get(
-                    "countries",
-                    []
-                )
-
-                if countries:
-                    country = countries[0]
-
-            if not country:
-                continue
-
-            country_scores[
-                country
-            ] = (
-                country_scores.get(
-                    country,
-                    0
-                )
-                + score
-            )
-
-            country_counts[
-                country
-            ] = (
-                country_counts.get(
-                    country,
-                    0
-                )
-                + 1
-            )
-
-        if not country_scores:
-            return {
-                "location": None,
-                "score": 0,
-                "event_count": 0
-            }
+    if location_scores:
 
         hotspot = max(
-            country_scores,
-            key=country_scores.get
+            location_scores,
+            key=location_scores.get
         )
 
         return {
-            "location": hotspot,
+            "location":
+                hotspot,
+
             "score":
-                country_scores[
+                location_scores[
                     hotspot
                 ],
+
             "event_count":
-                country_counts[
+                location_counts[
                     hotspot
                 ]
         }
 
+    country_scores = {}
+    country_counts = {}
+
+    for item in items:
+
+        score = event_score(
+            item
+        )
+
+        country = item.get(
+            "primary_country"
+        )
+
+        if not country:
+
+            countries = item.get(
+                "countries",
+                []
+            )
+
+            if countries:
+
+                country = countries[
+                    0
+                ]
+
+        if not country:
+            continue
+
+        country_scores[
+            country
+        ] = (
+            country_scores.get(
+                country,
+                0
+            )
+            + score
+        )
+
+        country_counts[
+            country
+        ] = (
+            country_counts.get(
+                country,
+                0
+            )
+            + 1
+        )
+
+    if not country_scores:
+
+        return {
+            "location": None,
+            "score": 0,
+            "event_count": 0
+        }
+
     hotspot = max(
-        location_scores,
-        key=location_scores.get
+        country_scores,
+        key=country_scores.get
     )
 
     return {
-        "location": hotspot,
+        "location":
+            hotspot,
 
         "score":
-            location_scores[
+            country_scores[
                 hotspot
             ],
 
         "event_count":
-            location_counts[
+            country_counts[
                 hotspot
             ]
     }
@@ -779,7 +927,7 @@ def determine_key_driver(
     if not category_summary:
         return None
 
-    top_category = max(
+    category, _ = max(
         category_summary.items(),
         key=lambda pair:
             pair[1].get(
@@ -788,7 +936,7 @@ def determine_key_driver(
             )
     )
 
-    return top_category[0]
+    return category
 
 
 # ---------------------------------------------------------------------
@@ -796,49 +944,15 @@ def determine_key_driver(
 # ---------------------------------------------------------------------
 
 def calculate_trend(
-    history: Dict[str, Any],
-    current_daily_average: float
+    previous_average: Optional[float],
+    current_average: float
 ) -> str:
 
-    records = history.get(
-        "records",
-        []
-    )
-
-    if not records:
+    if previous_average is None:
         return "stable"
-
-    previous_records = [
-        record
-        for record in records
-        if record.get(
-            "daily_activity"
-        )
-    ]
-
-    if not previous_records:
-        return "stable"
-
-    previous = previous_records[-1]
-
-    previous_average = (
-        previous
-        .get(
-            "daily_activity",
-            {}
-        )
-        .get(
-            "overall",
-            {}
-        )
-        .get(
-            "average_score",
-            0
-        )
-    )
 
     difference = (
-        current_daily_average
+        current_average
         - previous_average
     )
 
@@ -851,15 +965,61 @@ def calculate_trend(
     return "stable"
 
 
+def get_previous_daily_average(
+    records: List[Dict[str, Any]],
+    target_date
+) -> Optional[float]:
+
+    previous_date = (
+        target_date
+        - timedelta(
+            days=1
+        )
+    ).isoformat()
+
+    for record in records:
+
+        if record.get(
+            "date"
+        ) != previous_date:
+            continue
+
+        value = (
+            record
+            .get(
+                "daily_activity",
+                {}
+            )
+            .get(
+                "overall",
+                {}
+            )
+            .get(
+                "average_score"
+            )
+        )
+
+        if isinstance(
+            value,
+            (int, float)
+        ):
+
+            return float(
+                value
+            )
+
+    return None
+
+
 # ---------------------------------------------------------------------
 # DAILY RECORD
 # ---------------------------------------------------------------------
 
 def build_daily_record(
     scored_data: Dict[str, Any],
-    history: Dict[str, Any],
     target_date,
-    rolling_days: int
+    rolling_days: int,
+    previous_daily_average: Optional[float]
 ) -> Dict[str, Any]:
 
     all_items = scored_data.get(
@@ -886,18 +1046,8 @@ def build_daily_record(
         rolling_items
     )
 
-    daily_categories = (
-        summarize_categories(
-            daily_items
-        )
-    )
-
-    trend = calculate_trend(
-        history=history,
-        current_daily_average=
-            daily_overall[
-                "average_score"
-            ]
+    daily_categories = summarize_categories(
+        daily_items
     )
 
     rolling_start = (
@@ -952,7 +1102,12 @@ def build_daily_record(
                 ),
 
             "trend":
-                trend,
+                calculate_trend(
+                    previous_daily_average,
+                    daily_overall[
+                        "average_score"
+                    ]
+                ),
 
             "top_items":
                 top_items(
@@ -1042,16 +1197,22 @@ def update_history(
 
             "method": {
                 "description":
-                    "Daily Baltic hybrid-threat history with separate calendar-day activity and rolling threat environment.",
+                    "Continuously growing Baltic hybrid-threat history using exact daily activity and rolling threat snapshots.",
+
+                "rolling_days":
+                    rolling_days,
 
                 "daily_activity":
-                    "Uses only events whose published_at date matches the record date.",
+                    "Uses only events whose published_at date matches the displayed calendar date.",
 
                 "rolling_threat":
-                    f"Uses a {rolling_days}-day rolling window ending on the record date.",
+                    f"Uses a {rolling_days}-day rolling window ending on each displayed calendar date.",
 
-                "important":
-                    "Daily activity and rolling threat are intentionally stored separately to prevent rolling events from being counted as new incidents on multiple days."
+                "history_retention":
+                    "Unlimited. Historical daily records are never automatically removed.",
+
+                "update_mode":
+                    "One record per calendar date. Re-running the same date replaces only that date and preserves all other historical records."
             },
 
             "records": []
@@ -1062,25 +1223,36 @@ def update_history(
         []
     )
 
+    if not isinstance(
+        records,
+        list
+    ):
+        records = []
+
     target_date = daily_record[
         "date"
     ]
 
-    records = [
+    # -------------------------------------------------------------
+    # IMPORTANT:
+    # Remove ONLY an existing record for the same calendar date.
+    # No age-based retention and no slicing are applied.
+    # -------------------------------------------------------------
+
+    preserved_records = [
         record
         for record in records
         if record.get(
             "date"
-        )
-        != target_date
+        ) != target_date
     ]
 
-    records.append(
+    preserved_records.append(
         daily_record
     )
 
-    records = sorted(
-        records,
+    preserved_records = sorted(
+        preserved_records,
         key=lambda record:
             record.get(
                 "date",
@@ -1096,6 +1268,13 @@ def update_history(
         "region"
     ] = "Baltic states and Poland"
 
+    if not history.get(
+        "created_at"
+    ):
+        history[
+            "created_at"
+        ] = now
+
     history[
         "updated_at"
     ] = now
@@ -1103,12 +1282,70 @@ def update_history(
     history[
         "record_count"
     ] = len(
-        records
+        preserved_records
     )
 
     history[
         "records"
-    ] = records
+    ] = preserved_records
+
+    method = history.get(
+        "method"
+    )
+
+    if not isinstance(
+        method,
+        dict
+    ):
+        method = {}
+
+    # Preserve historical backfill metadata but explicitly
+    # define the live update / retention policy.
+
+    method[
+        "rolling_days"
+    ] = rolling_days
+
+    method[
+        "daily_activity"
+    ] = (
+        "Uses only events whose published_at date matches "
+        "the displayed calendar date."
+    )
+
+    method[
+        "rolling_threat"
+    ] = (
+        f"Uses a {rolling_days}-day rolling window ending "
+        "on each displayed calendar date."
+    )
+
+    method[
+        "history_retention"
+    ] = (
+        "Unlimited. Historical daily records are never "
+        "automatically removed."
+    )
+
+    method[
+        "update_mode"
+    ] = (
+        "One record per calendar date. Re-running the same "
+        "date replaces only that date and preserves all other "
+        "historical records."
+    )
+
+    method[
+        "important"
+    ] = (
+        "Daily Activity and Rolling Threat are stored separately. "
+        "The rolling window does not limit the lifetime of the "
+        "historical database."
+    )
+
+    history[
+        "method"
+    ] = method
 
     return history
 
@@ -1121,8 +1358,8 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(
         description=(
-            "Update Baltic Hybrid Monitor daily history "
-            "with separate daily activity and rolling threat data."
+            "Update the continuously growing Baltic Hybrid Monitor "
+            "history without deleting older daily records."
         )
     )
 
@@ -1131,7 +1368,7 @@ def main() -> None:
         type=int,
         default=14,
         help=(
-            "Rolling threat window in days. "
+            "Rolling threat calculation window in days. "
             "Default: 14."
         )
     )
@@ -1141,12 +1378,18 @@ def main() -> None:
         type=str,
         default=None,
         help=(
-            "Optional target date in YYYY-MM-DD format. "
+            "Optional target calendar date in YYYY-MM-DD format. "
             "Default: current UTC date."
         )
     )
 
     args = parser.parse_args()
+
+    if args.rolling_days < 1:
+
+        raise ValueError(
+            "--rolling-days must be at least 1."
+        )
 
     scored_data = load_json(
         SCORED_INPUT,
@@ -1161,21 +1404,14 @@ def main() -> None:
             "Run score_baltic_hybrid_news.py first."
         )
 
-    history = load_json(
-        HISTORY_OUTPUT,
-        default={}
-    )
-
     if args.date:
 
         try:
-            target_date = (
-                datetime.strptime(
-                    args.date,
-                    "%Y-%m-%d"
-                )
-                .date()
-            )
+
+            target_date = datetime.strptime(
+                args.date,
+                "%Y-%m-%d"
+            ).date()
 
         except ValueError:
 
@@ -1187,11 +1423,35 @@ def main() -> None:
 
         target_date = utc_today()
 
+    history = load_json(
+        HISTORY_OUTPUT,
+        default={}
+    )
+
+    existing_records = history.get(
+        "records",
+        []
+    )
+
+    if not isinstance(
+        existing_records,
+        list
+    ):
+        existing_records = []
+
+    previous_daily_average = (
+        get_previous_daily_average(
+            existing_records,
+            target_date
+        )
+    )
+
     daily_record = build_daily_record(
         scored_data=scored_data,
-        history=history,
         target_date=target_date,
-        rolling_days=args.rolling_days
+        rolling_days=args.rolling_days,
+        previous_daily_average=
+            previous_daily_average
     )
 
     updated_history = update_history(
@@ -1210,67 +1470,31 @@ def main() -> None:
         updated_history
     )
 
-    daily_overall = (
-        daily_record
-        .get(
-            "daily_activity",
-            {}
-        )
-        .get(
-            "overall",
-            {}
-        )
-    )
-
-    rolling_overall = (
-        daily_record
-        .get(
-            "rolling_threat",
-            {}
-        )
-        .get(
-            "overall",
-            {}
-        )
+    print(
+        "Baltic Hybrid Monitor history updated."
     )
 
     print(
-        "Baltic Hybrid history updated."
-    )
-
-    print(
-        f"Date: "
+        f"Target date: "
         f"{target_date.isoformat()}"
     )
 
     print(
-        f"Daily events: "
-        f"{daily_overall.get('event_count', 0)}"
-    )
-
-    print(
-        f"Daily average score: "
-        f"{daily_overall.get('average_score', 0)}"
-    )
-
-    print(
-        f"Daily level: "
-        f"{daily_overall.get('overall_level', 'low')}"
-    )
-
-    print(
-        f"Rolling {args.rolling_days}-day events: "
-        f"{rolling_overall.get('event_count', 0)}"
-    )
-
-    print(
-        f"Rolling level: "
-        f"{rolling_overall.get('overall_level', 'low')}"
+        f"Rolling threat window: "
+        f"{args.rolling_days} days"
     )
 
     print(
         f"History records: "
         f"{updated_history.get('record_count', 0)}"
+    )
+
+    print(
+        "History retention: unlimited"
+    )
+
+    print(
+        "Older calendar-day records were preserved."
     )
 
     print(
