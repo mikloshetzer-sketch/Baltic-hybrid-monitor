@@ -7,10 +7,10 @@ from typing import Any, Dict, List, Optional, Tuple
 
 # ============================================================
 # BALTIC HYBRID MONITOR
-# Threat Score Engine v3.1
+# Threat Score Engine v3.2
 # ============================================================
 
-ENGINE_VERSION = "threat_score_v3_1_14day_window"
+ENGINE_VERSION = "threat_score_v3_2_current_historical_split"
 CURRENT_WINDOW_DAYS = 14
 
 
@@ -452,7 +452,7 @@ def save_json(
 
 
 # ============================================================
-# KEYWORD SCORE
+# SCORE COMPONENTS
 # ============================================================
 
 def calculate_keyword_score(text: str) -> int:
@@ -473,48 +473,26 @@ def calculate_keyword_score(text: str) -> int:
     return score
 
 
-# ============================================================
-# CATEGORY SCORE
-# ============================================================
-
-def calculate_category_score(
-    categories: List[str],
-) -> int:
+def calculate_category_score(categories: List[str]) -> int:
     return sum(
         CATEGORY_WEIGHTS.get(category, 0)
         for category in categories
     )
 
 
-# ============================================================
-# ACTOR SCORE
-# ============================================================
-
-def calculate_actor_score(
-    actors: List[str],
-) -> int:
+def calculate_actor_score(actors: List[str]) -> int:
     return sum(
         ACTOR_WEIGHTS.get(actor, 0)
         for actor in actors
     )
 
 
-# ============================================================
-# LOCATION SCORE
-# ============================================================
-
-def calculate_location_score(
-    locations: List[str],
-) -> int:
+def calculate_location_score(locations: List[str]) -> int:
     return sum(
         LOCATION_WEIGHTS.get(location, 0)
         for location in locations
     )
 
-
-# ============================================================
-# SOURCE CONFIRMATION
-# ============================================================
 
 def calculate_source_confirmation(
     event: Dict[str, Any],
@@ -531,10 +509,7 @@ def calculate_source_confirmation(
         event.get("confidence_score", 0) or 0
     )
 
-    groups = event.get(
-        "source_groups",
-        [],
-    )
+    groups = event.get("source_groups", [])
 
     if not isinstance(groups, list):
         groups = []
@@ -545,10 +520,7 @@ def calculate_source_confirmation(
         if group is not None
     }
 
-    score = min(
-        source_count,
-        5,
-    ) * 3
+    score = min(source_count, 5) * 3
 
     if related_count >= 2:
         score += 1
@@ -577,10 +549,6 @@ def calculate_source_confirmation(
     return score
 
 
-# ============================================================
-# STRATEGIC MODIFIER
-# ============================================================
-
 def calculate_strategic_modifier(
     event: Dict[str, Any],
 ) -> int:
@@ -598,10 +566,7 @@ def calculate_strategic_modifier(
 
     modifier = 0
 
-    if (
-        "Russia" in actors
-        and "NATO" in actors
-    ):
+    if "Russia" in actors and "NATO" in actors:
         modifier += 5
 
     if (
@@ -682,14 +647,11 @@ def determine_geographic_scope(
     ):
         return "external_context"
 
-    if primary_country == "Regional":
-        return "external_context"
-
     return "external_context"
 
 
 # ============================================================
-# INCIDENT CONTEXT CORRECTION
+# INCIDENT CONTEXT
 # ============================================================
 
 def calculate_incident_context_multiplier(
@@ -712,29 +674,23 @@ def calculate_incident_context_multiplier(
 
     if no_incident:
         multiplier *= 0.70
-
         reasons.append(
             "explicit_no_confirmed_incident"
         )
 
     if precautionary and no_incident:
         multiplier *= 0.70
-
         reasons.append(
             "precautionary_response_without_incident"
         )
 
     elif precautionary:
         multiplier *= 0.90
-
         reasons.append(
             "precautionary_response"
         )
 
-    return (
-        round(multiplier, 3),
-        reasons,
-    )
+    return round(multiplier, 3), reasons
 
 
 # ============================================================
@@ -839,47 +795,26 @@ def score_event(
         )
     )
 
-    keyword_score = (
-        calculate_keyword_score(text)
+    keyword_score = calculate_keyword_score(text)
+
+    category_score = calculate_category_score(
+        event.get("categories", [])
     )
 
-    category_score = (
-        calculate_category_score(
-            event.get(
-                "categories",
-                [],
-            )
-        )
+    actor_score = calculate_actor_score(
+        event.get("actors", [])
     )
 
-    actor_score = (
-        calculate_actor_score(
-            event.get(
-                "actors",
-                [],
-            )
-        )
+    location_score = calculate_location_score(
+        event.get("locations", [])
     )
 
-    location_score = (
-        calculate_location_score(
-            event.get(
-                "locations",
-                [],
-            )
-        )
+    confirmation_score = calculate_source_confirmation(
+        event
     )
 
-    confirmation_score = (
-        calculate_source_confirmation(
-            event
-        )
-    )
-
-    strategic_modifier = (
-        calculate_strategic_modifier(
-            event
-        )
+    strategic_modifier = calculate_strategic_modifier(
+        event
     )
 
     raw_base_score = (
@@ -897,11 +832,9 @@ def score_event(
         0,
     )
 
-    subtype_weight = (
-        SUBTYPE_WEIGHTS.get(
-            subtype,
-            0.0,
-        )
+    subtype_weight = SUBTYPE_WEIGHTS.get(
+        subtype,
+        0.0,
     )
 
     confidence_multiplier = (
@@ -911,10 +844,8 @@ def score_event(
         )
     )
 
-    geographic_scope = (
-        determine_geographic_scope(
-            event
-        )
+    geographic_scope = determine_geographic_scope(
+        event
     )
 
     geographic_multiplier = (
@@ -927,10 +858,8 @@ def score_event(
     (
         context_multiplier,
         context_reasons,
-    ) = (
-        calculate_incident_context_multiplier(
-            event
-        )
+    ) = calculate_incident_context_multiplier(
+        event
     )
 
     weighted_score = (
@@ -953,30 +882,16 @@ def score_event(
         round(weighted_score)
     )
 
-    attribution = (
-        determine_attribution(
-            event
-        )
+    attribution = determine_attribution(
+        event
     )
 
-    event["geographic_scope"] = (
-        geographic_scope
-    )
-
-    event["geographic_multiplier"] = (
-        geographic_multiplier
-    )
-
+    event["geographic_scope"] = geographic_scope
+    event["geographic_multiplier"] = geographic_multiplier
     event["attribution"] = attribution
-
-    event["hybrid_threat_score"] = (
+    event["hybrid_threat_score"] = final_score
+    event["hybrid_threat_level"] = classify_level(
         final_score
-    )
-
-    event["hybrid_threat_level"] = (
-        classify_level(
-            final_score
-        )
     )
 
     event["score_breakdown"] = {
@@ -991,21 +906,11 @@ def score_event(
         "event_subtype": subtype,
         "subtype_weight": subtype_weight,
         "confidence": confidence,
-        "confidence_multiplier": (
-            confidence_multiplier
-        ),
-        "geographic_scope": (
-            geographic_scope
-        ),
-        "geographic_multiplier": (
-            geographic_multiplier
-        ),
-        "incident_context_multiplier": (
-            context_multiplier
-        ),
-        "incident_context_reasons": (
-            context_reasons
-        ),
+        "confidence_multiplier": confidence_multiplier,
+        "geographic_scope": geographic_scope,
+        "geographic_multiplier": geographic_multiplier,
+        "incident_context_multiplier": context_multiplier,
+        "incident_context_reasons": context_reasons,
         "attribution": attribution,
         "weighted_score": round(
             weighted_score,
@@ -1017,7 +922,7 @@ def score_event(
 
 
 # ============================================================
-# CURRENT 14-DAY WINDOW
+# CURRENT WINDOW
 # ============================================================
 
 def get_current_window_bounds(
@@ -1037,30 +942,27 @@ def get_current_window_bounds(
     )
 
     start_datetime = datetime(
-        year=start_date.year,
-        month=start_date.month,
-        day=start_date.day,
-        hour=0,
-        minute=0,
-        second=0,
+        start_date.year,
+        start_date.month,
+        start_date.day,
+        0,
+        0,
+        0,
         tzinfo=timezone.utc,
     )
 
     end_datetime = datetime(
-        year=reference_date.year,
-        month=reference_date.month,
-        day=reference_date.day,
-        hour=23,
-        minute=59,
-        second=59,
-        microsecond=999999,
+        reference_date.year,
+        reference_date.month,
+        reference_date.day,
+        23,
+        59,
+        59,
+        999999,
         tzinfo=timezone.utc,
     )
 
-    return (
-        start_datetime,
-        end_datetime,
-    )
+    return start_datetime, end_datetime
 
 
 def filter_current_window(
@@ -1074,15 +976,11 @@ def filter_current_window(
         reference_datetime
     )
 
-    current_events: List[
-        Dict[str, Any]
-    ] = []
+    current_events = []
 
     for event in events:
         published_at = parse_datetime(
-            event.get(
-                "published_at"
-            )
+            event.get("published_at")
         )
 
         if published_at is None:
@@ -1101,7 +999,7 @@ def filter_current_window(
 
 
 # ============================================================
-# INDEX HELPERS
+# INDEX
 # ============================================================
 
 def average_top_scores(
@@ -1130,15 +1028,10 @@ def average_top_scores(
         return 0.0
 
     return round(
-        sum(selected)
-        / len(selected),
+        sum(selected) / len(selected),
         2,
     )
 
-
-# ============================================================
-# CURRENT THREAT SUMMARY
-# ============================================================
 
 def build_current_summary(
     events: List[Dict[str, Any]],
@@ -1146,33 +1039,25 @@ def build_current_summary(
     incidents = [
         event
         for event in events
-        if event.get(
-            "event_subtype"
-        ) == "incident"
+        if event.get("event_subtype") == "incident"
     ]
 
     activities = [
         event
         for event in events
-        if event.get(
-            "event_subtype"
-        ) == "activity"
+        if event.get("event_subtype") == "activity"
     ]
 
     indicators = [
         event
         for event in events
-        if event.get(
-            "event_subtype"
-        ) == "indicator"
+        if event.get("event_subtype") == "indicator"
     ]
 
     assessments = [
         event
         for event in events
-        if event.get(
-            "event_subtype"
-        ) == "assessment"
+        if event.get("event_subtype") == "assessment"
     ]
 
     operational_events = (
@@ -1180,33 +1065,22 @@ def build_current_summary(
         + activities
     )
 
-    operational_index = (
-        average_top_scores(
-            operational_events,
-            5,
-        )
+    operational_index = average_top_scores(
+        operational_events,
+        5,
     )
 
-    early_warning_index = (
-        average_top_scores(
-            indicators,
-            8,
-        )
+    early_warning_index = average_top_scores(
+        indicators,
+        8,
     )
 
     if operational_events:
         threat_index = round(
-            (
-                operational_index
-                * 0.80
-            )
-            + (
-                early_warning_index
-                * 0.20
-            ),
+            operational_index * 0.80
+            + early_warning_index * 0.20,
             2,
         )
-
     else:
         threat_index = round(
             early_warning_index,
@@ -1214,19 +1088,15 @@ def build_current_summary(
         )
 
     threat_index = min(
-        max(
-            threat_index,
-            0,
-        ),
+        max(threat_index, 0),
         100,
     )
 
     scored_events = [
         event
         for event in events
-        if event.get(
-            "event_subtype"
-        ) != "assessment"
+        if event.get("event_subtype")
+        != "assessment"
     ]
 
     score_total = sum(
@@ -1239,8 +1109,8 @@ def build_current_summary(
         for event in events
     )
 
-    if scored_events:
-        average_score = round(
+    average_score = (
+        round(
             sum(
                 int(
                     event.get(
@@ -1253,9 +1123,9 @@ def build_current_summary(
             / len(scored_events),
             2,
         )
-
-    else:
-        average_score = 0.0
+        if scored_events
+        else 0.0
+    )
 
     highest_score = max(
         [
@@ -1272,45 +1142,21 @@ def build_current_summary(
 
     return {
         "event_count": len(events),
-        "incident_count": len(
-            incidents
-        ),
-        "activity_count": len(
-            activities
-        ),
-        "indicator_count": len(
-            indicators
-        ),
-        "assessment_count": len(
-            assessments
-        ),
+        "incident_count": len(incidents),
+        "activity_count": len(activities),
+        "indicator_count": len(indicators),
+        "assessment_count": len(assessments),
         "score_total": score_total,
-        "average_score": (
-            average_score
-        ),
-        "highest_score": (
-            highest_score
-        ),
-        "operational_index": (
-            operational_index
-        ),
-        "early_warning_index": (
-            early_warning_index
-        ),
-        "threat_index": (
+        "average_score": average_score,
+        "highest_score": highest_score,
+        "operational_index": operational_index,
+        "early_warning_index": early_warning_index,
+        "threat_index": threat_index,
+        "overall_level": classify_level(
             threat_index
-        ),
-        "overall_level": (
-            classify_level(
-                threat_index
-            )
         ),
     }
 
-
-# ============================================================
-# HISTORICAL SUMMARY
-# ============================================================
 
 def build_historical_summary(
     events: List[Dict[str, Any]],
@@ -1322,7 +1168,6 @@ def build_historical_summary(
 
     score_total = 0
     highest_score = 0
-
     scored_count = 0
 
     for event in events:
@@ -1338,7 +1183,6 @@ def build_historical_summary(
         )
 
         score_total += score
-
         highest_score = max(
             highest_score,
             score,
@@ -1361,8 +1205,7 @@ def build_historical_summary(
 
     average_score = (
         round(
-            score_total
-            / scored_count,
+            score_total / scored_count,
             2,
         )
         if scored_count
@@ -1371,32 +1214,18 @@ def build_historical_summary(
 
     return {
         "event_count": len(events),
-        "incident_count": (
-            incident_count
-        ),
-        "activity_count": (
-            activity_count
-        ),
-        "indicator_count": (
-            indicator_count
-        ),
-        "assessment_count": (
-            assessment_count
-        ),
-        "score_total": (
-            score_total
-        ),
-        "average_score": (
-            average_score
-        ),
-        "highest_score": (
-            highest_score
-        ),
+        "incident_count": incident_count,
+        "activity_count": activity_count,
+        "indicator_count": indicator_count,
+        "assessment_count": assessment_count,
+        "score_total": score_total,
+        "average_score": average_score,
+        "highest_score": highest_score,
     }
 
 
 # ============================================================
-# COUNTRY SUMMARY
+# SUMMARY BUILDERS
 # ============================================================
 
 def build_country_summary(
@@ -1410,10 +1239,7 @@ def build_country_summary(
         "Regional",
     ]
 
-    summary: Dict[
-        str,
-        Dict[str, Any]
-    ] = {}
+    summary = {}
 
     for country in countries:
         summary[country] = {
@@ -1455,43 +1281,30 @@ def build_country_summary(
         )
 
         data["event_count"] += 1
-
-        data["score_total"] += (
-            score
-        )
-
+        data["score_total"] += score
         data["highest_score"] = max(
             data["highest_score"],
             score,
         )
 
-        if subtype == "incident":
-            data[
-                "incident_count"
-            ] += 1
+        key = (
+            subtype + "_count"
+            if subtype in {
+                "incident",
+                "activity",
+                "indicator",
+                "assessment",
+            }
+            else "assessment_count"
+        )
 
-        elif subtype == "activity":
-            data[
-                "activity_count"
-            ] += 1
-
-        elif subtype == "indicator":
-            data[
-                "indicator_count"
-            ] += 1
-
-        else:
-            data[
-                "assessment_count"
-            ] += 1
+        data[key] += 1
 
         for category in event.get(
             "categories",
             [],
         ):
-            data["categories"][
-                category
-            ] = (
+            data["categories"][category] = (
                 data["categories"].get(
                     category,
                     0,
@@ -1503,9 +1316,7 @@ def build_country_summary(
             "actors",
             [],
         ):
-            data["actors"][
-                actor
-            ] = (
+            data["actors"][actor] = (
                 data["actors"].get(
                     actor,
                     0,
@@ -1515,48 +1326,29 @@ def build_country_summary(
 
     for data in summary.values():
         scored_count = (
-            data[
-                "incident_count"
-            ]
-            + data[
-                "activity_count"
-            ]
-            + data[
-                "indicator_count"
-            ]
+            data["incident_count"]
+            + data["activity_count"]
+            + data["indicator_count"]
         )
 
         if scored_count:
-            data[
-                "average_score"
-            ] = round(
+            data["average_score"] = round(
                 data["score_total"]
                 / scored_count,
                 2,
             )
 
-        data["level"] = (
-            classify_level(
-                data[
-                    "average_score"
-                ]
-            )
+        data["level"] = classify_level(
+            data["average_score"]
         )
 
     return summary
 
 
-# ============================================================
-# CATEGORY SUMMARY
-# ============================================================
-
 def build_category_summary(
     events: List[Dict[str, Any]],
 ) -> Dict[str, Any]:
-    summary: Dict[
-        str,
-        Dict[str, Any]
-    ] = {}
+    summary = {}
 
     for event in events:
         score = int(
@@ -1579,38 +1371,20 @@ def build_category_summary(
                     "highest_score": 0,
                 }
 
-            data = summary[
-                category
-            ]
+            data = summary[category]
 
-            data[
-                "event_count"
-            ] += 1
-
-            data[
-                "score_total"
-            ] += score
-
-            data[
-                "highest_score"
-            ] = max(
-                data[
-                    "highest_score"
-                ],
+            data["event_count"] += 1
+            data["score_total"] += score
+            data["highest_score"] = max(
+                data["highest_score"],
                 score,
             )
 
     for data in summary.values():
         if data["event_count"]:
-            data[
-                "average_score"
-            ] = round(
-                data[
-                    "score_total"
-                ]
-                / data[
-                    "event_count"
-                ],
+            data["average_score"] = round(
+                data["score_total"]
+                / data["event_count"],
                 2,
             )
 
@@ -1625,17 +1399,10 @@ def build_category_summary(
     )
 
 
-# ============================================================
-# ACTOR SUMMARY
-# ============================================================
-
 def build_actor_summary(
     events: List[Dict[str, Any]],
 ) -> Dict[str, Any]:
-    summary: Dict[
-        str,
-        Dict[str, Any]
-    ] = {}
+    summary = {}
 
     for event in events:
         score = int(
@@ -1660,34 +1427,18 @@ def build_actor_summary(
 
             data = summary[actor]
 
-            data[
-                "event_count"
-            ] += 1
-
-            data[
-                "score_total"
-            ] += score
-
-            data[
-                "highest_score"
-            ] = max(
-                data[
-                    "highest_score"
-                ],
+            data["event_count"] += 1
+            data["score_total"] += score
+            data["highest_score"] = max(
+                data["highest_score"],
                 score,
             )
 
     for data in summary.values():
         if data["event_count"]:
-            data[
-                "average_score"
-            ] = round(
-                data[
-                    "score_total"
-                ]
-                / data[
-                    "event_count"
-                ],
+            data["average_score"] = round(
+                data["score_total"]
+                / data["event_count"],
                 2,
             )
 
@@ -1701,10 +1452,6 @@ def build_actor_summary(
         )
     )
 
-
-# ============================================================
-# SUBTYPE SUMMARY
-# ============================================================
 
 def build_subtype_summary(
     events: List[Dict[str, Any]],
@@ -1748,31 +1495,24 @@ def build_subtype_summary(
             )
         )
 
-        data = summary[subtype]
+        summary[subtype][
+            "event_count"
+        ] += 1
 
-        data["event_count"] += 1
-        data["score_total"] += score
+        summary[subtype][
+            "score_total"
+        ] += score
 
     for data in summary.values():
         if data["event_count"]:
-            data[
-                "average_score"
-            ] = round(
-                data[
-                    "score_total"
-                ]
-                / data[
-                    "event_count"
-                ],
+            data["average_score"] = round(
+                data["score_total"]
+                / data["event_count"],
                 2,
             )
 
     return summary
 
-
-# ============================================================
-# SCOPE SUMMARY
-# ============================================================
 
 def build_scope_summary(
     events: List[Dict[str, Any]],
@@ -1802,9 +1542,7 @@ def build_scope_summary(
         )
 
         if scope not in summary:
-            scope = (
-                "external_context"
-            )
+            scope = "external_context"
 
         score = int(
             event.get(
@@ -1823,15 +1561,9 @@ def build_scope_summary(
 
     for data in summary.values():
         if data["event_count"]:
-            data[
-                "average_score"
-            ] = round(
-                data[
-                    "score_total"
-                ]
-                / data[
-                    "event_count"
-                ],
+            data["average_score"] = round(
+                data["score_total"]
+                / data["event_count"],
                 2,
             )
 
@@ -1864,10 +1596,6 @@ def main() -> None:
             "must be a list."
         )
 
-    # --------------------------------------------------------
-    # 1. SCORE COMPLETE HISTORICAL DATASET
-    # --------------------------------------------------------
-
     scored_events = [
         score_event(event)
         for event in source_events
@@ -1897,14 +1625,8 @@ def main() -> None:
         reverse=True,
     )
 
-    # --------------------------------------------------------
-    # 2. USE CURRENT UTC DATE AS REFERENCE
-    # --------------------------------------------------------
-
-    reference_datetime = (
-        datetime.now(
-            timezone.utc
-        )
+    reference_datetime = datetime.now(
+        timezone.utc
     )
 
     (
@@ -1914,42 +1636,58 @@ def main() -> None:
         reference_datetime
     )
 
-    # --------------------------------------------------------
-    # 3. FILTER CURRENT 14 CALENDAR DAYS
-    # --------------------------------------------------------
-
-    current_events = (
-        filter_current_window(
-            scored_events,
-            reference_datetime,
-        )
+    current_events = filter_current_window(
+        scored_events,
+        reference_datetime,
     )
 
-    # --------------------------------------------------------
-    # 4. CURRENT SUMMARY
-    # --------------------------------------------------------
-
-    current_summary = (
-        build_current_summary(
-            current_events
-        )
+    current_summary = build_current_summary(
+        current_events
     )
 
-    # --------------------------------------------------------
-    # 5. HISTORICAL SUMMARY
-    # --------------------------------------------------------
+    historical_summary = build_historical_summary(
+        scored_events
+    )
 
-    historical_summary = (
-        build_historical_summary(
+    current_country_summary = build_country_summary(
+        current_events
+    )
+
+    current_category_summary = build_category_summary(
+        current_events
+    )
+
+    current_actor_summary = build_actor_summary(
+        current_events
+    )
+
+    current_subtype_summary = build_subtype_summary(
+        current_events
+    )
+
+    current_scope_summary = build_scope_summary(
+        current_events
+    )
+
+    historical_summaries = {
+        "country_summary": build_country_summary(
             scored_events
-        )
-    )
+        ),
+        "category_summary": build_category_summary(
+            scored_events
+        ),
+        "actor_summary": build_actor_summary(
+            scored_events
+        ),
+        "subtype_summary": build_subtype_summary(
+            scored_events
+        ),
+        "scope_summary": build_scope_summary(
+            scored_events
+        ),
+    }
 
-    # --------------------------------------------------------
-    # 6. OUTPUT PAYLOAD
-    # --------------------------------------------------------
-
-    payload: Dict[str, Any] = {
+    payload = {
         "project": source_data.get(
             "project",
             "baltic-hybrid-monitor",
@@ -1960,53 +1698,34 @@ def main() -> None:
             "Baltic states and Poland",
         ),
 
-        "generated_at": (
-            reference_datetime
-            .isoformat()
+        "generated_at": reference_datetime.isoformat(),
+
+        "input_generated_at": source_data.get(
+            "generated_at"
         ),
 
-        "input_generated_at": (
-            source_data.get(
-                "generated_at"
-            )
+        "raw_item_count": source_data.get(
+            "raw_item_count"
         ),
 
-        "raw_item_count": (
-            source_data.get(
-                "raw_item_count"
-            )
+        "filtered_item_count": source_data.get(
+            "filtered_item_count"
         ),
 
-        "filtered_item_count": (
-            source_data.get(
-                "filtered_item_count"
-            )
+        "clustered_event_count": source_data.get(
+            "event_count",
+            len(source_events),
         ),
 
-        "clustered_event_count": (
-            source_data.get(
-                "event_count",
-                len(source_events),
-            )
+        "merged_item_count": source_data.get(
+            "merged_item_count"
         ),
 
-        "merged_item_count": (
-            source_data.get(
-                "merged_item_count"
-            )
-        ),
-
-        "engine_version": (
-            ENGINE_VERSION
-        ),
+        "engine_version": ENGINE_VERSION,
 
         "current_threat_window": {
-            "window_days": (
-                CURRENT_WINDOW_DAYS
-            ),
-            "window_type": (
-                "calendar_days"
-            ),
+            "window_days": CURRENT_WINDOW_DAYS,
+            "window_type": "calendar_days",
             "reference_date": (
                 reference_datetime
                 .date()
@@ -2022,41 +1741,37 @@ def main() -> None:
                 .date()
                 .isoformat()
             ),
-            "event_count": (
-                len(current_events)
+            "event_count": len(
+                current_events
             ),
             "rule": (
-                "Current threat indices use "
-                "only events published inside "
-                "the latest 14 UTC calendar days. "
-                "Older events remain scored and "
-                "stored in the historical dataset."
+                "Current threat indices and current "
+                "summary blocks use only events "
+                "published inside the latest 14 UTC "
+                "calendar days. Historical events "
+                "remain scored and stored separately."
             ),
         },
 
         "method": {
             "description": (
-                "Threat Score Engine v3.1. "
-                "All clustered events are scored "
-                "and preserved historically. "
-                "The current Operational Index, "
-                "Early Warning Index and Threat "
-                "Index are calculated only from "
-                "the latest 14 UTC calendar days."
+                "Threat Score Engine v3.2. "
+                "All clustered events are scored and "
+                "preserved historically. Current threat "
+                "indices and top-level summaries use "
+                "only the latest 14 UTC calendar days. "
+                "Full-history summaries are stored in "
+                "historical_summaries."
             ),
 
-            "classification_version": (
-                ENGINE_VERSION
-            ),
+            "classification_version": ENGINE_VERSION,
 
             "input": (
                 "data/"
                 "baltic_hybrid_clustered_events.json"
             ),
 
-            "current_window_days": (
-                CURRENT_WINDOW_DAYS
-            ),
+            "current_window_days": CURRENT_WINDOW_DAYS,
 
             "score_components": [
                 "event relevance score",
@@ -2077,38 +1792,36 @@ def main() -> None:
                     "Latest 14 UTC calendar days."
                 ),
                 "operational_index": (
-                    "Average of the five "
-                    "highest scoring current "
-                    "incident/activity events."
+                    "Average of the five highest "
+                    "scoring current incident/activity "
+                    "events."
                 ),
                 "early_warning_index": (
-                    "Average of the eight "
-                    "highest scoring current "
-                    "indicator events."
+                    "Average of the eight highest "
+                    "scoring current indicator events."
                 ),
                 "threat_index": (
-                    "80% Operational Index + "
-                    "20% Early Warning Index "
-                    "when current operational "
-                    "events exist. Otherwise "
-                    "the Early Warning Index."
+                    "80% Operational Index + 20% "
+                    "Early Warning Index when current "
+                    "operational events exist. "
+                    "Otherwise the Early Warning Index."
+                ),
+                "current_summaries": (
+                    "Top-level country, category, actor, "
+                    "subtype and scope summaries use the "
+                    "same current 14-day event window."
                 ),
                 "historical_retention": (
-                    "Historical events remain "
-                    "in the scored dataset and "
-                    "are not removed by the "
-                    "14-day calculation window."
+                    "Historical events remain in the "
+                    "scored dataset and historical "
+                    "summaries without retention loss."
                 ),
             },
 
-            "subtype_weights": (
-                SUBTYPE_WEIGHTS
-            ),
-
+            "subtype_weights": SUBTYPE_WEIGHTS,
             "confidence_multipliers": (
                 CONFIDENCE_MULTIPLIERS
             ),
-
             "geographic_multipliers": (
                 GEOGRAPHIC_MULTIPLIERS
             ),
@@ -2122,53 +1835,44 @@ def main() -> None:
             },
         },
 
-        # CURRENT, NOT HISTORICAL
-        "overall_summary": (
-            current_summary
+        # CURRENT 14-DAY DATA
+        "overall_summary": current_summary,
+
+        "country_summary": (
+            current_country_summary
         ),
 
-        # EXPLICIT HISTORICAL SUMMARY
+        "category_summary": (
+            current_category_summary
+        ),
+
+        "actor_summary": (
+            current_actor_summary
+        ),
+
+        "subtype_summary": (
+            current_subtype_summary
+        ),
+
+        "scope_summary": (
+            current_scope_summary
+        ),
+
+        # HISTORICAL DATA
         "historical_summary": (
             historical_summary
         ),
 
-        # FULL HISTORICAL SUMMARIES
-        "country_summary": (
-            build_country_summary(
-                scored_events
-            )
+        "historical_summaries": (
+            historical_summaries
         ),
 
-        "category_summary": (
-            build_category_summary(
-                scored_events
-            )
-        ),
-
-        "actor_summary": (
-            build_actor_summary(
-                scored_events
-            )
-        ),
-
-        "subtype_summary": (
-            build_subtype_summary(
-                scored_events
-            )
-        ),
-
-        "scope_summary": (
-            build_scope_summary(
-                scored_events
-            )
-        ),
-
-        # CURRENT WINDOW EVENTS FOR EASY AUDIT
+        # CURRENT EVENTS
         "current_events": (
             current_events
         ),
 
-        # COMPLETE SCORED HISTORICAL DATASET
+        # COMPLETE HISTORICAL EVENT STORE
         "items": (
             scored_events
         ),
@@ -2177,10 +1881,6 @@ def main() -> None:
             scored_events
         ),
     }
-
-    # --------------------------------------------------------
-    # 7. SAVE
-    # --------------------------------------------------------
 
     save_json(
         OUTPUT_FILE,
@@ -2191,10 +1891,6 @@ def main() -> None:
         DOCS_OUTPUT_FILE,
         payload,
     )
-
-    # --------------------------------------------------------
-    # 8. AUDITABLE CONSOLE OUTPUT
-    # --------------------------------------------------------
 
     print(
         f"Historical events scored: "
@@ -2231,6 +1927,16 @@ def main() -> None:
     print(
         "Overall level: "
         f"{current_summary['overall_level']}"
+    )
+
+    print(
+        "Current summaries: "
+        f"{len(current_events)} events"
+    )
+
+    print(
+        "Historical summaries: "
+        f"{len(scored_events)} events"
     )
 
     print(
