@@ -1,12 +1,12 @@
 {
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-08-28T11:02:07.246796+00:00",
-  "input_generated_at": "2026-08-28T11:02:07.198822+00:00",
-  "raw_item_count": 427,
-  "filtered_item_count": 249,
-  "clustered_event_count": 195,
-  "merged_item_count": 54,
+  "generated_at": "2026-08-28T11:11:37.384733+00:00",
+  "input_generated_at": "2026-08-28T11:11:37.311102+00:00",
+  "raw_item_count": 428,
+  "filtered_item_count": 251,
+  "clustered_event_count": 198,
+  "merged_item_count": 53,
   "method": {
     "description": "Threat Score Engine v2 using clustered events and threat ontology subtypes.",
     "input": "data/baltic_hybrid_clustered_events.json",
@@ -42,15 +42,15 @@
     }
   },
   "overall_summary": {
-    "event_count": 195,
-    "incident_count": 39,
+    "event_count": 198,
+    "incident_count": 40,
     "activity_count": 2,
-    "indicator_count": 117,
+    "indicator_count": 119,
     "assessment_count": 37,
-    "score_total": 2615,
-    "average_score": 13.41,
+    "score_total": 2682,
+    "average_score": 13.55,
     "highest_score": 67,
-    "threat_index": 16.55,
+    "threat_index": 16.66,
     "overall_level": "low"
   },
   "country_summary": {
@@ -78,16 +78,17 @@
     },
     "Latvia": {
       "country": "Latvia",
-      "event_count": 16,
-      "incident_count": 4,
+      "event_count": 18,
+      "incident_count": 5,
       "activity_count": 0,
-      "indicator_count": 5,
+      "indicator_count": 6,
       "assessment_count": 7,
-      "score_total": 166,
-      "average_score": 10.38,
-      "highest_score": 37,
+      "score_total": 215,
+      "average_score": 11.94,
+      "highest_score": 38,
       "level": "low",
       "categories": {
+        "border_pressure": 2,
         "drone_incident": 2,
         "cyber": 4,
         "sabotage": 2,
@@ -95,8 +96,9 @@
         "disinformation": 1
       },
       "actors": {
+        "Belarus": 3,
+        "EU": 1,
         "Russia": 10,
-        "Belarus": 1,
         "NATO": 1
       }
     },
@@ -107,19 +109,19 @@
       "activity_count": 0,
       "indicator_count": 14,
       "assessment_count": 2,
-      "score_total": 240,
-      "average_score": 12.63,
+      "score_total": 238,
+      "average_score": 12.53,
       "highest_score": 53,
       "level": "low",
       "categories": {
         "gps_interference": 4,
-        "critical_infrastructure": 2,
         "sabotage": 3,
+        "critical_infrastructure": 2,
         "disinformation": 2
       },
       "actors": {
         "Russia": 17,
-        "NATO": 3
+        "NATO": 2
       }
     },
     "Poland": {
@@ -153,27 +155,27 @@
     },
     "Regional": {
       "country": "Regional",
-      "event_count": 83,
+      "event_count": 84,
       "incident_count": 18,
       "activity_count": 1,
-      "indicator_count": 53,
+      "indicator_count": 54,
       "assessment_count": 11,
-      "score_total": 1209,
-      "average_score": 14.57,
+      "score_total": 1229,
+      "average_score": 14.63,
       "highest_score": 59,
       "level": "low",
       "categories": {
         "gps_interference": 16,
-        "sabotage": 20,
+        "sabotage": 21,
         "cyber": 8,
         "drone_incident": 4,
-        "critical_infrastructure": 8,
+        "critical_infrastructure": 9,
         "espionage": 4,
         "disinformation": 14,
         "migration_pressure": 1
       },
       "actors": {
-        "Russia": 70,
+        "Russia": 71,
         "NATO": 21,
         "Belarus": 2,
         "FSB": 1,
@@ -189,19 +191,19 @@
       "average_score": 32.59,
       "highest_score": 59
     },
+    "sabotage": {
+      "category": "sabotage",
+      "event_count": 37,
+      "score_total": 500,
+      "average_score": 13.51,
+      "highest_score": 48
+    },
     "cyber": {
       "category": "cyber",
       "event_count": 21,
       "score_total": 481,
       "average_score": 22.9,
       "highest_score": 67
-    },
-    "sabotage": {
-      "category": "sabotage",
-      "event_count": 36,
-      "score_total": 480,
-      "average_score": 13.33,
-      "highest_score": 48
     },
     "drone_incident": {
       "category": "drone_incident",
@@ -217,6 +219,13 @@
       "average_score": 7.91,
       "highest_score": 44
     },
+    "critical_infrastructure": {
+      "category": "critical_infrastructure",
+      "event_count": 15,
+      "score_total": 189,
+      "average_score": 12.6,
+      "highest_score": 20
+    },
     "espionage": {
       "category": "espionage",
       "event_count": 9,
@@ -224,12 +233,12 @@
       "average_score": 20.44,
       "highest_score": 67
     },
-    "critical_infrastructure": {
-      "category": "critical_infrastructure",
-      "event_count": 14,
-      "score_total": 171,
-      "average_score": 12.21,
-      "highest_score": 17
+    "border_pressure": {
+      "category": "border_pressure",
+      "event_count": 3,
+      "score_total": 61,
+      "average_score": 20.33,
+      "highest_score": 38
     },
     "migration_pressure": {
       "category": "migration_pressure",
@@ -244,29 +253,29 @@
       "score_total": 13,
       "average_score": 13.0,
       "highest_score": 13
-    },
-    "border_pressure": {
-      "category": "border_pressure",
-      "event_count": 1,
-      "score_total": 12,
-      "average_score": 12.0,
-      "highest_score": 12
     }
   },
   "actor_summary": {
     "Russia": {
       "actor": "Russia",
-      "event_count": 154,
-      "score_total": 2036,
-      "average_score": 13.22,
+      "event_count": 155,
+      "score_total": 2054,
+      "average_score": 13.25,
       "highest_score": 67
     },
     "NATO": {
       "actor": "NATO",
-      "event_count": 36,
-      "score_total": 436,
-      "average_score": 12.11,
+      "event_count": 35,
+      "score_total": 423,
+      "average_score": 12.09,
       "highest_score": 60
+    },
+    "Belarus": {
+      "actor": "Belarus",
+      "event_count": 12,
+      "score_total": 141,
+      "average_score": 11.75,
+      "highest_score": 38
     },
     "FSB": {
       "actor": "FSB",
@@ -275,12 +284,12 @@
       "average_score": 28.75,
       "highest_score": 67
     },
-    "Belarus": {
-      "actor": "Belarus",
-      "event_count": 10,
-      "score_total": 92,
-      "average_score": 9.2,
-      "highest_score": 35
+    "EU": {
+      "actor": "EU",
+      "event_count": 2,
+      "score_total": 44,
+      "average_score": 22.0,
+      "highest_score": 38
     },
     "Sandworm": {
       "actor": "Sandworm",
@@ -288,20 +297,13 @@
       "score_total": 41,
       "average_score": 41.0,
       "highest_score": 41
-    },
-    "EU": {
-      "actor": "EU",
-      "event_count": 1,
-      "score_total": 6,
-      "average_score": 6.0,
-      "highest_score": 6
     }
   },
   "subtype_summary": {
     "incident": {
-      "event_count": 39,
-      "score_total": 1524,
-      "average_score": 39.08
+      "event_count": 40,
+      "score_total": 1562,
+      "average_score": 39.05
     },
     "activity": {
       "event_count": 2,
@@ -309,9 +311,9 @@
       "average_score": 15.5
     },
     "indicator": {
-      "event_count": 117,
-      "score_total": 1060,
-      "average_score": 9.06
+      "event_count": 119,
+      "score_total": 1089,
+      "average_score": 9.15
     },
     "assessment": {
       "event_count": 37,
@@ -408,7 +410,7 @@
       "related_item_count": 2,
       "related_titles": [
         "NATO confirms airspace violation in Poland was Russian missile - TVP World",
-        "Poland says Russian ballistic missile violated airspace - DW.com"
+        "Poland says Russian ballistic missile violated airspace - dw.com"
       ],
       "related_urls": [
         "https://news.google.com/rss/articles/CBMilwFBVV95cUxQQlhid1pJMGQzZ0Q0Z0ZtTDF3ekhCR0Y3LU5uUVlSdV9xaXRlUkFEajg5bDhia0RuVWN0RUd3UkhwMVRGSU9ZOFBIaFZFTDB0eVJzUURMcnlhUGhyYWpyNnNFSHZkMm8xUGpoTlpIa2xybGZTRFhSQmtUVFZjSHhjV2hFbUQ4RGdmTHRvaE4tSWZGakhxVVQw?oc=5",
@@ -647,7 +649,7 @@
       "related_titles": [
         "Russia Intensifies GPS Jamming in the Baltic Sea Near Finland - Мілітарний",
         "Researchers home in on origins of Russia’s Baltic GPS jamming - Defense News",
-        "GPS jamming in the Baltic region: Is Russia responsible? - DW.com"
+        "GPS jamming in the Baltic region: Is Russia responsible? - dw.com"
       ],
       "related_urls": [
         "https://news.google.com/rss/articles/CBMimAFBVV95cUxONjRQeVptQ19TaHdSTWtpcTZHbnhLaHZEMUxRZ1QxX1YycmtpUFhnRUlqakhJbzM4RHlVVU1nM1VDcXhELVA5OFAwOGRSREtsa3d4VkJPbEw5UmEwSmFjNTdzN0Rvdy1TeUNrZWU3bGFPNUpjVzJhbE1MTllacnZEVldJWlk0Q2lyVnh6RjBuRjZuZWYzY2ZLVw?oc=5",
@@ -1263,6 +1265,67 @@
         "confidence": "low",
         "confidence_multiplier": 0.85,
         "weighted_score": 39.95
+      }
+    },
+    {
+      "event_id": "f2f509f568c21e77",
+      "title": "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib - facebook.com",
+      "summary": "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib facebook.com",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOSDU3NVVPUGxxeDd3eTFRNVFWejNfLWRQMkhKQmRxbXpwaDBoeDFrYkMzZWM3aGNaZnlpclUwSUlGdF9nVzVmSEhLRzRHVXlmMllpWUx0U0tEUUlwUnc1M0FfWGdxbVUtRW5ockVXd0hJTS15eWxicmNjMjhNcm9UYnVjcmFXbGtWWUJ3clVqaU8tNzZCTzI0dGVvTW1OZnpkeEdONjJEN0RDSmtMWHY4NXJzcnp0T0RDVTlTXzlBdURSZmZMdW54S1JnYlRtUzlqcG5OeE1UTHF5LTVxcmVhVGNn?oc=5",
+      "published_at": "2026-08-25T21:20:07+00:00",
+      "countries": [
+        "Latvia",
+        "Lithuania",
+        "Poland"
+      ],
+      "categories": [
+        "border_pressure"
+      ],
+      "actors": [
+        "Belarus",
+        "EU"
+      ],
+      "locations": [],
+      "relevance_score": 17.82,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Poland Belarus border hybrid"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib - facebook.com"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOSDU3NVVPUGxxeDd3eTFRNVFWejNfLWRQMkhKQmRxbXpwaDBoeDFrYkMzZWM3aGNaZnlpclUwSUlGdF9nVzVmSEhLRzRHVXlmMllpWUx0U0tEUUlwUnc1M0FfWGdxbVUtRW5ockVXd0hJTS15eWxicmNjMjhNcm9UYnVjcmFXbGtWWUJ3clVqaU8tNzZCTzI0dGVvTW1OZnpkeEdONjJEN0RDSmtMWHY4NXJzcnp0T0RDVTlTXzlBdURSZmZMdW54S1JnYlRtUzlqcG5OeE1UTHF5LTVxcmVhVGNn?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Latvia",
+      "event_subtype": "incident",
+      "event_type": "operational",
+      "analytical_layer": "operational",
+      "hybrid_threat_score": 38,
+      "hybrid_threat_level": "guarded",
+      "score_breakdown": {
+        "raw_base_score": 45,
+        "relevance": 18,
+        "keywords": 0,
+        "categories": 10,
+        "actors": 8,
+        "locations": 0,
+        "source_confirmation": 4,
+        "strategic_modifier": 5,
+        "event_subtype": "incident",
+        "subtype_weight": 1.0,
+        "confidence": "low",
+        "confidence_multiplier": 0.85,
+        "weighted_score": 38.25
       }
     },
     {
@@ -2227,62 +2290,6 @@
       }
     },
     {
-      "event_id": "1dd74c877ba6c6e9",
-      "title": "Poland uncovers second heat plant cyberattack that went hidden for months - The Record from Recorded Future News",
-      "summary": "Poland uncovers second heat plant cyberattack that went hidden for months The Record from Recorded Future News",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeHdJZXBjcjBhNHpkams4SFVCZFQtSDRvem5kbkg3UEJfVno5bEVkQm1rVnZWYjZ1TFNRZ0VsSDZZZ0pDcFBVeEZfMURVNHhGV1djRkE4RHlYeEhBdVJMWG4ybklhbzhuLTV2N1FWZF9icTBxMDBGS0VEM3B0elJnM3U5QQ?oc=5",
-      "published_at": "2026-08-10T07:00:00+00:00",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "cyber"
-      ],
-      "actors": [],
-      "locations": [],
-      "relevance_score": 9.0,
-      "source_count": 1,
-      "source_names": [
-        "Google News - CERT Polska Russia cyber"
-      ],
-      "source_groups": [
-        "google_news_search"
-      ],
-      "related_item_count": 1,
-      "related_titles": [
-        "Poland uncovers second heat plant cyberattack that went hidden for months - The Record from Recorded Future News"
-      ],
-      "related_urls": [
-        "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeHdJZXBjcjBhNHpkams4SFVCZFQtSDRvem5kbkg3UEJfVno5bEVkQm1rVnZWYjZ1TFNRZ0VsSDZZZ0pDcFBVeEZfMURVNHhGV1djRkE4RHlYeEhBdVJMWG4ybklhbzhuLTV2N1FWZF9icTBxMDBGS0VEM3B0elJnM3U5QQ?oc=5"
-      ],
-      "confidence": "low",
-      "confidence_score": 48,
-      "collection_methods": [
-        "rss"
-      ],
-      "primary_country": "Poland",
-      "event_subtype": "incident",
-      "event_type": "operational",
-      "analytical_layer": "operational",
-      "hybrid_threat_score": 27,
-      "hybrid_threat_level": "guarded",
-      "score_breakdown": {
-        "raw_base_score": 32,
-        "relevance": 9,
-        "keywords": 5,
-        "categories": 14,
-        "actors": 0,
-        "locations": 0,
-        "source_confirmation": 4,
-        "strategic_modifier": 0,
-        "event_subtype": "incident",
-        "subtype_weight": 1.0,
-        "confidence": "low",
-        "confidence_multiplier": 0.85,
-        "weighted_score": 27.2
-      }
-    },
-    {
       "event_id": "a3bb25dbfa205eb5",
       "title": "Cyberattack on Latvian State Forests detected / Article - LSM",
       "summary": "Cyberattack on Latvian State Forests detected / Article LSM",
@@ -2369,6 +2376,62 @@
       ],
       "confidence": "low",
       "confidence_score": 48,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Poland",
+      "event_subtype": "incident",
+      "event_type": "operational",
+      "analytical_layer": "operational",
+      "hybrid_threat_score": 27,
+      "hybrid_threat_level": "guarded",
+      "score_breakdown": {
+        "raw_base_score": 32,
+        "relevance": 9,
+        "keywords": 5,
+        "categories": 14,
+        "actors": 0,
+        "locations": 0,
+        "source_confirmation": 4,
+        "strategic_modifier": 0,
+        "event_subtype": "incident",
+        "subtype_weight": 1.0,
+        "confidence": "low",
+        "confidence_multiplier": 0.85,
+        "weighted_score": 27.2
+      }
+    },
+    {
+      "event_id": "1dd74c877ba6c6e9",
+      "title": "Poland uncovers second heat plant cyberattack that went hidden for months - The Record from Recorded Future News",
+      "summary": "Poland uncovers second heat plant cyberattack that went hidden for months The Record from Recorded Future News",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeHdJZXBjcjBhNHpkams4SFVCZFQtSDRvem5kbkg3UEJfVno5bEVkQm1rVnZWYjZ1TFNRZ0VsSDZZZ0pDcFBVeEZfMURVNHhGV1djRkE4RHlYeEhBdVJMWG4ybklhbzhuLTV2N1FWZF9icTBxMDBGS0VEM3B0elJnM3U5QQ?oc=5",
+      "published_at": "2026-08-10T07:00:00+00:00",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "actors": [],
+      "locations": [],
+      "relevance_score": 9.0,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Poland uncovers second heat plant cyberattack that went hidden for months - The Record from Recorded Future News"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeHdJZXBjcjBhNHpkams4SFVCZFQtSDRvem5kbkg3UEJfVno5bEVkQm1rVnZWYjZ1TFNRZ0VsSDZZZ0pDcFBVeEZfMURVNHhGV1djRkE4RHlYeEhBdVJMWG4ybklhbzhuLTV2N1FWZF9icTBxMDBGS0VEM3B0elJnM3U5QQ?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
       "collection_methods": [
         "rss"
       ],
@@ -2683,6 +2746,65 @@
         "confidence": "medium",
         "confidence_multiplier": 1.0,
         "weighted_score": 19.75
+      }
+    },
+    {
+      "event_id": "b838b725d42677c9",
+      "title": "Undersea Cable Sabotage? China and Russia in the Baltic Sea Battlefield - Clearance Jobs",
+      "summary": "Undersea Cable Sabotage? China and Russia in the Baltic Sea Battlefield Clearance Jobs",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTmVMRWJOS2tXbFp6VHhJMnotQUl2ZnJDNDRaNWhuTUxTTGEwNXBmTEFiVGtjUV81Nll0OWpBZ2RUOGkxQ2V1UkFFYXpXNWl4RHJMWjA4MV9zTU01QVBYSHUyYzNLaVpHSzBzYklsSG9SNEdtOWdhcHdwdnFSQ1pWaXlSNlVRR3NaUXdYOGREZThiZXpTNnVHS2c4SWRwODY2elBPNnlld0drV0xQbm9yaFg3SQ?oc=5",
+      "published_at": "2024-11-20T08:00:00+00:00",
+      "countries": [],
+      "categories": [
+        "critical_infrastructure",
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [
+        "Baltic Sea"
+      ],
+      "relevance_score": 20.4,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Baltic Sea infrastructure sabotage"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Undersea Cable Sabotage? China and Russia in the Baltic Sea Battlefield - Clearance Jobs"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTmVMRWJOS2tXbFp6VHhJMnotQUl2ZnJDNDRaNWhuTUxTTGEwNXBmTEFiVGtjUV81Nll0OWpBZ2RUOGkxQ2V1UkFFYXpXNWl4RHJMWjA4MV9zTU01QVBYSHUyYzNLaVpHSzBzYklsSG9SNEdtOWdhcHdwdnFSQ1pWaXlSNlVRR3NaUXdYOGREZThiZXpTNnVHS2c4SWRwODY2elBPNnlld0drV0xQbm9yaFg3SQ?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Regional",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "hybrid_threat_score": 20,
+      "hybrid_threat_level": "guarded",
+      "score_breakdown": {
+        "raw_base_score": 95,
+        "relevance": 20,
+        "keywords": 16,
+        "categories": 35,
+        "actors": 8,
+        "locations": 6,
+        "source_confirmation": 4,
+        "strategic_modifier": 6,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.25,
+        "confidence": "low",
+        "confidence_multiplier": 0.85,
+        "weighted_score": 20.19
       }
     },
     {
@@ -3395,75 +3517,6 @@
         "confidence": "low",
         "confidence_multiplier": 0.85,
         "weighted_score": 13.81
-      }
-    },
-    {
-      "event_id": "9e2494d425a3c57e",
-      "title": "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure - Межа. Новини України.",
-      "summary": "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure Межа. Новини України.",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9xbVliNWRIZEZLVUNZYTc5WG1Wc1RfWVN5clZ5YlJab1ZfVFdxdW9XTUllc0UxSDVZbngtT0FvQ1BPWFRBT3ZYS1dHU3NJd1ZJa0Q4aDFIV0swanJtV3c1US1UZDk3X2RmbTc5cQ?oc=5",
-      "published_at": "2026-08-24T16:28:25+00:00",
-      "countries": [
-        "Lithuania"
-      ],
-      "categories": [
-        "critical_infrastructure"
-      ],
-      "actors": [
-        "Russia",
-        "NATO"
-      ],
-      "locations": [],
-      "relevance_score": 10.2,
-      "source_count": 1,
-      "source_names": [
-        "Google News - Baltic critical infrastructure Russia"
-      ],
-      "source_groups": [
-        "google_news_search"
-      ],
-      "related_item_count": 6,
-      "related_titles": [
-        "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure - Межа. Новини України.",
-        "NATO Country Believes Russia Will Stage a False Flag Attack Against Critical Infrastructure - International Business Times",
-        "Lithuania Warns Russia May Use Ukrainian Drones Against Baltic Critical Infrastructure - Межа. Новини України.",
-        "Lithuania Warns of Potential ‘False Flag Strike’ by Russia on Baltic States - The European Conservative",
-        "Lithuania warns Russia could use Ukrainian drones in false flag attack - AeroTime",
-        "Russia plotting 'false flag' using Ukrainian drones, Lithuania warns - Euronews.com"
-      ],
-      "related_urls": [
-        "https://news.google.com/rss/articles/CBMibEFVX3lxTE9xbVliNWRIZEZLVUNZYTc5WG1Wc1RfWVN5clZ5YlJab1ZfVFdxdW9XTUllc0UxSDVZbngtT0FvQ1BPWFRBT3ZYS1dHU3NJd1ZJa0Q4aDFIV0swanJtV3c1US1UZDk3X2RmbTc5cQ?oc=5",
-        "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZkdQakZaZUN2aTNBLWxWM2N6eVZlenRnajdFOXBEZEpfZTVNNWhiMjFBVW5HcjlLWDlEQWtlYkx5aGJWMEVQdktiMmJFZGlqLWRRRGFIR05NbXFTWVBXNmV4WUhsVHowem5vRDUxb1FHRzFfWFBtQWdGOHg1ZnRWUURZOFczOExYTi1vVDU0YnVWSjdmdWszRzBkN3h5MmxOcTgtVW5LaXc2QUF5Yml5S010RnA0VFAzaHBWYzlB?oc=5",
-        "https://news.google.com/rss/articles/CBMibEFVX3lxTE1yWm8xWHFHOVpaVERPaUMtS2t3SnoxdWpLNXhwWTFna0ZtMW5jdkxNdW5lX1h1NmdJRG5CcFlQQW5NLXpORVNRS3JiVnBkendjd2Z5SzhIbWtwRUxMMXV4RVRfNmctYWE0dnRFRQ?oc=5",
-        "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNMTdyWFhkX3ZRYkR0NzkwcWdod1l4eG1WRUZzYkxBTTRydmJQLWF3V0NsSGd2aVBHVWhMdUlqN05PeENBTkVnRTNWVFpKa0c0MmdFNVFVWTV4NWVkOGZjeHRQN3NLMG1fdnVxRXdlTGl4NzRZY2hVSHRRSzNrNzJTN0xQNndEdDd2eXNKM2hobW9XUGk5c3BVSTNRaEdod09XRkdRbzFNX1M0Z1k5Z3hJVWNUWVVfX2NvY2FR?oc=5",
-        "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMS1Uc3pDSUpNQUxNWVMxY21HTlk3LXo3MHB4M0ZIR2dfWXdkVS1Wb2tMT3NZc1FEZVNmYTZPN1B6dTJuejljUEVrYldRcGE5Y05BN2xSVDNnMnhvZENnRTNNZUhsMXo1TUV4RFRET05DRGZsWmxLaXBJa09YYy1kYXJ30gGHAUFVX3lxTE5RdXNlZjJmNFpxaUlsM3FzMG1jU1FfQnlVelJ5RkxaWkJGX1o5TW8wdUlYRnNTeXJuYmlVb2VGaUJqYTVfWHdzWWI2c2wzV1hnVFlsUWthSVplbkkzUUkyai11WVo3cHhDZmU2NXh4U2w3UlByZGNuM3hod1U2UDI2LXd0TXg4QQ?oc=5",
-        "https://news.google.com/rss/articles/CBMizAFBVV95cUxNOGs1VUNtbEE3Umw3ZUdueEMzQzN3eE43cHVRdm5YTHdYeUhFdzVzYTE5YVo4VzdfMTdwRl9nNkZDTktpVi1scFB5OUVqX3Nwal9iQnJzdDZOUU5nUkNNcUY2RzNYcFhubHFqamc0RmtXSmZiR2tTbGFsQ1ZYandUQUYtVUgyUmtnTnYyQzg0d3BiVHNmLXptallnWE5GSjl6SE44Z1JhSkJRQUpIc3lsMXh5dkQwN01CSktOWXRhWEpkY0FiUkV2dUk3alg?oc=5"
-      ],
-      "confidence": "low",
-      "confidence_score": 38,
-      "collection_methods": [
-        "rss"
-      ],
-      "primary_country": "Lithuania",
-      "event_subtype": "indicator",
-      "event_type": "warning",
-      "analytical_layer": "early_warning",
-      "hybrid_threat_score": 13,
-      "hybrid_threat_level": "low",
-      "score_breakdown": {
-        "raw_base_score": 61,
-        "relevance": 10,
-        "keywords": 8,
-        "categories": 17,
-        "actors": 12,
-        "locations": 0,
-        "source_confirmation": 9,
-        "strategic_modifier": 5,
-        "event_subtype": "indicator",
-        "subtype_weight": 0.25,
-        "confidence": "low",
-        "confidence_multiplier": 0.85,
-        "weighted_score": 12.96
       }
     },
     {
@@ -4357,6 +4410,66 @@
       }
     },
     {
+      "event_id": "39204d92eb5fd6c5",
+      "title": "Border Guard chief: Belarus knew about tunnels on Latvian border",
+      "summary": "Both underground tunnels on the Latvia–Belarus border were \"undoubtedly\" dug with the knowledge of the Belarusian authorities, said Guntis Pujāts, Commander of the State Border Guard, on the Latvian Radio programme “Krustpunktā” on August 27.",
+      "url": "https://eng.lsm.lv/article/society/defence/27.08.2026-border-guard-chief-belarus-knew-about-tunnels-on-latvian-border.a660654/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-08-27T13:19:00+00:00",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "border_pressure"
+      ],
+      "actors": [
+        "Belarus"
+      ],
+      "locations": [
+        "Belarus Border"
+      ],
+      "relevance_score": 18.75,
+      "source_count": 1,
+      "source_names": [
+        "LSM English Latvia"
+      ],
+      "source_groups": [
+        "direct_regional_media"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Border Guard chief: Belarus knew about tunnels on Latvian border"
+      ],
+      "related_urls": [
+        "https://eng.lsm.lv/article/society/defence/27.08.2026-border-guard-chief-belarus-knew-about-tunnels-on-latvian-border.a660654/?utm_source=rss&utm_campaign=rss&utm_medium=links"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Latvia",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "hybrid_threat_score": 11,
+      "hybrid_threat_level": "low",
+      "score_breakdown": {
+        "raw_base_score": 51,
+        "relevance": 19,
+        "keywords": 0,
+        "categories": 10,
+        "actors": 6,
+        "locations": 7,
+        "source_confirmation": 4,
+        "strategic_modifier": 5,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.25,
+        "confidence": "low",
+        "confidence_multiplier": 0.85,
+        "weighted_score": 10.84
+      }
+    },
+    {
       "event_id": "73e1fe702b5b4bd4",
       "title": "Russia Has Launched New Wave Of Sabotage At Weapons Factories Across Europe - uatv.ua",
       "summary": "Russia Has Launched New Wave Of Sabotage At Weapons Factories Across Europe uatv.ua",
@@ -4414,6 +4527,72 @@
         "confidence": "low",
         "confidence_multiplier": 0.85,
         "weighted_score": 10.62
+      }
+    },
+    {
+      "event_id": "9e2494d425a3c57e",
+      "title": "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure - Межа. Новини України.",
+      "summary": "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure Межа. Новини України.",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9xbVliNWRIZEZLVUNZYTc5WG1Wc1RfWVN5clZ5YlJab1ZfVFdxdW9XTUllc0UxSDVZbngtT0FvQ1BPWFRBT3ZYS1dHU3NJd1ZJa0Q4aDFIV0swanJtV3c1US1UZDk3X2RmbTc5cQ?oc=5",
+      "published_at": "2026-08-24T16:28:25+00:00",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "critical_infrastructure"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "relevance_score": 10.8,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 5,
+      "related_titles": [
+        "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure - Межа. Новини України.",
+        "Lithuania Warns Russia May Use Ukrainian Drones Against Baltic Critical Infrastructure - Межа. Новини України.",
+        "Lithuania Warns of Potential ‘False Flag Strike’ by Russia on Baltic States - The European Conservative",
+        "Lithuania warns Russia could use Ukrainian drones in false flag attack - AeroTime",
+        "Russia plotting 'false flag' using Ukrainian drones, Lithuania warns - Euronews.com"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMibEFVX3lxTE9xbVliNWRIZEZLVUNZYTc5WG1Wc1RfWVN5clZ5YlJab1ZfVFdxdW9XTUllc0UxSDVZbngtT0FvQ1BPWFRBT3ZYS1dHU3NJd1ZJa0Q4aDFIV0swanJtV3c1US1UZDk3X2RmbTc5cQ?oc=5",
+        "https://news.google.com/rss/articles/CBMibEFVX3lxTE1yWm8xWHFHOVpaVERPaUMtS2t3SnoxdWpLNXhwWTFna0ZtMW5jdkxNdW5lX1h1NmdJRG5CcFlQQW5NLXpORVNRS3JiVnBkendjd2Z5SzhIbWtwRUxMMXV4RVRfNmctYWE0dnRFRQ?oc=5",
+        "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNMTdyWFhkX3ZRYkR0NzkwcWdod1l4eG1WRUZzYkxBTTRydmJQLWF3V0NsSGd2aVBHVWhMdUlqN05PeENBTkVnRTNWVFpKa0c0MmdFNVFVWTV4NWVkOGZjeHRQN3NLMG1fdnVxRXdlTGl4NzRZY2hVSHRRSzNrNzJTN0xQNndEdDd2eXNKM2hobW9XUGk5c3BVSTNRaEdod09XRkdRbzFNX1M0Z1k5Z3hJVWNUWVVfX2NvY2FR?oc=5",
+        "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMS1Uc3pDSUpNQUxNWVMxY21HTlk3LXo3MHB4M0ZIR2dfWXdkVS1Wb2tMT3NZc1FEZVNmYTZPN1B6dTJuejljUEVrYldRcGE5Y05BN2xSVDNnMnhvZENnRTNNZUhsMXo1TUV4RFRET05DRGZsWmxLaXBJa09YYy1kYXJ30gGHAUFVX3lxTE5RdXNlZjJmNFpxaUlsM3FzMG1jU1FfQnlVelJ5RkxaWkJGX1o5TW8wdUlYRnNTeXJuYmlVb2VGaUJqYTVfWHdzWWI2c2wzV1hnVFlsUWthSVplbkkzUUkyai11WVo3cHhDZmU2NXh4U2w3UlByZGNuM3hod1U2UDI2LXd0TXg4QQ?oc=5",
+        "https://news.google.com/rss/articles/CBMizAFBVV95cUxNOGs1VUNtbEE3Umw3ZUdueEMzQzN3eE43cHVRdm5YTHdYeUhFdzVzYTE5YVo4VzdfMTdwRl9nNkZDTktpVi1scFB5OUVqX3Nwal9iQnJzdDZOUU5nUkNNcUY2RzNYcFhubHFqamc0RmtXSmZiR2tTbGFsQ1ZYandUQUYtVUgyUmtnTnYyQzg0d3BiVHNmLXptallnWE5GSjl6SE44Z1JhSkJRQUpIc3lsMXh5dkQwN01CSktOWXRhWEpkY0FiUkV2dUk3alg?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Lithuania",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "hybrid_threat_score": 11,
+      "hybrid_threat_level": "low",
+      "score_breakdown": {
+        "raw_base_score": 52,
+        "relevance": 11,
+        "keywords": 8,
+        "categories": 17,
+        "actors": 8,
+        "locations": 0,
+        "source_confirmation": 8,
+        "strategic_modifier": 0,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.25,
+        "confidence": "low",
+        "confidence_multiplier": 0.85,
+        "weighted_score": 11.05
       }
     },
     {
@@ -5763,7 +5942,7 @@
         "Ukraine Warns Russia Is Weighing Hybrid Strikes Against Baltic States - Межа. Новини України.",
         "Russia May Intensify Hybrid Attacks Against Baltic States and Poland - uatv.ua",
         "CIA Warns Poland and Baltic States of Possible Russian Hybrid Attacks - Межа. Новини України.",
-        "How Baltic states are responding to Russia's hybrid warfare - DW.com",
+        "How Baltic states are responding to Russia's hybrid warfare - dw.com",
         "Russia Could Open New Front of Hybrid Warfare Against Baltic States, Latvian President Warns - uatv.ua",
         "Polish Intel Warns Russia Could Use Unmarked Troops Against Baltic States - UNITED24 Media"
       ],
@@ -6667,8 +6846,8 @@
     },
     {
       "event_id": "e27cb1446a8e9ee8",
-      "title": "Finland: 4 suspects in sabotage of undersea Estonia cables - DW.com",
-      "summary": "Finland: 4 suspects in sabotage of undersea Estonia cables DW.com",
+      "title": "Finland: 4 suspects in sabotage of undersea Estonia cables - dw.com",
+      "summary": "Finland: 4 suspects in sabotage of undersea Estonia cables dw.com",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNY0tZX1ZteWpGaVVFTDBkbDlWQV9HaUt2aElBb1FJNU84TU80dDJ4VjR4bVU0MkRNQTRoQ0pld2lJQ2ZSdVFuYU5fbEN1eXVoeWQydGlNSXIxZjR3aXc3OU9wWFhlUE1XSjhCOXItT3lLZHpjcEVaOWN6ZHBQTFhPaG1QdmlMMFJXci0xZEJEQWxQRFd1UnBQSDJwNlFyOEot0gGgAUFVX3lxTE1LVmFMLTBYU09kcUFnMFN1Rl9ydG9JT3Y3X01jRkswbHlVNHJVOUs4d3cwMVNWM2FlT0lhWTJjWEktMDFtdnVCeGtEVTVwTzlWYXpBYkp4bEZ2MHBHNjV4bUxvb1BNbTBEcnJyRW95VDBtUDRPbkFFMGZNYW5FOU9TNnVEMzRSTTBZNUtsUHFqZjVaaTRkUWdLcDAxa0xrQmo?oc=5",
       "published_at": "2026-06-05T07:00:00+00:00",
       "countries": [
@@ -6689,7 +6868,7 @@
       ],
       "related_item_count": 1,
       "related_titles": [
-        "Finland: 4 suspects in sabotage of undersea Estonia cables - DW.com"
+        "Finland: 4 suspects in sabotage of undersea Estonia cables - dw.com"
       ],
       "related_urls": [
         "https://news.google.com/rss/articles/CBMioAFBVV95cUxNY0tZX1ZteWpGaVVFTDBkbDlWQV9HaUt2aElBb1FJNU84TU80dDJ4VjR4bVU0MkRNQTRoQ0pld2lJQ2ZSdVFuYU5fbEN1eXVoeWQydGlNSXIxZjR3aXc3OU9wWFhlUE1XSjhCOXItT3lLZHpjcEVaOWN6ZHBQTFhPaG1QdmlMMFJXci0xZEJEQWxQRFd1UnBQSDJwNlFyOEot0gGgAUFVX3lxTE1LVmFMLTBYU09kcUFnMFN1Rl9ydG9JT3Y3X01jRkswbHlVNHJVOUs4d3cwMVNWM2FlT0lhWTJjWEktMDFtdnVCeGtEVTVwTzlWYXpBYkp4bEZ2MHBHNjV4bUxvb1BNbTBEcnJyRW95VDBtUDRPbkFFMGZNYW5FOU9TNnVEMzRSTTBZNUtsUHFqZjVaaTRkUWdLcDAxa0xrQmo?oc=5"
@@ -8723,7 +8902,7 @@
       "title": "Russian propaganda on 1939 Nazi-Soviet pact shifts focus, study finds",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/3031153/russian-propaganda-on-1939-nazi-soviet-pact-shifts-focus-study-finds",
-      "published_at": "2026-08-28T11:01:49.480791+00:00",
+      "published_at": "2026-08-28T11:11:13.800244+00:00",
       "countries": [],
       "categories": [
         "disinformation"
@@ -9005,7 +9184,7 @@
       "title": "CIA visit to Moscow warned Putin not to attack Baltic states â media",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/3034073/cia-visit-to-moscow-warned-putin-not-to-attack-baltic-states-media",
-      "published_at": "2026-08-28T11:01:49.465329+00:00",
+      "published_at": "2026-08-28T11:11:13.768947+00:00",
       "countries": [],
       "categories": [],
       "actors": [
@@ -10083,7 +10262,7 @@
       "title": "Lithuanian officials say CIA chiefâs Moscow visit useful, see no increased threat",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/3034136/lithuanian-officials-say-cia-chief-s-moscow-visit-useful-see-no-increased-threat",
-      "published_at": "2026-08-28T11:01:49.460949+00:00",
+      "published_at": "2026-08-28T11:11:13.759813+00:00",
       "countries": [
         "Lithuania"
       ],
@@ -10137,7 +10316,7 @@
       "title": "Baltic states arm for Russian threat as leaked letter shows growing fears",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/3034302/baltic-states-arm-for-russian-threat-as-leaked-letter-shows-growing-fears",
-      "published_at": "2026-08-28T11:01:49.452992+00:00",
+      "published_at": "2026-08-28T11:11:13.743571+00:00",
       "countries": [],
       "categories": [],
       "actors": [
@@ -11644,7 +11823,7 @@
       "related_item_count": 2,
       "related_titles": [
         "NATO confirms airspace violation in Poland was Russian missile - TVP World",
-        "Poland says Russian ballistic missile violated airspace - DW.com"
+        "Poland says Russian ballistic missile violated airspace - dw.com"
       ],
       "related_urls": [
         "https://news.google.com/rss/articles/CBMilwFBVV95cUxQQlhid1pJMGQzZ0Q0Z0ZtTDF3ekhCR0Y3LU5uUVlSdV9xaXRlUkFEajg5bDhia0RuVWN0RUd3UkhwMVRGSU9ZOFBIaFZFTDB0eVJzUURMcnlhUGhyYWpyNnNFSHZkMm8xUGpoTlpIa2xybGZTRFhSQmtUVFZjSHhjV2hFbUQ4RGdmTHRvaE4tSWZGakhxVVQw?oc=5",
@@ -11883,7 +12062,7 @@
       "related_titles": [
         "Russia Intensifies GPS Jamming in the Baltic Sea Near Finland - Мілітарний",
         "Researchers home in on origins of Russia’s Baltic GPS jamming - Defense News",
-        "GPS jamming in the Baltic region: Is Russia responsible? - DW.com"
+        "GPS jamming in the Baltic region: Is Russia responsible? - dw.com"
       ],
       "related_urls": [
         "https://news.google.com/rss/articles/CBMimAFBVV95cUxONjRQeVptQ19TaHdSTWtpcTZHbnhLaHZEMUxRZ1QxX1YycmtpUFhnRUlqakhJbzM4RHlVVU1nM1VDcXhELVA5OFAwOGRSREtsa3d4VkJPbEw5UmEwSmFjNTdzN0Rvdy1TeUNrZWU3bGFPNUpjVzJhbE1MTllacnZEVldJWlk0Q2lyVnh6RjBuRjZuZWYzY2ZLVw?oc=5",
@@ -12499,6 +12678,67 @@
         "confidence": "low",
         "confidence_multiplier": 0.85,
         "weighted_score": 39.95
+      }
+    },
+    {
+      "event_id": "f2f509f568c21e77",
+      "title": "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib - facebook.com",
+      "summary": "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib facebook.com",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOSDU3NVVPUGxxeDd3eTFRNVFWejNfLWRQMkhKQmRxbXpwaDBoeDFrYkMzZWM3aGNaZnlpclUwSUlGdF9nVzVmSEhLRzRHVXlmMllpWUx0U0tEUUlwUnc1M0FfWGdxbVUtRW5ockVXd0hJTS15eWxicmNjMjhNcm9UYnVjcmFXbGtWWUJ3clVqaU8tNzZCTzI0dGVvTW1OZnpkeEdONjJEN0RDSmtMWHY4NXJzcnp0T0RDVTlTXzlBdURSZmZMdW54S1JnYlRtUzlqcG5OeE1UTHF5LTVxcmVhVGNn?oc=5",
+      "published_at": "2026-08-25T21:20:07+00:00",
+      "countries": [
+        "Latvia",
+        "Lithuania",
+        "Poland"
+      ],
+      "categories": [
+        "border_pressure"
+      ],
+      "actors": [
+        "Belarus",
+        "EU"
+      ],
+      "locations": [],
+      "relevance_score": 17.82,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Poland Belarus border hybrid"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib - facebook.com"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOSDU3NVVPUGxxeDd3eTFRNVFWejNfLWRQMkhKQmRxbXpwaDBoeDFrYkMzZWM3aGNaZnlpclUwSUlGdF9nVzVmSEhLRzRHVXlmMllpWUx0U0tEUUlwUnc1M0FfWGdxbVUtRW5ockVXd0hJTS15eWxicmNjMjhNcm9UYnVjcmFXbGtWWUJ3clVqaU8tNzZCTzI0dGVvTW1OZnpkeEdONjJEN0RDSmtMWHY4NXJzcnp0T0RDVTlTXzlBdURSZmZMdW54S1JnYlRtUzlqcG5OeE1UTHF5LTVxcmVhVGNn?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Latvia",
+      "event_subtype": "incident",
+      "event_type": "operational",
+      "analytical_layer": "operational",
+      "hybrid_threat_score": 38,
+      "hybrid_threat_level": "guarded",
+      "score_breakdown": {
+        "raw_base_score": 45,
+        "relevance": 18,
+        "keywords": 0,
+        "categories": 10,
+        "actors": 8,
+        "locations": 0,
+        "source_confirmation": 4,
+        "strategic_modifier": 5,
+        "event_subtype": "incident",
+        "subtype_weight": 1.0,
+        "confidence": "low",
+        "confidence_multiplier": 0.85,
+        "weighted_score": 38.25
       }
     },
     {
@@ -13463,62 +13703,6 @@
       }
     },
     {
-      "event_id": "1dd74c877ba6c6e9",
-      "title": "Poland uncovers second heat plant cyberattack that went hidden for months - The Record from Recorded Future News",
-      "summary": "Poland uncovers second heat plant cyberattack that went hidden for months The Record from Recorded Future News",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeHdJZXBjcjBhNHpkams4SFVCZFQtSDRvem5kbkg3UEJfVno5bEVkQm1rVnZWYjZ1TFNRZ0VsSDZZZ0pDcFBVeEZfMURVNHhGV1djRkE4RHlYeEhBdVJMWG4ybklhbzhuLTV2N1FWZF9icTBxMDBGS0VEM3B0elJnM3U5QQ?oc=5",
-      "published_at": "2026-08-10T07:00:00+00:00",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "cyber"
-      ],
-      "actors": [],
-      "locations": [],
-      "relevance_score": 9.0,
-      "source_count": 1,
-      "source_names": [
-        "Google News - CERT Polska Russia cyber"
-      ],
-      "source_groups": [
-        "google_news_search"
-      ],
-      "related_item_count": 1,
-      "related_titles": [
-        "Poland uncovers second heat plant cyberattack that went hidden for months - The Record from Recorded Future News"
-      ],
-      "related_urls": [
-        "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeHdJZXBjcjBhNHpkams4SFVCZFQtSDRvem5kbkg3UEJfVno5bEVkQm1rVnZWYjZ1TFNRZ0VsSDZZZ0pDcFBVeEZfMURVNHhGV1djRkE4RHlYeEhBdVJMWG4ybklhbzhuLTV2N1FWZF9icTBxMDBGS0VEM3B0elJnM3U5QQ?oc=5"
-      ],
-      "confidence": "low",
-      "confidence_score": 48,
-      "collection_methods": [
-        "rss"
-      ],
-      "primary_country": "Poland",
-      "event_subtype": "incident",
-      "event_type": "operational",
-      "analytical_layer": "operational",
-      "hybrid_threat_score": 27,
-      "hybrid_threat_level": "guarded",
-      "score_breakdown": {
-        "raw_base_score": 32,
-        "relevance": 9,
-        "keywords": 5,
-        "categories": 14,
-        "actors": 0,
-        "locations": 0,
-        "source_confirmation": 4,
-        "strategic_modifier": 0,
-        "event_subtype": "incident",
-        "subtype_weight": 1.0,
-        "confidence": "low",
-        "confidence_multiplier": 0.85,
-        "weighted_score": 27.2
-      }
-    },
-    {
       "event_id": "a3bb25dbfa205eb5",
       "title": "Cyberattack on Latvian State Forests detected / Article - LSM",
       "summary": "Cyberattack on Latvian State Forests detected / Article LSM",
@@ -13605,6 +13789,62 @@
       ],
       "confidence": "low",
       "confidence_score": 48,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Poland",
+      "event_subtype": "incident",
+      "event_type": "operational",
+      "analytical_layer": "operational",
+      "hybrid_threat_score": 27,
+      "hybrid_threat_level": "guarded",
+      "score_breakdown": {
+        "raw_base_score": 32,
+        "relevance": 9,
+        "keywords": 5,
+        "categories": 14,
+        "actors": 0,
+        "locations": 0,
+        "source_confirmation": 4,
+        "strategic_modifier": 0,
+        "event_subtype": "incident",
+        "subtype_weight": 1.0,
+        "confidence": "low",
+        "confidence_multiplier": 0.85,
+        "weighted_score": 27.2
+      }
+    },
+    {
+      "event_id": "1dd74c877ba6c6e9",
+      "title": "Poland uncovers second heat plant cyberattack that went hidden for months - The Record from Recorded Future News",
+      "summary": "Poland uncovers second heat plant cyberattack that went hidden for months The Record from Recorded Future News",
+      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeHdJZXBjcjBhNHpkams4SFVCZFQtSDRvem5kbkg3UEJfVno5bEVkQm1rVnZWYjZ1TFNRZ0VsSDZZZ0pDcFBVeEZfMURVNHhGV1djRkE4RHlYeEhBdVJMWG4ybklhbzhuLTV2N1FWZF9icTBxMDBGS0VEM3B0elJnM3U5QQ?oc=5",
+      "published_at": "2026-08-10T07:00:00+00:00",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "actors": [],
+      "locations": [],
+      "relevance_score": 9.0,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Poland uncovers second heat plant cyberattack that went hidden for months - The Record from Recorded Future News"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMigwFBVV95cUxNeHdJZXBjcjBhNHpkams4SFVCZFQtSDRvem5kbkg3UEJfVno5bEVkQm1rVnZWYjZ1TFNRZ0VsSDZZZ0pDcFBVeEZfMURVNHhGV1djRkE4RHlYeEhBdVJMWG4ybklhbzhuLTV2N1FWZF9icTBxMDBGS0VEM3B0elJnM3U5QQ?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
       "collection_methods": [
         "rss"
       ],
@@ -13919,6 +14159,65 @@
         "confidence": "medium",
         "confidence_multiplier": 1.0,
         "weighted_score": 19.75
+      }
+    },
+    {
+      "event_id": "b838b725d42677c9",
+      "title": "Undersea Cable Sabotage? China and Russia in the Baltic Sea Battlefield - Clearance Jobs",
+      "summary": "Undersea Cable Sabotage? China and Russia in the Baltic Sea Battlefield Clearance Jobs",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTmVMRWJOS2tXbFp6VHhJMnotQUl2ZnJDNDRaNWhuTUxTTGEwNXBmTEFiVGtjUV81Nll0OWpBZ2RUOGkxQ2V1UkFFYXpXNWl4RHJMWjA4MV9zTU01QVBYSHUyYzNLaVpHSzBzYklsSG9SNEdtOWdhcHdwdnFSQ1pWaXlSNlVRR3NaUXdYOGREZThiZXpTNnVHS2c4SWRwODY2elBPNnlld0drV0xQbm9yaFg3SQ?oc=5",
+      "published_at": "2024-11-20T08:00:00+00:00",
+      "countries": [],
+      "categories": [
+        "critical_infrastructure",
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [
+        "Baltic Sea"
+      ],
+      "relevance_score": 20.4,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Baltic Sea infrastructure sabotage"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Undersea Cable Sabotage? China and Russia in the Baltic Sea Battlefield - Clearance Jobs"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMiswFBVV95cUxNTmVMRWJOS2tXbFp6VHhJMnotQUl2ZnJDNDRaNWhuTUxTTGEwNXBmTEFiVGtjUV81Nll0OWpBZ2RUOGkxQ2V1UkFFYXpXNWl4RHJMWjA4MV9zTU01QVBYSHUyYzNLaVpHSzBzYklsSG9SNEdtOWdhcHdwdnFSQ1pWaXlSNlVRR3NaUXdYOGREZThiZXpTNnVHS2c4SWRwODY2elBPNnlld0drV0xQbm9yaFg3SQ?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Regional",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "hybrid_threat_score": 20,
+      "hybrid_threat_level": "guarded",
+      "score_breakdown": {
+        "raw_base_score": 95,
+        "relevance": 20,
+        "keywords": 16,
+        "categories": 35,
+        "actors": 8,
+        "locations": 6,
+        "source_confirmation": 4,
+        "strategic_modifier": 6,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.25,
+        "confidence": "low",
+        "confidence_multiplier": 0.85,
+        "weighted_score": 20.19
       }
     },
     {
@@ -14631,75 +14930,6 @@
         "confidence": "low",
         "confidence_multiplier": 0.85,
         "weighted_score": 13.81
-      }
-    },
-    {
-      "event_id": "9e2494d425a3c57e",
-      "title": "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure - Межа. Новини України.",
-      "summary": "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure Межа. Новини України.",
-      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9xbVliNWRIZEZLVUNZYTc5WG1Wc1RfWVN5clZ5YlJab1ZfVFdxdW9XTUllc0UxSDVZbngtT0FvQ1BPWFRBT3ZYS1dHU3NJd1ZJa0Q4aDFIV0swanJtV3c1US1UZDk3X2RmbTc5cQ?oc=5",
-      "published_at": "2026-08-24T16:28:25+00:00",
-      "countries": [
-        "Lithuania"
-      ],
-      "categories": [
-        "critical_infrastructure"
-      ],
-      "actors": [
-        "Russia",
-        "NATO"
-      ],
-      "locations": [],
-      "relevance_score": 10.2,
-      "source_count": 1,
-      "source_names": [
-        "Google News - Baltic critical infrastructure Russia"
-      ],
-      "source_groups": [
-        "google_news_search"
-      ],
-      "related_item_count": 6,
-      "related_titles": [
-        "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure - Межа. Новини України.",
-        "NATO Country Believes Russia Will Stage a False Flag Attack Against Critical Infrastructure - International Business Times",
-        "Lithuania Warns Russia May Use Ukrainian Drones Against Baltic Critical Infrastructure - Межа. Новини України.",
-        "Lithuania Warns of Potential ‘False Flag Strike’ by Russia on Baltic States - The European Conservative",
-        "Lithuania warns Russia could use Ukrainian drones in false flag attack - AeroTime",
-        "Russia plotting 'false flag' using Ukrainian drones, Lithuania warns - Euronews.com"
-      ],
-      "related_urls": [
-        "https://news.google.com/rss/articles/CBMibEFVX3lxTE9xbVliNWRIZEZLVUNZYTc5WG1Wc1RfWVN5clZ5YlJab1ZfVFdxdW9XTUllc0UxSDVZbngtT0FvQ1BPWFRBT3ZYS1dHU3NJd1ZJa0Q4aDFIV0swanJtV3c1US1UZDk3X2RmbTc5cQ?oc=5",
-        "https://news.google.com/rss/articles/CBMivgFBVV95cUxNZkdQakZaZUN2aTNBLWxWM2N6eVZlenRnajdFOXBEZEpfZTVNNWhiMjFBVW5HcjlLWDlEQWtlYkx5aGJWMEVQdktiMmJFZGlqLWRRRGFIR05NbXFTWVBXNmV4WUhsVHowem5vRDUxb1FHRzFfWFBtQWdGOHg1ZnRWUURZOFczOExYTi1vVDU0YnVWSjdmdWszRzBkN3h5MmxOcTgtVW5LaXc2QUF5Yml5S010RnA0VFAzaHBWYzlB?oc=5",
-        "https://news.google.com/rss/articles/CBMibEFVX3lxTE1yWm8xWHFHOVpaVERPaUMtS2t3SnoxdWpLNXhwWTFna0ZtMW5jdkxNdW5lX1h1NmdJRG5CcFlQQW5NLXpORVNRS3JiVnBkendjd2Z5SzhIbWtwRUxMMXV4RVRfNmctYWE0dnRFRQ?oc=5",
-        "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNMTdyWFhkX3ZRYkR0NzkwcWdod1l4eG1WRUZzYkxBTTRydmJQLWF3V0NsSGd2aVBHVWhMdUlqN05PeENBTkVnRTNWVFpKa0c0MmdFNVFVWTV4NWVkOGZjeHRQN3NLMG1fdnVxRXdlTGl4NzRZY2hVSHRRSzNrNzJTN0xQNndEdDd2eXNKM2hobW9XUGk5c3BVSTNRaEdod09XRkdRbzFNX1M0Z1k5Z3hJVWNUWVVfX2NvY2FR?oc=5",
-        "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMS1Uc3pDSUpNQUxNWVMxY21HTlk3LXo3MHB4M0ZIR2dfWXdkVS1Wb2tMT3NZc1FEZVNmYTZPN1B6dTJuejljUEVrYldRcGE5Y05BN2xSVDNnMnhvZENnRTNNZUhsMXo1TUV4RFRET05DRGZsWmxLaXBJa09YYy1kYXJ30gGHAUFVX3lxTE5RdXNlZjJmNFpxaUlsM3FzMG1jU1FfQnlVelJ5RkxaWkJGX1o5TW8wdUlYRnNTeXJuYmlVb2VGaUJqYTVfWHdzWWI2c2wzV1hnVFlsUWthSVplbkkzUUkyai11WVo3cHhDZmU2NXh4U2w3UlByZGNuM3hod1U2UDI2LXd0TXg4QQ?oc=5",
-        "https://news.google.com/rss/articles/CBMizAFBVV95cUxNOGs1VUNtbEE3Umw3ZUdueEMzQzN3eE43cHVRdm5YTHdYeUhFdzVzYTE5YVo4VzdfMTdwRl9nNkZDTktpVi1scFB5OUVqX3Nwal9iQnJzdDZOUU5nUkNNcUY2RzNYcFhubHFqamc0RmtXSmZiR2tTbGFsQ1ZYandUQUYtVUgyUmtnTnYyQzg0d3BiVHNmLXptallnWE5GSjl6SE44Z1JhSkJRQUpIc3lsMXh5dkQwN01CSktOWXRhWEpkY0FiUkV2dUk3alg?oc=5"
-      ],
-      "confidence": "low",
-      "confidence_score": 38,
-      "collection_methods": [
-        "rss"
-      ],
-      "primary_country": "Lithuania",
-      "event_subtype": "indicator",
-      "event_type": "warning",
-      "analytical_layer": "early_warning",
-      "hybrid_threat_score": 13,
-      "hybrid_threat_level": "low",
-      "score_breakdown": {
-        "raw_base_score": 61,
-        "relevance": 10,
-        "keywords": 8,
-        "categories": 17,
-        "actors": 12,
-        "locations": 0,
-        "source_confirmation": 9,
-        "strategic_modifier": 5,
-        "event_subtype": "indicator",
-        "subtype_weight": 0.25,
-        "confidence": "low",
-        "confidence_multiplier": 0.85,
-        "weighted_score": 12.96
       }
     },
     {
@@ -15593,6 +15823,66 @@
       }
     },
     {
+      "event_id": "39204d92eb5fd6c5",
+      "title": "Border Guard chief: Belarus knew about tunnels on Latvian border",
+      "summary": "Both underground tunnels on the Latvia–Belarus border were \"undoubtedly\" dug with the knowledge of the Belarusian authorities, said Guntis Pujāts, Commander of the State Border Guard, on the Latvian Radio programme “Krustpunktā” on August 27.",
+      "url": "https://eng.lsm.lv/article/society/defence/27.08.2026-border-guard-chief-belarus-knew-about-tunnels-on-latvian-border.a660654/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-08-27T13:19:00+00:00",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "border_pressure"
+      ],
+      "actors": [
+        "Belarus"
+      ],
+      "locations": [
+        "Belarus Border"
+      ],
+      "relevance_score": 18.75,
+      "source_count": 1,
+      "source_names": [
+        "LSM English Latvia"
+      ],
+      "source_groups": [
+        "direct_regional_media"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Border Guard chief: Belarus knew about tunnels on Latvian border"
+      ],
+      "related_urls": [
+        "https://eng.lsm.lv/article/society/defence/27.08.2026-border-guard-chief-belarus-knew-about-tunnels-on-latvian-border.a660654/?utm_source=rss&utm_campaign=rss&utm_medium=links"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Latvia",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "hybrid_threat_score": 11,
+      "hybrid_threat_level": "low",
+      "score_breakdown": {
+        "raw_base_score": 51,
+        "relevance": 19,
+        "keywords": 0,
+        "categories": 10,
+        "actors": 6,
+        "locations": 7,
+        "source_confirmation": 4,
+        "strategic_modifier": 5,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.25,
+        "confidence": "low",
+        "confidence_multiplier": 0.85,
+        "weighted_score": 10.84
+      }
+    },
+    {
       "event_id": "73e1fe702b5b4bd4",
       "title": "Russia Has Launched New Wave Of Sabotage At Weapons Factories Across Europe - uatv.ua",
       "summary": "Russia Has Launched New Wave Of Sabotage At Weapons Factories Across Europe uatv.ua",
@@ -15650,6 +15940,72 @@
         "confidence": "low",
         "confidence_multiplier": 0.85,
         "weighted_score": 10.62
+      }
+    },
+    {
+      "event_id": "9e2494d425a3c57e",
+      "title": "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure - Межа. Новини України.",
+      "summary": "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure Межа. Новини України.",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9xbVliNWRIZEZLVUNZYTc5WG1Wc1RfWVN5clZ5YlJab1ZfVFdxdW9XTUllc0UxSDVZbngtT0FvQ1BPWFRBT3ZYS1dHU3NJd1ZJa0Q4aDFIV0swanJtV3c1US1UZDk3X2RmbTc5cQ?oc=5",
+      "published_at": "2026-08-24T16:28:25+00:00",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "critical_infrastructure"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "relevance_score": 10.8,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 5,
+      "related_titles": [
+        "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure - Межа. Новини України.",
+        "Lithuania Warns Russia May Use Ukrainian Drones Against Baltic Critical Infrastructure - Межа. Новини України.",
+        "Lithuania Warns of Potential ‘False Flag Strike’ by Russia on Baltic States - The European Conservative",
+        "Lithuania warns Russia could use Ukrainian drones in false flag attack - AeroTime",
+        "Russia plotting 'false flag' using Ukrainian drones, Lithuania warns - Euronews.com"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMibEFVX3lxTE9xbVliNWRIZEZLVUNZYTc5WG1Wc1RfWVN5clZ5YlJab1ZfVFdxdW9XTUllc0UxSDVZbngtT0FvQ1BPWFRBT3ZYS1dHU3NJd1ZJa0Q4aDFIV0swanJtV3c1US1UZDk3X2RmbTc5cQ?oc=5",
+        "https://news.google.com/rss/articles/CBMibEFVX3lxTE1yWm8xWHFHOVpaVERPaUMtS2t3SnoxdWpLNXhwWTFna0ZtMW5jdkxNdW5lX1h1NmdJRG5CcFlQQW5NLXpORVNRS3JiVnBkendjd2Z5SzhIbWtwRUxMMXV4RVRfNmctYWE0dnRFRQ?oc=5",
+        "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNMTdyWFhkX3ZRYkR0NzkwcWdod1l4eG1WRUZzYkxBTTRydmJQLWF3V0NsSGd2aVBHVWhMdUlqN05PeENBTkVnRTNWVFpKa0c0MmdFNVFVWTV4NWVkOGZjeHRQN3NLMG1fdnVxRXdlTGl4NzRZY2hVSHRRSzNrNzJTN0xQNndEdDd2eXNKM2hobW9XUGk5c3BVSTNRaEdod09XRkdRbzFNX1M0Z1k5Z3hJVWNUWVVfX2NvY2FR?oc=5",
+        "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMS1Uc3pDSUpNQUxNWVMxY21HTlk3LXo3MHB4M0ZIR2dfWXdkVS1Wb2tMT3NZc1FEZVNmYTZPN1B6dTJuejljUEVrYldRcGE5Y05BN2xSVDNnMnhvZENnRTNNZUhsMXo1TUV4RFRET05DRGZsWmxLaXBJa09YYy1kYXJ30gGHAUFVX3lxTE5RdXNlZjJmNFpxaUlsM3FzMG1jU1FfQnlVelJ5RkxaWkJGX1o5TW8wdUlYRnNTeXJuYmlVb2VGaUJqYTVfWHdzWWI2c2wzV1hnVFlsUWthSVplbkkzUUkyai11WVo3cHhDZmU2NXh4U2w3UlByZGNuM3hod1U2UDI2LXd0TXg4QQ?oc=5",
+        "https://news.google.com/rss/articles/CBMizAFBVV95cUxNOGs1VUNtbEE3Umw3ZUdueEMzQzN3eE43cHVRdm5YTHdYeUhFdzVzYTE5YVo4VzdfMTdwRl9nNkZDTktpVi1scFB5OUVqX3Nwal9iQnJzdDZOUU5nUkNNcUY2RzNYcFhubHFqamc0RmtXSmZiR2tTbGFsQ1ZYandUQUYtVUgyUmtnTnYyQzg0d3BiVHNmLXptallnWE5GSjl6SE44Z1JhSkJRQUpIc3lsMXh5dkQwN01CSktOWXRhWEpkY0FiUkV2dUk3alg?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Lithuania",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "hybrid_threat_score": 11,
+      "hybrid_threat_level": "low",
+      "score_breakdown": {
+        "raw_base_score": 52,
+        "relevance": 11,
+        "keywords": 8,
+        "categories": 17,
+        "actors": 8,
+        "locations": 0,
+        "source_confirmation": 8,
+        "strategic_modifier": 0,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.25,
+        "confidence": "low",
+        "confidence_multiplier": 0.85,
+        "weighted_score": 11.05
       }
     },
     {
@@ -16999,7 +17355,7 @@
         "Ukraine Warns Russia Is Weighing Hybrid Strikes Against Baltic States - Межа. Новини України.",
         "Russia May Intensify Hybrid Attacks Against Baltic States and Poland - uatv.ua",
         "CIA Warns Poland and Baltic States of Possible Russian Hybrid Attacks - Межа. Новини України.",
-        "How Baltic states are responding to Russia's hybrid warfare - DW.com",
+        "How Baltic states are responding to Russia's hybrid warfare - dw.com",
         "Russia Could Open New Front of Hybrid Warfare Against Baltic States, Latvian President Warns - uatv.ua",
         "Polish Intel Warns Russia Could Use Unmarked Troops Against Baltic States - UNITED24 Media"
       ],
@@ -17903,8 +18259,8 @@
     },
     {
       "event_id": "e27cb1446a8e9ee8",
-      "title": "Finland: 4 suspects in sabotage of undersea Estonia cables - DW.com",
-      "summary": "Finland: 4 suspects in sabotage of undersea Estonia cables DW.com",
+      "title": "Finland: 4 suspects in sabotage of undersea Estonia cables - dw.com",
+      "summary": "Finland: 4 suspects in sabotage of undersea Estonia cables dw.com",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNY0tZX1ZteWpGaVVFTDBkbDlWQV9HaUt2aElBb1FJNU84TU80dDJ4VjR4bVU0MkRNQTRoQ0pld2lJQ2ZSdVFuYU5fbEN1eXVoeWQydGlNSXIxZjR3aXc3OU9wWFhlUE1XSjhCOXItT3lLZHpjcEVaOWN6ZHBQTFhPaG1QdmlMMFJXci0xZEJEQWxQRFd1UnBQSDJwNlFyOEot0gGgAUFVX3lxTE1LVmFMLTBYU09kcUFnMFN1Rl9ydG9JT3Y3X01jRkswbHlVNHJVOUs4d3cwMVNWM2FlT0lhWTJjWEktMDFtdnVCeGtEVTVwTzlWYXpBYkp4bEZ2MHBHNjV4bUxvb1BNbTBEcnJyRW95VDBtUDRPbkFFMGZNYW5FOU9TNnVEMzRSTTBZNUtsUHFqZjVaaTRkUWdLcDAxa0xrQmo?oc=5",
       "published_at": "2026-06-05T07:00:00+00:00",
       "countries": [
@@ -17925,7 +18281,7 @@
       ],
       "related_item_count": 1,
       "related_titles": [
-        "Finland: 4 suspects in sabotage of undersea Estonia cables - DW.com"
+        "Finland: 4 suspects in sabotage of undersea Estonia cables - dw.com"
       ],
       "related_urls": [
         "https://news.google.com/rss/articles/CBMioAFBVV95cUxNY0tZX1ZteWpGaVVFTDBkbDlWQV9HaUt2aElBb1FJNU84TU80dDJ4VjR4bVU0MkRNQTRoQ0pld2lJQ2ZSdVFuYU5fbEN1eXVoeWQydGlNSXIxZjR3aXc3OU9wWFhlUE1XSjhCOXItT3lLZHpjcEVaOWN6ZHBQTFhPaG1QdmlMMFJXci0xZEJEQWxQRFd1UnBQSDJwNlFyOEot0gGgAUFVX3lxTE1LVmFMLTBYU09kcUFnMFN1Rl9ydG9JT3Y3X01jRkswbHlVNHJVOUs4d3cwMVNWM2FlT0lhWTJjWEktMDFtdnVCeGtEVTVwTzlWYXpBYkp4bEZ2MHBHNjV4bUxvb1BNbTBEcnJyRW95VDBtUDRPbkFFMGZNYW5FOU9TNnVEMzRSTTBZNUtsUHFqZjVaaTRkUWdLcDAxa0xrQmo?oc=5"
@@ -19959,7 +20315,7 @@
       "title": "Russian propaganda on 1939 Nazi-Soviet pact shifts focus, study finds",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/3031153/russian-propaganda-on-1939-nazi-soviet-pact-shifts-focus-study-finds",
-      "published_at": "2026-08-28T11:01:49.480791+00:00",
+      "published_at": "2026-08-28T11:11:13.800244+00:00",
       "countries": [],
       "categories": [
         "disinformation"
@@ -20241,7 +20597,7 @@
       "title": "CIA visit to Moscow warned Putin not to attack Baltic states â media",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/3034073/cia-visit-to-moscow-warned-putin-not-to-attack-baltic-states-media",
-      "published_at": "2026-08-28T11:01:49.465329+00:00",
+      "published_at": "2026-08-28T11:11:13.768947+00:00",
       "countries": [],
       "categories": [],
       "actors": [
@@ -21319,7 +21675,7 @@
       "title": "Lithuanian officials say CIA chiefâs Moscow visit useful, see no increased threat",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/3034136/lithuanian-officials-say-cia-chief-s-moscow-visit-useful-see-no-increased-threat",
-      "published_at": "2026-08-28T11:01:49.460949+00:00",
+      "published_at": "2026-08-28T11:11:13.759813+00:00",
       "countries": [
         "Lithuania"
       ],
@@ -21373,7 +21729,7 @@
       "title": "Baltic states arm for Russian threat as leaked letter shows growing fears",
       "summary": "",
       "url": "https://www.lrt.lt/en/news-in-english/19/3034302/baltic-states-arm-for-russian-threat-as-leaked-letter-shows-growing-fears",
-      "published_at": "2026-08-28T11:01:49.452992+00:00",
+      "published_at": "2026-08-28T11:11:13.743571+00:00",
       "countries": [],
       "categories": [],
       "actors": [
