@@ -2,7 +2,7 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-08-28T08:05:16.786041+00:00",
+  "updated_at": "2026-08-28T08:59:50.309967+00:00",
   "record_count": 28,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
@@ -11,8 +11,10 @@
     "rolling_days": 14,
     "daily_activity": "Uses only events whose published_at date matches the displayed calendar date.",
     "rolling_threat": "Uses a 14-day rolling window ending on each displayed calendar date.",
-    "important": "Daily activity and rolling threat are stored separately. Events inside the rolling window are not treated as new daily events on subsequent dates.",
-    "trend": "Daily trend compares the current Daily Activity average score with the previous calendar day's Daily Activity average score."
+    "important": "Daily Activity and Rolling Threat are stored separately. The rolling window does not limit the lifetime of the historical database.",
+    "trend": "Daily trend compares the current Daily Activity average score with the previous calendar day's Daily Activity average score.",
+    "history_retention": "Unlimited. Historical daily records are never automatically removed.",
+    "update_mode": "One record per calendar date. Re-running the same date replaces only that date and preserves all other historical records."
   },
   "records": [
     {
@@ -18147,18 +18149,18 @@
     },
     {
       "date": "2026-08-28",
-      "generated_at": "2026-08-28T08:05:16.785515+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T08:59:50.309364+00:00",
+      "input_generated_at": "2026-08-28T08:59:50.091663+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
-          "event_count": 22,
+          "event_count": 23,
           "incident_count": 4,
           "activity_count": 0,
           "indicator_count": 5,
-          "assessment_count": 13,
+          "assessment_count": 14,
           "score_total": 194,
-          "average_score": 8.82,
+          "average_score": 8.43,
           "highest_score": 69,
           "overall_level": "elevated"
         },
@@ -18176,11 +18178,11 @@
           },
           "Latvia": {
             "country": "Latvia",
-            "event_count": 2,
+            "event_count": 3,
             "score_total": 8,
-            "average_score": 4.0,
+            "average_score": 2.67,
             "highest_score": 8,
-            "level": "guarded",
+            "level": "low",
             "categories": {
               "critical_infrastructure": 1
             }
@@ -18279,7 +18281,7 @@
             "highest_score": 69
           },
           "assessment": {
-            "event_count": 13,
+            "event_count": 14,
             "score_total": 0,
             "average_score": 0.0,
             "highest_score": 0
@@ -18297,7 +18299,7 @@
             "id": null,
             "title": "Foreign Russia will not attack NATO, Trump says after CIA chief's Moscow visit",
             "url": "https://www.polskieradio.pl/395/7785/Artykul/3724853,russia-will-not-attack-nato-trump-says-after-cia-chiefs-moscow-visit",
-            "published_at": "2026-08-28T07:57:37.192167+00:00",
+            "published_at": "2026-08-28T08:59:40.324904+00:00",
             "source_name": null,
             "primary_country": "Regional",
             "countries": [
@@ -18322,7 +18324,7 @@
             "id": null,
             "title": "Warsaw to install drone-detection system amid rise in airspace incursions: report 26.08.2026 08:00",
             "url": "https://www.polskieradio.pl/395/7784/Artykul/3724106,warsaw-to-install-dronedetection-system-amid-rise-in-airspace-incursions-report",
-            "published_at": "2026-08-28T07:57:37.192475+00:00",
+            "published_at": "2026-08-28T08:59:40.325177+00:00",
             "source_name": null,
             "primary_country": "Poland",
             "countries": [
@@ -18344,7 +18346,7 @@
             "id": null,
             "title": "Foreign Moscow warns of strikes on UK military sites in Ukraine amid missile row",
             "url": "https://www.polskieradio.pl/395/7785/Artykul/3724768,moscow-warns-of-strikes-on-uk-military-sites-in-ukraine-amid-missile-row",
-            "published_at": "2026-08-28T07:57:37.192338+00:00",
+            "published_at": "2026-08-28T08:59:40.325049+00:00",
             "source_name": null,
             "primary_country": "Poland",
             "countries": [
@@ -18367,7 +18369,7 @@
             "id": null,
             "title": "CIA visit to Moscow warned Putin not to attack Baltic states â media",
             "url": "https://www.lrt.lt/en/news-in-english/19/3034073/cia-visit-to-moscow-warned-putin-not-to-attack-baltic-states-media",
-            "published_at": "2026-08-28T07:57:34.790089+00:00",
+            "published_at": "2026-08-28T08:59:38.190800+00:00",
             "source_name": null,
             "primary_country": "Lithuania",
             "countries": [
@@ -18388,7 +18390,7 @@
             "id": null,
             "title": "Whatâs behind Russiaâs threats against Baltics and Poland?",
             "url": "https://www.lrt.lt/en/news-in-english/19/3031330/what-s-behind-russia-s-threats-against-baltics-and-poland",
-            "published_at": "2026-08-28T07:57:34.790888+00:00",
+            "published_at": "2026-08-28T08:59:38.191510+00:00",
             "source_name": null,
             "primary_country": "Poland",
             "countries": [
@@ -18434,7 +18436,7 @@
             "id": null,
             "title": "Russian propaganda on 1939 Nazi-Soviet pact shifts focus, study finds",
             "url": "https://www.lrt.lt/en/news-in-english/19/3031153/russian-propaganda-on-1939-nazi-soviet-pact-shifts-focus-study-finds",
-            "published_at": "2026-08-28T07:57:34.790767+00:00",
+            "published_at": "2026-08-28T08:59:38.191396+00:00",
             "source_name": null,
             "primary_country": "Lithuania",
             "countries": [
@@ -18457,7 +18459,7 @@
             "id": null,
             "title": "Where do SMEs stand in preparing for the Cyber Resilience Act?",
             "url": "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act ",
-            "published_at": "2026-08-28T07:57:42.221536+00:00",
+            "published_at": "2026-08-28T08:59:43.027309+00:00",
             "source_name": null,
             "primary_country": "Regional",
             "countries": [],
@@ -18476,7 +18478,7 @@
             "id": null,
             "title": "Baltic states arm for Russian threat as leaked letter shows growing fears",
             "url": "https://www.lrt.lt/en/news-in-english/19/3034302/baltic-states-arm-for-russian-threat-as-leaked-letter-shows-growing-fears",
-            "published_at": "2026-08-28T07:57:34.789642+00:00",
+            "published_at": "2026-08-28T08:59:38.190402+00:00",
             "source_name": null,
             "primary_country": "Lithuania",
             "countries": [
@@ -18497,7 +18499,7 @@
             "id": null,
             "title": "Russian invasion of Ukraine",
             "url": "https://www.lrt.lt/en/tag/russian-invasion-of-ukraine",
-            "published_at": "2026-08-28T07:57:34.790673+00:00",
+            "published_at": "2026-08-28T08:59:38.191308+00:00",
             "source_name": null,
             "primary_country": "Regional",
             "countries": [
@@ -18525,26 +18527,26 @@
           "end_date": "2026-08-28"
         },
         "overall": {
-          "event_count": 120,
+          "event_count": 118,
           "incident_count": 46,
           "activity_count": 6,
-          "indicator_count": 22,
-          "assessment_count": 46,
-          "score_total": 2002,
-          "average_score": 16.68,
+          "indicator_count": 21,
+          "assessment_count": 45,
+          "score_total": 1995,
+          "average_score": 16.91,
           "highest_score": 89,
           "overall_level": "high"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
-            "event_count": 29,
-            "score_total": 320,
-            "average_score": 11.03,
+            "event_count": 26,
+            "score_total": 313,
+            "average_score": 12.04,
             "highest_score": 69,
-            "level": "elevated",
+            "level": "high",
             "categories": {
-              "critical_infrastructure": 6,
+              "critical_infrastructure": 4,
               "sabotage": 3,
               "drone_incident": 1,
               "cyber": 1,
@@ -18553,9 +18555,9 @@
           },
           "Latvia": {
             "country": "Latvia",
-            "event_count": 30,
+            "event_count": 31,
             "score_total": 351,
-            "average_score": 11.7,
+            "average_score": 11.32,
             "highest_score": 50,
             "level": "elevated",
             "categories": {
@@ -18620,9 +18622,9 @@
         "categories": {
           "critical_infrastructure": {
             "category": "critical_infrastructure",
-            "event_count": 26,
-            "score_total": 715,
-            "average_score": 27.5,
+            "event_count": 24,
+            "score_total": 707,
+            "average_score": 29.46,
             "highest_score": 79
           },
           "cyber": {
@@ -18635,8 +18637,8 @@
           "sabotage": {
             "category": "sabotage",
             "event_count": 10,
-            "score_total": 479,
-            "average_score": 47.9,
+            "score_total": 480,
+            "average_score": 48.0,
             "highest_score": 79
           },
           "drone_incident": {
@@ -18697,19 +18699,19 @@
             "highest_score": 0
           },
           "early_warning": {
-            "event_count": 22,
-            "score_total": 128,
-            "average_score": 5.82,
+            "event_count": 21,
+            "score_total": 120,
+            "average_score": 5.71,
             "highest_score": 10
           },
           "operational": {
             "event_count": 52,
-            "score_total": 1874,
-            "average_score": 36.04,
+            "score_total": 1875,
+            "average_score": 36.06,
             "highest_score": 89
           },
           "assessment": {
-            "event_count": 46,
+            "event_count": 45,
             "score_total": 0,
             "average_score": 0.0,
             "highest_score": 0
@@ -18825,7 +18827,7 @@
             "id": null,
             "title": "Foreign Russia will not attack NATO, Trump says after CIA chief's Moscow visit",
             "url": "https://www.polskieradio.pl/395/7785/Artykul/3724853,russia-will-not-attack-nato-trump-says-after-cia-chiefs-moscow-visit",
-            "published_at": "2026-08-28T07:57:37.192167+00:00",
+            "published_at": "2026-08-28T08:59:40.324904+00:00",
             "source_name": null,
             "primary_country": "Regional",
             "countries": [
