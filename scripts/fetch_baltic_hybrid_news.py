@@ -21,7 +21,7 @@ DOCS_OUTPUT = ROOT / "docs" / "data" / "baltic_hybrid_raw_news.json"
 
 
 # ---------------------------------------------------------------------
-# THREAT INTELLIGENCE COLLECTOR v1.1
+# THREAT INTELLIGENCE COLLECTOR v1.2
 #
 # Goal:
 #
@@ -123,7 +123,11 @@ LOCATION_KEYWORDS = {
     "Belarus Border": [
         "belarus border",
         "border with belarus",
-        "belarusian border"
+        "belarusian border",
+        "latvia-belarus border",
+        "latvian-belarusian border",
+        "lithuania-belarus border",
+        "lithuanian-belarusian border"
     ],
     "Poland-Belarus Border": [
         "poland-belarus border",
@@ -134,9 +138,6 @@ LOCATION_KEYWORDS = {
 
 # ---------------------------------------------------------------------
 # ACTORS
-#
-# Institutional actors deliberately use stricter expressions.
-# "EU" or "alliance" alone are too noisy.
 # ---------------------------------------------------------------------
 
 
@@ -186,17 +187,6 @@ ACTOR_KEYWORDS = {
 
 # ---------------------------------------------------------------------
 # CATEGORY SIGNALS
-#
-# Categories are now context-aware.
-#
-# Generic words such as:
-#   migration
-#   explosive
-#   port
-#   airport
-#   cyber
-#
-# are NOT enough by themselves to create a threat category.
 # ---------------------------------------------------------------------
 
 
@@ -278,12 +268,32 @@ BORDER_PRESSURE_TERMS = [
     "border provocation",
     "border crisis",
     "illegal border crossing",
+    "illegal crossings",
     "illegal crossing",
     "border breach",
+    "border breaches",
     "pushback",
+    "border infiltration",
+    "cross-border infiltration",
+    "border fence breach",
+    "border fence breached",
+    "border security incident"
+]
+
+
+BORDER_TUNNEL_TERMS = [
+    "border tunnel",
+    "border tunnels",
+    "tunnel under the border",
+    "tunnels under the border",
+    "tunnel beneath the border",
+    "tunnels beneath the border",
     "tunnel under border",
-    "tunnel beneath border",
-    "border tunnel"
+    "tunnels under border",
+    "underground tunnel",
+    "underground tunnels",
+    "tunnel under the border fence",
+    "tunnels under the border fence"
 ]
 
 
@@ -433,11 +443,6 @@ ESPIONAGE_TERMS = [
 ]
 
 
-# ---------------------------------------------------------------------
-# WARNING / THREAT TERMS
-# ---------------------------------------------------------------------
-
-
 WARNING_TERMS = [
     "warns",
     "warned",
@@ -465,8 +470,6 @@ WARNING_TERMS = [
 
 # ---------------------------------------------------------------------
 # NEGATIVE SEMANTIC CONTEXT
-#
-# These help prevent known semantic false positives.
 # ---------------------------------------------------------------------
 
 
@@ -607,14 +610,6 @@ STATIC_PAGE_TERMS = [
     "topics",
     "press office"
 ]
-
-
-# ---------------------------------------------------------------------
-# BROAD SECURITY TERMS
-#
-# Used only as supporting evidence.
-# A match here is NOT enough to create a threat category by itself.
-# ---------------------------------------------------------------------
 
 
 REQUIRED_SECURITY_TERMS = [
@@ -948,10 +943,6 @@ def is_low_quality_url(
 
 # ---------------------------------------------------------------------
 # COUNTRY DETECTION
-#
-# Source country is NOT automatically added anymore.
-#
-# It is only recorded separately as source_country.
 # ---------------------------------------------------------------------
 
 
@@ -976,7 +967,7 @@ def detect_regional_context(
 
 
 # ---------------------------------------------------------------------
-# ACTOR DETECTION
+# ACTOR / LOCATION DETECTION
 # ---------------------------------------------------------------------
 
 
@@ -990,11 +981,6 @@ def detect_actors(
     )
 
 
-# ---------------------------------------------------------------------
-# LOCATION DETECTION
-# ---------------------------------------------------------------------
-
-
 def detect_locations(
     text: str
 ) -> List[str]:
@@ -1002,6 +988,66 @@ def detect_locations(
     return detect_from_keywords(
         text,
         LOCATION_KEYWORDS
+    )
+
+
+# ---------------------------------------------------------------------
+# BORDER CONTEXT
+# ---------------------------------------------------------------------
+
+
+def has_border_tunnel_signal(
+    text: str
+) -> bool:
+
+    if contains_any(
+        text,
+        BORDER_TUNNEL_TERMS
+    ):
+
+        return True
+
+    has_tunnel = (
+        contains_term(
+            text,
+            "tunnel"
+        )
+        or contains_term(
+            text,
+            "tunnels"
+        )
+        or contains_term(
+            text,
+            "underground tunnel"
+        )
+        or contains_term(
+            text,
+            "underground tunnels"
+        )
+    )
+
+    has_border = (
+        contains_term(
+            text,
+            "border"
+        )
+        or contains_term(
+            text,
+            "border fence"
+        )
+        or contains_term(
+            text,
+            "belarus border"
+        )
+        or contains_term(
+            text,
+            "belarusian border"
+        )
+    )
+
+    return (
+        has_tunnel
+        and has_border
     )
 
 
@@ -1015,10 +1061,6 @@ def detect_categories(
 ) -> List[str]:
 
     categories: Set[str] = set()
-
-    # -------------------------------------------------------------
-    # SABOTAGE
-    # -------------------------------------------------------------
 
     if contains_any(
         text,
@@ -1040,12 +1082,6 @@ def detect_categories(
                 "sabotage"
             )
 
-    # -------------------------------------------------------------
-    # CYBER
-    #
-    # Generic "cyber" alone is not enough.
-    # -------------------------------------------------------------
-
     if contains_any(
         text,
         CYBER_ATTACK_TERMS
@@ -1054,10 +1090,6 @@ def detect_categories(
         categories.add(
             "cyber"
         )
-
-    # -------------------------------------------------------------
-    # DISINFORMATION
-    # -------------------------------------------------------------
 
     if contains_any(
         text,
@@ -1068,24 +1100,21 @@ def detect_categories(
             "disinformation"
         )
 
-    # -------------------------------------------------------------
-    # BORDER PRESSURE
-    # -------------------------------------------------------------
+    border_signal = (
+        contains_any(
+            text,
+            BORDER_PRESSURE_TERMS
+        )
+        or has_border_tunnel_signal(
+            text
+        )
+    )
 
-    if contains_any(
-        text,
-        BORDER_PRESSURE_TERMS
-    ):
+    if border_signal:
 
         categories.add(
             "border_pressure"
         )
-
-    # -------------------------------------------------------------
-    # MIGRATION PRESSURE
-    #
-    # "migration" alone is deliberately not a trigger.
-    # -------------------------------------------------------------
 
     if (
         contains_any(
@@ -1102,10 +1131,6 @@ def detect_categories(
             "migration_pressure"
         )
 
-    # -------------------------------------------------------------
-    # GPS / GNSS
-    # -------------------------------------------------------------
-
     if contains_any(
         text,
         GPS_INTERFERENCE_TERMS
@@ -1114,10 +1139,6 @@ def detect_categories(
         categories.add(
             "gps_interference"
         )
-
-    # -------------------------------------------------------------
-    # DRONE / AIRSPACE
-    # -------------------------------------------------------------
 
     if contains_any(
         text,
@@ -1128,10 +1149,6 @@ def detect_categories(
             "drone_incident"
         )
 
-    # -------------------------------------------------------------
-    # MILITARY PROVOCATION
-    # -------------------------------------------------------------
-
     if contains_any(
         text,
         MILITARY_PROVOCATION_TERMS
@@ -1140,12 +1157,6 @@ def detect_categories(
         categories.add(
             "military_provocation"
         )
-
-    # -------------------------------------------------------------
-    # CRITICAL INFRASTRUCTURE
-    #
-    # Asset mention alone is insufficient.
-    # -------------------------------------------------------------
 
     infrastructure_asset = (
         contains_any(
@@ -1192,10 +1203,6 @@ def detect_categories(
         categories.add(
             "critical_infrastructure"
         )
-
-    # -------------------------------------------------------------
-    # ESPIONAGE
-    # -------------------------------------------------------------
 
     if contains_any(
         text,
@@ -1259,6 +1266,9 @@ def has_strong_operational_signal(
             text,
             BORDER_PRESSURE_TERMS
         ),
+        has_border_tunnel_signal(
+            text
+        ),
         contains_any(
             text,
             MIGRATION_PRESSURE_TERMS
@@ -1320,8 +1330,6 @@ def is_general_cyber_noise(
 
 # ---------------------------------------------------------------------
 # RELEVANCE SCORE
-#
-# Relevance is now context-based rather than raw keyword volume.
 # ---------------------------------------------------------------------
 
 
@@ -1353,8 +1361,8 @@ def rough_relevance_score(
         )
     )
 
-    # Regional grounding
     if countries:
+
         score += min(
             len(
                 countries
@@ -1363,9 +1371,11 @@ def rough_relevance_score(
         ) * 1.5
 
     if regional_context:
+
         score += 1.5
 
     if locations:
+
         score += min(
             len(
                 locations
@@ -1373,7 +1383,6 @@ def rough_relevance_score(
             2
         ) * 1.0
 
-    # Threat categories
     score += min(
         len(
             categories
@@ -1381,22 +1390,22 @@ def rough_relevance_score(
         3
     ) * 2.0
 
-    # Actors
     if hostile_actor:
+
         score += 2.5
 
     elif actors:
+
         score += 0.5
 
-    # Operational evidence
     if operational_signal:
+
         score += 3.0
 
-    # Warning evidence
     if warning_signal:
+
         score += 1.5
 
-    # Especially useful combinations
     if (
         hostile_actor
         and (
@@ -1405,12 +1414,14 @@ def rough_relevance_score(
             or locations
         )
     ):
+
         score += 2.0
 
     if (
         hostile_actor
         and operational_signal
     ):
+
         score += 2.0
 
     if (
@@ -1420,9 +1431,9 @@ def rough_relevance_score(
             or regional_context
         )
     ):
+
         score += 1.0
 
-    # General cyber without an actual incident gets very little value.
     if (
         has_general_cyber_context(
             text
@@ -1431,6 +1442,7 @@ def rough_relevance_score(
             "cyber" in categories
         )
     ):
+
         score += 0.25
 
     return round(
@@ -1508,10 +1520,6 @@ def is_relevant_html_candidate(
 
 # ---------------------------------------------------------------------
 # RAW COLLECTION GATE
-#
-# This remains deliberately broader than the downstream relevance
-# filter but no longer accepts a story just because one weak label
-# exists.
 # ---------------------------------------------------------------------
 
 
@@ -1573,10 +1581,6 @@ def should_keep_item(
         categories
     )
 
-    # -------------------------------------------------------------
-    # HTML fallback is deliberately stricter
-    # -------------------------------------------------------------
-
     if collection_method == "html_fallback":
 
         if contains_any(
@@ -1629,10 +1633,6 @@ def should_keep_item(
             return True
 
         return False
-
-    # -------------------------------------------------------------
-    # RSS / external JSON
-    # -------------------------------------------------------------
 
     if (
         hostile_actor
@@ -1957,7 +1957,7 @@ def fetch_html_fallback_source(
             timeout=25,
             headers={
                 "User-Agent":
-                    "Mozilla/5.0 BalticHybridMonitor/1.1"
+                    "Mozilla/5.0 BalticHybridMonitor/1.2"
             }
         )
 
@@ -2616,13 +2616,13 @@ def main() -> None:
         "method": {
             "description":
                 (
-                    "Threat Intelligence Engine v1.1 context-aware "
+                    "Threat Intelligence Engine v1.2 context-aware "
                     "RSS, HTML fallback and external JSON collector "
                     "for Baltic and Polish hybrid-threat monitoring."
                 ),
 
             "classification_version":
-                "collector_v1_1_context_aware",
+                "collector_v1_2_border_context",
 
             "countries":
                 config.get(
@@ -2665,6 +2665,10 @@ def main() -> None:
                 (
                     "institutional actor detection avoids weak EU and "
                     "alliance substring matches"
+                ),
+                (
+                    "border tunnel and underground border route "
+                    "context detection"
                 ),
                 (
                     "context-weighted relevance scoring"
@@ -2730,7 +2734,7 @@ def main() -> None:
 
     print(
         "Collector model: "
-        "collector_v1_1_context_aware"
+        "collector_v1_2_border_context"
     )
 
     print(
@@ -2743,6 +2747,10 @@ def main() -> None:
 
     print(
         "Context-aware category detection: enabled"
+    )
+
+    print(
+        "Border tunnel context detection: enabled"
     )
 
 
