@@ -51,9 +51,9 @@ jobs:
         run: |
           python scripts/score_baltic_hybrid_news.py
 
-      - name: Build historical Baltic dataset
+      - name: Update Baltic hybrid history
         run: |
-          python scripts/build_historical_baltic_dataset.py --days 14 --rolling-days 14
+          python scripts/update_baltic_hybrid_history.py --rolling-days 14
 
       - name: Generate dashboard data
         run: |
