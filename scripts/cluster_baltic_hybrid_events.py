@@ -131,24 +131,21 @@ STOPWORDS = {
 
 
 # ---------------------------------------------------------------------
-# EVENT ONTOLOGY TERMS
-#
-# The classifier deliberately separates:
+# EVENT ONTOLOGY
 #
 # INCIDENT
-#   A reported event that has happened or is happening.
+#   Concrete event that happened or is happening.
 #
 # ACTIVITY
-#   Concrete military/security activity without a specific hostile
-#   incident necessarily having occurred.
+#   Concrete military/security activity.
 #
 # INDICATOR
-#   Warning, forecast, possible future event, threat signal or
+#   Warning, precursor, forecast, possible future incident,
 #   information/influence signal.
 #
 # ASSESSMENT
-#   Analysis, policy, investment, preparedness, capability development
-#   or institutional background.
+#   Analysis, policy, preparedness, procurement, investment,
+#   capability development or institutional background.
 # ---------------------------------------------------------------------
 
 
@@ -305,6 +302,65 @@ INFORMATION_INDICATOR_TERMS = [
 ]
 
 
+# ---------------------------------------------------------------------
+# CAPABILITY / DEVELOPMENT OVERRIDE
+#
+# These describe the subject of the article as preparation,
+# procurement or capability development rather than a hostile event.
+# ---------------------------------------------------------------------
+
+DEVELOPMENT_TERMS = [
+    "to install",
+    "will install",
+    "plans to install",
+    "plan to install",
+    "to deploy",
+    "will deploy",
+    "plans to deploy",
+    "plan to deploy",
+    "to build",
+    "will build",
+    "plans to build",
+    "plan to build",
+    "being built",
+    "being constructed",
+    "under construction",
+    "construction of",
+    "set up a production facility",
+    "plans to set up",
+    "plan to set up",
+    "production set to begin",
+    "production facility",
+    "manufacturing facility",
+    "new factory",
+    "new plant",
+    "factory construction",
+    "plant construction",
+    "drone detection system",
+    "drone-detection system",
+    "air defence system",
+    "air defense system",
+    "detection system",
+    "surveillance system",
+    "procurement",
+    "procure",
+    "acquisition",
+    "purchase of",
+    "investment",
+    "investing",
+    "invests",
+    "modernisation",
+    "modernization",
+    "capability development",
+    "capability upgrade",
+    "defence industry",
+    "defense industry",
+    "production capacity",
+    "security upgrade",
+    "infrastructure upgrade"
+]
+
+
 ASSESSMENT_TERMS = [
     "framework",
     "strategy",
@@ -333,26 +389,14 @@ ASSESSMENT_TERMS = [
     "military aid",
     "security package",
     "investment",
-    "invest",
-    "invests",
-    "investing",
-    "factory being built",
-    "factory construction",
-    "plant being built",
-    "plant construction",
-    "construction of",
-    "build factory",
-    "build plant",
-    "new factory",
-    "new plant",
-    "defence industry",
-    "defense industry",
-    "production facility",
-    "manufacturing facility",
-    "drone detection system",
-    "drone-detection system",
-    "air defence system",
-    "air defense system",
+    "reserve",
+    "certification",
+    "resilience act",
+    "cyber resilience",
+    "challenge",
+    "competition",
+    "conference",
+    "exercise scenario",
     "procurement",
     "acquisition",
     "modernisation",
@@ -434,6 +478,7 @@ OPERATIONAL_CATEGORIES = {
 def load_json(path: Path) -> Dict[str, Any]:
 
     if not path.exists():
+
         raise FileNotFoundError(
             f"Missing input file: {path}"
         )
@@ -466,7 +511,7 @@ def save_json(
 
 
 # ---------------------------------------------------------------------
-# TEXT HELPERS
+# TEXT NORMALIZATION
 # ---------------------------------------------------------------------
 
 def normalize(text: str) -> str:
@@ -494,15 +539,64 @@ def normalize(text: str) -> str:
     return text.strip()
 
 
+# ---------------------------------------------------------------------
+# SAFE TERM MATCHING
+#
+# Old behaviour:
+#
+#   term in text
+#
+# could incorrectly match:
+#
+#   "hit" inside "white"
+#
+# New behaviour requires real word / phrase boundaries.
+# ---------------------------------------------------------------------
+
+def contains_term(
+    text: str,
+    term: str
+) -> bool:
+
+    normalized_text = normalize(
+        text
+    )
+
+    normalized_term = normalize(
+        term
+    )
+
+    if not normalized_term:
+        return False
+
+    pattern = (
+        r"(?<!\w)"
+        + re.escape(
+            normalized_term
+        )
+        + r"(?!\w)"
+    )
+
+    return (
+        re.search(
+            pattern,
+            normalized_text,
+            flags=re.UNICODE
+        )
+        is not None
+    )
+
+
 def contains_any(
     text: str,
     terms: List[str]
 ) -> bool:
 
-    low = normalize(text)
-
     return any(
-        normalize(term) in low
+        contains_term(
+            text,
+            term
+        )
         for term in terms
     )
 
@@ -511,7 +605,9 @@ def tokenize(text: str) -> Set[str]:
 
     return {
         token
-        for token in normalize(text).split()
+        for token in normalize(
+            text
+        ).split()
         if (
             len(token) >= 4
             and token not in STOPWORDS
@@ -519,10 +615,14 @@ def tokenize(text: str) -> Set[str]:
     }
 
 
-def stable_id(value: str) -> str:
+def stable_id(
+    value: str
+) -> str:
 
     return hashlib.sha256(
-        value.encode("utf-8")
+        value.encode(
+            "utf-8"
+        )
     ).hexdigest()[:16]
 
 
@@ -534,7 +634,14 @@ def similarity(
     if not a or not b:
         return 0.0
 
-    return len(a & b) / len(a | b)
+    return (
+        len(
+            a & b
+        )
+        / len(
+            a | b
+        )
+    )
 
 
 # ---------------------------------------------------------------------
@@ -658,6 +765,7 @@ def unique_merge(
             value
             and value not in output
         ):
+
             output.append(
                 value
             )
@@ -679,16 +787,18 @@ def country_score_from_text(
         for country in COUNTRY_TERMS
     }
 
-    low = normalize(
-        text
-    )
-
     for country, terms in COUNTRY_TERMS.items():
 
         for term in terms:
 
-            if normalize(term) in low:
-                scores[country] += weight
+            if contains_term(
+                text,
+                term
+            ):
+
+                scores[
+                    country
+                ] += weight
 
     return scores
 
@@ -721,19 +831,28 @@ def choose_primary_country_v2(
         title,
         6
     ).items():
-        scores[country] += value
+
+        scores[
+            country
+        ] += value
 
     for country, value in country_score_from_text(
         summary,
         3
     ).items():
-        scores[country] += value
+
+        scores[
+            country
+        ] += value
 
     for country, value in country_score_from_text(
         url,
         2
     ).items():
-        scores[country] += value
+
+        scores[
+            country
+        ] += value
 
     for item in event.get(
         "related_items",
@@ -746,7 +865,10 @@ def choose_primary_country_v2(
         ):
 
             if country in scores:
-                scores[country] += 3
+
+                scores[
+                    country
+                ] += 3
 
     for location in event.get(
         "locations",
@@ -759,40 +881,89 @@ def choose_primary_country_v2(
         ):
 
             if country in scores:
-                scores[country] += 4
+
+                scores[
+                    country
+                ] += 4
 
     text = normalize(
         f"{title} {summary} {url}"
     )
 
     if (
-        "poland-belarus border" in text
-        or "polish-belarusian border" in text
+        contains_term(
+            text,
+            "poland-belarus border"
+        )
+        or contains_term(
+            text,
+            "polish-belarusian border"
+        )
     ):
-        scores["Poland"] += 8
+
+        scores[
+            "Poland"
+        ] += 8
 
     if (
-        "suwalki" in text
-        or "suwałki" in text
+        contains_term(
+            text,
+            "suwalki"
+        )
+        or contains_term(
+            text,
+            "suwałki"
+        )
     ):
-        scores["Poland"] += 6
-        scores["Lithuania"] += 3
 
-    if "kaliningrad" in text:
-        scores["Poland"] += 3
-        scores["Lithuania"] += 3
+        scores[
+            "Poland"
+        ] += 6
+
+        scores[
+            "Lithuania"
+        ] += 3
+
+    if contains_term(
+        text,
+        "kaliningrad"
+    ):
+
+        scores[
+            "Poland"
+        ] += 3
+
+        scores[
+            "Lithuania"
+        ] += 3
 
     if (
-        "baltic states" in text
-        or "baltics" in text
+        contains_term(
+            text,
+            "baltic states"
+        )
+        or contains_term(
+            text,
+            "baltics"
+        )
     ):
-        scores["Estonia"] += 1
-        scores["Latvia"] += 1
-        scores["Lithuania"] += 1
+
+        scores[
+            "Estonia"
+        ] += 1
+
+        scores[
+            "Latvia"
+        ] += 1
+
+        scores[
+            "Lithuania"
+        ] += 1
 
     sorted_scores = sorted(
         scores.items(),
-        key=lambda pair: pair[1],
+        key=lambda pair:
+            pair[1],
         reverse=True
     )
 
@@ -803,7 +974,9 @@ def choose_primary_country_v2(
     if top_score <= 0:
         return "Regional"
 
-    if len(sorted_scores) > 1:
+    if len(
+        sorted_scores
+    ) > 1:
 
         second_score = (
             sorted_scores[1][1]
@@ -811,8 +984,12 @@ def choose_primary_country_v2(
 
         if (
             second_score > 0
-            and top_score - second_score <= 1
+            and (
+                top_score
+                - second_score
+            ) <= 1
         ):
+
             return "Regional"
 
     return top_country
@@ -854,17 +1031,22 @@ def calculate_confidence(
 
     if any(
         any(
-            key.lower() in source.lower()
-            for key in official_sources
+            key.lower()
+            in source.lower()
+            for key
+            in official_sources
         )
-        for source in source_names
+        for source
+        in source_names
     ):
+
         score += 10
 
     if (
         source_count >= 3
         and source_group_count >= 2
     ):
+
         score += 8
 
     score = min(
@@ -873,15 +1055,19 @@ def calculate_confidence(
     )
 
     if score >= 80:
+
         label = "very_high"
 
     elif score >= 65:
+
         label = "high"
 
     elif score >= 50:
+
         label = "medium"
 
     else:
+
         label = "low"
 
     return {
@@ -894,7 +1080,7 @@ def calculate_confidence(
 
 
 # ---------------------------------------------------------------------
-# EVENT CLASSIFICATION
+# CLASSIFICATION TEXT
 # ---------------------------------------------------------------------
 
 def build_classification_text(
@@ -920,6 +1106,7 @@ def build_classification_text(
         "related_titles",
         []
     ):
+
         parts.append(
             str(
                 related_title
@@ -932,6 +1119,32 @@ def build_classification_text(
         )
     )
 
+
+def build_primary_classification_text(
+    event: Dict[str, Any]
+) -> str:
+
+    return normalize(
+        " ".join([
+            str(
+                event.get(
+                    "title",
+                    ""
+                )
+            ),
+            str(
+                event.get(
+                    "summary",
+                    ""
+                )
+            )
+        ])
+    )
+
+
+# ---------------------------------------------------------------------
+# SIGNAL HELPERS
+# ---------------------------------------------------------------------
 
 def has_strong_incident_signal(
     text: str
@@ -973,6 +1186,16 @@ def has_assessment_signal(
     )
 
 
+def has_development_signal(
+    text: str
+) -> bool:
+
+    return contains_any(
+        text,
+        DEVELOPMENT_TERMS
+    )
+
+
 def has_political_statement_signal(
     text: str
 ) -> bool:
@@ -983,12 +1206,24 @@ def has_political_statement_signal(
     )
 
 
+# ---------------------------------------------------------------------
+# EVENT CLASSIFICATION
+# ---------------------------------------------------------------------
+
 def classify_event_subtype(
     event: Dict[str, Any]
 ) -> str:
 
-    text = build_classification_text(
-        event
+    full_text = (
+        build_classification_text(
+            event
+        )
+    )
+
+    primary_text = (
+        build_primary_classification_text(
+            event
+        )
     )
 
     categories = set(
@@ -1005,58 +1240,84 @@ def classify_event_subtype(
         )
     )
 
-    strong_incident = (
-        has_strong_incident_signal(
-            text
-        )
-    )
-
-    confirmed_action = (
-        has_confirmed_action_signal(
-            text
+    development_signal = (
+        has_development_signal(
+            primary_text
         )
     )
 
     warning_signal = (
         has_warning_signal(
-            text
+            primary_text
         )
     )
 
     assessment_signal = (
         has_assessment_signal(
-            text
+            primary_text
         )
     )
 
     political_statement = (
         has_political_statement_signal(
-            text
+            primary_text
+        )
+    )
+
+    strong_primary_incident = (
+        has_strong_incident_signal(
+            primary_text
+        )
+    )
+
+    strong_full_incident = (
+        has_strong_incident_signal(
+            full_text
+        )
+    )
+
+    confirmed_primary_action = (
+        has_confirmed_action_signal(
+            primary_text
+        )
+    )
+
+    confirmed_full_action = (
+        has_confirmed_action_signal(
+            full_text
         )
     )
 
     # -------------------------------------------------------------
-    # 1. STRONG CONFIRMED INCIDENT
+    # 1. CAPABILITY DEVELOPMENT / PROCUREMENT / INVESTMENT
     #
-    # A concrete incident always has priority when the text contains
-    # an explicit event phrase such as "drone shot down",
-    # "cable damaged", "cyberattack", etc.
+    # This intentionally comes before incident classification.
+    #
+    # Example:
+    #
+    # "Warsaw to install drone-detection system amid rise in
+    # airspace incursions"
+    #
+    # The subject is the defensive system deployment, not the
+    # historical incursions mentioned as context.
     # -------------------------------------------------------------
 
-    if strong_incident:
-        return "incident"
+    if development_signal:
+
+        return "assessment"
 
     # -------------------------------------------------------------
     # 2. WARNING / POSSIBLE FUTURE EVENT
     #
-    # Warning language has priority over generic threat categories.
-    # This prevents "warns of possible attack" from becoming incident.
+    # Warning language takes priority unless the primary title /
+    # summary also explicitly describes a confirmed action.
     # -------------------------------------------------------------
 
     if (
         warning_signal
-        and not confirmed_action
+        and not confirmed_primary_action
     ):
+
         return "indicator"
 
     # -------------------------------------------------------------
@@ -1064,51 +1325,66 @@ def classify_event_subtype(
     # -------------------------------------------------------------
 
     if (
-        categories == {"disinformation"}
-        or (
-            "disinformation" in categories
-            and not (
-                categories
-                & (
-                    OPERATIONAL_CATEGORIES
-                    - {"disinformation"}
-                )
+        categories == {
+            "disinformation"
+        }
+    ):
+
+        return "indicator"
+
+    if (
+        "disinformation"
+        in categories
+        and not (
+            categories
+            & (
+                OPERATIONAL_CATEGORIES
+                - {
+                    "disinformation"
+                }
             )
         )
     ):
+
         return "indicator"
 
     if contains_any(
-        text,
+        primary_text,
         INFORMATION_INDICATOR_TERMS
     ):
+
         return "indicator"
 
     # -------------------------------------------------------------
-    # 4. ASSESSMENT / POLICY / INVESTMENT / CAPABILITY DEVELOPMENT
-    #
-    # Investment, factory construction, procurement, strategy and
-    # analytical material must not become incidents simply because
-    # an upstream category contains sabotage/cyber/etc.
+    # 4. ASSESSMENT / POLICY / POLITICAL STATEMENT
     # -------------------------------------------------------------
 
     if (
         assessment_signal
-        and not confirmed_action
+        and not confirmed_primary_action
     ):
+
         return "assessment"
 
     if (
         political_statement
-        and not confirmed_action
+        and not confirmed_primary_action
     ):
+
         return "assessment"
 
     # -------------------------------------------------------------
-    # 5. CATEGORY-SUPPORTED INCIDENT
+    # 5. STRONG INCIDENT IN PRIMARY CONTENT
     #
-    # Categories alone are not sufficient. There must also be a
-    # concrete action signal.
+    # Prefer the title + summary over related headlines.
+    # -------------------------------------------------------------
+
+    if strong_primary_incident:
+
+        return "incident"
+
+    # -------------------------------------------------------------
+    # 6. CATEGORY-SUPPORTED CONFIRMED INCIDENT
     # -------------------------------------------------------------
 
     if (
@@ -1120,28 +1396,33 @@ def classify_event_subtype(
             "espionage",
             "critical_infrastructure"
         }
-        and confirmed_action
+        and confirmed_primary_action
     ):
+
         return "incident"
 
     if (
-        "cyber" in categories
+        "cyber"
+        in categories
         and (
-            confirmed_action
+            confirmed_primary_action
             or contains_any(
-                text,
+                primary_text,
                 [
                     "cyberattack",
                     "cyber attack",
-                    "ddos",
+                    "ddos attack",
                     "malware attack",
-                    "ransomware",
-                    "wiper",
-                    "breach"
+                    "ransomware attack",
+                    "wiper attack",
+                    "data breach",
+                    "network breach",
+                    "systems breached"
                 ]
             )
         )
     ):
+
         return "incident"
 
     if (
@@ -1151,9 +1432,9 @@ def classify_event_subtype(
             "migration_pressure"
         }
         and (
-            confirmed_action
+            confirmed_primary_action
             or contains_any(
-                text,
+                primary_text,
                 [
                     "border crossing",
                     "border breach",
@@ -1165,46 +1446,69 @@ def classify_event_subtype(
             )
         )
     ):
+
         return "incident"
 
     # -------------------------------------------------------------
-    # 6. CONCRETE SECURITY / MILITARY ACTIVITY
+    # 7. CONCRETE MILITARY / SECURITY ACTIVITY
     # -------------------------------------------------------------
 
     if contains_any(
-        text,
+        primary_text,
         ACTIVITY_TERMS
     ):
+
         return "activity"
 
-    # NATO + Russia alone is no longer enough to create an activity.
-    # There must be an activity signal in the text.
+    # -------------------------------------------------------------
+    # 8. RELATED-TITLE INCIDENT SUPPORT
+    #
+    # Related clustered titles can support classification, but they
+    # are deliberately weaker than the primary article.
+    # -------------------------------------------------------------
+
+    if (
+        strong_full_incident
+        and confirmed_full_action
+        and categories
+        & OPERATIONAL_CATEGORIES
+    ):
+
+        return "incident"
 
     # -------------------------------------------------------------
-    # 7. ACTOR-SUPPORTED THREAT SIGNAL
+    # 9. ACTOR-SUPPORTED THREAT SIGNAL
     # -------------------------------------------------------------
 
     if (
         (
-            "Russia" in actors
-            or "Belarus" in actors
+            "Russia"
+            in actors
+            or "Belarus"
+            in actors
         )
         and categories
     ):
+
         return "indicator"
 
     # -------------------------------------------------------------
-    # 8. GENERIC CATEGORY SIGNAL
+    # 10. GENERIC CATEGORY SIGNAL
     #
-    # A category without evidence of an actual event is an indicator,
-    # not an incident.
+    # A category is evidence of relevance, not evidence that an
+    # incident happened.
     # -------------------------------------------------------------
 
     if categories:
+
         return "indicator"
 
     return "assessment"
 
+
+# ---------------------------------------------------------------------
+# EVENT TYPE
+# ---------------------------------------------------------------------
 
 def classify_event_type(
     event_subtype: str
@@ -1214,13 +1518,19 @@ def classify_event_type(
         "incident",
         "activity"
     }:
+
         return "operational"
 
     if event_subtype == "indicator":
+
         return "warning"
 
     return "background"
 
+
+# ---------------------------------------------------------------------
+# ANALYTICAL LAYER
+# ---------------------------------------------------------------------
 
 def classify_analytical_layer(
     event: Dict[str, Any]
@@ -1239,20 +1549,25 @@ def classify_analytical_layer(
     )
 
     if subtype == "assessment":
+
         return "assessment"
 
     if subtype == "indicator":
 
         if (
-            "disinformation" in categories
+            "disinformation"
+            in categories
             and not (
                 categories
                 & (
                     OPERATIONAL_CATEGORIES
-                    - {"disinformation"}
+                    - {
+                        "disinformation"
+                    }
                 )
             )
         ):
+
             return "information"
 
         return "early_warning"
@@ -1261,6 +1576,7 @@ def classify_analytical_layer(
         "incident",
         "activity"
     }:
+
         return "operational"
 
     return "assessment"
@@ -1626,7 +1942,8 @@ def merge_item_into_event(
                     0
                 )
             )
-            for i in event[
+            for i
+            in event[
                 "related_items"
             ]
         )
@@ -1732,7 +2049,9 @@ def cluster_items(
                 item,
                 event
             ):
+
                 matched_event = event
+
                 break
 
         if matched_event:
@@ -1754,7 +2073,7 @@ def cluster_items(
 
 
 # ---------------------------------------------------------------------
-# OUTPUT
+# OUTPUT CLEANING
 # ---------------------------------------------------------------------
 
 def clean_event_for_output(
@@ -1786,6 +2105,10 @@ def clean_event_for_output(
 
     return output
 
+
+# ---------------------------------------------------------------------
+# SUMMARY
+# ---------------------------------------------------------------------
 
 def build_summary(
     events: List[Dict[str, Any]]
@@ -1983,7 +2306,8 @@ def main() -> None:
         clean_event_for_output(
             event
         )
-        for event in events
+        for event
+        in events
     ]
 
     payload = {
@@ -2042,8 +2366,8 @@ def main() -> None:
         "method": {
             "description":
                 (
-                    "Threat Intelligence Engine v1.1 event clustering "
-                    "with context-aware ontology classification."
+                    "Threat Intelligence Engine v1.2 event clustering "
+                    "with boundary-aware context classification."
                 ),
 
             "rules": [
@@ -2063,13 +2387,20 @@ def main() -> None:
                     "source diversity and official-source bonus"
                 ),
                 (
+                    "use word and phrase boundary-aware matching "
+                    "instead of raw substring matching"
+                ),
+                (
                     "distinguish confirmed incidents from warnings "
                     "and possible future events"
                 ),
                 (
-                    "prevent policy, investment, procurement and "
-                    "capability-development stories from being "
-                    "classified as incidents without action evidence"
+                    "prioritize procurement, investment and capability "
+                    "development context over incidental threat words"
+                ),
+                (
+                    "use primary title and summary as stronger "
+                    "classification evidence than related titles"
                 ),
                 (
                     "classify event subtype as incident, activity, "
@@ -2106,7 +2437,8 @@ def main() -> None:
                 "assessment":
                     (
                         "Strategic, institutional, political, "
-                        "capability-development or analytical background."
+                        "procurement, investment, capability-development "
+                        "or analytical background."
                     )
             },
 
@@ -2119,7 +2451,7 @@ def main() -> None:
 
                 "early_warning":
                     (
-                        "Warning, forecast or other precursor signal "
+                        "Warning, forecast or precursor signal "
                         "without a confirmed operational incident."
                     ),
 
@@ -2131,10 +2463,13 @@ def main() -> None:
 
                 "assessment":
                     (
-                        "Analytical, policy, investment, preparedness "
-                        "or institutional background."
+                        "Analytical, policy, investment, preparedness, "
+                        "procurement or institutional background."
                     )
-            }
+            },
+
+            "classification_version":
+                "ontology_v1_2_boundary_context"
         },
 
         "events":
@@ -2167,7 +2502,15 @@ def main() -> None:
     )
 
     print(
-        "Classification model: Threat Intelligence Engine v1.1"
+        "Classification model: Threat Intelligence Engine v1.2"
+    )
+
+    print(
+        "Term matching: boundary-aware"
+    )
+
+    print(
+        "Capability-development override: enabled"
     )
 
     print(
