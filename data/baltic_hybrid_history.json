@@ -2,7 +2,7 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-08-28T09:35:00.372584+00:00",
+  "updated_at": "2026-08-28T09:43:47.007621+00:00",
   "record_count": 28,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
@@ -18422,39 +18422,37 @@
     },
     {
       "date": "2026-08-28",
-      "generated_at": "2026-08-28T09:35:00.371970+00:00",
-      "input_generated_at": "2026-08-28T09:35:00.163163+00:00",
+      "generated_at": "2026-08-28T09:43:47.007054+00:00",
+      "input_generated_at": "2026-08-28T09:43:46.795885+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
-          "event_count": 24,
-          "incident_count": 5,
+          "event_count": 21,
+          "incident_count": 1,
           "activity_count": 0,
-          "indicator_count": 4,
-          "assessment_count": 15,
-          "score_total": 246,
-          "average_score": 10.25,
-          "highest_score": 69,
+          "indicator_count": 7,
+          "assessment_count": 13,
+          "score_total": 81,
+          "average_score": 3.86,
+          "highest_score": 40,
           "overall_level": "low"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
-            "event_count": 5,
-            "score_total": 69,
-            "average_score": 13.8,
-            "highest_score": 69,
+            "event_count": 1,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
             "level": "low",
-            "categories": {
-              "critical_infrastructure": 1
-            }
+            "categories": {}
           },
           "Latvia": {
             "country": "Latvia",
             "event_count": 3,
-            "score_total": 8,
-            "average_score": 2.67,
-            "highest_score": 8,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
             "level": "low",
             "categories": {
               "critical_infrastructure": 1
@@ -18463,57 +18461,40 @@
           "Lithuania": {
             "country": "Lithuania",
             "event_count": 8,
-            "score_total": 88,
-            "average_score": 11.0,
-            "highest_score": 60,
+            "score_total": 10,
+            "average_score": 1.25,
+            "highest_score": 6,
             "level": "low",
             "categories": {
-              "migration_pressure": 1,
               "disinformation": 1
             }
           },
           "Poland": {
             "country": "Poland",
             "event_count": 6,
-            "score_total": 205,
-            "average_score": 34.17,
-            "highest_score": 69,
-            "level": "guarded",
+            "score_total": 49,
+            "average_score": 8.17,
+            "highest_score": 40,
+            "level": "low",
             "categories": {
-              "critical_infrastructure": 2,
-              "migration_pressure": 1,
               "drone_incident": 1,
+              "critical_infrastructure": 1,
               "military_provocation": 1
             }
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 8,
-            "score_total": 74,
-            "average_score": 9.25,
-            "highest_score": 69,
+            "event_count": 7,
+            "score_total": 22,
+            "average_score": 3.14,
+            "highest_score": 6,
             "level": "low",
             "categories": {
-              "critical_infrastructure": 1,
               "cyber": 5
             }
           }
         },
         "categories": {
-          "critical_infrastructure": {
-            "category": "critical_infrastructure",
-            "event_count": 3,
-            "score_total": 117,
-            "average_score": 39.0,
-            "highest_score": 69
-          },
-          "migration_pressure": {
-            "category": "migration_pressure",
-            "event_count": 1,
-            "score_total": 60,
-            "average_score": 60.0,
-            "highest_score": 60
-          },
           "drone_incident": {
             "category": "drone_incident",
             "event_count": 1,
@@ -18521,12 +18502,26 @@
             "average_score": 40.0,
             "highest_score": 40
           },
+          "critical_infrastructure": {
+            "category": "critical_infrastructure",
+            "event_count": 2,
+            "score_total": 40,
+            "average_score": 20.0,
+            "highest_score": 40
+          },
+          "cyber": {
+            "category": "cyber",
+            "event_count": 5,
+            "score_total": 22,
+            "average_score": 4.4,
+            "highest_score": 6
+          },
           "military_provocation": {
             "category": "military_provocation",
             "event_count": 1,
-            "score_total": 36,
-            "average_score": 36.0,
-            "highest_score": 36
+            "score_total": 9,
+            "average_score": 9.0,
+            "highest_score": 9
           },
           "disinformation": {
             "category": "disinformation",
@@ -18534,13 +18529,6 @@
             "score_total": 6,
             "average_score": 6.0,
             "highest_score": 6
-          },
-          "cyber": {
-            "category": "cyber",
-            "event_count": 5,
-            "score_total": 5,
-            "average_score": 1.0,
-            "highest_score": 5
           }
         },
         "layers": {
@@ -18552,21 +18540,21 @@
             "level": "low"
           },
           "early_warning": {
-            "event_count": 4,
-            "score_total": 24,
-            "average_score": 6.0,
-            "highest_score": 8,
+            "event_count": 7,
+            "score_total": 41,
+            "average_score": 5.86,
+            "highest_score": 9,
             "level": "low"
           },
           "operational": {
-            "event_count": 5,
-            "score_total": 222,
-            "average_score": 44.4,
-            "highest_score": 69,
+            "event_count": 1,
+            "score_total": 40,
+            "average_score": 40.0,
+            "highest_score": 40,
             "level": "elevated"
           },
           "assessment": {
-            "event_count": 15,
+            "event_count": 13,
             "score_total": 0,
             "average_score": 0.0,
             "highest_score": 0,
@@ -18574,68 +18562,18 @@
           }
         },
         "hotspot": {
-          "location": "Tallinn",
-          "score": 0,
-          "event_count": 1
+          "location": "Poland",
+          "score": 49,
+          "event_count": 6
         },
-        "key_driver": "critical_infrastructure",
+        "key_driver": "drone_incident",
         "trend": "decreasing",
         "top_items": [
           {
             "id": null,
-            "title": "Foreign Russia will not attack NATO, Trump says after CIA chief's Moscow visit",
-            "url": "https://www.polskieradio.pl/395/7785/Artykul/3724853,russia-will-not-attack-nato-trump-says-after-cia-chiefs-moscow-visit",
-            "published_at": "2026-08-28T09:34:45.373722+00:00",
-            "source_name": null,
-            "primary_country": "Regional",
-            "countries": [
-              "Poland",
-              "Estonia"
-            ],
-            "categories": [
-              "critical_infrastructure"
-            ],
-            "actors": [
-              "Russia",
-              "NATO"
-            ],
-            "locations": [],
-            "event_subtype": "incident",
-            "analytical_layer": "operational",
-            "confidence": "high",
-            "hybrid_threat_score": 69,
-            "hybrid_threat_level": "high"
-          },
-          {
-            "id": null,
-            "title": "Whatâs behind Russiaâs threats against Baltics and Poland?",
-            "url": "https://www.lrt.lt/en/news-in-english/19/3031330/what-s-behind-russia-s-threats-against-baltics-and-poland",
-            "published_at": "2026-08-28T09:34:43.572098+00:00",
-            "source_name": null,
-            "primary_country": "Poland",
-            "countries": [
-              "Poland",
-              "Lithuania"
-            ],
-            "categories": [
-              "migration_pressure"
-            ],
-            "actors": [
-              "Russia",
-              "Belarus"
-            ],
-            "locations": [],
-            "event_subtype": "incident",
-            "analytical_layer": "operational",
-            "confidence": "high",
-            "hybrid_threat_score": 60,
-            "hybrid_threat_level": "high"
-          },
-          {
-            "id": null,
             "title": "Warsaw to install drone-detection system amid rise in airspace incursions: report 26.08.2026 08:00",
             "url": "https://www.polskieradio.pl/395/7784/Artykul/3724106,warsaw-to-install-dronedetection-system-amid-rise-in-airspace-incursions-report",
-            "published_at": "2026-08-28T09:34:45.374001+00:00",
+            "published_at": "2026-08-28T09:43:34.435221+00:00",
             "source_name": null,
             "primary_country": "Poland",
             "countries": [
@@ -18657,7 +18595,7 @@
             "id": null,
             "title": "Foreign Moscow warns of strikes on UK military sites in Ukraine amid missile row",
             "url": "https://www.polskieradio.pl/395/7785/Artykul/3724768,moscow-warns-of-strikes-on-uk-military-sites-in-ukraine-amid-missile-row",
-            "published_at": "2026-08-28T09:34:45.373870+00:00",
+            "published_at": "2026-08-28T09:43:34.435082+00:00",
             "source_name": null,
             "primary_country": "Poland",
             "countries": [
@@ -18670,62 +18608,59 @@
               "Russia"
             ],
             "locations": [],
-            "event_subtype": "incident",
-            "analytical_layer": "operational",
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
             "confidence": "low",
-            "hybrid_threat_score": 36,
-            "hybrid_threat_level": "guarded"
-          },
-          {
-            "id": null,
-            "title": "CIA visit to Moscow warned Putin not to attack Baltic states â media",
-            "url": "https://www.lrt.lt/en/news-in-english/19/3034073/cia-visit-to-moscow-warned-putin-not-to-attack-baltic-states-media",
-            "published_at": "2026-08-28T09:34:43.571307+00:00",
-            "source_name": null,
-            "primary_country": "Lithuania",
-            "countries": [
-              "Lithuania"
-            ],
-            "categories": [],
-            "actors": [
-              "Russia"
-            ],
-            "locations": [],
-            "event_subtype": "incident",
-            "analytical_layer": "operational",
-            "confidence": "low",
-            "hybrid_threat_score": 17,
+            "hybrid_threat_score": 9,
             "hybrid_threat_level": "low"
           },
           {
             "id": null,
-            "title": "Major cigarette smuggling operation case goes to court in Latvia",
-            "url": "https://eng.lsm.lv/article/society/crime/28.08.2026-major-cigarette-smuggling-operation-case-goes-to-court-in-latvia.a660750/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-            "published_at": "2026-08-28T06:53:07+00:00",
+            "title": "5th consecutive victory for Team Europe, the still undefeated EU Champions of the International Cybersecurity Challenge",
+            "url": "https://www.enisa.europa.eu/news/5th-consecutive-victory-for-team-europe-the-still-undefeated-eu-champions-of-the-international-cybersecurity-challenge ",
+            "published_at": "2026-08-28T09:43:38.637521+00:00",
             "source_name": null,
-            "primary_country": "Latvia",
-            "countries": [
-              "Latvia"
-            ],
+            "primary_country": "Regional",
+            "countries": [],
             "categories": [
-              "critical_infrastructure"
+              "cyber"
             ],
             "actors": [
-              "Belarus",
               "EU"
             ],
             "locations": [],
             "event_subtype": "indicator",
             "analytical_layer": "early_warning",
             "confidence": "low",
-            "hybrid_threat_score": 8,
+            "hybrid_threat_score": 6,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "ENISA to operate the EU Cybersecurity Reserve with EUR 36 million",
+            "url": "https://www.enisa.europa.eu/news/enisa-to-operate-the-eu-cybersecurity-reserve-with-eur-36-million",
+            "published_at": "2026-08-28T09:43:38.636317+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "cyber"
+            ],
+            "actors": [
+              "EU"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 6,
             "hybrid_threat_level": "low"
           },
           {
             "id": null,
             "title": "Russian propaganda on 1939 Nazi-Soviet pact shifts focus, study finds",
             "url": "https://www.lrt.lt/en/news-in-english/19/3031153/russian-propaganda-on-1939-nazi-soviet-pact-shifts-focus-study-finds",
-            "published_at": "2026-08-28T09:34:43.571973+00:00",
+            "published_at": "2026-08-28T09:43:32.189756+00:00",
             "source_name": null,
             "primary_country": "Lithuania",
             "countries": [
@@ -18746,9 +18681,30 @@
           },
           {
             "id": null,
+            "title": "Cyber Europe 2026: All eyes on the EU’s collective response and resilience",
+            "url": "https://www.enisa.europa.eu/news/cyber-europe-2026-all-eyes-on-the-eus-collective-response-and-resilience ",
+            "published_at": "2026-08-28T09:43:38.637258+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "cyber"
+            ],
+            "actors": [
+              "EU"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 5,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
             "title": "Where do SMEs stand in preparing for the Cyber Resilience Act?",
             "url": "https://www.enisa.europa.eu/news/where-do-smes-stand-in-preparing-for-the-cyber-resilience-act ",
-            "published_at": "2026-08-28T09:34:48.650412+00:00",
+            "published_at": "2026-08-28T09:43:38.636907+00:00",
             "source_name": null,
             "primary_country": "Regional",
             "countries": [],
@@ -18765,9 +18721,9 @@
           },
           {
             "id": null,
-            "title": "Baltic states arm for Russian threat as leaked letter shows growing fears",
-            "url": "https://www.lrt.lt/en/news-in-english/19/3034302/baltic-states-arm-for-russian-threat-as-leaked-letter-shows-growing-fears",
-            "published_at": "2026-08-28T09:34:43.570892+00:00",
+            "title": "CIA visit to Moscow warned Putin not to attack Baltic states â media",
+            "url": "https://www.lrt.lt/en/news-in-english/19/3034073/cia-visit-to-moscow-warned-putin-not-to-attack-baltic-states-media",
+            "published_at": "2026-08-28T09:43:32.189092+00:00",
             "source_name": null,
             "primary_country": "Lithuania",
             "countries": [
@@ -18781,14 +18737,36 @@
             "event_subtype": "indicator",
             "analytical_layer": "early_warning",
             "confidence": "low",
-            "hybrid_threat_score": 5,
+            "hybrid_threat_score": 4,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Foreign Russia will not attack NATO, Trump says after CIA chief's Moscow visit",
+            "url": "https://www.polskieradio.pl/395/7785/Artykul/3724853,russia-will-not-attack-nato-trump-says-after-cia-chiefs-moscow-visit",
+            "published_at": "2026-08-28T09:43:34.434930+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [],
+            "actors": [
+              "Russia",
+              "NATO"
+            ],
+            "locations": [],
+            "event_subtype": "assessment",
+            "analytical_layer": "assessment",
+            "confidence": "medium",
+            "hybrid_threat_score": 0,
             "hybrid_threat_level": "low"
           },
           {
             "id": null,
             "title": "Russian invasion of Ukraine",
             "url": "https://www.lrt.lt/en/tag/russian-invasion-of-ukraine",
-            "published_at": "2026-08-28T09:34:43.571877+00:00",
+            "published_at": "2026-08-28T09:43:32.189638+00:00",
             "source_name": null,
             "primary_country": "Regional",
             "countries": [
@@ -18816,60 +18794,57 @@
           "end_date": "2026-08-28"
         },
         "overall": {
-          "event_count": 113,
-          "incident_count": 44,
-          "activity_count": 5,
-          "indicator_count": 18,
-          "assessment_count": 46,
-          "score_total": 1876,
-          "average_score": 16.6,
-          "highest_score": 89,
+          "event_count": 95,
+          "incident_count": 18,
+          "activity_count": 1,
+          "indicator_count": 32,
+          "assessment_count": 44,
+          "score_total": 1019,
+          "average_score": 10.73,
+          "highest_score": 90,
           "overall_level": "low"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
-            "event_count": 26,
-            "score_total": 313,
-            "average_score": 12.04,
-            "highest_score": 69,
+            "event_count": 6,
+            "score_total": 48,
+            "average_score": 8.0,
+            "highest_score": 46,
             "level": "low",
             "categories": {
-              "critical_infrastructure": 4,
-              "sabotage": 3,
-              "drone_incident": 1,
-              "cyber": 1,
-              "migration_pressure": 1
+              "sabotage": 2,
+              "critical_infrastructure": 1
             }
           },
           "Latvia": {
             "country": "Latvia",
-            "event_count": 31,
-            "score_total": 351,
-            "average_score": 11.32,
-            "highest_score": 50,
+            "event_count": 29,
+            "score_total": 175,
+            "average_score": 6.03,
+            "highest_score": 31,
             "level": "low",
             "categories": {
-              "sabotage": 3,
-              "critical_infrastructure": 11,
-              "border_pressure": 1,
               "migration_pressure": 1,
-              "drone_incident": 2,
               "cyber": 4,
+              "critical_infrastructure": 11,
+              "sabotage": 2,
+              "drone_incident": 1,
+              "border_pressure": 1,
               "military_provocation": 1
             }
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 13,
-            "score_total": 260,
-            "average_score": 20.0,
-            "highest_score": 69,
-            "level": "guarded",
+            "event_count": 12,
+            "score_total": 69,
+            "average_score": 5.75,
+            "highest_score": 31,
+            "level": "low",
             "categories": {
+              "migration_pressure": 1,
               "critical_infrastructure": 1,
-              "drone_incident": 2,
-              "migration_pressure": 2,
+              "drone_incident": 1,
               "sabotage": 1,
               "disinformation": 1
             }
@@ -18877,106 +18852,106 @@
           "Poland": {
             "country": "Poland",
             "event_count": 24,
-            "score_total": 617,
-            "average_score": 25.71,
-            "highest_score": 89,
-            "level": "guarded",
+            "score_total": 302,
+            "average_score": 12.58,
+            "highest_score": 90,
+            "level": "low",
             "categories": {
               "cyber": 2,
               "drone_incident": 3,
-              "migration_pressure": 3,
-              "sabotage": 2,
-              "gps_interference": 2,
+              "migration_pressure": 2,
               "military_provocation": 3,
-              "critical_infrastructure": 4
+              "critical_infrastructure": 3,
+              "sabotage": 2,
+              "gps_interference": 1
             }
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 33,
-            "score_total": 760,
-            "average_score": 23.03,
-            "highest_score": 69,
-            "level": "guarded",
+            "event_count": 34,
+            "score_total": 506,
+            "average_score": 14.88,
+            "highest_score": 76,
+            "level": "low",
             "categories": {
-              "critical_infrastructure": 5,
-              "cyber": 11,
-              "espionage": 2,
+              "cyber": 16,
+              "critical_infrastructure": 6,
+              "espionage": 3,
               "sabotage": 4,
-              "drone_incident": 2
+              "disinformation": 1
             }
           }
         },
         "categories": {
+          "cyber": {
+            "category": "cyber",
+            "event_count": 22,
+            "score_total": 510,
+            "average_score": 23.18,
+            "highest_score": 90
+          },
           "critical_infrastructure": {
             "category": "critical_infrastructure",
-            "event_count": 22,
-            "score_total": 587,
-            "average_score": 26.68,
-            "highest_score": 79
-          },
-          "sabotage": {
-            "category": "sabotage",
-            "event_count": 10,
-            "score_total": 480,
-            "average_score": 48.0,
+            "event_count": 21,
+            "score_total": 416,
+            "average_score": 19.81,
             "highest_score": 79
           },
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 9,
-            "score_total": 423,
-            "average_score": 47.0,
-            "highest_score": 89
+            "event_count": 5,
+            "score_total": 236,
+            "average_score": 47.2,
+            "highest_score": 90
           },
-          "cyber": {
-            "category": "cyber",
-            "event_count": 18,
-            "score_total": 365,
-            "average_score": 20.28,
-            "highest_score": 89
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 9,
+            "score_total": 232,
+            "average_score": 25.78,
+            "highest_score": 52
           },
           "migration_pressure": {
             "category": "migration_pressure",
-            "event_count": 4,
-            "score_total": 184,
-            "average_score": 46.0,
-            "highest_score": 89
+            "event_count": 2,
+            "score_total": 121,
+            "average_score": 60.5,
+            "highest_score": 90
           },
           "military_provocation": {
             "category": "military_provocation",
             "event_count": 4,
-            "score_total": 122,
-            "average_score": 30.5,
-            "highest_score": 79
-          },
-          "gps_interference": {
-            "category": "gps_interference",
-            "event_count": 2,
-            "score_total": 84,
-            "average_score": 42.0,
+            "score_total": 103,
+            "average_score": 25.75,
             "highest_score": 79
           },
           "espionage": {
             "category": "espionage",
+            "event_count": 3,
+            "score_total": 96,
+            "average_score": 32.0,
+            "highest_score": 76
+          },
+          "disinformation": {
+            "category": "disinformation",
             "event_count": 2,
-            "score_total": 78,
-            "average_score": 39.0,
-            "highest_score": 54
+            "score_total": 17,
+            "average_score": 8.5,
+            "highest_score": 11
           },
           "border_pressure": {
             "category": "border_pressure",
             "event_count": 1,
-            "score_total": 37,
-            "average_score": 37.0,
-            "highest_score": 37
+            "score_total": 9,
+            "average_score": 9.0,
+            "highest_score": 9
           },
-          "disinformation": {
-            "category": "disinformation",
+          "gps_interference": {
+            "category": "gps_interference",
             "event_count": 1,
-            "score_total": 6,
-            "average_score": 6.0,
-            "highest_score": 6
+            "score_total": 5,
+            "average_score": 5.0,
+            "highest_score": 5
           }
         },
         "layers": {
@@ -18988,21 +18963,21 @@
             "level": "low"
           },
           "early_warning": {
-            "event_count": 18,
-            "score_total": 104,
-            "average_score": 5.78,
-            "highest_score": 10,
+            "event_count": 32,
+            "score_total": 243,
+            "average_score": 7.59,
+            "highest_score": 17,
             "level": "low"
           },
           "operational": {
-            "event_count": 49,
-            "score_total": 1772,
-            "average_score": 36.16,
-            "highest_score": 89,
-            "level": "guarded"
+            "event_count": 19,
+            "score_total": 776,
+            "average_score": 40.84,
+            "highest_score": 90,
+            "level": "elevated"
           },
           "assessment": {
-            "event_count": 46,
+            "event_count": 44,
             "score_total": 0,
             "average_score": 0.0,
             "highest_score": 0,
@@ -19010,9 +18985,9 @@
           }
         },
         "hotspot": {
-          "location": "Baltic Sea",
-          "score": 114,
-          "event_count": 3
+          "location": "Belarus Border",
+          "score": 9,
+          "event_count": 1
         },
         "top_items": [
           {
@@ -19038,34 +19013,8 @@
             "event_subtype": "incident",
             "analytical_layer": "operational",
             "confidence": "medium",
-            "hybrid_threat_score": 89,
+            "hybrid_threat_score": 90,
             "hybrid_threat_level": "critical"
-          },
-          {
-            "id": null,
-            "title": "Poland and Baltic states face rising Russian sabotage - UK Defence Journal",
-            "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPZlNhZktsa0JBeHRoS0FybHI5U2ZwNFFYOG52d0NxWW9mR0NVU3pxOGZlaXZVTHJfdVExRWtWaHNidzk2MmxyamFqWTlaSVMzSFozbG1leTgyOXZ6elViWnFJXzFTSDk3a0pkS19vYXlRcDZUS25kNEc5cVpIZ29XYUo5bW9kSEZqT0dKQXNXQQ?oc=5",
-            "published_at": "2026-08-24T11:08:47+00:00",
-            "source_name": null,
-            "primary_country": "Poland",
-            "countries": [
-              "Poland"
-            ],
-            "categories": [
-              "sabotage",
-              "gps_interference"
-            ],
-            "actors": [
-              "Russia"
-            ],
-            "locations": [
-              "Baltic Sea"
-            ],
-            "event_subtype": "incident",
-            "analytical_layer": "operational",
-            "confidence": "medium",
-            "hybrid_threat_score": 79,
-            "hybrid_threat_level": "high"
           },
           {
             "id": null,
@@ -19094,78 +19043,25 @@
           },
           {
             "id": null,
-            "title": "Foreign Russia will not attack NATO, Trump says after CIA chief's Moscow visit",
-            "url": "https://www.polskieradio.pl/395/7785/Artykul/3724853,russia-will-not-attack-nato-trump-says-after-cia-chiefs-moscow-visit",
-            "published_at": "2026-08-28T09:34:45.373722+00:00",
+            "title": "Chinese and Russian spies stepping up cyberattacks, German companies report",
+            "url": "https://therecord.media/germany-cyberattacks-china-russia",
+            "published_at": "2026-08-27T14:45:00+00:00",
             "source_name": null,
             "primary_country": "Regional",
-            "countries": [
-              "Poland",
-              "Estonia"
-            ],
+            "countries": [],
             "categories": [
-              "critical_infrastructure"
-            ],
-            "actors": [
-              "Russia",
-              "NATO"
-            ],
-            "locations": [],
-            "event_subtype": "incident",
-            "analytical_layer": "operational",
-            "confidence": "high",
-            "hybrid_threat_score": 69,
-            "hybrid_threat_level": "high"
-          },
-          {
-            "id": null,
-            "title": "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure - Межа. Новини України.",
-            "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9xbVliNWRIZEZLVUNZYTc5WG1Wc1RfWVN5clZ5YlJab1ZfVFdxdW9XTUllc0UxSDVZbngtT0FvQ1BPWFRBT3ZYS1dHU3NJd1ZJa0Q4aDFIV0swanJtV3c1US1UZDk3X2RmbTc5cQ?oc=5",
-            "published_at": "2026-08-24T16:28:25+00:00",
-            "source_name": null,
-            "primary_country": "Lithuania",
-            "countries": [
-              "Lithuania"
-            ],
-            "categories": [
+              "cyber",
               "critical_infrastructure",
-              "drone_incident"
+              "espionage"
             ],
             "actors": [
-              "Russia",
-              "NATO",
-              "EU"
+              "Russia"
             ],
             "locations": [],
             "event_subtype": "incident",
             "analytical_layer": "operational",
             "confidence": "low",
-            "hybrid_threat_score": 69,
-            "hybrid_threat_level": "high"
-          },
-          {
-            "id": null,
-            "title": "Whatâs behind Russiaâs threats against Baltics and Poland?",
-            "url": "https://www.lrt.lt/en/news-in-english/19/3031330/what-s-behind-russia-s-threats-against-baltics-and-poland",
-            "published_at": "2026-08-28T09:34:43.572098+00:00",
-            "source_name": null,
-            "primary_country": "Poland",
-            "countries": [
-              "Poland",
-              "Lithuania"
-            ],
-            "categories": [
-              "migration_pressure"
-            ],
-            "actors": [
-              "Russia",
-              "Belarus"
-            ],
-            "locations": [],
-            "event_subtype": "incident",
-            "analytical_layer": "operational",
-            "confidence": "high",
-            "hybrid_threat_score": 60,
+            "hybrid_threat_score": 76,
             "hybrid_threat_level": "high"
           },
           {
@@ -19192,28 +19088,6 @@
           },
           {
             "id": null,
-            "title": "Nauseda warned of possible Russian attacks on Baltic infrastructure - UA.NEWS",
-            "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNX3I2TDEta2p6N2JuSHN3c0lwY2hGZ2ctT3hxaWM0YkdIZG5EMklQRzJOWUM5S1R0MDk5cTJEVjd1bUtnTFJqczJOclZEQzVYQjV0bV9TbWRmTTdYZmxKbUJiSW8xdFVsQXlUaFpKVk5fbGpWdkdkc3RjWXY2QjVqU0dWR092Q1dZZkg0SjBrSmlKcUR4THZvU2xhQ2JRUk0?oc=5",
-            "published_at": "2026-08-24T20:17:53+00:00",
-            "source_name": null,
-            "primary_country": "Regional",
-            "countries": [],
-            "categories": [
-              "critical_infrastructure",
-              "espionage"
-            ],
-            "actors": [
-              "Russia"
-            ],
-            "locations": [],
-            "event_subtype": "incident",
-            "analytical_layer": "operational",
-            "confidence": "low",
-            "hybrid_threat_score": 54,
-            "hybrid_threat_level": "elevated"
-          },
-          {
-            "id": null,
             "title": "Germany says 2nd suspect in Nord Stream pipeline sabotage arrested in Croatia - CBC",
             "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTFBrd3FHTHpFS0ZJZzRaS3ZJMU9xNnFZam9OZmZXUFFCRWVfTGM0cGpqMldHQ001R0EweHNoTXhaeWpYUlhvWmIyd2ZqZy1VSGFNZFJCWVhCcXp3S1I5ZXNrTndIUVdJS2ItRC1xYnlkWVFfcWVPX18wUks5cE9sZUk?oc=5",
             "published_at": "2026-08-19T07:00:00+00:00",
@@ -19234,27 +19108,110 @@
           },
           {
             "id": null,
-            "title": "Explosives factory being built near Jēkabpils, Latvia",
-            "url": "https://eng.lsm.lv/article/society/defence/27.08.2026-explosives-factory-being-built-near-jekabpils-latvia.a660549/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-            "published_at": "2026-08-27T07:13:26+00:00",
+            "title": "ATF confirms “major incident” after recent Qilin breach claims",
+            "url": "https://www.bleepingcomputer.com/news/security/atf-confirms-major-incident-after-recent-qilin-breach-claims/",
+            "published_at": "2026-08-27T08:13:50+00:00",
             "source_name": null,
-            "primary_country": "Latvia",
-            "countries": [
-              "Estonia",
-              "Latvia"
-            ],
+            "primary_country": "Regional",
+            "countries": [],
             "categories": [
               "sabotage",
-              "critical_infrastructure"
+              "cyber"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 49,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Estonia Probes Possible Russian Sabotage After Milrem Robotics Arson - The Defense Post",
+            "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBtbmk0Qm9JOUw2TU5FTzhkRVN2d0VfTkFmaVZPc3BfdzJTMjJYb0lfOWVMMU8yUmNVOFR4WDNBdEM4ZG1ZblpnQjRjNEtOLWJrU1c3bmw3d0ZOQTN0MWt1eGhuV2xYRmM3YW1KUDZJOVl5aWdu0gF6QVVfeXFMT2VTREhxbkZpZjkteGdjV3c2UVA5WU5UUG5hVnJCSXpSNmx5c1lrMUE3RktWTUFwZk91T3NTTXFpMjB2bDlpRjFmWm9aTV96N1ZXbEpnMklVNTVtQTNCQkpYOVEtcDR1QlBma0g5T29FdmtaZGM4bmllbVE?oc=5",
+            "published_at": "2026-08-21T15:09:40+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
             ],
             "actors": [
+              "Russia",
               "EU"
             ],
             "locations": [],
             "event_subtype": "incident",
             "analytical_layer": "operational",
             "confidence": "low",
-            "hybrid_threat_score": 50,
+            "hybrid_threat_score": 46,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Cyberattack on Manchester Airports Group exposes data of 8.7 million customers",
+            "url": "https://therecord.media/cyberattack-on-manchester-airports-group-exposes-millions-customer-info",
+            "published_at": "2026-08-27T13:15:00+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "cyber",
+              "critical_infrastructure"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 44,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Russia Has Launched New Wave Of Sabotage At Weapons Factories Across Europe - uatv.ua",
+            "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOeUladUdrbFF0VE9mdzBqTlFJVjZNSTdYM1QzQnBGX19kcDFvelFIbk1FcmNIbXlPMEx3OUJOeGlMeEJmS1U1WWNzMjkzcl8wMjRVb19zOEp1X2UyeDF2WDB5SjFRN1Via3dKZHJNUW5xdlVja2llaG5BcldMYkozV1Z1UTlVcXQxbmNqTURGWU52Zk9iM2ltUkhFQQ?oc=5",
+            "published_at": "2026-08-25T12:38:00+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia",
+              "EU"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 44,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Warsaw to install drone-detection system amid rise in airspace incursions: report 26.08.2026 08:00",
+            "url": "https://www.polskieradio.pl/395/7784/Artykul/3724106,warsaw-to-install-dronedetection-system-amid-rise-in-airspace-incursions-report",
+            "published_at": "2026-08-28T09:43:34.435221+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "drone_incident",
+              "critical_infrastructure"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 40,
             "hybrid_threat_level": "elevated"
           }
         ]
