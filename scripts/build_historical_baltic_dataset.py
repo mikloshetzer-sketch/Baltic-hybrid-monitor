@@ -23,22 +23,50 @@ COUNTRIES = [
 
 
 # ---------------------------------------------------------------------
+# ANALYTICAL LAYER CATEGORIES
+# ---------------------------------------------------------------------
+
+OPERATIONAL_CATEGORIES = {
+    "sabotage",
+    "critical_infrastructure",
+    "drone_incident",
+    "gps_interference",
+    "cyber",
+    "espionage",
+    "military_provocation",
+    "border_pressure",
+    "migration_pressure"
+}
+
+
+# ---------------------------------------------------------------------
 # BASIC IO
 # ---------------------------------------------------------------------
 
-def load_json(path: Path, default: Any = None) -> Any:
+def load_json(
+    path: Path,
+    default: Any = None
+) -> Any:
+
     if not path.exists():
         return default
 
     try:
         return json.loads(
-            path.read_text(encoding="utf-8")
+            path.read_text(
+                encoding="utf-8"
+            )
         )
+
     except json.JSONDecodeError:
         return default
 
 
-def save_json(path: Path, payload: Dict[str, Any]) -> None:
+def save_json(
+    path: Path,
+    payload: Dict[str, Any]
+) -> None:
+
     path.parent.mkdir(
         parents=True,
         exist_ok=True
@@ -58,11 +86,15 @@ def save_json(path: Path, payload: Dict[str, Any]) -> None:
 # DATE HANDLING
 # ---------------------------------------------------------------------
 
-def parse_datetime(value: Optional[str]) -> Optional[datetime]:
+def parse_datetime(
+    value: Optional[str]
+) -> Optional[datetime]:
+
     if not value:
         return None
 
     try:
+
         dt = datetime.fromisoformat(
             str(value).replace(
                 "Z",
@@ -83,8 +115,13 @@ def parse_datetime(value: Optional[str]) -> Optional[datetime]:
         return None
 
 
-def parse_date(value: Optional[str]):
-    dt = parse_datetime(value)
+def parse_date(
+    value: Optional[str]
+):
+
+    dt = parse_datetime(
+        value
+    )
 
     if dt is None:
         return None
@@ -92,34 +129,34 @@ def parse_date(value: Optional[str]):
     return dt.date()
 
 
-def utc_today():
-    return datetime.now(
-        timezone.utc
-    ).date()
-
-
 # ---------------------------------------------------------------------
-# LEVEL CLASSIFICATION
+# THREAT LEVEL CLASSIFICATION
 # ---------------------------------------------------------------------
 
-def classify_level(score: float) -> str:
-    """
-    Classification used for aggregated daily and rolling averages.
+def classify_level(
+    score: float
+) -> str:
 
-    This intentionally follows the historical dashboard scale,
-    not the individual-event 0-100 score scale.
+    """
+    Unified Baltic Hybrid Threat Score scale.
+
+    LOW      0-19
+    GUARDED  20-39
+    ELEVATED 40-59
+    HIGH     60-79
+    CRITICAL 80+
     """
 
-    if score >= 18:
+    if score >= 80:
         return "critical"
 
-    if score >= 12:
+    if score >= 60:
         return "high"
 
-    if score >= 7:
+    if score >= 40:
         return "elevated"
 
-    if score >= 3:
+    if score >= 20:
         return "guarded"
 
     return "low"
@@ -134,6 +171,7 @@ def event_score(
 ) -> int:
 
     try:
+
         return int(
             round(
                 float(
@@ -176,13 +214,28 @@ def event_subtype(
 def event_layer(
     item: Dict[str, Any]
 ) -> str:
-    """
-    Analytical layer for the Baltic Intelligence Matrix.
 
-    This does not replace categories or event_subtype.
+    """
+    Analytical layer classification.
+
+    information:
+        Pure information/disinformation activity.
+
+    early_warning:
+        Indicators and precursor signals.
+
+    operational:
+        Operational incidents or activities.
+
+    assessment:
+        Strategic/institutional/analytical background.
+
+    Mixed operational + disinformation events remain operational.
     """
 
-    subtype = event_subtype(item)
+    subtype = event_subtype(
+        item
+    )
 
     categories = set(
         item.get(
@@ -197,20 +250,26 @@ def event_layer(
     if subtype == "indicator":
         return "early_warning"
 
+    if (
+        "disinformation" in categories
+        and not (
+            categories
+            & OPERATIONAL_CATEGORIES
+        )
+    ):
+        return "information"
+
     if subtype in {
         "incident",
         "activity"
     }:
         return "operational"
 
-    if "disinformation" in categories:
-        return "information"
-
     return "assessment"
 
 
 # ---------------------------------------------------------------------
-# DATE FILTERS
+# DATE FILTERING
 # ---------------------------------------------------------------------
 
 def filter_items_by_date(
@@ -232,7 +291,10 @@ def filter_items_by_date(
             continue
 
         if published_date == target_date:
-            output.append(item)
+
+            output.append(
+                item
+            )
 
     return output
 
@@ -268,13 +330,16 @@ def filter_items_by_window(
             <= published_date
             <= target_date
         ):
-            output.append(item)
+
+            output.append(
+                item
+            )
 
     return output
 
 
 # ---------------------------------------------------------------------
-# SUMMARY FUNCTIONS
+# SUMMARIES
 # ---------------------------------------------------------------------
 
 def summarize_items(
@@ -296,7 +361,9 @@ def summarize_items(
         }
 
     scores = [
-        event_score(item)
+        event_score(
+            item
+        )
         for item in items
     ]
 
@@ -400,7 +467,9 @@ def summarize_countries(
                 )
 
         scores = [
-            event_score(item)
+            event_score(
+                item
+            )
             for item in country_items
         ]
 
@@ -431,7 +500,9 @@ def summarize_countries(
 
             average = round(
                 total
-                / len(country_items),
+                / len(
+                    country_items
+                ),
                 2
             )
 
@@ -597,7 +668,10 @@ def summarize_layers(
 
     output = {}
 
-    for layer, items_for_layer in layer_items.items():
+    for (
+        layer,
+        items_for_layer
+    ) in layer_items.items():
 
         summary = summarize_items(
             items_for_layer
@@ -624,6 +698,11 @@ def summarize_layers(
             "highest_score":
                 summary[
                     "highest_score"
+                ],
+
+            "level":
+                summary[
+                    "overall_level"
                 ]
         }
 
@@ -828,7 +907,10 @@ def determine_hotspot(
             )
 
             if countries:
-                country = countries[0]
+
+                country = countries[
+                    0
+                ]
 
         if not country:
             continue
@@ -931,29 +1013,58 @@ def calculate_trend(
     return "stable"
 
 
-# ---------------------------------------------------------------------
-# DAILY RECORD BUILDER
-# ---------------------------------------------------------------------
+def get_daily_average_from_record(
+    record: Optional[Dict[str, Any]]
+) -> Optional[float]:
 
-def build_daily_record(
-    scored_data: Dict[str, Any],
-    target_date,
-    rolling_days: int,
-    previous_daily_average: Optional[float]
-) -> Dict[str, Any]:
+    if not record:
+        return None
 
-    all_items = scored_data.get(
-        "items",
-        []
+    value = (
+        record
+        .get(
+            "daily_activity",
+            {}
+        )
+        .get(
+            "overall",
+            {}
+        )
+        .get(
+            "average_score"
+        )
     )
 
+    if isinstance(
+        value,
+        (int, float)
+    ):
+        return float(
+            value
+        )
+
+    return None
+
+
+# ---------------------------------------------------------------------
+# BUILD ONE HISTORY RECORD
+# ---------------------------------------------------------------------
+
+def build_record(
+    target_date,
+    items: List[Dict[str, Any]],
+    rolling_days: int,
+    previous_daily_average: Optional[float],
+    input_generated_at: Optional[str]
+) -> Dict[str, Any]:
+
     daily_items = filter_items_by_date(
-        items=all_items,
+        items=items,
         target_date=target_date
     )
 
     rolling_items = filter_items_by_window(
-        items=all_items,
+        items=items,
         target_date=target_date,
         days=rolling_days
     )
@@ -962,22 +1073,12 @@ def build_daily_record(
         daily_items
     )
 
-    rolling_overall = summarize_items(
-        rolling_items
-    )
-
     daily_categories = summarize_categories(
         daily_items
     )
 
-    trend = calculate_trend(
-        previous_average=
-            previous_daily_average,
-
-        current_average=
-            daily_overall[
-                "average_score"
-            ]
+    rolling_overall = summarize_items(
+        rolling_items
     )
 
     rolling_start = (
@@ -997,9 +1098,7 @@ def build_daily_record(
             ).isoformat(),
 
         "input_generated_at":
-            scored_data.get(
-                "generated_at"
-            ),
+            input_generated_at,
 
         "daily_activity": {
             "description":
@@ -1032,7 +1131,12 @@ def build_daily_record(
                 ),
 
             "trend":
-                trend,
+                calculate_trend(
+                    previous_daily_average,
+                    daily_overall[
+                        "average_score"
+                    ]
+                ),
 
             "top_items":
                 top_items(
@@ -1089,15 +1193,20 @@ def build_daily_record(
 
 
 # ---------------------------------------------------------------------
-# HISTORY BUILDER
+# BUILD / MERGE HISTORY
 # ---------------------------------------------------------------------
 
 def build_history(
     scored_data: Dict[str, Any],
+    existing_history: Dict[str, Any],
     days: int,
     rolling_days: int,
     end_date
 ) -> Dict[str, Any]:
+
+    now = datetime.now(
+        timezone.utc
+    ).isoformat()
 
     start_date = (
         end_date
@@ -1106,11 +1215,72 @@ def build_history(
         )
     )
 
-    records = []
+    items = scored_data.get(
+        "items",
+        []
+    )
 
-    previous_daily_average = None
+    existing_records = existing_history.get(
+        "records",
+        []
+    )
 
-    for index in range(days):
+    if not isinstance(
+        existing_records,
+        list
+    ):
+        existing_records = []
+
+    # -------------------------------------------------------------
+    # KEEP EVERY RECORD OUTSIDE THE BACKFILL RANGE
+    #
+    # This is the critical retention rule:
+    # running a 28-day backfill does NOT delete older history.
+    # Only dates inside the requested backfill range are rebuilt.
+    # -------------------------------------------------------------
+
+    preserved_records = []
+
+    for record in existing_records:
+
+        record_date = parse_date(
+            record.get(
+                "date"
+            )
+        )
+
+        if record_date is None:
+            continue
+
+        if not (
+            start_date
+            <= record_date
+            <= end_date
+        ):
+            preserved_records.append(
+                record
+            )
+
+    # Build a date -> record map from preserved history.
+    record_map = {
+        record.get(
+            "date"
+        ): record
+        for record in preserved_records
+        if record.get(
+            "date"
+        )
+    }
+
+    rebuilt_records = []
+
+    input_generated_at = scored_data.get(
+        "generated_at"
+    )
+
+    for index in range(
+        days
+    ):
 
         current_date = (
             start_date
@@ -1119,37 +1289,100 @@ def build_history(
             )
         )
 
-        record = build_daily_record(
-            scored_data=scored_data,
-            target_date=current_date,
-            rolling_days=rolling_days,
-            previous_daily_average=
-                previous_daily_average
-        )
+        previous_date = (
+            current_date
+            - timedelta(
+                days=1
+            )
+        ).isoformat()
 
-        records.append(
-            record
-        )
+        previous_record = None
+
+        # First preference:
+        # a record rebuilt earlier in this same backfill run.
+
+        if rebuilt_records:
+
+            candidate = rebuilt_records[
+                -1
+            ]
+
+            if candidate.get(
+                "date"
+            ) == previous_date:
+
+                previous_record = candidate
+
+        # Otherwise use an older preserved history record.
+
+        if previous_record is None:
+
+            previous_record = record_map.get(
+                previous_date
+            )
 
         previous_daily_average = (
-            record
-            .get(
-                "daily_activity",
-                {}
-            )
-            .get(
-                "overall",
-                {}
-            )
-            .get(
-                "average_score",
-                0
+            get_daily_average_from_record(
+                previous_record
             )
         )
 
-    now = datetime.now(
-        timezone.utc
-    ).isoformat()
+        new_record = build_record(
+            target_date=current_date,
+            items=items,
+            rolling_days=rolling_days,
+            previous_daily_average=
+                previous_daily_average,
+            input_generated_at=
+                input_generated_at
+        )
+
+        rebuilt_records.append(
+            new_record
+        )
+
+    # -------------------------------------------------------------
+    # MERGE PRESERVED LONG-TERM HISTORY + REBUILT RANGE
+    # -------------------------------------------------------------
+
+    merged_records = (
+        preserved_records
+        + rebuilt_records
+    )
+
+    # Deduplicate by date as an additional safety layer.
+    # If duplicates exist, the latest generated record wins.
+
+    deduplicated = {}
+
+    for record in merged_records:
+
+        date_key = record.get(
+            "date"
+        )
+
+        if not date_key:
+            continue
+
+        deduplicated[
+            date_key
+        ] = record
+
+    final_records = sorted(
+        deduplicated.values(),
+        key=lambda record:
+            record.get(
+                "date",
+                ""
+            )
+    )
+
+    created_at = existing_history.get(
+        "created_at"
+    )
+
+    if not created_at:
+        created_at = now
 
     return {
         "project":
@@ -1159,42 +1392,127 @@ def build_history(
             "Baltic states and Poland",
 
         "created_at":
-            now,
+            created_at,
 
         "updated_at":
             now,
 
         "record_count":
-            len(records),
+            len(
+                final_records
+            ),
 
         "method": {
             "description":
-                "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
+                (
+                    "Historical Baltic hybrid-threat backfill "
+                    "using the unified daily and rolling threat schema."
+                ),
 
             "warning":
-                "Historical records are reconstructed from currently available scored items using published_at dates. The backfill is not a complete historical archive if older source items are no longer available.",
+                (
+                    "Historical records are reconstructed from currently "
+                    "available scored items using published_at dates. "
+                    "The backfill is not a complete historical archive "
+                    "if older source items are no longer available."
+                ),
 
-            "days":
+            "backfill_days":
                 days,
+
+            "backfill_start_date":
+                start_date.isoformat(),
+
+            "backfill_end_date":
+                end_date.isoformat(),
 
             "rolling_days":
                 rolling_days,
 
+            "threat_score_scale": {
+                "low":
+                    "0-19",
+
+                "guarded":
+                    "20-39",
+
+                "elevated":
+                    "40-59",
+
+                "high":
+                    "60-79",
+
+                "critical":
+                    "80+"
+            },
+
             "daily_activity":
-                "Uses only events whose published_at date matches the displayed calendar date.",
+                (
+                    "Uses only events whose published_at date matches "
+                    "the displayed calendar date."
+                ),
 
             "rolling_threat":
-                f"Uses a {rolling_days}-day rolling window ending on each displayed calendar date.",
+                (
+                    f"Uses a {rolling_days}-day rolling window ending "
+                    "on each displayed calendar date."
+                ),
 
-            "important":
-                "Daily activity and rolling threat are stored separately. Events inside the rolling window are not treated as new daily events on subsequent dates.",
+            "analytical_layers": {
+                "information":
+                    (
+                        "Pure information or disinformation activity "
+                        "without a concurrent operational threat category."
+                    ),
+
+                "early_warning":
+                    (
+                        "Indicators and precursor signals."
+                    ),
+
+                "operational":
+                    (
+                        "Reported incidents and operational activities, "
+                        "including mixed events containing a concrete "
+                        "operational threat component."
+                    ),
+
+                "assessment":
+                    (
+                        "Strategic, institutional or analytical background."
+                    )
+            },
 
             "trend":
-                "Daily trend compares the current Daily Activity average score with the previous calendar day's Daily Activity average score."
+                (
+                    "Daily trend compares the current Daily Activity "
+                    "average score with the previous calendar day's "
+                    "Daily Activity average score."
+                ),
+
+            "history_retention":
+                (
+                    "Unlimited. Historical records outside the requested "
+                    "backfill range are preserved."
+                ),
+
+            "backfill_update_mode":
+                (
+                    "Only calendar dates inside the requested backfill "
+                    "range are rebuilt. Older and newer historical records "
+                    "outside that range remain unchanged."
+                ),
+
+            "important":
+                (
+                    "Daily Activity and Rolling Threat are stored "
+                    "separately. The rolling window does not limit "
+                    "the lifetime of the historical database."
+                )
         },
 
         "records":
-            records
+            final_records
     }
 
 
@@ -1206,8 +1524,8 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(
         description=(
-            "Build unified historical Baltic Hybrid Monitor "
-            "dataset from scored events."
+            "Safely rebuild a Baltic Hybrid Monitor historical "
+            "backfill range while preserving long-term history."
         )
     )
 
@@ -1226,7 +1544,7 @@ def main() -> None:
         type=int,
         default=14,
         help=(
-            "Rolling threat window in days. "
+            "Rolling threat calculation window. "
             "Default: 14."
         )
     )
@@ -1236,34 +1554,23 @@ def main() -> None:
         type=str,
         default=None,
         help=(
-            "Optional final date in YYYY-MM-DD format. "
-            "Default: current UTC date."
+            "Optional end date of the backfill range "
+            "in YYYY-MM-DD format. Default: current UTC date."
         )
     )
 
     args = parser.parse_args()
 
     if args.days < 1:
+
         raise ValueError(
             "--days must be at least 1."
         )
 
     if args.rolling_days < 1:
+
         raise ValueError(
             "--rolling-days must be at least 1."
-        )
-
-    scored_data = load_json(
-        SCORED_INPUT,
-        default=None
-    )
-
-    if scored_data is None:
-
-        raise FileNotFoundError(
-            f"Missing scored input file: "
-            f"{SCORED_INPUT}. "
-            "Run score_baltic_hybrid_news.py first."
         )
 
     if args.end_date:
@@ -1283,10 +1590,38 @@ def main() -> None:
 
     else:
 
-        end_date = utc_today()
+        end_date = datetime.now(
+            timezone.utc
+        ).date()
+
+    scored_data = load_json(
+        SCORED_INPUT,
+        default=None
+    )
+
+    if scored_data is None:
+
+        raise FileNotFoundError(
+            f"Missing scored input file: "
+            f"{SCORED_INPUT}. "
+            "Run score_baltic_hybrid_news.py first."
+        )
+
+    existing_history = load_json(
+        HISTORY_OUTPUT,
+        default={}
+    )
+
+    old_record_count = len(
+        existing_history.get(
+            "records",
+            []
+        )
+    )
 
     history = build_history(
         scored_data=scored_data,
+        existing_history=existing_history,
         days=args.days,
         rolling_days=args.rolling_days,
         end_date=end_date
@@ -1302,96 +1637,58 @@ def main() -> None:
         history
     )
 
-    records = history.get(
-        "records",
-        []
-    )
-
-    first_date = (
-        records[0].get("date")
-        if records
-        else None
-    )
-
-    last_date = (
-        records[-1].get("date")
-        if records
-        else None
-    )
-
-    latest = (
-        records[-1]
-        if records
-        else {}
-    )
-
-    latest_daily = (
-        latest
-        .get(
-            "daily_activity",
-            {}
-        )
-        .get(
-            "overall",
-            {}
-        )
-    )
-
-    latest_rolling = (
-        latest
-        .get(
-            "rolling_threat",
-            {}
-        )
-        .get(
-            "overall",
-            {}
+    start_date = (
+        end_date
+        - timedelta(
+            days=args.days - 1
         )
     )
 
     print(
-        "Unified historical Baltic dataset generated."
+        "Baltic Hybrid Monitor historical backfill completed."
     )
 
     print(
-        f"History days: {args.days}"
+        f"Backfill range: "
+        f"{start_date.isoformat()} "
+        f"to {end_date.isoformat()}"
     )
 
     print(
-        f"Rolling window: {args.rolling_days} days"
+        f"Backfill days: "
+        f"{args.days}"
     )
 
     print(
-        f"First date: {first_date}"
+        f"Rolling threat window: "
+        f"{args.rolling_days} days"
     )
 
     print(
-        f"Last date: {last_date}"
+        f"Previous history records: "
+        f"{old_record_count}"
     )
 
     print(
-        f"Latest daily events: "
-        f"{latest_daily.get('event_count', 0)}"
+        f"Final history records: "
+        f"{history.get('record_count', 0)}"
     )
 
     print(
-        f"Latest daily average score: "
-        f"{latest_daily.get('average_score', 0)}"
+        "Threat scale: "
+        "LOW 0-19 | "
+        "GUARDED 20-39 | "
+        "ELEVATED 40-59 | "
+        "HIGH 60-79 | "
+        "CRITICAL 80+"
     )
 
     print(
-        f"Latest daily level: "
-        f"{latest_daily.get('overall_level', 'low')}"
+        "History retention: unlimited"
     )
 
     print(
-        f"Latest rolling events: "
-        f"{latest_rolling.get('event_count', 0)}"
-    )
-
-    print(
-        f"Latest rolling level: "
-        f"{latest_rolling.get('overall_level', 'low')}"
+        "Records outside the rebuilt backfill range were preserved."
     )
 
     print(
