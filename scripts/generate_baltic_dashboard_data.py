@@ -1,7 +1,7 @@
 import json
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,6 +14,7 @@ DASHBOARD_OUTPUT = ROOT / "docs" / "data" / "baltic_dashboard.json"
 TOP_EVENT_LIMIT = 30
 TOP_DRIVER_LIMIT = 10
 HISTORY_LIMIT = 30
+CURRENT_THREAT_WINDOW_DAYS = 14
 
 
 # ---------------------------------------------------------------------
@@ -107,6 +108,35 @@ def level_from_score(
         return "guarded"
 
     return "low"
+
+
+def parse_datetime(
+    value: Optional[str]
+) -> Optional[datetime]:
+
+    if not value:
+        return None
+
+    try:
+
+        dt = datetime.fromisoformat(
+            str(value).replace(
+                "Z",
+                "+00:00"
+            )
+        )
+
+        if dt.tzinfo is None:
+            dt = dt.replace(
+                tzinfo=timezone.utc
+            )
+
+        return dt.astimezone(
+            timezone.utc
+        )
+
+    except Exception:
+        return None
 
 
 # ---------------------------------------------------------------------
@@ -709,8 +739,60 @@ def compact_event(
     }
 
 
+# ---------------------------------------------------------------------
+# CURRENT THREAT WINDOW
+# ---------------------------------------------------------------------
+
+def filter_events_by_current_window(
+    events: List[Dict[str, Any]],
+    window_days: int
+) -> List[Dict[str, Any]]:
+
+    now = datetime.now(
+        timezone.utc
+    )
+
+    start_time = (
+        now
+        - timedelta(
+            days=window_days - 1
+        )
+    ).replace(
+        hour=0,
+        minute=0,
+        second=0,
+        microsecond=0
+    )
+
+    filtered = []
+
+    for event in events:
+
+        published_at = parse_datetime(
+            event.get(
+                "published_at"
+            )
+        )
+
+        if published_at is None:
+            continue
+
+        if (
+            start_time
+            <= published_at
+            <= now
+        ):
+
+            filtered.append(
+                event
+            )
+
+    return filtered
+
+
 def build_top_events(
-    scored: Dict[str, Any]
+    scored: Dict[str, Any],
+    window_days: int = CURRENT_THREAT_WINDOW_DAYS
 ) -> List[Dict[str, Any]]:
 
     events = scored.get(
@@ -721,11 +803,16 @@ def build_top_events(
         )
     )
 
+    recent_events = filter_events_by_current_window(
+        events,
+        window_days
+    )
+
     compact = [
         compact_event(
             event
         )
-        for event in events
+        for event in recent_events
     ]
 
     compact = sorted(
@@ -753,7 +840,8 @@ def build_top_events(
 
 
 def build_recent_events(
-    scored: Dict[str, Any]
+    scored: Dict[str, Any],
+    window_days: int = CURRENT_THREAT_WINDOW_DAYS
 ) -> List[Dict[str, Any]]:
 
     events = scored.get(
@@ -764,11 +852,16 @@ def build_recent_events(
         )
     )
 
+    recent_events = filter_events_by_current_window(
+        events,
+        window_days
+    )
+
     compact = [
         compact_event(
             event
         )
-        for event in events
+        for event in recent_events
     ]
 
     compact = sorted(
@@ -827,7 +920,6 @@ def build_history(
 
     labels = []
 
-    # Exact calendar-day activity.
     daily_threat_index = []
     daily_level = []
 
@@ -836,11 +928,9 @@ def build_history(
     indicator_count = []
     assessment_count = []
 
-    # 14-day rolling threat environment.
     rolling_threat_index = []
     rolling_level = []
 
-    # Daily country scores.
     country_scores = {
         "Estonia": [],
         "Latvia": [],
@@ -849,7 +939,6 @@ def build_history(
         "Regional": []
     }
 
-    # Rolling country scores.
     rolling_country_scores = {
         "Estonia": [],
         "Latvia": [],
@@ -891,10 +980,6 @@ def build_history(
             "overall",
             {}
         )
-
-        # ---------------------------------------------------------
-        # DAILY ACTIVITY
-        # ---------------------------------------------------------
 
         daily_average = safe_round(
             daily_overall.get(
@@ -959,11 +1044,9 @@ def build_history(
 
         for country in country_scores:
 
-            country_data = (
-                daily_countries.get(
-                    country,
-                    {}
-                )
+            country_data = daily_countries.get(
+                country,
+                {}
             )
 
             country_scores[
@@ -1018,10 +1101,6 @@ def build_history(
             )
         )
 
-        # ---------------------------------------------------------
-        # ROLLING THREAT
-        # ---------------------------------------------------------
-
         rolling_average = safe_round(
             rolling_overall.get(
                 "average_score",
@@ -1049,11 +1128,9 @@ def build_history(
 
         for country in rolling_country_scores:
 
-            country_data = (
-                rolling_countries.get(
-                    country,
-                    {}
-                )
+            country_data = rolling_countries.get(
+                country,
+                {}
             )
 
             rolling_country_scores[
@@ -1094,12 +1171,6 @@ def build_history(
                     )
                 )
         })
-
-    # -------------------------------------------------------------
-    # FALLBACK
-    #
-    # Only used if the history database does not yet contain records.
-    # -------------------------------------------------------------
 
     if not labels:
 
@@ -1227,13 +1298,6 @@ def build_history(
         trends = [
             "stable"
         ]
-
-    # -------------------------------------------------------------
-    # BACKWARD COMPATIBILITY
-    #
-    # threat_index remains available for the existing frontend.
-    # It now represents exact-day Daily Activity.
-    # -------------------------------------------------------------
 
     return {
         "labels":
@@ -1445,7 +1509,7 @@ def main() -> None:
             ),
 
         "version":
-            "Threat Intelligence Engine v1.1",
+            "Threat Intelligence Engine v1.2",
 
         "summary":
             normalize_summary(
@@ -1474,13 +1538,26 @@ def main() -> None:
 
         "top_events":
             build_top_events(
-                scored
+                scored,
+                CURRENT_THREAT_WINDOW_DAYS
             ),
 
         "recent_events":
             build_recent_events(
-                scored
+                scored,
+                CURRENT_THREAT_WINDOW_DAYS
             ),
+
+        "current_threat_window": {
+            "days":
+                CURRENT_THREAT_WINDOW_DAYS,
+
+            "description":
+                (
+                    "Top and recent events are limited to the "
+                    "current rolling threat window."
+                )
+        },
 
         "history":
             dashboard_history,
@@ -1507,6 +1584,7 @@ def main() -> None:
                 "Threat Score Engine v2",
                 "Historical daily activity calculation",
                 "14-day rolling threat calculation",
+                "Current 14-day top-event filtering",
                 "Dashboard-optimized output"
             ],
 
@@ -1544,6 +1622,27 @@ def main() -> None:
                     (
                         "Long-term daily history is preserved "
                         "independently of the rolling calculation window."
+                    )
+            },
+
+            "current_event_model": {
+                "top_events":
+                    (
+                        "Highest-scoring events published inside the "
+                        "current 14-day rolling threat window."
+                    ),
+
+                "recent_events":
+                    (
+                        "Most recently published events inside the "
+                        "current 14-day rolling threat window."
+                    ),
+
+                "historical_events":
+                    (
+                        "Older events remain available in the scored "
+                        "dataset and historical database but are not "
+                        "presented as current top threats."
                     )
             },
 
@@ -1599,11 +1698,16 @@ def main() -> None:
     )
 
     print(
-        "History source: unified daily_activity + rolling_threat schema"
+        f"Current top-event window: "
+        f"{CURRENT_THREAT_WINDOW_DAYS} days"
     )
 
     print(
-        "Backward-compatible threat_index: daily_activity average score"
+        "Top events now exclude older historical events."
+    )
+
+    print(
+        "History source: unified daily_activity + rolling_threat schema"
     )
 
 
