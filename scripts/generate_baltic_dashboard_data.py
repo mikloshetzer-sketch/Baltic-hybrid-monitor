@@ -1476,6 +1476,11 @@ def main() -> None:
         history
     )
 
+    scorer_engine_version = scored.get(
+        "engine_version",
+        "unknown"
+    )
+
     payload = {
         "project":
             scored.get(
@@ -1510,6 +1515,9 @@ def main() -> None:
 
         "version":
             "Threat Intelligence Engine v1.2",
+
+        "score_engine_version":
+            scorer_engine_version,
 
         "summary":
             normalize_summary(
@@ -1581,7 +1589,7 @@ def main() -> None:
                 "Primary country assignment",
                 "Threat ontology classification",
                 "Confidence scoring",
-                "Threat Score Engine v2",
+                f"Threat Score Engine: {scorer_engine_version}",
                 "Historical daily activity calculation",
                 "14-day rolling threat calculation",
                 "Current 14-day top-event filtering",
