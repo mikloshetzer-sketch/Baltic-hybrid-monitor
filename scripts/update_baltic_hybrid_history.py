@@ -23,6 +23,28 @@ COUNTRIES = [
 
 
 # ---------------------------------------------------------------------
+# ANALYTICAL LAYER CATEGORIES
+# ---------------------------------------------------------------------
+
+# Categories that describe an operational or physical hybrid-threat event.
+# If an event contains both disinformation and one of these categories,
+# the event remains operational rather than being moved to the
+# information layer.
+
+OPERATIONAL_CATEGORIES = {
+    "sabotage",
+    "critical_infrastructure",
+    "drone_incident",
+    "gps_interference",
+    "cyber",
+    "espionage",
+    "military_provocation",
+    "border_pressure",
+    "migration_pressure"
+}
+
+
+# ---------------------------------------------------------------------
 # BASIC IO
 # ---------------------------------------------------------------------
 
@@ -86,7 +108,6 @@ def parse_datetime(
         )
 
         if dt.tzinfo is None:
-
             dt = dt.replace(
                 tzinfo=timezone.utc
             )
@@ -121,23 +142,33 @@ def utc_today():
 
 
 # ---------------------------------------------------------------------
-# LEVEL CLASSIFICATION
+# THREAT LEVEL CLASSIFICATION
 # ---------------------------------------------------------------------
 
 def classify_level(
     score: float
 ) -> str:
 
-    if score >= 18:
+    """
+    Unified 0-100 Baltic Hybrid Threat Score scale.
+
+    LOW      0-19
+    GUARDED  20-39
+    ELEVATED 40-59
+    HIGH     60-79
+    CRITICAL 80+
+    """
+
+    if score >= 80:
         return "critical"
 
-    if score >= 12:
+    if score >= 60:
         return "high"
 
-    if score >= 7:
+    if score >= 40:
         return "elevated"
 
-    if score >= 3:
+    if score >= 20:
         return "guarded"
 
     return "low"
@@ -196,6 +227,31 @@ def event_layer(
     item: Dict[str, Any]
 ) -> str:
 
+    """
+    Analytical-layer classification.
+
+    ASSESSMENT
+        Strategic/institutional/analytical background.
+
+    EARLY_WARNING
+        Indicators and precursor signals.
+
+    INFORMATION
+        Pure information/disinformation activity without an
+        accompanying operational threat category.
+
+    OPERATIONAL
+        Reported incidents and operational activity.
+
+    Mixed cases such as:
+        disinformation + sabotage
+        disinformation + critical_infrastructure
+        disinformation + cyber
+
+    remain OPERATIONAL because the event contains a concrete
+    operational threat component.
+    """
+
     subtype = event_subtype(
         item
     )
@@ -207,20 +263,36 @@ def event_layer(
         )
     )
 
+    # Strategic/background material must never be counted as
+    # operational merely because it contains threat terminology.
+
     if subtype == "assessment":
         return "assessment"
 
+    # Indicators are treated as early-warning signals.
+
     if subtype == "indicator":
         return "early_warning"
+
+    # Pure disinformation / information activity belongs to
+    # the information layer.
+
+    if (
+        "disinformation" in categories
+        and not (
+            categories
+            & OPERATIONAL_CATEGORIES
+        )
+    ):
+        return "information"
+
+    # Incidents and activities with operational context.
 
     if subtype in {
         "incident",
         "activity"
     }:
         return "operational"
-
-    if "disinformation" in categories:
-        return "information"
 
     return "assessment"
 
@@ -655,6 +727,11 @@ def summarize_layers(
             "highest_score":
                 summary[
                     "highest_score"
+                ],
+
+            "level":
+                summary[
+                    "overall_level"
                 ]
         }
 
@@ -1195,25 +1272,7 @@ def update_history(
             "record_count":
                 0,
 
-            "method": {
-                "description":
-                    "Continuously growing Baltic hybrid-threat history using exact daily activity and rolling threat snapshots.",
-
-                "rolling_days":
-                    rolling_days,
-
-                "daily_activity":
-                    "Uses only events whose published_at date matches the displayed calendar date.",
-
-                "rolling_threat":
-                    f"Uses a {rolling_days}-day rolling window ending on each displayed calendar date.",
-
-                "history_retention":
-                    "Unlimited. Historical daily records are never automatically removed.",
-
-                "update_mode":
-                    "One record per calendar date. Re-running the same date replaces only that date and preserves all other historical records."
-            },
+            "method": {},
 
             "records": []
         }
@@ -1233,11 +1292,8 @@ def update_history(
         "date"
     ]
 
-    # -------------------------------------------------------------
-    # IMPORTANT:
-    # Remove ONLY an existing record for the same calendar date.
-    # No age-based retention and no slicing are applied.
-    # -------------------------------------------------------------
+    # Remove only an already existing record for the target date.
+    # No rolling retention and no historical truncation are applied.
 
     preserved_records = [
         record
@@ -1271,6 +1327,7 @@ def update_history(
     if not history.get(
         "created_at"
     ):
+
         history[
             "created_at"
         ] = now
@@ -1299,12 +1356,19 @@ def update_history(
     ):
         method = {}
 
-    # Preserve historical backfill metadata but explicitly
-    # define the live update / retention policy.
-
     method[
         "rolling_days"
     ] = rolling_days
+
+    method[
+        "threat_score_scale"
+    ] = {
+        "low": "0-19",
+        "guarded": "20-39",
+        "elevated": "40-59",
+        "high": "60-79",
+        "critical": "80+"
+    }
 
     method[
         "daily_activity"
@@ -1319,6 +1383,22 @@ def update_history(
         f"Uses a {rolling_days}-day rolling window ending "
         "on each displayed calendar date."
     )
+
+    method[
+        "analytical_layers"
+    ] = {
+        "information":
+            "Pure information or disinformation activity without a concurrent operational threat category.",
+
+        "early_warning":
+            "Indicators and precursor signals.",
+
+        "operational":
+            "Reported incidents and operational activities, including mixed events that contain a concrete operational threat component.",
+
+        "assessment":
+            "Strategic, institutional or analytical background."
+    }
 
     method[
         "history_retention"
@@ -1487,6 +1567,11 @@ def main() -> None:
     print(
         f"History records: "
         f"{updated_history.get('record_count', 0)}"
+    )
+
+    print(
+        "Threat scale: LOW 0-19 | GUARDED 20-39 | "
+        "ELEVATED 40-59 | HIGH 60-79 | CRITICAL 80+"
     )
 
     print(
