@@ -16,225 +16,831 @@ TOP_DRIVER_LIMIT = 10
 HISTORY_LIMIT = 30
 
 
+# ---------------------------------------------------------------------
+# BASIC IO
+# ---------------------------------------------------------------------
+
 def load_json(path: Path, default: Any = None) -> Any:
+
     if not path.exists():
         return default
 
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return json.loads(
+            path.read_text(
+                encoding="utf-8"
+            )
+        )
+
     except json.JSONDecodeError:
         return default
 
 
-def save_json(path: Path, payload: Dict[str, Any]) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
+def save_json(
+    path: Path,
+    payload: Dict[str, Any]
+) -> None:
+
+    path.parent.mkdir(
+        parents=True,
+        exist_ok=True
+    )
+
     path.write_text(
-        json.dumps(payload, ensure_ascii=False, indent=2),
+        json.dumps(
+            payload,
+            ensure_ascii=False,
+            indent=2
+        ),
         encoding="utf-8"
     )
 
 
-def safe_round(value: Any, digits: int = 2) -> float:
+# ---------------------------------------------------------------------
+# HELPERS
+# ---------------------------------------------------------------------
+
+def safe_round(
+    value: Any,
+    digits: int = 2
+) -> float:
+
     try:
-        return round(float(value), digits)
+        return round(
+            float(value),
+            digits
+        )
+
     except (TypeError, ValueError):
         return 0.0
 
 
-def level_from_score(score: float) -> str:
+def safe_int(
+    value: Any
+) -> int:
+
+    try:
+        return int(
+            round(
+                float(value)
+            )
+        )
+
+    except (TypeError, ValueError):
+        return 0
+
+
+def level_from_score(
+    score: float
+) -> str:
+
     if score >= 80:
         return "critical"
+
     if score >= 60:
         return "high"
+
     if score >= 40:
         return "elevated"
+
     if score >= 20:
         return "guarded"
+
     return "low"
 
 
-def normalize_summary(scored: Dict[str, Any]) -> Dict[str, Any]:
-    overall = scored.get("overall_summary", {})
+# ---------------------------------------------------------------------
+# CURRENT SUMMARY
+# ---------------------------------------------------------------------
 
-    threat_index = safe_round(overall.get("threat_index", overall.get("average_score", 0)))
+def normalize_summary(
+    scored: Dict[str, Any]
+) -> Dict[str, Any]:
+
+    overall = scored.get(
+        "overall_summary",
+        {}
+    )
+
+    threat_index = safe_round(
+        overall.get(
+            "threat_index",
+            overall.get(
+                "average_score",
+                0
+            )
+        )
+    )
 
     return {
-        "threat_index": threat_index,
-        "threat_level": overall.get("overall_level", level_from_score(threat_index)),
-        "event_count": int(overall.get("event_count", 0)),
-        "incident_count": int(overall.get("incident_count", 0)),
-        "activity_count": int(overall.get("activity_count", 0)),
-        "indicator_count": int(overall.get("indicator_count", 0)),
-        "assessment_count": int(overall.get("assessment_count", 0)),
-        "score_total": int(overall.get("score_total", 0)),
-        "average_score": safe_round(overall.get("average_score", 0)),
-        "highest_score": int(overall.get("highest_score", 0)),
-        "raw_item_count": int(scored.get("raw_item_count", 0) or 0),
-        "filtered_item_count": int(scored.get("filtered_item_count", 0) or 0),
-        "clustered_event_count": int(scored.get("clustered_event_count", 0) or 0),
-        "merged_item_count": int(scored.get("merged_item_count", 0) or 0)
+        "threat_index":
+            threat_index,
+
+        "threat_level":
+            overall.get(
+                "overall_level",
+                level_from_score(
+                    threat_index
+                )
+            ),
+
+        "event_count":
+            safe_int(
+                overall.get(
+                    "event_count",
+                    0
+                )
+            ),
+
+        "incident_count":
+            safe_int(
+                overall.get(
+                    "incident_count",
+                    0
+                )
+            ),
+
+        "activity_count":
+            safe_int(
+                overall.get(
+                    "activity_count",
+                    0
+                )
+            ),
+
+        "indicator_count":
+            safe_int(
+                overall.get(
+                    "indicator_count",
+                    0
+                )
+            ),
+
+        "assessment_count":
+            safe_int(
+                overall.get(
+                    "assessment_count",
+                    0
+                )
+            ),
+
+        "score_total":
+            safe_int(
+                overall.get(
+                    "score_total",
+                    0
+                )
+            ),
+
+        "average_score":
+            safe_round(
+                overall.get(
+                    "average_score",
+                    0
+                )
+            ),
+
+        "highest_score":
+            safe_int(
+                overall.get(
+                    "highest_score",
+                    0
+                )
+            ),
+
+        "raw_item_count":
+            safe_int(
+                scored.get(
+                    "raw_item_count",
+                    0
+                )
+            ),
+
+        "filtered_item_count":
+            safe_int(
+                scored.get(
+                    "filtered_item_count",
+                    0
+                )
+            ),
+
+        "clustered_event_count":
+            safe_int(
+                scored.get(
+                    "clustered_event_count",
+                    0
+                )
+            ),
+
+        "merged_item_count":
+            safe_int(
+                scored.get(
+                    "merged_item_count",
+                    0
+                )
+            )
     }
 
 
-def build_country_cards(scored: Dict[str, Any]) -> List[Dict[str, Any]]:
-    country_summary = scored.get("country_summary", {})
-    cards = []
+# ---------------------------------------------------------------------
+# GENERIC MAPPING HELPERS
+# ---------------------------------------------------------------------
 
-    for country, data in country_summary.items():
-        cards.append({
-            "country": country,
-            "event_count": int(data.get("event_count", 0)),
-            "incident_count": int(data.get("incident_count", 0)),
-            "activity_count": int(data.get("activity_count", 0)),
-            "indicator_count": int(data.get("indicator_count", 0)),
-            "assessment_count": int(data.get("assessment_count", 0)),
-            "score_total": int(data.get("score_total", 0)),
-            "average_score": safe_round(data.get("average_score", 0)),
-            "highest_score": int(data.get("highest_score", 0)),
-            "level": data.get("level", "low"),
-            "top_categories": top_items_from_mapping(data.get("categories", {}), 5),
-            "top_actors": top_items_from_mapping(data.get("actors", {}), 5)
-        })
+def top_items_from_mapping(
+    mapping: Dict[str, Any],
+    limit: int
+) -> List[Dict[str, Any]]:
 
-    return sorted(cards, key=lambda item: item["score_total"], reverse=True)
-
-
-def top_items_from_mapping(mapping: Dict[str, Any], limit: int) -> List[Dict[str, Any]]:
     items = []
 
     for key, value in mapping.items():
+
         try:
-            count = int(value)
+            count = int(
+                value
+            )
+
         except (TypeError, ValueError):
             count = 0
 
         items.append({
-            "name": key,
-            "count": count
+            "name":
+                key,
+
+            "count":
+                count
         })
 
-    return sorted(items, key=lambda item: item["count"], reverse=True)[:limit]
+    return sorted(
+        items,
+        key=lambda item:
+            item["count"],
+        reverse=True
+    )[:limit]
 
 
-def build_category_drivers(scored: Dict[str, Any]) -> List[Dict[str, Any]]:
-    category_summary = scored.get("category_summary", {})
+# ---------------------------------------------------------------------
+# COUNTRY CARDS
+# ---------------------------------------------------------------------
+
+def build_country_cards(
+    scored: Dict[str, Any]
+) -> List[Dict[str, Any]]:
+
+    country_summary = scored.get(
+        "country_summary",
+        {}
+    )
+
+    cards = []
+
+    for country, data in country_summary.items():
+
+        cards.append({
+            "country":
+                country,
+
+            "event_count":
+                safe_int(
+                    data.get(
+                        "event_count",
+                        0
+                    )
+                ),
+
+            "incident_count":
+                safe_int(
+                    data.get(
+                        "incident_count",
+                        0
+                    )
+                ),
+
+            "activity_count":
+                safe_int(
+                    data.get(
+                        "activity_count",
+                        0
+                    )
+                ),
+
+            "indicator_count":
+                safe_int(
+                    data.get(
+                        "indicator_count",
+                        0
+                    )
+                ),
+
+            "assessment_count":
+                safe_int(
+                    data.get(
+                        "assessment_count",
+                        0
+                    )
+                ),
+
+            "score_total":
+                safe_int(
+                    data.get(
+                        "score_total",
+                        0
+                    )
+                ),
+
+            "average_score":
+                safe_round(
+                    data.get(
+                        "average_score",
+                        0
+                    )
+                ),
+
+            "highest_score":
+                safe_int(
+                    data.get(
+                        "highest_score",
+                        0
+                    )
+                ),
+
+            "level":
+                data.get(
+                    "level",
+                    "low"
+                ),
+
+            "top_categories":
+                top_items_from_mapping(
+                    data.get(
+                        "categories",
+                        {}
+                    ),
+                    5
+                ),
+
+            "top_actors":
+                top_items_from_mapping(
+                    data.get(
+                        "actors",
+                        {}
+                    ),
+                    5
+                )
+        })
+
+    return sorted(
+        cards,
+        key=lambda item:
+            item["score_total"],
+        reverse=True
+    )
+
+
+# ---------------------------------------------------------------------
+# CATEGORY DRIVERS
+# ---------------------------------------------------------------------
+
+def build_category_drivers(
+    scored: Dict[str, Any]
+) -> List[Dict[str, Any]]:
+
+    category_summary = scored.get(
+        "category_summary",
+        {}
+    )
+
     drivers = []
 
     for category, data in category_summary.items():
+
         drivers.append({
-            "category": category,
-            "event_count": int(data.get("event_count", 0)),
-            "score_total": int(data.get("score_total", 0)),
-            "average_score": safe_round(data.get("average_score", 0)),
-            "highest_score": int(data.get("highest_score", 0))
+            "category":
+                category,
+
+            "event_count":
+                safe_int(
+                    data.get(
+                        "event_count",
+                        0
+                    )
+                ),
+
+            "score_total":
+                safe_int(
+                    data.get(
+                        "score_total",
+                        0
+                    )
+                ),
+
+            "average_score":
+                safe_round(
+                    data.get(
+                        "average_score",
+                        0
+                    )
+                ),
+
+            "highest_score":
+                safe_int(
+                    data.get(
+                        "highest_score",
+                        0
+                    )
+                )
         })
 
-    return sorted(drivers, key=lambda item: item["score_total"], reverse=True)[:TOP_DRIVER_LIMIT]
+    return sorted(
+        drivers,
+        key=lambda item:
+            item["score_total"],
+        reverse=True
+    )[:TOP_DRIVER_LIMIT]
 
 
-def build_actor_drivers(scored: Dict[str, Any]) -> List[Dict[str, Any]]:
-    actor_summary = scored.get("actor_summary", {})
+# ---------------------------------------------------------------------
+# ACTOR DRIVERS
+# ---------------------------------------------------------------------
+
+def build_actor_drivers(
+    scored: Dict[str, Any]
+) -> List[Dict[str, Any]]:
+
+    actor_summary = scored.get(
+        "actor_summary",
+        {}
+    )
+
     actors = []
 
     for actor, data in actor_summary.items():
+
         actors.append({
-            "actor": actor,
-            "event_count": int(data.get("event_count", 0)),
-            "score_total": int(data.get("score_total", 0)),
-            "average_score": safe_round(data.get("average_score", 0)),
-            "highest_score": int(data.get("highest_score", 0))
+            "actor":
+                actor,
+
+            "event_count":
+                safe_int(
+                    data.get(
+                        "event_count",
+                        0
+                    )
+                ),
+
+            "score_total":
+                safe_int(
+                    data.get(
+                        "score_total",
+                        0
+                    )
+                ),
+
+            "average_score":
+                safe_round(
+                    data.get(
+                        "average_score",
+                        0
+                    )
+                ),
+
+            "highest_score":
+                safe_int(
+                    data.get(
+                        "highest_score",
+                        0
+                    )
+                )
         })
 
-    return sorted(actors, key=lambda item: item["score_total"], reverse=True)[:TOP_DRIVER_LIMIT]
+    return sorted(
+        actors,
+        key=lambda item:
+            item["score_total"],
+        reverse=True
+    )[:TOP_DRIVER_LIMIT]
 
 
-def build_subtype_cards(scored: Dict[str, Any]) -> List[Dict[str, Any]]:
-    subtype_summary = scored.get("subtype_summary", {})
-    order = ["incident", "activity", "indicator", "assessment"]
+# ---------------------------------------------------------------------
+# SUBTYPE CARDS
+# ---------------------------------------------------------------------
+
+def build_subtype_cards(
+    scored: Dict[str, Any]
+) -> List[Dict[str, Any]]:
+
+    subtype_summary = scored.get(
+        "subtype_summary",
+        {}
+    )
+
+    order = [
+        "incident",
+        "activity",
+        "indicator",
+        "assessment"
+    ]
 
     cards = []
 
     for subtype in order:
-        data = subtype_summary.get(subtype, {})
+
+        data = subtype_summary.get(
+            subtype,
+            {}
+        )
+
         cards.append({
-            "subtype": subtype,
-            "label": subtype.title(),
-            "event_count": int(data.get("event_count", 0)),
-            "score_total": int(data.get("score_total", 0)),
-            "average_score": safe_round(data.get("average_score", 0))
+            "subtype":
+                subtype,
+
+            "label":
+                subtype.title(),
+
+            "event_count":
+                safe_int(
+                    data.get(
+                        "event_count",
+                        0
+                    )
+                ),
+
+            "score_total":
+                safe_int(
+                    data.get(
+                        "score_total",
+                        0
+                    )
+                ),
+
+            "average_score":
+                safe_round(
+                    data.get(
+                        "average_score",
+                        0
+                    )
+                )
         })
 
     return cards
 
 
-def compact_event(event: Dict[str, Any]) -> Dict[str, Any]:
+# ---------------------------------------------------------------------
+# EVENT NORMALIZATION
+# ---------------------------------------------------------------------
+
+def compact_event(
+    event: Dict[str, Any]
+) -> Dict[str, Any]:
+
     return {
-        "event_id": event.get("event_id"),
-        "title": event.get("title"),
-        "url": event.get("url"),
-        "published_at": event.get("published_at"),
-        "primary_country": event.get("primary_country", "Regional"),
-        "countries": event.get("countries", [])[:5],
-        "categories": event.get("categories", [])[:5],
-        "actors": event.get("actors", [])[:5],
-        "locations": event.get("locations", [])[:5],
-        "event_type": event.get("event_type", "background"),
-        "event_subtype": event.get("event_subtype", "assessment"),
-        "source_count": int(event.get("source_count", 0)),
-        "confidence": event.get("confidence", "low"),
-        "confidence_score": int(event.get("confidence_score", 0)),
-        "hybrid_threat_score": int(event.get("hybrid_threat_score", 0)),
-        "hybrid_threat_level": event.get("hybrid_threat_level", "low"),
-        "source_names": event.get("source_names", [])[:5],
-        "related_item_count": int(event.get("related_item_count", 0))
+        "event_id":
+            event.get(
+                "event_id",
+                event.get("id")
+            ),
+
+        "title":
+            event.get(
+                "title"
+            ),
+
+        "url":
+            event.get(
+                "url"
+            ),
+
+        "published_at":
+            event.get(
+                "published_at"
+            ),
+
+        "primary_country":
+            event.get(
+                "primary_country",
+                "Regional"
+            ),
+
+        "countries":
+            event.get(
+                "countries",
+                []
+            )[:5],
+
+        "categories":
+            event.get(
+                "categories",
+                []
+            )[:5],
+
+        "actors":
+            event.get(
+                "actors",
+                []
+            )[:5],
+
+        "locations":
+            event.get(
+                "locations",
+                []
+            )[:5],
+
+        "event_type":
+            event.get(
+                "event_type",
+                "background"
+            ),
+
+        "event_subtype":
+            event.get(
+                "event_subtype",
+                "assessment"
+            ),
+
+        "source_count":
+            safe_int(
+                event.get(
+                    "source_count",
+                    0
+                )
+            ),
+
+        "confidence":
+            event.get(
+                "confidence",
+                "low"
+            ),
+
+        "confidence_score":
+            safe_int(
+                event.get(
+                    "confidence_score",
+                    0
+                )
+            ),
+
+        "hybrid_threat_score":
+            safe_int(
+                event.get(
+                    "hybrid_threat_score",
+                    0
+                )
+            ),
+
+        "hybrid_threat_level":
+            event.get(
+                "hybrid_threat_level",
+                "low"
+            ),
+
+        "source_names":
+            event.get(
+                "source_names",
+                []
+            )[:5],
+
+        "related_item_count":
+            safe_int(
+                event.get(
+                    "related_item_count",
+                    0
+                )
+            )
     }
 
 
-def build_top_events(scored: Dict[str, Any]) -> List[Dict[str, Any]]:
-    events = scored.get("events", scored.get("items", []))
+def build_top_events(
+    scored: Dict[str, Any]
+) -> List[Dict[str, Any]]:
 
-    compact = [compact_event(event) for event in events]
+    events = scored.get(
+        "events",
+        scored.get(
+            "items",
+            []
+        )
+    )
+
+    compact = [
+        compact_event(
+            event
+        )
+        for event in events
+    ]
+
     compact = sorted(
         compact,
         key=lambda event: (
-            event.get("hybrid_threat_score", 0),
-            event.get("confidence_score", 0),
-            event.get("published_at", "")
+            event.get(
+                "hybrid_threat_score",
+                0
+            ),
+            event.get(
+                "confidence_score",
+                0
+            ),
+            event.get(
+                "published_at",
+                ""
+            )
         ),
         reverse=True
     )
 
-    return compact[:TOP_EVENT_LIMIT]
+    return compact[
+        :TOP_EVENT_LIMIT
+    ]
 
 
-def build_recent_events(scored: Dict[str, Any]) -> List[Dict[str, Any]]:
-    events = scored.get("events", scored.get("items", []))
+def build_recent_events(
+    scored: Dict[str, Any]
+) -> List[Dict[str, Any]]:
 
-    compact = [compact_event(event) for event in events]
+    events = scored.get(
+        "events",
+        scored.get(
+            "items",
+            []
+        )
+    )
+
+    compact = [
+        compact_event(
+            event
+        )
+        for event in events
+    ]
+
     compact = sorted(
         compact,
-        key=lambda event: event.get("published_at", ""),
+        key=lambda event:
+            event.get(
+                "published_at",
+                ""
+            ),
         reverse=True
     )
 
-    return compact[:TOP_EVENT_LIMIT]
+    return compact[
+        :TOP_EVENT_LIMIT
+    ]
 
 
-def build_history(scored: Dict[str, Any], history: Dict[str, Any]) -> Dict[str, Any]:
+# ---------------------------------------------------------------------
+# HISTORY
+# ---------------------------------------------------------------------
+
+def build_history(
+    scored: Dict[str, Any],
+    history: Dict[str, Any]
+) -> Dict[str, Any]:
+
     records = []
 
-    if isinstance(history, dict):
-        records = history.get("records", [])
+    if isinstance(
+        history,
+        dict
+    ):
+        records = history.get(
+            "records",
+            []
+        )
 
-    records = records[-HISTORY_LIMIT:]
+    if not isinstance(
+        records,
+        list
+    ):
+        records = []
+
+    records = sorted(
+        records,
+        key=lambda record:
+            record.get(
+                "date",
+                ""
+            )
+    )
+
+    records = records[
+        -HISTORY_LIMIT:
+    ]
 
     labels = []
-    threat_index = []
+
+    # Exact calendar-day activity.
+    daily_threat_index = []
+    daily_level = []
+
     incident_count = []
     activity_count = []
     indicator_count = []
     assessment_count = []
 
+    # 14-day rolling threat environment.
+    rolling_threat_index = []
+    rolling_level = []
+
+    # Daily country scores.
     country_scores = {
         "Estonia": [],
         "Latvia": [],
@@ -243,118 +849,654 @@ def build_history(scored: Dict[str, Any], history: Dict[str, Any]) -> Dict[str, 
         "Regional": []
     }
 
-    for record in records:
-        labels.append(record.get("date"))
+    # Rolling country scores.
+    rolling_country_scores = {
+        "Estonia": [],
+        "Latvia": [],
+        "Lithuania": [],
+        "Poland": [],
+        "Regional": []
+    }
 
-        overall = record.get("overall", {})
-        threat_index.append(
-            safe_round(
-                overall.get("threat_index", overall.get("average_score", 0))
+    daily_hotspots = []
+    rolling_hotspots = []
+
+    key_drivers = []
+    trends = []
+
+    for record in records:
+
+        labels.append(
+            record.get(
+                "date"
             )
         )
-        incident_count.append(int(overall.get("incident_count", 0)))
-        activity_count.append(int(overall.get("activity_count", 0)))
-        indicator_count.append(int(overall.get("indicator_count", 0)))
-        assessment_count.append(int(overall.get("assessment_count", 0)))
 
-        countries = record.get("countries", {})
+        daily = record.get(
+            "daily_activity",
+            {}
+        )
+
+        rolling = record.get(
+            "rolling_threat",
+            {}
+        )
+
+        daily_overall = daily.get(
+            "overall",
+            {}
+        )
+
+        rolling_overall = rolling.get(
+            "overall",
+            {}
+        )
+
+        # ---------------------------------------------------------
+        # DAILY ACTIVITY
+        # ---------------------------------------------------------
+
+        daily_average = safe_round(
+            daily_overall.get(
+                "average_score",
+                0
+            )
+        )
+
+        daily_threat_index.append(
+            daily_average
+        )
+
+        daily_level.append(
+            daily_overall.get(
+                "overall_level",
+                level_from_score(
+                    daily_average
+                )
+            )
+        )
+
+        incident_count.append(
+            safe_int(
+                daily_overall.get(
+                    "incident_count",
+                    0
+                )
+            )
+        )
+
+        activity_count.append(
+            safe_int(
+                daily_overall.get(
+                    "activity_count",
+                    0
+                )
+            )
+        )
+
+        indicator_count.append(
+            safe_int(
+                daily_overall.get(
+                    "indicator_count",
+                    0
+                )
+            )
+        )
+
+        assessment_count.append(
+            safe_int(
+                daily_overall.get(
+                    "assessment_count",
+                    0
+                )
+            )
+        )
+
+        daily_countries = daily.get(
+            "countries",
+            {}
+        )
+
         for country in country_scores:
-            country_scores[country].append(
+
+            country_data = (
+                daily_countries.get(
+                    country,
+                    {}
+                )
+            )
+
+            country_scores[
+                country
+            ].append(
                 safe_round(
-                    countries.get(country, {}).get(
+                    country_data.get(
                         "average_score",
-                        countries.get(country, {}).get("threat_index", 0)
+                        0
                     )
                 )
             )
 
+        daily_hotspot = daily.get(
+            "hotspot",
+            {}
+        )
+
+        daily_hotspots.append({
+            "location":
+                daily_hotspot.get(
+                    "location"
+                ),
+
+            "score":
+                safe_int(
+                    daily_hotspot.get(
+                        "score",
+                        0
+                    )
+                ),
+
+            "event_count":
+                safe_int(
+                    daily_hotspot.get(
+                        "event_count",
+                        0
+                    )
+                )
+        })
+
+        key_drivers.append(
+            daily.get(
+                "key_driver"
+            )
+        )
+
+        trends.append(
+            daily.get(
+                "trend",
+                "stable"
+            )
+        )
+
+        # ---------------------------------------------------------
+        # ROLLING THREAT
+        # ---------------------------------------------------------
+
+        rolling_average = safe_round(
+            rolling_overall.get(
+                "average_score",
+                0
+            )
+        )
+
+        rolling_threat_index.append(
+            rolling_average
+        )
+
+        rolling_level.append(
+            rolling_overall.get(
+                "overall_level",
+                level_from_score(
+                    rolling_average
+                )
+            )
+        )
+
+        rolling_countries = rolling.get(
+            "countries",
+            {}
+        )
+
+        for country in rolling_country_scores:
+
+            country_data = (
+                rolling_countries.get(
+                    country,
+                    {}
+                )
+            )
+
+            rolling_country_scores[
+                country
+            ].append(
+                safe_round(
+                    country_data.get(
+                        "average_score",
+                        0
+                    )
+                )
+            )
+
+        rolling_hotspot = rolling.get(
+            "hotspot",
+            {}
+        )
+
+        rolling_hotspots.append({
+            "location":
+                rolling_hotspot.get(
+                    "location"
+                ),
+
+            "score":
+                safe_int(
+                    rolling_hotspot.get(
+                        "score",
+                        0
+                    )
+                ),
+
+            "event_count":
+                safe_int(
+                    rolling_hotspot.get(
+                        "event_count",
+                        0
+                    )
+                )
+        })
+
+    # -------------------------------------------------------------
+    # FALLBACK
+    #
+    # Only used if the history database does not yet contain records.
+    # -------------------------------------------------------------
+
     if not labels:
-        summary = normalize_summary(scored)
-        labels = [datetime.now(timezone.utc).date().isoformat()]
-        threat_index = [summary["threat_index"]]
-        incident_count = [summary["incident_count"]]
-        activity_count = [summary["activity_count"]]
-        indicator_count = [summary["indicator_count"]]
-        assessment_count = [summary["assessment_count"]]
+
+        summary = normalize_summary(
+            scored
+        )
+
+        current_date = (
+            datetime.now(
+                timezone.utc
+            )
+            .date()
+            .isoformat()
+        )
+
+        labels = [
+            current_date
+        ]
+
+        daily_threat_index = [
+            summary[
+                "threat_index"
+            ]
+        ]
+
+        daily_level = [
+            summary[
+                "threat_level"
+            ]
+        ]
+
+        rolling_threat_index = [
+            summary[
+                "threat_index"
+            ]
+        ]
+
+        rolling_level = [
+            summary[
+                "threat_level"
+            ]
+        ]
+
+        incident_count = [
+            summary[
+                "incident_count"
+            ]
+        ]
+
+        activity_count = [
+            summary[
+                "activity_count"
+            ]
+        ]
+
+        indicator_count = [
+            summary[
+                "indicator_count"
+            ]
+        ]
+
+        assessment_count = [
+            summary[
+                "assessment_count"
+            ]
+        ]
+
+        cards = build_country_cards(
+            scored
+        )
 
         for country in country_scores:
-            country_scores[country] = [
-                next(
-                    (
-                        card["average_score"]
-                        for card in build_country_cards(scored)
-                        if card["country"] == country
-                    ),
-                    0
-                )
+
+            score = next(
+                (
+                    card[
+                        "average_score"
+                    ]
+                    for card in cards
+                    if card[
+                        "country"
+                    ] == country
+                ),
+                0
+            )
+
+            country_scores[
+                country
+            ] = [
+                score
             ]
 
+            rolling_country_scores[
+                country
+            ] = [
+                score
+            ]
+
+        daily_hotspots = [{
+            "location":
+                None,
+
+            "score":
+                0,
+
+            "event_count":
+                0
+        }]
+
+        rolling_hotspots = [{
+            "location":
+                None,
+
+            "score":
+                0,
+
+            "event_count":
+                0
+        }]
+
+        key_drivers = [
+            None
+        ]
+
+        trends = [
+            "stable"
+        ]
+
+    # -------------------------------------------------------------
+    # BACKWARD COMPATIBILITY
+    #
+    # threat_index remains available for the existing frontend.
+    # It now represents exact-day Daily Activity.
+    # -------------------------------------------------------------
+
     return {
-        "labels": labels,
-        "threat_index": threat_index,
-        "incident_count": incident_count,
-        "activity_count": activity_count,
-        "indicator_count": indicator_count,
-        "assessment_count": assessment_count,
-        "country_scores": country_scores
+        "labels":
+            labels,
+
+        "threat_index":
+            daily_threat_index,
+
+        "daily_threat_index":
+            daily_threat_index,
+
+        "daily_level":
+            daily_level,
+
+        "rolling_threat_index":
+            rolling_threat_index,
+
+        "rolling_level":
+            rolling_level,
+
+        "incident_count":
+            incident_count,
+
+        "activity_count":
+            activity_count,
+
+        "indicator_count":
+            indicator_count,
+
+        "assessment_count":
+            assessment_count,
+
+        "country_scores":
+            country_scores,
+
+        "rolling_country_scores":
+            rolling_country_scores,
+
+        "daily_hotspots":
+            daily_hotspots,
+
+        "rolling_hotspots":
+            rolling_hotspots,
+
+        "key_drivers":
+            key_drivers,
+
+        "trends":
+            trends,
+
+        "history_window":
+            len(
+                labels
+            ),
+
+        "rolling_window_days":
+            (
+                history
+                .get(
+                    "method",
+                    {}
+                )
+                .get(
+                    "rolling_days",
+                    14
+                )
+                if isinstance(
+                    history,
+                    dict
+                )
+                else 14
+            )
     }
 
 
-def build_data_quality(scored: Dict[str, Any]) -> Dict[str, Any]:
-    summary = normalize_summary(scored)
+# ---------------------------------------------------------------------
+# DATA QUALITY
+# ---------------------------------------------------------------------
 
-    raw_count = summary["raw_item_count"]
-    filtered_count = summary["filtered_item_count"]
-    clustered_count = summary["clustered_event_count"]
+def build_data_quality(
+    scored: Dict[str, Any]
+) -> Dict[str, Any]:
+
+    summary = normalize_summary(
+        scored
+    )
+
+    raw_count = summary[
+        "raw_item_count"
+    ]
+
+    filtered_count = summary[
+        "filtered_item_count"
+    ]
+
+    clustered_count = summary[
+        "clustered_event_count"
+    ]
 
     filter_reduction = 0
     cluster_reduction = 0
 
     if raw_count > 0:
-        filter_reduction = round((raw_count - filtered_count) / raw_count * 100, 2)
+
+        filter_reduction = round(
+            (
+                raw_count
+                - filtered_count
+            )
+            / raw_count
+            * 100,
+            2
+        )
 
     if filtered_count > 0:
-        cluster_reduction = round((filtered_count - clustered_count) / filtered_count * 100, 2)
+
+        cluster_reduction = round(
+            (
+                filtered_count
+                - clustered_count
+            )
+            / filtered_count
+            * 100,
+            2
+        )
 
     return {
-        "raw_item_count": raw_count,
-        "filtered_item_count": filtered_count,
-        "clustered_event_count": clustered_count,
-        "merged_item_count": summary["merged_item_count"],
-        "filter_reduction_percent": filter_reduction,
-        "cluster_reduction_percent": cluster_reduction
+        "raw_item_count":
+            raw_count,
+
+        "filtered_item_count":
+            filtered_count,
+
+        "clustered_event_count":
+            clustered_count,
+
+        "merged_item_count":
+            summary[
+                "merged_item_count"
+            ],
+
+        "filter_reduction_percent":
+            filter_reduction,
+
+        "cluster_reduction_percent":
+            cluster_reduction
     }
 
 
+# ---------------------------------------------------------------------
+# MAIN
+# ---------------------------------------------------------------------
+
 def main() -> None:
-    scored = load_json(SCORED_INPUT, default=None)
-    history = load_json(HISTORY_INPUT, default={})
+
+    scored = load_json(
+        SCORED_INPUT,
+        default=None
+    )
+
+    history = load_json(
+        HISTORY_INPUT,
+        default={}
+    )
 
     if scored is None:
+
         raise FileNotFoundError(
-            f"Missing scored input file: {SCORED_INPUT}. "
+            f"Missing scored input file: "
+            f"{SCORED_INPUT}. "
             "Run scripts/score_baltic_hybrid_news.py first."
         )
 
+    dashboard_history = build_history(
+        scored,
+        history
+    )
+
     payload = {
-        "project": scored.get("project", "baltic-hybrid-monitor"),
-        "title": "Baltic Hybrid Threat Monitor",
-        "subtitle": "Event-based OSINT monitoring of hybrid threats in the Baltic states and Poland",
-        "region": scored.get("region", "Baltic states and Poland"),
-        "generated_at": datetime.now(timezone.utc).isoformat(),
-        "latest_update": scored.get("generated_at"),
-        "version": "Threat Intelligence Engine v1.0",
-        "summary": normalize_summary(scored),
-        "subtype_cards": build_subtype_cards(scored),
-        "country_cards": build_country_cards(scored),
-        "category_drivers": build_category_drivers(scored),
-        "actor_drivers": build_actor_drivers(scored),
-        "top_events": build_top_events(scored),
-        "recent_events": build_recent_events(scored),
-        "history": build_history(scored, history),
-        "data_quality": build_data_quality(scored),
+        "project":
+            scored.get(
+                "project",
+                "baltic-hybrid-monitor"
+            ),
+
+        "title":
+            "Baltic Hybrid Threat Monitor",
+
+        "subtitle":
+            (
+                "Event-based OSINT monitoring of hybrid threats "
+                "in the Baltic states and Poland"
+            ),
+
+        "region":
+            scored.get(
+                "region",
+                "Baltic states and Poland"
+            ),
+
+        "generated_at":
+            datetime.now(
+                timezone.utc
+            ).isoformat(),
+
+        "latest_update":
+            scored.get(
+                "generated_at"
+            ),
+
+        "version":
+            "Threat Intelligence Engine v1.1",
+
+        "summary":
+            normalize_summary(
+                scored
+            ),
+
+        "subtype_cards":
+            build_subtype_cards(
+                scored
+            ),
+
+        "country_cards":
+            build_country_cards(
+                scored
+            ),
+
+        "category_drivers":
+            build_category_drivers(
+                scored
+            ),
+
+        "actor_drivers":
+            build_actor_drivers(
+                scored
+            ),
+
+        "top_events":
+            build_top_events(
+                scored
+            ),
+
+        "recent_events":
+            build_recent_events(
+                scored
+            ),
+
+        "history":
+            dashboard_history,
+
+        "data_quality":
+            build_data_quality(
+                scored
+            ),
+
         "methodology": {
-            "model": "Event-based rule-driven OSINT threat intelligence model.",
+            "model":
+                (
+                    "Event-based rule-driven OSINT "
+                    "threat intelligence model."
+                ),
+
             "pipeline": [
                 "RSS and HTML source collection",
                 "Threat relevance filtering",
@@ -363,22 +1505,107 @@ def main() -> None:
                 "Threat ontology classification",
                 "Confidence scoring",
                 "Threat Score Engine v2",
+                "Historical daily activity calculation",
+                "14-day rolling threat calculation",
                 "Dashboard-optimized output"
             ],
-            "event_subtypes": {
-                "incident": "Reported operational event such as drone incident, cyberattack, sabotage, border event or GPS interference.",
-                "activity": "Security or military activity shaping the threat environment.",
-                "indicator": "Early warning or information signal.",
-                "assessment": "Strategic, institutional or analytical background. It is not counted into the operational threat index."
+
+            "threat_score_scale": {
+                "low":
+                    "0-19",
+
+                "guarded":
+                    "20-39",
+
+                "elevated":
+                    "40-59",
+
+                "high":
+                    "60-79",
+
+                "critical":
+                    "80+"
             },
-            "warning": "This dashboard is an OSINT monitoring aid. It does not confirm attribution and should not be treated as an official threat assessment."
+
+            "history_model": {
+                "daily_activity":
+                    (
+                        "Exact calendar-day activity calculated "
+                        "from events published on that date."
+                    ),
+
+                "rolling_threat":
+                    (
+                        "Fourteen-day rolling threat environment "
+                        "ending on each calendar date."
+                    ),
+
+                "historical_database":
+                    (
+                        "Long-term daily history is preserved "
+                        "independently of the rolling calculation window."
+                    )
+            },
+
+            "event_subtypes": {
+                "incident":
+                    (
+                        "Reported operational event such as drone "
+                        "incident, cyberattack, sabotage, border event "
+                        "or GPS interference."
+                    ),
+
+                "activity":
+                    (
+                        "Security or military activity shaping "
+                        "the threat environment."
+                    ),
+
+                "indicator":
+                    (
+                        "Early warning or information signal."
+                    ),
+
+                "assessment":
+                    (
+                        "Strategic, institutional or analytical "
+                        "background. It is not counted into the "
+                        "operational threat index."
+                    )
+            },
+
+            "warning":
+                (
+                    "This dashboard is an OSINT monitoring aid. "
+                    "It does not confirm attribution and should not "
+                    "be treated as an official threat assessment."
+                )
         }
     }
 
-    save_json(DASHBOARD_OUTPUT, payload)
-    print(f"Saved dashboard data to {DASHBOARD_OUTPUT}")
+    save_json(
+        DASHBOARD_OUTPUT,
+        payload
+    )
+
+    print(
+        f"Saved dashboard data to "
+        f"{DASHBOARD_OUTPUT}"
+    )
+
+    print(
+        f"Dashboard history records: "
+        f"{dashboard_history.get('history_window', 0)}"
+    )
+
+    print(
+        "History source: unified daily_activity + rolling_threat schema"
+    )
+
+    print(
+        "Backward-compatible threat_index: daily_activity average score"
+    )
 
 
 if __name__ == "__main__":
     main()
-
