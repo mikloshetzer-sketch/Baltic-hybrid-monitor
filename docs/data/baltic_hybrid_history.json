@@ -2,19 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-08-28T09:15:25.785883+00:00",
+  "updated_at": "2026-08-28T09:18:16.232729+00:00",
   "record_count": 28,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
     "warning": "Historical records are reconstructed from currently available scored items using published_at dates. The backfill is not a complete historical archive if older source items are no longer available.",
-    "days": 28,
+    "backfill_days": 28,
+    "backfill_start_date": "2026-08-01",
+    "backfill_end_date": "2026-08-28",
     "rolling_days": 14,
-    "daily_activity": "Uses only events whose published_at date matches the displayed calendar date.",
-    "rolling_threat": "Uses a 14-day rolling window ending on each displayed calendar date.",
-    "important": "Daily Activity and Rolling Threat are stored separately. The rolling window does not limit the lifetime of the historical database.",
-    "trend": "Daily trend compares the current Daily Activity average score with the previous calendar day's Daily Activity average score.",
-    "history_retention": "Unlimited. Historical daily records are never automatically removed.",
-    "update_mode": "One record per calendar date. Re-running the same date replaces only that date and preserves all other historical records.",
     "threat_score_scale": {
       "low": "0-19",
       "guarded": "20-39",
@@ -22,18 +18,24 @@
       "high": "60-79",
       "critical": "80+"
     },
+    "daily_activity": "Uses only events whose published_at date matches the displayed calendar date.",
+    "rolling_threat": "Uses a 14-day rolling window ending on each displayed calendar date.",
     "analytical_layers": {
       "information": "Pure information or disinformation activity without a concurrent operational threat category.",
       "early_warning": "Indicators and precursor signals.",
-      "operational": "Reported incidents and operational activities, including mixed events that contain a concrete operational threat component.",
+      "operational": "Reported incidents and operational activities, including mixed events containing a concrete operational threat component.",
       "assessment": "Strategic, institutional or analytical background."
-    }
+    },
+    "trend": "Daily trend compares the current Daily Activity average score with the previous calendar day's Daily Activity average score.",
+    "history_retention": "Unlimited. Historical records outside the requested backfill range are preserved.",
+    "backfill_update_mode": "Only calendar dates inside the requested backfill range are rebuilt. Older and newer historical records outside that range remain unchanged.",
+    "important": "Daily Activity and Rolling Threat are stored separately. The rolling window does not limit the lifetime of the historical database."
   },
   "records": [
     {
       "date": "2026-08-01",
-      "generated_at": "2026-08-28T08:05:16.762428+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.233491+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -45,7 +47,7 @@
           "score_total": 89,
           "average_score": 44.5,
           "highest_score": 48,
-          "overall_level": "critical"
+          "overall_level": "elevated"
         },
         "countries": {
           "Estonia": {
@@ -63,7 +65,7 @@
             "score_total": 41,
             "average_score": 41.0,
             "highest_score": 41,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "border_pressure": 1
             }
@@ -74,7 +76,7 @@
             "score_total": 41,
             "average_score": 41.0,
             "highest_score": 41,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "border_pressure": 1
             }
@@ -85,7 +87,7 @@
             "score_total": 48,
             "average_score": 48.0,
             "highest_score": 48,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "military_provocation": 1
             }
@@ -121,25 +123,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 2,
             "score_total": 89,
             "average_score": 44.5,
-            "highest_score": 48
+            "highest_score": 48,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -219,7 +225,7 @@
           "score_total": 1306,
           "average_score": 31.85,
           "highest_score": 79,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -228,7 +234,7 @@
             "score_total": 8,
             "average_score": 8.0,
             "highest_score": 8,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "cyber": 1
             }
@@ -239,7 +245,7 @@
             "score_total": 54,
             "average_score": 10.8,
             "highest_score": 41,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "border_pressure": 1,
               "cyber": 2
@@ -251,7 +257,7 @@
             "score_total": 199,
             "average_score": 28.43,
             "highest_score": 42,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 1,
               "border_pressure": 1,
@@ -267,7 +273,7 @@
             "score_total": 1108,
             "average_score": 35.74,
             "highest_score": 79,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "disinformation": 3,
               "critical_infrastructure": 5,
@@ -286,7 +292,7 @@
             "score_total": 157,
             "average_score": 19.62,
             "highest_score": 51,
-            "level": "critical",
+            "level": "low",
             "categories": {
               "drone_incident": 1,
               "military_provocation": 1,
@@ -371,28 +377,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 14,
+            "average_score": 14.0,
+            "highest_score": 14,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 3,
             "score_total": 18,
             "average_score": 6.0,
-            "highest_score": 8
+            "highest_score": 8,
+            "level": "low"
           },
           "operational": {
-            "event_count": 30,
-            "score_total": 1288,
-            "average_score": 42.93,
-            "highest_score": 79
+            "event_count": 29,
+            "score_total": 1274,
+            "average_score": 43.93,
+            "highest_score": 79,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 8,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -649,20 +659,20 @@
     },
     {
       "date": "2026-08-02",
-      "generated_at": "2026-08-28T08:05:16.763278+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.234415+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
-          "event_count": 1,
+          "event_count": 2,
           "incident_count": 0,
           "activity_count": 1,
-          "indicator_count": 0,
+          "indicator_count": 1,
           "assessment_count": 0,
-          "score_total": 12,
-          "average_score": 12.0,
+          "score_total": 17,
+          "average_score": 8.5,
           "highest_score": 12,
-          "overall_level": "high"
+          "overall_level": "low"
         },
         "countries": {
           "Estonia": {
@@ -671,7 +681,7 @@
             "score_total": 12,
             "average_score": 12.0,
             "highest_score": 12,
-            "level": "high",
+            "level": "low",
             "categories": {}
           },
           "Latvia": {
@@ -703,10 +713,10 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0,
+            "event_count": 1,
+            "score_total": 5,
+            "average_score": 5.0,
+            "highest_score": 5,
             "level": "low",
             "categories": {}
           }
@@ -717,25 +727,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 5,
+            "average_score": 5.0,
+            "highest_score": 5,
+            "level": "low"
           },
           "operational": {
             "event_count": 1,
             "score_total": 12,
             "average_score": 12.0,
-            "highest_score": 12
+            "highest_score": 12,
+            "level": "low"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -767,6 +781,26 @@
             "confidence": "low",
             "hybrid_threat_score": 12,
             "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Europe Strengthens Defenses Against Russia Amid Rising Hybrid Threats - uatv.ua",
+            "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNV0VBSWw5V1RIVkkyMUxELVVZUmhxNWtzU1lwQ3dWVkZiazZncUtRTWFsVXFrdkJXTk4wcDl4aUxPRHcxN3hkZnNJeU5Hc21iRmhyZ2lvWWhRVmd0VE44MFVCbGY2RkF2ZE52cnFxSG9vVDRiU3FyenFOLW5aWW5JU3NBUU5vRFplZ0t1VjhhVC0tUk0?oc=5",
+            "published_at": "2026-08-02T07:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [],
+            "actors": [
+              "Russia",
+              "EU"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 5,
+            "hybrid_threat_level": "low"
           }
         ]
       },
@@ -778,15 +812,15 @@
           "end_date": "2026-08-02"
         },
         "overall": {
-          "event_count": 42,
+          "event_count": 43,
           "incident_count": 27,
           "activity_count": 4,
-          "indicator_count": 3,
+          "indicator_count": 4,
           "assessment_count": 8,
-          "score_total": 1318,
-          "average_score": 31.38,
+          "score_total": 1323,
+          "average_score": 30.77,
           "highest_score": 79,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -795,7 +829,7 @@
             "score_total": 20,
             "average_score": 10.0,
             "highest_score": 12,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "cyber": 1
             }
@@ -806,7 +840,7 @@
             "score_total": 54,
             "average_score": 10.8,
             "highest_score": 41,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "border_pressure": 1,
               "cyber": 2
@@ -818,7 +852,7 @@
             "score_total": 199,
             "average_score": 28.43,
             "highest_score": 42,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 1,
               "border_pressure": 1,
@@ -834,7 +868,7 @@
             "score_total": 1108,
             "average_score": 35.74,
             "highest_score": 79,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "disinformation": 3,
               "critical_infrastructure": 5,
@@ -849,11 +883,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 8,
-            "score_total": 157,
-            "average_score": 19.62,
+            "event_count": 9,
+            "score_total": 162,
+            "average_score": 18.0,
             "highest_score": 51,
-            "level": "critical",
+            "level": "low",
             "categories": {
               "drone_incident": 1,
               "military_provocation": 1,
@@ -938,28 +972,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 14,
+            "average_score": 14.0,
+            "highest_score": 14,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 3,
-            "score_total": 18,
-            "average_score": 6.0,
-            "highest_score": 8
+            "event_count": 4,
+            "score_total": 23,
+            "average_score": 5.75,
+            "highest_score": 8,
+            "level": "low"
           },
           "operational": {
-            "event_count": 31,
-            "score_total": 1300,
-            "average_score": 41.94,
-            "highest_score": 79
+            "event_count": 30,
+            "score_total": 1286,
+            "average_score": 42.87,
+            "highest_score": 79,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 8,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -1216,8 +1254,8 @@
     },
     {
       "date": "2026-08-03",
-      "generated_at": "2026-08-28T08:05:16.764057+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.235339+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -1229,7 +1267,7 @@
           "score_total": 171,
           "average_score": 42.75,
           "highest_score": 60,
-          "overall_level": "critical"
+          "overall_level": "elevated"
         },
         "countries": {
           "Estonia": {
@@ -1265,7 +1303,7 @@
             "score_total": 131,
             "average_score": 43.67,
             "highest_score": 60,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "military_provocation": 3,
               "espionage": 2
@@ -1277,7 +1315,7 @@
             "score_total": 40,
             "average_score": 40.0,
             "highest_score": 40,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "drone_incident": 1
             }
@@ -1311,25 +1349,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 1,
             "score_total": 11,
             "average_score": 11.0,
-            "highest_score": 11
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
             "event_count": 3,
             "score_total": 160,
             "average_score": 53.33,
-            "highest_score": 60
+            "highest_score": 60,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -1445,15 +1487,15 @@
           "end_date": "2026-08-03"
         },
         "overall": {
-          "event_count": 43,
+          "event_count": 44,
           "incident_count": 29,
           "activity_count": 2,
-          "indicator_count": 4,
+          "indicator_count": 5,
           "assessment_count": 8,
-          "score_total": 1419,
-          "average_score": 33.0,
+          "score_total": 1424,
+          "average_score": 32.36,
           "highest_score": 79,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -1462,7 +1504,7 @@
             "score_total": 20,
             "average_score": 10.0,
             "highest_score": 12,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "cyber": 1
             }
@@ -1473,7 +1515,7 @@
             "score_total": 54,
             "average_score": 10.8,
             "highest_score": 41,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "border_pressure": 1,
               "cyber": 2
@@ -1485,7 +1527,7 @@
             "score_total": 185,
             "average_score": 30.83,
             "highest_score": 42,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 1,
               "border_pressure": 1,
@@ -1501,7 +1543,7 @@
             "score_total": 1182,
             "average_score": 36.94,
             "highest_score": 79,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "disinformation": 3,
               "critical_infrastructure": 4,
@@ -1516,11 +1558,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 7,
-            "score_total": 170,
-            "average_score": 24.29,
+            "event_count": 8,
+            "score_total": 175,
+            "average_score": 21.88,
             "highest_score": 51,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 1,
@@ -1605,28 +1647,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 14,
+            "average_score": 14.0,
+            "highest_score": 14,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 4,
-            "score_total": 29,
-            "average_score": 7.25,
-            "highest_score": 11
+            "event_count": 5,
+            "score_total": 34,
+            "average_score": 6.8,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 31,
-            "score_total": 1390,
-            "average_score": 44.84,
-            "highest_score": 79
+            "event_count": 30,
+            "score_total": 1376,
+            "average_score": 45.87,
+            "highest_score": 79,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 8,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -1882,8 +1928,8 @@
     },
     {
       "date": "2026-08-04",
-      "generated_at": "2026-08-28T08:05:16.764844+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.236259+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -1895,7 +1941,7 @@
           "score_total": 77,
           "average_score": 38.5,
           "highest_score": 42,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -1931,7 +1977,7 @@
             "score_total": 77,
             "average_score": 38.5,
             "highest_score": 42,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "disinformation": 1,
               "military_provocation": 2
@@ -1968,25 +2014,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 2,
             "score_total": 77,
             "average_score": 38.5,
-            "highest_score": 42
+            "highest_score": 42,
+            "level": "guarded"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -2054,15 +2104,15 @@
           "end_date": "2026-08-04"
         },
         "overall": {
-          "event_count": 41,
+          "event_count": 42,
           "incident_count": 29,
           "activity_count": 2,
-          "indicator_count": 4,
+          "indicator_count": 5,
           "assessment_count": 6,
-          "score_total": 1414,
-          "average_score": 34.49,
+          "score_total": 1419,
+          "average_score": 33.79,
           "highest_score": 79,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -2071,7 +2121,7 @@
             "score_total": 20,
             "average_score": 10.0,
             "highest_score": 12,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "cyber": 1
             }
@@ -2082,7 +2132,7 @@
             "score_total": 54,
             "average_score": 13.5,
             "highest_score": 41,
-            "level": "high",
+            "level": "low",
             "categories": {
               "border_pressure": 1,
               "cyber": 1
@@ -2094,7 +2144,7 @@
             "score_total": 185,
             "average_score": 30.83,
             "highest_score": 42,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 1,
               "border_pressure": 1,
@@ -2110,7 +2160,7 @@
             "score_total": 1215,
             "average_score": 36.82,
             "highest_score": 79,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "disinformation": 4,
               "critical_infrastructure": 4,
@@ -2125,11 +2175,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 5,
-            "score_total": 132,
-            "average_score": 26.4,
+            "event_count": 6,
+            "score_total": 137,
+            "average_score": 22.83,
             "highest_score": 51,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 1,
@@ -2213,28 +2263,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 14,
+            "average_score": 14.0,
+            "highest_score": 14,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 4,
-            "score_total": 29,
-            "average_score": 7.25,
-            "highest_score": 11
+            "event_count": 5,
+            "score_total": 34,
+            "average_score": 6.8,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 31,
-            "score_total": 1385,
-            "average_score": 44.68,
-            "highest_score": 79
+            "event_count": 30,
+            "score_total": 1371,
+            "average_score": 45.7,
+            "highest_score": 79,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 6,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -2490,8 +2544,8 @@
     },
     {
       "date": "2026-08-05",
-      "generated_at": "2026-08-28T08:05:16.765590+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.237126+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -2503,7 +2557,7 @@
           "score_total": 37,
           "average_score": 37.0,
           "highest_score": 37,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -2548,7 +2602,7 @@
             "score_total": 37,
             "average_score": 37.0,
             "highest_score": 37,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "military_provocation": 1
             }
@@ -2568,25 +2622,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 1,
             "score_total": 37,
             "average_score": 37.0,
-            "highest_score": 37
+            "highest_score": 37,
+            "level": "guarded"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -2628,15 +2686,15 @@
           "end_date": "2026-08-05"
         },
         "overall": {
-          "event_count": 37,
+          "event_count": 38,
           "incident_count": 27,
           "activity_count": 1,
-          "indicator_count": 3,
+          "indicator_count": 4,
           "assessment_count": 6,
-          "score_total": 1251,
-          "average_score": 33.81,
+          "score_total": 1256,
+          "average_score": 33.05,
           "highest_score": 67,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -2645,7 +2703,7 @@
             "score_total": 20,
             "average_score": 10.0,
             "highest_score": 12,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "cyber": 1
             }
@@ -2656,7 +2714,7 @@
             "score_total": 49,
             "average_score": 16.33,
             "highest_score": 41,
-            "level": "high",
+            "level": "low",
             "categories": {
               "border_pressure": 1,
               "cyber": 1
@@ -2668,7 +2726,7 @@
             "score_total": 110,
             "average_score": 27.5,
             "highest_score": 41,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "border_pressure": 1,
               "migration_pressure": 1,
@@ -2681,7 +2739,7 @@
             "score_total": 1062,
             "average_score": 35.4,
             "highest_score": 67,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "gps_interference": 1,
               "military_provocation": 18,
@@ -2696,11 +2754,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 5,
-            "score_total": 136,
-            "average_score": 27.2,
+            "event_count": 6,
+            "score_total": 141,
+            "average_score": 23.5,
             "highest_score": 51,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 2,
@@ -2782,28 +2840,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 14,
+            "average_score": 14.0,
+            "highest_score": 14,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 3,
-            "score_total": 24,
-            "average_score": 8.0,
-            "highest_score": 11
+            "event_count": 4,
+            "score_total": 29,
+            "average_score": 7.25,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 28,
-            "score_total": 1227,
-            "average_score": 43.82,
-            "highest_score": 67
+            "event_count": 27,
+            "score_total": 1213,
+            "average_score": 44.93,
+            "highest_score": 67,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 6,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -3058,8 +3120,8 @@
     },
     {
       "date": "2026-08-06",
-      "generated_at": "2026-08-28T08:05:16.766375+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.237971+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -3071,7 +3133,7 @@
           "score_total": 423,
           "average_score": 42.3,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "elevated"
         },
         "countries": {
           "Estonia": {
@@ -3089,7 +3151,7 @@
             "score_total": 132,
             "average_score": 44.0,
             "highest_score": 87,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 1,
@@ -3102,7 +3164,7 @@
             "score_total": 368,
             "average_score": 52.57,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 1,
               "drone_incident": 6,
@@ -3132,7 +3194,7 @@
             "score_total": 30,
             "average_score": 15.0,
             "highest_score": 20,
-            "level": "high",
+            "level": "low",
             "categories": {
               "military_provocation": 1
             }
@@ -3180,25 +3242,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 9,
             "score_total": 423,
             "average_score": 47.0,
-            "highest_score": 91
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 1,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -3314,7 +3380,7 @@
           },
           {
             "id": null,
-            "title": "Lithuania Sees Russia Mulling False-Flag Drone Attack on Region - Bloomberg",
+            "title": "Lithuania Sees Russia Mulling False-Flag Drone Attack on Region - Bloomberg.com",
             "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQQUZ1YW40S1cySEhWeVExSzhBVHcyc2ZpTEJyencyYTlhbk9kWW1QbmQwU05PRUdQa3Z1amg5V3c1OWF6VUZ1Qnc0SEsxaWpNUUx6UzJuMkljdlBORTJQSDFDeF90WXBDMDd6WjQtWURmMXlKejlIaldPYUw2RHJKa1BjWVp1dzNUbmxmZmZiMlFkcFpWTTRBaDl3OXl5akx4SWllMUpZZzlEbFotUi16bXhOdXg?oc=5",
             "published_at": "2026-08-06T07:00:00+00:00",
             "source_name": null,
@@ -3458,15 +3524,15 @@
           "end_date": "2026-08-06"
         },
         "overall": {
-          "event_count": 45,
+          "event_count": 46,
           "incident_count": 34,
           "activity_count": 2,
-          "indicator_count": 3,
+          "indicator_count": 4,
           "assessment_count": 6,
-          "score_total": 1640,
-          "average_score": 36.44,
+          "score_total": 1645,
+          "average_score": 35.76,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -3475,7 +3541,7 @@
             "score_total": 20,
             "average_score": 6.67,
             "highest_score": 12,
-            "level": "guarded",
+            "level": "low",
             "categories": {
               "cyber": 1
             }
@@ -3486,7 +3552,7 @@
             "score_total": 181,
             "average_score": 36.2,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 1,
@@ -3501,7 +3567,7 @@
             "score_total": 444,
             "average_score": 44.4,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 6,
@@ -3518,7 +3584,7 @@
             "score_total": 1206,
             "average_score": 40.2,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 4,
@@ -3533,11 +3599,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 7,
-            "score_total": 166,
-            "average_score": 23.71,
+            "event_count": 8,
+            "score_total": 171,
+            "average_score": 21.38,
             "highest_score": 51,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 3,
@@ -3619,28 +3685,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 14,
+            "average_score": 14.0,
+            "highest_score": 14,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 3,
-            "score_total": 24,
-            "average_score": 8.0,
-            "highest_score": 11
+            "event_count": 4,
+            "score_total": 29,
+            "average_score": 7.25,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 36,
-            "score_total": 1616,
-            "average_score": 44.89,
-            "highest_score": 91
+            "event_count": 35,
+            "score_total": 1602,
+            "average_score": 45.77,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 6,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -3902,20 +3972,20 @@
     },
     {
       "date": "2026-08-07",
-      "generated_at": "2026-08-28T08:05:16.767199+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.238939+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
-          "event_count": 7,
-          "incident_count": 6,
+          "event_count": 8,
+          "incident_count": 7,
           "activity_count": 0,
           "indicator_count": 1,
           "assessment_count": 0,
-          "score_total": 246,
-          "average_score": 35.14,
+          "score_total": 291,
+          "average_score": 36.38,
           "highest_score": 54,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -3938,13 +4008,13 @@
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 3,
-            "score_total": 93,
-            "average_score": 31.0,
+            "event_count": 4,
+            "score_total": 138,
+            "average_score": 34.5,
             "highest_score": 48,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
-              "drone_incident": 2,
+              "drone_incident": 3,
               "cyber": 1,
               "critical_infrastructure": 1
             }
@@ -3955,7 +4025,7 @@
             "score_total": 81,
             "average_score": 40.5,
             "highest_score": 54,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "critical_infrastructure": 1
             }
@@ -3966,7 +4036,7 @@
             "score_total": 72,
             "average_score": 36.0,
             "highest_score": 47,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 1,
               "critical_infrastructure": 1
@@ -3976,9 +4046,9 @@
         "categories": {
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 3,
-            "score_total": 129,
-            "average_score": 43.0,
+            "event_count": 4,
+            "score_total": 174,
+            "average_score": 43.5,
             "highest_score": 48
           },
           "critical_infrastructure": {
@@ -4001,31 +4071,35 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 1,
             "score_total": 11,
             "average_score": 11.0,
-            "highest_score": 11
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 6,
-            "score_total": 235,
-            "average_score": 39.17,
-            "highest_score": 54
+            "event_count": 7,
+            "score_total": 280,
+            "average_score": 40.0,
+            "highest_score": 54,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
           "location": "Lithuania",
-          "score": 93,
-          "event_count": 3
+          "score": 138,
+          "event_count": 4
         },
         "key_driver": "drone_incident",
         "trend": "decreasing",
@@ -4097,6 +4171,31 @@
             "analytical_layer": "operational",
             "confidence": "low",
             "hybrid_threat_score": 47,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "The wreckage Russia collects from Ukrainian drone strikes may have a second life—aimed at NATO, Lithuania warns - Euromaidan Press",
+            "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNVVpBUmJSRGZ6aTBaNDZJOUhJUVpDRXdOZkRkWlpDeW8tWTJfUDJoVXFMRjRQR2lQM3dZOHlaMmZpUEk3eVNoQnpJdlZ2VHl5blkxaWtnOVZZTFZJVExvNVJZcmlxbEZwSjJqZE1wSVNEc2c0cm5hMEJKU3pUbUlZVHZBQTVKeVZ0eGN6cXdPZGE2MVVXSDRpU1E1cnJFbmxLV3FZdUlfVjdrSGcwcjJxcjVmSGs4d1FkQXdJVmg4OUJ5R1VnQUcwUTg5X09jV3lBMHRMaFAwRnB1RE9LOEtoenVUanE?oc=5",
+            "published_at": "2026-08-07T07:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Lithuania",
+            "countries": [
+              "Lithuania"
+            ],
+            "categories": [
+              "drone_incident"
+            ],
+            "actors": [
+              "Russia",
+              "NATO",
+              "EU"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 45,
             "hybrid_threat_level": "elevated"
           },
           {
@@ -4197,15 +4296,15 @@
           "end_date": "2026-08-07"
         },
         "overall": {
-          "event_count": 51,
-          "incident_count": 40,
+          "event_count": 53,
+          "incident_count": 41,
           "activity_count": 2,
-          "indicator_count": 4,
+          "indicator_count": 5,
           "assessment_count": 5,
-          "score_total": 1886,
-          "average_score": 36.98,
+          "score_total": 1936,
+          "average_score": 36.53,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -4214,7 +4313,7 @@
             "score_total": 20,
             "average_score": 6.67,
             "highest_score": 12,
-            "level": "guarded",
+            "level": "low",
             "categories": {
               "cyber": 1
             }
@@ -4225,7 +4324,7 @@
             "score_total": 181,
             "average_score": 36.2,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 1,
@@ -4236,14 +4335,14 @@
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 13,
-            "score_total": 537,
-            "average_score": 41.31,
+            "event_count": 14,
+            "score_total": 582,
+            "average_score": 41.57,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 3,
-              "drone_incident": 8,
+              "drone_incident": 9,
               "gps_interference": 1,
               "military_provocation": 1,
               "critical_infrastructure": 3,
@@ -4257,7 +4356,7 @@
             "score_total": 1287,
             "average_score": 41.52,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 4,
@@ -4272,11 +4371,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 9,
-            "score_total": 238,
-            "average_score": 26.44,
+            "event_count": 10,
+            "score_total": 243,
+            "average_score": 24.3,
             "highest_score": 51,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 3,
               "military_provocation": 3,
@@ -4295,9 +4394,9 @@
           },
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 14,
-            "score_total": 690,
-            "average_score": 49.29,
+            "event_count": 15,
+            "score_total": 735,
+            "average_score": 49.0,
             "highest_score": 91
           },
           "critical_infrastructure": {
@@ -4359,28 +4458,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 14,
+            "average_score": 14.0,
+            "highest_score": 14,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 4,
-            "score_total": 35,
-            "average_score": 8.75,
-            "highest_score": 11
+            "event_count": 5,
+            "score_total": 40,
+            "average_score": 8.0,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
             "event_count": 42,
-            "score_total": 1851,
-            "average_score": 44.07,
-            "highest_score": 91
+            "score_total": 1882,
+            "average_score": 44.81,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 5,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -4642,8 +4745,8 @@
     },
     {
       "date": "2026-08-08",
-      "generated_at": "2026-08-28T08:05:16.768024+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.239893+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -4655,7 +4758,7 @@
           "score_total": 48,
           "average_score": 48.0,
           "highest_score": 48,
-          "overall_level": "critical"
+          "overall_level": "elevated"
         },
         "countries": {
           "Estonia": {
@@ -4700,7 +4803,7 @@
             "score_total": 48,
             "average_score": 48.0,
             "highest_score": 48,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "drone_incident": 1,
               "critical_infrastructure": 1
@@ -4728,25 +4831,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 1,
             "score_total": 48,
             "average_score": 48.0,
-            "highest_score": 48
+            "highest_score": 48,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -4789,15 +4896,15 @@
           "end_date": "2026-08-08"
         },
         "overall": {
-          "event_count": 52,
-          "incident_count": 41,
+          "event_count": 54,
+          "incident_count": 42,
           "activity_count": 2,
-          "indicator_count": 4,
+          "indicator_count": 5,
           "assessment_count": 5,
-          "score_total": 1934,
-          "average_score": 37.19,
+          "score_total": 1984,
+          "average_score": 36.74,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -4806,7 +4913,7 @@
             "score_total": 20,
             "average_score": 6.67,
             "highest_score": 12,
-            "level": "guarded",
+            "level": "low",
             "categories": {
               "cyber": 1
             }
@@ -4817,7 +4924,7 @@
             "score_total": 181,
             "average_score": 36.2,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 1,
@@ -4828,14 +4935,14 @@
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 13,
-            "score_total": 537,
-            "average_score": 41.31,
+            "event_count": 14,
+            "score_total": 582,
+            "average_score": 41.57,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 3,
-              "drone_incident": 8,
+              "drone_incident": 9,
               "gps_interference": 1,
               "military_provocation": 1,
               "critical_infrastructure": 3,
@@ -4849,7 +4956,7 @@
             "score_total": 1287,
             "average_score": 41.52,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 4,
@@ -4864,11 +4971,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 10,
-            "score_total": 286,
-            "average_score": 28.6,
+            "event_count": 11,
+            "score_total": 291,
+            "average_score": 26.45,
             "highest_score": 51,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 4,
               "military_provocation": 3,
@@ -4887,9 +4994,9 @@
           },
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 15,
-            "score_total": 738,
-            "average_score": 49.2,
+            "event_count": 16,
+            "score_total": 783,
+            "average_score": 48.94,
             "highest_score": 91
           },
           "critical_infrastructure": {
@@ -4951,28 +5058,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 14,
+            "average_score": 14.0,
+            "highest_score": 14,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 4,
-            "score_total": 35,
-            "average_score": 8.75,
-            "highest_score": 11
+            "event_count": 5,
+            "score_total": 40,
+            "average_score": 8.0,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
             "event_count": 43,
-            "score_total": 1899,
-            "average_score": 44.16,
-            "highest_score": 91
+            "score_total": 1930,
+            "average_score": 44.88,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 5,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -5234,8 +5345,8 @@
     },
     {
       "date": "2026-08-09",
-      "generated_at": "2026-08-28T08:05:16.768816+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.240796+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -5302,25 +5413,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -5340,15 +5455,15 @@
           "end_date": "2026-08-09"
         },
         "overall": {
-          "event_count": 51,
-          "incident_count": 40,
+          "event_count": 53,
+          "incident_count": 41,
           "activity_count": 2,
-          "indicator_count": 4,
+          "indicator_count": 5,
           "assessment_count": 5,
-          "score_total": 1883,
-          "average_score": 36.92,
+          "score_total": 1933,
+          "average_score": 36.47,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -5357,7 +5472,7 @@
             "score_total": 20,
             "average_score": 6.67,
             "highest_score": 12,
-            "level": "guarded",
+            "level": "low",
             "categories": {
               "cyber": 1
             }
@@ -5368,7 +5483,7 @@
             "score_total": 181,
             "average_score": 36.2,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 1,
@@ -5379,14 +5494,14 @@
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 13,
-            "score_total": 537,
-            "average_score": 41.31,
+            "event_count": 14,
+            "score_total": 582,
+            "average_score": 41.57,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 3,
-              "drone_incident": 8,
+              "drone_incident": 9,
               "gps_interference": 1,
               "military_provocation": 1,
               "critical_infrastructure": 3,
@@ -5400,7 +5515,7 @@
             "score_total": 1287,
             "average_score": 41.52,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 4,
@@ -5415,11 +5530,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 9,
-            "score_total": 235,
-            "average_score": 26.11,
+            "event_count": 10,
+            "score_total": 240,
+            "average_score": 24.0,
             "highest_score": 48,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 3,
               "critical_infrastructure": 2,
@@ -5438,9 +5553,9 @@
           },
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 14,
-            "score_total": 687,
-            "average_score": 49.07,
+            "event_count": 15,
+            "score_total": 732,
+            "average_score": 48.8,
             "highest_score": 91
           },
           "critical_infrastructure": {
@@ -5502,28 +5617,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 14,
+            "average_score": 14.0,
+            "highest_score": 14,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 4,
-            "score_total": 35,
-            "average_score": 8.75,
-            "highest_score": 11
+            "event_count": 5,
+            "score_total": 40,
+            "average_score": 8.0,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
             "event_count": 42,
-            "score_total": 1848,
-            "average_score": 44.0,
-            "highest_score": 91
+            "score_total": 1879,
+            "average_score": 44.74,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 5,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -5785,8 +5904,8 @@
     },
     {
       "date": "2026-08-10",
-      "generated_at": "2026-08-28T08:05:16.769590+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.241687+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -5798,7 +5917,7 @@
           "score_total": 112,
           "average_score": 37.33,
           "highest_score": 44,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -5834,7 +5953,7 @@
             "score_total": 112,
             "average_score": 37.33,
             "highest_score": 44,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 1,
               "cyber": 2
@@ -5871,25 +5990,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 3,
             "score_total": 112,
             "average_score": 37.33,
-            "highest_score": 44
+            "highest_score": 44,
+            "level": "guarded"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -5976,15 +6099,15 @@
           "end_date": "2026-08-10"
         },
         "overall": {
-          "event_count": 53,
-          "incident_count": 42,
+          "event_count": 55,
+          "incident_count": 43,
           "activity_count": 2,
-          "indicator_count": 4,
+          "indicator_count": 5,
           "assessment_count": 5,
-          "score_total": 1981,
-          "average_score": 37.38,
+          "score_total": 2031,
+          "average_score": 36.93,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -5993,7 +6116,7 @@
             "score_total": 20,
             "average_score": 6.67,
             "highest_score": 12,
-            "level": "guarded",
+            "level": "low",
             "categories": {
               "cyber": 1
             }
@@ -6004,7 +6127,7 @@
             "score_total": 181,
             "average_score": 36.2,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 1,
@@ -6015,14 +6138,14 @@
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 13,
-            "score_total": 537,
-            "average_score": 41.31,
+            "event_count": 14,
+            "score_total": 582,
+            "average_score": 41.57,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 3,
-              "drone_incident": 8,
+              "drone_incident": 9,
               "gps_interference": 1,
               "military_provocation": 1,
               "critical_infrastructure": 3,
@@ -6036,7 +6159,7 @@
             "score_total": 1385,
             "average_score": 41.97,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 4,
               "drone_incident": 4,
@@ -6051,11 +6174,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 9,
-            "score_total": 235,
-            "average_score": 26.11,
+            "event_count": 10,
+            "score_total": 240,
+            "average_score": 24.0,
             "highest_score": 48,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 3,
               "critical_infrastructure": 2,
@@ -6074,9 +6197,9 @@
           },
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 14,
-            "score_total": 687,
-            "average_score": 49.07,
+            "event_count": 15,
+            "score_total": 732,
+            "average_score": 48.8,
             "highest_score": 91
           },
           "critical_infrastructure": {
@@ -6141,25 +6264,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 4,
-            "score_total": 35,
-            "average_score": 8.75,
-            "highest_score": 11
+            "event_count": 5,
+            "score_total": 40,
+            "average_score": 8.0,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 44,
-            "score_total": 1946,
-            "average_score": 44.23,
-            "highest_score": 91
+            "event_count": 45,
+            "score_total": 1991,
+            "average_score": 44.24,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 5,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -6421,20 +6548,20 @@
     },
     {
       "date": "2026-08-11",
-      "generated_at": "2026-08-28T08:05:16.770436+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.242644+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
-          "event_count": 11,
-          "incident_count": 6,
+          "event_count": 10,
+          "incident_count": 5,
           "activity_count": 1,
           "indicator_count": 4,
           "assessment_count": 0,
-          "score_total": 310,
-          "average_score": 28.18,
+          "score_total": 289,
+          "average_score": 28.9,
           "highest_score": 87,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -6443,7 +6570,7 @@
             "score_total": 5,
             "average_score": 5.0,
             "highest_score": 5,
-            "level": "guarded",
+            "level": "low",
             "categories": {}
           },
           "Latvia": {
@@ -6452,21 +6579,19 @@
             "score_total": 30,
             "average_score": 30.0,
             "highest_score": 30,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "migration_pressure": 1
             }
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 1,
-            "score_total": 21,
-            "average_score": 21.0,
-            "highest_score": 21,
-            "level": "critical",
-            "categories": {
-              "drone_incident": 1
-            }
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
           },
           "Poland": {
             "country": "Poland",
@@ -6474,7 +6599,7 @@
             "score_total": 157,
             "average_score": 26.17,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 1,
               "military_provocation": 2,
@@ -6489,7 +6614,7 @@
             "score_total": 97,
             "average_score": 48.5,
             "highest_score": 63,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "sabotage": 1,
               "drone_incident": 2,
@@ -6500,9 +6625,9 @@
         "categories": {
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 4,
-            "score_total": 205,
-            "average_score": 51.25,
+            "event_count": 3,
+            "score_total": 184,
+            "average_score": 61.33,
             "highest_score": 87
           },
           "critical_infrastructure": {
@@ -6550,28 +6675,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
             "event_count": 4,
             "score_total": 25,
             "average_score": 6.25,
-            "highest_score": 8
+            "highest_score": 8,
+            "level": "low"
           },
           "operational": {
-            "event_count": 7,
-            "score_total": 285,
-            "average_score": 40.71,
-            "highest_score": 87
+            "event_count": 5,
+            "score_total": 239,
+            "average_score": 47.8,
+            "highest_score": 87,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -6718,30 +6847,9 @@
             ],
             "locations": [],
             "event_subtype": "incident",
-            "analytical_layer": "operational",
+            "analytical_layer": "information",
             "confidence": "low",
             "hybrid_threat_score": 25,
-            "hybrid_threat_level": "guarded"
-          },
-          {
-            "id": null,
-            "title": "German investigators find link between Leipzig drone incident and Lithuania parcel case - LRT",
-            "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOcDRWZm9Gb29vc1Q2UjNpTUlpZEZXckdzeldrbzBiR0FDb0VKUUZDTlZSUXlvS0t0ZFVRT3FRNnI3VW8yVnV3djhVUFV5NnNlQ04zZEYzeV9QaGktOFpBUEFFMl9BRlpIdEM5UUtFNnlyaEt5UHhBdHRiVGlyRVpGOG1weG1tWUNqLWVNVDd2ZjkyR2s3eGV2ay1ENDBnRHktRU9hcVhwRFE0dlh3Q2I4VmdXUVVYMllTelc4WkNqZ0lyVTdtVWpGQ0gtd3ZTOHI3TXc?oc=5",
-            "published_at": "2026-08-11T07:00:00+00:00",
-            "source_name": null,
-            "primary_country": "Lithuania",
-            "countries": [
-              "Lithuania"
-            ],
-            "categories": [
-              "drone_incident"
-            ],
-            "actors": [],
-            "locations": [],
-            "event_subtype": "incident",
-            "analytical_layer": "operational",
-            "confidence": "low",
-            "hybrid_threat_score": 21,
             "hybrid_threat_level": "guarded"
           },
           {
@@ -6810,6 +6918,27 @@
             "confidence": "low",
             "hybrid_threat_score": 5,
             "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Cellular Network Feds Recommended for OT Isolation Let Hackers Breach Polish Plant - Tech Times",
+            "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQN2dQcDdsekozbDAwVF9CRXczWDNhOHVoVVZ2cW1jdkZWWm1JZUM1U1U5VEJWT3ZxX3hCa0NOYy1hN1U2ODdvY0pjaVVUVl9WT3JIbjBMbGdsX0hRSnE3ZHZ4WVlqZEJqc05IUFpBMzJFbG1MZHpEUnNoUHQ3ZW5HdmRuMTZ2Y3pzZGNGOFN5RGZwSlJ5OHdGYjd2M3RFRkhjejBacl9wSGhDX01vWkVQOFc0Sjh5YmV5SmVha2NpS3pkSzlUajE4RTYyUkFBZw?oc=5",
+            "published_at": "2026-08-11T07:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "cyber"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 5,
+            "hybrid_threat_level": "low"
           }
         ]
       },
@@ -6821,15 +6950,15 @@
           "end_date": "2026-08-11"
         },
         "overall": {
-          "event_count": 62,
+          "event_count": 63,
           "incident_count": 48,
           "activity_count": 3,
-          "indicator_count": 7,
+          "indicator_count": 8,
           "assessment_count": 4,
-          "score_total": 2283,
-          "average_score": 36.82,
+          "score_total": 2312,
+          "average_score": 36.7,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -6838,7 +6967,7 @@
             "score_total": 17,
             "average_score": 5.67,
             "highest_score": 12,
-            "level": "guarded",
+            "level": "low",
             "categories": {}
           },
           "Latvia": {
@@ -6847,7 +6976,7 @@
             "score_total": 203,
             "average_score": 40.6,
             "highest_score": 87,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 1,
@@ -6859,10 +6988,10 @@
           "Lithuania": {
             "country": "Lithuania",
             "event_count": 13,
-            "score_total": 550,
-            "average_score": 42.31,
+            "score_total": 574,
+            "average_score": 44.15,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 9,
@@ -6879,7 +7008,7 @@
             "score_total": 1542,
             "average_score": 40.58,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 7,
               "drone_incident": 5,
@@ -6894,11 +7023,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 10,
-            "score_total": 324,
-            "average_score": 32.4,
+            "event_count": 11,
+            "score_total": 329,
+            "average_score": 29.91,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 1,
               "drone_incident": 5,
@@ -6918,8 +7047,8 @@
           "drone_incident": {
             "category": "drone_incident",
             "event_count": 18,
-            "score_total": 892,
-            "average_score": 49.56,
+            "score_total": 916,
+            "average_score": 50.89,
             "highest_score": 91
           },
           "critical_infrastructure": {
@@ -6981,28 +7110,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
-            "event_count": 7,
-            "score_total": 52,
-            "average_score": 7.43,
-            "highest_score": 11
+            "event_count": 8,
+            "score_total": 57,
+            "average_score": 7.12,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 51,
-            "score_total": 2231,
-            "average_score": 43.75,
-            "highest_score": 91
+            "event_count": 50,
+            "score_total": 2230,
+            "average_score": 44.6,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 4,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -7264,8 +7397,8 @@
     },
     {
       "date": "2026-08-12",
-      "generated_at": "2026-08-28T08:05:16.771330+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.243663+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -7277,7 +7410,7 @@
           "score_total": 344,
           "average_score": 38.22,
           "highest_score": 66,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -7286,7 +7419,7 @@
             "score_total": 63,
             "average_score": 63.0,
             "highest_score": 63,
-            "level": "critical",
+            "level": "high",
             "categories": {
               "drone_incident": 1,
               "cyber": 1
@@ -7316,7 +7449,7 @@
             "score_total": 102,
             "average_score": 34.0,
             "highest_score": 66,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 1,
               "military_provocation": 1,
@@ -7329,7 +7462,7 @@
             "score_total": 179,
             "average_score": 44.75,
             "highest_score": 60,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "sabotage": 2,
               "drone_incident": 3,
@@ -7379,25 +7512,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 8,
             "score_total": 344,
             "average_score": 43.0,
-            "highest_score": 66
+            "highest_score": 66,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 1,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -7504,7 +7641,7 @@
           },
           {
             "id": null,
-            "title": "Russia Eyeing Sabotage, Other Attacks in Europe, Officials Warn - Bloomberg",
+            "title": "Russia Eyeing Sabotage, Other Attacks in Europe, Officials Warn - Bloomberg.com",
             "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxONjJ6Y0p0LVVzWWdTUmJ2LWZPWmZobVE4N0pZeko3bXJmcW9WNFRlSzR3d3cwMjdKUlEwcXY4cDROendhUThmTnl0V191OWlYUC1DWG94NU10bXpsYndJblNxMDRta3dneGpmaWpTVnBPMWN0c2xyVVl0SFVodldkelhQYlA0TmpEX0hlYXktcDhyT0FWeno4WjBLLThCdFc5Z05lRHlvYl9RWnZocnVuUldn?oc=5",
             "published_at": "2026-08-12T07:00:00+00:00",
             "source_name": null,
@@ -7621,15 +7758,15 @@
           "end_date": "2026-08-12"
         },
         "overall": {
-          "event_count": 67,
+          "event_count": 68,
           "incident_count": 52,
           "activity_count": 4,
-          "indicator_count": 7,
+          "indicator_count": 8,
           "assessment_count": 4,
-          "score_total": 2497,
-          "average_score": 37.27,
+          "score_total": 2526,
+          "average_score": 37.15,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -7638,7 +7775,7 @@
             "score_total": 80,
             "average_score": 20.0,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 1,
               "cyber": 1
@@ -7650,7 +7787,7 @@
             "score_total": 203,
             "average_score": 40.6,
             "highest_score": 87,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 1,
@@ -7662,10 +7799,10 @@
           "Lithuania": {
             "country": "Lithuania",
             "event_count": 13,
-            "score_total": 523,
-            "average_score": 40.23,
+            "score_total": 547,
+            "average_score": 42.08,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 9,
@@ -7681,7 +7818,7 @@
             "score_total": 1514,
             "average_score": 40.92,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 8,
               "drone_incident": 5,
@@ -7695,11 +7832,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 14,
-            "score_total": 503,
-            "average_score": 35.93,
+            "event_count": 15,
+            "score_total": 508,
+            "average_score": 33.87,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 3,
               "drone_incident": 8,
@@ -7712,8 +7849,8 @@
           "drone_incident": {
             "category": "drone_incident",
             "event_count": 22,
-            "score_total": 1120,
-            "average_score": 50.91,
+            "score_total": 1144,
+            "average_score": 52.0,
             "highest_score": 91
           },
           "military_provocation": {
@@ -7782,28 +7919,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
-            "event_count": 7,
-            "score_total": 52,
-            "average_score": 7.43,
-            "highest_score": 11
+            "event_count": 8,
+            "score_total": 57,
+            "average_score": 7.12,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 56,
-            "score_total": 2445,
-            "average_score": 43.66,
-            "highest_score": 91
+            "event_count": 55,
+            "score_total": 2444,
+            "average_score": 44.44,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 4,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -8063,8 +8204,8 @@
     },
     {
       "date": "2026-08-13",
-      "generated_at": "2026-08-28T08:05:16.772252+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.244716+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -8076,7 +8217,7 @@
           "score_total": 173,
           "average_score": 28.83,
           "highest_score": 71,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -8103,7 +8244,7 @@
             "score_total": 60,
             "average_score": 60.0,
             "highest_score": 60,
-            "level": "critical",
+            "level": "high",
             "categories": {
               "sabotage": 1
             }
@@ -8114,7 +8255,7 @@
             "score_total": 173,
             "average_score": 28.83,
             "highest_score": 71,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "critical_infrastructure": 1,
               "sabotage": 1,
@@ -8159,25 +8300,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 4,
             "score_total": 173,
             "average_score": 43.25,
-            "highest_score": 71
+            "highest_score": 71,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 2,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -8335,15 +8480,15 @@
           "end_date": "2026-08-13"
         },
         "overall": {
-          "event_count": 62,
+          "event_count": 63,
           "incident_count": 46,
           "activity_count": 5,
-          "indicator_count": 7,
+          "indicator_count": 8,
           "assessment_count": 4,
-          "score_total": 2245,
-          "average_score": 36.21,
+          "score_total": 2274,
+          "average_score": 36.1,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -8352,7 +8497,7 @@
             "score_total": 80,
             "average_score": 20.0,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 1,
               "cyber": 1
@@ -8364,7 +8509,7 @@
             "score_total": 203,
             "average_score": 40.6,
             "highest_score": 87,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "drone_incident": 2,
               "military_provocation": 1,
@@ -8376,10 +8521,10 @@
           "Lithuania": {
             "country": "Lithuania",
             "event_count": 14,
-            "score_total": 583,
-            "average_score": 41.64,
+            "score_total": 607,
+            "average_score": 43.36,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 9,
@@ -8396,7 +8541,7 @@
             "score_total": 1262,
             "average_score": 38.24,
             "highest_score": 91,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 8,
               "drone_incident": 5,
@@ -8410,11 +8555,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 13,
-            "score_total": 503,
-            "average_score": 38.69,
+            "event_count": 14,
+            "score_total": 508,
+            "average_score": 36.29,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 3,
               "drone_incident": 8,
@@ -8427,8 +8572,8 @@
           "drone_incident": {
             "category": "drone_incident",
             "event_count": 22,
-            "score_total": 1120,
-            "average_score": 50.91,
+            "score_total": 1144,
+            "average_score": 52.0,
             "highest_score": 91
           },
           "military_provocation": {
@@ -8497,28 +8642,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
-            "event_count": 7,
-            "score_total": 52,
-            "average_score": 7.43,
-            "highest_score": 11
+            "event_count": 8,
+            "score_total": 57,
+            "average_score": 7.12,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 51,
-            "score_total": 2193,
-            "average_score": 43.0,
-            "highest_score": 91
+            "event_count": 50,
+            "score_total": 2192,
+            "average_score": 43.84,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 4,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -8783,8 +8932,8 @@
     },
     {
       "date": "2026-08-14",
-      "generated_at": "2026-08-28T08:05:16.773134+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.245712+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -8796,7 +8945,7 @@
           "score_total": 171,
           "average_score": 24.43,
           "highest_score": 59,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -8814,7 +8963,7 @@
             "score_total": 142,
             "average_score": 47.33,
             "highest_score": 59,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "drone_incident": 3,
               "military_provocation": 2
@@ -8844,7 +8993,7 @@
             "score_total": 29,
             "average_score": 9.67,
             "highest_score": 29,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "drone_incident": 1,
               "critical_infrastructure": 1
@@ -8879,25 +9028,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 4,
             "score_total": 171,
             "average_score": 42.75,
-            "highest_score": 59
+            "highest_score": 59,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 3,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -9075,15 +9228,15 @@
           "end_date": "2026-08-14"
         },
         "overall": {
-          "event_count": 64,
+          "event_count": 65,
           "incident_count": 46,
           "activity_count": 5,
-          "indicator_count": 6,
+          "indicator_count": 7,
           "assessment_count": 7,
-          "score_total": 2213,
-          "average_score": 34.58,
+          "score_total": 2242,
+          "average_score": 34.49,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -9092,7 +9245,7 @@
             "score_total": 80,
             "average_score": 20.0,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 1,
               "cyber": 1
@@ -9104,7 +9257,7 @@
             "score_total": 345,
             "average_score": 43.12,
             "highest_score": 87,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "drone_incident": 5,
               "military_provocation": 3,
@@ -9116,10 +9269,10 @@
           "Lithuania": {
             "country": "Lithuania",
             "event_count": 14,
-            "score_total": 583,
-            "average_score": 41.64,
+            "score_total": 607,
+            "average_score": 43.36,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 9,
@@ -9136,7 +9289,7 @@
             "score_total": 1059,
             "average_score": 36.52,
             "highest_score": 91,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 7,
               "drone_incident": 4,
@@ -9150,11 +9303,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 16,
-            "score_total": 532,
-            "average_score": 33.25,
+            "event_count": 17,
+            "score_total": 537,
+            "average_score": 31.59,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 3,
               "drone_incident": 9,
@@ -9167,8 +9320,8 @@
           "drone_incident": {
             "category": "drone_incident",
             "event_count": 25,
-            "score_total": 1252,
-            "average_score": 50.08,
+            "score_total": 1276,
+            "average_score": 51.04,
             "highest_score": 91
           },
           "military_provocation": {
@@ -9237,28 +9390,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
-            "event_count": 6,
-            "score_total": 47,
-            "average_score": 7.83,
-            "highest_score": 11
+            "event_count": 7,
+            "score_total": 52,
+            "average_score": 7.43,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 51,
-            "score_total": 2166,
-            "average_score": 42.47,
-            "highest_score": 91
+            "event_count": 50,
+            "score_total": 2165,
+            "average_score": 43.3,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 7,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -9519,8 +9676,8 @@
     },
     {
       "date": "2026-08-15",
-      "generated_at": "2026-08-28T08:05:16.774045+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.246710+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -9532,7 +9689,7 @@
           "score_total": 29,
           "average_score": 29.0,
           "highest_score": 29,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -9550,7 +9707,7 @@
             "score_total": 29,
             "average_score": 29.0,
             "highest_score": 29,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 1
             }
@@ -9561,7 +9718,7 @@
             "score_total": 29,
             "average_score": 29.0,
             "highest_score": 29,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 1
             }
@@ -9599,25 +9756,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 1,
             "score_total": 29,
             "average_score": 29.0,
-            "highest_score": 29
+            "highest_score": 29,
+            "level": "guarded"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -9662,15 +9823,15 @@
           "end_date": "2026-08-15"
         },
         "overall": {
-          "event_count": 63,
+          "event_count": 64,
           "incident_count": 45,
           "activity_count": 5,
-          "indicator_count": 6,
+          "indicator_count": 7,
           "assessment_count": 7,
-          "score_total": 2153,
-          "average_score": 34.17,
+          "score_total": 2182,
+          "average_score": 34.09,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -9679,7 +9840,7 @@
             "score_total": 80,
             "average_score": 20.0,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 1,
               "cyber": 1
@@ -9691,7 +9852,7 @@
             "score_total": 333,
             "average_score": 41.62,
             "highest_score": 87,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "drone_incident": 6,
               "military_provocation": 3,
@@ -9702,10 +9863,10 @@
           "Lithuania": {
             "country": "Lithuania",
             "event_count": 14,
-            "score_total": 571,
-            "average_score": 40.79,
+            "score_total": 595,
+            "average_score": 42.5,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 10,
@@ -9721,7 +9882,7 @@
             "score_total": 1011,
             "average_score": 36.11,
             "highest_score": 91,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 7,
               "drone_incident": 4,
@@ -9735,11 +9896,11 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 16,
-            "score_total": 532,
-            "average_score": 33.25,
+            "event_count": 17,
+            "score_total": 537,
+            "average_score": 31.59,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 3,
               "drone_incident": 9,
@@ -9752,8 +9913,8 @@
           "drone_incident": {
             "category": "drone_incident",
             "event_count": 26,
-            "score_total": 1281,
-            "average_score": 49.27,
+            "score_total": 1305,
+            "average_score": 50.19,
             "highest_score": 91
           },
           "military_provocation": {
@@ -9815,28 +9976,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
-            "event_count": 6,
-            "score_total": 47,
-            "average_score": 7.83,
-            "highest_score": 11
+            "event_count": 7,
+            "score_total": 52,
+            "average_score": 7.43,
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 50,
-            "score_total": 2106,
-            "average_score": 42.12,
-            "highest_score": 91
+            "event_count": 49,
+            "score_total": 2105,
+            "average_score": 42.96,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 7,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -10097,8 +10262,8 @@
     },
     {
       "date": "2026-08-16",
-      "generated_at": "2026-08-28T08:05:16.774869+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.247660+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -10110,7 +10275,7 @@
           "score_total": 104,
           "average_score": 26.0,
           "highest_score": 33,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -10119,7 +10284,7 @@
             "score_total": 31,
             "average_score": 31.0,
             "highest_score": 31,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 1
             }
@@ -10157,7 +10322,7 @@
             "score_total": 73,
             "average_score": 24.33,
             "highest_score": 33,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2
             }
@@ -10177,25 +10342,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 4,
             "score_total": 104,
             "average_score": 26.0,
-            "highest_score": 33
+            "highest_score": 33,
+            "level": "guarded"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -10306,10 +10475,10 @@
           "activity_count": 5,
           "indicator_count": 6,
           "assessment_count": 7,
-          "score_total": 2245,
-          "average_score": 34.02,
+          "score_total": 2269,
+          "average_score": 34.38,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -10318,7 +10487,7 @@
             "score_total": 99,
             "average_score": 24.75,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "cyber": 1
@@ -10330,7 +10499,7 @@
             "score_total": 333,
             "average_score": 41.62,
             "highest_score": 87,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "drone_incident": 6,
               "military_provocation": 3,
@@ -10341,10 +10510,10 @@
           "Lithuania": {
             "country": "Lithuania",
             "event_count": 14,
-            "score_total": 571,
-            "average_score": 40.79,
+            "score_total": 595,
+            "average_score": 42.5,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 10,
@@ -10360,7 +10529,7 @@
             "score_total": 1011,
             "average_score": 36.11,
             "highest_score": 91,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 7,
               "drone_incident": 4,
@@ -10378,7 +10547,7 @@
             "score_total": 605,
             "average_score": 31.84,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 3,
               "drone_incident": 11,
@@ -10391,8 +10560,8 @@
           "drone_incident": {
             "category": "drone_incident",
             "event_count": 29,
-            "score_total": 1375,
-            "average_score": 47.41,
+            "score_total": 1399,
+            "average_score": 48.24,
             "highest_score": 91
           },
           "military_provocation": {
@@ -10454,28 +10623,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
             "event_count": 6,
             "score_total": 47,
             "average_score": 7.83,
-            "highest_score": 11
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 53,
-            "score_total": 2198,
-            "average_score": 41.47,
-            "highest_score": 91
+            "event_count": 52,
+            "score_total": 2197,
+            "average_score": 42.25,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 7,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -10736,8 +10909,8 @@
     },
     {
       "date": "2026-08-17",
-      "generated_at": "2026-08-28T08:05:16.775734+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.248638+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -10749,7 +10922,7 @@
           "score_total": 44,
           "average_score": 8.8,
           "highest_score": 40,
-          "overall_level": "elevated"
+          "overall_level": "low"
         },
         "countries": {
           "Estonia": {
@@ -10785,7 +10958,7 @@
             "score_total": 44,
             "average_score": 11.0,
             "highest_score": 40,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "sabotage": 1
             }
@@ -10814,25 +10987,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 1,
             "score_total": 4,
             "average_score": 4.0,
-            "highest_score": 4
+            "highest_score": 4,
+            "level": "low"
           },
           "operational": {
             "event_count": 1,
             "score_total": 40,
             "average_score": 40.0,
-            "highest_score": 40
+            "highest_score": 40,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 3,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -10931,7 +11108,7 @@
           },
           {
             "id": null,
-            "title": "Russia Is Already Waging Hybrid War in Europe, Latvia Says - Bloomberg",
+            "title": "Russia Is Already Waging Hybrid War in Europe, Latvia Says - Bloomberg.com",
             "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQU1VPRDV5bGQ3X0ZpUHEzLXNJbXVEY21qUkFLUmdoMzFIUTFGTnpjWnVZajZhNWRoeGFBdXJNcGxKckNLMUpQSXl6by0xOFF1VWRTVGx0OHZ3MUVwSnpZQ0lTM1k0MmFNMTVsd1ZsaTVCTXQ4Y1FRM0g5VWZFZ0MzYllYMzUzQmZGMjJnN3dnV3BBc1NlcUc4RnRjMk5OamVFelhGN2I3S0tGOTNF?oc=5",
             "published_at": "2026-08-17T07:00:00+00:00",
             "source_name": null,
@@ -10966,10 +11143,10 @@
           "activity_count": 5,
           "indicator_count": 6,
           "assessment_count": 10,
-          "score_total": 2118,
-          "average_score": 31.61,
+          "score_total": 2142,
+          "average_score": 31.97,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -10978,7 +11155,7 @@
             "score_total": 99,
             "average_score": 24.75,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "cyber": 1
@@ -10990,7 +11167,7 @@
             "score_total": 333,
             "average_score": 37.0,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 6,
               "military_provocation": 3,
@@ -11001,10 +11178,10 @@
           "Lithuania": {
             "country": "Lithuania",
             "event_count": 14,
-            "score_total": 571,
-            "average_score": 40.79,
+            "score_total": 595,
+            "average_score": 42.5,
             "highest_score": 91,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "cyber": 2,
               "drone_incident": 10,
@@ -11020,7 +11197,7 @@
             "score_total": 924,
             "average_score": 31.86,
             "highest_score": 91,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 7,
               "drone_incident": 4,
@@ -11038,7 +11215,7 @@
             "score_total": 565,
             "average_score": 31.39,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 3,
               "drone_incident": 10,
@@ -11051,8 +11228,8 @@
           "drone_incident": {
             "category": "drone_incident",
             "event_count": 28,
-            "score_total": 1335,
-            "average_score": 47.68,
+            "score_total": 1359,
+            "average_score": 48.54,
             "highest_score": 91
           },
           "critical_infrastructure": {
@@ -11114,28 +11291,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
             "event_count": 6,
             "score_total": 40,
             "average_score": 6.67,
-            "highest_score": 11
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 51,
-            "score_total": 2078,
-            "average_score": 40.75,
-            "highest_score": 91
+            "event_count": 50,
+            "score_total": 2077,
+            "average_score": 41.54,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 10,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -11398,8 +11579,8 @@
     },
     {
       "date": "2026-08-18",
-      "generated_at": "2026-08-28T08:05:16.776610+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.249634+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -11466,25 +11647,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "assessment": {
             "event_count": 1,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -11532,10 +11717,10 @@
           "activity_count": 5,
           "indicator_count": 6,
           "assessment_count": 11,
-          "score_total": 2041,
-          "average_score": 30.92,
+          "score_total": 2065,
+          "average_score": 31.29,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -11544,7 +11729,7 @@
             "score_total": 99,
             "average_score": 24.75,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "cyber": 1
@@ -11556,7 +11741,7 @@
             "score_total": 333,
             "average_score": 37.0,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 6,
               "military_provocation": 3,
@@ -11567,10 +11752,10 @@
           "Lithuania": {
             "country": "Lithuania",
             "event_count": 15,
-            "score_total": 571,
-            "average_score": 38.07,
+            "score_total": 595,
+            "average_score": 39.67,
             "highest_score": 91,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 2,
               "drone_incident": 10,
@@ -11586,7 +11771,7 @@
             "score_total": 847,
             "average_score": 30.25,
             "highest_score": 91,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 7,
               "drone_incident": 4,
@@ -11604,7 +11789,7 @@
             "score_total": 565,
             "average_score": 31.39,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 3,
               "drone_incident": 10,
@@ -11617,8 +11802,8 @@
           "drone_incident": {
             "category": "drone_incident",
             "event_count": 28,
-            "score_total": 1335,
-            "average_score": 47.68,
+            "score_total": 1359,
+            "average_score": 48.54,
             "highest_score": 91
           },
           "critical_infrastructure": {
@@ -11680,28 +11865,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
             "event_count": 6,
             "score_total": 40,
             "average_score": 6.67,
-            "highest_score": 11
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 49,
-            "score_total": 2001,
-            "average_score": 40.84,
-            "highest_score": 91
+            "event_count": 48,
+            "score_total": 2000,
+            "average_score": 41.67,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 11,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -11964,8 +12153,8 @@
     },
     {
       "date": "2026-08-19",
-      "generated_at": "2026-08-28T08:05:16.777476+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.250601+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -11977,7 +12166,7 @@
           "score_total": 52,
           "average_score": 52.0,
           "highest_score": 52,
-          "overall_level": "critical"
+          "overall_level": "elevated"
         },
         "countries": {
           "Estonia": {
@@ -12022,7 +12211,7 @@
             "score_total": 52,
             "average_score": 52.0,
             "highest_score": 52,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "sabotage": 1,
               "critical_infrastructure": 1
@@ -12050,25 +12239,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 1,
             "score_total": 52,
             "average_score": 52.0,
-            "highest_score": 52
+            "highest_score": 52,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -12114,10 +12307,10 @@
           "activity_count": 5,
           "indicator_count": 6,
           "assessment_count": 11,
-          "score_total": 2056,
-          "average_score": 31.15,
+          "score_total": 2080,
+          "average_score": 31.52,
           "highest_score": 91,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -12126,7 +12319,7 @@
             "score_total": 99,
             "average_score": 24.75,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "cyber": 1
@@ -12138,7 +12331,7 @@
             "score_total": 333,
             "average_score": 37.0,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 6,
               "military_provocation": 3,
@@ -12149,10 +12342,10 @@
           "Lithuania": {
             "country": "Lithuania",
             "event_count": 15,
-            "score_total": 571,
-            "average_score": 38.07,
+            "score_total": 595,
+            "average_score": 39.67,
             "highest_score": 91,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 2,
               "drone_incident": 10,
@@ -12168,7 +12361,7 @@
             "score_total": 847,
             "average_score": 30.25,
             "highest_score": 91,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 7,
               "drone_incident": 4,
@@ -12186,7 +12379,7 @@
             "score_total": 580,
             "average_score": 32.22,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 4,
               "drone_incident": 10,
@@ -12199,8 +12392,8 @@
           "drone_incident": {
             "category": "drone_incident",
             "event_count": 28,
-            "score_total": 1335,
-            "average_score": 47.68,
+            "score_total": 1359,
+            "average_score": 48.54,
             "highest_score": 91
           },
           "critical_infrastructure": {
@@ -12262,28 +12455,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
             "event_count": 6,
             "score_total": 40,
             "average_score": 6.67,
-            "highest_score": 11
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 49,
-            "score_total": 2016,
-            "average_score": 41.14,
-            "highest_score": 91
+            "event_count": 48,
+            "score_total": 2015,
+            "average_score": 41.98,
+            "highest_score": 91,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 11,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -12546,8 +12743,8 @@
     },
     {
       "date": "2026-08-20",
-      "generated_at": "2026-08-28T08:05:16.778343+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.251576+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -12559,7 +12756,7 @@
           "score_total": 104,
           "average_score": 34.67,
           "highest_score": 79,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -12577,7 +12774,7 @@
             "score_total": 5,
             "average_score": 5.0,
             "highest_score": 5,
-            "level": "guarded",
+            "level": "low",
             "categories": {
               "cyber": 1
             }
@@ -12597,7 +12794,7 @@
             "score_total": 99,
             "average_score": 49.5,
             "highest_score": 79,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "drone_incident": 1,
               "military_provocation": 1,
@@ -12650,25 +12847,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 1,
             "score_total": 5,
             "average_score": 5.0,
-            "highest_score": 5
+            "highest_score": 5,
+            "level": "low"
           },
           "operational": {
             "event_count": 2,
             "score_total": 99,
             "average_score": 49.5,
-            "highest_score": 79
+            "highest_score": 79,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -12761,10 +12962,10 @@
           "activity_count": 4,
           "indicator_count": 7,
           "assessment_count": 10,
-          "score_total": 1737,
-          "average_score": 29.44,
+          "score_total": 1761,
+          "average_score": 29.85,
           "highest_score": 87,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
@@ -12773,7 +12974,7 @@
             "score_total": 99,
             "average_score": 33.0,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "cyber": 1
@@ -12785,7 +12986,7 @@
             "score_total": 206,
             "average_score": 29.43,
             "highest_score": 59,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 4,
               "military_provocation": 2,
@@ -12796,10 +12997,10 @@
           "Lithuania": {
             "country": "Lithuania",
             "event_count": 8,
-            "score_total": 203,
-            "average_score": 25.38,
+            "score_total": 227,
+            "average_score": 28.38,
             "highest_score": 60,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 1,
               "drone_incident": 4,
@@ -12813,7 +13014,7 @@
             "score_total": 768,
             "average_score": 27.43,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 3,
               "military_provocation": 4,
@@ -12830,7 +13031,7 @@
             "score_total": 550,
             "average_score": 34.38,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 4,
               "drone_incident": 10,
@@ -12842,8 +13043,8 @@
           "drone_incident": {
             "category": "drone_incident",
             "event_count": 22,
-            "score_total": 1021,
-            "average_score": 46.41,
+            "score_total": 1045,
+            "average_score": 47.5,
             "highest_score": 87
           },
           "critical_infrastructure": {
@@ -12898,28 +13099,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
             "event_count": 7,
             "score_total": 45,
             "average_score": 6.43,
-            "highest_score": 11
+            "highest_score": 11,
+            "level": "low"
           },
           "operational": {
-            "event_count": 42,
-            "score_total": 1692,
-            "average_score": 40.29,
-            "highest_score": 87
+            "event_count": 41,
+            "score_total": 1691,
+            "average_score": 41.24,
+            "highest_score": 87,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 10,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -13176,8 +13381,8 @@
     },
     {
       "date": "2026-08-21",
-      "generated_at": "2026-08-28T08:05:16.779183+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.252539+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -13186,19 +13391,19 @@
           "activity_count": 1,
           "indicator_count": 1,
           "assessment_count": 0,
-          "score_total": 72,
-          "average_score": 24.0,
-          "highest_score": 45,
-          "overall_level": "critical"
+          "score_total": 73,
+          "average_score": 24.33,
+          "highest_score": 46,
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
             "event_count": 1,
-            "score_total": 45,
-            "average_score": 45.0,
-            "highest_score": 45,
-            "level": "critical",
+            "score_total": 46,
+            "average_score": 46.0,
+            "highest_score": 46,
+            "level": "elevated",
             "categories": {
               "sabotage": 1
             }
@@ -13227,7 +13432,7 @@
             "score_total": 7,
             "average_score": 7.0,
             "highest_score": 7,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "military_provocation": 1
             }
@@ -13238,7 +13443,7 @@
             "score_total": 20,
             "average_score": 20.0,
             "highest_score": 20,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 1,
               "disinformation": 1
@@ -13249,9 +13454,9 @@
           "sabotage": {
             "category": "sabotage",
             "event_count": 1,
-            "score_total": 45,
-            "average_score": 45.0,
-            "highest_score": 45
+            "score_total": 46,
+            "average_score": 46.0,
+            "highest_score": 46
           },
           "cyber": {
             "category": "cyber",
@@ -13280,30 +13485,34 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 1,
             "score_total": 7,
             "average_score": 7.0,
-            "highest_score": 7
+            "highest_score": 7,
+            "level": "low"
           },
           "operational": {
             "event_count": 2,
-            "score_total": 65,
-            "average_score": 32.5,
-            "highest_score": 45
+            "score_total": 66,
+            "average_score": 33.0,
+            "highest_score": 46,
+            "level": "guarded"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
           "location": "Estonia",
-          "score": 45,
+          "score": 46,
           "event_count": 1
         },
         "key_driver": "sabotage",
@@ -13330,7 +13539,7 @@
             "event_subtype": "incident",
             "analytical_layer": "operational",
             "confidence": "low",
-            "hybrid_threat_score": 45,
+            "hybrid_threat_score": 46,
             "hybrid_threat_level": "elevated"
           },
           {
@@ -13389,24 +13598,24 @@
           "end_date": "2026-08-21"
         },
         "overall": {
-          "event_count": 55,
-          "incident_count": 33,
+          "event_count": 54,
+          "incident_count": 32,
           "activity_count": 5,
           "indicator_count": 7,
           "assessment_count": 10,
-          "score_total": 1563,
-          "average_score": 28.42,
+          "score_total": 1543,
+          "average_score": 28.57,
           "highest_score": 87,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
             "event_count": 4,
-            "score_total": 144,
-            "average_score": 36.0,
+            "score_total": 145,
+            "average_score": 36.25,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "cyber": 1,
@@ -13419,7 +13628,7 @@
             "score_total": 206,
             "average_score": 29.43,
             "highest_score": 59,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 4,
               "military_provocation": 2,
@@ -13429,14 +13638,14 @@
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 5,
-            "score_total": 110,
-            "average_score": 22.0,
+            "event_count": 4,
+            "score_total": 89,
+            "average_score": 22.25,
             "highest_score": 60,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 1,
-              "drone_incident": 2
+              "drone_incident": 1
             }
           },
           "Poland": {
@@ -13445,7 +13654,7 @@
             "score_total": 694,
             "average_score": 25.7,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 3,
               "military_provocation": 5,
@@ -13462,7 +13671,7 @@
             "score_total": 498,
             "average_score": 33.2,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 4,
               "drone_incident": 9,
@@ -13475,9 +13684,9 @@
         "categories": {
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 19,
-            "score_total": 892,
-            "average_score": 46.95,
+            "event_count": 18,
+            "score_total": 871,
+            "average_score": 48.39,
             "highest_score": 87
           },
           "critical_infrastructure": {
@@ -13490,8 +13699,8 @@
           "sabotage": {
             "category": "sabotage",
             "event_count": 8,
-            "score_total": 406,
-            "average_score": 50.75,
+            "score_total": 407,
+            "average_score": 50.88,
             "highest_score": 63
           },
           "military_provocation": {
@@ -13532,28 +13741,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
             "event_count": 7,
             "score_total": 41,
             "average_score": 5.86,
-            "highest_score": 8
+            "highest_score": 8,
+            "level": "low"
           },
           "operational": {
-            "event_count": 38,
-            "score_total": 1522,
-            "average_score": 40.05,
-            "highest_score": 87
+            "event_count": 36,
+            "score_total": 1477,
+            "average_score": 41.03,
+            "highest_score": 87,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 10,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -13812,8 +14025,8 @@
     },
     {
       "date": "2026-08-22",
-      "generated_at": "2026-08-28T08:05:16.780002+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.253473+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -13825,7 +14038,7 @@
           "score_total": 33,
           "average_score": 16.5,
           "highest_score": 23,
-          "overall_level": "high"
+          "overall_level": "low"
         },
         "countries": {
           "Estonia": {
@@ -13843,7 +14056,7 @@
             "score_total": 23,
             "average_score": 23.0,
             "highest_score": 23,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 1
             }
@@ -13872,7 +14085,7 @@
             "score_total": 10,
             "average_score": 10.0,
             "highest_score": 10,
-            "level": "elevated",
+            "level": "low",
             "categories": {}
           }
         },
@@ -13890,25 +14103,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 2,
             "score_total": 33,
             "average_score": 16.5,
-            "highest_score": 23
+            "highest_score": 23,
+            "level": "low"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -13970,24 +14187,24 @@
           "end_date": "2026-08-22"
         },
         "overall": {
-          "event_count": 56,
-          "incident_count": 33,
+          "event_count": 55,
+          "incident_count": 32,
           "activity_count": 6,
           "indicator_count": 7,
           "assessment_count": 10,
-          "score_total": 1548,
-          "average_score": 27.64,
+          "score_total": 1528,
+          "average_score": 27.78,
           "highest_score": 87,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
             "event_count": 4,
-            "score_total": 144,
-            "average_score": 36.0,
+            "score_total": 145,
+            "average_score": 36.25,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "cyber": 1,
@@ -14000,7 +14217,7 @@
             "score_total": 229,
             "average_score": 28.62,
             "highest_score": 59,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 5,
               "military_provocation": 2,
@@ -14010,14 +14227,14 @@
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 5,
-            "score_total": 110,
-            "average_score": 22.0,
+            "event_count": 4,
+            "score_total": 89,
+            "average_score": 22.25,
             "highest_score": 60,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 1,
-              "drone_incident": 2
+              "drone_incident": 1
             }
           },
           "Poland": {
@@ -14026,7 +14243,7 @@
             "score_total": 694,
             "average_score": 25.7,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 3,
               "military_provocation": 5,
@@ -14043,7 +14260,7 @@
             "score_total": 460,
             "average_score": 30.67,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 4,
               "drone_incident": 8,
@@ -14056,9 +14273,9 @@
         "categories": {
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 19,
-            "score_total": 867,
-            "average_score": 45.63,
+            "event_count": 18,
+            "score_total": 846,
+            "average_score": 47.0,
             "highest_score": 87
           },
           "critical_infrastructure": {
@@ -14071,8 +14288,8 @@
           "sabotage": {
             "category": "sabotage",
             "event_count": 8,
-            "score_total": 406,
-            "average_score": 50.75,
+            "score_total": 407,
+            "average_score": 50.88,
             "highest_score": 63
           },
           "military_provocation": {
@@ -14113,28 +14330,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
             "event_count": 7,
             "score_total": 41,
             "average_score": 5.86,
-            "highest_score": 8
+            "highest_score": 8,
+            "level": "low"
           },
           "operational": {
-            "event_count": 39,
-            "score_total": 1507,
-            "average_score": 38.64,
-            "highest_score": 87
+            "event_count": 37,
+            "score_total": 1462,
+            "average_score": 39.51,
+            "highest_score": 87,
+            "level": "guarded"
           },
           "assessment": {
             "event_count": 10,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -14393,8 +14614,8 @@
     },
     {
       "date": "2026-08-23",
-      "generated_at": "2026-08-28T08:05:16.780814+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.255013+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -14406,7 +14627,7 @@
           "score_total": 42,
           "average_score": 42.0,
           "highest_score": 42,
-          "overall_level": "critical"
+          "overall_level": "elevated"
         },
         "countries": {
           "Estonia": {
@@ -14451,7 +14672,7 @@
             "score_total": 42,
             "average_score": 42.0,
             "highest_score": 42,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "sabotage": 1
             }
@@ -14471,25 +14692,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 1,
             "score_total": 42,
             "average_score": 42.0,
-            "highest_score": 42
+            "highest_score": 42,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -14532,24 +14757,24 @@
           "end_date": "2026-08-23"
         },
         "overall": {
-          "event_count": 57,
-          "incident_count": 34,
+          "event_count": 56,
+          "incident_count": 33,
           "activity_count": 6,
           "indicator_count": 7,
           "assessment_count": 10,
-          "score_total": 1590,
-          "average_score": 27.89,
+          "score_total": 1570,
+          "average_score": 28.04,
           "highest_score": 87,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
             "event_count": 4,
-            "score_total": 144,
-            "average_score": 36.0,
+            "score_total": 145,
+            "average_score": 36.25,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "cyber": 1,
@@ -14562,7 +14787,7 @@
             "score_total": 229,
             "average_score": 28.62,
             "highest_score": 59,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 5,
               "military_provocation": 2,
@@ -14572,14 +14797,14 @@
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 5,
-            "score_total": 110,
-            "average_score": 22.0,
+            "event_count": 4,
+            "score_total": 89,
+            "average_score": 22.25,
             "highest_score": 60,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 1,
-              "drone_incident": 2
+              "drone_incident": 1
             }
           },
           "Poland": {
@@ -14588,7 +14813,7 @@
             "score_total": 694,
             "average_score": 25.7,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 3,
               "military_provocation": 5,
@@ -14605,7 +14830,7 @@
             "score_total": 502,
             "average_score": 31.38,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 5,
               "drone_incident": 8,
@@ -14618,16 +14843,16 @@
         "categories": {
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 19,
-            "score_total": 867,
-            "average_score": 45.63,
+            "event_count": 18,
+            "score_total": 846,
+            "average_score": 47.0,
             "highest_score": 87
           },
           "sabotage": {
             "category": "sabotage",
             "event_count": 9,
-            "score_total": 448,
-            "average_score": 49.78,
+            "score_total": 449,
+            "average_score": 49.89,
             "highest_score": 63
           },
           "critical_infrastructure": {
@@ -14675,28 +14900,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
             "event_count": 7,
             "score_total": 41,
             "average_score": 5.86,
-            "highest_score": 8
+            "highest_score": 8,
+            "level": "low"
           },
           "operational": {
-            "event_count": 40,
-            "score_total": 1549,
-            "average_score": 38.73,
-            "highest_score": 87
+            "event_count": 38,
+            "score_total": 1504,
+            "average_score": 39.58,
+            "highest_score": 87,
+            "level": "guarded"
           },
           "assessment": {
             "event_count": 10,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -14955,8 +15184,8 @@
     },
     {
       "date": "2026-08-24",
-      "generated_at": "2026-08-28T08:05:16.781638+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.255948+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -14968,7 +15197,7 @@
           "score_total": 284,
           "average_score": 40.57,
           "highest_score": 79,
-          "overall_level": "critical"
+          "overall_level": "elevated"
         },
         "countries": {
           "Estonia": {
@@ -14986,7 +15215,7 @@
             "score_total": 26,
             "average_score": 13.0,
             "highest_score": 26,
-            "level": "high",
+            "level": "low",
             "categories": {
               "cyber": 1,
               "military_provocation": 1
@@ -14998,7 +15227,7 @@
             "score_total": 69,
             "average_score": 69.0,
             "highest_score": 69,
-            "level": "critical",
+            "level": "high",
             "categories": {
               "critical_infrastructure": 1,
               "drone_incident": 1
@@ -15010,7 +15239,7 @@
             "score_total": 79,
             "average_score": 79.0,
             "highest_score": 79,
-            "level": "critical",
+            "level": "high",
             "categories": {
               "sabotage": 1,
               "gps_interference": 1
@@ -15022,7 +15251,7 @@
             "score_total": 110,
             "average_score": 36.67,
             "highest_score": 54,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "critical_infrastructure": 2,
               "espionage": 1
@@ -15085,25 +15314,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "operational": {
             "event_count": 6,
             "score_total": 284,
             "average_score": 47.33,
-            "highest_score": 79
+            "highest_score": 79,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 1,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -15284,24 +15517,24 @@
           "end_date": "2026-08-24"
         },
         "overall": {
-          "event_count": 61,
-          "incident_count": 37,
+          "event_count": 60,
+          "incident_count": 36,
           "activity_count": 6,
           "indicator_count": 7,
           "assessment_count": 11,
-          "score_total": 1762,
-          "average_score": 28.89,
+          "score_total": 1742,
+          "average_score": 29.03,
           "highest_score": 87,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
             "event_count": 4,
-            "score_total": 144,
-            "average_score": 36.0,
+            "score_total": 145,
+            "average_score": 36.25,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "cyber": 1,
@@ -15314,7 +15547,7 @@
             "score_total": 255,
             "average_score": 25.5,
             "highest_score": 59,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 5,
               "military_provocation": 3,
@@ -15324,14 +15557,14 @@
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 6,
-            "score_total": 179,
-            "average_score": 29.83,
+            "event_count": 5,
+            "score_total": 158,
+            "average_score": 31.6,
             "highest_score": 69,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "critical_infrastructure": 1,
-              "drone_incident": 3,
+              "drone_incident": 2,
               "sabotage": 1
             }
           },
@@ -15341,7 +15574,7 @@
             "score_total": 661,
             "average_score": 26.44,
             "highest_score": 87,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 3,
               "military_provocation": 5,
@@ -15359,7 +15592,7 @@
             "score_total": 612,
             "average_score": 32.21,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 5,
               "drone_incident": 8,
@@ -15373,9 +15606,9 @@
         "categories": {
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 20,
-            "score_total": 936,
-            "average_score": 46.8,
+            "event_count": 19,
+            "score_total": 915,
+            "average_score": 48.16,
             "highest_score": 87
           },
           "critical_infrastructure": {
@@ -15388,8 +15621,8 @@
           "sabotage": {
             "category": "sabotage",
             "event_count": 9,
-            "score_total": 483,
-            "average_score": 53.67,
+            "score_total": 484,
+            "average_score": 53.78,
             "highest_score": 79
           },
           "military_provocation": {
@@ -15437,28 +15670,32 @@
         },
         "layers": {
           "information": {
-            "event_count": 0,
-            "score_total": 0,
-            "average_score": 0,
-            "highest_score": 0
+            "event_count": 1,
+            "score_total": 25,
+            "average_score": 25.0,
+            "highest_score": 25,
+            "level": "guarded"
           },
           "early_warning": {
             "event_count": 7,
             "score_total": 41,
             "average_score": 5.86,
-            "highest_score": 8
+            "highest_score": 8,
+            "level": "low"
           },
           "operational": {
-            "event_count": 43,
-            "score_total": 1721,
-            "average_score": 40.02,
-            "highest_score": 87
+            "event_count": 41,
+            "score_total": 1676,
+            "average_score": 40.88,
+            "highest_score": 87,
+            "level": "elevated"
           },
           "assessment": {
             "event_count": 11,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -15718,8 +15955,8 @@
     },
     {
       "date": "2026-08-25",
-      "generated_at": "2026-08-28T08:05:16.782487+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.257391+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -15731,7 +15968,7 @@
           "score_total": 192,
           "average_score": 17.45,
           "highest_score": 45,
-          "overall_level": "high"
+          "overall_level": "low"
         },
         "countries": {
           "Estonia": {
@@ -15740,7 +15977,7 @@
             "score_total": 28,
             "average_score": 14.0,
             "highest_score": 26,
-            "level": "high",
+            "level": "low",
             "categories": {}
           },
           "Latvia": {
@@ -15749,7 +15986,7 @@
             "score_total": 49,
             "average_score": 8.17,
             "highest_score": 31,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "migration_pressure": 1,
               "critical_infrastructure": 5
@@ -15761,7 +15998,7 @@
             "score_total": 31,
             "average_score": 31.0,
             "highest_score": 31,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "migration_pressure": 1
             }
@@ -15772,7 +16009,7 @@
             "score_total": 76,
             "average_score": 38.0,
             "highest_score": 45,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "critical_infrastructure": 1,
               "migration_pressure": 1
@@ -15784,7 +16021,7 @@
             "score_total": 70,
             "average_score": 35.0,
             "highest_score": 44,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 1
             }
@@ -15818,25 +16055,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 3,
             "score_total": 20,
             "average_score": 6.67,
-            "highest_score": 10
+            "highest_score": 10,
+            "level": "low"
           },
           "operational": {
             "event_count": 5,
             "score_total": 172,
             "average_score": 34.4,
-            "highest_score": 45
+            "highest_score": 45,
+            "level": "guarded"
           },
           "assessment": {
             "event_count": 3,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -16087,19 +16328,19 @@
           "activity_count": 5,
           "indicator_count": 6,
           "assessment_count": 14,
-          "score_total": 1644,
-          "average_score": 26.95,
+          "score_total": 1645,
+          "average_score": 26.97,
           "highest_score": 79,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
             "event_count": 5,
-            "score_total": 167,
-            "average_score": 33.4,
+            "score_total": 168,
+            "average_score": 33.6,
             "highest_score": 63,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "drone_incident": 2,
               "cyber": 1,
@@ -16112,7 +16353,7 @@
             "score_total": 274,
             "average_score": 18.27,
             "highest_score": 59,
-            "level": "critical",
+            "level": "low",
             "categories": {
               "drone_incident": 5,
               "military_provocation": 3,
@@ -16127,7 +16368,7 @@
             "score_total": 189,
             "average_score": 31.5,
             "highest_score": 69,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "critical_infrastructure": 1,
               "drone_incident": 2,
@@ -16141,7 +16382,7 @@
             "score_total": 580,
             "average_score": 27.62,
             "highest_score": 79,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 3,
               "gps_interference": 1,
@@ -16159,7 +16400,7 @@
             "score_total": 585,
             "average_score": 30.79,
             "highest_score": 60,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 5,
               "drone_incident": 6,
@@ -16188,8 +16429,8 @@
           "sabotage": {
             "category": "sabotage",
             "event_count": 9,
-            "score_total": 464,
-            "average_score": 51.56,
+            "score_total": 465,
+            "average_score": 51.67,
             "highest_score": 79
           },
           "military_provocation": {
@@ -16240,25 +16481,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 6,
             "score_total": 36,
             "average_score": 6.0,
-            "highest_score": 10
+            "highest_score": 10,
+            "level": "low"
           },
           "operational": {
             "event_count": 41,
-            "score_total": 1608,
-            "average_score": 39.22,
-            "highest_score": 79
+            "score_total": 1609,
+            "average_score": 39.24,
+            "highest_score": 79,
+            "level": "guarded"
           },
           "assessment": {
             "event_count": 14,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -16521,32 +16766,31 @@
     },
     {
       "date": "2026-08-26",
-      "generated_at": "2026-08-28T08:05:16.783404+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.258434+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
-          "event_count": 18,
-          "incident_count": 5,
+          "event_count": 14,
+          "incident_count": 4,
           "activity_count": 2,
-          "indicator_count": 2,
-          "assessment_count": 9,
-          "score_total": 208,
-          "average_score": 11.56,
+          "indicator_count": 1,
+          "assessment_count": 7,
+          "score_total": 177,
+          "average_score": 12.64,
           "highest_score": 55,
-          "overall_level": "elevated"
+          "overall_level": "low"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
-            "event_count": 9,
-            "score_total": 43,
-            "average_score": 4.78,
+            "event_count": 6,
+            "score_total": 35,
+            "average_score": 5.83,
             "highest_score": 35,
-            "level": "guarded",
+            "level": "low",
             "categories": {
-              "sabotage": 1,
-              "critical_infrastructure": 2
+              "sabotage": 1
             }
           },
           "Latvia": {
@@ -16555,7 +16799,7 @@
             "score_total": 45,
             "average_score": 15.0,
             "highest_score": 35,
-            "level": "high",
+            "level": "low",
             "categories": {
               "sabotage": 1,
               "critical_infrastructure": 1
@@ -16583,22 +16827,22 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 5,
-            "score_total": 150,
-            "average_score": 30.0,
+            "event_count": 4,
+            "score_total": 127,
+            "average_score": 31.75,
             "highest_score": 55,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
-              "cyber": 3
+              "cyber": 2
             }
           }
         },
         "categories": {
           "cyber": {
             "category": "cyber",
-            "event_count": 3,
-            "score_total": 122,
-            "average_score": 40.67,
+            "event_count": 2,
+            "score_total": 99,
+            "average_score": 49.5,
             "highest_score": 55
           },
           "sabotage": {
@@ -16610,9 +16854,9 @@
           },
           "critical_infrastructure": {
             "category": "critical_infrastructure",
-            "event_count": 3,
-            "score_total": 18,
-            "average_score": 6.0,
+            "event_count": 1,
+            "score_total": 10,
+            "average_score": 10.0,
             "highest_score": 10
           },
           "gps_interference": {
@@ -16628,30 +16872,34 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 2,
-            "score_total": 13,
-            "average_score": 6.5,
-            "highest_score": 8
+            "event_count": 1,
+            "score_total": 5,
+            "average_score": 5.0,
+            "highest_score": 5,
+            "level": "low"
           },
           "operational": {
-            "event_count": 7,
-            "score_total": 195,
-            "average_score": 27.86,
-            "highest_score": 55
+            "event_count": 6,
+            "score_total": 172,
+            "average_score": 28.67,
+            "highest_score": 55,
+            "level": "guarded"
           },
           "assessment": {
-            "event_count": 9,
+            "event_count": 7,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
-          "location": "Narva",
-          "score": 8,
+          "location": "Kaliningrad",
+          "score": 0,
           "event_count": 1
         },
         "key_driver": "cyber",
@@ -16727,25 +16975,6 @@
           },
           {
             "id": null,
-            "title": "Boston Scientific says cyberattack disrupted operations globally",
-            "url": "https://www.bleepingcomputer.com/news/security/boston-scientific-says-cyberattack-disrupted-operations-globally/",
-            "published_at": "2026-08-26T15:19:21+00:00",
-            "source_name": null,
-            "primary_country": "Regional",
-            "countries": [],
-            "categories": [
-              "cyber"
-            ],
-            "actors": [],
-            "locations": [],
-            "event_subtype": "incident",
-            "analytical_layer": "operational",
-            "confidence": "low",
-            "hybrid_threat_score": 23,
-            "hybrid_threat_level": "guarded"
-          },
-          {
-            "id": null,
             "title": "Europe eyes Russia in attacks on weapons and cargo. But Germany treads lightly. - The Washington Post",
             "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOMjY1ZXpKSzZNS3F5NG1mVXE2aE1vMXhsbm5ic0xQM0ZqeV85Zlg5QTFWdXBrMUVZc0EyLTdkQTQtaWU0NHBXXy1DcFVtQ0lLX2tId1dPelRqazIydlU5OER2REZuUC1JWFN0akM4NXlPcENkZ0pvOUlKX3BxbU9wYkpmTkZhMHdaR3NNVTkyRHFXRGRORzJ0UlhWUkx6ZlVVZktyeU1pSlkzREI1VDVEdUE4QzNFcjdC?oc=5",
             "published_at": "2026-08-26T19:45:44+00:00",
@@ -16807,29 +17036,6 @@
           },
           {
             "id": null,
-            "title": "Enefit Industry moves ahead with plans for 19‑kilometer Auvere–Narva heating pipeline",
-            "url": "https://news.err.ee/1610119454/enefit-industry-moves-ahead-with-plans-for-19-kilometer-auvere-narva-heating-pipeline",
-            "published_at": "2026-08-26T09:55:00+00:00",
-            "source_name": null,
-            "primary_country": "Estonia",
-            "countries": [
-              "Estonia"
-            ],
-            "categories": [
-              "critical_infrastructure"
-            ],
-            "actors": [],
-            "locations": [
-              "Narva"
-            ],
-            "event_subtype": "indicator",
-            "analytical_layer": "early_warning",
-            "confidence": "low",
-            "hybrid_threat_score": 8,
-            "hybrid_threat_level": "low"
-          },
-          {
-            "id": null,
             "title": "GPS signals under siege on Poland’s Baltic coast - TVP World",
             "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQME81RmROR1hZYWFLdHlSYU15bVVPY3NxTUt4ZEJCTDdXd0ZqTEpjQmYtWFpLbkFUS1N2Z2VXNUNxQVdFUHY5Y01zVTI1WFBCcnp6RVlBR1BBcktyZjNYRElheEloTGFselc5a05FU0RtTDdtak9tS29kQm9tRDZQc25HbUhRYnZNYXkxWFl3Vl9uQ2M?oc=5",
             "published_at": "2026-08-26T07:12:00+00:00",
@@ -16869,6 +17075,48 @@
             "confidence": "low",
             "hybrid_threat_score": 0,
             "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Difficult to believe Putin would meet CIA chief, says Ex-ISS director",
+            "url": "https://news.err.ee/1610119873/difficult-to-believe-putin-would-meet-cia-chief-says-ex-iss-director",
+            "published_at": "2026-08-26T14:53:00+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "assessment",
+            "analytical_layer": "assessment",
+            "confidence": "low",
+            "hybrid_threat_score": 0,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Painting conservator: Soviet‑era artists had to paint with whatever materials they could get",
+            "url": "https://news.err.ee/1610119690/painting-conservator-soviet-era-artists-had-to-paint-with-whatever-materials-they-could-get",
+            "published_at": "2026-08-26T13:30:00+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [],
+            "actors": [
+              "EU"
+            ],
+            "locations": [],
+            "event_subtype": "assessment",
+            "analytical_layer": "assessment",
+            "confidence": "low",
+            "hybrid_threat_score": 0,
+            "hybrid_threat_level": "low"
           }
         ]
       },
@@ -16880,28 +17128,27 @@
           "end_date": "2026-08-26"
         },
         "overall": {
-          "event_count": 70,
-          "incident_count": 34,
+          "event_count": 66,
+          "incident_count": 33,
           "activity_count": 6,
-          "indicator_count": 8,
-          "assessment_count": 22,
-          "score_total": 1508,
-          "average_score": 21.54,
+          "indicator_count": 7,
+          "assessment_count": 20,
+          "score_total": 1478,
+          "average_score": 22.39,
           "highest_score": 79,
-          "overall_level": "critical"
+          "overall_level": "guarded"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
-            "event_count": 13,
-            "score_total": 147,
-            "average_score": 11.31,
-            "highest_score": 45,
-            "level": "elevated",
+            "event_count": 10,
+            "score_total": 140,
+            "average_score": 14.0,
+            "highest_score": 46,
+            "level": "low",
             "categories": {
               "sabotage": 2,
-              "drone_incident": 1,
-              "critical_infrastructure": 2
+              "drone_incident": 1
             }
           },
           "Latvia": {
@@ -16910,7 +17157,7 @@
             "score_total": 319,
             "average_score": 17.72,
             "highest_score": 59,
-            "level": "high",
+            "level": "low",
             "categories": {
               "drone_incident": 5,
               "military_provocation": 3,
@@ -16926,7 +17173,7 @@
             "score_total": 189,
             "average_score": 37.8,
             "highest_score": 69,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "critical_infrastructure": 1,
               "drone_incident": 2,
@@ -16940,7 +17187,7 @@
             "score_total": 483,
             "average_score": 24.15,
             "highest_score": 79,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "sabotage": 3,
               "gps_interference": 2,
@@ -16954,13 +17201,13 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 20,
-            "score_total": 556,
-            "average_score": 27.8,
+            "event_count": 19,
+            "score_total": 533,
+            "average_score": 28.05,
             "highest_score": 55,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
-              "cyber": 4,
+              "cyber": 3,
               "critical_infrastructure": 4,
               "espionage": 1,
               "sabotage": 3,
@@ -16979,16 +17226,16 @@
           },
           "critical_infrastructure": {
             "category": "critical_infrastructure",
-            "event_count": 16,
-            "score_total": 445,
-            "average_score": 27.81,
+            "event_count": 14,
+            "score_total": 437,
+            "average_score": 31.21,
             "highest_score": 79
           },
           "sabotage": {
             "category": "sabotage",
             "event_count": 8,
-            "score_total": 397,
-            "average_score": 49.62,
+            "score_total": 398,
+            "average_score": 49.75,
             "highest_score": 79
           },
           "military_provocation": {
@@ -17000,9 +17247,9 @@
           },
           "cyber": {
             "category": "cyber",
-            "event_count": 7,
-            "score_total": 193,
-            "average_score": 27.57,
+            "event_count": 6,
+            "score_total": 170,
+            "average_score": 28.33,
             "highest_score": 55
           },
           "espionage": {
@@ -17039,25 +17286,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 8,
-            "score_total": 49,
-            "average_score": 6.12,
-            "highest_score": 10
+            "event_count": 7,
+            "score_total": 41,
+            "average_score": 5.86,
+            "highest_score": 10,
+            "level": "low"
           },
           "operational": {
-            "event_count": 40,
-            "score_total": 1459,
-            "average_score": 36.48,
-            "highest_score": 79
+            "event_count": 39,
+            "score_total": 1437,
+            "average_score": 36.85,
+            "highest_score": 79,
+            "level": "guarded"
           },
           "assessment": {
-            "event_count": 22,
+            "event_count": 20,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -17313,8 +17564,8 @@
     },
     {
       "date": "2026-08-27",
-      "generated_at": "2026-08-28T08:05:16.784389+00:00",
-      "input_generated_at": "2026-08-28T07:57:50.015810+00:00",
+      "generated_at": "2026-08-28T09:18:16.259540+00:00",
+      "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
@@ -17326,7 +17577,7 @@
           "score_total": 644,
           "average_score": 15.71,
           "highest_score": 89,
-          "overall_level": "high"
+          "overall_level": "low"
         },
         "countries": {
           "Estonia": {
@@ -17335,7 +17586,7 @@
             "score_total": 104,
             "average_score": 9.45,
             "highest_score": 50,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "sabotage": 1,
               "critical_infrastructure": 3,
@@ -17349,7 +17600,7 @@
             "score_total": 166,
             "average_score": 12.77,
             "highest_score": 50,
-            "level": "high",
+            "level": "low",
             "categories": {
               "sabotage": 2,
               "critical_infrastructure": 4,
@@ -17363,7 +17614,7 @@
             "score_total": 43,
             "average_score": 43.0,
             "highest_score": 43,
-            "level": "critical",
+            "level": "elevated",
             "categories": {
               "sabotage": 1
             }
@@ -17374,7 +17625,7 @@
             "score_total": 102,
             "average_score": 20.4,
             "highest_score": 89,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 1,
               "drone_incident": 1,
@@ -17387,7 +17638,7 @@
             "score_total": 330,
             "average_score": 23.57,
             "highest_score": 76,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 8,
               "critical_infrastructure": 3,
@@ -17452,25 +17703,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
             "event_count": 9,
             "score_total": 47,
             "average_score": 5.22,
-            "highest_score": 9
+            "highest_score": 9,
+            "level": "low"
           },
           "operational": {
             "event_count": 16,
             "score_total": 597,
             "average_score": 37.31,
-            "highest_score": 89
+            "highest_score": 89,
+            "level": "guarded"
           },
           "assessment": {
             "event_count": 16,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -17721,27 +17976,27 @@
           "end_date": "2026-08-27"
         },
         "overall": {
-          "event_count": 105,
-          "incident_count": 46,
+          "event_count": 101,
+          "incident_count": 45,
           "activity_count": 6,
-          "indicator_count": 17,
-          "assessment_count": 36,
-          "score_total": 1979,
-          "average_score": 18.85,
+          "indicator_count": 16,
+          "assessment_count": 34,
+          "score_total": 1949,
+          "average_score": 19.3,
           "highest_score": 89,
-          "overall_level": "critical"
+          "overall_level": "low"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
-            "event_count": 24,
-            "score_total": 251,
-            "average_score": 10.46,
+            "event_count": 21,
+            "score_total": 244,
+            "average_score": 11.62,
             "highest_score": 50,
-            "level": "elevated",
+            "level": "low",
             "categories": {
               "sabotage": 3,
-              "critical_infrastructure": 5,
+              "critical_infrastructure": 3,
               "drone_incident": 1,
               "cyber": 1,
               "migration_pressure": 1
@@ -17753,7 +18008,7 @@
             "score_total": 485,
             "average_score": 15.65,
             "highest_score": 59,
-            "level": "high",
+            "level": "low",
             "categories": {
               "drone_incident": 5,
               "military_provocation": 3,
@@ -17770,7 +18025,7 @@
             "score_total": 172,
             "average_score": 34.4,
             "highest_score": 69,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "critical_infrastructure": 1,
               "drone_incident": 2,
@@ -17784,7 +18039,7 @@
             "score_total": 412,
             "average_score": 21.68,
             "highest_score": 89,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
               "cyber": 2,
               "drone_incident": 2,
@@ -17797,13 +18052,13 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 34,
-            "score_total": 886,
-            "average_score": 26.06,
+            "event_count": 33,
+            "score_total": 863,
+            "average_score": 26.15,
             "highest_score": 76,
-            "level": "critical",
+            "level": "guarded",
             "categories": {
-              "cyber": 12,
+              "cyber": 11,
               "critical_infrastructure": 7,
               "espionage": 3,
               "sabotage": 4,
@@ -17815,9 +18070,9 @@
         "categories": {
           "critical_infrastructure": {
             "category": "critical_infrastructure",
-            "event_count": 24,
-            "score_total": 598,
-            "average_score": 24.92,
+            "event_count": 22,
+            "score_total": 590,
+            "average_score": 26.82,
             "highest_score": 79
           },
           "drone_incident": {
@@ -17829,16 +18084,16 @@
           },
           "cyber": {
             "category": "cyber",
-            "event_count": 19,
-            "score_total": 531,
-            "average_score": 27.95,
+            "event_count": 18,
+            "score_total": 508,
+            "average_score": 28.22,
             "highest_score": 89
           },
           "sabotage": {
             "category": "sabotage",
             "event_count": 10,
-            "score_total": 479,
-            "average_score": 47.9,
+            "score_total": 480,
+            "average_score": 48.0,
             "highest_score": 79
           },
           "military_provocation": {
@@ -17889,25 +18144,29 @@
             "event_count": 0,
             "score_total": 0,
             "average_score": 0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           },
           "early_warning": {
-            "event_count": 17,
-            "score_total": 96,
-            "average_score": 5.65,
-            "highest_score": 10
+            "event_count": 16,
+            "score_total": 88,
+            "average_score": 5.5,
+            "highest_score": 10,
+            "level": "low"
           },
           "operational": {
-            "event_count": 52,
-            "score_total": 1883,
-            "average_score": 36.21,
-            "highest_score": 89
+            "event_count": 51,
+            "score_total": 1861,
+            "average_score": 36.49,
+            "highest_score": 89,
+            "level": "guarded"
           },
           "assessment": {
-            "event_count": 36,
+            "event_count": 34,
             "score_total": 0,
             "average_score": 0.0,
-            "highest_score": 0
+            "highest_score": 0,
+            "level": "low"
           }
         },
         "hotspot": {
@@ -18162,7 +18421,7 @@
     },
     {
       "date": "2026-08-28",
-      "generated_at": "2026-08-28T09:15:25.785230+00:00",
+      "generated_at": "2026-08-28T09:18:16.260790+00:00",
       "input_generated_at": "2026-08-28T09:15:25.571684+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
