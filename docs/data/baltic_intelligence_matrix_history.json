@@ -2,16 +2,23 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Intelligence Matrix History",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-08-29T19:29:33.475914+00:00",
-  "history_version": "baltic_intelligence_matrix_history_v1_0",
+  "generated_at": "2026-08-29T19:37:25.234202+00:00",
+  "history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
   "record_count": 1,
   "first_snapshot_date": "2026-08-29",
   "last_snapshot_date": "2026-08-29",
   "last_update": {
-    "snapshot_date": "2026-08-29",
+    "mode": "daily_snapshot",
     "action": "replaced",
-    "updated_at": "2026-08-29T19:29:33.475914+00:00",
-    "source_snapshot_generated_at": "2026-08-29T19:29:33.404253+00:00",
+    "updated_at": "2026-08-29T19:37:25.234202+00:00",
+    "processed_records": 1,
+    "inserted_count": 0,
+    "replaced_count": 1,
+    "inserted_dates": [],
+    "replaced_dates": [
+      "2026-08-29"
+    ],
+    "source_snapshot_generated_at": "2026-08-29T19:37:25.159237+00:00",
     "source_snapshot_version": "baltic_daily_snapshot_v1_1_backfill_safe",
     "source_score_engine_version": "threat_score_v3_2_current_historical_split"
   },
@@ -22,18 +29,19 @@
     "zero_event_days_retained": true,
     "rolling_windows_used": false,
     "retention": "unlimited",
-    "intended_use": "Historical daily intelligence matrix input and source dataset for future seven-day matrix views."
+    "intended_use": "Historical daily intelligence matrix input and source dataset for future seven-day matrix views.",
+    "backfill_rule": "Historical backfill imports only explicit exact-day snapshot records present in the strict backfill bundle. Dates listed as unverified/missing are never inserted as zero-event days."
   },
   "snapshots": [
     {
       "project": "baltic-hybrid-monitor",
       "title": "Baltic Hybrid Threat Daily Snapshot",
       "region": "Baltic states and Poland",
-      "generated_at": "2026-08-29T19:29:33.404253+00:00",
+      "generated_at": "2026-08-29T19:37:25.159237+00:00",
       "snapshot_date": "2026-08-29",
       "snapshot_version": "baltic_daily_snapshot_v1_1_backfill_safe",
       "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "source_generated_at": "2026-08-29T19:29:33.273148+00:00",
+      "source_generated_at": "2026-08-29T19:37:25.026590+00:00",
       "method": {
         "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
         "time_basis": "UTC calendar day",
