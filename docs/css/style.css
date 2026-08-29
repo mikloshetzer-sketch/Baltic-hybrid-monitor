@@ -894,16 +894,26 @@ label {
 .intelligence-matrix-panel {
   border-top: 4px solid var(--purple);
   overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(120, 86, 232, 0.035) 0%,
+      #ffffff 175px
+    );
 }
 
 .matrix-status {
   min-width: 185px;
+  padding: 10px 12px;
+  border: 1px solid #d8d1f6;
+  border-radius: var(--radius-md);
+  background: #f7f4ff;
   text-align: right;
 }
 
 .matrix-status span {
   display: block;
-  color: var(--muted-light);
+  color: #806da9;
   font-size: 9px;
   font-weight: 900;
   text-transform: uppercase;
@@ -913,7 +923,7 @@ label {
 .matrix-status strong {
   display: block;
   margin-top: 3px;
-  color: var(--text);
+  color: #5739b6;
   font-family: var(--serif);
   font-size: 18px;
 }
@@ -921,7 +931,7 @@ label {
 .matrix-status small {
   display: block;
   margin-top: 3px;
-  color: var(--muted);
+  color: #806f9d;
   font-size: 9px;
 }
 
@@ -931,6 +941,10 @@ label {
   gap: 18px;
   align-items: center;
   margin: 13px 0 10px;
+  padding: 9px 10px;
+  border: 1px solid #d8e5ed;
+  border-radius: 10px;
+  background: #f5f9fc;
 }
 
 .matrix-navigation {
@@ -942,28 +956,41 @@ label {
 .matrix-nav-btn {
   min-height: 31px;
   padding: 6px 11px;
-  border: 1px solid var(--border);
+  border: 1px solid #c8d9e4;
   border-radius: var(--radius-sm);
   background: #ffffff;
   color: var(--text);
   cursor: pointer;
   font-size: 9px;
   font-weight: 900;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
 }
 
 .matrix-nav-btn:hover:not(:disabled) {
-  border-color: var(--navy);
-  background: var(--surface-blue);
+  border-color: var(--cyan);
+  background: #eaf8fd;
+  color: var(--navy-dark);
+  transform: translateY(-1px);
 }
 
 .matrix-nav-btn.active {
   border-color: var(--navy);
-  background: var(--navy);
+  background:
+    linear-gradient(
+      105deg,
+      var(--navy-dark),
+      var(--navy)
+    );
   color: #ffffff;
+  box-shadow: 0 4px 10px rgba(8, 58, 84, 0.16);
 }
 
 .matrix-nav-btn:disabled {
-  opacity: 0.45;
+  opacity: 0.42;
   cursor: not-allowed;
 }
 
@@ -976,13 +1003,18 @@ label {
   min-width: 145px;
   min-height: 31px;
   padding: 5px 28px 5px 10px;
-  border: 1px solid var(--border);
+  border: 1px solid #c8d9e4;
   border-radius: var(--radius-sm);
   background: #ffffff;
   color: var(--text);
   cursor: pointer;
   font-size: 9px;
   font-weight: 800;
+}
+
+.matrix-filters select:focus {
+  outline: 2px solid rgba(30, 165, 214, 0.18);
+  border-color: var(--cyan);
 }
 
 .matrix-legend {
@@ -1009,22 +1041,28 @@ label {
 
 .legend-dot.available {
   background: var(--green);
+  box-shadow: 0 0 0 3px rgba(23, 167, 104, 0.10);
 }
 
 .legend-dot.zero {
   background: var(--cyan);
+  box-shadow: 0 0 0 3px rgba(30, 165, 214, 0.10);
 }
 
 .legend-dot.missing {
-  background: #b8c4cc;
+  background: #a9b6bf;
+  box-shadow: 0 0 0 3px rgba(169, 182, 191, 0.12);
 }
 
 .intelligence-matrix {
   width: 100%;
   overflow-x: auto;
-  border: 1px solid var(--border);
+  border: 1px solid #c8d9e4;
   border-radius: var(--radius-md);
   background: #ffffff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    0 5px 18px rgba(4, 55, 82, 0.055);
 }
 
 .matrix-loading {
@@ -1053,8 +1091,8 @@ label {
 .matrix-table td {
   padding: 10px 11px;
   vertical-align: top;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  border-right: 1px solid #d8e3e9;
+  border-bottom: 1px solid #d8e3e9;
   text-align: left;
 }
 
@@ -1073,14 +1111,26 @@ label {
 .matrix-corner,
 .matrix-layer-header {
   width: 155px;
-  background: var(--navy);
+  background:
+    linear-gradient(
+      145deg,
+      var(--navy-deep),
+      var(--navy)
+    );
   color: #ffffff;
   font-size: 11px;
   font-weight: 900;
+  box-shadow:
+    inset -1px 0 0 rgba(255, 255, 255, 0.08);
 }
 
 .matrix-day-header {
-  background: #e9f4f9;
+  background:
+    linear-gradient(
+      180deg,
+      #e1f2f9,
+      #edf8fc
+    );
   color: var(--text);
   text-align: center !important;
   font-size: 10px;
@@ -1096,14 +1146,13 @@ label {
 .matrix-day-header small {
   display: block;
   margin-top: 2px;
-  color: var(--muted);
+  color: #66889c;
   font-size: 8px;
   font-weight: 700;
 }
 
 .matrix-row-label {
   width: 155px;
-  background: #f4f9fb;
   color: var(--text);
   font-size: 10px;
   font-weight: 900;
@@ -1118,41 +1167,91 @@ label {
   line-height: 1.4;
 }
 
+/* Information layer */
 .matrix-row-information .matrix-row-label {
-  border-left: 4px solid var(--cyan);
+  border-left: 5px solid var(--cyan);
+  background: #dff4fb;
 }
 
+.matrix-row-information .matrix-cell {
+  background: #eef9fd;
+}
+
+/* Early-warning layer */
 .matrix-row-warning .matrix-row-label,
 .matrix-row-early-warning .matrix-row-label {
-  border-left: 4px solid var(--orange);
+  border-left: 5px solid var(--orange);
+  background: #fff0c9;
 }
 
+.matrix-row-warning .matrix-cell,
+.matrix-row-early-warning .matrix-cell {
+  background: #fff8e5;
+}
+
+/* Operational layer */
 .matrix-row-operational .matrix-row-label {
-  border-left: 4px solid var(--red);
+  border-left: 5px solid var(--red);
+  background: #fde5e3;
 }
 
+.matrix-row-operational .matrix-cell {
+  background: #fff1f0;
+}
+
+/* Actor layer */
 .matrix-row-actor .matrix-row-label {
-  border-left: 4px solid var(--purple);
+  border-left: 5px solid var(--purple);
+  background: #ece6ff;
 }
 
+.matrix-row-actor .matrix-cell {
+  background: #f6f2ff;
+}
+
+/* Hotspot layer */
 .matrix-row-hotspot .matrix-row-label {
-  border-left: 4px solid var(--green);
+  border-left: 5px solid var(--green);
+  background: #def4e9;
 }
 
+.matrix-row-hotspot .matrix-cell {
+  background: #eef9f3;
+}
+
+/* Assessment layer */
 .matrix-row-assessment .matrix-row-label {
-  border-left: 4px solid var(--navy);
+  border-left: 5px solid #274d73;
+  background: #dfeaf3;
 }
 
+.matrix-row-assessment .matrix-cell {
+  background: #eef4f8;
+}
+
+/* Daily summary layer */
 .matrix-row-summary .matrix-row-label {
-  border-left: 4px solid #1f6c91;
+  border-left: 5px solid #1f6c91;
+  background: #dcecf4;
+}
+
+.matrix-row-summary .matrix-cell {
+  background: #edf6fa;
 }
 
 .matrix-cell {
   min-height: 84px;
-  background: #ffffff;
   color: var(--text-body);
   font-size: 9px;
   line-height: 1.45;
+  transition:
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.matrix-cell:hover {
+  box-shadow:
+    inset 0 0 0 2px rgba(11, 131, 201, 0.12);
 }
 
 .matrix-cell strong {
@@ -1169,47 +1268,142 @@ label {
   font-size: 8px;
 }
 
+/*
+  Missing is deliberately neutral and visually distinct.
+  A missing historical snapshot must never look like
+  a valid zero-event day.
+*/
+.matrix-row-information .matrix-cell.status-missing,
+.matrix-row-information .matrix-cell.missing,
+.matrix-row-warning .matrix-cell.status-missing,
+.matrix-row-warning .matrix-cell.missing,
+.matrix-row-early-warning .matrix-cell.status-missing,
+.matrix-row-early-warning .matrix-cell.missing,
+.matrix-row-operational .matrix-cell.status-missing,
+.matrix-row-operational .matrix-cell.missing,
+.matrix-row-actor .matrix-cell.status-missing,
+.matrix-row-actor .matrix-cell.missing,
+.matrix-row-hotspot .matrix-cell.status-missing,
+.matrix-row-hotspot .matrix-cell.missing,
+.matrix-row-assessment .matrix-cell.status-missing,
+.matrix-row-assessment .matrix-cell.missing,
+.matrix-row-summary .matrix-cell.status-missing,
+.matrix-row-summary .matrix-cell.missing,
 .matrix-cell.status-missing,
 .matrix-cell.missing {
   background:
     repeating-linear-gradient(
       -45deg,
-      #f4f6f7,
-      #f4f6f7 7px,
-      #eef1f3 7px,
-      #eef1f3 14px
+      #f1f4f6,
+      #f1f4f6 7px,
+      #e6ebee 7px,
+      #e6ebee 14px
     );
-  color: #8d9aa3;
+  color: #87959f;
 }
 
 .matrix-cell.status-missing strong,
 .matrix-cell.missing strong {
-  color: #87939c;
+  color: #7d8b95;
+}
+
+/*
+  Valid exact-day zero-event snapshots use cyan rather
+  than grey so they remain distinct from missing history.
+*/
+.matrix-row-information .matrix-cell.status-zero,
+.matrix-row-information .matrix-cell.zero-event,
+.matrix-row-warning .matrix-cell.status-zero,
+.matrix-row-warning .matrix-cell.zero-event,
+.matrix-row-early-warning .matrix-cell.status-zero,
+.matrix-row-early-warning .matrix-cell.zero-event,
+.matrix-row-operational .matrix-cell.status-zero,
+.matrix-row-operational .matrix-cell.zero-event,
+.matrix-row-actor .matrix-cell.status-zero,
+.matrix-row-actor .matrix-cell.zero-event,
+.matrix-row-hotspot .matrix-cell.status-zero,
+.matrix-row-hotspot .matrix-cell.zero-event,
+.matrix-row-assessment .matrix-cell.status-zero,
+.matrix-row-assessment .matrix-cell.zero-event,
+.matrix-row-summary .matrix-cell.status-zero,
+.matrix-row-summary .matrix-cell.zero-event,
+.matrix-cell.status-zero,
+.matrix-cell.zero-event {
+  background: #e5f8fc;
+}
+
+/*
+  Threat-level colours are intentionally strongest in
+  assessment cells. They override the generic assessment
+  background while preserving missing/zero semantics above.
+*/
+.matrix-row-assessment .matrix-cell.level-low {
+  background: #e7f7ef;
+  box-shadow: inset 0 3px 0 #36a86f;
+}
+
+.matrix-row-assessment .matrix-cell.level-guarded {
+  background: #fff4c8;
+  box-shadow: inset 0 3px 0 #d0a000;
+}
+
+.matrix-row-assessment .matrix-cell.level-elevated {
+  background: #ffe5b9;
+  box-shadow: inset 0 3px 0 #e58a00;
+}
+
+.matrix-row-assessment .matrix-cell.level-high {
+  background: #ffd9c7;
+  box-shadow: inset 0 3px 0 #df682c;
+}
+
+.matrix-row-assessment .matrix-cell.level-critical {
+  background: #ffd2cf;
+  box-shadow: inset 0 3px 0 var(--red);
+}
+
+/* Generic fallback level colours */
+.matrix-cell.level-low {
+  background: #eaf8f1;
+}
+
+.matrix-cell.level-guarded {
+  background: #fff6d7;
+}
+
+.matrix-cell.level-elevated {
+  background: #ffead0;
+}
+
+.matrix-cell.level-high {
+  background: #ffe0d1;
+}
+
+.matrix-cell.level-critical {
+  background: #ffd8d5;
+}
+
+/*
+  Missing and valid-zero states are more important than
+  threat colour classes and therefore win in the cascade.
+*/
+.matrix-cell.status-missing,
+.matrix-cell.missing {
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #f1f4f6,
+      #f1f4f6 7px,
+      #e6ebee 7px,
+      #e6ebee 14px
+    );
+  box-shadow: none;
 }
 
 .matrix-cell.status-zero,
 .matrix-cell.zero-event {
-  background: #f3fbfd;
-}
-
-.matrix-cell.level-low {
-  background: #f3fbf7;
-}
-
-.matrix-cell.level-guarded {
-  background: #fff9e8;
-}
-
-.matrix-cell.level-elevated {
-  background: #fff2df;
-}
-
-.matrix-cell.level-high {
-  background: #fff0e6;
-}
-
-.matrix-cell.level-critical {
-  background: #fff0ef;
+  background: #e5f8fc;
+  box-shadow: inset 0 3px 0 rgba(30, 165, 214, 0.45);
 }
 
 .matrix-badge,
@@ -1218,7 +1412,7 @@ label {
   align-items: center;
   min-height: 19px;
   margin-bottom: 5px;
-  padding: 3px 7px;
+  padding: 3px 8px;
   border-radius: 999px;
   font-size: 8px;
   font-weight: 900;
@@ -1227,49 +1421,52 @@ label {
 }
 
 .threat-badge.low {
-  background: #e6f8ef;
-  color: #137849;
+  background: #d8f2e4;
+  color: #12683f;
 }
 
 .threat-badge.guarded {
-  background: #fff5ce;
-  color: #9a6a00;
+  background: #ffefb1;
+  color: #876000;
 }
 
 .threat-badge.elevated {
-  background: #ffe9c6;
-  color: #af6700;
+  background: #ffdba0;
+  color: #995900;
 }
 
 .threat-badge.high {
-  background: #ffe3d1;
-  color: #be4f10;
+  background: #ffcbb0;
+  color: #a94312;
 }
 
 .threat-badge.critical {
-  background: #fde1df;
-  color: #bd2925;
+  background: #f8c4c0;
+  color: #a71f1b;
 }
 
 .matrix-detail-toggle {
   display: inline-flex;
   margin-top: 5px;
-  padding: 0;
+  padding: 2px 0;
   border: 0;
   background: transparent;
-  color: var(--blue);
+  color: #087bad;
   cursor: pointer;
   font-size: 8px;
   font-weight: 900;
 }
 
 .matrix-detail-toggle:hover {
+  color: var(--navy-dark);
   text-decoration: underline;
 }
 
 .matrix-method-note {
-  padding-top: 4px;
+  padding-top: 6px;
+  color: #6f8492;
 }
+
 
 /* =========================================================
    METHODOLOGY
