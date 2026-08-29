@@ -1,0 +1,230 @@
+name: Baltic Historical Backfill
+
+on:
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: "Backfill start date (YYYY-MM-DD)"
+        required: true
+        default: "2026-08-23"
+        type: string
+      end_date:
+        description: "Backfill end date (YYYY-MM-DD)"
+        required: true
+        default: "2026-08-28"
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  historical-backfill:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate historical daily snapshots
+        run: |
+          python scripts/backfill_baltic_daily_snapshots.py \
+            --start "${{ inputs.start_date }}" \
+            --end "${{ inputs.end_date }}"
+
+      - name: Show backfill result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("data/baltic_daily_snapshot_backfill.json")
+
+          if not path.exists():
+              raise SystemExit(
+                  "Backfill output was not created."
+              )
+
+          data = json.loads(
+              path.read_text(
+                  encoding="utf-8"
+              )
+          )
+
+          coverage = data.get(
+              "coverage",
+              {}
+          )
+
+          print(
+              "Reconstructable days:",
+              coverage.get(
+                  "reconstructable_days"
+              )
+          )
+
+          print(
+              "Unverified/missing days:",
+              coverage.get(
+                  "unverified_missing_days"
+              )
+          )
+
+          print(
+              "Reconstructed dates:",
+              ", ".join(
+                  data.get(
+                      "reconstructed_dates",
+                      []
+                  )
+              )
+              or "none"
+          )
+
+          print(
+              "Unverified dates:",
+              ", ".join(
+                  data.get(
+                      "unverified_missing_dates",
+                      []
+                  )
+              )
+              or "none"
+          )
+          PY
+
+      - name: Merge backfill into intelligence matrix history
+        run: |
+          python scripts/update_baltic_intelligence_matrix_history.py
+
+      - name: Regenerate 7-day intelligence matrix
+        run: |
+          python scripts/generate_baltic_7day_matrix.py
+
+      - name: Validate generated history and matrix
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          history_path = Path(
+              "data/baltic_intelligence_matrix_history.json"
+          )
+
+          matrix_path = Path(
+              "data/baltic_7day_matrix.json"
+          )
+
+          history = json.loads(
+              history_path.read_text(
+                  encoding="utf-8"
+              )
+          )
+
+          matrix = json.loads(
+              matrix_path.read_text(
+                  encoding="utf-8"
+              )
+          )
+
+          snapshots = history.get(
+              "snapshots",
+              []
+          )
+
+          dates = [
+              item.get(
+                  "snapshot_date"
+              )
+              for item in snapshots
+              if isinstance(
+                  item,
+                  dict
+              )
+          ]
+
+          if dates != sorted(
+              dates
+          ):
+              raise SystemExit(
+                  "History snapshots are not sorted."
+              )
+
+          if len(
+              dates
+          ) != len(
+              set(
+                  dates
+              )
+          ):
+              raise SystemExit(
+                  "Duplicate snapshot_date values found."
+              )
+
+          print(
+              "History records:",
+              history.get(
+                  "record_count"
+              )
+          )
+
+          print(
+              "History range:",
+              history.get(
+                  "first_snapshot_date"
+              ),
+              "->",
+              history.get(
+                  "last_snapshot_date"
+              )
+          )
+
+          coverage = matrix.get(
+              "coverage",
+              {}
+          )
+
+          print(
+              "7-day available days:",
+              coverage.get(
+                  "available_days"
+              )
+          )
+
+          print(
+              "7-day missing days:",
+              coverage.get(
+                  "missing_days"
+              )
+          )
+          PY
+
+      - name: Remove temporary backfill bundle
+        run: |
+          rm -f data/baltic_daily_snapshot_backfill.json
+          rm -f docs/data/baltic_daily_snapshot_backfill.json
+
+      - name: Commit reconstructed history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add \
+            data/baltic_intelligence_matrix_history.json \
+            docs/data/baltic_intelligence_matrix_history.json \
+            data/baltic_7day_matrix.json \
+            docs/data/baltic_7day_matrix.json
+
+          if git diff --cached --quiet; then
+            echo "No historical changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Backfill Baltic daily intelligence history"
+          git push
