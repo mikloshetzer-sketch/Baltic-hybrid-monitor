@@ -59,6 +59,10 @@ jobs:
         run: |
           python scripts/update_baltic_intelligence_matrix_history.py
 
+      - name: Generate Baltic 7-day intelligence matrix
+        run: |
+          python scripts/generate_baltic_7day_matrix.py
+
       - name: Update Baltic hybrid history
         run: |
           python scripts/update_baltic_hybrid_history.py --rolling-days 14
@@ -96,6 +100,9 @@ jobs:
 
           git add data/baltic_intelligence_matrix_history.json
           git add docs/data/baltic_intelligence_matrix_history.json
+
+          git add data/baltic_7day_matrix.json
+          git add docs/data/baltic_7day_matrix.json
 
           git add data/baltic_hybrid_history.json
           git add docs/data/baltic_hybrid_history.json
