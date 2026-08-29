@@ -1607,9 +1607,11 @@ def create_event_from_item(
                 ""
             )
         )
-        + item.get(
-            "published_at",
-            ""
+        + (
+            item.get(
+                "published_at"
+            )
+            or ""
         )[:10]
     )
 
@@ -2025,9 +2027,11 @@ def cluster_items(
     sorted_items = sorted(
         items,
         key=lambda item: (
-            item.get(
-                "published_at",
-                ""
+            (
+                item.get(
+                    "published_at"
+                )
+                or ""
             ),
             float(
                 item.get(
@@ -2366,8 +2370,9 @@ def main() -> None:
         "method": {
             "description":
                 (
-                    "Threat Intelligence Engine v1.2 event clustering "
-                    "with boundary-aware context classification."
+                    "Threat Intelligence Engine v1.3 event clustering "
+                    "with nullable publication-time compatibility and "
+                    "boundary-aware context classification."
                 ),
 
             "rules": [
@@ -2469,7 +2474,7 @@ def main() -> None:
             },
 
             "classification_version":
-                "ontology_v1_2_boundary_context"
+                "ontology_v1_3_nullable_publication_time"
         },
 
         "events":
@@ -2502,7 +2507,7 @@ def main() -> None:
     )
 
     print(
-        "Classification model: Threat Intelligence Engine v1.2"
+        "Classification model: Threat Intelligence Engine v1.3"
     )
 
     print(
