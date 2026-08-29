@@ -1107,6 +1107,54 @@ window.BalticUI = (() => {
     `;
   }
 
+  function normalizeHotspotValue(value) {
+    if (
+      value === null ||
+      typeof value === "undefined"
+    ) {
+      return null;
+    }
+
+    if (typeof value === "string") {
+      const trimmed = value.trim();
+      return trimmed || null;
+    }
+
+    if (Array.isArray(value)) {
+      const normalized = value
+        .map(normalizeHotspotValue)
+        .filter(Boolean);
+
+      return normalized[0] || null;
+    }
+
+    if (typeof value === "object") {
+      const candidate = firstDefined(
+        value.location,
+        value.country,
+        value.name,
+        value.label,
+        value.hotspot,
+        value.primary_country,
+        value.region
+      );
+
+      if (
+        candidate !== null &&
+        typeof candidate !== "undefined"
+      ) {
+        return normalizeHotspotValue(
+          candidate
+        );
+      }
+
+      return null;
+    }
+
+    const normalized = String(value).trim();
+    return normalized || null;
+  }
+
   function renderHotspotCell(day) {
     if (day.status === "missing") {
       return renderMissingCell();
@@ -1116,31 +1164,38 @@ window.BalticUI = (() => {
 
     const countries =
       uniqueValues(
-        events.map(event =>
-          firstDefined(
-            event.primary_country,
-            event.country,
-            event.region
+        events
+          .map(event =>
+            normalizeHotspotValue(
+              firstDefined(
+                event.primary_country,
+                event.country,
+                event.region,
+                event.hotspot
+              )
+            )
           )
-        )
+          .filter(Boolean)
       );
 
     const explicitHotspot =
-      getDayValue(
-        day,
-        "hotspot",
-        "top_country",
-        "primary_country"
+      normalizeHotspotValue(
+        getDayValue(
+          day,
+          "hotspot",
+          "top_country",
+          "primary_country"
+        )
       );
 
     if (
       explicitHotspot &&
       !countries.includes(
-        String(explicitHotspot)
+        explicitHotspot
       )
     ) {
       countries.unshift(
-        String(explicitHotspot)
+        explicitHotspot
       );
     }
 
