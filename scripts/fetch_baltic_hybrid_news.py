@@ -21,7 +21,7 @@ DOCS_OUTPUT = ROOT / "docs" / "data" / "baltic_hybrid_raw_news.json"
 
 
 # ---------------------------------------------------------------------
-# THREAT INTELLIGENCE COLLECTOR v1.2
+# THREAT INTELLIGENCE COLLECTOR v1.3
 #
 # Goal:
 #
@@ -863,9 +863,44 @@ def canonical_title(
     return title.strip()
 
 
+def normalize_datetime_value(
+    value: Any
+) -> Optional[str]:
+
+    if value is None:
+        return None
+
+    text = str(
+        value
+    ).strip()
+
+    if not text:
+        return None
+
+    try:
+
+        dt = date_parser.parse(
+            text
+        )
+
+        if not dt.tzinfo:
+
+            dt = dt.replace(
+                tzinfo=timezone.utc
+            )
+
+        return dt.astimezone(
+            timezone.utc
+        ).isoformat()
+
+    except Exception:
+
+        return None
+
+
 def parse_date(
     entry: Any
-) -> str:
+) -> tuple[Optional[str], str, str]:
 
     for key in [
         "published",
@@ -873,37 +908,193 @@ def parse_date(
         "created"
     ]:
 
-        if getattr(
+        raw_value = getattr(
             entry,
             key,
             None
-        ):
+        )
 
-            try:
+        normalized = normalize_datetime_value(
+            raw_value
+        )
 
-                dt = date_parser.parse(
-                    getattr(
-                        entry,
-                        key
+        if normalized:
+
+            return (
+                normalized,
+                f"rss_{key}",
+                "high"
+            )
+
+    return (
+        None,
+        "unknown",
+        "unknown"
+    )
+
+
+def extract_html_publication_date(
+    url: str
+) -> tuple[Optional[str], str, str]:
+
+    try:
+
+        response = requests.get(
+            url,
+            timeout=25,
+            headers={
+                "User-Agent":
+                    "Mozilla/5.0 BalticHybridMonitor/1.3"
+            }
+        )
+
+        response.raise_for_status()
+
+    except Exception:
+
+        return (
+            None,
+            "unknown",
+            "unknown"
+        )
+
+    soup = BeautifulSoup(
+        response.text,
+        "html.parser"
+    )
+
+    meta_candidates = [
+        ("property", "article:published_time"),
+        ("property", "og:published_time"),
+        ("name", "date"),
+        ("name", "pubdate"),
+        ("name", "publishdate"),
+        ("name", "publish-date"),
+        ("name", "datePublished"),
+        ("itemprop", "datePublished")
+    ]
+
+    for attribute, value in meta_candidates:
+
+        tag = soup.find(
+            "meta",
+            attrs={attribute: value}
+        )
+
+        if not tag:
+            continue
+
+        normalized = normalize_datetime_value(
+            tag.get(
+                "content"
+            )
+        )
+
+        if normalized:
+
+            return (
+                normalized,
+                f"html_meta:{attribute}={value}",
+                "high"
+            )
+
+    for time_tag in soup.find_all(
+        "time"
+    ):
+
+        normalized = normalize_datetime_value(
+            time_tag.get(
+                "datetime"
+            )
+        )
+
+        if normalized:
+
+            return (
+                normalized,
+                "html_time_datetime",
+                "medium"
+            )
+
+    for script in soup.find_all(
+        "script",
+        attrs={"type": "application/ld+json"}
+    ):
+
+        raw_json = script.string or script.get_text(
+            " ",
+            strip=True
+        )
+
+        if not raw_json:
+            continue
+
+        try:
+
+            data = json.loads(
+                raw_json
+            )
+
+        except Exception:
+            continue
+
+        stack = (
+            data
+            if isinstance(
+                data,
+                list
+            )
+            else [data]
+        )
+
+        while stack:
+
+            node = stack.pop()
+
+            if isinstance(
+                node,
+                dict
+            ):
+
+                normalized = normalize_datetime_value(
+                    node.get(
+                        "datePublished"
                     )
                 )
 
-                if not dt.tzinfo:
+                if normalized:
 
-                    dt = dt.replace(
-                        tzinfo=timezone.utc
+                    return (
+                        normalized,
+                        "html_jsonld:datePublished",
+                        "high"
                     )
 
-                return dt.astimezone(
-                    timezone.utc
-                ).isoformat()
+                for child in node.values():
 
-            except Exception:
-                pass
+                    if isinstance(
+                        child,
+                        (dict, list)
+                    ):
 
-    return datetime.now(
-        timezone.utc
-    ).isoformat()
+                        stack.append(
+                            child
+                        )
+
+            elif isinstance(
+                node,
+                list
+            ):
+
+                stack.extend(
+                    node
+                )
+
+    return (
+        None,
+        "unknown",
+        "unknown"
+    )
 
 
 def get_domain(
@@ -1701,9 +1892,11 @@ def build_item(
     title: str,
     summary: str,
     url: str,
-    published_at: str,
+    published_at: Optional[str],
     source: Dict[str, Any],
-    collection_method: str = "rss"
+    collection_method: str = "rss",
+    published_at_source: str = "unknown",
+    published_at_confidence: str = "unknown"
 ) -> Optional[Dict[str, Any]]:
 
     source_weight = float(
@@ -1768,11 +1961,21 @@ def build_item(
 
         return None
 
+    normalized_published_at = normalize_datetime_value(
+        published_at
+    )
+
+    publication_key = (
+        normalized_published_at[:10]
+        if normalized_published_at
+        else "unknown-date"
+    )
+
     item_id = stable_id(
         canonical_title(
             title
         ),
-        published_at[:10],
+        publication_key,
         source.get(
             "name",
             ""
@@ -1798,7 +2001,13 @@ def build_item(
             ),
 
         "published_at":
-            published_at,
+            normalized_published_at,
+
+        "published_at_source":
+            published_at_source,
+
+        "published_at_confidence":
+            published_at_confidence,
 
         "source_name":
             source.get(
@@ -1907,7 +2116,11 @@ def fetch_rss_source(
             ""
         )
 
-        published_at = parse_date(
+        (
+            published_at,
+            published_at_source,
+            published_at_confidence
+        ) = parse_date(
             entry
         )
 
@@ -1917,7 +2130,9 @@ def fetch_rss_source(
             url=link,
             published_at=published_at,
             source=source,
-            collection_method="rss"
+            collection_method="rss",
+            published_at_source=published_at_source,
+            published_at_confidence=published_at_confidence
         )
 
         if item:
@@ -1957,7 +2172,7 @@ def fetch_html_fallback_source(
             timeout=25,
             headers={
                 "User-Agent":
-                    "Mozilla/5.0 BalticHybridMonitor/1.2"
+                    "Mozilla/5.0 BalticHybridMonitor/1.3"
             }
         )
 
@@ -2032,6 +2247,16 @@ def fetch_html_fallback_source(
 
     for candidate in candidates:
 
+        (
+            published_at,
+            published_at_source,
+            published_at_confidence
+        ) = extract_html_publication_date(
+            candidate[
+                "url"
+            ]
+        )
+
         item = build_item(
             title=candidate[
                 "title"
@@ -2040,11 +2265,11 @@ def fetch_html_fallback_source(
             url=candidate[
                 "url"
             ],
-            published_at=datetime.now(
-                timezone.utc
-            ).isoformat(),
+            published_at=published_at,
             source=source,
-            collection_method="html_fallback"
+            collection_method="html_fallback",
+            published_at_source=published_at_source,
+            published_at_confidence=published_at_confidence
         )
 
         if item:
@@ -2124,9 +2349,13 @@ def fetch_external_json_feed(
                 ),
 
             "published_at":
-                datetime.now(
-                    timezone.utc
-                ).isoformat(),
+                None,
+
+            "published_at_source":
+                "unknown",
+
+            "published_at_confidence":
+                "unknown",
 
             "source_name":
                 feed[
@@ -2225,15 +2454,33 @@ def fetch_external_json_feed(
             )
         )
 
-        published_at = raw.get(
+        raw_published_at = raw.get(
             "published_at",
             raw.get(
-                "date",
-                datetime.now(
-                    timezone.utc
-                ).isoformat()
+                "date"
             )
         )
+
+        published_at = normalize_datetime_value(
+            raw_published_at
+        )
+
+        if published_at:
+
+            published_at_source = (
+                "external_json:published_at"
+                if raw.get(
+                    "published_at"
+                )
+                else "external_json:date"
+            )
+
+            published_at_confidence = "medium"
+
+        else:
+
+            published_at_source = "unknown"
+            published_at_confidence = "unknown"
 
         item = build_item(
             title=title,
@@ -2241,7 +2488,9 @@ def fetch_external_json_feed(
             url=item_url,
             published_at=published_at,
             source=feed,
-            collection_method="external_json"
+            collection_method="external_json",
+            published_at_source=published_at_source,
+            published_at_confidence=published_at_confidence
         )
 
         if item:
@@ -2322,9 +2571,8 @@ def deduplicate(
         unique,
         key=lambda x: (
             x.get(
-                "published_at",
-                ""
-            ),
+                "published_at"
+            ) or "",
             x.get(
                 "relevance_score",
                 0
@@ -2616,13 +2864,13 @@ def main() -> None:
         "method": {
             "description":
                 (
-                    "Threat Intelligence Engine v1.2 context-aware "
+                    "Threat Intelligence Engine v1.3 date-audited context-aware "
                     "RSS, HTML fallback and external JSON collector "
                     "for Baltic and Polish hybrid-threat monitoring."
                 ),
 
             "classification_version":
-                "collector_v1_2_border_context",
+                "collector_v1_3_publication_time_audit",
 
             "countries":
                 config.get(
@@ -2684,6 +2932,15 @@ def main() -> None:
                 ),
                 (
                     "collection diagnostics"
+                ),
+                (
+                    "publication time separated from collection time"
+                ),
+                (
+                    "publication time provenance and confidence audit fields"
+                ),
+                (
+                    "unknown publication times remain null rather than collection-time fallbacks"
                 )
             ]
         },
@@ -2734,7 +2991,7 @@ def main() -> None:
 
     print(
         "Collector model: "
-        "collector_v1_2_border_context"
+        "collector_v1_3_publication_time_audit"
     )
 
     print(
