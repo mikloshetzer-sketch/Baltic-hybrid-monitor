@@ -2,6 +2,7 @@ window.BalticChart = (() => {
   let chart = null;
   let currentViewMode = "daily";
   let currentMetricMode = "threat_index";
+  let controlsInitialized = false;
 
   const COLORS = {
     overall: "#0f172a",
@@ -17,7 +18,13 @@ window.BalticChart = (() => {
     Regional: "#7c3aed"
   };
 
-  const COUNTRIES = ["Estonia", "Latvia", "Lithuania", "Poland", "Regional"];
+  const COUNTRIES = [
+    "Estonia",
+    "Latvia",
+    "Lithuania",
+    "Poland",
+    "Regional"
+  ];
 
   const METRIC_LABELS = {
     threat_index: "Threat Index",
@@ -33,304 +40,860 @@ window.BalticChart = (() => {
 
   const METHOD_NOTES = {
     threat_index: {
-      daily: "Threat Index: each point represents the event-based operational threat index for the displayed date.",
-      ma7: "Threat Index: each point represents the 7-day moving average of the event-based threat index.",
-      ma14: "Threat Index: each point represents the 14-day moving average of the event-based threat index.",
-      trend: "Threat Index: the dashed line represents the linear trend of the regional threat index over the selected period."
+      daily:
+        "Threat Index: each point is the historical daily Threat Index stored for that date. This chart is separate from the current 14-day threat picture.",
+      ma7:
+        "Threat Index: each point is a chart-only 7-day moving average calculated from the historical daily Threat Index series. It is not the 7-Day Intelligence Matrix.",
+      ma14:
+        "Threat Index: each point is a chart-only 14-day moving average calculated from the historical daily Threat Index series. It is not the current 14-day Threat Index calculation.",
+      trend:
+        "Threat Index: the dashed line is a linear trend fitted to the historical daily Threat Index series."
     },
     daily_activity: {
-      daily: "Event Activity: each point shows classified events by subtype on the displayed date.",
-      ma7: "Event Activity: each point represents the 7-day moving average of classified event activity.",
-      ma14: "Event Activity: each point represents the 14-day moving average of classified event activity.",
-      trend: "Event Activity: the dashed line represents the linear trend of total operational activity over the selected period."
+      daily:
+        "Event Activity: each point shows the classified exact-day event counts stored in history, separated by subtype.",
+      ma7:
+        "Event Activity: each point is a chart-only 7-day moving average of historical classified event counts.",
+      ma14:
+        "Event Activity: each point is a chart-only 14-day moving average of historical classified event counts.",
+      trend:
+        "Event Activity: the dashed line is a linear trend fitted to total historical classified event activity."
     }
   };
 
+  function numberOrNull(value) {
+    if (
+      value === null ||
+      typeof value === "undefined" ||
+      value === ""
+    ) {
+      return null;
+    }
+
+    const number = Number(value);
+
+    return Number.isFinite(number)
+      ? number
+      : null;
+  }
+
   function numberOrZero(value) {
     const number = Number(value);
-    return Number.isFinite(number) ? number : 0;
+    return Number.isFinite(number)
+      ? number
+      : 0;
   }
 
   function titleCase(value) {
-    return String(value || "").replaceAll("_", " ").replace(/\b\w/g, character => character.toUpperCase());
+    return String(value || "")
+      .replaceAll("_", " ")
+      .replace(
+        /\b\w/g,
+        character =>
+          character.toUpperCase()
+      );
   }
 
   function getSelectedCountries() {
-    const inputs = Array.from(document.querySelectorAll("#chartControls input:checked"));
-    return inputs.length === 0 ? ["overall"] : inputs.map(input => input.value);
+    const inputs = Array.from(
+      document.querySelectorAll(
+        "#chartControls input:checked"
+      )
+    );
+
+    return inputs.length === 0
+      ? ["overall"]
+      : inputs.map(
+          input => input.value
+        );
+  }
+
+  function normalizeSeries(
+    values,
+    expectedLength
+  ) {
+    const source = Array.isArray(values)
+      ? values
+      : [];
+
+    return Array.from(
+      { length: expectedLength },
+      (_, index) =>
+        numberOrNull(source[index])
+    );
+  }
+
+  function sumNullableSeries(
+    seriesList,
+    length
+  ) {
+    return Array.from(
+      { length },
+      (_, index) => {
+        const values =
+          seriesList.map(series =>
+            numberOrNull(
+              series[index]
+            )
+          );
+
+        const available =
+          values.filter(
+            value => value !== null
+          );
+
+        if (!available.length) {
+          return null;
+        }
+
+        return available.reduce(
+          (sum, value) =>
+            sum + value,
+          0
+        );
+      }
+    );
   }
 
   function buildMetricData(data) {
-    const history = data.history || {};
-    const labels = Array.isArray(history.labels) ? history.labels : [];
+    const history =
+      data.history || {};
 
-    if (currentMetricMode === "daily_activity") {
+    const labels =
+      Array.isArray(history.labels)
+        ? history.labels
+        : [];
+
+    const length =
+      labels.length;
+
+    const incident =
+      normalizeSeries(
+        history.incident_count,
+        length
+      );
+
+    const activity =
+      normalizeSeries(
+        history.activity_count,
+        length
+      );
+
+    const indicator =
+      normalizeSeries(
+        history.indicator_count,
+        length
+      );
+
+    const assessment =
+      normalizeSeries(
+        history.assessment_count,
+        length
+      );
+
+    const countryScores = {};
+
+    Object.entries(
+      history.country_scores || {}
+    ).forEach(
+      ([country, values]) => {
+        countryScores[country] =
+          normalizeSeries(
+            values,
+            length
+          );
+      }
+    );
+
+    if (
+      currentMetricMode ===
+      "daily_activity"
+    ) {
       return {
         labels,
-        overall_average_score: (history.incident_count || []).map((value, index) =>
-          numberOrZero(value) + numberOrZero((history.activity_count || [])[index]) + numberOrZero((history.indicator_count || [])[index])
-        ),
+        overall_average_score:
+          sumNullableSeries(
+            [
+              incident,
+              activity,
+              indicator
+            ],
+            length
+          ),
         subtype_scores: {
-          incident: history.incident_count || [],
-          activity: history.activity_count || [],
-          indicator: history.indicator_count || [],
-          assessment: history.assessment_count || []
+          incident,
+          activity,
+          indicator,
+          assessment
         },
-        country_average_scores: history.country_scores || {}
+        country_average_scores:
+          countryScores
       };
     }
 
     return {
       labels,
-      overall_average_score: history.threat_index || [],
+      overall_average_score:
+        normalizeSeries(
+          history.threat_index,
+          length
+        ),
       subtype_scores: {
-        incident: history.incident_count || [],
-        activity: history.activity_count || [],
-        indicator: history.indicator_count || [],
-        assessment: history.assessment_count || []
+        incident,
+        activity,
+        indicator,
+        assessment
       },
-      country_average_scores: history.country_scores || {}
+      country_average_scores:
+        countryScores
     };
   }
 
-  function movingAverage(values, windowSize) {
-    return values.map((_, index) => {
-      const start = Math.max(0, index - windowSize + 1);
-      const slice = values.slice(start, index + 1).map(value => numberOrZero(value));
-      const average = slice.reduce((sum, value) => sum + value, 0) / Math.max(slice.length, 1);
-      return Number(average.toFixed(2));
-    });
+  function movingAverage(
+    values,
+    windowSize
+  ) {
+    const source =
+      Array.isArray(values)
+        ? values
+        : [];
+
+    return source.map(
+      (_, index) => {
+        const start =
+          Math.max(
+            0,
+            index -
+              windowSize +
+              1
+          );
+
+        const slice =
+          source
+            .slice(
+              start,
+              index + 1
+            )
+            .map(numberOrNull)
+            .filter(
+              value =>
+                value !== null
+            );
+
+        if (!slice.length) {
+          return null;
+        }
+
+        const average =
+          slice.reduce(
+            (sum, value) =>
+              sum + value,
+            0
+          ) / slice.length;
+
+        return Number(
+          average.toFixed(2)
+        );
+      }
+    );
   }
 
-  function calculateLinearTrend(values) {
-    const cleanValues = values.map(value => numberOrZero(value));
-    const n = cleanValues.length;
-    if (n < 2) return cleanValues;
+  function calculateLinearTrend(
+    values
+  ) {
+    const points =
+      (values || [])
+        .map(
+          (value, index) => ({
+            x: index,
+            y: numberOrNull(
+              value
+            )
+          })
+        )
+        .filter(
+          point =>
+            point.y !== null
+        );
 
-    let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
-    cleanValues.forEach((y, x) => {
-      sumX += x;
-      sumY += y;
-      sumXY += x * y;
-      sumXX += x * x;
-    });
+    if (!points.length) {
+      return (values || []).map(
+        () => null
+      );
+    }
 
-    const denominator = n * sumXX - sumX * sumX;
-    if (denominator === 0) return cleanValues;
+    if (points.length === 1) {
+      return (values || []).map(
+        (_, index) =>
+          index ===
+          points[0].x
+            ? points[0].y
+            : null
+      );
+    }
 
-    const slope = (n * sumXY - sumX * sumY) / denominator;
-    const intercept = (sumY - slope * sumX) / n;
+    const n =
+      points.length;
 
-    return cleanValues.map((_, x) => Number((intercept + slope * x).toFixed(2)));
+    let sumX = 0;
+    let sumY = 0;
+    let sumXY = 0;
+    let sumXX = 0;
+
+    points.forEach(
+      ({ x, y }) => {
+        sumX += x;
+        sumY += y;
+        sumXY += x * y;
+        sumXX += x * x;
+      }
+    );
+
+    const denominator =
+      n * sumXX -
+      sumX * sumX;
+
+    if (
+      denominator === 0
+    ) {
+      return (values || []).map(
+        value =>
+          numberOrNull(value)
+      );
+    }
+
+    const slope =
+      (
+        n * sumXY -
+        sumX * sumY
+      ) / denominator;
+
+    const intercept =
+      (
+        sumY -
+        slope * sumX
+      ) / n;
+
+    return (values || []).map(
+      (_, x) =>
+        Number(
+          (
+            intercept +
+            slope * x
+          ).toFixed(2)
+        )
+    );
   }
 
-  function transformValues(values) {
-    const cleanValues = (values || []).map(value => numberOrZero(value));
-    if (currentViewMode === "ma7") return movingAverage(cleanValues, 7);
-    if (currentViewMode === "ma14") return movingAverage(cleanValues, 14);
+  function transformValues(
+    values
+  ) {
+    const cleanValues =
+      (values || []).map(
+        numberOrNull
+      );
+
+    if (
+      currentViewMode === "ma7"
+    ) {
+      return movingAverage(
+        cleanValues,
+        7
+      );
+    }
+
+    if (
+      currentViewMode === "ma14"
+    ) {
+      return movingAverage(
+        cleanValues,
+        14
+      );
+    }
+
     return cleanValues;
   }
 
   function updateMethodNote() {
-    const note = document.getElementById("chartMethodNote");
-    if (!note) return;
-    const metricNotes = METHOD_NOTES[currentMetricMode] || METHOD_NOTES.threat_index;
-    note.textContent = metricNotes[currentViewMode] || metricNotes.daily;
+    const note =
+      document.getElementById(
+        "chartMethodNote"
+      );
+
+    if (!note) {
+      return;
+    }
+
+    const metricNotes =
+      METHOD_NOTES[
+        currentMetricMode
+      ] ||
+      METHOD_NOTES.threat_index;
+
+    note.textContent =
+      metricNotes[
+        currentViewMode
+      ] ||
+      metricNotes.daily;
   }
 
   function updateHeaderText() {
-    const title = document.getElementById("chartTitle");
-    const subtitle = document.getElementById("chartSubtitle");
+    const title =
+      document.getElementById(
+        "chartTitle"
+      );
 
-    if (title) title.textContent = `${METRIC_LABELS[currentMetricMode]} Trend`;
+    const subtitle =
+      document.getElementById(
+        "chartSubtitle"
+      );
+
+    if (title) {
+      title.textContent =
+        `${
+          METRIC_LABELS[
+            currentMetricMode
+          ]
+        } Trend`;
+    }
 
     if (subtitle) {
       subtitle.textContent =
-        currentMetricMode === "threat_index"
-          ? "Threat Index shows the current event-based operational hybrid threat level across the monitored region."
-          : "Event Activity shows incidents, activities, indicators and assessments detected in the OSINT pipeline.";
+        currentMetricMode ===
+        "threat_index"
+          ? "Historical daily Threat Index across the monitored Baltic region. The current threat picture is calculated separately over the latest 14 calendar days."
+          : "Historical exact-day classified event activity: incidents, activities, indicators and assessments.";
     }
   }
 
-  function createDatasets(metricData, selectedCountries) {
+  function createDatasets(
+    metricData,
+    selectedCountries
+  ) {
     const datasets = [];
 
-    if (currentViewMode === "trend") {
+    if (
+      currentViewMode === "trend"
+    ) {
       datasets.push({
-        label: `${METRIC_LABELS[currentMetricMode]} — Regional Linear Trend`,
-        data: calculateLinearTrend(metricData.overall_average_score),
-        borderColor: COLORS.trend,
-        backgroundColor: COLORS.trend,
+        label:
+          `${
+            METRIC_LABELS[
+              currentMetricMode
+            ]
+          } — Regional Linear Trend`,
+        data:
+          calculateLinearTrend(
+            metricData
+              .overall_average_score
+          ),
+        borderColor:
+          COLORS.trend,
+        backgroundColor:
+          COLORS.trend,
         borderWidth: 3,
         borderDash: [8, 6],
         pointRadius: 0,
         pointHoverRadius: 0,
-        tension: 0
+        tension: 0,
+        spanGaps: false
       });
+
       return datasets;
     }
 
-    if (currentMetricMode === "daily_activity") {
-      ["incident", "activity", "indicator", "assessment"].forEach(subtype => {
-        datasets.push({
-          label: titleCase(subtype),
-          data: transformValues(metricData.subtype_scores[subtype] || []),
-          borderColor: COLORS[subtype],
-          backgroundColor: COLORS[subtype],
-          borderWidth: subtype === "incident" ? 3 : 2,
-          pointRadius: 3,
-          pointHoverRadius: 6,
-          tension: 0.32
-        });
-      });
+    if (
+      currentMetricMode ===
+      "daily_activity"
+    ) {
+      [
+        "incident",
+        "activity",
+        "indicator",
+        "assessment"
+      ].forEach(
+        subtype => {
+          datasets.push({
+            label:
+              titleCase(
+                subtype
+              ),
+            data:
+              transformValues(
+                metricData
+                  .subtype_scores[
+                    subtype
+                  ] || []
+              ),
+            borderColor:
+              COLORS[subtype],
+            backgroundColor:
+              COLORS[subtype],
+            borderWidth:
+              subtype ===
+              "incident"
+                ? 3
+                : 2,
+            pointRadius: 3,
+            pointHoverRadius: 6,
+            tension: 0.28,
+            spanGaps: false
+          });
+        }
+      );
+
       return datasets;
     }
 
-    if (selectedCountries.includes("overall")) {
+    if (
+      selectedCountries.includes(
+        "overall"
+      )
+    ) {
       datasets.push({
-        label: "Threat Index — Regional",
-        data: transformValues(metricData.overall_average_score),
-        borderColor: COLORS.overall,
-        backgroundColor: COLORS.overall,
+        label:
+          "Threat Index — Regional",
+        data:
+          transformValues(
+            metricData
+              .overall_average_score
+          ),
+        borderColor:
+          COLORS.overall,
+        backgroundColor:
+          COLORS.overall,
         borderWidth: 3,
         pointRadius: 3,
         pointHoverRadius: 6,
-        tension: 0.32
+        tension: 0.28,
+        spanGaps: false
       });
     }
 
-    COUNTRIES.forEach(country => {
-      if (!selectedCountries.includes(country)) return;
-      const values = metricData.country_average_scores[country] || [];
-      datasets.push({
-        label: country,
-        data: transformValues(values),
-        borderColor: COLORS[country] || COLORS.trend,
-        backgroundColor: COLORS[country] || COLORS.trend,
-        borderWidth: 2,
-        pointRadius: 3,
-        pointHoverRadius: 5,
-        tension: 0.32
-      });
-    });
+    COUNTRIES.forEach(
+      country => {
+        if (
+          !selectedCountries.includes(
+            country
+          )
+        ) {
+          return;
+        }
+
+        const values =
+          metricData
+            .country_average_scores[
+              country
+            ] || [];
+
+        datasets.push({
+          label: country,
+          data:
+            transformValues(
+              values
+            ),
+          borderColor:
+            COLORS[country] ||
+            COLORS.trend,
+          backgroundColor:
+            COLORS[country] ||
+            COLORS.trend,
+          borderWidth: 2,
+          pointRadius: 3,
+          pointHoverRadius: 5,
+          tension: 0.28,
+          spanGaps: false
+        });
+      }
+    );
 
     return datasets;
   }
 
+  function getYAxisMax() {
+    if (
+      currentMetricMode ===
+      "threat_index"
+    ) {
+      return 100;
+    }
+
+    return undefined;
+  }
+
   function render(data) {
-    const metricData = buildMetricData(data);
-    const canvas = document.getElementById("threatTrendChart");
-    if (!canvas) return;
+    const metricData =
+      buildMetricData(data);
+
+    const canvas =
+      document.getElementById(
+        "threatTrendChart"
+      );
+
+    if (!canvas) {
+      return;
+    }
+
+    if (
+      typeof Chart ===
+      "undefined"
+    ) {
+      console.error(
+        "Chart.js is not available."
+      );
+      return;
+    }
 
     updateMethodNote();
     updateHeaderText();
 
-    if (chart) chart.destroy();
+    if (chart) {
+      chart.destroy();
+    }
 
-    chart = new Chart(canvas.getContext("2d"), {
-      type: "line",
-      data: {
-        labels: metricData.labels,
-        datasets: createDatasets(metricData, getSelectedCountries())
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { mode: "index", intersect: false },
-        plugins: {
-          title: {
-            display: true,
-            text: `${METRIC_LABELS[currentMetricMode]} — ${VIEW_LABELS[currentViewMode]}`,
-            color: "#0f172a",
-            font: { size: 14, weight: "bold" },
-            padding: { bottom: 12 }
-          },
-          legend: {
-            position: "top",
-            labels: {
-              color: "#0f172a",
-              usePointStyle: true,
-              boxWidth: 12,
-              padding: 18,
-              font: { size: 12, weight: "bold" }
-            }
-          },
-          tooltip: {
-            backgroundColor: "#020817",
-            borderColor: "#38bdf8",
-            borderWidth: 1,
-            titleColor: "#ffffff",
-            bodyColor: "#ffffff",
-            callbacks: { label: context => `${context.dataset.label}: ${context.raw}` }
-          }
+    chart = new Chart(
+      canvas.getContext("2d"),
+      {
+        type: "line",
+        data: {
+          labels:
+            metricData.labels,
+          datasets:
+            createDatasets(
+              metricData,
+              getSelectedCountries()
+            )
         },
-        scales: {
-          x: {
-            ticks: {
-              color: "#334155",
-              maxRotation: 0,
-              autoSkip: true,
-              font: { size: 11, weight: "bold" }
-            },
-            grid: { color: "rgba(148, 163, 184, 0.20)" }
+        options: {
+          responsive: true,
+          maintainAspectRatio:
+            false,
+          interaction: {
+            mode: "index",
+            intersect: false
           },
-          y: {
-            beginAtZero: true,
-            ticks: {
-              color: "#334155",
-              font: { size: 11, weight: "bold" }
-            },
-            grid: { color: "rgba(148, 163, 184, 0.22)" },
+          plugins: {
             title: {
               display: true,
-              text: currentMetricMode === "threat_index" ? "Threat Index Score" : "Event Count",
-              color: "#475569",
-              font: { size: 12, weight: "bold" }
+              text:
+                `${
+                  METRIC_LABELS[
+                    currentMetricMode
+                  ]
+                } — ${
+                  VIEW_LABELS[
+                    currentViewMode
+                  ]
+                }`,
+              color: "#0f172a",
+              font: {
+                size: 14,
+                weight: "bold"
+              },
+              padding: {
+                bottom: 12
+              }
+            },
+            legend: {
+              position: "top",
+              labels: {
+                color: "#0f172a",
+                usePointStyle: true,
+                boxWidth: 12,
+                padding: 18,
+                font: {
+                  size: 12,
+                  weight: "bold"
+                }
+              }
+            },
+            tooltip: {
+              backgroundColor:
+                "#020817",
+              borderColor:
+                "#38bdf8",
+              borderWidth: 1,
+              titleColor:
+                "#ffffff",
+              bodyColor:
+                "#ffffff",
+              callbacks: {
+                label: context => {
+                  if (
+                    context.raw ===
+                    null
+                  ) {
+                    return `${context.dataset.label}: no historical snapshot`;
+                  }
+
+                  return `${context.dataset.label}: ${context.raw}`;
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              ticks: {
+                color: "#334155",
+                maxRotation: 0,
+                autoSkip: true,
+                font: {
+                  size: 11,
+                  weight: "bold"
+                }
+              },
+              grid: {
+                color:
+                  "rgba(148, 163, 184, 0.20)"
+              }
+            },
+            y: {
+              beginAtZero: true,
+              suggestedMax:
+                getYAxisMax(),
+              max:
+                currentMetricMode ===
+                "threat_index"
+                  ? 100
+                  : undefined,
+              ticks: {
+                color: "#334155",
+                font: {
+                  size: 11,
+                  weight: "bold"
+                }
+              },
+              grid: {
+                color:
+                  "rgba(148, 163, 184, 0.22)"
+              },
+              title: {
+                display: true,
+                text:
+                  currentMetricMode ===
+                  "threat_index"
+                    ? "Threat Index Score"
+                    : "Event Count",
+                color: "#475569",
+                font: {
+                  size: 12,
+                  weight: "bold"
+                }
+              }
             }
           }
         }
       }
-    });
+    );
   }
 
-  function setActiveViewButton(mode) {
-    document.querySelectorAll(".mode-btn").forEach(button => {
-      button.classList.toggle("active", button.dataset.mode === mode);
-    });
+  function setActiveViewButton(
+    mode
+  ) {
+    document
+      .querySelectorAll(
+        ".mode-btn"
+      )
+      .forEach(
+        button => {
+          button.classList.toggle(
+            "active",
+            button.dataset.mode ===
+              mode
+          );
+        }
+      );
   }
 
-  function setupMetricControls(data) {
-    document.querySelectorAll('input[name="metricMode"]').forEach(input => {
-      input.addEventListener("change", () => {
-        currentMetricMode = input.value || "threat_index";
-        render(data);
-      });
-    });
+  function setupMetricControls(
+    data
+  ) {
+    document
+      .querySelectorAll(
+        'input[name="metricMode"]'
+      )
+      .forEach(
+        input => {
+          input.addEventListener(
+            "change",
+            () => {
+              currentMetricMode =
+                input.value ||
+                "threat_index";
+
+              render(data);
+            }
+          );
+        }
+      );
   }
 
-  function setupViewButtons(data) {
-    document.querySelectorAll(".mode-btn").forEach(button => {
-      button.addEventListener("click", () => {
-        currentViewMode = button.dataset.mode || "daily";
-        setActiveViewButton(currentViewMode);
-        render(data);
-      });
-    });
+  function setupViewButtons(
+    data
+  ) {
+    document
+      .querySelectorAll(
+        ".mode-btn"
+      )
+      .forEach(
+        button => {
+          button.addEventListener(
+            "click",
+            () => {
+              currentViewMode =
+                button.dataset.mode ||
+                "daily";
+
+              setActiveViewButton(
+                currentViewMode
+              );
+
+              render(data);
+            }
+          );
+        }
+      );
   }
 
-  function setupCheckboxes(data) {
-    document.querySelectorAll("#chartControls input").forEach(input => {
-      input.addEventListener("change", () => render(data));
-    });
+  function setupCheckboxes(
+    data
+  ) {
+    document
+      .querySelectorAll(
+        "#chartControls input"
+      )
+      .forEach(
+        input => {
+          input.addEventListener(
+            "change",
+            () =>
+              render(data)
+          );
+        }
+      );
   }
 
   function initialize(data) {
-    setActiveViewButton(currentViewMode);
+    setActiveViewButton(
+      currentViewMode
+    );
+
     render(data);
+
+    if (
+      controlsInitialized
+    ) {
+      return;
+    }
+
     setupMetricControls(data);
     setupViewButtons(data);
     setupCheckboxes(data);
+
+    controlsInitialized = true;
   }
 
-  return { initialize };
+  return {
+    initialize
+  };
 })();
