@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Baltic Hybrid Threat Monitor</title>
+  <title>Baltic Hybrid Intelligence Platform</title>
+
+  <meta
+    name="description"
+    content="Baltic Hybrid Intelligence Platform – OSINT monitoring and analytical overview of hybrid threats in Estonia, Latvia, Lithuania and Poland."
+  />
 
   <link rel="stylesheet" href="./css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -12,29 +17,140 @@
 
 <body>
   <main class="page-shell">
-    <header class="app-header">
-      <div>
-        <p class="brand-label">TÖRÉSVONALAK MONITOR</p>
-        <p class="eyebrow">OSINT STRATEGIC OVERVIEW</p>
 
-        <h1>Baltic Hybrid Threat Monitor</h1>
+    <!-- =========================================================
+         PLATFORM HEADER
+    ========================================================== -->
+    <header class="platform-header">
+      <div class="platform-header-inner">
 
-        <p class="subtitle">
-          Event-based OSINT monitoring of hybrid threats in Estonia, Latvia, Lithuania and Poland.
-        </p>
-      </div>
+        <div class="platform-brand">
+          <p class="brand-label">TÖRÉSVONALAK.BLOG</p>
 
-      <div class="status-box">
-        <span class="status-label">Last update</span>
-        <strong id="lastUpdate">—</strong>
-        <small id="engineVersion">Threat Intelligence Engine</small>
-        <a class="report-link" href="./reports/latest-baltic-hybrid-threat-report.pdf" target="_blank" rel="noopener noreferrer">
-          Download daily PDF report
-        </a>
+          <h1>Baltic Hybrid Intelligence Platform</h1>
+
+          <p class="platform-subtitle">
+            Hybrid Threat Early Warning &amp; Regional Intelligence —
+            hibrid incidensek, kiberműveletek, GPS/GNSS-zavarás,
+            kritikus infrastruktúrával kapcsolatos események,
+            szabotázs, információs műveletek és korai figyelmeztető
+            jelek elemző áttekintése.
+          </p>
+        </div>
+
+        <div class="platform-status">
+
+          <div class="platform-actions">
+            <a
+              class="header-action secondary"
+              href="./reports/latest-baltic-hybrid-threat-report.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Daily PDF
+            </a>
+
+            <button
+              class="header-action primary"
+              type="button"
+              id="analystViewButton"
+            >
+              Elemző nézet
+            </button>
+          </div>
+
+          <div class="update-block">
+            <span class="status-label">FRISSÍTÉS / UPDATED</span>
+            <strong id="lastUpdate">—</strong>
+
+            <span class="live-pill">
+              <span class="live-dot"></span>
+              OSINT LIVE
+            </span>
+          </div>
+
+          <small id="engineVersion">
+            Threat Intelligence Engine
+          </small>
+        </div>
+
       </div>
     </header>
 
+
+    <!-- =========================================================
+         INTELLIGENCE OVERVIEW
+    ========================================================== -->
+    <section class="overview-card">
+
+      <div class="overview-main">
+
+        <p class="section-kicker">
+          BALTIC HYBRID INTELLIGENCE OVERVIEW
+        </p>
+
+        <h2>Baltic hibrid fenyegetési helyzetkép</h2>
+
+        <p class="overview-description">
+          A Baltic Hybrid Threat Monitor nyílt forrású hírekből,
+          normalizált eseményekből, eseményklaszterekből,
+          fenyegetési pontszámokból és hosszú távú napi
+          trendadatokból készít regionális elemző áttekintést
+          Észtország, Lettország, Litvánia és Lengyelország számára.
+        </p>
+
+        <div class="overview-tabs" aria-label="Overview time selection">
+          <button
+            class="overview-tab active"
+            type="button"
+            data-overview-mode="current"
+          >
+            Current Threat
+          </button>
+
+          <button
+            class="overview-tab"
+            type="button"
+            data-overview-mode="daily"
+          >
+            Exact Day
+          </button>
+
+          <button
+            class="overview-tab"
+            type="button"
+            data-overview-mode="seven-day"
+          >
+            7 Days
+          </button>
+
+          <button
+            class="overview-tab"
+            type="button"
+            data-overview-mode="history"
+          >
+            History
+          </button>
+        </div>
+
+      </div>
+
+      <div class="overview-system">
+        <span>RENDSZER</span>
+        <strong>Baltic Hybrid Threat Monitor</strong>
+        <small>
+          automatikus eseményfeldolgozás, scoring és korai jelzés
+        </small>
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         PRIMARY KPI STRIP
+    ========================================================== -->
     <section class="kpi-grid">
+
       <article class="kpi-card kpi-purple">
         <span id="scoreCardLabel">Threat Index</span>
         <strong id="overallScore">—</strong>
@@ -42,68 +158,180 @@
       </article>
 
       <article class="kpi-card kpi-red">
+        <span>Operational Index</span>
+        <strong id="operationalIndex">—</strong>
+        <small>incident + activity</small>
+      </article>
+
+      <article class="kpi-card kpi-orange">
+        <span>Early Warning Index</span>
+        <strong id="earlyWarningIndex">—</strong>
+        <small>indicator layer</small>
+      </article>
+
+      <article class="kpi-card kpi-cyan">
         <span id="incidentCardLabel">Operational incidents</span>
         <strong id="incidentCount">—</strong>
         <small>Incident subtype</small>
       </article>
 
-      <article class="kpi-card kpi-orange">
-        <span>Activity</span>
-        <strong id="activityCount">—</strong>
-        <small>Security activity</small>
-      </article>
-
-      <article class="kpi-card kpi-cyan">
+      <article class="kpi-card kpi-green">
         <span>Indicators</span>
         <strong id="indicatorCount">—</strong>
         <small>Early warning signals</small>
       </article>
 
-      <article class="kpi-card kpi-green">
+      <article class="kpi-card kpi-gold">
         <span>Assessments</span>
         <strong id="assessmentCount">—</strong>
         <small>Background analysis</small>
       </article>
+
     </section>
 
-    <section class="chart-panel">
-      <div class="chart-panel-header">
+
+    <!-- =========================================================
+         CURRENT THREAT PICTURE
+    ========================================================== -->
+    <section class="dashboard-panel threat-picture-panel">
+
+      <div class="panel-heading panel-heading-split">
+
         <div>
+          <p>CURRENT THREAT PICTURE</p>
+          <h2>14 napos regionális fenyegetési kép</h2>
+        </div>
+
+        <div class="panel-meta">
+          <span>Current model</span>
+          <strong>14-day operational window</strong>
+        </div>
+
+      </div>
+
+      <div class="threat-picture-grid">
+
+        <article class="mini-intel-card">
+          <span>Activity</span>
+          <strong id="activityCount">—</strong>
+          <small>security activity</small>
+        </article>
+
+        <article class="mini-intel-card">
+          <span>Hotspot</span>
+          <strong id="currentHotspot">—</strong>
+          <small id="currentHotspotMeta">regional concentration</small>
+        </article>
+
+        <article class="mini-intel-card">
+          <span>Key driver</span>
+          <strong id="currentKeyDriver">—</strong>
+          <small>dominant threat category</small>
+        </article>
+
+        <article class="mini-intel-card">
+          <span>Dominant actor</span>
+          <strong id="currentDominantActor">—</strong>
+          <small>highest observed exposure</small>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         TREND CHART
+    ========================================================== -->
+    <section class="chart-panel">
+
+      <div class="chart-panel-header">
+
+        <div>
+          <p class="section-kicker">THREAT TREND</p>
           <h2 id="chartTitle">Hybrid Threat Trend</h2>
+
           <p id="chartSubtitle">
-            Compare the regional average with the monitored Baltic countries.
+            Compare the regional average with Estonia, Latvia,
+            Lithuania and Poland.
           </p>
         </div>
+
       </div>
 
       <div class="metric-controls" aria-label="Metric mode">
         <span class="control-title">Metric</span>
 
         <label>
-          <input type="radio" name="metricMode" value="threat_index" checked />
+          <input
+            type="radio"
+            name="metricMode"
+            value="threat_index"
+            checked
+          />
           Threat Index
         </label>
 
         <label>
-          <input type="radio" name="metricMode" value="daily_activity" />
+          <input
+            type="radio"
+            name="metricMode"
+            value="daily_activity"
+          />
           Event Activity
         </label>
       </div>
 
       <div class="view-controls" aria-label="View mode">
-        <button class="mode-btn active" data-mode="daily">Daily</button>
-        <button class="mode-btn" data-mode="ma7">7-Day Rolling Average</button>
-        <button class="mode-btn" data-mode="ma14">14-Day Rolling Average</button>
-        <button class="mode-btn" data-mode="trend">Regional Linear Trend</button>
+        <button class="mode-btn active" data-mode="daily">
+          Daily
+        </button>
+
+        <button class="mode-btn" data-mode="ma7">
+          7-Day Rolling Average
+        </button>
+
+        <button class="mode-btn" data-mode="ma14">
+          14-Day Rolling Average
+        </button>
+
+        <button class="mode-btn" data-mode="trend">
+          Regional Linear Trend
+        </button>
       </div>
 
       <div class="chart-controls" id="chartControls">
-        <label><input type="checkbox" value="overall" checked /> Regional Average</label>
-        <label><input type="checkbox" value="Estonia" checked /> Estonia</label>
-        <label><input type="checkbox" value="Latvia" checked /> Latvia</label>
-        <label><input type="checkbox" value="Lithuania" checked /> Lithuania</label>
-        <label><input type="checkbox" value="Poland" checked /> Poland</label>
-        <label><input type="checkbox" value="Regional" /> Regional</label>
+
+        <label>
+          <input type="checkbox" value="overall" checked />
+          Regional Average
+        </label>
+
+        <label>
+          <input type="checkbox" value="Estonia" checked />
+          Estonia
+        </label>
+
+        <label>
+          <input type="checkbox" value="Latvia" checked />
+          Latvia
+        </label>
+
+        <label>
+          <input type="checkbox" value="Lithuania" checked />
+          Lithuania
+        </label>
+
+        <label>
+          <input type="checkbox" value="Poland" checked />
+          Poland
+        </label>
+
+        <label>
+          <input type="checkbox" value="Regional" />
+          Regional
+        </label>
+
       </div>
 
       <div class="chart-container light-chart">
@@ -111,75 +339,293 @@
       </div>
 
       <p class="method-note light-note" id="chartMethodNote">
-        Each point represents the selected metric calculated for the displayed date.
+        Each point represents the selected metric calculated for the
+        displayed date.
       </p>
+
     </section>
 
+
+    <!-- =========================================================
+         THREAT DRIVERS / ACTORS
+    ========================================================== -->
     <section class="two-column-grid">
+
       <article class="dashboard-panel">
+
         <div class="panel-heading">
           <p>TOP THREAT DRIVERS</p>
           <h2>Threat categories</h2>
         </div>
+
         <div id="categoryDrivers" class="bar-list"></div>
+
       </article>
 
+
       <article class="dashboard-panel">
+
         <div class="panel-heading">
           <p>ACTOR EXPOSURE</p>
           <h2>Key actors</h2>
         </div>
+
         <div id="actorDrivers" class="bar-list"></div>
+
       </article>
+
     </section>
 
+
+    <!-- =========================================================
+         COUNTRY OVERVIEW
+    ========================================================== -->
     <section class="dashboard-panel">
-      <div class="panel-heading">
-        <p>COUNTRY OVERVIEW</p>
-        <h2>Regional distribution</h2>
+
+      <div class="panel-heading panel-heading-split">
+
+        <div>
+          <p>COUNTRY OVERVIEW</p>
+          <h2>Regional distribution</h2>
+        </div>
+
+        <div class="panel-meta">
+          <span>Monitored states</span>
+          <strong>Estonia · Latvia · Lithuania · Poland</strong>
+        </div>
+
       </div>
+
       <div id="countryOverview" class="country-grid"></div>
+
     </section>
 
+
+    <!-- =========================================================
+         EVENTS
+    ========================================================== -->
     <section class="two-column-grid bottom-grid">
+
       <article class="dashboard-panel">
+
         <div class="panel-heading">
           <p>CRITICAL EVENTS</p>
           <h2>Top scored events</h2>
         </div>
+
         <div id="criticalEvents" class="event-table"></div>
+
       </article>
 
+
       <article class="dashboard-panel">
+
         <div class="panel-heading">
           <p>LATEST EVENTS</p>
           <h2>Most recent signals</h2>
         </div>
+
         <div id="latestEvents" class="event-table"></div>
+
       </article>
+
     </section>
 
+
+    <!-- =========================================================
+         7-DAY INTELLIGENCE MATRIX
+    ========================================================== -->
+    <section class="dashboard-panel intelligence-matrix-panel">
+
+      <div class="panel-heading panel-heading-split">
+
+        <div>
+          <p>BALTIC HYBRID INTELLIGENCE HISTORY</p>
+          <h2>7-Day Baltic Intelligence Matrix</h2>
+
+          <p class="panel-description">
+            Exact-day intelligence layer: information context,
+            early-warning indicators, operational events, actors,
+            hotspots and daily assessment. Missing history days are
+            kept separate from valid zero-event days.
+          </p>
+        </div>
+
+        <div class="matrix-status">
+
+          <span id="matrixCoverageLabel">
+            7-day coverage
+          </span>
+
+          <strong id="matrixCoverage">
+            —
+          </strong>
+
+          <small id="matrixWindowLabel">
+            —
+          </small>
+
+        </div>
+
+      </div>
+
+
+      <div class="matrix-toolbar">
+
+        <div class="matrix-navigation">
+
+          <button
+            class="matrix-nav-btn"
+            type="button"
+            id="matrixPrevious"
+            disabled
+          >
+            ← Previous 7 days
+          </button>
+
+          <button
+            class="matrix-nav-btn active"
+            type="button"
+            id="matrixCurrent"
+          >
+            Latest 7 days
+          </button>
+
+          <button
+            class="matrix-nav-btn"
+            type="button"
+            id="matrixNext"
+            disabled
+          >
+            Next 7 days →
+          </button>
+
+        </div>
+
+
+        <div class="matrix-filters">
+
+          <label>
+            <span class="sr-only">Source filter</span>
+
+            <select id="matrixSourceFilter">
+              <option value="all">Minden forrás</option>
+            </select>
+          </label>
+
+          <label>
+            <span class="sr-only">Country filter</span>
+
+            <select id="matrixCountryFilter">
+              <option value="all">Minden ország</option>
+              <option value="Estonia">Estonia</option>
+              <option value="Latvia">Latvia</option>
+              <option value="Lithuania">Lithuania</option>
+              <option value="Poland">Poland</option>
+              <option value="Regional">Regional</option>
+            </select>
+          </label>
+
+        </div>
+
+      </div>
+
+
+      <div class="matrix-legend" aria-label="Matrix status legend">
+
+        <span class="matrix-legend-item">
+          <span class="legend-dot available"></span>
+          Available
+        </span>
+
+        <span class="matrix-legend-item">
+          <span class="legend-dot zero"></span>
+          Valid zero-event day
+        </span>
+
+        <span class="matrix-legend-item">
+          <span class="legend-dot missing"></span>
+          Missing historical snapshot
+        </span>
+
+      </div>
+
+
+      <div
+        id="intelligenceMatrix"
+        class="intelligence-matrix"
+        aria-live="polite"
+      >
+        <div class="matrix-loading">
+          Intelligence Matrix betöltése…
+        </div>
+      </div>
+
+
+      <p class="method-note matrix-method-note">
+        A mátrix hét külön exact-day snapshotból épül.
+        A hiányzó nap nem nulla fenyegetési érték:
+        a missing állapot külön kerül megjelenítésre.
+      </p>
+
+    </section>
+
+
+    <!-- =========================================================
+         METHODOLOGY
+    ========================================================== -->
     <section class="dashboard-panel methodology-panel">
+
       <div class="panel-heading">
         <p>METHODOLOGY</p>
         <h2>How the Threat Index is built</h2>
       </div>
 
+
       <div class="methodology-grid">
+
         <div>
           <h3>Pipeline</h3>
           <ul id="methodPipeline"></ul>
         </div>
 
+
         <div>
           <h3>Event ontology</h3>
           <div id="eventOntology" class="ontology-grid"></div>
         </div>
+
       </div>
 
+
       <p id="methodWarning" class="disclaimer"></p>
+
     </section>
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+    <footer class="platform-footer">
+
+      <div>
+        <strong>Baltic Hybrid Intelligence Platform</strong>
+
+        <span>
+          TÖRÉSVONALAK.BLOG · OSINT analytical monitoring
+        </span>
+      </div>
+
+      <div>
+        <span>
+          Estonia · Latvia · Lithuania · Poland
+        </span>
+      </div>
+
+    </footer>
+
   </main>
+
 
   <script src="./js/api.js"></script>
   <script src="./js/ui.js"></script>
