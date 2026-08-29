@@ -1,27 +1,29 @@
 {
   "project": "baltic-hybrid-monitor",
-  "title": "Baltic Hybrid Threat Monitor",
+  "title": "Baltic Hybrid Intelligence Platform",
   "subtitle": "Event-based OSINT monitoring of hybrid threats in the Baltic states and Poland",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-08-29T18:47:36.837456+00:00",
-  "latest_update": "2026-08-29T18:47:36.403635+00:00",
-  "version": "Threat Intelligence Engine v1.2",
+  "generated_at": "2026-08-29T19:14:19.754632+00:00",
+  "latest_update": "2026-08-29T19:14:19.332221+00:00",
+  "version": "Baltic Dashboard Data v1.3",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
   "summary": {
-    "threat_index": 25.76,
+    "threat_index": 25.68,
     "threat_level": "guarded",
+    "operational_index": 29.2,
+    "early_warning_index": 11.62,
     "event_count": 21,
     "incident_count": 5,
     "activity_count": 0,
     "indicator_count": 10,
     "assessment_count": 6,
-    "score_total": 248,
-    "average_score": 16.53,
+    "score_total": 245,
+    "average_score": 16.33,
     "highest_score": 40,
     "raw_item_count": 420,
     "filtered_item_count": 249,
-    "clustered_event_count": 197,
-    "merged_item_count": 52
+    "clustered_event_count": 198,
+    "merged_item_count": 51
   },
   "subtype_cards": [
     {
@@ -42,8 +44,8 @@
       "subtype": "indicator",
       "label": "Indicator",
       "event_count": 10,
-      "score_total": 102,
-      "average_score": 10.2
+      "score_total": 99,
+      "average_score": 9.9
     },
     {
       "subtype": "assessment",
@@ -193,9 +195,9 @@
       "activity_count": 0,
       "indicator_count": 1,
       "assessment_count": 1,
-      "score_total": 17,
-      "average_score": 17.0,
-      "highest_score": 17,
+      "score_total": 14,
+      "average_score": 14.0,
+      "highest_score": 14,
       "level": "low",
       "top_categories": [
         {
@@ -247,9 +249,9 @@
     {
       "category": "critical_infrastructure",
       "event_count": 1,
-      "score_total": 17,
-      "average_score": 17.0,
-      "highest_score": 17
+      "score_total": 14,
+      "average_score": 14.0,
+      "highest_score": 14
     },
     {
       "category": "disinformation",
@@ -263,8 +265,8 @@
     {
       "actor": "Russia",
       "event_count": 17,
-      "score_total": 169,
-      "average_score": 9.94,
+      "score_total": 166,
+      "average_score": 9.76,
       "highest_score": 40
     },
     {
@@ -284,9 +286,9 @@
     {
       "actor": "NATO",
       "event_count": 1,
-      "score_total": 17,
-      "average_score": 17.0,
-      "highest_score": 17
+      "score_total": 14,
+      "average_score": 14.0,
+      "highest_score": 14
     }
   ],
   "top_events": [
@@ -467,8 +469,7 @@
       "published_at": "2026-08-24T16:28:25+00:00",
       "primary_country": "Lithuania",
       "countries": [
-        "Lithuania",
-        "Poland"
+        "Lithuania"
       ],
       "categories": [
         "critical_infrastructure"
@@ -480,16 +481,15 @@
       "locations": [],
       "event_type": "warning",
       "event_subtype": "indicator",
-      "source_count": 2,
-      "confidence": "medium",
-      "confidence_score": 56,
-      "hybrid_threat_score": 17,
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 14,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic critical infrastructure Russia",
-        "Google News - NATO Eastern Flank Baltic Poland"
+        "Google News - Baltic critical infrastructure Russia"
       ],
-      "related_item_count": 6
+      "related_item_count": 5
     },
     {
       "event_id": "94405c6037efc197",
@@ -1119,8 +1119,7 @@
       "published_at": "2026-08-24T16:28:25+00:00",
       "primary_country": "Lithuania",
       "countries": [
-        "Lithuania",
-        "Poland"
+        "Lithuania"
       ],
       "categories": [
         "critical_infrastructure"
@@ -1132,16 +1131,15 @@
       "locations": [],
       "event_type": "warning",
       "event_subtype": "indicator",
-      "source_count": 2,
-      "confidence": "medium",
-      "confidence_score": 56,
-      "hybrid_threat_score": 17,
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 14,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic critical infrastructure Russia",
-        "Google News - NATO Eastern Flank Baltic Poland"
+        "Google News - Baltic critical infrastructure Russia"
       ],
-      "related_item_count": 6
+      "related_item_count": 5
     },
     {
       "event_id": "6be6347860529f8a",
@@ -1449,7 +1447,11 @@
   ],
   "current_threat_window": {
     "days": 14,
-    "description": "Top and recent events are limited to the current rolling threat window."
+    "window_type": "rolling_current_threat",
+    "time_semantics": "14 calendar days",
+    "description": "Top and recent events are limited to the current rolling threat window.",
+    "separate_from_exact_day": true,
+    "separate_from_7day_matrix": true
   },
   "history": {
     "labels": [
@@ -1605,7 +1607,7 @@
       22.39,
       19.3,
       11.59,
-      11.81
+      11.67
     ],
     "rolling_level": [
       "guarded",
@@ -2011,7 +2013,7 @@
         37.8,
         34.4,
         14.6,
-        17.0
+        16.25
       ],
       "Poland": [
         35.74,
@@ -2042,7 +2044,7 @@
         24.15,
         21.68,
         12.33,
-        15.5
+        15.29
       ],
       "Regional": [
         19.62,
@@ -2438,10 +2440,10 @@
   "data_quality": {
     "raw_item_count": 420,
     "filtered_item_count": 249,
-    "clustered_event_count": 197,
-    "merged_item_count": 52,
+    "clustered_event_count": 198,
+    "merged_item_count": 51,
     "filter_reduction_percent": 40.71,
-    "cluster_reduction_percent": 20.88
+    "cluster_reduction_percent": 20.48
   },
   "methodology": {
     "model": "Event-based rule-driven OSINT threat intelligence model.",
@@ -2456,7 +2458,8 @@
       "Historical daily activity calculation",
       "14-day rolling threat calculation",
       "Current 14-day top-event filtering",
-      "Dashboard-optimized output"
+      "Dashboard-optimized output",
+      "Exact-day snapshot and 7-day matrix are generated by separate pipeline stages"
     ],
     "threat_score_scale": {
       "low": "0-19",
@@ -2464,6 +2467,12 @@
       "elevated": "40-59",
       "high": "60-79",
       "critical": "80+"
+    },
+    "time_semantics": {
+      "current_threat": "14-day rolling current threat picture.",
+      "exact_day": "One UTC calendar day; generated outside this dashboard-data script.",
+      "seven_day_matrix": "Seven separate exact-day snapshots; generated outside this dashboard-data script. Missing historical day is not zero.",
+      "history": "Long-term historical archive; retention is independent of the current threat window."
     },
     "history_model": {
       "daily_activity": "Exact calendar-day activity calculated from events published on that date.",
