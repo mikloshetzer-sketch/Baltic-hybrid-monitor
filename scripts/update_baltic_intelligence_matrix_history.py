@@ -8,6 +8,12 @@ ROOT = Path(__file__).resolve().parents[1]
 
 SNAPSHOT_INPUT = ROOT / "data" / "baltic_daily_snapshot.json"
 
+BACKFILL_INPUT = (
+    ROOT
+    / "data"
+    / "baltic_daily_snapshot_backfill.json"
+)
+
 HISTORY_OUTPUT = (
     ROOT
     / "data"
@@ -22,7 +28,7 @@ DOCS_HISTORY_OUTPUT = (
 )
 
 
-HISTORY_VERSION = "baltic_intelligence_matrix_history_v1_0"
+HISTORY_VERSION = "baltic_intelligence_matrix_history_v1_1_backfill_safe"
 
 
 # ---------------------------------------------------------------------
@@ -327,6 +333,107 @@ def load_history(
 
 
 # ---------------------------------------------------------------------
+# BACKFILL INPUT
+# ---------------------------------------------------------------------
+
+def load_backfill_snapshots(
+    path: Path
+) -> List[Dict[str, Any]]:
+
+    if not path.exists():
+
+        return []
+
+    bundle = load_json(
+        path
+    )
+
+    snapshots = bundle.get(
+        "snapshots",
+        []
+    )
+
+    if not isinstance(
+        snapshots,
+        list
+    ):
+
+        raise ValueError(
+            "Backfill snapshots field must be a list."
+        )
+
+    reconstructed_dates = bundle.get(
+        "reconstructed_dates",
+        []
+    )
+
+    if not isinstance(
+        reconstructed_dates,
+        list
+    ):
+
+        raise ValueError(
+            "Backfill reconstructed_dates field must be a list."
+        )
+
+    expected_dates = []
+
+    normalized_snapshots = []
+
+    for snapshot in snapshots:
+
+        if not isinstance(
+            snapshot,
+            dict
+        ):
+
+            raise ValueError(
+                "Every backfill snapshot must be an object."
+            )
+
+        snapshot_date = validate_snapshot(
+            snapshot
+        )
+
+        expected_dates.append(
+            snapshot_date
+        )
+
+        normalized_snapshots.append(
+            snapshot
+        )
+
+    if len(
+        expected_dates
+    ) != len(
+        set(
+            expected_dates
+        )
+    ):
+
+        raise ValueError(
+            "Duplicate snapshot_date values detected in backfill bundle."
+        )
+
+    declared_dates = sorted(
+        validate_snapshot_date(
+            value
+        )
+        for value in reconstructed_dates
+    )
+
+    if sorted(
+        expected_dates
+    ) != declared_dates:
+
+        raise ValueError(
+            "Backfill reconstructed_dates does not match the snapshot records."
+        )
+
+    return normalized_snapshots
+
+
+# ---------------------------------------------------------------------
 # SNAPSHOT NORMALIZATION
 # ---------------------------------------------------------------------
 
@@ -353,18 +460,11 @@ def normalize_snapshot_record(
 # HISTORY UPDATE
 # ---------------------------------------------------------------------
 
-def update_history(
+def update_history_records(
     history: Dict[str, Any],
-    snapshot: Dict[str, Any]
+    snapshots: List[Dict[str, Any]],
+    update_mode: str
 ) -> Dict[str, Any]:
-
-    record = normalize_snapshot_record(
-        snapshot
-    )
-
-    snapshot_date = record[
-        "snapshot_date"
-    ]
 
     existing_snapshots = history.get(
         "snapshots",
@@ -418,14 +518,42 @@ def update_history(
             existing_date
         ] = existing
 
-    existed_before = (
-        snapshot_date
-        in by_date
-    )
+    inserted_dates: List[str] = []
+    replaced_dates: List[str] = []
 
-    by_date[
-        snapshot_date
-    ] = record
+    source_records: List[
+        Dict[str, Any]
+    ] = []
+
+    for snapshot in snapshots:
+
+        record = normalize_snapshot_record(
+            snapshot
+        )
+
+        snapshot_date = record[
+            "snapshot_date"
+        ]
+
+        if snapshot_date in by_date:
+
+            replaced_dates.append(
+                snapshot_date
+            )
+
+        else:
+
+            inserted_dates.append(
+                snapshot_date
+            )
+
+        by_date[
+            snapshot_date
+        ] = record
+
+        source_records.append(
+            record
+        )
 
     ordered_dates = sorted(
         by_date.keys()
@@ -433,20 +561,59 @@ def update_history(
 
     ordered_snapshots = [
         by_date[
-            date
+            snapshot_date
         ]
-        for date in ordered_dates
+        for snapshot_date in ordered_dates
     ]
 
     now = datetime.now(
         timezone.utc
     ).isoformat()
 
+    latest_source = (
+        source_records[-1]
+        if source_records
+        else {}
+    )
+
+    if inserted_dates and replaced_dates:
+
+        action = "merged"
+
+    elif replaced_dates:
+
+        action = "replaced"
+
+    elif inserted_dates:
+
+        action = "inserted"
+
+    else:
+
+        action = "no_change"
+
+    method = dict(
+        history.get(
+            "method",
+            empty_history()[
+                "method"
+            ]
+        )
+    )
+
+    method[
+        "backfill_rule"
+    ] = (
+        "Historical backfill imports only explicit exact-day snapshot "
+        "records present in the strict backfill bundle. Dates listed as "
+        "unverified/missing are never inserted as zero-event days."
+    )
+
     output = {
         "project":
             history.get(
                 "project",
-                snapshot.get(
+                latest_source.get(
                     "project",
                     "baltic-hybrid-monitor"
                 )
@@ -459,7 +626,7 @@ def update_history(
             ),
 
         "region":
-            snapshot.get(
+            latest_source.get(
                 "region",
                 history.get(
                     "region",
@@ -493,48 +660,81 @@ def update_history(
             ),
 
         "last_update": {
-            "snapshot_date":
-                snapshot_date,
+            "mode":
+                update_mode,
 
             "action":
-                (
-                    "replaced"
-                    if existed_before
-                    else "inserted"
-                ),
+                action,
 
             "updated_at":
                 now,
 
+            "processed_records":
+                len(
+                    source_records
+                ),
+
+            "inserted_count":
+                len(
+                    inserted_dates
+                ),
+
+            "replaced_count":
+                len(
+                    replaced_dates
+                ),
+
+            "inserted_dates":
+                sorted(
+                    inserted_dates
+                ),
+
+            "replaced_dates":
+                sorted(
+                    replaced_dates
+                ),
+
             "source_snapshot_generated_at":
-                snapshot.get(
+                latest_source.get(
                     "generated_at"
                 ),
 
             "source_snapshot_version":
-                snapshot.get(
+                latest_source.get(
                     "snapshot_version"
                 ),
 
             "source_score_engine_version":
-                snapshot.get(
+                latest_source.get(
                     "score_engine_version"
                 )
         },
 
         "method":
-            history.get(
-                "method",
-                empty_history()[
-                    "method"
-                ]
-            ),
+            method,
 
         "snapshots":
             ordered_snapshots
     }
 
     return output
+
+
+def update_history(
+    history: Dict[str, Any],
+    snapshot: Dict[str, Any]
+) -> Dict[str, Any]:
+
+    return update_history_records(
+        history,
+        [
+            snapshot
+        ],
+        update_mode=
+            "daily_snapshot"
+    )
+
+
 
 
 # ---------------------------------------------------------------------
@@ -647,16 +847,55 @@ def validate_history(
 
 def main() -> None:
 
+    history = load_history(
+        HISTORY_OUTPUT
+    )
+
+    backfill_snapshots = (
+        load_backfill_snapshots(
+            BACKFILL_INPUT
+        )
+    )
+
+    if backfill_snapshots:
+
+        history = update_history_records(
+            history,
+            backfill_snapshots,
+            update_mode=
+                "strict_historical_backfill"
+        )
+
+        validate_history(
+            history
+        )
+
+        print(
+            "Backfill snapshots imported: "
+            f"{len(backfill_snapshots)}"
+        )
+
+        backfill_update = history.get(
+            "last_update",
+            {}
+        )
+
+        print(
+            "Backfill inserted: "
+            f"{backfill_update.get('inserted_count', 0)}"
+        )
+
+        print(
+            "Backfill replaced: "
+            f"{backfill_update.get('replaced_count', 0)}"
+        )
+
     snapshot = load_json(
         SNAPSHOT_INPUT
     )
 
     snapshot_date = validate_snapshot(
         snapshot
-    )
-
-    history = load_history(
-        HISTORY_OUTPUT
     )
 
     updated_history = update_history(
