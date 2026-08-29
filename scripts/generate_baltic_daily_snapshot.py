@@ -1,7 +1,7 @@
 import argparse
 import json
 from collections import Counter, defaultdict
-from datetime import date, datetime, timezone, timedelta
+from datetime import date, datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
@@ -12,11 +12,7 @@ SCORED_INPUT = ROOT / "data" / "baltic_hybrid_scored_news.json"
 SNAPSHOT_OUTPUT = ROOT / "data" / "baltic_daily_snapshot.json"
 DOCS_SNAPSHOT_OUTPUT = ROOT / "docs" / "data" / "baltic_daily_snapshot.json"
 
-BACKFILL_OUTPUT = ROOT / "data" / "baltic_daily_snapshot_backfill.json"
-DOCS_BACKFILL_OUTPUT = ROOT / "docs" / "data" / "baltic_daily_snapshot_backfill.json"
-
-SNAPSHOT_VERSION = "baltic_daily_snapshot_v1_1_backfill_safe"
-BACKFILL_VERSION = "baltic_daily_snapshot_backfill_v1_0"
+SNAPSHOT_VERSION = "baltic_daily_snapshot_v1_1_exact_day"
 TOP_EVENT_LIMIT = 20
 
 COUNTRY_ORDER = [
@@ -1376,224 +1372,6 @@ def build_snapshot(
 
 
 # ---------------------------------------------------------------------
-# HISTORICAL BACKFILL
-# ---------------------------------------------------------------------
-
-def daterange(
-    start_date: date,
-    end_date: date
-) -> List[date]:
-
-    current = start_date
-
-    while current <= end_date:
-
-        yield current
-
-        current += timedelta(
-            days=1
-        )
-
-
-def observed_event_dates(
-    scored: Dict[str, Any]
-) -> set:
-
-    events = scored.get(
-        "events",
-        scored.get(
-            "items",
-            []
-        )
-    )
-
-    if not isinstance(
-        events,
-        list
-    ):
-        return set()
-
-    dates = set()
-
-    for event in events:
-
-        published_at = parse_datetime(
-            event.get(
-                "published_at"
-            )
-        )
-
-        if published_at is None:
-            continue
-
-        dates.add(
-            published_at.date()
-        )
-
-    return dates
-
-
-def build_backfill_bundle(
-    scored: Dict[str, Any],
-    start_date: date,
-    end_date: date
-) -> Dict[str, Any]:
-
-    if end_date < start_date:
-
-        raise ValueError(
-            "Backfill end date must be on or after start date."
-        )
-
-    observed_dates = observed_event_dates(
-        scored
-    )
-
-    snapshots = []
-    missing_dates = []
-
-    for target_date in daterange(
-        start_date,
-        end_date
-    ):
-
-        if target_date not in observed_dates:
-
-            missing_dates.append(
-                target_date.isoformat()
-            )
-
-            continue
-
-        snapshot = build_snapshot(
-            scored,
-            target_date
-        )
-
-        snapshots.append(
-            snapshot
-        )
-
-    requested_days = (
-        end_date
-        - start_date
-    ).days + 1
-
-    return {
-        "project":
-            scored.get(
-                "project",
-                "baltic-hybrid-monitor"
-            ),
-
-        "generated_at":
-            datetime.now(
-                timezone.utc
-            ).isoformat(),
-
-        "backfill_version":
-            BACKFILL_VERSION,
-
-        "snapshot_version":
-            SNAPSHOT_VERSION,
-
-        "score_engine_version":
-            scored.get(
-                "engine_version",
-                scored.get(
-                    "score_engine_version"
-                )
-            ),
-
-        "source_generated_at":
-            scored.get(
-                "generated_at"
-            ),
-
-        "range": {
-            "start_date":
-                start_date.isoformat(),
-
-            "end_date":
-                end_date.isoformat(),
-
-            "requested_days":
-                requested_days
-        },
-
-        "coverage": {
-            "reconstructable_days":
-                len(
-                    snapshots
-                ),
-
-            "unverified_missing_days":
-                len(
-                    missing_dates
-                ),
-
-            "complete":
-                len(
-                    missing_dates
-                ) == 0
-        },
-
-        "method": {
-            "mode":
-                "strict_historical_backfill",
-
-            "time_basis":
-                "UTC calendar day",
-
-            "rolling_window_used":
-                False,
-
-            "reconstruction_rule":
-                (
-                    "A historical date is reconstructed only when the scored "
-                    "dataset contains at least one event with a valid published_at "
-                    "timestamp on that UTC calendar date."
-                ),
-
-            "missing_day_rule":
-                (
-                    "A historical date with no scored event is not converted into "
-                    "a zero-event snapshot because source coverage cannot be proven "
-                    "from this dataset alone. It remains unverified/missing."
-                ),
-
-            "zero_event_rule":
-                (
-                    "Zero-event snapshots remain valid in normal current/exact-date "
-                    "generation. Strict historical backfill does not infer historical "
-                    "zero-event days without independent coverage evidence."
-                ),
-
-            "history_role":
-                (
-                    "This bundle is an intermediate backfill source. It must be "
-                    "merged into intelligence-matrix history without replacing "
-                    "unverified missing dates with zero values."
-                )
-        },
-
-        "reconstructed_dates":
-            [
-                snapshot[
-                    "snapshot_date"
-                ]
-                for snapshot in snapshots
-            ],
-
-        "unverified_missing_dates":
-            missing_dates,
-
-        "snapshots":
-            snapshots
-    }
-
-
-# ---------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------
 
@@ -1601,8 +1379,8 @@ def parse_args() -> argparse.Namespace:
 
     parser = argparse.ArgumentParser(
         description=(
-            "Generate an exact UTC calendar-day Baltic hybrid-threat snapshot "
-            "or a strict historical backfill bundle."
+            "Generate an exact UTC calendar-day "
+            "Baltic hybrid-threat snapshot."
         )
     )
 
@@ -1617,50 +1395,7 @@ def parse_args() -> argparse.Namespace:
         )
     )
 
-    parser.add_argument(
-        "--backfill-start",
-        dest="backfill_start",
-        type=parse_date,
-        default=None,
-        help=(
-            "Strict historical backfill start date in YYYY-MM-DD format. "
-            "Must be used together with --backfill-end."
-        )
-    )
-
-    parser.add_argument(
-        "--backfill-end",
-        dest="backfill_end",
-        type=parse_date,
-        default=None,
-        help=(
-            "Strict historical backfill end date in YYYY-MM-DD format. "
-            "Must be used together with --backfill-start."
-        )
-    )
-
-    args = parser.parse_args()
-
-    if (
-        args.backfill_start is None
-    ) != (
-        args.backfill_end is None
-    ):
-
-        parser.error(
-            "--backfill-start and --backfill-end must be used together."
-        )
-
-    if (
-        args.backfill_start is not None
-        and args.target_date is not None
-    ):
-
-        parser.error(
-            "--date cannot be combined with historical backfill mode."
-        )
-
-    return args
+    return parser.parse_args()
 
 
 # ---------------------------------------------------------------------
@@ -1682,71 +1417,6 @@ def main() -> None:
             f"Missing scored input file: {SCORED_INPUT}. "
             "Run scripts/score_baltic_hybrid_news.py first."
         )
-
-    if args.backfill_start is not None:
-
-        bundle = build_backfill_bundle(
-            scored,
-            args.backfill_start,
-            args.backfill_end
-        )
-
-        save_json(
-            BACKFILL_OUTPUT,
-            bundle
-        )
-
-        save_json(
-            DOCS_BACKFILL_OUTPUT,
-            bundle
-        )
-
-        coverage = bundle[
-            "coverage"
-        ]
-
-        print(
-            f"Backfill version: {BACKFILL_VERSION}"
-        )
-
-        print(
-            "Backfill range: "
-            f"{bundle['range']['start_date']} -> "
-            f"{bundle['range']['end_date']} UTC"
-        )
-
-        print(
-            "Reconstructable days: "
-            f"{coverage['reconstructable_days']}"
-        )
-
-        print(
-            "Unverified/missing days: "
-            f"{coverage['unverified_missing_days']}"
-        )
-
-        if bundle[
-            "unverified_missing_dates"
-        ]:
-
-            print(
-                "Unverified dates: "
-                + ", ".join(
-                    bundle[
-                        "unverified_missing_dates"
-                    ]
-                )
-            )
-
-        print(
-            f"Saved backfill bundle to: {BACKFILL_OUTPUT}"
-        )
-
-        print(
-            f"Saved public backfill bundle to: {DOCS_BACKFILL_OUTPUT}"
-        )
-
-        return
 
     target_date = (
         args.target_date
