@@ -2,8 +2,8 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-08-29T19:37:25.354940+00:00",
-  "record_count": 29,
+  "updated_at": "2026-08-30T10:32:04.709000+00:00",
+  "record_count": 30,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
     "warning": "Historical records are reconstructed from currently available scored items using published_at dates. The backfill is not a complete historical archive if older source items are no longer available.",
@@ -19545,6 +19545,513 @@
             "analytical_layer": "early_warning",
             "confidence": "low",
             "hybrid_threat_score": 12,
+            "hybrid_threat_level": "low"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-08-30",
+      "generated_at": "2026-08-30T10:32:04.708803+00:00",
+      "input_generated_at": "2026-08-30T10:32:04.386370+00:00",
+      "daily_activity": {
+        "description": "Calculated only from events published on this calendar day.",
+        "overall": {
+          "event_count": 0,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "assessment": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": null,
+          "score": 0,
+          "event_count": 0
+        },
+        "key_driver": null,
+        "trend": "stable",
+        "top_items": []
+      },
+      "rolling_threat": {
+        "description": "Rolling threat environment ending on this calendar day.",
+        "window": {
+          "days": 14,
+          "start_date": "2026-08-17",
+          "end_date": "2026-08-30"
+        },
+        "overall": {
+          "event_count": 18,
+          "incident_count": 4,
+          "activity_count": 0,
+          "indicator_count": 10,
+          "assessment_count": 4,
+          "score_total": 227,
+          "average_score": 12.61,
+          "highest_score": 40,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 1,
+            "score_total": 40,
+            "average_score": 40.0,
+            "highest_score": 40,
+            "level": "elevated",
+            "categories": {
+              "sabotage": 1
+            }
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 6,
+            "score_total": 91,
+            "average_score": 15.17,
+            "highest_score": 38,
+            "level": "low",
+            "categories": {
+              "border_pressure": 2,
+              "cyber": 1,
+              "sabotage": 1
+            }
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 3,
+            "score_total": 68,
+            "average_score": 22.67,
+            "highest_score": 38,
+            "level": "guarded",
+            "categories": {
+              "border_pressure": 1,
+              "critical_infrastructure": 1,
+              "sabotage": 1
+            }
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 8,
+            "score_total": 122,
+            "average_score": 15.25,
+            "highest_score": 38,
+            "level": "low",
+            "categories": {
+              "border_pressure": 1,
+              "drone_incident": 1,
+              "sabotage": 2,
+              "critical_infrastructure": 1,
+              "disinformation": 1
+            }
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 5,
+            "score_total": 12,
+            "average_score": 2.4,
+            "highest_score": 6,
+            "level": "low",
+            "categories": {
+              "sabotage": 1,
+              "disinformation": 2
+            }
+          }
+        },
+        "categories": {
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 5,
+            "score_total": 89,
+            "average_score": 17.8,
+            "highest_score": 40
+          },
+          "border_pressure": {
+            "category": "border_pressure",
+            "event_count": 2,
+            "score_total": 51,
+            "average_score": 25.5,
+            "highest_score": 38
+          },
+          "cyber": {
+            "category": "cyber",
+            "event_count": 1,
+            "score_total": 27,
+            "average_score": 27.0,
+            "highest_score": 27
+          },
+          "drone_incident": {
+            "category": "drone_incident",
+            "event_count": 1,
+            "score_total": 22,
+            "average_score": 22.0,
+            "highest_score": 22
+          },
+          "critical_infrastructure": {
+            "category": "critical_infrastructure",
+            "event_count": 1,
+            "score_total": 17,
+            "average_score": 17.0,
+            "highest_score": 17
+          },
+          "disinformation": {
+            "category": "disinformation",
+            "event_count": 3,
+            "score_total": 13,
+            "average_score": 4.33,
+            "highest_score": 7
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 10,
+            "score_total": 100,
+            "average_score": 10.0,
+            "highest_score": 18,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 4,
+            "score_total": 127,
+            "average_score": 31.75,
+            "highest_score": 40,
+            "level": "guarded"
+          },
+          "assessment": {
+            "event_count": 4,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Baltic Sea",
+          "score": 18,
+          "event_count": 1
+        },
+        "top_items": [
+          {
+            "id": null,
+            "title": "Estonia Probes Possible Russian Sabotage After Milrem Robotics Arson - The Defense Post",
+            "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBtbmk0Qm9JOUw2TU5FTzhkRVN2d0VfTkFmaVZPc3BfdzJTMjJYb0lfOWVMMU8yUmNVOFR4WDNBdEM4ZG1ZblpnQjRjNEtOLWJrU1c3bmw3d0ZOQTN0MWt1eGhuV2xYRmM3YW1KUDZJOVl5aWdu0gF6QVVfeXFMT2VTREhxbkZpZjkteGdjV3c2UVA5WU5UUG5hVnJCSXpSNmx5c1lrMUE3RktWTUFwZk91T3NTTXFpMjB2bDlpRjFmWm9aTV96N1ZXbEpnMklVNTVtQTNCQkpYOVEtcDR1QlBma0g5T29FdmtaZGM4bmllbVE?oc=5",
+            "published_at": "2026-08-21T15:09:40+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 40,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib - facebook.com",
+            "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOSDU3NVVPUGxxeDd3eTFRNVFWejNfLWRQMkhKQmRxbXpwaDBoeDFrYkMzZWM3aGNaZnlpclUwSUlGdF9nVzVmSEhLRzRHVXlmMllpWUx0U0tEUUlwUnc1M0FfWGdxbVUtRW5ockVXd0hJTS15eWxicmNjMjhNcm9UYnVjcmFXbGtWWUJ3clVqaU8tNzZCTzI0dGVvTW1OZnpkeEdONjJEN0RDSmtMWHY4NXJzcnp0T0RDVTlTXzlBdURSZmZMdW54S1JnYlRtUzlqcG5OeE1UTHF5LTVxcmVhVGNn?oc=5",
+            "published_at": "2026-08-25T21:20:07+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia",
+              "Lithuania",
+              "Poland"
+            ],
+            "categories": [
+              "border_pressure"
+            ],
+            "actors": [
+              "Belarus",
+              "EU"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 38,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Latvia CSDD Cyberattack Exposes Data of 1.2 Million People - kobaran.com",
+            "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQTXVqSjh0X2xvMElzTDhmNEFJMURYLU9pdTdYZFJ1dlVNa2Zpa1NKRjlETVJzYWdtYWkzQzM5SFNreExpTTFjQkpMdXFzYTF3aTBNQ2lrdzRPZ2Nqb0d2YV9KUFhkOGt4UWxXVG9ORTRqTEd3V3BGTW1DU0owS3JEQ2hObGJhM0xQdE4w?oc=5",
+            "published_at": "2026-08-24T07:05:56+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia"
+            ],
+            "categories": [
+              "cyber"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 27,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Poland Scrambles Fighter Jets as Russia Attacks Ukraine, No Airspace Violation Reported - Межа. Новини України.",
+            "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1PYl84ZWNjd1Q0eGNGQ1JRY2ZNb01XZmNabE52Sk43VEYtOTMyWDdHNUNJOFlXYjgzUXN2dDRnYzlsNHdhVUZHTUFkQmE2V1F3dzh5Sy1NcmJKMHlsN2F3ZmRSVjVqMEZJczJZZndXQQ?oc=5",
+            "published_at": "2026-08-20T11:11:33+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "drone_incident"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 22,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Poland and Baltic states face rising Russian sabotage - UK Defence Journal",
+            "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPZlNhZktsa0JBeHRoS0FybHI5U2ZwNFFYOG52d0NxWW9mR0NVU3pxOGZlaXZVTHJfdVExRWtWaHNidzk2MmxyamFqWTlaSVMzSFozbG1leTgyOXZ6elViWnFJXzFTSDk3a0pkS19vYXlRcDZUS25kNEc5cVpIZ29XYUo5bW9kSEZqT0dKQXNXQQ?oc=5",
+            "published_at": "2026-08-24T11:08:47+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [
+              "Baltic Sea"
+            ],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "medium",
+            "hybrid_threat_score": 18,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Lithuania Warns Russia Could Stage False Flag Attacks on Baltic Critical Infrastructure - Межа. Новини України.",
+            "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9xbVliNWRIZEZLVUNZYTc5WG1Wc1RfWVN5clZ5YlJab1ZfVFdxdW9XTUllc0UxSDVZbngtT0FvQ1BPWFRBT3ZYS1dHU3NJd1ZJa0Q4aDFIV0swanJtV3c1US1UZDk3X2RmbTc5cQ?oc=5",
+            "published_at": "2026-08-24T16:28:25+00:00",
+            "source_name": null,
+            "primary_country": "Lithuania",
+            "countries": [
+              "Lithuania",
+              "Poland"
+            ],
+            "categories": [
+              "critical_infrastructure"
+            ],
+            "actors": [
+              "Russia",
+              "NATO"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "medium",
+            "hybrid_threat_score": 17,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Latvia's foreign minister warns of Russian sabotage acts in Europe - PBS",
+            "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQ0tGX3JLbE1TZUFYLUR1SkUtdjhvSzR0TTVOUkdQM2pSVklhclBhVWZ4ZUJvSGRNYzJIYWhENDJNX3V4bDV1aE1OX2VjVmtBS3prQmZRdFllNWpHalBzSmw0eDNEdDdsdHVwX05DTjhCTkdDVktkdmRCaEY5RnhSUFY2Z3MwTlZIVENxTHZjMzhnOGlHdHVYNllXYXNHb3py?oc=5",
+            "published_at": "2026-08-27T22:40:04+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia",
+              "Lithuania"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 13,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Border Guard chief: Belarus knew about tunnels on Latvian border",
+            "url": "https://eng.lsm.lv/article/society/defence/27.08.2026-border-guard-chief-belarus-knew-about-tunnels-on-latvian-border.a660654/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+            "published_at": "2026-08-27T13:19:00+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia"
+            ],
+            "categories": [
+              "border_pressure"
+            ],
+            "actors": [
+              "Belarus"
+            ],
+            "locations": [
+              "Belarus Border"
+            ],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 13,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Poland says Russia hired an assassin to kill an American in Warsaw, as sabotage and covert operations raise their head again - IntelliNews",
+            "url": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxQQU5ENUUtRlRUTm1iTXcyLWJicm9zbEJ4a0h3RFIzQUNTNGRaLUtFcjlFaUdaRnJxYzYtUnBTc3RyS1duTENlU0hIeEhpY2ZEbk4taEQ4WGpFLWc1SXJCaDhoYUdvVUtHMmZqbkJpV19CWDd5SklVMkZPWEN0QnJnTV83NVhKUHZtV3o2QWV4XzlhWlVqVmpUdUh2MGpTSkJCeHhoQVpnamRRWlZGbUpPSk91SjB4dms0c3NvWTJLb1h3dzBfdTRyV3BURkhHWFpMR3FhZndjQVdocWg4S2NVZl9rekZaQ1FnX3NYUi1ILXo?oc=5",
+            "published_at": "2026-08-17T07:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 12,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Ukraine Warns Russia Is Weighing Hybrid Strikes Against Baltic States - Межа. Новини України.",
+            "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5LUW0zemZzUDltNEdDajN1MnZmR19UVTdIcW5lb295NktHV0wxTjdGclNkRXpHY2pwNzJNZ3lxeWJCdHJxeGZpcXJjeDJyd1djY2FsbjZPWXQzT0h2Ty1wbUswRjZlVEpCUmc?oc=5",
+            "published_at": "2026-08-27T09:02:31+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "medium",
+            "hybrid_threat_score": 8,
             "hybrid_threat_level": "low"
           }
         ]
