@@ -34,7 +34,7 @@ window.BalticChart = (() => {
   const VIEW_LABELS = {
     daily: "Daily",
     ma7: "7-Day Moving Average",
-    ma14: "14-Day Moving Average",
+    ma14: "Historical 14-Day Threat Index",
     trend: "Regional Linear Trend"
   };
 
@@ -45,7 +45,7 @@ window.BalticChart = (() => {
       ma7:
         "Threat Index: each point is a chart-only 7-day moving average calculated from the historical daily Threat Index series. It is not the 7-Day Intelligence Matrix.",
       ma14:
-        "Threat Index: each point is a chart-only 14-day moving average calculated from the historical daily Threat Index series. It is not the current 14-day Threat Index calculation.",
+        "Historical 14-Day Threat Index: each point is the v3.2 Threat Index calculated over the 14 calendar days ending on that historical date. The latest point is directly comparable with the current 14-day Threat Index.",
       trend:
         "Threat Index: the dashed line is a linear trend fitted to the historical daily Threat Index series."
     },
@@ -231,11 +231,35 @@ window.BalticChart = (() => {
       };
     }
 
+    const rollingCountryScores = {};
+
+    Object.entries(
+      history
+        .rolling_country_scores ||
+      {}
+    ).forEach(
+      ([country, values]) => {
+        rollingCountryScores[
+          country
+        ] =
+          normalizeSeries(
+            values,
+            length
+          );
+      }
+    );
+
     return {
       labels,
       overall_average_score:
         normalizeSeries(
           history.threat_index,
+          length
+        ),
+      rolling_threat_index:
+        normalizeSeries(
+          history
+            .rolling_threat_index,
           length
         ),
       subtype_scores: {
@@ -245,7 +269,9 @@ window.BalticChart = (() => {
         assessment
       },
       country_average_scores:
-        countryScores
+        countryScores,
+      rolling_country_scores:
+        rollingCountryScores
     };
   }
 
@@ -391,7 +417,8 @@ window.BalticChart = (() => {
   }
 
   function transformValues(
-    values
+    values,
+    historical14DayValues = null
   ) {
     const cleanValues =
       (values || []).map(
@@ -410,6 +437,17 @@ window.BalticChart = (() => {
     if (
       currentViewMode === "ma14"
     ) {
+      if (
+        currentMetricMode ===
+          "threat_index" &&
+        Array.isArray(
+          historical14DayValues
+        )
+      ) {
+        return historical14DayValues
+          .map(numberOrNull);
+      }
+
       return movingAverage(
         cleanValues,
         14
@@ -417,6 +455,35 @@ window.BalticChart = (() => {
     }
 
     return cleanValues;
+  }
+
+  function updateViewButtonLabels() {
+    const ma14Button =
+      document.querySelector(
+        '.mode-btn[data-mode="ma14"]'
+      );
+
+    if (ma14Button) {
+      ma14Button.textContent =
+        currentMetricMode ===
+        "threat_index"
+          ? "Historical 14-Day Threat Index"
+          : "14-Day Moving Average";
+    }
+  }
+
+  function getViewLabel() {
+    if (
+      currentViewMode === "ma14" &&
+      currentMetricMode ===
+        "daily_activity"
+    ) {
+      return "14-Day Moving Average";
+    }
+
+    return VIEW_LABELS[
+      currentViewMode
+    ];
   }
 
   function updateMethodNote() {
@@ -561,7 +628,9 @@ window.BalticChart = (() => {
         data:
           transformValues(
             metricData
-              .overall_average_score
+              .overall_average_score,
+            metricData
+              .rolling_threat_index
           ),
         borderColor:
           COLORS.overall,
@@ -595,7 +664,11 @@ window.BalticChart = (() => {
           label: country,
           data:
             transformValues(
-              values
+              values,
+              metricData
+                .rolling_country_scores?.[
+                  country
+                ]
             ),
           borderColor:
             COLORS[country] ||
@@ -649,6 +722,7 @@ window.BalticChart = (() => {
       return;
     }
 
+    updateViewButtonLabels();
     updateMethodNote();
     updateHeaderText();
 
@@ -686,9 +760,7 @@ window.BalticChart = (() => {
                     currentMetricMode
                   ]
                 } — ${
-                  VIEW_LABELS[
-                    currentViewMode
-                  ]
+                  getViewLabel()
                 }`,
               color: "#0f172a",
               font: {
