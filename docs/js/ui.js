@@ -1244,6 +1244,32 @@ window.BalticUI = (() => {
       : "low";
   }
 
+  function threatLevelFromScore(value) {
+    const score = Number(value);
+
+    if (!Number.isFinite(score)) {
+      return "LOW";
+    }
+
+    if (score >= 80) {
+      return "CRITICAL";
+    }
+
+    if (score >= 60) {
+      return "HIGH";
+    }
+
+    if (score >= 40) {
+      return "ELEVATED";
+    }
+
+    if (score >= 20) {
+      return "GUARDED";
+    }
+
+    return "LOW";
+  }
+
   function renderAssessmentCell(day) {
     if (day.status === "missing") {
       return renderMissingCell();
@@ -1256,13 +1282,9 @@ window.BalticUI = (() => {
       );
 
     const threatLevel =
-      String(
-        getDayValue(
-          day,
-          "threat_level",
-          "level"
-        ) || "LOW"
-      ).toUpperCase();
+      threatLevelFromScore(
+        threatIndex
+      );
 
     const levelClass =
       threatLevelClass(
