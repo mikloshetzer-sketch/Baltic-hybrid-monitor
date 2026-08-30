@@ -905,6 +905,342 @@ def build_recent_events(
 # HISTORY
 # ---------------------------------------------------------------------
 
+def get_scored_events(
+    scored: Dict[str, Any]
+) -> List[Dict[str, Any]]:
+
+    events = scored.get(
+        "events",
+        scored.get(
+            "items",
+            []
+        )
+    )
+
+    if not isinstance(
+        events,
+        list
+    ):
+        return []
+
+    return events
+
+
+def event_date_iso(
+    event: Dict[str, Any]
+) -> Optional[str]:
+
+    published_at = parse_datetime(
+        event.get(
+            "published_at"
+        )
+    )
+
+    if published_at is None:
+        return None
+
+    return published_at.date().isoformat()
+
+
+def filter_events_for_date(
+    events: List[Dict[str, Any]],
+    target_date: str
+) -> List[Dict[str, Any]]:
+
+    return [
+        event
+        for event in events
+        if event_date_iso(
+            event
+        ) == target_date
+    ]
+
+
+def filter_events_for_rolling_window(
+    events: List[Dict[str, Any]],
+    target_date: str,
+    window_days: int
+) -> List[Dict[str, Any]]:
+
+    try:
+        end_date = datetime.fromisoformat(
+            target_date
+        ).date()
+
+    except (TypeError, ValueError):
+        return []
+
+    start_date = (
+        end_date
+        - timedelta(
+            days=window_days - 1
+        )
+    )
+
+    selected = []
+
+    for event in events:
+
+        published_at = parse_datetime(
+            event.get(
+                "published_at"
+            )
+        )
+
+        if published_at is None:
+            continue
+
+        published_date = (
+            published_at.date()
+        )
+
+        if (
+            start_date
+            <= published_date
+            <= end_date
+        ):
+            selected.append(
+                event
+            )
+
+    return selected
+
+
+def event_matches_country(
+    event: Dict[str, Any],
+    country: str
+) -> bool:
+
+    primary_country = event.get(
+        "primary_country"
+    )
+
+    countries = event.get(
+        "countries",
+        []
+    )
+
+    if not isinstance(
+        countries,
+        list
+    ):
+        countries = []
+
+    if country == "Regional":
+
+        return (
+            primary_country == "Regional"
+            or "Regional" in countries
+        )
+
+    return (
+        primary_country == country
+        or country in countries
+    )
+
+
+def calculate_v32_indices(
+    events: List[Dict[str, Any]]
+) -> Dict[str, Any]:
+
+    operational_scores = []
+    early_warning_scores = []
+
+    incident_count = 0
+    activity_count = 0
+    indicator_count = 0
+    assessment_count = 0
+
+    for event in events:
+
+        subtype = str(
+            event.get(
+                "event_subtype",
+                "assessment"
+            )
+        ).strip().lower()
+
+        score = safe_round(
+            event.get(
+                "hybrid_threat_score",
+                0
+            )
+        )
+
+        if subtype == "incident":
+
+            incident_count += 1
+            operational_scores.append(
+                score
+            )
+
+        elif subtype == "activity":
+
+            activity_count += 1
+            operational_scores.append(
+                score
+            )
+
+        elif subtype == "indicator":
+
+            indicator_count += 1
+            early_warning_scores.append(
+                score
+            )
+
+        else:
+
+            assessment_count += 1
+
+    top_operational = sorted(
+        operational_scores,
+        reverse=True
+    )[:5]
+
+    top_warning = sorted(
+        early_warning_scores,
+        reverse=True
+    )[:8]
+
+    operational_index = (
+        safe_round(
+            sum(
+                top_operational
+            )
+            / len(
+                top_operational
+            )
+        )
+        if top_operational
+        else 0.0
+    )
+
+    early_warning_index = (
+        safe_round(
+            sum(
+                top_warning
+            )
+            / len(
+                top_warning
+            )
+        )
+        if top_warning
+        else 0.0
+    )
+
+    if top_operational:
+
+        threat_index = safe_round(
+            (
+                0.8
+                * operational_index
+            )
+            + (
+                0.2
+                * early_warning_index
+            )
+        )
+
+    else:
+
+        threat_index = (
+            early_warning_index
+        )
+
+    return {
+        "event_count":
+            len(
+                events
+            ),
+
+        "incident_count":
+            incident_count,
+
+        "activity_count":
+            activity_count,
+
+        "indicator_count":
+            indicator_count,
+
+        "assessment_count":
+            assessment_count,
+
+        "operational_index":
+            operational_index,
+
+        "early_warning_index":
+            early_warning_index,
+
+        "threat_index":
+            threat_index,
+
+        "level":
+            level_from_score(
+                threat_index
+            )
+    }
+
+
+def calculate_country_v32_index(
+    events: List[Dict[str, Any]],
+    country: str
+) -> float:
+
+    country_events = [
+        event
+        for event in events
+        if event_matches_country(
+            event,
+            country
+        )
+    ]
+
+    return calculate_v32_indices(
+        country_events
+    )[
+        "threat_index"
+    ]
+
+
+def normalize_history_hotspot(
+    container: Dict[str, Any]
+) -> Dict[str, Any]:
+
+    hotspot = container.get(
+        "hotspot",
+        {}
+    )
+
+    if not isinstance(
+        hotspot,
+        dict
+    ):
+        hotspot = {}
+
+    return {
+        "location":
+            hotspot.get(
+                "location"
+            ),
+
+        "score":
+            safe_int(
+                hotspot.get(
+                    "score",
+                    0
+                )
+            ),
+
+        "event_count":
+            safe_int(
+                hotspot.get(
+                    "event_count",
+                    0
+                )
+            )
+    }
+
+
 def build_history(
     scored: Dict[str, Any],
     history: Dict[str, Any]
@@ -940,9 +1276,15 @@ def build_history(
         -HISTORY_LIMIT:
     ]
 
+    events = get_scored_events(
+        scored
+    )
+
     labels = []
 
     daily_threat_index = []
+    daily_operational_index = []
+    daily_early_warning_index = []
     daily_level = []
 
     incident_count = []
@@ -951,6 +1293,8 @@ def build_history(
     assessment_count = []
 
     rolling_threat_index = []
+    rolling_operational_index = []
+    rolling_early_warning_index = []
     rolling_level = []
 
     country_scores = {
@@ -977,10 +1321,15 @@ def build_history(
 
     for record in records:
 
+        record_date = record.get(
+            "date"
+        )
+
+        if not record_date:
+            continue
+
         labels.append(
-            record.get(
-                "date"
-            )
+            record_date
         )
 
         daily = record.get(
@@ -988,127 +1337,123 @@ def build_history(
             {}
         )
 
+        if not isinstance(
+            daily,
+            dict
+        ):
+            daily = {}
+
         rolling = record.get(
             "rolling_threat",
             {}
         )
 
-        daily_overall = daily.get(
-            "overall",
-            {}
+        if not isinstance(
+            rolling,
+            dict
+        ):
+            rolling = {}
+
+        daily_events = filter_events_for_date(
+            events,
+            record_date
         )
 
-        rolling_overall = rolling.get(
-            "overall",
-            {}
-        )
-
-        daily_average = safe_round(
-            daily_overall.get(
-                "average_score",
-                0
+        rolling_events = (
+            filter_events_for_rolling_window(
+                events,
+                record_date,
+                CURRENT_THREAT_WINDOW_DAYS
             )
+        )
+
+        daily_indices = calculate_v32_indices(
+            daily_events
+        )
+
+        rolling_indices = calculate_v32_indices(
+            rolling_events
         )
 
         daily_threat_index.append(
-            daily_average
+            daily_indices[
+                "threat_index"
+            ]
+        )
+
+        daily_operational_index.append(
+            daily_indices[
+                "operational_index"
+            ]
+        )
+
+        daily_early_warning_index.append(
+            daily_indices[
+                "early_warning_index"
+            ]
         )
 
         daily_level.append(
-            daily_overall.get(
-                "overall_level",
-                level_from_score(
-                    daily_average
-                )
-            )
+            daily_indices[
+                "level"
+            ]
         )
 
         incident_count.append(
-            safe_int(
-                daily_overall.get(
-                    "incident_count",
-                    0
-                )
-            )
+            daily_indices[
+                "incident_count"
+            ]
         )
 
         activity_count.append(
-            safe_int(
-                daily_overall.get(
-                    "activity_count",
-                    0
-                )
-            )
+            daily_indices[
+                "activity_count"
+            ]
         )
 
         indicator_count.append(
-            safe_int(
-                daily_overall.get(
-                    "indicator_count",
-                    0
-                )
-            )
+            daily_indices[
+                "indicator_count"
+            ]
         )
 
         assessment_count.append(
-            safe_int(
-                daily_overall.get(
-                    "assessment_count",
-                    0
-                )
-            )
-        )
-
-        daily_countries = daily.get(
-            "countries",
-            {}
+            daily_indices[
+                "assessment_count"
+            ]
         )
 
         for country in country_scores:
 
-            country_data = daily_countries.get(
-                country,
-                {}
-            )
-
             country_scores[
                 country
             ].append(
-                safe_round(
-                    country_data.get(
-                        "average_score",
-                        0
-                    )
+                calculate_country_v32_index(
+                    daily_events,
+                    country
                 )
             )
 
-        daily_hotspot = daily.get(
-            "hotspot",
-            {}
+            rolling_country_scores[
+                country
+            ].append(
+                calculate_country_v32_index(
+                    rolling_events,
+                    country
+                )
+            )
+
+        daily_hotspots.append(
+            normalize_history_hotspot(
+                daily
+            )
         )
 
-        daily_hotspots.append({
-            "location":
-                daily_hotspot.get(
-                    "location"
-                ),
-
-            "score":
-                safe_int(
-                    daily_hotspot.get(
-                        "score",
-                        0
-                    )
-                ),
-
-            "event_count":
-                safe_int(
-                    daily_hotspot.get(
-                        "event_count",
-                        0
-                    )
-                )
-        })
+        rolling_hotspots.append(
+            normalize_history_hotspot(
+                rolling
+            )
+        )
 
         key_drivers.append(
             daily.get(
@@ -1123,76 +1468,29 @@ def build_history(
             )
         )
 
-        rolling_average = safe_round(
-            rolling_overall.get(
-                "average_score",
-                0
-            )
+        rolling_threat_index.append(
+            rolling_indices[
+                "threat_index"
+            ]
         )
 
-        rolling_threat_index.append(
-            rolling_average
+        rolling_operational_index.append(
+            rolling_indices[
+                "operational_index"
+            ]
+        )
+
+        rolling_early_warning_index.append(
+            rolling_indices[
+                "early_warning_index"
+            ]
         )
 
         rolling_level.append(
-            rolling_overall.get(
-                "overall_level",
-                level_from_score(
-                    rolling_average
-                )
-            )
+            rolling_indices[
+                "level"
+            ]
         )
-
-        rolling_countries = rolling.get(
-            "countries",
-            {}
-        )
-
-        for country in rolling_country_scores:
-
-            country_data = rolling_countries.get(
-                country,
-                {}
-            )
-
-            rolling_country_scores[
-                country
-            ].append(
-                safe_round(
-                    country_data.get(
-                        "average_score",
-                        0
-                    )
-                )
-            )
-
-        rolling_hotspot = rolling.get(
-            "hotspot",
-            {}
-        )
-
-        rolling_hotspots.append({
-            "location":
-                rolling_hotspot.get(
-                    "location"
-                ),
-
-            "score":
-                safe_int(
-                    rolling_hotspot.get(
-                        "score",
-                        0
-                    )
-                ),
-
-            "event_count":
-                safe_int(
-                    rolling_hotspot.get(
-                        "event_count",
-                        0
-                    )
-                )
-        })
 
     if not labels:
 
@@ -1200,12 +1498,22 @@ def build_history(
             scored
         )
 
-        current_date = (
-            datetime.now(
-                timezone.utc
+        reference_date = (
+            scored
+            .get(
+                "current_threat_window",
+                {}
             )
-            .date()
-            .isoformat()
+            .get(
+                "reference_date"
+            )
+        )
+
+        current_date = (
+            reference_date
+            or datetime.now(
+                timezone.utc
+            ).date().isoformat()
         )
 
         labels = [
@@ -1213,20 +1521,36 @@ def build_history(
         ]
 
         daily_threat_index = [
-            summary[
-                "threat_index"
-            ]
+            0.0
+        ]
+
+        daily_operational_index = [
+            0.0
+        ]
+
+        daily_early_warning_index = [
+            0.0
         ]
 
         daily_level = [
-            summary[
-                "threat_level"
-            ]
+            "low"
         ]
 
         rolling_threat_index = [
             summary[
                 "threat_index"
+            ]
+        ]
+
+        rolling_operational_index = [
+            summary[
+                "operational_index"
+            ]
+        ]
+
+        rolling_early_warning_index = [
+            summary[
+                "early_warning_index"
             ]
         ]
 
@@ -1236,59 +1560,93 @@ def build_history(
             ]
         ]
 
+        current_daily_events = (
+            filter_events_for_date(
+                events,
+                current_date
+            )
+        )
+
+        current_daily_indices = (
+            calculate_v32_indices(
+                current_daily_events
+            )
+        )
+
+        daily_threat_index[0] = (
+            current_daily_indices[
+                "threat_index"
+            ]
+        )
+
+        daily_operational_index[0] = (
+            current_daily_indices[
+                "operational_index"
+            ]
+        )
+
+        daily_early_warning_index[0] = (
+            current_daily_indices[
+                "early_warning_index"
+            ]
+        )
+
+        daily_level[0] = (
+            current_daily_indices[
+                "level"
+            ]
+        )
+
         incident_count = [
-            summary[
+            current_daily_indices[
                 "incident_count"
             ]
         ]
 
         activity_count = [
-            summary[
+            current_daily_indices[
                 "activity_count"
             ]
         ]
 
         indicator_count = [
-            summary[
+            current_daily_indices[
                 "indicator_count"
             ]
         ]
 
         assessment_count = [
-            summary[
+            current_daily_indices[
                 "assessment_count"
             ]
         ]
 
-        cards = build_country_cards(
-            scored
+        rolling_events = (
+            filter_events_for_rolling_window(
+                events,
+                current_date,
+                CURRENT_THREAT_WINDOW_DAYS
+            )
         )
 
         for country in country_scores:
 
-            score = next(
-                (
-                    card[
-                        "average_score"
-                    ]
-                    for card in cards
-                    if card[
-                        "country"
-                    ] == country
-                ),
-                0
-            )
-
             country_scores[
                 country
             ] = [
-                score
+                calculate_country_v32_index(
+                    current_daily_events,
+                    country
+                )
             ]
 
             rolling_country_scores[
                 country
             ] = [
-                score
+                calculate_country_v32_index(
+                    rolling_events,
+                    country
+                )
             ]
 
         daily_hotspots = [{
@@ -1321,21 +1679,102 @@ def build_history(
             "stable"
         ]
 
+    scorer_reference_date = (
+        scored
+        .get(
+            "current_threat_window",
+            {}
+        )
+        .get(
+            "reference_date"
+        )
+    )
+
+    summary = normalize_summary(
+        scored
+    )
+
+    latest_history_date = (
+        labels[-1]
+        if labels
+        else None
+    )
+
+    current_alignment = {
+        "comparable":
+            (
+                latest_history_date
+                == scorer_reference_date
+            ),
+
+        "history_latest_date":
+            latest_history_date,
+
+        "scorer_reference_date":
+            scorer_reference_date,
+
+        "summary_threat_index":
+            summary[
+                "threat_index"
+            ],
+
+        "history_latest_rolling_threat_index":
+            (
+                rolling_threat_index[-1]
+                if rolling_threat_index
+                else None
+            ),
+
+        "matches_current_summary":
+            (
+                bool(
+                    labels
+                )
+                and (
+                    latest_history_date
+                    == scorer_reference_date
+                )
+                and (
+                    abs(
+                        rolling_threat_index[-1]
+                        - summary[
+                            "threat_index"
+                        ]
+                    )
+                    < 0.01
+                )
+            )
+    }
+
     return {
         "labels":
             labels,
 
+        # Backward-compatible alias. This is now a real
+        # exact-day v3.2 Threat Index, not average_score.
         "threat_index":
             daily_threat_index,
 
         "daily_threat_index":
             daily_threat_index,
 
+        "daily_operational_index":
+            daily_operational_index,
+
+        "daily_early_warning_index":
+            daily_early_warning_index,
+
         "daily_level":
             daily_level,
 
         "rolling_threat_index":
             rolling_threat_index,
+
+        "rolling_operational_index":
+            rolling_operational_index,
+
+        "rolling_early_warning_index":
+            rolling_early_warning_index,
 
         "rolling_level":
             rolling_level,
@@ -1376,22 +1815,51 @@ def build_history(
             ),
 
         "rolling_window_days":
-            (
-                history
-                .get(
-                    "method",
-                    {}
+            CURRENT_THREAT_WINDOW_DAYS,
+
+        "index_method": {
+            "daily":
+                (
+                    "Recomputed from scored events published on each "
+                    "UTC calendar day using the v3.2 Operational / "
+                    "Early Warning / Threat Index method."
+                ),
+
+            "rolling":
+                (
+                    "Recomputed from scored events inside the 14 UTC "
+                    "calendar-day window ending on each history date "
+                    "using the same v3.2 index method as the current KPI."
+                ),
+
+            "operational_index":
+                (
+                    "Average of the five highest scoring "
+                    "incident/activity events."
+                ),
+
+            "early_warning_index":
+                (
+                    "Average of the eight highest scoring "
+                    "indicator events."
+                ),
+
+            "threat_index":
+                (
+                    "80% Operational Index + 20% Early Warning Index "
+                    "when operational events exist; otherwise the "
+                    "Early Warning Index."
+                ),
+
+            "assessment_handling":
+                (
+                    "Assessment events are counted but do not "
+                    "contribute to either component index."
                 )
-                .get(
-                    "rolling_days",
-                    14
-                )
-                if isinstance(
-                    history,
-                    dict
-                )
-                else 14
-            )
+        },
+
+        "current_alignment":
+            current_alignment
     }
 
 
@@ -1536,7 +2004,7 @@ def main() -> None:
             ),
 
         "version":
-            "Baltic Dashboard Data v1.3",
+            "Baltic Dashboard Data v1.4",
 
         "score_engine_version":
             scorer_engine_version,
@@ -1624,8 +2092,8 @@ def main() -> None:
                 "Threat ontology classification",
                 "Confidence scoring",
                 f"Threat Score Engine: {scorer_engine_version}",
-                "Historical daily activity calculation",
-                "14-day rolling threat calculation",
+                "Historical exact-day v3.2 index reconstruction",
+                "Historical 14-day rolling v3.2 index reconstruction",
                 "Current 14-day top-event filtering",
                 "Dashboard-optimized output",
                 "Exact-day snapshot and 7-day matrix are generated by separate pipeline stages"
@@ -1668,14 +2136,14 @@ def main() -> None:
             "history_model": {
                 "daily_activity":
                     (
-                        "Exact calendar-day activity calculated "
-                        "from events published on that date."
+                        "Exact calendar-day Threat Index reconstructed "
+                        "from scored events published on that date using v3.2."
                     ),
 
                 "rolling_threat":
                     (
-                        "Fourteen-day rolling threat environment "
-                        "ending on each calendar date."
+                        "Fourteen-day rolling Threat Index reconstructed "
+                        "from scored events ending on each calendar date using v3.2."
                     ),
 
                 "historical_database":
