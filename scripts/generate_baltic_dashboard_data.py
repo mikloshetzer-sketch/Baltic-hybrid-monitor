@@ -8,6 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 SCORED_INPUT = ROOT / "data" / "baltic_hybrid_scored_news.json"
 HISTORY_INPUT = ROOT / "data" / "baltic_hybrid_history.json"
+MATRIX_HISTORY_INPUT = ROOT / "data" / "baltic_intelligence_matrix_history.json"
 DASHBOARD_OUTPUT = ROOT / "docs" / "data" / "baltic_dashboard.json"
 
 
@@ -1241,9 +1242,48 @@ def normalize_history_hotspot(
     }
 
 
+
+def get_verified_snapshot_dates(
+    matrix_history: Dict[str, Any]
+) -> set:
+
+    snapshots = matrix_history.get(
+        "snapshots",
+        []
+    )
+
+    if not isinstance(
+        snapshots,
+        list
+    ):
+        return set()
+
+    verified_dates = set()
+
+    for snapshot in snapshots:
+
+        if not isinstance(
+            snapshot,
+            dict
+        ):
+            continue
+
+        snapshot_date = snapshot.get(
+            "snapshot_date"
+        )
+
+        if snapshot_date:
+            verified_dates.add(
+                snapshot_date
+            )
+
+    return verified_dates
+
+
 def build_history(
     scored: Dict[str, Any],
-    history: Dict[str, Any]
+    history: Dict[str, Any],
+    matrix_history: Dict[str, Any]
 ) -> Dict[str, Any]:
 
     records = []
@@ -1278,6 +1318,12 @@ def build_history(
 
     events = get_scored_events(
         scored
+    )
+
+    verified_snapshot_dates = (
+        get_verified_snapshot_dates(
+            matrix_history
+        )
     )
 
     labels = []
@@ -1354,9 +1400,26 @@ def build_history(
         ):
             rolling = {}
 
-        daily_events = filter_events_for_date(
-            events,
+        exact_day_available = (
             record_date
+            in verified_snapshot_dates
+        )
+
+        daily_events = (
+            filter_events_for_date(
+                events,
+                record_date
+            )
+            if exact_day_available
+            else []
+        )
+
+        daily_indices = (
+            calculate_v32_indices(
+                daily_events
+            )
+            if exact_day_available
+            else None
         )
 
         rolling_events = (
@@ -1375,53 +1438,89 @@ def build_history(
             rolling_events
         )
 
-        daily_threat_index.append(
-            daily_indices[
-                "threat_index"
-            ]
-        )
+        if exact_day_available:
 
-        daily_operational_index.append(
-            daily_indices[
-                "operational_index"
-            ]
-        )
+            daily_threat_index.append(
+                daily_indices[
+                    "threat_index"
+                ]
+            )
 
-        daily_early_warning_index.append(
-            daily_indices[
-                "early_warning_index"
-            ]
-        )
+            daily_operational_index.append(
+                daily_indices[
+                    "operational_index"
+                ]
+            )
 
-        daily_level.append(
-            daily_indices[
-                "level"
-            ]
-        )
+            daily_early_warning_index.append(
+                daily_indices[
+                    "early_warning_index"
+                ]
+            )
 
-        incident_count.append(
-            daily_indices[
-                "incident_count"
-            ]
-        )
+            daily_level.append(
+                daily_indices[
+                    "level"
+                ]
+            )
 
-        activity_count.append(
-            daily_indices[
-                "activity_count"
-            ]
-        )
+            incident_count.append(
+                daily_indices[
+                    "incident_count"
+                ]
+            )
 
-        indicator_count.append(
-            daily_indices[
-                "indicator_count"
-            ]
-        )
+            activity_count.append(
+                daily_indices[
+                    "activity_count"
+                ]
+            )
 
-        assessment_count.append(
-            daily_indices[
-                "assessment_count"
-            ]
-        )
+            indicator_count.append(
+                daily_indices[
+                    "indicator_count"
+                ]
+            )
+
+            assessment_count.append(
+                daily_indices[
+                    "assessment_count"
+                ]
+            )
+
+        else:
+
+            daily_threat_index.append(
+                None
+            )
+
+            daily_operational_index.append(
+                None
+            )
+
+            daily_early_warning_index.append(
+                None
+            )
+
+            daily_level.append(
+                None
+            )
+
+            incident_count.append(
+                None
+            )
+
+            activity_count.append(
+                None
+            )
+
+            indicator_count.append(
+                None
+            )
+
+            assessment_count.append(
+                None
+            )
 
         for country in country_scores:
 
@@ -1432,6 +1531,8 @@ def build_history(
                     daily_events,
                     country
                 )
+                if exact_day_available
+                else None
             )
 
             rolling_country_scores[
@@ -1447,6 +1548,12 @@ def build_history(
             normalize_history_hotspot(
                 daily
             )
+            if exact_day_available
+            else {
+                "location": None,
+                "score": None,
+                "event_count": None
+            }
         )
 
         rolling_hotspots.append(
@@ -1459,6 +1566,8 @@ def build_history(
             daily.get(
                 "key_driver"
             )
+            if exact_day_available
+            else None
         )
 
         trends.append(
@@ -1466,6 +1575,8 @@ def build_history(
                 "trend",
                 "stable"
             )
+            if exact_day_available
+            else None
         )
 
         rolling_threat_index.append(
@@ -1814,6 +1925,22 @@ def build_history(
                 labels
             ),
 
+        "exact_day_availability": {
+            "source":
+                "baltic_intelligence_matrix_history.json",
+
+            "verified_dates":
+                sorted(
+                    verified_snapshot_dates
+                ),
+
+            "rule":
+                (
+                    "A missing historical snapshot is represented as "
+                    "null, never as a synthetic zero-event day."
+                )
+        },
+
         "rolling_window_days":
             CURRENT_THREAT_WINDOW_DAYS,
 
@@ -1953,6 +2080,11 @@ def main() -> None:
         default={}
     )
 
+    matrix_history = load_json(
+        MATRIX_HISTORY_INPUT,
+        default=None
+    )
+
     if scored is None:
 
         raise FileNotFoundError(
@@ -1961,9 +2093,18 @@ def main() -> None:
             "Run scripts/score_baltic_hybrid_news.py first."
         )
 
+    if matrix_history is None:
+
+        raise FileNotFoundError(
+            f"Missing matrix history input file: "
+            f"{MATRIX_HISTORY_INPUT}. "
+            "Run scripts/update_baltic_intelligence_matrix_history.py first."
+        )
+
     dashboard_history = build_history(
         scored,
-        history
+        history,
+        matrix_history
     )
 
     scorer_engine_version = scored.get(
@@ -2004,7 +2145,7 @@ def main() -> None:
             ),
 
         "version":
-            "Baltic Dashboard Data v1.4",
+            "Baltic Dashboard Data v1.5",
 
         "score_engine_version":
             scorer_engine_version,
@@ -2092,7 +2233,7 @@ def main() -> None:
                 "Threat ontology classification",
                 "Confidence scoring",
                 f"Threat Score Engine: {scorer_engine_version}",
-                "Historical exact-day v3.2 index reconstruction",
+                "Verified historical exact-day v3.2 index reconstruction",
                 "Historical 14-day rolling v3.2 index reconstruction",
                 "Current 14-day top-event filtering",
                 "Dashboard-optimized output",
@@ -2241,3 +2382,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
