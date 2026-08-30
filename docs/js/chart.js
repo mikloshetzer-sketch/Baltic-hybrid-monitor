@@ -260,27 +260,32 @@ window.BalticChart = (() => {
 
     return source.map(
       (_, index) => {
-        const start =
-          Math.max(
-            0,
-            index -
-              windowSize +
-              1
-          );
+        if (
+          index <
+          windowSize - 1
+        ) {
+          return null;
+        }
 
         const slice =
           source
             .slice(
-              start,
+              index -
+                windowSize +
+                1,
               index + 1
             )
-            .map(numberOrNull)
-            .filter(
-              value =>
-                value !== null
-            );
+            .map(numberOrNull);
 
-        if (!slice.length) {
+        const hasCompleteWindow =
+          slice.length ===
+            windowSize &&
+          slice.every(
+            value =>
+              value !== null
+          );
+
+        if (!hasCompleteWindow) {
           return null;
         }
 
@@ -289,7 +294,7 @@ window.BalticChart = (() => {
             (sum, value) =>
               sum + value,
             0
-          ) / slice.length;
+          ) / windowSize;
 
         return Number(
           average.toFixed(2)
