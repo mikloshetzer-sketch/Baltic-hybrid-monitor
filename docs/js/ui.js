@@ -540,59 +540,140 @@ window.BalticUI = (() => {
   }
 
   function renderCurrentThreatPicture(data) {
-    const hotspot = findTopItem(
-      data.country_cards,
-      ["country"]
-    );
+    const picture =
+      data.current_threat_picture || {};
 
-    const keyDriver = findTopItem(
-      data.category_drivers,
-      ["category", "name"]
-    );
+    const locationSignal =
+      picture.location_hotspot || {};
 
-    const dominantActor = findTopItem(
-      data.actor_drivers,
-      ["actor", "name"]
-    );
+    const affectedCountry =
+      picture.most_affected_country || {};
+
+    const keyDriver =
+      picture.key_driver || {};
+
+    const dominantActor =
+      picture.dominant_actor || {};
+
+    const hotspotElement =
+      document.getElementById(
+        "currentHotspot"
+      );
+
+    if (hotspotElement) {
+      const card =
+        hotspotElement.closest(
+          ".mini-intel-card"
+        );
+
+      const label =
+        card?.querySelector("span");
+
+      if (label) {
+        label.textContent =
+          "Top Reported Location";
+      }
+    }
 
     setText(
       "currentHotspot",
-      hotspot || "—"
+      locationSignal.location || "—"
+    );
+
+    setText(
+      "currentHotspotMeta",
+      locationSignal.location
+        ? `${formatNumber(
+            locationSignal.event_count
+          )} events · ${formatNumber(
+            locationSignal.score_total
+          )} score`
+        : "no verified location signal"
     );
 
     setText(
       "currentKeyDriver",
-      keyDriver
-        ? titleCase(keyDriver)
+      keyDriver.category
+        ? titleCase(
+            keyDriver.category
+          )
         : "—"
     );
 
     setText(
       "currentDominantActor",
-      dominantActor
-        ? titleCase(dominantActor)
+      dominantActor.actor
+        ? titleCase(
+            dominantActor.actor
+          )
         : "—"
     );
 
-    const hotspotCountry =
-      asArray(data.country_cards).find(
-        country =>
-          country.country === hotspot
+    const threatGrid =
+      document.querySelector(
+        ".threat-picture-grid"
       );
 
-    if (hotspotCountry) {
+    if (threatGrid) {
+      let countryCard =
+        document.getElementById(
+          "currentAffectedCountryCard"
+        );
+
+      if (!countryCard) {
+        countryCard =
+          document.createElement(
+            "article"
+          );
+
+        countryCard.id =
+          "currentAffectedCountryCard";
+
+        countryCard.className =
+          "mini-intel-card";
+
+        countryCard.innerHTML = `
+          <span>Most Affected Country</span>
+          <strong id="currentAffectedCountry">—</strong>
+          <small id="currentAffectedCountryMeta">
+            country threat concentration
+          </small>
+        `;
+
+        const hotspotCard =
+          hotspotElement?.closest(
+            ".mini-intel-card"
+          );
+
+        if (
+          hotspotCard &&
+          hotspotCard.nextSibling
+        ) {
+          threatGrid.insertBefore(
+            countryCard,
+            hotspotCard.nextSibling
+          );
+        } else {
+          threatGrid.appendChild(
+            countryCard
+          );
+        }
+      }
+
       setText(
-        "currentHotspotMeta",
-        `${formatNumber(
-          hotspotCountry.event_count
-        )} events · ${String(
-          hotspotCountry.level || "low"
-        ).toUpperCase()}`
+        "currentAffectedCountry",
+        affectedCountry.country || "—"
       );
-    } else {
+
       setText(
-        "currentHotspotMeta",
-        "regional concentration"
+        "currentAffectedCountryMeta",
+        affectedCountry.country
+          ? `${formatNumber(
+              affectedCountry.event_count
+            )} events · ${formatNumber(
+              affectedCountry.score_total
+            )} score`
+          : "no verified country concentration"
       );
     }
   }
