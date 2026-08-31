@@ -2,7 +2,7 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-08-31T05:30:30.406888+00:00",
+  "updated_at": "2026-08-31T11:40:44.043562+00:00",
   "record_count": 31,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
@@ -20046,18 +20046,18 @@
     },
     {
       "date": "2026-08-31",
-      "generated_at": "2026-08-31T05:30:30.406693+00:00",
-      "input_generated_at": "2026-08-31T05:30:30.074727+00:00",
+      "generated_at": "2026-08-31T11:40:44.043387+00:00",
+      "input_generated_at": "2026-08-31T11:40:43.765558+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
-          "event_count": 0,
+          "event_count": 1,
           "incident_count": 0,
           "activity_count": 0,
           "indicator_count": 0,
-          "assessment_count": 0,
+          "assessment_count": 1,
           "score_total": 0,
-          "average_score": 0,
+          "average_score": 0.0,
           "highest_score": 0,
           "overall_level": "low"
         },
@@ -20082,9 +20082,9 @@
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 0,
+            "event_count": 1,
             "score_total": 0,
-            "average_score": 0,
+            "average_score": 0.0,
             "highest_score": 0,
             "level": "low",
             "categories": {}
@@ -20132,21 +20132,44 @@
             "level": "low"
           },
           "assessment": {
-            "event_count": 0,
+            "event_count": 1,
             "score_total": 0,
-            "average_score": 0,
+            "average_score": 0.0,
             "highest_score": 0,
             "level": "low"
           }
         },
         "hotspot": {
-          "location": null,
+          "location": "Lithuania",
           "score": 0,
-          "event_count": 0
+          "event_count": 1
         },
         "key_driver": null,
         "trend": "stable",
-        "top_items": []
+        "top_items": [
+          {
+            "id": null,
+            "title": "Lithuania sees rising risk of Russian hybrid warfare against NATO - Caliber.Az",
+            "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNZFFOY0Y4YXlmN1NyLWlUWXFKb1NOYnVIeVNuNDJSdVJDN0FCWjBuWV9YcTdRcF9fMFVqSExjUE9SV01fTlBjNzREZ0p3c1ZIci1PUVV4MEJ4RXdycDRNVE5OR0NRR3VGQVRlQ0JBME0wOGZUZHJxNWxRNEF1RUdPY3BSY255Z185QkZUTzhzaWQ3M19CaUFZ?oc=5",
+            "published_at": "2026-08-31T09:41:24+00:00",
+            "source_name": null,
+            "primary_country": "Lithuania",
+            "countries": [
+              "Lithuania"
+            ],
+            "categories": [],
+            "actors": [
+              "Russia",
+              "NATO"
+            ],
+            "locations": [],
+            "event_subtype": "assessment",
+            "analytical_layer": "assessment",
+            "confidence": "low",
+            "hybrid_threat_score": 0,
+            "hybrid_threat_level": "low"
+          }
+        ]
       },
       "rolling_threat": {
         "description": "Rolling threat environment ending on this calendar day.",
@@ -20156,13 +20179,13 @@
           "end_date": "2026-08-31"
         },
         "overall": {
-          "event_count": 15,
-          "incident_count": 3,
+          "event_count": 17,
+          "incident_count": 4,
           "activity_count": 0,
           "indicator_count": 9,
-          "assessment_count": 3,
-          "score_total": 173,
-          "average_score": 11.53,
+          "assessment_count": 4,
+          "score_total": 212,
+          "average_score": 12.47,
           "highest_score": 40,
           "overall_level": "low"
         },
@@ -20180,36 +20203,38 @@
           },
           "Latvia": {
             "country": "Latvia",
-            "event_count": 3,
-            "score_total": 26,
-            "average_score": 8.67,
-            "highest_score": 13,
+            "event_count": 5,
+            "score_total": 73,
+            "average_score": 14.6,
+            "highest_score": 38,
             "level": "low",
             "categories": {
-              "sabotage": 1,
-              "border_pressure": 1
+              "border_pressure": 2,
+              "sabotage": 1
             }
           },
           "Lithuania": {
             "country": "Lithuania",
-            "event_count": 2,
-            "score_total": 28,
-            "average_score": 14.0,
-            "highest_score": 15,
+            "event_count": 4,
+            "score_total": 66,
+            "average_score": 16.5,
+            "highest_score": 38,
             "level": "low",
             "categories": {
+              "border_pressure": 1,
               "critical_infrastructure": 1,
               "sabotage": 1
             }
           },
           "Poland": {
             "country": "Poland",
-            "event_count": 6,
-            "score_total": 95,
-            "average_score": 15.83,
-            "highest_score": 26,
+            "event_count": 7,
+            "score_total": 134,
+            "average_score": 19.14,
+            "highest_score": 38,
             "level": "low",
             "categories": {
+              "border_pressure": 1,
               "cyber": 1,
               "drone_incident": 1,
               "sabotage": 1,
@@ -20237,6 +20262,13 @@
             "average_score": 19.25,
             "highest_score": 40
           },
+          "border_pressure": {
+            "category": "border_pressure",
+            "event_count": 2,
+            "score_total": 51,
+            "average_score": 25.5,
+            "highest_score": 38
+          },
           "cyber": {
             "category": "cyber",
             "event_count": 1,
@@ -20258,13 +20290,6 @@
             "average_score": 15.0,
             "highest_score": 15
           },
-          "border_pressure": {
-            "category": "border_pressure",
-            "event_count": 1,
-            "score_total": 13,
-            "average_score": 13.0,
-            "highest_score": 13
-          },
           "disinformation": {
             "category": "disinformation",
             "event_count": 2,
@@ -20283,20 +20308,20 @@
           },
           "early_warning": {
             "event_count": 9,
-            "score_total": 85,
-            "average_score": 9.44,
+            "score_total": 86,
+            "average_score": 9.56,
             "highest_score": 18,
             "level": "low"
           },
           "operational": {
-            "event_count": 3,
-            "score_total": 88,
-            "average_score": 29.33,
+            "event_count": 4,
+            "score_total": 126,
+            "average_score": 31.5,
             "highest_score": 40,
             "level": "guarded"
           },
           "assessment": {
-            "event_count": 3,
+            "event_count": 4,
             "score_total": 0,
             "average_score": 0.0,
             "highest_score": 0,
@@ -20331,6 +20356,32 @@
             "confidence": "low",
             "hybrid_threat_score": 40,
             "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib - facebook.com",
+            "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOSDU3NVVPUGxxeDd3eTFRNVFWejNfLWRQMkhKQmRxbXpwaDBoeDFrYkMzZWM3aGNaZnlpclUwSUlGdF9nVzVmSEhLRzRHVXlmMllpWUx0U0tEUUlwUnc1M0FfWGdxbVUtRW5ockVXd0hJTS15eWxicmNjMjhNcm9UYnVjcmFXbGtWWUJ3clVqaU8tNzZCTzI0dGVvTW1OZnpkeEdONjJEN0RDSmtMWHY4NXJzcnp0T0RDVTlTXzlBdURSZmZMdW54S1JnYlRtUzlqcG5OeE1UTHF5LTVxcmVhVGNn?oc=5",
+            "published_at": "2026-08-25T21:20:07+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia",
+              "Lithuania",
+              "Poland"
+            ],
+            "categories": [
+              "border_pressure"
+            ],
+            "actors": [
+              "Belarus",
+              "EU"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 38,
+            "hybrid_threat_level": "guarded"
           },
           {
             "id": null,
@@ -20482,7 +20533,8 @@
             "source_name": null,
             "primary_country": "Poland",
             "countries": [
-              "Poland"
+              "Poland",
+              "Latvia"
             ],
             "categories": [],
             "actors": [
@@ -20492,7 +20544,7 @@
             "event_subtype": "indicator",
             "analytical_layer": "early_warning",
             "confidence": "medium",
-            "hybrid_threat_score": 8,
+            "hybrid_threat_score": 9,
             "hybrid_threat_level": "low"
           },
           {
@@ -20506,27 +20558,6 @@
               "Poland"
             ],
             "categories": [],
-            "actors": [
-              "Russia"
-            ],
-            "locations": [],
-            "event_subtype": "indicator",
-            "analytical_layer": "early_warning",
-            "confidence": "low",
-            "hybrid_threat_score": 6,
-            "hybrid_threat_level": "low"
-          },
-          {
-            "id": null,
-            "title": "The Telegraph: Russia launches wave of sabotage attacks on weapons factories in Europe - Українська правда",
-            "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE8xUjFwTmpqWVo2eUh0bGE3dUxvTkQ2cW9nTXJFN3h5cHFuZWlUbXEyTXJzZDcybWZoaVM3YUFSRVNlSG50ZDBudjJKSkVzLWdZQVNkakpQODJZNmgxUFM5amNMNVLSAXBBVV95cUxQaVFBM3RRcWUtMzNkS3FPR3djeEhhRXpndFRFdHhWS2dWQVhJbkxLdWJQNDJJZjc2ajdCN3hzOWJ3bm52QzRsTlBSVk9teERGNGJ4Qy1YUkF5MENxWkFFaV9jelBZeGt2dFgwdy15czE1?oc=5",
-            "published_at": "2026-08-23T16:13:00+00:00",
-            "source_name": null,
-            "primary_country": "Regional",
-            "countries": [],
-            "categories": [
-              "sabotage"
-            ],
             "actors": [
               "Russia"
             ],
