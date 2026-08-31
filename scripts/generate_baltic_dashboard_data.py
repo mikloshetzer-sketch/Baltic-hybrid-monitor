@@ -574,6 +574,394 @@ def build_actor_drivers(
     )[:TOP_DRIVER_LIMIT]
 
 
+
+# ---------------------------------------------------------------------
+# CURRENT THREAT PICTURE
+# ---------------------------------------------------------------------
+
+def build_location_hotspot(
+    scored: Dict[str, Any],
+    window_days: int = CURRENT_THREAT_WINDOW_DAYS
+) -> Dict[str, Any]:
+
+    events = scored.get(
+        "events",
+        scored.get(
+            "items",
+            []
+        )
+    )
+
+    current_events = filter_events_by_current_window(
+        events,
+        window_days
+    )
+
+    excluded_locations = {
+        "regional",
+        "estonia",
+        "latvia",
+        "lithuania",
+        "poland"
+    }
+
+    location_stats = {}
+
+    for event in current_events:
+
+        locations = event.get(
+            "locations",
+            []
+        )
+
+        if not isinstance(
+            locations,
+            list
+        ):
+            continue
+
+        score = safe_int(
+            event.get(
+                "hybrid_threat_score",
+                0
+            )
+        )
+
+        seen = set()
+
+        for raw_location in locations:
+
+            if not isinstance(
+                raw_location,
+                str
+            ):
+                continue
+
+            location = (
+                raw_location.strip()
+            )
+
+            if not location:
+                continue
+
+            normalized = (
+                location.casefold()
+            )
+
+            # Country labels belong to the separate
+            # Most Affected Country indicator.
+            if normalized in excluded_locations:
+                continue
+
+            if normalized in seen:
+                continue
+
+            seen.add(
+                normalized
+            )
+
+            entry = location_stats.setdefault(
+                location,
+                {
+                    "location":
+                        location,
+
+                    "event_count":
+                        0,
+
+                    "score_total":
+                        0,
+
+                    "highest_score":
+                        0
+                }
+            )
+
+            entry[
+                "event_count"
+            ] += 1
+
+            entry[
+                "score_total"
+            ] += score
+
+            entry[
+                "highest_score"
+            ] = max(
+                entry[
+                    "highest_score"
+                ],
+                score
+            )
+
+    if not location_stats:
+        return {
+            "location":
+                None,
+
+            "event_count":
+                0,
+
+            "score_total":
+                0,
+
+            "highest_score":
+                0,
+
+            "basis":
+                "explicit_event_locations"
+        }
+
+    hotspot = sorted(
+        location_stats.values(),
+        key=lambda item: (
+            item[
+                "score_total"
+            ],
+            item[
+                "event_count"
+            ],
+            item[
+                "highest_score"
+            ],
+            item[
+                "location"
+            ]
+        ),
+        reverse=True
+    )[0]
+
+    return {
+        **hotspot,
+
+        "basis":
+            "explicit_event_locations"
+    }
+
+
+def build_most_affected_country(
+    scored: Dict[str, Any]
+) -> Dict[str, Any]:
+
+    country_cards = build_country_cards(
+        scored
+    )
+
+    eligible = [
+        card
+        for card in country_cards
+        if str(
+            card.get(
+                "country",
+                ""
+            )
+        ).casefold()
+        not in {
+            "regional"
+        }
+    ]
+
+    if not eligible:
+        return {
+            "country":
+                None,
+
+            "event_count":
+                0,
+
+            "score_total":
+                0,
+
+            "highest_score":
+                0,
+
+            "level":
+                "low",
+
+            "basis":
+                "country_threat_concentration"
+        }
+
+    top_country = sorted(
+        eligible,
+        key=lambda item: (
+            safe_int(
+                item.get(
+                    "score_total",
+                    0
+                )
+            ),
+            safe_int(
+                item.get(
+                    "event_count",
+                    0
+                )
+            ),
+            safe_int(
+                item.get(
+                    "highest_score",
+                    0
+                )
+            )
+        ),
+        reverse=True
+    )[0]
+
+    return {
+        "country":
+            top_country.get(
+                "country"
+            ),
+
+        "event_count":
+            safe_int(
+                top_country.get(
+                    "event_count",
+                    0
+                )
+            ),
+
+        "score_total":
+            safe_int(
+                top_country.get(
+                    "score_total",
+                    0
+                )
+            ),
+
+        "highest_score":
+            safe_int(
+                top_country.get(
+                    "highest_score",
+                    0
+                )
+            ),
+
+        "level":
+            top_country.get(
+                "level",
+                "low"
+            ),
+
+        "basis":
+            "country_threat_concentration"
+    }
+
+
+def build_current_threat_picture(
+    scored: Dict[str, Any]
+) -> Dict[str, Any]:
+
+    category_drivers = (
+        build_category_drivers(
+            scored
+        )
+    )
+
+    actor_drivers = (
+        build_actor_drivers(
+            scored
+        )
+    )
+
+    key_driver = (
+        category_drivers[0]
+        if category_drivers
+        else None
+    )
+
+    dominant_actor = (
+        actor_drivers[0]
+        if actor_drivers
+        else None
+    )
+
+    return {
+        "location_hotspot":
+            build_location_hotspot(
+                scored,
+                CURRENT_THREAT_WINDOW_DAYS
+            ),
+
+        "most_affected_country":
+            build_most_affected_country(
+                scored
+            ),
+
+        "key_driver":
+            {
+                "category":
+                    key_driver.get(
+                        "category"
+                    ),
+
+                "event_count":
+                    safe_int(
+                        key_driver.get(
+                            "event_count",
+                            0
+                        )
+                    ),
+
+                "score_total":
+                    safe_int(
+                        key_driver.get(
+                            "score_total",
+                            0
+                        )
+                    )
+            }
+            if key_driver
+            else None,
+
+        "dominant_actor":
+            {
+                "actor":
+                    dominant_actor.get(
+                        "actor"
+                    ),
+
+                "event_count":
+                    safe_int(
+                        dominant_actor.get(
+                            "event_count",
+                            0
+                        )
+                    ),
+
+                "score_total":
+                    safe_int(
+                        dominant_actor.get(
+                            "score_total",
+                            0
+                        )
+                    )
+            }
+            if dominant_actor
+            else None,
+
+        "semantics": {
+            "location_hotspot":
+                (
+                    "Highest-scoring non-country location from event "
+                    "location fields inside the current 14-day window."
+                ),
+
+            "most_affected_country":
+                (
+                    "Country with the highest aggregate current-window "
+                    "threat score; Regional is excluded."
+                ),
+
+            "separation_rule":
+                (
+                    "Location hotspot and country concentration are "
+                    "separate analytical concepts."
+                )
+        }
+    }
+
+
 # ---------------------------------------------------------------------
 # SUBTYPE CARDS
 # ---------------------------------------------------------------------
@@ -2145,13 +2533,18 @@ def main() -> None:
             ),
 
         "version":
-            "Baltic Dashboard Data v1.5",
+            "Baltic Dashboard Data v1.6",
 
         "score_engine_version":
             scorer_engine_version,
 
         "summary":
             normalize_summary(
+                scored
+            ),
+
+        "current_threat_picture":
+            build_current_threat_picture(
                 scored
             ),
 
