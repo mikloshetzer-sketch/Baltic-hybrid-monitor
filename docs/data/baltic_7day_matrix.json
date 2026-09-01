@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-08-31T11:40:43.983565+00:00",
+  "generated_at": "2026-09-01T10:13:36.758140+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-08-31T11:40:43.928676+00:00",
+  "source_history_generated_at": "2026-09-01T10:13:36.685607+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-08-25",
-    "end_date": "2026-08-31",
+    "start_date": "2026-08-26",
+    "end_date": "2026-09-01",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -33,26 +33,27 @@
   ],
   "seven_day_summary": {
     "totals": {
-      "event_count": 10,
-      "incident_count": 1,
+      "event_count": 13,
+      "incident_count": 3,
       "activity_count": 0,
-      "indicator_count": 4,
+      "indicator_count": 5,
       "assessment_count": 5
     },
     "indices": {
-      "average_operational_index_observed_days": 6.33,
-      "average_early_warning_index_observed_days": 3.0,
-      "average_threat_index_observed_days": 7.27,
+      "average_operational_index_observed_days": 5.11,
+      "average_early_warning_index_observed_days": 3.33,
+      "average_threat_index_observed_days": 6.36,
       "average_threat_level_observed_days": "low",
-      "highest_daily_threat_index": 31.6
+      "highest_daily_threat_index": 26.14
     },
     "peak_day": {
-      "date": "2026-08-25",
-      "threat_index": 31.6,
+      "date": "2026-09-01",
+      "threat_index": 26.14,
       "overall_level": "guarded",
-      "event_count": 2
+      "event_count": 5
     },
     "country_totals": {
+      "Estonia": 0.0,
       "Latvia": 0.0,
       "Lithuania": 0.0,
       "Poland": 0.0,
@@ -60,16 +61,168 @@
     },
     "category_totals": {
       "border_pressure": 0.0,
+      "cyber": 0.0,
+      "drone_incident": 0.0,
+      "military_provocation": 0.0,
       "sabotage": 0.0
     },
     "actor_totals": {
       "Belarus": 0.0,
-      "EU": 0.0,
       "NATO": 0.0,
       "Russia": 0.0
     }
   },
   "top_events": [
+    {
+      "event_id": "f0f7a29bfa1f4e55",
+      "title": "Lithuania warns citizens against travel to Belarus after Lithuanian tour organiser jailed",
+      "url": "https://www.lrt.lt/en/news-in-english/19/3039079/lithuania-warns-citizens-against-travel-to-belarus-after-lithuanian-tour-organiser-jailed",
+      "published_at": "2026-09-01T06:54:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [],
+      "actors": [
+        "Belarus"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 5,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "LRT English Lithuania"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-01"
+    },
+    {
+      "event_id": "cf4a8eaa5f1385e0",
+      "title": "Drone crossed Estonia's border in southeast, says air force commander",
+      "url": "https://news.err.ee/1610124799/drone-crossed-estonia-s-border-in-southeast-says-air-force-commander",
+      "published_at": "2026-09-01T04:45:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [
+        "Narva"
+      ],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 33,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-01"
+    },
+    {
+      "event_id": "b4506045d398e2f2",
+      "title": "Poland launches sabotage probe in drone factory fire - DW.com",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPVDFnakJranl3NFhqVl8zeHNINWpsczZDUTFCWkxnNWxTcjlROXBpSE5lSVgzU3BsV0wzM0hKRTdlQzljUi1iWFUzTmlWanlRRzd5ZGU2NXZxMmFiSkpESjNfYU5KcWVHZjBhWWhoWDRnY3VqV1pmQ25pT1poSl9KNi1ZR052YzJDNXZObGZR0gGOAUFVX3lxTE1IaFpaRGk0OHFOVkhiQWVjSDktQUs3ekoxc2pGS25FZjdrNHRocDZFN0xZMUs5VEJid2NLTlpPRlZIUi15a1NrTnVSWWh5cGVuWFlaX3F0d19DQ29ueHo0bjgxSjBFZFhlamd4dzl0djcxVEVFYUVaRzhnUlBtdEJYbEJWdTFUMVVOWWt2NEE?oc=5",
+      "published_at": "2026-09-01T04:40:15+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "medium",
+      "confidence_score": 51,
+      "hybrid_threat_score": 11,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia",
+        "Polish Radio English"
+      ],
+      "related_item_count": 2,
+      "matrix_snapshot_date": "2026-09-01"
+    },
+    {
+      "event_id": "9cc8286d78c18fc3",
+      "title": "Some seek compensation following CSDD cyber attack in Latvia",
+      "url": "https://eng.lsm.lv/article/society/society/01.09.2026-some-seek-compensation-following-csdd-cyber-attack-in-latvia.a661168/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-09-01T04:32:11+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 32,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "LSM English Latvia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-01"
+    },
+    {
+      "event_id": "cc7a28dfdc870cad",
+      "title": "EDF: Drone threat warning lifted across Estonia",
+      "url": "https://news.err.ee/1610124754/edf-drone-threat-warning-lifted-across-estonia",
+      "published_at": "2026-09-01T02:46:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "military_provocation"
+      ],
+      "actors": [
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 27,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-01"
+    },
     {
       "event_id": "f6f9819173e37d6a",
       "title": "Lithuania sees rising risk of Russian hybrid warfare against NATO - Caliber.Az",
@@ -192,327 +345,9 @@
       "source_count": 1,
       "cluster_size": 1,
       "matrix_snapshot_date": "2026-08-27"
-    },
-    {
-      "event_id": "6bd5c34b7b32c2a4",
-      "title": "Ukraine Warns Russia Is Weighing Hybrid Strikes Against Baltic States - Межа. Новини України.",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5LUW0zemZzUDltNEdDajN1MnZmR19UVTdIcW5lb295NktHV0wxTjdGclNkRXpHY2pwNzJNZ3lxeWJCdHJxeGZpcXJjeDJyd1djY2FsbjZPWXQzT0h2Ty1wbUswRjZlVEpCUmc?oc=5",
-      "published_at": "2026-08-27T09:02:31+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland",
-        "Latvia"
-      ],
-      "locations": [],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "event_scope": null,
-      "event_subtype": "indicator",
-      "hybrid_threat_score": 10,
-      "confidence_score": 64,
-      "source_count": 3,
-      "cluster_size": 1,
-      "matrix_snapshot_date": "2026-08-27"
-    },
-    {
-      "event_id": "5cbb55182b3aad8d",
-      "title": "Lithuanian officials say CIA chiefâs Moscow visit useful, see no increased threat",
-      "url": "https://www.lrt.lt/en/news-in-english/19/3034136/lithuanian-officials-say-cia-chief-s-moscow-visit-useful-see-no-increased-threat",
-      "published_at": "2026-08-27T07:58:00+00:00",
-      "primary_country": "Lithuania",
-      "countries": [
-        "Lithuania"
-      ],
-      "locations": [],
-      "categories": [],
-      "actors": [],
-      "event_scope": null,
-      "event_subtype": "assessment",
-      "hybrid_threat_score": 0,
-      "confidence_score": 38,
-      "source_count": 1,
-      "cluster_size": 1,
-      "matrix_snapshot_date": "2026-08-27"
-    },
-    {
-      "event_id": "b0b147e0ae01e8c5",
-      "title": "Russia’s hybrid warfare in the Baltics | DW News - Modern Ghana",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9oUW9ObVZ3cllUaFgySDB4SUNKYTdkZ3d0Uk9tckR6SHVZaUx6QWdhcU1WQXZVcnZUMWczZDJUWWd4R0Rsc1doRlhfNzVUVHRFeFVxSHZuRmh6eG5vSnc?oc=5",
-      "published_at": "2026-08-26T14:57:14+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "locations": [],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "event_scope": null,
-      "event_subtype": "assessment",
-      "hybrid_threat_score": 0,
-      "confidence_score": 38,
-      "source_count": 1,
-      "cluster_size": 1,
-      "matrix_snapshot_date": "2026-08-26"
-    },
-    {
-      "event_id": "f2f509f568c21e77",
-      "title": "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib - facebook.com",
-      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOSDU3NVVPUGxxeDd3eTFRNVFWejNfLWRQMkhKQmRxbXpwaDBoeDFrYkMzZWM3aGNaZnlpclUwSUlGdF9nVzVmSEhLRzRHVXlmMllpWUx0U0tEUUlwUnc1M0FfWGdxbVUtRW5ockVXd0hJTS15eWxicmNjMjhNcm9UYnVjcmFXbGtWWUJ3clVqaU8tNzZCTzI0dGVvTW1OZnpkeEdONjJEN0RDSmtMWHY4NXJzcnp0T0RDVTlTXzlBdURSZmZMdW54S1JnYlRtUzlqcG5OeE1UTHF5LTVxcmVhVGNn?oc=5",
-      "published_at": "2026-08-25T21:20:07+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia",
-        "Lithuania",
-        "Poland"
-      ],
-      "locations": [],
-      "categories": [
-        "border_pressure"
-      ],
-      "actors": [
-        "Belarus",
-        "EU"
-      ],
-      "event_scope": null,
-      "event_subtype": "incident",
-      "hybrid_threat_score": 38,
-      "confidence_score": 38,
-      "source_count": 1,
-      "cluster_size": 1,
-      "matrix_snapshot_date": "2026-08-25"
-    },
-    {
-      "event_id": "73e1fe702b5b4bd4",
-      "title": "Russia Has Launched New Wave Of Sabotage At Weapons Factories Across Europe - uatv.ua",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOeUladUdrbFF0VE9mdzBqTlFJVjZNSTdYM1QzQnBGX19kcDFvelFIbk1FcmNIbXlPMEx3OUJOeGlMeEJmS1U1WWNzMjkzcl8wMjRVb19zOEp1X2UyeDF2WDB5SjFRN1Via3dKZHJNUW5xdlVja2llaG5BcldMYkozV1Z1UTlVcXQxbmNqTURGWU52Zk9iM2ltUkhFQQ?oc=5",
-      "published_at": "2026-08-25T12:38:00+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "locations": [],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "event_scope": null,
-      "event_subtype": "indicator",
-      "hybrid_threat_score": 6,
-      "confidence_score": 38,
-      "source_count": 1,
-      "cluster_size": 1,
-      "matrix_snapshot_date": "2026-08-25"
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-08-25",
-      "status": "available",
-      "snapshot_generated_at": "2026-08-29T19:48:40.046798+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 2,
-      "incident_count": 1,
-      "activity_count": 0,
-      "indicator_count": 1,
-      "assessment_count": 0,
-      "score_total": 44.0,
-      "average_score": 22.0,
-      "highest_score": 38.0,
-      "operational_index": 38.0,
-      "early_warning_index": 6.0,
-      "threat_index": 31.6,
-      "overall_level": "guarded",
-      "country_summary": {
-        "Latvia": {
-          "event_count": 1,
-          "score_total": 38,
-          "average_score": 38.0,
-          "highest_score": 38
-        },
-        "Regional": {
-          "event_count": 1,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6
-        }
-      },
-      "category_summary": {
-        "border_pressure": {
-          "event_count": 1,
-          "score_total": 38,
-          "average_score": 38.0,
-          "highest_score": 38
-        },
-        "sabotage": {
-          "event_count": 1,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6
-        }
-      },
-      "actor_summary": {
-        "Belarus": {
-          "event_count": 1,
-          "score_total": 38,
-          "average_score": 38.0,
-          "highest_score": 38
-        },
-        "EU": {
-          "event_count": 1,
-          "score_total": 38,
-          "average_score": 38.0,
-          "highest_score": 38
-        },
-        "Russia": {
-          "event_count": 1,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6
-        }
-      },
-      "subtype_summary": {
-        "incident": {
-          "event_count": 1,
-          "score_total": 38,
-          "average_score": 38.0,
-          "highest_score": 38
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 1,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6
-        },
-        "assessment": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {
-        "unknown": {
-          "event_count": 2,
-          "score_total": 44,
-          "average_score": 22.0,
-          "highest_score": 38
-        }
-      },
-      "hotspot": {
-        "location": null,
-        "score": 0,
-        "event_count": 0
-      },
-      "key_driver": "border_pressure",
-      "dominant_actor": "EU",
-      "top_events": [
-        {
-          "event_id": "f2f509f568c21e77",
-          "title": "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib - facebook.com",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOSDU3NVVPUGxxeDd3eTFRNVFWejNfLWRQMkhKQmRxbXpwaDBoeDFrYkMzZWM3aGNaZnlpclUwSUlGdF9nVzVmSEhLRzRHVXlmMllpWUx0U0tEUUlwUnc1M0FfWGdxbVUtRW5ockVXd0hJTS15eWxicmNjMjhNcm9UYnVjcmFXbGtWWUJ3clVqaU8tNzZCTzI0dGVvTW1OZnpkeEdONjJEN0RDSmtMWHY4NXJzcnp0T0RDVTlTXzlBdURSZmZMdW54S1JnYlRtUzlqcG5OeE1UTHF5LTVxcmVhVGNn?oc=5",
-          "published_at": "2026-08-25T21:20:07+00:00",
-          "primary_country": "Latvia",
-          "countries": [
-            "Latvia",
-            "Lithuania",
-            "Poland"
-          ],
-          "locations": [],
-          "categories": [
-            "border_pressure"
-          ],
-          "actors": [
-            "Belarus",
-            "EU"
-          ],
-          "event_scope": null,
-          "event_subtype": "incident",
-          "hybrid_threat_score": 38,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "73e1fe702b5b4bd4",
-          "title": "Russia Has Launched New Wave Of Sabotage At Weapons Factories Across Europe - uatv.ua",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOeUladUdrbFF0VE9mdzBqTlFJVjZNSTdYM1QzQnBGX19kcDFvelFIbk1FcmNIbXlPMEx3OUJOeGlMeEJmS1U1WWNzMjkzcl8wMjRVb19zOEp1X2UyeDF2WDB5SjFRN1Via3dKZHJNUW5xdlVja2llaG5BcldMYkozV1Z1UTlVcXQxbmNqTURGWU52Zk9iM2ltUkhFQQ?oc=5",
-          "published_at": "2026-08-25T12:38:00+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "locations": [],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "event_scope": null,
-          "event_subtype": "indicator",
-          "hybrid_threat_score": 6,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        }
-      ],
-      "events": [
-        {
-          "event_id": "f2f509f568c21e77",
-          "title": "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib - facebook.com",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOSDU3NVVPUGxxeDd3eTFRNVFWejNfLWRQMkhKQmRxbXpwaDBoeDFrYkMzZWM3aGNaZnlpclUwSUlGdF9nVzVmSEhLRzRHVXlmMllpWUx0U0tEUUlwUnc1M0FfWGdxbVUtRW5ockVXd0hJTS15eWxicmNjMjhNcm9UYnVjcmFXbGtWWUJ3clVqaU8tNzZCTzI0dGVvTW1OZnpkeEdONjJEN0RDSmtMWHY4NXJzcnp0T0RDVTlTXzlBdURSZmZMdW54S1JnYlRtUzlqcG5OeE1UTHF5LTVxcmVhVGNn?oc=5",
-          "published_at": "2026-08-25T21:20:07+00:00",
-          "primary_country": "Latvia",
-          "countries": [
-            "Latvia",
-            "Lithuania",
-            "Poland"
-          ],
-          "locations": [],
-          "categories": [
-            "border_pressure"
-          ],
-          "actors": [
-            "Belarus",
-            "EU"
-          ],
-          "event_scope": null,
-          "event_subtype": "incident",
-          "hybrid_threat_score": 38,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "73e1fe702b5b4bd4",
-          "title": "Russia Has Launched New Wave Of Sabotage At Weapons Factories Across Europe - uatv.ua",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOeUladUdrbFF0VE9mdzBqTlFJVjZNSTdYM1QzQnBGX19kcDFvelFIbk1FcmNIbXlPMEx3OUJOeGlMeEJmS1U1WWNzMjkzcl8wMjRVb19zOEp1X2UyeDF2WDB5SjFRN1Via3dKZHJNUW5xdlVja2llaG5BcldMYkozV1Z1UTlVcXQxbmNqTURGWU52Zk9iM2ltUkhFQQ?oc=5",
-          "published_at": "2026-08-25T12:38:00+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "locations": [],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "event_scope": null,
-          "event_subtype": "indicator",
-          "hybrid_threat_score": 6,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        }
-      ]
-    },
     {
       "date": "2026-08-26",
       "status": "available",
@@ -1309,6 +1144,481 @@
           "hybrid_threat_level": "low",
           "source_names": [
             "Google News - NATO Baltic hybrid threat"
+          ],
+          "related_item_count": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-09-01",
+      "status": "available",
+      "snapshot_generated_at": "2026-09-01T10:13:36.419500+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 5,
+      "incident_count": 3,
+      "activity_count": 0,
+      "indicator_count": 2,
+      "assessment_count": 0,
+      "score_total": 108.0,
+      "average_score": 21.6,
+      "highest_score": 33.0,
+      "operational_index": 30.67,
+      "early_warning_index": 8.0,
+      "threat_index": 26.14,
+      "overall_level": "guarded",
+      "country_summary": {
+        "Estonia": {
+          "country": "Estonia",
+          "event_count": 2,
+          "incident_count": 2,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 0,
+          "score_total": 60,
+          "average_score": 30.0,
+          "highest_score": 33,
+          "operational_index": 30.0,
+          "early_warning_index": 0.0,
+          "threat_index": 24.0,
+          "overall_level": "guarded",
+          "categories": {
+            "drone_incident": 1,
+            "military_provocation": 1
+          },
+          "actors": {
+            "NATO": 1
+          }
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "event_count": 1,
+          "incident_count": 1,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 0,
+          "score_total": 32,
+          "average_score": 32.0,
+          "highest_score": 32,
+          "operational_index": 32.0,
+          "early_warning_index": 0.0,
+          "threat_index": 25.6,
+          "overall_level": "guarded",
+          "categories": {
+            "cyber": 1
+          },
+          "actors": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 5,
+          "average_score": 5.0,
+          "highest_score": 5,
+          "operational_index": 0.0,
+          "early_warning_index": 5.0,
+          "threat_index": 5.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Belarus": 1
+          }
+        },
+        "Poland": {
+          "country": "Poland",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 11,
+          "average_score": 11.0,
+          "highest_score": 11,
+          "operational_index": 0.0,
+          "early_warning_index": 11.0,
+          "threat_index": 11.0,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {}
+        }
+      },
+      "category_summary": {
+        "drone_incident": {
+          "event_count": 1,
+          "score_total": 33,
+          "average_score": 33.0,
+          "highest_score": 33
+        },
+        "cyber": {
+          "event_count": 1,
+          "score_total": 32,
+          "average_score": 32.0,
+          "highest_score": 32
+        },
+        "military_provocation": {
+          "event_count": 1,
+          "score_total": 27,
+          "average_score": 27.0,
+          "highest_score": 27
+        },
+        "sabotage": {
+          "event_count": 1,
+          "score_total": 11,
+          "average_score": 11.0,
+          "highest_score": 11
+        }
+      },
+      "actor_summary": {
+        "NATO": {
+          "event_count": 1,
+          "score_total": 27,
+          "average_score": 27.0,
+          "highest_score": 27
+        },
+        "Belarus": {
+          "event_count": 1,
+          "score_total": 5,
+          "average_score": 5.0,
+          "highest_score": 5
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 3,
+          "score_total": 92,
+          "average_score": 30.67,
+          "highest_score": 33
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 2,
+          "score_total": 16,
+          "average_score": 8.0,
+          "highest_score": 11
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 5,
+          "score_total": 108,
+          "average_score": 21.6,
+          "highest_score": 33
+        }
+      },
+      "hotspot": {
+        "location": "Narva",
+        "score": 33,
+        "event_count": 1
+      },
+      "key_driver": "drone_incident",
+      "dominant_actor": "NATO",
+      "top_events": [
+        {
+          "event_id": "cf4a8eaa5f1385e0",
+          "title": "Drone crossed Estonia's border in southeast, says air force commander",
+          "url": "https://news.err.ee/1610124799/drone-crossed-estonia-s-border-in-southeast-says-air-force-commander",
+          "published_at": "2026-09-01T04:45:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [
+            "Narva"
+          ],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 33,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "9cc8286d78c18fc3",
+          "title": "Some seek compensation following CSDD cyber attack in Latvia",
+          "url": "https://eng.lsm.lv/article/society/society/01.09.2026-some-seek-compensation-following-csdd-cyber-attack-in-latvia.a661168/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+          "published_at": "2026-09-01T04:32:11+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "cyber"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 32,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "LSM English Latvia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "cc7a28dfdc870cad",
+          "title": "EDF: Drone threat warning lifted across Estonia",
+          "url": "https://news.err.ee/1610124754/edf-drone-threat-warning-lifted-across-estonia",
+          "published_at": "2026-09-01T02:46:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "military_provocation"
+          ],
+          "actors": [
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 27,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "b4506045d398e2f2",
+          "title": "Poland launches sabotage probe in drone factory fire - DW.com",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPVDFnakJranl3NFhqVl8zeHNINWpsczZDUTFCWkxnNWxTcjlROXBpSE5lSVgzU3BsV0wzM0hKRTdlQzljUi1iWFUzTmlWanlRRzd5ZGU2NXZxMmFiSkpESjNfYU5KcWVHZjBhWWhoWDRnY3VqV1pmQ25pT1poSl9KNi1ZR052YzJDNXZObGZR0gGOAUFVX3lxTE1IaFpaRGk0OHFOVkhiQWVjSDktQUs3ekoxc2pGS25FZjdrNHRocDZFN0xZMUs5VEJid2NLTlpPRlZIUi15a1NrTnVSWWh5cGVuWFlaX3F0d19DQ29ueHo0bjgxSjBFZFhlamd4dzl0djcxVEVFYUVaRzhnUlBtdEJYbEJWdTFUMVVOWWt2NEE?oc=5",
+          "published_at": "2026-09-01T04:40:15+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "medium",
+          "confidence_score": 51,
+          "hybrid_threat_score": 11,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia",
+            "Polish Radio English"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "f0f7a29bfa1f4e55",
+          "title": "Lithuania warns citizens against travel to Belarus after Lithuanian tour organiser jailed",
+          "url": "https://www.lrt.lt/en/news-in-english/19/3039079/lithuania-warns-citizens-against-travel-to-belarus-after-lithuanian-tour-organiser-jailed",
+          "published_at": "2026-09-01T06:54:00+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [],
+          "actors": [
+            "Belarus"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 5,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "LRT English Lithuania"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "f0f7a29bfa1f4e55",
+          "title": "Lithuania warns citizens against travel to Belarus after Lithuanian tour organiser jailed",
+          "url": "https://www.lrt.lt/en/news-in-english/19/3039079/lithuania-warns-citizens-against-travel-to-belarus-after-lithuanian-tour-organiser-jailed",
+          "published_at": "2026-09-01T06:54:00+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [],
+          "actors": [
+            "Belarus"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 5,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "LRT English Lithuania"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "cf4a8eaa5f1385e0",
+          "title": "Drone crossed Estonia's border in southeast, says air force commander",
+          "url": "https://news.err.ee/1610124799/drone-crossed-estonia-s-border-in-southeast-says-air-force-commander",
+          "published_at": "2026-09-01T04:45:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [
+            "Narva"
+          ],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 33,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "b4506045d398e2f2",
+          "title": "Poland launches sabotage probe in drone factory fire - DW.com",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPVDFnakJranl3NFhqVl8zeHNINWpsczZDUTFCWkxnNWxTcjlROXBpSE5lSVgzU3BsV0wzM0hKRTdlQzljUi1iWFUzTmlWanlRRzd5ZGU2NXZxMmFiSkpESjNfYU5KcWVHZjBhWWhoWDRnY3VqV1pmQ25pT1poSl9KNi1ZR052YzJDNXZObGZR0gGOAUFVX3lxTE1IaFpaRGk0OHFOVkhiQWVjSDktQUs3ekoxc2pGS25FZjdrNHRocDZFN0xZMUs5VEJid2NLTlpPRlZIUi15a1NrTnVSWWh5cGVuWFlaX3F0d19DQ29ueHo0bjgxSjBFZFhlamd4dzl0djcxVEVFYUVaRzhnUlBtdEJYbEJWdTFUMVVOWWt2NEE?oc=5",
+          "published_at": "2026-09-01T04:40:15+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "medium",
+          "confidence_score": 51,
+          "hybrid_threat_score": 11,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia",
+            "Polish Radio English"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "9cc8286d78c18fc3",
+          "title": "Some seek compensation following CSDD cyber attack in Latvia",
+          "url": "https://eng.lsm.lv/article/society/society/01.09.2026-some-seek-compensation-following-csdd-cyber-attack-in-latvia.a661168/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+          "published_at": "2026-09-01T04:32:11+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "cyber"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 32,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "LSM English Latvia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "cc7a28dfdc870cad",
+          "title": "EDF: Drone threat warning lifted across Estonia",
+          "url": "https://news.err.ee/1610124754/edf-drone-threat-warning-lifted-across-estonia",
+          "published_at": "2026-09-01T02:46:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "military_provocation"
+          ],
+          "actors": [
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 27,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "ERR News Estonia"
           ],
           "related_item_count": 1
         }
