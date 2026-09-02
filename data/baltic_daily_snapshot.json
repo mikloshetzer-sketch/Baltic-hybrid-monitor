@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-02T09:43:25.902623+00:00",
+  "generated_at": "2026-09-02T19:30:22.677418+00:00",
   "snapshot_date": "2026-09-02",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-09-02T09:43:25.767389+00:00",
+  "source_generated_at": "2026-09-02T19:30:22.538795+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,17 +17,17 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 1,
-    "incident_count": 0,
-    "activity_count": 1,
-    "indicator_count": 0,
+    "event_count": 2,
+    "incident_count": 1,
+    "activity_count": 0,
+    "indicator_count": 1,
     "assessment_count": 0,
     "score_total": 23,
-    "average_score": 23.0,
-    "highest_score": 23,
-    "operational_index": 23.0,
-    "early_warning_index": 0.0,
-    "threat_index": 18.4,
+    "average_score": 11.5,
+    "highest_score": 15,
+    "operational_index": 15.0,
+    "early_warning_index": 8.0,
+    "threat_index": 13.6,
     "overall_level": "low"
   },
   "country_summary": {
@@ -35,58 +35,84 @@
       "country": "Latvia",
       "event_count": 1,
       "incident_count": 0,
-      "activity_count": 1,
-      "indicator_count": 0,
+      "activity_count": 0,
+      "indicator_count": 1,
       "assessment_count": 0,
-      "score_total": 23,
-      "average_score": 23.0,
-      "highest_score": 23,
-      "operational_index": 23.0,
-      "early_warning_index": 0.0,
-      "threat_index": 18.4,
+      "score_total": 8,
+      "average_score": 8.0,
+      "highest_score": 8,
+      "operational_index": 0.0,
+      "early_warning_index": 8.0,
+      "threat_index": 8.0,
       "overall_level": "low",
       "categories": {
-        "sabotage": 1
+        "disinformation": 1
       },
+      "actors": {
+        "Russia": 1,
+        "EU": 1
+      }
+    },
+    "Poland": {
+      "country": "Poland",
+      "event_count": 1,
+      "incident_count": 1,
+      "activity_count": 0,
+      "indicator_count": 0,
+      "assessment_count": 0,
+      "score_total": 15,
+      "average_score": 15.0,
+      "highest_score": 15,
+      "operational_index": 15.0,
+      "early_warning_index": 0.0,
+      "threat_index": 12.0,
+      "overall_level": "low",
+      "categories": {},
       "actors": {
         "Russia": 1
       }
     }
   },
   "category_summary": {
-    "sabotage": {
+    "disinformation": {
       "event_count": 1,
-      "score_total": 23,
-      "average_score": 23.0,
-      "highest_score": 23
+      "score_total": 8,
+      "average_score": 8.0,
+      "highest_score": 8
     }
   },
   "actor_summary": {
     "Russia": {
-      "event_count": 1,
+      "event_count": 2,
       "score_total": 23,
-      "average_score": 23.0,
-      "highest_score": 23
+      "average_score": 11.5,
+      "highest_score": 15
+    },
+    "EU": {
+      "event_count": 1,
+      "score_total": 8,
+      "average_score": 8.0,
+      "highest_score": 8
     }
   },
   "subtype_summary": {
     "incident": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 1,
+      "score_total": 15,
+      "average_score": 15.0,
+      "highest_score": 15
     },
     "activity": {
-      "event_count": 1,
-      "score_total": 23,
-      "average_score": 23.0,
-      "highest_score": 23
-    },
-    "indicator": {
       "event_count": 0,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
+    },
+    "indicator": {
+      "event_count": 1,
+      "score_total": 8,
+      "average_score": 8.0,
+      "highest_score": 8
     },
     "assessment": {
       "event_count": 0,
@@ -97,79 +123,137 @@
   },
   "scope_summary": {
     "direct": {
-      "event_count": 1,
+      "event_count": 2,
       "score_total": 23,
-      "average_score": 23.0,
-      "highest_score": 23
+      "average_score": 11.5,
+      "highest_score": 15
     }
   },
   "hotspot": {
-    "location": "Latvia",
-    "score": 23,
+    "location": "Poland",
+    "score": 15,
     "event_count": 1
   },
-  "key_driver": "sabotage",
+  "key_driver": "disinformation",
   "dominant_actor": "Russia",
   "top_events": [
     {
-      "event_id": "86a6dc1832dba371",
-      "title": "Russian mobilisation and sabotage – NAF commander explains what Latvia is preparing for - bnn-news.com",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPYnVJSC1DNUdRdE95b05sd3EzdEVSX0d1ZmQ5ay1XcUd4eF8xNEVIZmVEbzR2bG42b0otS2VoVzQzMTZzSEp1UGExM05PQk1hU0JMQWkxajcyVDl5ZGlDNkRPYURvdjNETi1FbjJuOHNXbnZBRWtSd2RyeXZ3M1V3aWVoa3pqU1RtRFVmdXF4dWNtUHprTWM4T1cxS29aLUt6NF9XdGJnSmFhWnlTeVRaWFBBZw?oc=5",
-      "published_at": "2026-09-02T06:09:57+00:00",
-      "primary_country": "Latvia",
+      "event_id": "c5bfe9343c96a46a",
+      "title": "Russia’s ‘hybrid war’ is assassination squads, blowing up trains, arson, says Poland - The Irish Times",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQbDZpdkVFcDBzNFVWNjJTOUNoZ0xjSHlWd3hyVVdsQm5ISERqQ0JzNFFhd2t0WjM4M25DZFEwbkNtUmtyQVBxTXRObm9tamxXNzgzdGJSYy1naG9BWnktSkktQzRScVRBbk11czhqMkQyRkx6QWp6UTRsSlNzTDFkMVFXc054dXhuN09xT0Z5bVNPVmNUdXpQY2N0SzhXN2J3dzBwdERacVpxU2dOSzVsLVhwRUE4XzlfalBsd2Jpd3RncnpFbjRqODFR?oc=5",
+      "published_at": "2026-09-02T11:40:02+00:00",
+      "primary_country": "Poland",
       "countries": [
-        "Latvia"
+        "Poland"
       ],
-      "categories": [
-        "sabotage"
-      ],
+      "categories": [],
       "actors": [
         "Russia"
       ],
       "locations": [],
       "event_type": "operational",
-      "event_subtype": "activity",
+      "event_subtype": "incident",
       "analysis_layer": null,
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 23,
-      "hybrid_threat_level": "guarded",
+      "hybrid_threat_score": 15,
+      "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic sabotage Russia"
+        "Google News - Baltic Russia hybrid threat"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "d2ad1b2fbe937a99",
+      "title": "Pro-Russia author released from detention in Latvia",
+      "url": "https://eng.lsm.lv/article/society/crime/02.09.2026-pro-russia-author-released-from-detention-in-latvia.a661456/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-09-02T13:05:58+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "disinformation"
+      ],
+      "actors": [
+        "Russia",
+        "EU"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "LSM English Latvia"
       ],
       "related_item_count": 1
     }
   ],
   "events": [
     {
-      "event_id": "86a6dc1832dba371",
-      "title": "Russian mobilisation and sabotage – NAF commander explains what Latvia is preparing for - bnn-news.com",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPYnVJSC1DNUdRdE95b05sd3EzdEVSX0d1ZmQ5ay1XcUd4eF8xNEVIZmVEbzR2bG42b0otS2VoVzQzMTZzSEp1UGExM05PQk1hU0JMQWkxajcyVDl5ZGlDNkRPYURvdjNETi1FbjJuOHNXbnZBRWtSd2RyeXZ3M1V3aWVoa3pqU1RtRFVmdXF4dWNtUHprTWM4T1cxS29aLUt6NF9XdGJnSmFhWnlTeVRaWFBBZw?oc=5",
-      "published_at": "2026-09-02T06:09:57+00:00",
+      "event_id": "d2ad1b2fbe937a99",
+      "title": "Pro-Russia author released from detention in Latvia",
+      "url": "https://eng.lsm.lv/article/society/crime/02.09.2026-pro-russia-author-released-from-detention-in-latvia.a661456/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-09-02T13:05:58+00:00",
       "primary_country": "Latvia",
       "countries": [
         "Latvia"
       ],
       "categories": [
-        "sabotage"
+        "disinformation"
       ],
       "actors": [
-        "Russia"
+        "Russia",
+        "EU"
       ],
       "locations": [],
-      "event_type": "operational",
-      "event_subtype": "activity",
+      "event_type": "warning",
+      "event_subtype": "indicator",
       "analysis_layer": null,
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 23,
-      "hybrid_threat_level": "guarded",
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic sabotage Russia"
+        "LSM English Latvia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "c5bfe9343c96a46a",
+      "title": "Russia’s ‘hybrid war’ is assassination squads, blowing up trains, arson, says Poland - The Irish Times",
+      "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQbDZpdkVFcDBzNFVWNjJTOUNoZ0xjSHlWd3hyVVdsQm5ISERqQ0JzNFFhd2t0WjM4M25DZFEwbkNtUmtyQVBxTXRObm9tamxXNzgzdGJSYy1naG9BWnktSkktQzRScVRBbk11czhqMkQyRkx6QWp6UTRsSlNzTDFkMVFXc054dXhuN09xT0Z5bVNPVmNUdXpQY2N0SzhXN2J3dzBwdERacVpxU2dOSzVsLVhwRUE4XzlfalBsd2Jpd3RncnpFbjRqODFR?oc=5",
+      "published_at": "2026-09-02T11:40:02+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 15,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic Russia hybrid threat"
       ],
       "related_item_count": 1
     }
