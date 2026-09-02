@@ -2,23 +2,23 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Intelligence Matrix History",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-01T10:13:36.685607+00:00",
+  "generated_at": "2026-09-02T09:43:25.969865+00:00",
   "history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "record_count": 23,
+  "record_count": 24,
   "first_snapshot_date": "2026-08-01",
-  "last_snapshot_date": "2026-09-01",
+  "last_snapshot_date": "2026-09-02",
   "last_update": {
     "mode": "daily_snapshot",
     "action": "inserted",
-    "updated_at": "2026-09-01T10:13:36.685607+00:00",
+    "updated_at": "2026-09-02T09:43:25.969865+00:00",
     "processed_records": 1,
     "inserted_count": 1,
     "replaced_count": 0,
     "inserted_dates": [
-      "2026-09-01"
+      "2026-09-02"
     ],
     "replaced_dates": [],
-    "source_snapshot_generated_at": "2026-09-01T10:13:36.419500+00:00",
+    "source_snapshot_generated_at": "2026-09-02T09:43:25.902623+00:00",
     "source_snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
     "source_score_engine_version": "threat_score_v3_2_current_historical_split"
   },
@@ -4958,6 +4958,183 @@
           "hybrid_threat_level": "guarded",
           "source_names": [
             "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        }
+      ]
+    },
+    {
+      "project": "baltic-hybrid-monitor",
+      "title": "Baltic Hybrid Threat Daily Snapshot",
+      "region": "Baltic states and Poland",
+      "generated_at": "2026-09-02T09:43:25.902623+00:00",
+      "snapshot_date": "2026-09-02",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "source_generated_at": "2026-09-02T09:43:25.767389+00:00",
+      "method": {
+        "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
+        "time_basis": "UTC calendar day",
+        "rolling_window_used": false,
+        "rolling_window_days": 0,
+        "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used.",
+        "assessment_handling": "Assessment events remain visible in counts and event lists but do not contribute to operational or early-warning indices.",
+        "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
+      },
+      "overall_summary": {
+        "event_count": 1,
+        "incident_count": 0,
+        "activity_count": 1,
+        "indicator_count": 0,
+        "assessment_count": 0,
+        "score_total": 23,
+        "average_score": 23.0,
+        "highest_score": 23,
+        "operational_index": 23.0,
+        "early_warning_index": 0.0,
+        "threat_index": 18.4,
+        "overall_level": "low"
+      },
+      "country_summary": {
+        "Latvia": {
+          "country": "Latvia",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 1,
+          "indicator_count": 0,
+          "assessment_count": 0,
+          "score_total": 23,
+          "average_score": 23.0,
+          "highest_score": 23,
+          "operational_index": 23.0,
+          "early_warning_index": 0.0,
+          "threat_index": 18.4,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {
+            "Russia": 1
+          }
+        }
+      },
+      "category_summary": {
+        "sabotage": {
+          "event_count": 1,
+          "score_total": 23,
+          "average_score": 23.0,
+          "highest_score": 23
+        }
+      },
+      "actor_summary": {
+        "Russia": {
+          "event_count": 1,
+          "score_total": 23,
+          "average_score": 23.0,
+          "highest_score": 23
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 1,
+          "score_total": 23,
+          "average_score": 23.0,
+          "highest_score": 23
+        },
+        "indicator": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 1,
+          "score_total": 23,
+          "average_score": 23.0,
+          "highest_score": 23
+        }
+      },
+      "hotspot": {
+        "location": "Latvia",
+        "score": 23,
+        "event_count": 1
+      },
+      "key_driver": "sabotage",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "86a6dc1832dba371",
+          "title": "Russian mobilisation and sabotage – NAF commander explains what Latvia is preparing for - bnn-news.com",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPYnVJSC1DNUdRdE95b05sd3EzdEVSX0d1ZmQ5ay1XcUd4eF8xNEVIZmVEbzR2bG42b0otS2VoVzQzMTZzSEp1UGExM05PQk1hU0JMQWkxajcyVDl5ZGlDNkRPYURvdjNETi1FbjJuOHNXbnZBRWtSd2RyeXZ3M1V3aWVoa3pqU1RtRFVmdXF4dWNtUHprTWM4T1cxS29aLUt6NF9XdGJnSmFhWnlTeVRaWFBBZw?oc=5",
+          "published_at": "2026-09-02T06:09:57+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "activity",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 23,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "86a6dc1832dba371",
+          "title": "Russian mobilisation and sabotage – NAF commander explains what Latvia is preparing for - bnn-news.com",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPYnVJSC1DNUdRdE95b05sd3EzdEVSX0d1ZmQ5ay1XcUd4eF8xNEVIZmVEbzR2bG42b0otS2VoVzQzMTZzSEp1UGExM05PQk1hU0JMQWkxajcyVDl5ZGlDNkRPYURvdjNETi1FbjJuOHNXbnZBRWtSd2RyeXZ3M1V3aWVoa3pqU1RtRFVmdXF4dWNtUHprTWM4T1cxS29aLUt6NF9XdGJnSmFhWnlTeVRaWFBBZw?oc=5",
+          "published_at": "2026-09-02T06:09:57+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "activity",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 23,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
           ],
           "related_item_count": 1
         }
