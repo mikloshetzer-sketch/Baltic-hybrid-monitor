@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-02T19:30:22.811508+00:00",
+  "generated_at": "2026-09-03T09:56:20.832328+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-09-02T19:30:22.746930+00:00",
+  "source_history_generated_at": "2026-09-03T09:56:20.780418+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-08-27",
-    "end_date": "2026-09-02",
+    "start_date": "2026-08-28",
+    "end_date": "2026-09-03",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -33,16 +33,16 @@
   ],
   "seven_day_summary": {
     "totals": {
-      "event_count": 14,
+      "event_count": 9,
       "incident_count": 4,
       "activity_count": 0,
-      "indicator_count": 6,
-      "assessment_count": 4
+      "indicator_count": 4,
+      "assessment_count": 1
     },
     "indices": {
       "average_operational_index_observed_days": 7.61,
-      "average_early_warning_index_observed_days": 4.67,
-      "average_threat_index_observed_days": 8.62,
+      "average_early_warning_index_observed_days": 3.67,
+      "average_threat_index_observed_days": 7.62,
       "average_threat_level_observed_days": "low",
       "highest_daily_threat_index": 26.14
     },
@@ -60,7 +60,6 @@
       "Regional": 0.0
     },
     "category_totals": {
-      "border_pressure": 0.0,
       "cyber": 0.0,
       "disinformation": 0.0,
       "drone_incident": 0.0,
@@ -75,6 +74,35 @@
     }
   },
   "top_events": [
+    {
+      "event_id": "551d1d2c403675c9",
+      "title": "ICCT confirms 189 Russia-organized acts of sabotage in Europe — Yle News - UA.NEWS",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdlY5b1d1T0pGblZaTTJGUDd5eVFhUEplT0NmRC1wS1B2OXRCTHNGOTcxdWgzcHZILWt4OGlUUDd2Rzg1X3BWT1pWRm1hNVREeXVjbC1Kd0U5SDc3TnV4NWgwVlRnQUxGMl9CcnlDZjdwZVJuakdCa2liR0pSc1R6Y2VvdHA4aEhHN0Z2c3lFN2VEajRHWGFIczNnVQ?oc=5",
+      "published_at": "2026-09-03T05:32:23+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 6,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-03"
+    },
     {
       "event_id": "d2ad1b2fbe937a99",
       "title": "Pro-Russia author released from detention in Latvia",
@@ -315,434 +343,9 @@
       ],
       "related_item_count": 1,
       "matrix_snapshot_date": "2026-08-31"
-    },
-    {
-      "event_id": "94405c6037efc197",
-      "title": "Latvia's foreign minister warns of Russian sabotage acts in Europe - PBS",
-      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQ0tGX3JLbE1TZUFYLUR1SkUtdjhvSzR0TTVOUkdQM2pSVklhclBhVWZ4ZUJvSGRNYzJIYWhENDJNX3V4bDV1aE1OX2VjVmtBS3prQmZRdFllNWpHalBzSmw0eDNEdDdsdHVwX05DTjhCTkdDVktkdmRCaEY5RnhSUFY2Z3MwTlZIVENxTHZjMzhnOGlHdHVYNllXYXNHb3py?oc=5",
-      "published_at": "2026-08-27T22:40:04+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia",
-        "Lithuania"
-      ],
-      "locations": [],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "event_scope": null,
-      "event_subtype": "indicator",
-      "hybrid_threat_score": 13,
-      "confidence_score": 38,
-      "source_count": 1,
-      "cluster_size": 1,
-      "matrix_snapshot_date": "2026-08-27"
-    },
-    {
-      "event_id": "3d5f1b81685a2d91",
-      "title": "CIA director's Moscow visit did not change Latvia's assessment of the Russian threat, president says - RBC-Ukraine",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPVGZYRHNGSnB0QTdDQW4waVhaN29qUFpTMkZVREZnZzI3TVBQVmc1UmY2T09hb3JUaVFobnl0THBXQWNiSTNpckphZVU1U1BDT2NXRzNnQzAzQmpqQXBlNmJDdXl5WmlTVF85V09mdk5NaWRDYl9hd21pbU1aV2p2TnBrdndaOU1RY0ZRYk1rUmRXMGk5?oc=5",
-      "published_at": "2026-08-27T14:50:08+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia"
-      ],
-      "locations": [],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "event_scope": null,
-      "event_subtype": "assessment",
-      "hybrid_threat_score": 0,
-      "confidence_score": 38,
-      "source_count": 1,
-      "cluster_size": 1,
-      "matrix_snapshot_date": "2026-08-27"
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-08-27",
-      "status": "available",
-      "snapshot_generated_at": "2026-08-29T19:48:40.047119+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 6,
-      "incident_count": 0,
-      "activity_count": 0,
-      "indicator_count": 3,
-      "assessment_count": 3,
-      "score_total": 36.0,
-      "average_score": 6.0,
-      "highest_score": 13.0,
-      "operational_index": 0.0,
-      "early_warning_index": 12.0,
-      "threat_index": 12.0,
-      "overall_level": "low",
-      "country_summary": {
-        "Latvia": {
-          "event_count": 3,
-          "score_total": 26,
-          "average_score": 8.67,
-          "highest_score": 13
-        },
-        "Lithuania": {
-          "event_count": 1,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "Poland": {
-          "event_count": 1,
-          "score_total": 10,
-          "average_score": 10.0,
-          "highest_score": 10
-        },
-        "Regional": {
-          "event_count": 1,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "category_summary": {
-        "border_pressure": {
-          "event_count": 1,
-          "score_total": 13,
-          "average_score": 13.0,
-          "highest_score": 13
-        },
-        "sabotage": {
-          "event_count": 1,
-          "score_total": 13,
-          "average_score": 13.0,
-          "highest_score": 13
-        }
-      },
-      "actor_summary": {
-        "Belarus": {
-          "event_count": 1,
-          "score_total": 13,
-          "average_score": 13.0,
-          "highest_score": 13
-        },
-        "Russia": {
-          "event_count": 4,
-          "score_total": 23,
-          "average_score": 5.75,
-          "highest_score": 13
-        }
-      },
-      "subtype_summary": {
-        "incident": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 3,
-          "score_total": 36,
-          "average_score": 12.0,
-          "highest_score": 13
-        },
-        "assessment": {
-          "event_count": 3,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {
-        "unknown": {
-          "event_count": 6,
-          "score_total": 36,
-          "average_score": 6.0,
-          "highest_score": 13
-        }
-      },
-      "hotspot": {
-        "location": "Belarus Border",
-        "score": 13,
-        "event_count": 1
-      },
-      "key_driver": "sabotage",
-      "dominant_actor": "Russia",
-      "top_events": [
-        {
-          "event_id": "94405c6037efc197",
-          "title": "Latvia's foreign minister warns of Russian sabotage acts in Europe - PBS",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQ0tGX3JLbE1TZUFYLUR1SkUtdjhvSzR0TTVOUkdQM2pSVklhclBhVWZ4ZUJvSGRNYzJIYWhENDJNX3V4bDV1aE1OX2VjVmtBS3prQmZRdFllNWpHalBzSmw0eDNEdDdsdHVwX05DTjhCTkdDVktkdmRCaEY5RnhSUFY2Z3MwTlZIVENxTHZjMzhnOGlHdHVYNllXYXNHb3py?oc=5",
-          "published_at": "2026-08-27T22:40:04+00:00",
-          "primary_country": "Latvia",
-          "countries": [
-            "Latvia",
-            "Lithuania"
-          ],
-          "locations": [],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "event_scope": null,
-          "event_subtype": "indicator",
-          "hybrid_threat_score": 13,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "39204d92eb5fd6c5",
-          "title": "Border Guard chief: Belarus knew about tunnels on Latvian border",
-          "url": "https://eng.lsm.lv/article/society/defence/27.08.2026-border-guard-chief-belarus-knew-about-tunnels-on-latvian-border.a660654/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-          "published_at": "2026-08-27T13:19:00+00:00",
-          "primary_country": "Latvia",
-          "countries": [
-            "Latvia"
-          ],
-          "locations": [
-            "Belarus Border"
-          ],
-          "categories": [
-            "border_pressure"
-          ],
-          "actors": [
-            "Belarus"
-          ],
-          "event_scope": null,
-          "event_subtype": "indicator",
-          "hybrid_threat_score": 13,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "6bd5c34b7b32c2a4",
-          "title": "Ukraine Warns Russia Is Weighing Hybrid Strikes Against Baltic States - Межа. Новини України.",
-          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5LUW0zemZzUDltNEdDajN1MnZmR19UVTdIcW5lb295NktHV0wxTjdGclNkRXpHY2pwNzJNZ3lxeWJCdHJxeGZpcXJjeDJyd1djY2FsbjZPWXQzT0h2Ty1wbUswRjZlVEpCUmc?oc=5",
-          "published_at": "2026-08-27T09:02:31+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland",
-            "Latvia"
-          ],
-          "locations": [],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "event_scope": null,
-          "event_subtype": "indicator",
-          "hybrid_threat_score": 10,
-          "confidence_score": 64,
-          "source_count": 3,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "3d5f1b81685a2d91",
-          "title": "CIA director's Moscow visit did not change Latvia's assessment of the Russian threat, president says - RBC-Ukraine",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPVGZYRHNGSnB0QTdDQW4waVhaN29qUFpTMkZVREZnZzI3TVBQVmc1UmY2T09hb3JUaVFobnl0THBXQWNiSTNpckphZVU1U1BDT2NXRzNnQzAzQmpqQXBlNmJDdXl5WmlTVF85V09mdk5NaWRDYl9hd21pbU1aV2p2TnBrdndaOU1RY0ZRYk1rUmRXMGk5?oc=5",
-          "published_at": "2026-08-27T14:50:08+00:00",
-          "primary_country": "Latvia",
-          "countries": [
-            "Latvia"
-          ],
-          "locations": [],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "event_scope": null,
-          "event_subtype": "assessment",
-          "hybrid_threat_score": 0,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "ae85fb955ead1fc4",
-          "title": "Baltic states arm for Russian threat as leaked letter shows growing fears",
-          "url": "https://www.lrt.lt/en/news-in-english/19/3034302/baltic-states-arm-for-russian-threat-as-leaked-letter-shows-growing-fears",
-          "published_at": "2026-08-27T13:15:00+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "locations": [],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "event_scope": null,
-          "event_subtype": "assessment",
-          "hybrid_threat_score": 0,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "5cbb55182b3aad8d",
-          "title": "Lithuanian officials say CIA chiefâs Moscow visit useful, see no increased threat",
-          "url": "https://www.lrt.lt/en/news-in-english/19/3034136/lithuanian-officials-say-cia-chief-s-moscow-visit-useful-see-no-increased-threat",
-          "published_at": "2026-08-27T07:58:00+00:00",
-          "primary_country": "Lithuania",
-          "countries": [
-            "Lithuania"
-          ],
-          "locations": [],
-          "categories": [],
-          "actors": [],
-          "event_scope": null,
-          "event_subtype": "assessment",
-          "hybrid_threat_score": 0,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        }
-      ],
-      "events": [
-        {
-          "event_id": "94405c6037efc197",
-          "title": "Latvia's foreign minister warns of Russian sabotage acts in Europe - PBS",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQ0tGX3JLbE1TZUFYLUR1SkUtdjhvSzR0TTVOUkdQM2pSVklhclBhVWZ4ZUJvSGRNYzJIYWhENDJNX3V4bDV1aE1OX2VjVmtBS3prQmZRdFllNWpHalBzSmw0eDNEdDdsdHVwX05DTjhCTkdDVktkdmRCaEY5RnhSUFY2Z3MwTlZIVENxTHZjMzhnOGlHdHVYNllXYXNHb3py?oc=5",
-          "published_at": "2026-08-27T22:40:04+00:00",
-          "primary_country": "Latvia",
-          "countries": [
-            "Latvia",
-            "Lithuania"
-          ],
-          "locations": [],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "event_scope": null,
-          "event_subtype": "indicator",
-          "hybrid_threat_score": 13,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "39204d92eb5fd6c5",
-          "title": "Border Guard chief: Belarus knew about tunnels on Latvian border",
-          "url": "https://eng.lsm.lv/article/society/defence/27.08.2026-border-guard-chief-belarus-knew-about-tunnels-on-latvian-border.a660654/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-          "published_at": "2026-08-27T13:19:00+00:00",
-          "primary_country": "Latvia",
-          "countries": [
-            "Latvia"
-          ],
-          "locations": [
-            "Belarus Border"
-          ],
-          "categories": [
-            "border_pressure"
-          ],
-          "actors": [
-            "Belarus"
-          ],
-          "event_scope": null,
-          "event_subtype": "indicator",
-          "hybrid_threat_score": 13,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "6bd5c34b7b32c2a4",
-          "title": "Ukraine Warns Russia Is Weighing Hybrid Strikes Against Baltic States - Межа. Новини України.",
-          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5LUW0zemZzUDltNEdDajN1MnZmR19UVTdIcW5lb295NktHV0wxTjdGclNkRXpHY2pwNzJNZ3lxeWJCdHJxeGZpcXJjeDJyd1djY2FsbjZPWXQzT0h2Ty1wbUswRjZlVEpCUmc?oc=5",
-          "published_at": "2026-08-27T09:02:31+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland",
-            "Latvia"
-          ],
-          "locations": [],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "event_scope": null,
-          "event_subtype": "indicator",
-          "hybrid_threat_score": 10,
-          "confidence_score": 64,
-          "source_count": 3,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "3d5f1b81685a2d91",
-          "title": "CIA director's Moscow visit did not change Latvia's assessment of the Russian threat, president says - RBC-Ukraine",
-          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPVGZYRHNGSnB0QTdDQW4waVhaN29qUFpTMkZVREZnZzI3TVBQVmc1UmY2T09hb3JUaVFobnl0THBXQWNiSTNpckphZVU1U1BDT2NXRzNnQzAzQmpqQXBlNmJDdXl5WmlTVF85V09mdk5NaWRDYl9hd21pbU1aV2p2TnBrdndaOU1RY0ZRYk1rUmRXMGk5?oc=5",
-          "published_at": "2026-08-27T14:50:08+00:00",
-          "primary_country": "Latvia",
-          "countries": [
-            "Latvia"
-          ],
-          "locations": [],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "event_scope": null,
-          "event_subtype": "assessment",
-          "hybrid_threat_score": 0,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "ae85fb955ead1fc4",
-          "title": "Baltic states arm for Russian threat as leaked letter shows growing fears",
-          "url": "https://www.lrt.lt/en/news-in-english/19/3034302/baltic-states-arm-for-russian-threat-as-leaked-letter-shows-growing-fears",
-          "published_at": "2026-08-27T13:15:00+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "locations": [],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "event_scope": null,
-          "event_subtype": "assessment",
-          "hybrid_threat_score": 0,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        },
-        {
-          "event_id": "5cbb55182b3aad8d",
-          "title": "Lithuanian officials say CIA chiefâs Moscow visit useful, see no increased threat",
-          "url": "https://www.lrt.lt/en/news-in-english/19/3034136/lithuanian-officials-say-cia-chief-s-moscow-visit-useful-see-no-increased-threat",
-          "published_at": "2026-08-27T07:58:00+00:00",
-          "primary_country": "Lithuania",
-          "countries": [
-            "Lithuania"
-          ],
-          "locations": [],
-          "categories": [],
-          "actors": [],
-          "event_scope": null,
-          "event_subtype": "assessment",
-          "hybrid_threat_score": 0,
-          "confidence_score": 38,
-          "source_count": 1,
-          "cluster_size": 1
-        }
-      ]
-    },
     {
       "date": "2026-08-28",
       "status": "missing",
@@ -1764,6 +1367,165 @@
           "hybrid_threat_level": "low",
           "source_names": [
             "Google News - Baltic Russia hybrid threat"
+          ],
+          "related_item_count": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-09-03",
+      "status": "available",
+      "snapshot_generated_at": "2026-09-03T09:56:20.721422+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 1,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 6.0,
+      "average_score": 6.0,
+      "highest_score": 6.0,
+      "operational_index": 0.0,
+      "early_warning_index": 6.0,
+      "threat_index": 6.0,
+      "overall_level": "low",
+      "country_summary": {
+        "Regional": {
+          "country": "Regional",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6,
+          "operational_index": 0.0,
+          "early_warning_index": 6.0,
+          "threat_index": 6.0,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {
+            "Russia": 1
+          }
+        }
+      },
+      "category_summary": {
+        "sabotage": {
+          "event_count": 1,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6
+        }
+      },
+      "actor_summary": {
+        "Russia": {
+          "event_count": 1,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 1,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "external_context": {
+          "event_count": 1,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6
+        }
+      },
+      "hotspot": {
+        "location": "Regional",
+        "score": 6,
+        "event_count": 1
+      },
+      "key_driver": "sabotage",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "551d1d2c403675c9",
+          "title": "ICCT confirms 189 Russia-organized acts of sabotage in Europe — Yle News - UA.NEWS",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdlY5b1d1T0pGblZaTTJGUDd5eVFhUEplT0NmRC1wS1B2OXRCTHNGOTcxdWgzcHZILWt4OGlUUDd2Rzg1X3BWT1pWRm1hNVREeXVjbC1Kd0U5SDc3TnV4NWgwVlRnQUxGMl9CcnlDZjdwZVJuakdCa2liR0pSc1R6Y2VvdHA4aEhHN0Z2c3lFN2VEajRHWGFIczNnVQ?oc=5",
+          "published_at": "2026-09-03T05:32:23+00:00",
+          "primary_country": "Regional",
+          "countries": [],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "external_context",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "551d1d2c403675c9",
+          "title": "ICCT confirms 189 Russia-organized acts of sabotage in Europe — Yle News - UA.NEWS",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdlY5b1d1T0pGblZaTTJGUDd5eVFhUEplT0NmRC1wS1B2OXRCTHNGOTcxdWgzcHZILWt4OGlUUDd2Rzg1X3BWT1pWRm1hNVREeXVjbC1Kd0U5SDc3TnV4NWgwVlRnQUxGMl9CcnlDZjdwZVJuakdCa2liR0pSc1R6Y2VvdHA4aEhHN0Z2c3lFN2VEajRHWGFIczNnVQ?oc=5",
+          "published_at": "2026-09-03T05:32:23+00:00",
+          "primary_country": "Regional",
+          "countries": [],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "external_context",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
           ],
           "related_item_count": 1
         }
