@@ -2,23 +2,23 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Intelligence Matrix History",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-04T09:44:14.863057+00:00",
+  "generated_at": "2026-09-05T09:10:05.389493+00:00",
   "history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "record_count": 26,
+  "record_count": 27,
   "first_snapshot_date": "2026-08-01",
-  "last_snapshot_date": "2026-09-04",
+  "last_snapshot_date": "2026-09-05",
   "last_update": {
     "mode": "daily_snapshot",
     "action": "inserted",
-    "updated_at": "2026-09-04T09:44:14.863057+00:00",
+    "updated_at": "2026-09-05T09:10:05.389493+00:00",
     "processed_records": 1,
     "inserted_count": 1,
     "replaced_count": 0,
     "inserted_dates": [
-      "2026-09-04"
+      "2026-09-05"
     ],
     "replaced_dates": [],
-    "source_snapshot_generated_at": "2026-09-04T09:44:14.801287+00:00",
+    "source_snapshot_generated_at": "2026-09-05T09:10:05.335591+00:00",
     "source_snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
     "source_score_engine_version": "threat_score_v3_2_current_historical_split"
   },
@@ -5654,6 +5654,78 @@
           "related_item_count": 1
         }
       ]
+    },
+    {
+      "project": "baltic-hybrid-monitor",
+      "title": "Baltic Hybrid Threat Daily Snapshot",
+      "region": "Baltic states and Poland",
+      "generated_at": "2026-09-05T09:10:05.335591+00:00",
+      "snapshot_date": "2026-09-05",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "source_generated_at": "2026-09-05T09:10:05.211030+00:00",
+      "method": {
+        "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
+        "time_basis": "UTC calendar day",
+        "rolling_window_used": false,
+        "rolling_window_days": 0,
+        "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used.",
+        "assessment_handling": "Assessment events remain visible in counts and event lists but do not contribute to operational or early-warning indices.",
+        "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
+      },
+      "overall_summary": {
+        "event_count": 0,
+        "incident_count": 0,
+        "activity_count": 0,
+        "indicator_count": 0,
+        "assessment_count": 0,
+        "score_total": 0,
+        "average_score": 0.0,
+        "highest_score": 0,
+        "operational_index": 0.0,
+        "early_warning_index": 0.0,
+        "threat_index": 0.0,
+        "overall_level": "low"
+      },
+      "country_summary": {},
+      "category_summary": {},
+      "actor_summary": {},
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {},
+      "hotspot": {
+        "location": null,
+        "score": 0,
+        "event_count": 0
+      },
+      "key_driver": null,
+      "dominant_actor": null,
+      "top_events": [],
+      "events": []
     }
   ]
 }
