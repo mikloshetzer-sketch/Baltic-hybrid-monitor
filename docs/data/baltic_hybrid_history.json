@@ -2,8 +2,8 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-09-06T09:31:22.531871+00:00",
-  "record_count": 37,
+  "updated_at": "2026-09-07T10:29:11.776828+00:00",
+  "record_count": 38,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
     "warning": "Historical records are reconstructed from currently available scored items using published_at dates. The backfill is not a complete historical archive if older source items are no longer available.",
@@ -23788,6 +23788,514 @@
             "event_subtype": "indicator",
             "analytical_layer": "early_warning",
             "confidence": "high",
+            "hybrid_threat_score": 12,
+            "hybrid_threat_level": "low"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-09-07",
+      "generated_at": "2026-09-07T10:29:11.776577+00:00",
+      "input_generated_at": "2026-09-07T10:29:11.439511+00:00",
+      "daily_activity": {
+        "description": "Calculated only from events published on this calendar day.",
+        "overall": {
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 1,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "assessment": {
+            "event_count": 1,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Lithuania",
+          "score": 0,
+          "event_count": 1
+        },
+        "key_driver": null,
+        "trend": "stable",
+        "top_items": [
+          {
+            "id": null,
+            "title": "Lithuania declares 22 Belarusian tech workers a national security threat",
+            "url": "https://www.lrt.lt/en/news-in-english/19/3045129/lithuania-declares-22-belarusian-tech-workers-a-national-security-threat",
+            "published_at": "2026-09-07T08:01:00+00:00",
+            "source_name": null,
+            "primary_country": "Lithuania",
+            "countries": [
+              "Lithuania"
+            ],
+            "categories": [],
+            "actors": [
+              "Belarus"
+            ],
+            "locations": [],
+            "event_subtype": "assessment",
+            "analytical_layer": "assessment",
+            "confidence": "low",
+            "hybrid_threat_score": 0,
+            "hybrid_threat_level": "low"
+          }
+        ]
+      },
+      "rolling_threat": {
+        "description": "Rolling threat environment ending on this calendar day.",
+        "window": {
+          "days": 14,
+          "start_date": "2026-08-25",
+          "end_date": "2026-09-07"
+        },
+        "overall": {
+          "event_count": 28,
+          "incident_count": 6,
+          "activity_count": 1,
+          "indicator_count": 13,
+          "assessment_count": 8,
+          "score_total": 327,
+          "average_score": 11.68,
+          "highest_score": 39,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 5,
+            "score_total": 93,
+            "average_score": 18.6,
+            "highest_score": 38,
+            "level": "low",
+            "categories": {
+              "border_pressure": 1,
+              "sabotage": 3,
+              "disinformation": 1
+            }
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 8,
+            "score_total": 102,
+            "average_score": 12.75,
+            "highest_score": 39,
+            "level": "low",
+            "categories": {
+              "sabotage": 3,
+              "border_pressure": 1
+            }
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 12,
+            "score_total": 197,
+            "average_score": 16.42,
+            "highest_score": 39,
+            "level": "low",
+            "categories": {
+              "sabotage": 7,
+              "border_pressure": 1,
+              "cyber": 1
+            }
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 7,
+            "score_total": 35,
+            "average_score": 5.0,
+            "highest_score": 12,
+            "level": "low",
+            "categories": {
+              "sabotage": 5,
+              "espionage": 1
+            }
+          }
+        },
+        "categories": {
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 16,
+            "score_total": 235,
+            "average_score": 14.69,
+            "highest_score": 39
+          },
+          "border_pressure": {
+            "category": "border_pressure",
+            "event_count": 1,
+            "score_total": 38,
+            "average_score": 38.0,
+            "highest_score": 38
+          },
+          "cyber": {
+            "category": "cyber",
+            "event_count": 1,
+            "score_total": 26,
+            "average_score": 26.0,
+            "highest_score": 26
+          },
+          "disinformation": {
+            "category": "disinformation",
+            "event_count": 1,
+            "score_total": 8,
+            "average_score": 8.0,
+            "highest_score": 8
+          },
+          "espionage": {
+            "category": "espionage",
+            "event_count": 1,
+            "score_total": 5,
+            "average_score": 5.0,
+            "highest_score": 5
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 13,
+            "score_total": 114,
+            "average_score": 8.77,
+            "highest_score": 13,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 7,
+            "score_total": 213,
+            "average_score": 30.43,
+            "highest_score": 39,
+            "level": "guarded"
+          },
+          "assessment": {
+            "event_count": 8,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Poland",
+          "score": 159,
+          "event_count": 11
+        },
+        "top_items": [
+          {
+            "id": null,
+            "title": "Germany to Provide Ukraine Intelligence for Strikes on Russia, Reinforce Brigade in Lithuania Amid Leipzig Sabotage Attempt - Мілітарний",
+            "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOLS10NGlVUnYyczdQWVYtbzdjcjNuQ1BOWGxwNHNudkZINGZfcW5NUm9RYlpoZGh6dGQzRVAzRkFHRGRzZE95UXhaTFloVEhVWWREb3o0a3pBSFJEdWRmRjB3RDhRZ2RnbENTcTdQQ0hac1ltVEV3TTZoWHZxOGpxYg?oc=5",
+            "published_at": "2026-09-03T20:22:46+00:00",
+            "source_name": null,
+            "primary_country": "Lithuania",
+            "countries": [
+              "Lithuania"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 39,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Tusk calls arson at Polish drone plant 'sabotage' and points to Russian involvement - RBC-Ukraine",
+            "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPRk1vQnhXTFJMN1FQaXc2VEkxQkw4QW50VU5CalZqRm1ETnVQeUplOTdjZ0ZXd3NHNkVLVENjUHFmbi0zWWloVXRFQWhQa2FuNzJUYk9zczhOZ29YSHVzWDlKejByTDVtNE1SbVdlVnV1OG44TExVQS1YUU1zRS1hVmVsZU5QeWl1OThUS01NazdiQmNQQlpMYThCUQ?oc=5",
+            "published_at": "2026-09-02T19:27:28+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 39,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "DW News. . Latvian authorities have discovered another tunnel under the country's border fence to Belarus. They believe it to be an underground route to smuggle migrants into the European Union. Latvia, along with Lithuania and Poland, say Belarus is delib - facebook.com",
+            "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOSDU3NVVPUGxxeDd3eTFRNVFWejNfLWRQMkhKQmRxbXpwaDBoeDFrYkMzZWM3aGNaZnlpclUwSUlGdF9nVzVmSEhLRzRHVXlmMllpWUx0U0tEUUlwUnc1M0FfWGdxbVUtRW5ockVXd0hJTS15eWxicmNjMjhNcm9UYnVjcmFXbGtWWUJ3clVqaU8tNzZCTzI0dGVvTW1OZnpkeEdONjJEN0RDSmtMWHY4NXJzcnp0T0RDVTlTXzlBdURSZmZMdW54S1JnYlRtUzlqcG5OeE1UTHF5LTVxcmVhVGNn?oc=5",
+            "published_at": "2026-08-25T07:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia",
+              "Lithuania",
+              "Poland"
+            ],
+            "categories": [
+              "border_pressure"
+            ],
+            "actors": [
+              "Belarus",
+              "EU"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 38,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Poland suspects foreign involvement in drone-plant arson attack - politico.eu",
+            "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPWmNLLWJvTXNtNFJOSXpONHhwcjdiOHVFM2pIX3ROdVVpejhzMnQ5cDJEVmlDd1gtdjA4alNkZnJQYzJjWlYwTXVLZTJiOS1vQ1F4X1ExZ3NKdGpmbWdlSkQxMGtZV1N1Xy1iMzM1U3k5cThiWnlPMzZBN1VfOC1DQzFra1NvZjNzQktIbGlKWGlDS0NxenFYR0pHclU?oc=5",
+            "published_at": "2026-08-31T19:31:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 33,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "I trained for invasion, blackout or cyber attack in Poland. Britain isn’t ready - The Telegraph",
+            "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPYWVlalVxUmo3WEVCd21lNzFiVS1fME13bW5xUHlfcnNpQkdMODlWbmwtU2FwcGh6MHNzS0ltaEZPUHI1dzhYR2hnLW1jM1F6Z0pPZWhmeE1Rd1hkOTNOWGVIcEZmdUlCSG1GZ1VONE5QWXNJUFFWZzF6eURZT1dmT1dWamJGTHBjVGw5eVY4RHozMWduNkNPbUxfYTlXcnRQ?oc=5",
+            "published_at": "2026-08-27T07:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "cyber"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 26,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Russian mobilisation and sabotage – NAF commander explains what Latvia is preparing for - Baltic News Network",
+            "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPYnVJSC1DNUdRdE95b05sd3EzdEVSX0d1ZmQ5ay1XcUd4eF8xNEVIZmVEbzR2bG42b0otS2VoVzQzMTZzSEp1UGExM05PQk1hU0JMQWkxajcyVDl5ZGlDNkRPYURvdjNETi1FbjJuOHNXbnZBRWtSd2RyeXZ3M1V3aWVoa3pqU1RtRFVmdXF4dWNtUHprTWM4T1cxS29aLUt6NF9XdGJnSmFhWnlTeVRaWFBBZw?oc=5",
+            "published_at": "2026-09-02T06:09:57+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "activity",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 23,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Russia’s ‘hybrid war’ is assassination squads, blowing up trains, arson, says Poland - The Irish Times",
+            "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQbDZpdkVFcDBzNFVWNjJTOUNoZ0xjSHlWd3hyVVdsQm5ISERqQ0JzNFFhd2t0WjM4M25DZFEwbkNtUmtyQVBxTXRObm9tamxXNzgzdGJSYy1naG9BWnktSkktQzRScVRBbk11czhqMkQyRkx6QWp6UTRsSlNzTDFkMVFXc054dXhuN09xT0Z5bVNPVmNUdXpQY2N0SzhXN2J3dzBwdERacVpxU2dOSzVsLVhwRUE4XzlfalBsd2Jpd3RncnpFbjRqODFR?oc=5",
+            "published_at": "2026-09-02T11:40:02+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 15,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Latvia's foreign minister warns of Russian sabotage acts in Europe - PBS",
+            "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOQ0tGX3JLbE1TZUFYLUR1SkUtdjhvSzR0TTVOUkdQM2pSVklhclBhVWZ4ZUJvSGRNYzJIYWhENDJNX3V4bDV1aE1OX2VjVmtBS3prQmZRdFllNWpHalBzSmw0eDNEdDdsdHVwX05DTjhCTkdDVktkdmRCaEY5RnhSUFY2Z3MwTlZIVENxTHZjMzhnOGlHdHVYNllXYXNHb3py?oc=5",
+            "published_at": "2026-08-27T07:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia",
+              "Lithuania"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 13,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Wave of Russian sabotage attacks exposes counter-intelligence gaps on Nato’s eastern flank - EUobserver",
+            "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNOGVCRXpkUzE2bkd3bm9CakdIbDdGZDFfdWdRUG8xUWxjZTQwYklybmN6QzR1NkFzUDBOaERhTFZ5UWpUVHlnMWV5UE1WeEtZSmNwdDFtSGYxMUJYS2NiaGJ3Q1l5cWlLNFhjVkI0X0pXN0NYVFBxeVB0bzN3dmxvQWREVUo1SzY3YThrbmdtRUZBdjFSOUg5YW9sOWJGVHY1aUl1MnZPVF9QclQ5LVMzNkhFcF9HQ2xxR0ZGcQ?oc=5",
+            "published_at": "2026-09-04T10:43:04+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia",
+              "NATO"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 12,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "The Risk of Russian Sabotage in Europe: A Fight That Spirals Out of Control - The New York Times",
+            "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNZjVnY1hFVnFrR29sNG5XZzA5Wno1dWlNdkNpQkFqZGd4eC1ZdEFVUVlYUEg0S3V5UlRKODZhVVJwa2l0RUQxMzRueFliQld1XzhuU2JPU0VweFNIb1Q0RW80ZDlHaWZRRHpUYnJyVkhvV2FPb0pfTmV6ZWFQWDZzb2d5ejFBVGc?oc=5",
+            "published_at": "2026-09-04T09:03:31+00:00",
+            "source_name": null,
+            "primary_country": "Lithuania",
+            "countries": [
+              "Lithuania"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
             "hybrid_threat_score": 12,
             "hybrid_threat_level": "low"
           }
