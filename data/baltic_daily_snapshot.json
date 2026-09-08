@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-07T10:29:11.574906+00:00",
-  "snapshot_date": "2026-09-07",
+  "generated_at": "2026-09-08T09:49:40.603085+00:00",
+  "snapshot_date": "2026-09-08",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-09-07T10:29:11.439511+00:00",
+  "source_generated_at": "2026-09-08T09:49:40.467524+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -20,46 +20,46 @@
     "event_count": 1,
     "incident_count": 0,
     "activity_count": 0,
-    "indicator_count": 0,
-    "assessment_count": 1,
-    "score_total": 0,
-    "average_score": 0.0,
-    "highest_score": 0,
+    "indicator_count": 1,
+    "assessment_count": 0,
+    "score_total": 5,
+    "average_score": 5.0,
+    "highest_score": 5,
     "operational_index": 0.0,
-    "early_warning_index": 0.0,
-    "threat_index": 0.0,
+    "early_warning_index": 5.0,
+    "threat_index": 5.0,
     "overall_level": "low"
   },
   "country_summary": {
-    "Lithuania": {
-      "country": "Lithuania",
+    "Estonia": {
+      "country": "Estonia",
       "event_count": 1,
       "incident_count": 0,
       "activity_count": 0,
-      "indicator_count": 0,
-      "assessment_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 5,
+      "average_score": 5.0,
+      "highest_score": 5,
       "operational_index": 0.0,
-      "early_warning_index": 0.0,
-      "threat_index": 0.0,
+      "early_warning_index": 5.0,
+      "threat_index": 5.0,
       "overall_level": "low",
-      "categories": {},
-      "actors": {
-        "Belarus": 1
-      }
+      "categories": {
+        "disinformation": 1
+      },
+      "actors": {}
     }
   },
-  "category_summary": {},
-  "actor_summary": {
-    "Belarus": {
+  "category_summary": {
+    "disinformation": {
       "event_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "score_total": 5,
+      "average_score": 5.0,
+      "highest_score": 5
     }
   },
+  "actor_summary": {},
   "subtype_summary": {
     "incident": {
       "event_count": 0,
@@ -74,13 +74,13 @@
       "highest_score": 0
     },
     "indicator": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 1,
+      "score_total": 5,
+      "average_score": 5.0,
+      "highest_score": 5
     },
     "assessment": {
-      "event_count": 1,
+      "event_count": 0,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
@@ -89,74 +89,78 @@
   "scope_summary": {
     "direct": {
       "event_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "score_total": 5,
+      "average_score": 5.0,
+      "highest_score": 5
     }
   },
   "hotspot": {
-    "location": "Lithuania",
-    "score": 0,
+    "location": "Tallinn",
+    "score": 5,
     "event_count": 1
   },
-  "key_driver": null,
-  "dominant_actor": "Belarus",
+  "key_driver": "disinformation",
+  "dominant_actor": null,
   "top_events": [
     {
-      "event_id": "6ebf197831b604e9",
-      "title": "Lithuania declares 22 Belarusian tech workers a national security threat",
-      "url": "https://www.lrt.lt/en/news-in-english/19/3045129/lithuania-declares-22-belarusian-tech-workers-a-national-security-threat",
-      "published_at": "2026-09-07T08:01:00+00:00",
-      "primary_country": "Lithuania",
+      "event_id": "6e81561ac4b59c71",
+      "title": "'Death to the fascist snake' Soviet-era poster prompts police action",
+      "url": "https://news.err.ee/1610130949/death-to-the-fascist-snake-soviet-era-poster-prompts-police-action",
+      "published_at": "2026-09-08T07:53:00+00:00",
+      "primary_country": "Estonia",
       "countries": [
-        "Lithuania"
+        "Estonia"
       ],
-      "categories": [],
-      "actors": [
-        "Belarus"
+      "categories": [
+        "disinformation"
       ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
+      "actors": [],
+      "locations": [
+        "Tallinn"
+      ],
+      "event_type": "warning",
+      "event_subtype": "indicator",
       "analysis_layer": null,
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 0,
+      "hybrid_threat_score": 5,
       "hybrid_threat_level": "low",
       "source_names": [
-        "LRT English Lithuania"
+        "ERR News Estonia"
       ],
       "related_item_count": 1
     }
   ],
   "events": [
     {
-      "event_id": "6ebf197831b604e9",
-      "title": "Lithuania declares 22 Belarusian tech workers a national security threat",
-      "url": "https://www.lrt.lt/en/news-in-english/19/3045129/lithuania-declares-22-belarusian-tech-workers-a-national-security-threat",
-      "published_at": "2026-09-07T08:01:00+00:00",
-      "primary_country": "Lithuania",
+      "event_id": "6e81561ac4b59c71",
+      "title": "'Death to the fascist snake' Soviet-era poster prompts police action",
+      "url": "https://news.err.ee/1610130949/death-to-the-fascist-snake-soviet-era-poster-prompts-police-action",
+      "published_at": "2026-09-08T07:53:00+00:00",
+      "primary_country": "Estonia",
       "countries": [
-        "Lithuania"
+        "Estonia"
       ],
-      "categories": [],
-      "actors": [
-        "Belarus"
+      "categories": [
+        "disinformation"
       ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
+      "actors": [],
+      "locations": [
+        "Tallinn"
+      ],
+      "event_type": "warning",
+      "event_subtype": "indicator",
       "analysis_layer": null,
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 0,
+      "hybrid_threat_score": 5,
       "hybrid_threat_level": "low",
       "source_names": [
-        "LRT English Lithuania"
+        "ERR News Estonia"
       ],
       "related_item_count": 1
     }
