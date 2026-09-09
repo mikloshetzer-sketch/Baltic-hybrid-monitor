@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-08T09:49:40.603085+00:00",
-  "snapshot_date": "2026-09-08",
+  "generated_at": "2026-09-09T09:53:28.713158+00:00",
+  "snapshot_date": "2026-09-09",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-09-08T09:49:40.467524+00:00",
+  "source_generated_at": "2026-09-09T09:53:28.584759+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -20,46 +20,53 @@
     "event_count": 1,
     "incident_count": 0,
     "activity_count": 0,
-    "indicator_count": 1,
-    "assessment_count": 0,
-    "score_total": 5,
-    "average_score": 5.0,
-    "highest_score": 5,
+    "indicator_count": 0,
+    "assessment_count": 1,
+    "score_total": 0,
+    "average_score": 0.0,
+    "highest_score": 0,
     "operational_index": 0.0,
-    "early_warning_index": 5.0,
-    "threat_index": 5.0,
+    "early_warning_index": 0.0,
+    "threat_index": 0.0,
     "overall_level": "low"
   },
   "country_summary": {
-    "Estonia": {
-      "country": "Estonia",
+    "Poland": {
+      "country": "Poland",
       "event_count": 1,
       "incident_count": 0,
       "activity_count": 0,
-      "indicator_count": 1,
-      "assessment_count": 0,
-      "score_total": 5,
-      "average_score": 5.0,
-      "highest_score": 5,
+      "indicator_count": 0,
+      "assessment_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0,
       "operational_index": 0.0,
-      "early_warning_index": 5.0,
-      "threat_index": 5.0,
+      "early_warning_index": 0.0,
+      "threat_index": 0.0,
       "overall_level": "low",
-      "categories": {
-        "disinformation": 1
-      },
-      "actors": {}
+      "categories": {},
+      "actors": {
+        "Russia": 1,
+        "NATO": 1
+      }
     }
   },
-  "category_summary": {
-    "disinformation": {
+  "category_summary": {},
+  "actor_summary": {
+    "NATO": {
       "event_count": 1,
-      "score_total": 5,
-      "average_score": 5.0,
-      "highest_score": 5
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
+    },
+    "Russia": {
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
     }
   },
-  "actor_summary": {},
   "subtype_summary": {
     "incident": {
       "event_count": 0,
@@ -74,13 +81,13 @@
       "highest_score": 0
     },
     "indicator": {
-      "event_count": 1,
-      "score_total": 5,
-      "average_score": 5.0,
-      "highest_score": 5
+      "event_count": 0,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
     },
     "assessment": {
-      "event_count": 0,
+      "event_count": 1,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
@@ -89,78 +96,76 @@
   "scope_summary": {
     "direct": {
       "event_count": 1,
-      "score_total": 5,
-      "average_score": 5.0,
-      "highest_score": 5
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
     }
   },
   "hotspot": {
-    "location": "Tallinn",
-    "score": 5,
+    "location": "Poland",
+    "score": 0,
     "event_count": 1
   },
-  "key_driver": "disinformation",
-  "dominant_actor": null,
+  "key_driver": null,
+  "dominant_actor": "Russia",
   "top_events": [
     {
-      "event_id": "6e81561ac4b59c71",
-      "title": "'Death to the fascist snake' Soviet-era poster prompts police action",
-      "url": "https://news.err.ee/1610130949/death-to-the-fascist-snake-soviet-era-poster-prompts-police-action",
-      "published_at": "2026-09-08T07:53:00+00:00",
-      "primary_country": "Estonia",
+      "event_id": "a79ff3314eb672af",
+      "title": "Poland’s Special Services Chief Meets CIA Director Amid Fears of Russian Threat to NATO - Kyiv Post",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9HZUxyeHloRzcxUUdoSmxrYnBDUFZNQ0EtRWZELWctZ0JUblZzOGhJR2JSWEc4aEU0YTd1RWhVd1dUak9jYkJIV3RyMA?oc=5",
+      "published_at": "2026-09-09T06:01:03+00:00",
+      "primary_country": "Poland",
       "countries": [
-        "Estonia"
+        "Poland"
       ],
-      "categories": [
-        "disinformation"
+      "categories": [],
+      "actors": [
+        "Russia",
+        "NATO"
       ],
-      "actors": [],
-      "locations": [
-        "Tallinn"
-      ],
-      "event_type": "warning",
-      "event_subtype": "indicator",
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
       "analysis_layer": null,
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 5,
+      "hybrid_threat_score": 0,
       "hybrid_threat_level": "low",
       "source_names": [
-        "ERR News Estonia"
+        "Google News - Baltic Russia hybrid threat"
       ],
       "related_item_count": 1
     }
   ],
   "events": [
     {
-      "event_id": "6e81561ac4b59c71",
-      "title": "'Death to the fascist snake' Soviet-era poster prompts police action",
-      "url": "https://news.err.ee/1610130949/death-to-the-fascist-snake-soviet-era-poster-prompts-police-action",
-      "published_at": "2026-09-08T07:53:00+00:00",
-      "primary_country": "Estonia",
+      "event_id": "a79ff3314eb672af",
+      "title": "Poland’s Special Services Chief Meets CIA Director Amid Fears of Russian Threat to NATO - Kyiv Post",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9HZUxyeHloRzcxUUdoSmxrYnBDUFZNQ0EtRWZELWctZ0JUblZzOGhJR2JSWEc4aEU0YTd1RWhVd1dUak9jYkJIV3RyMA?oc=5",
+      "published_at": "2026-09-09T06:01:03+00:00",
+      "primary_country": "Poland",
       "countries": [
-        "Estonia"
+        "Poland"
       ],
-      "categories": [
-        "disinformation"
+      "categories": [],
+      "actors": [
+        "Russia",
+        "NATO"
       ],
-      "actors": [],
-      "locations": [
-        "Tallinn"
-      ],
-      "event_type": "warning",
-      "event_subtype": "indicator",
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
       "analysis_layer": null,
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 5,
+      "hybrid_threat_score": 0,
       "hybrid_threat_level": "low",
       "source_names": [
-        "ERR News Estonia"
+        "Google News - Baltic Russia hybrid threat"
       ],
       "related_item_count": 1
     }
