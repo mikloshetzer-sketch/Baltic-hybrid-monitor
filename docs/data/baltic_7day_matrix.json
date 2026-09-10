@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-09T09:53:28.842543+00:00",
+  "generated_at": "2026-09-10T09:51:20.854787+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-09-09T09:53:28.779395+00:00",
+  "source_history_generated_at": "2026-09-10T09:51:20.786393+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-09-03",
-    "end_date": "2026-09-09",
+    "start_date": "2026-09-04",
+    "end_date": "2026-09-10",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -39,22 +39,22 @@
     },
     "indices": {
       "average_operational_index_observed_days": 0.0,
-      "average_early_warning_index_observed_days": 3.14,
-      "average_threat_index_observed_days": 3.14,
+      "average_early_warning_index_observed_days": 4.29,
+      "average_threat_index_observed_days": 4.29,
       "average_threat_level_observed_days": "low",
-      "highest_daily_threat_index": 11.0
+      "highest_daily_threat_index": 14.0
     },
     "peak_day": {
-      "date": "2026-09-04",
-      "threat_index": 11.0,
+      "date": "2026-09-10",
+      "threat_index": 14.0,
       "overall_level": "low",
-      "event_count": 2
+      "event_count": 1
     },
     "country_totals": {
       "Estonia": 0.0,
+      "Latvia": 0.0,
       "Lithuania": 0.0,
-      "Poland": 0.0,
-      "Regional": 0.0
+      "Poland": 0.0
     },
     "category_totals": {
       "disinformation": 0.0,
@@ -67,6 +67,38 @@
     }
   },
   "top_events": [
+    {
+      "event_id": "b9f9931923bc23ce",
+      "title": "‘Hybrid’ is too soft for Russia’s NATO sabotage, ex-Latvian minister says - TVP World",
+      "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOUENZNWFia2V5RGlUMG1ZZzBMNXQ5bmNRcF9fUFJidzJ0ZFdGRFpTZ3BJLXVwVmkyaHVlYkd1U1UwdlNEaEdLZ1FLV0drNlFNME9wWk5mamxiWENUNlFjdEFScUpsTnk1Ukx2UFlMa0E4OF8tSG5YdlF6YnhBX1ExMmFTVkpCWHJNd1Y4?oc=5",
+      "published_at": "2026-09-10T08:45:00+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia",
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 14,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-10"
+    },
     {
       "event_id": "a79ff3314eb672af",
       "title": "Poland’s Special Services Chief Meets CIA Director Amid Fears of Russian Threat to NATO - Kyiv Post",
@@ -216,197 +248,9 @@
       ],
       "related_item_count": 1,
       "matrix_snapshot_date": "2026-09-04"
-    },
-    {
-      "event_id": "551d1d2c403675c9",
-      "title": "ICCT confirms 189 Russia-organized acts of sabotage in Europe — Yle News - UA.NEWS",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdlY5b1d1T0pGblZaTTJGUDd5eVFhUEplT0NmRC1wS1B2OXRCTHNGOTcxdWgzcHZILWt4OGlUUDd2Rzg1X3BWT1pWRm1hNVREeXVjbC1Kd0U5SDc3TnV4NWgwVlRnQUxGMl9CcnlDZjdwZVJuakdCa2liR0pSc1R6Y2VvdHA4aEhHN0Z2c3lFN2VEajRHWGFIczNnVQ?oc=5",
-      "published_at": "2026-09-03T05:32:23+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "external_context",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 6,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-09-03"
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-09-03",
-      "status": "available",
-      "snapshot_generated_at": "2026-09-03T09:56:20.721422+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 1,
-      "incident_count": 0,
-      "activity_count": 0,
-      "indicator_count": 1,
-      "assessment_count": 0,
-      "score_total": 6.0,
-      "average_score": 6.0,
-      "highest_score": 6.0,
-      "operational_index": 0.0,
-      "early_warning_index": 6.0,
-      "threat_index": 6.0,
-      "overall_level": "low",
-      "country_summary": {
-        "Regional": {
-          "country": "Regional",
-          "event_count": 1,
-          "incident_count": 0,
-          "activity_count": 0,
-          "indicator_count": 1,
-          "assessment_count": 0,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6,
-          "operational_index": 0.0,
-          "early_warning_index": 6.0,
-          "threat_index": 6.0,
-          "overall_level": "low",
-          "categories": {
-            "sabotage": 1
-          },
-          "actors": {
-            "Russia": 1
-          }
-        }
-      },
-      "category_summary": {
-        "sabotage": {
-          "event_count": 1,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6
-        }
-      },
-      "actor_summary": {
-        "Russia": {
-          "event_count": 1,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6
-        }
-      },
-      "subtype_summary": {
-        "incident": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 1,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6
-        },
-        "assessment": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {
-        "external_context": {
-          "event_count": 1,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6
-        }
-      },
-      "hotspot": {
-        "location": "Regional",
-        "score": 6,
-        "event_count": 1
-      },
-      "key_driver": "sabotage",
-      "dominant_actor": "Russia",
-      "top_events": [
-        {
-          "event_id": "551d1d2c403675c9",
-          "title": "ICCT confirms 189 Russia-organized acts of sabotage in Europe — Yle News - UA.NEWS",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdlY5b1d1T0pGblZaTTJGUDd5eVFhUEplT0NmRC1wS1B2OXRCTHNGOTcxdWgzcHZILWt4OGlUUDd2Rzg1X3BWT1pWRm1hNVREeXVjbC1Kd0U5SDc3TnV4NWgwVlRnQUxGMl9CcnlDZjdwZVJuakdCa2liR0pSc1R6Y2VvdHA4aEhHN0Z2c3lFN2VEajRHWGFIczNnVQ?oc=5",
-          "published_at": "2026-09-03T05:32:23+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "external_context",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 6,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 1
-        }
-      ],
-      "events": [
-        {
-          "event_id": "551d1d2c403675c9",
-          "title": "ICCT confirms 189 Russia-organized acts of sabotage in Europe — Yle News - UA.NEWS",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdlY5b1d1T0pGblZaTTJGUDd5eVFhUEplT0NmRC1wS1B2OXRCTHNGOTcxdWgzcHZILWt4OGlUUDd2Rzg1X3BWT1pWRm1hNVREeXVjbC1Kd0U5SDc3TnV4NWgwVlRnQUxGMl9CcnlDZjdwZVJuakdCa2liR0pSc1R6Y2VvdHA4aEhHN0Z2c3lFN2VEajRHWGFIczNnVQ?oc=5",
-          "published_at": "2026-09-03T05:32:23+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "external_context",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 6,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 1
-        }
-      ]
-    },
     {
       "date": "2026-09-04",
       "status": "available",
@@ -1225,6 +1069,178 @@
           "hybrid_threat_level": "low",
           "source_names": [
             "Google News - Baltic Russia hybrid threat"
+          ],
+          "related_item_count": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-09-10",
+      "status": "available",
+      "snapshot_generated_at": "2026-09-10T09:51:20.709358+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 1,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 14.0,
+      "average_score": 14.0,
+      "highest_score": 14.0,
+      "operational_index": 0.0,
+      "early_warning_index": 14.0,
+      "threat_index": 14.0,
+      "overall_level": "low",
+      "country_summary": {
+        "Latvia": {
+          "country": "Latvia",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14,
+          "operational_index": 0.0,
+          "early_warning_index": 14.0,
+          "threat_index": 14.0,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {
+            "Russia": 1,
+            "NATO": 1
+          }
+        }
+      },
+      "category_summary": {
+        "sabotage": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        }
+      },
+      "actor_summary": {
+        "NATO": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        },
+        "Russia": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        }
+      },
+      "hotspot": {
+        "location": "Latvia",
+        "score": 14,
+        "event_count": 1
+      },
+      "key_driver": "sabotage",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "b9f9931923bc23ce",
+          "title": "‘Hybrid’ is too soft for Russia’s NATO sabotage, ex-Latvian minister says - TVP World",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOUENZNWFia2V5RGlUMG1ZZzBMNXQ5bmNRcF9fUFJidzJ0ZFdGRFpTZ3BJLXVwVmkyaHVlYkd1U1UwdlNEaEdLZ1FLV0drNlFNME9wWk5mamxiWENUNlFjdEFScUpsTnk1Ukx2UFlMa0E4OF8tSG5YdlF6YnhBX1ExMmFTVkpCWHJNd1Y4?oc=5",
+          "published_at": "2026-09-10T08:45:00+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 14,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "b9f9931923bc23ce",
+          "title": "‘Hybrid’ is too soft for Russia’s NATO sabotage, ex-Latvian minister says - TVP World",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOUENZNWFia2V5RGlUMG1ZZzBMNXQ5bmNRcF9fUFJidzJ0ZFdGRFpTZ3BJLXVwVmkyaHVlYkd1U1UwdlNEaEdLZ1FLV0drNlFNME9wWk5mamxiWENUNlFjdEFScUpsTnk1Ukx2UFlMa0E4OF8tSG5YdlF6YnhBX1ExMmFTVkpCWHJNd1Y4?oc=5",
+          "published_at": "2026-09-10T08:45:00+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 14,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
           ],
           "related_item_count": 1
         }

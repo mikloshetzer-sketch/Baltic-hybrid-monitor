@@ -2,23 +2,23 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Intelligence Matrix History",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-09T09:53:28.779395+00:00",
+  "generated_at": "2026-09-10T09:51:20.786393+00:00",
   "history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "record_count": 31,
+  "record_count": 32,
   "first_snapshot_date": "2026-08-01",
-  "last_snapshot_date": "2026-09-09",
+  "last_snapshot_date": "2026-09-10",
   "last_update": {
     "mode": "daily_snapshot",
     "action": "inserted",
-    "updated_at": "2026-09-09T09:53:28.779395+00:00",
+    "updated_at": "2026-09-10T09:51:20.786393+00:00",
     "processed_records": 1,
     "inserted_count": 1,
     "replaced_count": 0,
     "inserted_dates": [
-      "2026-09-09"
+      "2026-09-10"
     ],
     "replaced_dates": [],
-    "source_snapshot_generated_at": "2026-09-09T09:53:28.713158+00:00",
+    "source_snapshot_generated_at": "2026-09-10T09:51:20.709358+00:00",
     "source_snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
     "source_score_engine_version": "threat_score_v3_2_current_historical_split"
   },
@@ -6299,6 +6299,192 @@
           "hybrid_threat_level": "low",
           "source_names": [
             "Google News - Baltic Russia hybrid threat"
+          ],
+          "related_item_count": 1
+        }
+      ]
+    },
+    {
+      "project": "baltic-hybrid-monitor",
+      "title": "Baltic Hybrid Threat Daily Snapshot",
+      "region": "Baltic states and Poland",
+      "generated_at": "2026-09-10T09:51:20.709358+00:00",
+      "snapshot_date": "2026-09-10",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "source_generated_at": "2026-09-10T09:51:20.577896+00:00",
+      "method": {
+        "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
+        "time_basis": "UTC calendar day",
+        "rolling_window_used": false,
+        "rolling_window_days": 0,
+        "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used.",
+        "assessment_handling": "Assessment events remain visible in counts and event lists but do not contribute to operational or early-warning indices.",
+        "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
+      },
+      "overall_summary": {
+        "event_count": 1,
+        "incident_count": 0,
+        "activity_count": 0,
+        "indicator_count": 1,
+        "assessment_count": 0,
+        "score_total": 14,
+        "average_score": 14.0,
+        "highest_score": 14,
+        "operational_index": 0.0,
+        "early_warning_index": 14.0,
+        "threat_index": 14.0,
+        "overall_level": "low"
+      },
+      "country_summary": {
+        "Latvia": {
+          "country": "Latvia",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14,
+          "operational_index": 0.0,
+          "early_warning_index": 14.0,
+          "threat_index": 14.0,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {
+            "Russia": 1,
+            "NATO": 1
+          }
+        }
+      },
+      "category_summary": {
+        "sabotage": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        }
+      },
+      "actor_summary": {
+        "NATO": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        },
+        "Russia": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        }
+      },
+      "hotspot": {
+        "location": "Latvia",
+        "score": 14,
+        "event_count": 1
+      },
+      "key_driver": "sabotage",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "b9f9931923bc23ce",
+          "title": "‘Hybrid’ is too soft for Russia’s NATO sabotage, ex-Latvian minister says - TVP World",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOUENZNWFia2V5RGlUMG1ZZzBMNXQ5bmNRcF9fUFJidzJ0ZFdGRFpTZ3BJLXVwVmkyaHVlYkd1U1UwdlNEaEdLZ1FLV0drNlFNME9wWk5mamxiWENUNlFjdEFScUpsTnk1Ukx2UFlMa0E4OF8tSG5YdlF6YnhBX1ExMmFTVkpCWHJNd1Y4?oc=5",
+          "published_at": "2026-09-10T08:45:00+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 14,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "b9f9931923bc23ce",
+          "title": "‘Hybrid’ is too soft for Russia’s NATO sabotage, ex-Latvian minister says - TVP World",
+          "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOUENZNWFia2V5RGlUMG1ZZzBMNXQ5bmNRcF9fUFJidzJ0ZFdGRFpTZ3BJLXVwVmkyaHVlYkd1U1UwdlNEaEdLZ1FLV0drNlFNME9wWk5mamxiWENUNlFjdEFScUpsTnk1Ukx2UFlMa0E4OF8tSG5YdlF6YnhBX1ExMmFTVkpCWHJNd1Y4?oc=5",
+          "published_at": "2026-09-10T08:45:00+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 14,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
           ],
           "related_item_count": 1
         }
