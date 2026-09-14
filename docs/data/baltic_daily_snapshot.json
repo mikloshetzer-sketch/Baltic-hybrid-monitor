@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-13T10:23:02.964891+00:00",
-  "snapshot_date": "2026-09-13",
+  "generated_at": "2026-09-14T10:47:32.842455+00:00",
+  "snapshot_date": "2026-09-14",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-09-13T10:23:02.830127+00:00",
+  "source_generated_at": "2026-09-14T10:47:32.748310+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,28 +17,83 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 0,
-    "incident_count": 0,
+    "event_count": 3,
+    "incident_count": 1,
     "activity_count": 0,
-    "indicator_count": 0,
-    "assessment_count": 0,
-    "score_total": 0,
-    "average_score": 0.0,
-    "highest_score": 0,
-    "operational_index": 0.0,
-    "early_warning_index": 0.0,
-    "threat_index": 0.0,
+    "indicator_count": 1,
+    "assessment_count": 1,
+    "score_total": 25,
+    "average_score": 12.5,
+    "highest_score": 19,
+    "operational_index": 19.0,
+    "early_warning_index": 6.0,
+    "threat_index": 16.4,
     "overall_level": "low"
   },
-  "country_summary": {},
-  "category_summary": {},
-  "actor_summary": {},
-  "subtype_summary": {
-    "incident": {
-      "event_count": 0,
+  "country_summary": {
+    "Poland": {
+      "country": "Poland",
+      "event_count": 1,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 0,
+      "assessment_count": 1,
       "score_total": 0,
       "average_score": 0.0,
-      "highest_score": 0
+      "highest_score": 0,
+      "operational_index": 0.0,
+      "early_warning_index": 0.0,
+      "threat_index": 0.0,
+      "overall_level": "low",
+      "categories": {},
+      "actors": {
+        "Russia": 1
+      }
+    },
+    "Regional": {
+      "country": "Regional",
+      "event_count": 2,
+      "incident_count": 1,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 25,
+      "average_score": 12.5,
+      "highest_score": 19,
+      "operational_index": 19.0,
+      "early_warning_index": 6.0,
+      "threat_index": 16.4,
+      "overall_level": "low",
+      "categories": {
+        "sabotage": 2
+      },
+      "actors": {
+        "Russia": 2
+      }
+    }
+  },
+  "category_summary": {
+    "sabotage": {
+      "event_count": 2,
+      "score_total": 25,
+      "average_score": 12.5,
+      "highest_score": 19
+    }
+  },
+  "actor_summary": {
+    "Russia": {
+      "event_count": 3,
+      "score_total": 25,
+      "average_score": 8.33,
+      "highest_score": 19
+    }
+  },
+  "subtype_summary": {
+    "incident": {
+      "event_count": 1,
+      "score_total": 19,
+      "average_score": 19.0,
+      "highest_score": 19
     },
     "activity": {
       "event_count": 0,
@@ -47,26 +102,209 @@
       "highest_score": 0
     },
     "indicator": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 1,
+      "score_total": 6,
+      "average_score": 6.0,
+      "highest_score": 6
     },
     "assessment": {
-      "event_count": 0,
+      "event_count": 1,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
     }
   },
-  "scope_summary": {},
-  "hotspot": {
-    "location": null,
-    "score": 0,
-    "event_count": 0
+  "scope_summary": {
+    "direct": {
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
+    },
+    "external_context": {
+      "event_count": 2,
+      "score_total": 25,
+      "average_score": 12.5,
+      "highest_score": 19
+    }
   },
-  "key_driver": null,
-  "dominant_actor": null,
-  "top_events": [],
-  "events": []
+  "hotspot": {
+    "location": "Regional",
+    "score": 25,
+    "event_count": 2
+  },
+  "key_driver": "sabotage",
+  "dominant_actor": "Russia",
+  "top_events": [
+    {
+      "event_id": "ea83c238c425b6da",
+      "title": "DW News. . In 2024, several Latin Americans were caught committing sabotage and arson on behalf of Russia. A DW investigation reveals how they came to work for Moscow's secret services and who recruited them. The investigation by DW was done in coop - facebook.com",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOdm5CdE1Ba3ZZcjlZX1B4a09XV1B4VXAwRVl1VDdnM0tHUVIxRzBYVVNOVXNfUFpuZlFOMFA4YkI3Ym50RVhURkQzekNpdFRBRVJPTlhQTVk3bGZqYWs3NTJkdG5YV2JtRDNZNi1wZlMzbXkxZHFCRjJGWUxxR3d2dEZnQ2RhdzBnNkswXzhGUXQyeDJ1NVRVUXFQRXpLalpseHdjMWhQWVpSTDBhT3o0VWdBVk04cWg1TUpIYVFxSQ?oc=5",
+      "published_at": "2026-09-14T05:05:07+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 19,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "a8d4e878ebd90b43",
+      "title": "Cuban dance teacher ordered EU sabotage attacks from Russia - DW.com",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPZEtXbUNwQXNjMk5jeFBpbUxXMTdNUjBvNWVwNTVzWlVBZWN6cnRSdE9qQzI4ekw3bFRlTTM5MjUybDBzLXNsWlh3dE1JZTBMRFRLNkJTOVlCS3lEX2IyaC0yQWhjWVJDUDE5elo1eGV6b291ZWNLd3h3UUFzTkFOcjBKRU5jcU85SHFXNGlwYnNBRV9UWW5r0gGXAUFVX3lxTE5Tc3dYdzFFR3JJMk9yNk92RzJZdUdIbXdGMjUwbXlKeWJETlJBVE5EVGhBMU1xdUJaSjJ4TXUzaW5OZEVLNFJLMzhLR01SVVJFWWRrbXIzN1lwUkF3b05LR3FhMFdXXzZNWnRGSHluZkJnNTd2ZHMzU1FtcDFBVVF4SVdfdjJBVnFNQzJpWkpzNGNlQl8td2M?oc=5",
+      "published_at": "2026-09-14T05:51:49+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 6,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "b27b0ac77d7d378c",
+      "title": "Poland broadens security strategy as Russian hybrid threats grow - euractiv.com",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOZHRiM211LXNBTXpwY1c2eEdPTl8wc2ZoSjNELWNkRDJJUG1jTUxSeFVEWEtBRDdsczhsLUt4a2RCVk5Eak42QXo5cmhVaEhTS1hxbWI5QUZ3U2QtRGo1NUkyTlNOXzQ4Z0QtcE5GdlhqY01GMVRBcWMzbXpnR2JjNkY0ZG5ZNkxhMXBPdlBzdnB5YU9fQl9pbFAyRQ?oc=5",
+      "published_at": "2026-09-14T02:03:58+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    }
+  ],
+  "events": [
+    {
+      "event_id": "a8d4e878ebd90b43",
+      "title": "Cuban dance teacher ordered EU sabotage attacks from Russia - DW.com",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPZEtXbUNwQXNjMk5jeFBpbUxXMTdNUjBvNWVwNTVzWlVBZWN6cnRSdE9qQzI4ekw3bFRlTTM5MjUybDBzLXNsWlh3dE1JZTBMRFRLNkJTOVlCS3lEX2IyaC0yQWhjWVJDUDE5elo1eGV6b291ZWNLd3h3UUFzTkFOcjBKRU5jcU85SHFXNGlwYnNBRV9UWW5r0gGXAUFVX3lxTE5Tc3dYdzFFR3JJMk9yNk92RzJZdUdIbXdGMjUwbXlKeWJETlJBVE5EVGhBMU1xdUJaSjJ4TXUzaW5OZEVLNFJLMzhLR01SVVJFWWRrbXIzN1lwUkF3b05LR3FhMFdXXzZNWnRGSHluZkJnNTd2ZHMzU1FtcDFBVVF4SVdfdjJBVnFNQzJpWkpzNGNlQl8td2M?oc=5",
+      "published_at": "2026-09-14T05:51:49+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 6,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "ea83c238c425b6da",
+      "title": "DW News. . In 2024, several Latin Americans were caught committing sabotage and arson on behalf of Russia. A DW investigation reveals how they came to work for Moscow's secret services and who recruited them. The investigation by DW was done in coop - facebook.com",
+      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOdm5CdE1Ba3ZZcjlZX1B4a09XV1B4VXAwRVl1VDdnM0tHUVIxRzBYVVNOVXNfUFpuZlFOMFA4YkI3Ym50RVhURkQzekNpdFRBRVJPTlhQTVk3bGZqYWs3NTJkdG5YV2JtRDNZNi1wZlMzbXkxZHFCRjJGWUxxR3d2dEZnQ2RhdzBnNkswXzhGUXQyeDJ1NVRVUXFQRXpLalpseHdjMWhQWVpSTDBhT3o0VWdBVk04cWg1TUpIYVFxSQ?oc=5",
+      "published_at": "2026-09-14T05:05:07+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 19,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "b27b0ac77d7d378c",
+      "title": "Poland broadens security strategy as Russian hybrid threats grow - euractiv.com",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOZHRiM211LXNBTXpwY1c2eEdPTl8wc2ZoSjNELWNkRDJJUG1jTUxSeFVEWEtBRDdsczhsLUt4a2RCVk5Eak42QXo5cmhVaEhTS1hxbWI5QUZ3U2QtRGo1NUkyTlNOXzQ4Z0QtcE5GdlhqY01GMVRBcWMzbXpnR2JjNkY0ZG5ZNkxhMXBPdlBzdnB5YU9fQl9pbFAyRQ?oc=5",
+      "published_at": "2026-09-14T02:03:58+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    }
+  ]
 }
