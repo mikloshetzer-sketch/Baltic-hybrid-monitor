@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-14T10:47:32.939301+00:00",
+  "generated_at": "2026-09-15T10:10:46.206603+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-09-14T10:47:32.894924+00:00",
+  "source_history_generated_at": "2026-09-15T10:10:46.133898+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-09-08",
-    "end_date": "2026-09-14",
+    "start_date": "2026-09-09",
+    "end_date": "2026-09-15",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -31,34 +31,35 @@
   "missing_dates": [],
   "seven_day_summary": {
     "totals": {
-      "event_count": 8,
-      "incident_count": 1,
+      "event_count": 11,
+      "incident_count": 3,
       "activity_count": 0,
-      "indicator_count": 5,
+      "indicator_count": 6,
       "assessment_count": 2
     },
     "indices": {
-      "average_operational_index_observed_days": 2.71,
-      "average_early_warning_index_observed_days": 5.29,
-      "average_threat_index_observed_days": 6.77,
+      "average_operational_index_observed_days": 6.43,
+      "average_early_warning_index_observed_days": 5.57,
+      "average_threat_index_observed_days": 9.23,
       "average_threat_level_observed_days": "low",
-      "highest_daily_threat_index": 16.4
+      "highest_daily_threat_index": 22.2
     },
     "peak_day": {
-      "date": "2026-09-14",
-      "threat_index": 16.4,
-      "overall_level": "low",
-      "event_count": 3
+      "date": "2026-09-15",
+      "threat_index": 22.2,
+      "overall_level": "guarded",
+      "event_count": 4
     },
     "country_totals": {
-      "Estonia": 0.0,
       "Latvia": 0.0,
+      "Lithuania": 0.0,
       "Poland": 0.0,
       "Regional": 0.0
     },
     "category_totals": {
       "critical_infrastructure": 0.0,
       "disinformation": 0.0,
+      "drone_incident": 0.0,
       "sabotage": 0.0
     },
     "actor_totals": {
@@ -67,6 +68,125 @@
     }
   },
   "top_events": [
+    {
+      "event_id": "a49b9c29b3957a9c",
+      "title": "NATO jet downs drone over Lithuania after Russia's nuclear warning | Videos - Hindustan Times",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUUV6R0hnRFFYNTNWU1N4YkZiSXNLQjdpcHE2dGJCNGZrbS1JTjJkUXBXVHZmM3lmTDVaY0xVZ0hUM2E1Y2RYUGtma2w2UzFFd1BhZ1cwczhKVVVDNkVVaWVLaHdnUllTTkVjWWVnTDltTUY3ZWxVTEJHbXhoTUszdm1KRmJwNVVDSHlxS3ZFcGtYaVVkWDNxd2MydkJPODdwTUFHMUZrazhsTTVCSmNYNFdzSy13b0VJanV2cW1Sb3Bad9IBxwFBVV95cUxNYnVOS2d6LW1mbnhpeWp6U2JSN0tMQmJ4aVctUjI4ODJDSDk0NWRScmJQaXQ2ZV9vM0dxcjlPV25fdkF5MnJGVUJtS0NKdERPM0xDRTVZbFZ0a0oyeG9MRWJuLW00TXZxcG1CWllsRkJUNHRTT29xR01LZTI2MXRlbmctZGlRYllxZzdXeG5ZaWM1VExyLVdNa2hVNXZHZkVtSzZHSkxFNlFKQ0RUenZzakJ4RzVYQ3BPN1JJdml2LWxTNi1VbFA4?oc=5",
+      "published_at": "2026-09-15T08:14:11+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia",
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-15"
+    },
+    {
+      "event_id": "10e89ff9f0bea335",
+      "title": "Residents near Lithuania drone crash describe a night of fear and explosions",
+      "url": "https://www.lrt.lt/en/news-in-english/19/3053161/residents-near-lithuania-drone-crash-describe-a-night-of-fear-and-explosions",
+      "published_at": "2026-09-15T07:42:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 25,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "LRT English Lithuania"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-15"
+    },
+    {
+      "event_id": "d7201d90ad8785a1",
+      "title": "Russian Drone Strike On Train Near Poland Draws German Warning Of Calculated Escalation - The Defense Watch",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNd1kyM0l0b0QzVXAxQ3l2RXhCMmJyUnFBSWc3c042N0pmZmJBN1JGekFmWVRKUElSYUxza1BKTzBqS3M4UzlVcktmTXZRZE9MQ0dFMUtfN280dHBNald2bWJRaFlDSnBxNFh6Nk1MLVNZUUFGRVN0ZDZhcTJlS3pIcm01ajhod0JJTkdtX0ZCakJLOHBtblB0RklTbmdQNUhqTHc?oc=5",
+      "published_at": "2026-09-15T03:16:32+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 6,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-15"
+    },
+    {
+      "event_id": "f5f800935f361343",
+      "title": "Latest security incident: Drone shot down by NATO over Lithuania - RTL Today",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNN2Y1NGI0SnA2YVlTU0NnNzRlS3ZTNlNKakMzYVliVXNhTFByU2ZTVGlYTHRuSzhLd0s3X182NW84cmptbVlYeGxRRG9rVm9JZVpSSTBmSElfZ2E0OXNSZzJRX2d3VnZrOVd1U2dBR1h3eDNPV1lLN283dU9PcFM5cnZTVHRTYVZZ?oc=5",
+      "published_at": "2026-09-15T02:29:40+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 27,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-15"
+    },
     {
       "event_id": "a8d4e878ebd90b43",
       "title": "Cuban dance teacher ordered EU sabotage attacks from Russia - DW.com",
@@ -249,224 +369,9 @@
       ],
       "related_item_count": 1,
       "matrix_snapshot_date": "2026-09-10"
-    },
-    {
-      "event_id": "a79ff3314eb672af",
-      "title": "Poland’s Special Services Chief Meets CIA Director Amid Fears of Russian Threat to NATO - Kyiv Post",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE9HZUxyeHloRzcxUUdoSmxrYnBDUFZNQ0EtRWZELWctZ0JUblZzOGhJR2JSWEc4aEU0YTd1RWhVd1dUak9jYkJIV3RyMA?oc=5",
-      "published_at": "2026-09-09T06:01:03+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia",
-        "NATO"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic Russia hybrid threat"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-09-09"
-    },
-    {
-      "event_id": "6e81561ac4b59c71",
-      "title": "'Death to the fascist snake' Soviet-era poster prompts police action",
-      "url": "https://news.err.ee/1610130949/death-to-the-fascist-snake-soviet-era-poster-prompts-police-action",
-      "published_at": "2026-09-08T07:53:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "disinformation"
-      ],
-      "actors": [],
-      "locations": [
-        "Tallinn"
-      ],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 5,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-09-08"
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-09-08",
-      "status": "available",
-      "snapshot_generated_at": "2026-09-08T09:49:40.603085+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 1,
-      "incident_count": 0,
-      "activity_count": 0,
-      "indicator_count": 1,
-      "assessment_count": 0,
-      "score_total": 5.0,
-      "average_score": 5.0,
-      "highest_score": 5.0,
-      "operational_index": 0.0,
-      "early_warning_index": 5.0,
-      "threat_index": 5.0,
-      "overall_level": "low",
-      "country_summary": {
-        "Estonia": {
-          "country": "Estonia",
-          "event_count": 1,
-          "incident_count": 0,
-          "activity_count": 0,
-          "indicator_count": 1,
-          "assessment_count": 0,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5,
-          "operational_index": 0.0,
-          "early_warning_index": 5.0,
-          "threat_index": 5.0,
-          "overall_level": "low",
-          "categories": {
-            "disinformation": 1
-          },
-          "actors": {}
-        }
-      },
-      "category_summary": {
-        "disinformation": {
-          "event_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5
-        }
-      },
-      "actor_summary": {},
-      "subtype_summary": {
-        "incident": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5
-        },
-        "assessment": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {
-        "direct": {
-          "event_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5
-        }
-      },
-      "hotspot": {
-        "location": "Tallinn",
-        "score": 5,
-        "event_count": 1
-      },
-      "key_driver": "disinformation",
-      "dominant_actor": null,
-      "top_events": [
-        {
-          "event_id": "6e81561ac4b59c71",
-          "title": "'Death to the fascist snake' Soviet-era poster prompts police action",
-          "url": "https://news.err.ee/1610130949/death-to-the-fascist-snake-soviet-era-poster-prompts-police-action",
-          "published_at": "2026-09-08T07:53:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "disinformation"
-          ],
-          "actors": [],
-          "locations": [
-            "Tallinn"
-          ],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "ERR News Estonia"
-          ],
-          "related_item_count": 1
-        }
-      ],
-      "events": [
-        {
-          "event_id": "6e81561ac4b59c71",
-          "title": "'Death to the fascist snake' Soviet-era poster prompts police action",
-          "url": "https://news.err.ee/1610130949/death-to-the-fascist-snake-soviet-era-poster-prompts-police-action",
-          "published_at": "2026-09-08T07:53:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "disinformation"
-          ],
-          "actors": [],
-          "locations": [
-            "Tallinn"
-          ],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "ERR News Estonia"
-          ],
-          "related_item_count": 1
-        }
-      ]
-    },
     {
       "date": "2026-09-09",
       "status": "available",
@@ -1480,6 +1385,365 @@
           "hybrid_threat_level": "low",
           "source_names": [
             "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-09-15",
+      "status": "available",
+      "snapshot_generated_at": "2026-09-15T10:10:46.074316+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 4,
+      "incident_count": 2,
+      "activity_count": 0,
+      "indicator_count": 2,
+      "assessment_count": 0,
+      "score_total": 66.0,
+      "average_score": 16.5,
+      "highest_score": 27.0,
+      "operational_index": 26.0,
+      "early_warning_index": 7.0,
+      "threat_index": 22.2,
+      "overall_level": "guarded",
+      "country_summary": {
+        "Lithuania": {
+          "country": "Lithuania",
+          "event_count": 3,
+          "incident_count": 2,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 60,
+          "average_score": 20.0,
+          "highest_score": 27,
+          "operational_index": 26.0,
+          "early_warning_index": 8.0,
+          "threat_index": 22.4,
+          "overall_level": "guarded",
+          "categories": {
+            "drone_incident": 2
+          },
+          "actors": {
+            "NATO": 2,
+            "Russia": 1
+          }
+        },
+        "Poland": {
+          "country": "Poland",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6,
+          "operational_index": 0.0,
+          "early_warning_index": 6.0,
+          "threat_index": 6.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Russia": 1
+          }
+        }
+      },
+      "category_summary": {
+        "drone_incident": {
+          "event_count": 2,
+          "score_total": 52,
+          "average_score": 26.0,
+          "highest_score": 27
+        }
+      },
+      "actor_summary": {
+        "NATO": {
+          "event_count": 2,
+          "score_total": 35,
+          "average_score": 17.5,
+          "highest_score": 27
+        },
+        "Russia": {
+          "event_count": 2,
+          "score_total": 14,
+          "average_score": 7.0,
+          "highest_score": 8
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 2,
+          "score_total": 52,
+          "average_score": 26.0,
+          "highest_score": 27
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 2,
+          "score_total": 14,
+          "average_score": 7.0,
+          "highest_score": 8
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 4,
+          "score_total": 66,
+          "average_score": 16.5,
+          "highest_score": 27
+        }
+      },
+      "hotspot": {
+        "location": "Lithuania",
+        "score": 60,
+        "event_count": 3
+      },
+      "key_driver": "drone_incident",
+      "dominant_actor": "NATO",
+      "top_events": [
+        {
+          "event_id": "f5f800935f361343",
+          "title": "Latest security incident: Drone shot down by NATO over Lithuania - RTL Today",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNN2Y1NGI0SnA2YVlTU0NnNzRlS3ZTNlNKakMzYVliVXNhTFByU2ZTVGlYTHRuSzhLd0s3X182NW84cmptbVlYeGxRRG9rVm9JZVpSSTBmSElfZ2E0OXNSZzJRX2d3VnZrOVd1U2dBR1h3eDNPV1lLN283dU9PcFM5cnZTVHRTYVZZ?oc=5",
+          "published_at": "2026-09-15T02:29:40+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 27,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic drone incident Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "10e89ff9f0bea335",
+          "title": "Residents near Lithuania drone crash describe a night of fear and explosions",
+          "url": "https://www.lrt.lt/en/news-in-english/19/3053161/residents-near-lithuania-drone-crash-describe-a-night-of-fear-and-explosions",
+          "published_at": "2026-09-15T07:42:00+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 25,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "LRT English Lithuania"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "a49b9c29b3957a9c",
+          "title": "NATO jet downs drone over Lithuania after Russia's nuclear warning | Videos - Hindustan Times",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUUV6R0hnRFFYNTNWU1N4YkZiSXNLQjdpcHE2dGJCNGZrbS1JTjJkUXBXVHZmM3lmTDVaY0xVZ0hUM2E1Y2RYUGtma2w2UzFFd1BhZ1cwczhKVVVDNkVVaWVLaHdnUllTTkVjWWVnTDltTUY3ZWxVTEJHbXhoTUszdm1KRmJwNVVDSHlxS3ZFcGtYaVVkWDNxd2MydkJPODdwTUFHMUZrazhsTTVCSmNYNFdzSy13b0VJanV2cW1Sb3Bad9IBxwFBVV95cUxNYnVOS2d6LW1mbnhpeWp6U2JSN0tMQmJ4aVctUjI4ODJDSDk0NWRScmJQaXQ2ZV9vM0dxcjlPV25fdkF5MnJGVUJtS0NKdERPM0xDRTVZbFZ0a0oyeG9MRWJuLW00TXZxcG1CWllsRkJUNHRTT29xR01LZTI2MXRlbmctZGlRYllxZzdXeG5ZaWM1VExyLVdNa2hVNXZHZkVtSzZHSkxFNlFKQ0RUenZzakJ4RzVYQ3BPN1JJdml2LWxTNi1VbFA4?oc=5",
+          "published_at": "2026-09-15T08:14:11+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 8,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic drone incident Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "d7201d90ad8785a1",
+          "title": "Russian Drone Strike On Train Near Poland Draws German Warning Of Calculated Escalation - The Defense Watch",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNd1kyM0l0b0QzVXAxQ3l2RXhCMmJyUnFBSWc3c042N0pmZmJBN1JGekFmWVRKUElSYUxza1BKTzBqS3M4UzlVcktmTXZRZE9MQ0dFMUtfN280dHBNald2bWJRaFlDSnBxNFh6Nk1MLVNZUUFGRVN0ZDZhcTJlS3pIcm01ajhod0JJTkdtX0ZCakJLOHBtblB0RklTbmdQNUhqTHc?oc=5",
+          "published_at": "2026-09-15T03:16:32+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic drone incident Russia"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "a49b9c29b3957a9c",
+          "title": "NATO jet downs drone over Lithuania after Russia's nuclear warning | Videos - Hindustan Times",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUUV6R0hnRFFYNTNWU1N4YkZiSXNLQjdpcHE2dGJCNGZrbS1JTjJkUXBXVHZmM3lmTDVaY0xVZ0hUM2E1Y2RYUGtma2w2UzFFd1BhZ1cwczhKVVVDNkVVaWVLaHdnUllTTkVjWWVnTDltTUY3ZWxVTEJHbXhoTUszdm1KRmJwNVVDSHlxS3ZFcGtYaVVkWDNxd2MydkJPODdwTUFHMUZrazhsTTVCSmNYNFdzSy13b0VJanV2cW1Sb3Bad9IBxwFBVV95cUxNYnVOS2d6LW1mbnhpeWp6U2JSN0tMQmJ4aVctUjI4ODJDSDk0NWRScmJQaXQ2ZV9vM0dxcjlPV25fdkF5MnJGVUJtS0NKdERPM0xDRTVZbFZ0a0oyeG9MRWJuLW00TXZxcG1CWllsRkJUNHRTT29xR01LZTI2MXRlbmctZGlRYllxZzdXeG5ZaWM1VExyLVdNa2hVNXZHZkVtSzZHSkxFNlFKQ0RUenZzakJ4RzVYQ3BPN1JJdml2LWxTNi1VbFA4?oc=5",
+          "published_at": "2026-09-15T08:14:11+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 8,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic drone incident Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "10e89ff9f0bea335",
+          "title": "Residents near Lithuania drone crash describe a night of fear and explosions",
+          "url": "https://www.lrt.lt/en/news-in-english/19/3053161/residents-near-lithuania-drone-crash-describe-a-night-of-fear-and-explosions",
+          "published_at": "2026-09-15T07:42:00+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 25,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "LRT English Lithuania"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "d7201d90ad8785a1",
+          "title": "Russian Drone Strike On Train Near Poland Draws German Warning Of Calculated Escalation - The Defense Watch",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNd1kyM0l0b0QzVXAxQ3l2RXhCMmJyUnFBSWc3c042N0pmZmJBN1JGekFmWVRKUElSYUxza1BKTzBqS3M4UzlVcktmTXZRZE9MQ0dFMUtfN280dHBNald2bWJRaFlDSnBxNFh6Nk1MLVNZUUFGRVN0ZDZhcTJlS3pIcm01ajhod0JJTkdtX0ZCakJLOHBtblB0RklTbmdQNUhqTHc?oc=5",
+          "published_at": "2026-09-15T03:16:32+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic drone incident Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "f5f800935f361343",
+          "title": "Latest security incident: Drone shot down by NATO over Lithuania - RTL Today",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNN2Y1NGI0SnA2YVlTU0NnNzRlS3ZTNlNKakMzYVliVXNhTFByU2ZTVGlYTHRuSzhLd0s3X182NW84cmptbVlYeGxRRG9rVm9JZVpSSTBmSElfZ2E0OXNSZzJRX2d3VnZrOVd1U2dBR1h3eDNPV1lLN283dU9PcFM5cnZTVHRTYVZZ?oc=5",
+          "published_at": "2026-09-15T02:29:40+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 27,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic drone incident Russia"
           ],
           "related_item_count": 1
         }
