@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-20T09:56:51.100129+00:00",
-  "snapshot_date": "2026-09-20",
+  "generated_at": "2026-09-21T10:50:43.219948+00:00",
+  "snapshot_date": "2026-09-21",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-09-20T09:56:51.046918+00:00",
+  "source_generated_at": "2026-09-21T10:50:43.132495+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,11 +17,11 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 0,
+    "event_count": 1,
     "incident_count": 0,
     "activity_count": 0,
     "indicator_count": 0,
-    "assessment_count": 0,
+    "assessment_count": 1,
     "score_total": 0,
     "average_score": 0.0,
     "highest_score": 0,
@@ -30,9 +30,36 @@
     "threat_index": 0.0,
     "overall_level": "low"
   },
-  "country_summary": {},
+  "country_summary": {
+    "Latvia": {
+      "country": "Latvia",
+      "event_count": 1,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 0,
+      "assessment_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0,
+      "operational_index": 0.0,
+      "early_warning_index": 0.0,
+      "threat_index": 0.0,
+      "overall_level": "low",
+      "categories": {},
+      "actors": {
+        "Russia": 1
+      }
+    }
+  },
   "category_summary": {},
-  "actor_summary": {},
+  "actor_summary": {
+    "Russia": {
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
+    }
+  },
   "subtype_summary": {
     "incident": {
       "event_count": 0,
@@ -53,20 +80,85 @@
       "highest_score": 0
     },
     "assessment": {
-      "event_count": 0,
+      "event_count": 1,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
     }
   },
-  "scope_summary": {},
+  "scope_summary": {
+    "direct": {
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
+    }
+  },
   "hotspot": {
-    "location": null,
+    "location": "Latvia",
     "score": 0,
-    "event_count": 0
+    "event_count": 1
   },
   "key_driver": null,
-  "dominant_actor": null,
-  "top_events": [],
-  "events": []
+  "dominant_actor": "Russia",
+  "top_events": [
+    {
+      "event_id": "1d380ce3df890c63",
+      "title": "Czech, Latvian and Swedish intelligence chiefs assess growing Russian threat - The New Voice of Ukraine",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNZC1zVmhibGlWLWVVa2ZjcmhlMHZSME9fNU1xd0lkUWlJRG5PUEMycjRVUl8zZS02MjZuRS1LSWpxQmlwanJlYXhKZEJRRTlNcnVQZ0xyWEFRdUtfUzdqcHVIcVdieTN2T2MtM21IekZSeTc3SDhvOW1JcXcyeS0weUpHWUJ5SHQ2dTVxZldScFE3VGtWMEx1UE5peEdBNzFvUWZMZ3NNYjY4UlJVazNMaW14TTE4cnhYVVd5eEJVSXFFUdIBvgFBVV95cUxOY3ZhbjNPR0prWFpER1FaNVpOLWtfOWIxMlk2T1BzVV9fNFI4YnVIX3F1cW8yM1cxakU3a3RUT2xtU1NYOVg5a1lMc3dCUkZwMUFMNHhzdlE4azE3eUJFNm5KOTlrVmsya3kyV1BUdHRjdTRtZFlhb0V0RlFJWmNPd0VDd0MyTUJWNW9hVS1LY0JrM1ItZDVHOWtVU3RndVR0SkQzTW51akVPWjJJSFl5X0ZJR2prd0VsREplWl93?oc=5",
+      "published_at": "2026-09-21T08:38:00+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    }
+  ],
+  "events": [
+    {
+      "event_id": "1d380ce3df890c63",
+      "title": "Czech, Latvian and Swedish intelligence chiefs assess growing Russian threat - The New Voice of Ukraine",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNZC1zVmhibGlWLWVVa2ZjcmhlMHZSME9fNU1xd0lkUWlJRG5PUEMycjRVUl8zZS02MjZuRS1LSWpxQmlwanJlYXhKZEJRRTlNcnVQZ0xyWEFRdUtfUzdqcHVIcVdieTN2T2MtM21IekZSeTc3SDhvOW1JcXcyeS0weUpHWUJ5SHQ2dTVxZldScFE3VGtWMEx1UE5peEdBNzFvUWZMZ3NNYjY4UlJVazNMaW14TTE4cnhYVVd5eEJVSXFFUdIBvgFBVV95cUxOY3ZhbjNPR0prWFpER1FaNVpOLWtfOWIxMlk2T1BzVV9fNFI4YnVIX3F1cW8yM1cxakU3a3RUT2xtU1NYOVg5a1lMc3dCUkZwMUFMNHhzdlE4azE3eUJFNm5KOTlrVmsya3kyV1BUdHRjdTRtZFlhb0V0RlFJWmNPd0VDd0MyTUJWNW9hVS1LY0JrM1ItZDVHOWtVU3RndVR0SkQzTW51akVPWjJJSFl5X0ZJR2prd0VsREplWl93?oc=5",
+      "published_at": "2026-09-21T08:38:00+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    }
+  ]
 }
