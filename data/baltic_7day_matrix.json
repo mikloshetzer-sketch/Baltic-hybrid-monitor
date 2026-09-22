@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-21T10:50:43.305177+00:00",
+  "generated_at": "2026-09-22T10:06:05.777849+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-09-21T10:50:43.260040+00:00",
+  "source_history_generated_at": "2026-09-22T10:06:05.715988+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-09-15",
-    "end_date": "2026-09-21",
+    "start_date": "2026-09-16",
+    "end_date": "2026-09-22",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -38,25 +38,27 @@
       "assessment_count": 2
     },
     "indices": {
-      "average_operational_index_observed_days": 3.71,
-      "average_early_warning_index_observed_days": 1.0,
-      "average_threat_index_observed_days": 3.17,
+      "average_operational_index_observed_days": 4.14,
+      "average_early_warning_index_observed_days": 1.07,
+      "average_threat_index_observed_days": 3.53,
       "average_threat_level_observed_days": "low",
-      "highest_daily_threat_index": 22.2
+      "highest_daily_threat_index": 24.7
     },
     "peak_day": {
-      "date": "2026-09-15",
-      "threat_index": 22.2,
+      "date": "2026-09-22",
+      "threat_index": 24.7,
       "overall_level": "guarded",
       "event_count": 4
     },
     "country_totals": {
+      "Estonia": 0.0,
       "Latvia": 0.0,
       "Lithuania": 0.0,
       "Poland": 0.0
     },
     "category_totals": {
-      "drone_incident": 0.0
+      "drone_incident": 0.0,
+      "sabotage": 0.0
     },
     "actor_totals": {
       "Belarus": 0.0,
@@ -65,6 +67,124 @@
     }
   },
   "top_events": [
+    {
+      "event_id": "137f005f24a414d9",
+      "title": "3 Latvian suspects in Milrem arson extradited to Estonia, remanded",
+      "url": "https://news.err.ee/1610144998/3-latvian-suspects-in-milrem-arson-extradited-to-estonia-remanded",
+      "published_at": "2026-09-22T10:01:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia",
+        "Latvia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 35,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-22"
+    },
+    {
+      "event_id": "f0308fe8d9ba2dba",
+      "title": "Lithuania Hardens New Power Substation Against Drone and Sabotage Threats - arise.tv",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNRWNqM2J3LS1YNjdyeU5DaVNiZGZRek1UcVM3VnJKeC1tcDlXcmIweklWN2FiNUdDNDZ5b2xwbVBNdTM2Vjh4WHdNS1NJTTNlR29iTVBUM0pKMHFRam9DcFZ3WnRuTjNnRUVOUGIwRkhkejhuMUN4ay1iRnAwYml3UzkwVS1OdkExTWNyYjJyLWZ6T1M5RG85ZVk4NA?oc=5",
+      "published_at": "2026-09-22T09:42:14+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-22"
+    },
+    {
+      "event_id": "a89430d13d1b8ccb",
+      "title": "US think tank paints hypothetical scenario of a limited Russian invasion of Estonia",
+      "url": "https://news.err.ee/1610144824/us-think-tank-paints-hypothetical-scenario-of-a-limited-russian-invasion-of-estonia",
+      "published_at": "2026-09-22T07:10:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia",
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 7,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-09-22"
+    },
+    {
+      "event_id": "5c2652159ad0ff64",
+      "title": "Poland Ends Military Air Operations, Confirms No Airspace Violation - Global Banking & Finance Review",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQVXNFN09MY0QxMGlJdXJ2UVg1S0xYaklCbnBvOG1WNnYzVTAycXVuQTlMdjJZVmpIT21OOXNqNUNWUlJOaUFYQjRPdUNCelhfb21UN2xadFFpNzg2alNoM25hcjBvQzFFb09ub2hteVh4LUZyN3NycjNIR2VTcmpLcUxhYmRqcC1odmlScEVkS29OOWYzUDBSZTdGY04?oc=5",
+      "published_at": "2026-09-22T01:56:07+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 23,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic airspace violation Russia"
+      ],
+      "related_item_count": 2,
+      "matrix_snapshot_date": "2026-09-22"
+    },
     {
       "event_id": "1d380ce3df890c63",
       "title": "Czech, Latvian and Swedish intelligence chiefs assess growing Russian threat - The New Voice of Ukraine",
@@ -123,487 +243,9 @@
       ],
       "related_item_count": 1,
       "matrix_snapshot_date": "2026-09-16"
-    },
-    {
-      "event_id": "a49b9c29b3957a9c",
-      "title": "NATO jet downs drone over Lithuania after Russia's nuclear warning | Videos - Hindustan Times",
-      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUUV6R0hnRFFYNTNWU1N4YkZiSXNLQjdpcHE2dGJCNGZrbS1JTjJkUXBXVHZmM3lmTDVaY0xVZ0hUM2E1Y2RYUGtma2w2UzFFd1BhZ1cwczhKVVVDNkVVaWVLaHdnUllTTkVjWWVnTDltTUY3ZWxVTEJHbXhoTUszdm1KRmJwNVVDSHlxS3ZFcGtYaVVkWDNxd2MydkJPODdwTUFHMUZrazhsTTVCSmNYNFdzSy13b0VJanV2cW1Sb3Bad9IBxwFBVV95cUxNYnVOS2d6LW1mbnhpeWp6U2JSN0tMQmJ4aVctUjI4ODJDSDk0NWRScmJQaXQ2ZV9vM0dxcjlPV25fdkF5MnJGVUJtS0NKdERPM0xDRTVZbFZ0a0oyeG9MRWJuLW00TXZxcG1CWllsRkJUNHRTT29xR01LZTI2MXRlbmctZGlRYllxZzdXeG5ZaWM1VExyLVdNa2hVNXZHZkVtSzZHSkxFNlFKQ0RUenZzakJ4RzVYQ3BPN1JJdml2LWxTNi1VbFA4?oc=5",
-      "published_at": "2026-09-15T08:14:11+00:00",
-      "primary_country": "Lithuania",
-      "countries": [
-        "Lithuania"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia",
-        "NATO"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 8,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic drone incident Russia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-09-15"
-    },
-    {
-      "event_id": "10e89ff9f0bea335",
-      "title": "Residents near Lithuania drone crash describe a night of fear and explosions",
-      "url": "https://www.lrt.lt/en/news-in-english/19/3053161/residents-near-lithuania-drone-crash-describe-a-night-of-fear-and-explosions",
-      "published_at": "2026-09-15T07:42:00+00:00",
-      "primary_country": "Lithuania",
-      "countries": [
-        "Lithuania"
-      ],
-      "categories": [
-        "drone_incident"
-      ],
-      "actors": [],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 25,
-      "hybrid_threat_level": "guarded",
-      "source_names": [
-        "LRT English Lithuania"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-09-15"
-    },
-    {
-      "event_id": "d7201d90ad8785a1",
-      "title": "Russian Drone Strike On Train Near Poland Draws German Warning Of Calculated Escalation - The Defense Watch",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNd1kyM0l0b0QzVXAxQ3l2RXhCMmJyUnFBSWc3c042N0pmZmJBN1JGekFmWVRKUElSYUxza1BKTzBqS3M4UzlVcktmTXZRZE9MQ0dFMUtfN280dHBNald2bWJRaFlDSnBxNFh6Nk1MLVNZUUFGRVN0ZDZhcTJlS3pIcm01ajhod0JJTkdtX0ZCakJLOHBtblB0RklTbmdQNUhqTHc?oc=5",
-      "published_at": "2026-09-15T03:16:32+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 6,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic drone incident Russia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-09-15"
-    },
-    {
-      "event_id": "f5f800935f361343",
-      "title": "Latest security incident: Drone shot down by NATO over Lithuania - RTL Today",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNN2Y1NGI0SnA2YVlTU0NnNzRlS3ZTNlNKakMzYVliVXNhTFByU2ZTVGlYTHRuSzhLd0s3X182NW84cmptbVlYeGxRRG9rVm9JZVpSSTBmSElfZ2E0OXNSZzJRX2d3VnZrOVd1U2dBR1h3eDNPV1lLN283dU9PcFM5cnZTVHRTYVZZ?oc=5",
-      "published_at": "2026-09-15T02:29:40+00:00",
-      "primary_country": "Lithuania",
-      "countries": [
-        "Lithuania"
-      ],
-      "categories": [
-        "drone_incident"
-      ],
-      "actors": [
-        "NATO"
-      ],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 27,
-      "hybrid_threat_level": "guarded",
-      "source_names": [
-        "Google News - Baltic drone incident Russia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-09-15"
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-09-15",
-      "status": "available",
-      "snapshot_generated_at": "2026-09-15T10:10:46.074316+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 4,
-      "incident_count": 2,
-      "activity_count": 0,
-      "indicator_count": 2,
-      "assessment_count": 0,
-      "score_total": 66.0,
-      "average_score": 16.5,
-      "highest_score": 27.0,
-      "operational_index": 26.0,
-      "early_warning_index": 7.0,
-      "threat_index": 22.2,
-      "overall_level": "guarded",
-      "country_summary": {
-        "Lithuania": {
-          "country": "Lithuania",
-          "event_count": 3,
-          "incident_count": 2,
-          "activity_count": 0,
-          "indicator_count": 1,
-          "assessment_count": 0,
-          "score_total": 60,
-          "average_score": 20.0,
-          "highest_score": 27,
-          "operational_index": 26.0,
-          "early_warning_index": 8.0,
-          "threat_index": 22.4,
-          "overall_level": "guarded",
-          "categories": {
-            "drone_incident": 2
-          },
-          "actors": {
-            "NATO": 2,
-            "Russia": 1
-          }
-        },
-        "Poland": {
-          "country": "Poland",
-          "event_count": 1,
-          "incident_count": 0,
-          "activity_count": 0,
-          "indicator_count": 1,
-          "assessment_count": 0,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6,
-          "operational_index": 0.0,
-          "early_warning_index": 6.0,
-          "threat_index": 6.0,
-          "overall_level": "low",
-          "categories": {},
-          "actors": {
-            "Russia": 1
-          }
-        }
-      },
-      "category_summary": {
-        "drone_incident": {
-          "event_count": 2,
-          "score_total": 52,
-          "average_score": 26.0,
-          "highest_score": 27
-        }
-      },
-      "actor_summary": {
-        "NATO": {
-          "event_count": 2,
-          "score_total": 35,
-          "average_score": 17.5,
-          "highest_score": 27
-        },
-        "Russia": {
-          "event_count": 2,
-          "score_total": 14,
-          "average_score": 7.0,
-          "highest_score": 8
-        }
-      },
-      "subtype_summary": {
-        "incident": {
-          "event_count": 2,
-          "score_total": 52,
-          "average_score": 26.0,
-          "highest_score": 27
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 2,
-          "score_total": 14,
-          "average_score": 7.0,
-          "highest_score": 8
-        },
-        "assessment": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {
-        "direct": {
-          "event_count": 4,
-          "score_total": 66,
-          "average_score": 16.5,
-          "highest_score": 27
-        }
-      },
-      "hotspot": {
-        "location": "Lithuania",
-        "score": 60,
-        "event_count": 3
-      },
-      "key_driver": "drone_incident",
-      "dominant_actor": "NATO",
-      "top_events": [
-        {
-          "event_id": "f5f800935f361343",
-          "title": "Latest security incident: Drone shot down by NATO over Lithuania - RTL Today",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNN2Y1NGI0SnA2YVlTU0NnNzRlS3ZTNlNKakMzYVliVXNhTFByU2ZTVGlYTHRuSzhLd0s3X182NW84cmptbVlYeGxRRG9rVm9JZVpSSTBmSElfZ2E0OXNSZzJRX2d3VnZrOVd1U2dBR1h3eDNPV1lLN283dU9PcFM5cnZTVHRTYVZZ?oc=5",
-          "published_at": "2026-09-15T02:29:40+00:00",
-          "primary_country": "Lithuania",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "drone_incident"
-          ],
-          "actors": [
-            "NATO"
-          ],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 27,
-          "hybrid_threat_level": "guarded",
-          "source_names": [
-            "Google News - Baltic drone incident Russia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "10e89ff9f0bea335",
-          "title": "Residents near Lithuania drone crash describe a night of fear and explosions",
-          "url": "https://www.lrt.lt/en/news-in-english/19/3053161/residents-near-lithuania-drone-crash-describe-a-night-of-fear-and-explosions",
-          "published_at": "2026-09-15T07:42:00+00:00",
-          "primary_country": "Lithuania",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "drone_incident"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 25,
-          "hybrid_threat_level": "guarded",
-          "source_names": [
-            "LRT English Lithuania"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "a49b9c29b3957a9c",
-          "title": "NATO jet downs drone over Lithuania after Russia's nuclear warning | Videos - Hindustan Times",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUUV6R0hnRFFYNTNWU1N4YkZiSXNLQjdpcHE2dGJCNGZrbS1JTjJkUXBXVHZmM3lmTDVaY0xVZ0hUM2E1Y2RYUGtma2w2UzFFd1BhZ1cwczhKVVVDNkVVaWVLaHdnUllTTkVjWWVnTDltTUY3ZWxVTEJHbXhoTUszdm1KRmJwNVVDSHlxS3ZFcGtYaVVkWDNxd2MydkJPODdwTUFHMUZrazhsTTVCSmNYNFdzSy13b0VJanV2cW1Sb3Bad9IBxwFBVV95cUxNYnVOS2d6LW1mbnhpeWp6U2JSN0tMQmJ4aVctUjI4ODJDSDk0NWRScmJQaXQ2ZV9vM0dxcjlPV25fdkF5MnJGVUJtS0NKdERPM0xDRTVZbFZ0a0oyeG9MRWJuLW00TXZxcG1CWllsRkJUNHRTT29xR01LZTI2MXRlbmctZGlRYllxZzdXeG5ZaWM1VExyLVdNa2hVNXZHZkVtSzZHSkxFNlFKQ0RUenZzakJ4RzVYQ3BPN1JJdml2LWxTNi1VbFA4?oc=5",
-          "published_at": "2026-09-15T08:14:11+00:00",
-          "primary_country": "Lithuania",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia",
-            "NATO"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 8,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic drone incident Russia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "d7201d90ad8785a1",
-          "title": "Russian Drone Strike On Train Near Poland Draws German Warning Of Calculated Escalation - The Defense Watch",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNd1kyM0l0b0QzVXAxQ3l2RXhCMmJyUnFBSWc3c042N0pmZmJBN1JGekFmWVRKUElSYUxza1BKTzBqS3M4UzlVcktmTXZRZE9MQ0dFMUtfN280dHBNald2bWJRaFlDSnBxNFh6Nk1MLVNZUUFGRVN0ZDZhcTJlS3pIcm01ajhod0JJTkdtX0ZCakJLOHBtblB0RklTbmdQNUhqTHc?oc=5",
-          "published_at": "2026-09-15T03:16:32+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 6,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic drone incident Russia"
-          ],
-          "related_item_count": 1
-        }
-      ],
-      "events": [
-        {
-          "event_id": "a49b9c29b3957a9c",
-          "title": "NATO jet downs drone over Lithuania after Russia's nuclear warning | Videos - Hindustan Times",
-          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQUUV6R0hnRFFYNTNWU1N4YkZiSXNLQjdpcHE2dGJCNGZrbS1JTjJkUXBXVHZmM3lmTDVaY0xVZ0hUM2E1Y2RYUGtma2w2UzFFd1BhZ1cwczhKVVVDNkVVaWVLaHdnUllTTkVjWWVnTDltTUY3ZWxVTEJHbXhoTUszdm1KRmJwNVVDSHlxS3ZFcGtYaVVkWDNxd2MydkJPODdwTUFHMUZrazhsTTVCSmNYNFdzSy13b0VJanV2cW1Sb3Bad9IBxwFBVV95cUxNYnVOS2d6LW1mbnhpeWp6U2JSN0tMQmJ4aVctUjI4ODJDSDk0NWRScmJQaXQ2ZV9vM0dxcjlPV25fdkF5MnJGVUJtS0NKdERPM0xDRTVZbFZ0a0oyeG9MRWJuLW00TXZxcG1CWllsRkJUNHRTT29xR01LZTI2MXRlbmctZGlRYllxZzdXeG5ZaWM1VExyLVdNa2hVNXZHZkVtSzZHSkxFNlFKQ0RUenZzakJ4RzVYQ3BPN1JJdml2LWxTNi1VbFA4?oc=5",
-          "published_at": "2026-09-15T08:14:11+00:00",
-          "primary_country": "Lithuania",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia",
-            "NATO"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 8,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic drone incident Russia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "10e89ff9f0bea335",
-          "title": "Residents near Lithuania drone crash describe a night of fear and explosions",
-          "url": "https://www.lrt.lt/en/news-in-english/19/3053161/residents-near-lithuania-drone-crash-describe-a-night-of-fear-and-explosions",
-          "published_at": "2026-09-15T07:42:00+00:00",
-          "primary_country": "Lithuania",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "drone_incident"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 25,
-          "hybrid_threat_level": "guarded",
-          "source_names": [
-            "LRT English Lithuania"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "d7201d90ad8785a1",
-          "title": "Russian Drone Strike On Train Near Poland Draws German Warning Of Calculated Escalation - The Defense Watch",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNd1kyM0l0b0QzVXAxQ3l2RXhCMmJyUnFBSWc3c042N0pmZmJBN1JGekFmWVRKUElSYUxza1BKTzBqS3M4UzlVcktmTXZRZE9MQ0dFMUtfN280dHBNald2bWJRaFlDSnBxNFh6Nk1MLVNZUUFGRVN0ZDZhcTJlS3pIcm01ajhod0JJTkdtX0ZCakJLOHBtblB0RklTbmdQNUhqTHc?oc=5",
-          "published_at": "2026-09-15T03:16:32+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 6,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic drone incident Russia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "f5f800935f361343",
-          "title": "Latest security incident: Drone shot down by NATO over Lithuania - RTL Today",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNN2Y1NGI0SnA2YVlTU0NnNzRlS3ZTNlNKakMzYVliVXNhTFByU2ZTVGlYTHRuSzhLd0s3X182NW84cmptbVlYeGxRRG9rVm9JZVpSSTBmSElfZ2E0OXNSZzJRX2d3VnZrOVd1U2dBR1h3eDNPV1lLN283dU9PcFM5cnZTVHRTYVZZ?oc=5",
-          "published_at": "2026-09-15T02:29:40+00:00",
-          "primary_country": "Lithuania",
-          "countries": [
-            "Lithuania"
-          ],
-          "categories": [
-            "drone_incident"
-          ],
-          "actors": [
-            "NATO"
-          ],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 27,
-          "hybrid_threat_level": "guarded",
-          "source_names": [
-            "Google News - Baltic drone incident Russia"
-          ],
-          "related_item_count": 1
-        }
-      ]
-    },
     {
       "date": "2026-09-16",
       "status": "available",
@@ -1142,6 +784,388 @@
             "Google News - Baltic sabotage Russia"
           ],
           "related_item_count": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "status": "available",
+      "snapshot_generated_at": "2026-09-22T10:06:05.649817+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 4,
+      "incident_count": 2,
+      "activity_count": 0,
+      "indicator_count": 2,
+      "assessment_count": 0,
+      "score_total": 73.0,
+      "average_score": 18.25,
+      "highest_score": 35.0,
+      "operational_index": 29.0,
+      "early_warning_index": 7.5,
+      "threat_index": 24.7,
+      "overall_level": "guarded",
+      "country_summary": {
+        "Estonia": {
+          "country": "Estonia",
+          "event_count": 2,
+          "incident_count": 1,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 42,
+          "average_score": 21.0,
+          "highest_score": 35,
+          "operational_index": 35.0,
+          "early_warning_index": 7.0,
+          "threat_index": 29.4,
+          "overall_level": "guarded",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {
+            "Russia": 1,
+            "NATO": 1
+          }
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 8,
+          "average_score": 8.0,
+          "highest_score": 8,
+          "operational_index": 0.0,
+          "early_warning_index": 8.0,
+          "threat_index": 8.0,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {}
+        },
+        "Poland": {
+          "country": "Poland",
+          "event_count": 1,
+          "incident_count": 1,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 0,
+          "score_total": 23,
+          "average_score": 23.0,
+          "highest_score": 23,
+          "operational_index": 23.0,
+          "early_warning_index": 0.0,
+          "threat_index": 18.4,
+          "overall_level": "low",
+          "categories": {
+            "drone_incident": 1
+          },
+          "actors": {}
+        }
+      },
+      "category_summary": {
+        "sabotage": {
+          "event_count": 2,
+          "score_total": 43,
+          "average_score": 21.5,
+          "highest_score": 35
+        },
+        "drone_incident": {
+          "event_count": 1,
+          "score_total": 23,
+          "average_score": 23.0,
+          "highest_score": 23
+        }
+      },
+      "actor_summary": {
+        "NATO": {
+          "event_count": 1,
+          "score_total": 7,
+          "average_score": 7.0,
+          "highest_score": 7
+        },
+        "Russia": {
+          "event_count": 1,
+          "score_total": 7,
+          "average_score": 7.0,
+          "highest_score": 7
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 2,
+          "score_total": 58,
+          "average_score": 29.0,
+          "highest_score": 35
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 2,
+          "score_total": 15,
+          "average_score": 7.5,
+          "highest_score": 8
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 4,
+          "score_total": 73,
+          "average_score": 18.25,
+          "highest_score": 35
+        }
+      },
+      "hotspot": {
+        "location": "Estonia",
+        "score": 42,
+        "event_count": 2
+      },
+      "key_driver": "sabotage",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "137f005f24a414d9",
+          "title": "3 Latvian suspects in Milrem arson extradited to Estonia, remanded",
+          "url": "https://news.err.ee/1610144998/3-latvian-suspects-in-milrem-arson-extradited-to-estonia-remanded",
+          "published_at": "2026-09-22T10:01:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia",
+            "Latvia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 35,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "5c2652159ad0ff64",
+          "title": "Poland Ends Military Air Operations, Confirms No Airspace Violation - Global Banking & Finance Review",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQVXNFN09MY0QxMGlJdXJ2UVg1S0xYaklCbnBvOG1WNnYzVTAycXVuQTlMdjJZVmpIT21OOXNqNUNWUlJOaUFYQjRPdUNCelhfb21UN2xadFFpNzg2alNoM25hcjBvQzFFb09ub2hteVh4LUZyN3NycjNIR2VTcmpLcUxhYmRqcC1odmlScEVkS29OOWYzUDBSZTdGY04?oc=5",
+          "published_at": "2026-09-22T01:56:07+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 23,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "f0308fe8d9ba2dba",
+          "title": "Lithuania Hardens New Power Substation Against Drone and Sabotage Threats - arise.tv",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNRWNqM2J3LS1YNjdyeU5DaVNiZGZRek1UcVM3VnJKeC1tcDlXcmIweklWN2FiNUdDNDZ5b2xwbVBNdTM2Vjh4WHdNS1NJTTNlR29iTVBUM0pKMHFRam9DcFZ3WnRuTjNnRUVOUGIwRkhkejhuMUN4ay1iRnAwYml3UzkwVS1OdkExTWNyYjJyLWZ6T1M5RG85ZVk4NA?oc=5",
+          "published_at": "2026-09-22T09:42:14+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 8,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "a89430d13d1b8ccb",
+          "title": "US think tank paints hypothetical scenario of a limited Russian invasion of Estonia",
+          "url": "https://news.err.ee/1610144824/us-think-tank-paints-hypothetical-scenario-of-a-limited-russian-invasion-of-estonia",
+          "published_at": "2026-09-22T07:10:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 7,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "137f005f24a414d9",
+          "title": "3 Latvian suspects in Milrem arson extradited to Estonia, remanded",
+          "url": "https://news.err.ee/1610144998/3-latvian-suspects-in-milrem-arson-extradited-to-estonia-remanded",
+          "published_at": "2026-09-22T10:01:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia",
+            "Latvia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 35,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "f0308fe8d9ba2dba",
+          "title": "Lithuania Hardens New Power Substation Against Drone and Sabotage Threats - arise.tv",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNRWNqM2J3LS1YNjdyeU5DaVNiZGZRek1UcVM3VnJKeC1tcDlXcmIweklWN2FiNUdDNDZ5b2xwbVBNdTM2Vjh4WHdNS1NJTTNlR29iTVBUM0pKMHFRam9DcFZ3WnRuTjNnRUVOUGIwRkhkejhuMUN4ay1iRnAwYml3UzkwVS1OdkExTWNyYjJyLWZ6T1M5RG85ZVk4NA?oc=5",
+          "published_at": "2026-09-22T09:42:14+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 8,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "a89430d13d1b8ccb",
+          "title": "US think tank paints hypothetical scenario of a limited Russian invasion of Estonia",
+          "url": "https://news.err.ee/1610144824/us-think-tank-paints-hypothetical-scenario-of-a-limited-russian-invasion-of-estonia",
+          "published_at": "2026-09-22T07:10:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 7,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "5c2652159ad0ff64",
+          "title": "Poland Ends Military Air Operations, Confirms No Airspace Violation - Global Banking & Finance Review",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQVXNFN09MY0QxMGlJdXJ2UVg1S0xYaklCbnBvOG1WNnYzVTAycXVuQTlMdjJZVmpIT21OOXNqNUNWUlJOaUFYQjRPdUNCelhfb21UN2xadFFpNzg2alNoM25hcjBvQzFFb09ub2hteVh4LUZyN3NycjNIR2VTcmpLcUxhYmRqcC1odmlScEVkS29OOWYzUDBSZTdGY04?oc=5",
+          "published_at": "2026-09-22T01:56:07+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 23,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 2
         }
       ]
     }
