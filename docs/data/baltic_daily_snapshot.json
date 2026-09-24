@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-23T10:06:07.262686+00:00",
-  "snapshot_date": "2026-09-23",
+  "generated_at": "2026-09-24T10:10:53.353927+00:00",
+  "snapshot_date": "2026-09-24",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-09-23T10:06:07.118551+00:00",
+  "source_generated_at": "2026-09-24T10:10:53.212161+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,55 +17,99 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 1,
-    "incident_count": 0,
+    "event_count": 4,
+    "incident_count": 2,
     "activity_count": 0,
-    "indicator_count": 0,
-    "assessment_count": 1,
-    "score_total": 0,
-    "average_score": 0.0,
-    "highest_score": 0,
-    "operational_index": 0.0,
-    "early_warning_index": 0.0,
-    "threat_index": 0.0,
-    "overall_level": "low"
+    "indicator_count": 2,
+    "assessment_count": 0,
+    "score_total": 100,
+    "average_score": 25.0,
+    "highest_score": 45,
+    "operational_index": 35.5,
+    "early_warning_index": 14.5,
+    "threat_index": 31.3,
+    "overall_level": "guarded"
   },
   "country_summary": {
-    "Poland": {
-      "country": "Poland",
+    "Latvia": {
+      "country": "Latvia",
       "event_count": 1,
       "incident_count": 0,
       "activity_count": 0,
-      "indicator_count": 0,
-      "assessment_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 15,
+      "average_score": 15.0,
+      "highest_score": 15,
       "operational_index": 0.0,
-      "early_warning_index": 0.0,
-      "threat_index": 0.0,
+      "early_warning_index": 15.0,
+      "threat_index": 15.0,
       "overall_level": "low",
-      "categories": {},
+      "categories": {
+        "sabotage": 1
+      },
       "actors": {
-        "Russia": 1
+        "Russia": 1,
+        "NATO": 1
+      }
+    },
+    "Poland": {
+      "country": "Poland",
+      "event_count": 3,
+      "incident_count": 2,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 85,
+      "average_score": 28.33,
+      "highest_score": 45,
+      "operational_index": 35.5,
+      "early_warning_index": 14.0,
+      "threat_index": 31.2,
+      "overall_level": "guarded",
+      "categories": {
+        "sabotage": 2,
+        "drone_incident": 1
+      },
+      "actors": {
+        "Russia": 2
       }
     }
   },
-  "category_summary": {},
+  "category_summary": {
+    "sabotage": {
+      "event_count": 3,
+      "score_total": 55,
+      "average_score": 18.33,
+      "highest_score": 26
+    },
+    "drone_incident": {
+      "event_count": 1,
+      "score_total": 45,
+      "average_score": 45.0,
+      "highest_score": 45
+    }
+  },
   "actor_summary": {
     "Russia": {
+      "event_count": 3,
+      "score_total": 74,
+      "average_score": 24.67,
+      "highest_score": 45
+    },
+    "NATO": {
       "event_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "score_total": 15,
+      "average_score": 15.0,
+      "highest_score": 15
     }
   },
   "subtype_summary": {
     "incident": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 2,
+      "score_total": 71,
+      "average_score": 35.5,
+      "highest_score": 45
     },
     "activity": {
       "event_count": 0,
@@ -74,13 +118,13 @@
       "highest_score": 0
     },
     "indicator": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 2,
+      "score_total": 29,
+      "average_score": 14.5,
+      "highest_score": 15
     },
     "assessment": {
-      "event_count": 1,
+      "event_count": 0,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
@@ -88,77 +132,263 @@
   },
   "scope_summary": {
     "direct": {
-      "event_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 4,
+      "score_total": 100,
+      "average_score": 25.0,
+      "highest_score": 45
     }
   },
   "hotspot": {
     "location": "Poland",
-    "score": 0,
-    "event_count": 1
+    "score": 85,
+    "event_count": 3
   },
-  "key_driver": null,
+  "key_driver": "sabotage",
   "dominant_actor": "Russia",
   "top_events": [
     {
-      "event_id": "5b033aa36df858f9",
-      "title": "Polish fighter jets intercept Russian spy plane near Baltic coast - TVP World",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxON0U2OGZsYmExdGl4aDJBSmRhdHdtY3hSbHk4M0Z5TWRUamRkUzFFLTU4TnFxR1hORlJQWVlBSXNkcmVqdlN0VkhKMEREMnRsM3kwRWp6S3hhbzMwcW9VUThrNU9FdWI3TGkxaUt0Yl9GbEliakhiNVVLVU1aLUtVVkN5SFlfUWhzem1nZFhOQTl5NnprbGpKX2lNd05wNkVfZFl6UzlQVDM?oc=5",
-      "published_at": "2026-09-23T06:37:00+00:00",
+      "event_id": "d7b99fae1da51304",
+      "title": "Polish army reports short airspace violation by Russian army helicopter - brusselstimes.com",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPeTVJRzVjUjhxd0FiRjlLVk5XSGtiOUd5eEpmT1JKMVZ0QVdRLVcwQzJwZ3lDbm1RYnNaSDFjZlExYlpnM1BjZVdleEJXY0xrUThQNmtMdm5Kd0VBWEpXWjdScnMycGlkSFV2WVNOdEdyNFY4VGJ4aUdXOWpuQ2QwdmpkZUU1bmZzTzYwV29EREhtbFkzM01OS1AtdjJDUExHSXE3S0ZBWDVtMXYzOFNWeGR0OU4xUQ?oc=5",
+      "published_at": "2026-09-24T08:48:45+00:00",
       "primary_country": "Poland",
       "countries": [
         "Poland"
       ],
-      "categories": [],
+      "categories": [
+        "drone_incident"
+      ],
       "actors": [
         "Russia"
       ],
       "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
+      "event_type": "operational",
+      "event_subtype": "incident",
       "analysis_layer": null,
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
-      "confidence_score": 48,
-      "hybrid_threat_score": 0,
+      "confidence_score": 38,
+      "hybrid_threat_score": 45,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic airspace violation Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "a2b5ebdf949fd10a",
+      "title": "Polish Starlink station hit by suspected sabotage targeting Ukraine links - The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNbG9OTC1sZl9valdNUFRuMXEwVi1YVDRrbldNUFhXdzRHcW43U2UyMFlrdm1pMWgwcml2MGdaSWU3X0l3QmhtT1hEV2JqbWlTbHJlSHJpODJjVWc4dlpCQXlaX1QzRzNaYWdLX2R4Skszd3NvM1NpZmdjc0Q2SGtQTGpmMHc4ZVJFSXc?oc=5",
+      "published_at": "2026-09-24T07:27:52+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 26,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "f08177a6a2b3560a",
+      "title": "CIA warns of Russian sabotage - Прямий",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeENBRDdlQWNMeHg1b21hRkY5V2V3czJZbkVyd3ZWMDVPR3hsY045eWJQZ0dvZm43VkVrX01mVVF1VHptRXJJbEtSTkE3WHFEOGp5TmtOX2F0OWx6Qm80dEt6eGRVdEdnUUJrSjJhOXpTdGpkd1N2MXpERWZQT3dLLXhzZUFzVmFybmpwT2pzNlZuS3pZ?oc=5",
+      "published_at": "2026-09-24T08:45:14+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia",
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "low",
+      "confidence_score": 46,
+      "hybrid_threat_score": 15,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - NATO Eastern Flank Baltic Poland"
+        "Google News - Baltic sabotage Russia",
+        "Google News - Baltic Sea infrastructure sabotage"
       ],
-      "related_item_count": 2
+      "related_item_count": 3
+    },
+    {
+      "event_id": "201210469758c731",
+      "title": "Poland Starlink station fire was ‘sabotage,’ minister says - Türkiye Today",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxObmxWVVdFV1o4U2VtNlFyOUFrbjdCdzdHUDB1RnZuY19NLVdhUEgyMHJWWEg2OFZ6VENyYXZxRC11Mm1TRVFfcS11dGh4UHgzWDRKQTZiT01veVkzdWluanFpTFVqT2wyeVB4V212ZzZhME44MXg2UDRNTzE2UW5GazdPLWRuTlNLMGcyekM4SE12U3ZHU09BNW9fSWtWYkE1?oc=5",
+      "published_at": "2026-09-24T09:40:24+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "medium",
+      "confidence_score": 51,
+      "hybrid_threat_score": 14,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia",
+        "Polish Radio English"
+      ],
+      "related_item_count": 6
     }
   ],
   "events": [
     {
-      "event_id": "5b033aa36df858f9",
-      "title": "Polish fighter jets intercept Russian spy plane near Baltic coast - TVP World",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxON0U2OGZsYmExdGl4aDJBSmRhdHdtY3hSbHk4M0Z5TWRUamRkUzFFLTU4TnFxR1hORlJQWVlBSXNkcmVqdlN0VkhKMEREMnRsM3kwRWp6S3hhbzMwcW9VUThrNU9FdWI3TGkxaUt0Yl9GbEliakhiNVVLVU1aLUtVVkN5SFlfUWhzem1nZFhOQTl5NnprbGpKX2lNd05wNkVfZFl6UzlQVDM?oc=5",
-      "published_at": "2026-09-23T06:37:00+00:00",
+      "event_id": "201210469758c731",
+      "title": "Poland Starlink station fire was ‘sabotage,’ minister says - Türkiye Today",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxObmxWVVdFV1o4U2VtNlFyOUFrbjdCdzdHUDB1RnZuY19NLVdhUEgyMHJWWEg2OFZ6VENyYXZxRC11Mm1TRVFfcS11dGh4UHgzWDRKQTZiT01veVkzdWluanFpTFVqT2wyeVB4V212ZzZhME44MXg2UDRNTzE2UW5GazdPLWRuTlNLMGcyekM4SE12U3ZHU09BNW9fSWtWYkE1?oc=5",
+      "published_at": "2026-09-24T09:40:24+00:00",
       "primary_country": "Poland",
       "countries": [
         "Poland"
       ],
-      "categories": [],
+      "categories": [
+        "sabotage"
+      ],
       "actors": [
         "Russia"
       ],
       "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "medium",
+      "confidence_score": 51,
+      "hybrid_threat_score": 14,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia",
+        "Polish Radio English"
+      ],
+      "related_item_count": 6
+    },
+    {
+      "event_id": "d7b99fae1da51304",
+      "title": "Polish army reports short airspace violation by Russian army helicopter - brusselstimes.com",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPeTVJRzVjUjhxd0FiRjlLVk5XSGtiOUd5eEpmT1JKMVZ0QVdRLVcwQzJwZ3lDbm1RYnNaSDFjZlExYlpnM1BjZVdleEJXY0xrUThQNmtMdm5Kd0VBWEpXWjdScnMycGlkSFV2WVNOdEdyNFY4VGJ4aUdXOWpuQ2QwdmpkZUU1bmZzTzYwV29EREhtbFkzM01OS1AtdjJDUExHSXE3S0ZBWDVtMXYzOFNWeGR0OU4xUQ?oc=5",
+      "published_at": "2026-09-24T08:48:45+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
       "analysis_layer": null,
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
-      "confidence_score": 48,
-      "hybrid_threat_score": 0,
+      "confidence_score": 38,
+      "hybrid_threat_score": 45,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic airspace violation Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "f08177a6a2b3560a",
+      "title": "CIA warns of Russian sabotage - Прямий",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPeENBRDdlQWNMeHg1b21hRkY5V2V3czJZbkVyd3ZWMDVPR3hsY045eWJQZ0dvZm43VkVrX01mVVF1VHptRXJJbEtSTkE3WHFEOGp5TmtOX2F0OWx6Qm80dEt6eGRVdEdnUUJrSjJhOXpTdGpkd1N2MXpERWZQT3dLLXhzZUFzVmFybmpwT2pzNlZuS3pZ?oc=5",
+      "published_at": "2026-09-24T08:45:14+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia",
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "low",
+      "confidence_score": 46,
+      "hybrid_threat_score": 15,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - NATO Eastern Flank Baltic Poland"
+        "Google News - Baltic sabotage Russia",
+        "Google News - Baltic Sea infrastructure sabotage"
       ],
-      "related_item_count": 2
+      "related_item_count": 3
+    },
+    {
+      "event_id": "a2b5ebdf949fd10a",
+      "title": "Polish Starlink station hit by suspected sabotage targeting Ukraine links - The Jerusalem Post",
+      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNbG9OTC1sZl9valdNUFRuMXEwVi1YVDRrbldNUFhXdzRHcW43U2UyMFlrdm1pMWgwcml2MGdaSWU3X0l3QmhtT1hEV2JqbWlTbHJlSHJpODJjVWc4dlpCQXlaX1QzRzNaYWdLX2R4Skszd3NvM1NpZmdjc0Q2SGtQTGpmMHc4ZVJFSXc?oc=5",
+      "published_at": "2026-09-24T07:27:52+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 26,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
     }
   ]
 }
