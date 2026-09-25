@@ -2,23 +2,23 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Intelligence Matrix History",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-24T10:10:53.415164+00:00",
+  "generated_at": "2026-09-25T10:17:28.075082+00:00",
   "history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "record_count": 46,
+  "record_count": 47,
   "first_snapshot_date": "2026-08-01",
-  "last_snapshot_date": "2026-09-24",
+  "last_snapshot_date": "2026-09-25",
   "last_update": {
     "mode": "daily_snapshot",
     "action": "inserted",
-    "updated_at": "2026-09-24T10:10:53.415164+00:00",
+    "updated_at": "2026-09-25T10:17:28.075082+00:00",
     "processed_records": 1,
     "inserted_count": 1,
     "replaced_count": 0,
     "inserted_dates": [
-      "2026-09-24"
+      "2026-09-25"
     ],
     "replaced_dates": [],
-    "source_snapshot_generated_at": "2026-09-24T10:10:53.353927+00:00",
+    "source_snapshot_generated_at": "2026-09-25T10:17:27.921476+00:00",
     "source_snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
     "source_score_engine_version": "threat_score_v3_2_current_historical_split"
   },
@@ -9178,6 +9178,350 @@
           "confidence_score": 38,
           "hybrid_threat_score": 26,
           "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        }
+      ]
+    },
+    {
+      "project": "baltic-hybrid-monitor",
+      "title": "Baltic Hybrid Threat Daily Snapshot",
+      "region": "Baltic states and Poland",
+      "generated_at": "2026-09-25T10:17:27.921476+00:00",
+      "snapshot_date": "2026-09-25",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "source_generated_at": "2026-09-25T10:17:27.788745+00:00",
+      "method": {
+        "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
+        "time_basis": "UTC calendar day",
+        "rolling_window_used": false,
+        "rolling_window_days": 0,
+        "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used.",
+        "assessment_handling": "Assessment events remain visible in counts and event lists but do not contribute to operational or early-warning indices.",
+        "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
+      },
+      "overall_summary": {
+        "event_count": 3,
+        "incident_count": 1,
+        "activity_count": 0,
+        "indicator_count": 2,
+        "assessment_count": 0,
+        "score_total": 49,
+        "average_score": 16.33,
+        "highest_score": 36,
+        "operational_index": 36.0,
+        "early_warning_index": 6.5,
+        "threat_index": 30.1,
+        "overall_level": "guarded"
+      },
+      "country_summary": {
+        "Estonia": {
+          "country": "Estonia",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6,
+          "operational_index": 0.0,
+          "early_warning_index": 6.0,
+          "threat_index": 6.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Russia": 1
+          }
+        },
+        "Poland": {
+          "country": "Poland",
+          "event_count": 1,
+          "incident_count": 1,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 0,
+          "score_total": 36,
+          "average_score": 36.0,
+          "highest_score": 36,
+          "operational_index": 36.0,
+          "early_warning_index": 0.0,
+          "threat_index": 28.8,
+          "overall_level": "guarded",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {
+            "Russia": 1
+          }
+        },
+        "Regional": {
+          "country": "Regional",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 7,
+          "average_score": 7.0,
+          "highest_score": 7,
+          "operational_index": 0.0,
+          "early_warning_index": 7.0,
+          "threat_index": 7.0,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {
+            "Russia": 1,
+            "NATO": 1
+          }
+        }
+      },
+      "category_summary": {
+        "sabotage": {
+          "event_count": 2,
+          "score_total": 43,
+          "average_score": 21.5,
+          "highest_score": 36
+        }
+      },
+      "actor_summary": {
+        "Russia": {
+          "event_count": 3,
+          "score_total": 49,
+          "average_score": 16.33,
+          "highest_score": 36
+        },
+        "NATO": {
+          "event_count": 1,
+          "score_total": 7,
+          "average_score": 7.0,
+          "highest_score": 7
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 1,
+          "score_total": 36,
+          "average_score": 36.0,
+          "highest_score": 36
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 2,
+          "score_total": 13,
+          "average_score": 6.5,
+          "highest_score": 7
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 2,
+          "score_total": 42,
+          "average_score": 21.0,
+          "highest_score": 36
+        },
+        "external_context": {
+          "event_count": 1,
+          "score_total": 7,
+          "average_score": 7.0,
+          "highest_score": 7
+        }
+      },
+      "hotspot": {
+        "location": "Poland",
+        "score": 36,
+        "event_count": 1
+      },
+      "key_driver": "sabotage",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "f643d8bae70e61a9",
+          "title": "Poland says Starlink station hit by sabotage – blames Russia - Insurance Business",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxObG9hMHJFQThZTkhFZzVOY0JickZlZVRZY1RGU0t6cUNPUUI4OFAyY25sOVJxdXRQLXlxVXQzSERRS3J0SllSSEhOYzJrcGxUazdGTTZPM1BjWVJFa2Z1ZUxzZkFRdEpwNEpBVnZUYWJSbzBvMHFzenQ1V3ZXcVVuVmwzY203X053aDlpNFV0bU9Ra2lCYXpYd016Y3Q0MFl6cS1IaG9lM0tjRmFjV3BYbHlaQ2VTdTNHdzUwSUxubjN2bzluVUJVM01B?oc=5",
+          "published_at": "2026-09-25T06:27:13+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 36,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 10
+        },
+        {
+          "event_id": "b50f0f080752b690",
+          "title": "European Governments Warn Russian Sabotage Campaign Is Expanding Across NATO States - EU Today",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5pQ2gyOHZlMVdoR3BDSU1makRSejlhS1BsM19Yd2NBYjVVaV9FY25GVm9JWUhYVVhSY0tucDNNS21Qa0VrWHNmRnNnak4zMm1CYzdlLWVuN0s2NW5hcnpuMG8yQmttUWJnQTdyckoxRXQ2RVNOdU5VTDRuX2tKdw?oc=5",
+          "published_at": "2026-09-25T05:36:50+00:00",
+          "primary_country": "Regional",
+          "countries": [],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "external_context",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 7,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "14d300a2924fcf96",
+          "title": "Minister: Estonia's threat assessment unchanged after Denmark report",
+          "url": "https://news.err.ee/1610148049/minister-estonia-s-threat-assessment-unchanged-after-denmark-report",
+          "published_at": "2026-09-25T06:46:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "14d300a2924fcf96",
+          "title": "Minister: Estonia's threat assessment unchanged after Denmark report",
+          "url": "https://news.err.ee/1610148049/minister-estonia-s-threat-assessment-unchanged-after-denmark-report",
+          "published_at": "2026-09-25T06:46:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "f643d8bae70e61a9",
+          "title": "Poland says Starlink station hit by sabotage – blames Russia - Insurance Business",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxObG9hMHJFQThZTkhFZzVOY0JickZlZVRZY1RGU0t6cUNPUUI4OFAyY25sOVJxdXRQLXlxVXQzSERRS3J0SllSSEhOYzJrcGxUazdGTTZPM1BjWVJFa2Z1ZUxzZkFRdEpwNEpBVnZUYWJSbzBvMHFzenQ1V3ZXcVVuVmwzY203X053aDlpNFV0bU9Ra2lCYXpYd016Y3Q0MFl6cS1IaG9lM0tjRmFjV3BYbHlaQ2VTdTNHdzUwSUxubjN2bzluVUJVM01B?oc=5",
+          "published_at": "2026-09-25T06:27:13+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 36,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 10
+        },
+        {
+          "event_id": "b50f0f080752b690",
+          "title": "European Governments Warn Russian Sabotage Campaign Is Expanding Across NATO States - EU Today",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5pQ2gyOHZlMVdoR3BDSU1makRSejlhS1BsM19Yd2NBYjVVaV9FY25GVm9JWUhYVVhSY0tucDNNS21Qa0VrWHNmRnNnak4zMm1CYzdlLWVuN0s2NW5hcnpuMG8yQmttUWJnQTdyckoxRXQ2RVNOdU5VTDRuX2tKdw?oc=5",
+          "published_at": "2026-09-25T05:36:50+00:00",
+          "primary_country": "Regional",
+          "countries": [],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "external_context",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 7,
+          "hybrid_threat_level": "low",
           "source_names": [
             "Google News - Baltic sabotage Russia"
           ],
