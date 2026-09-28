@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-27T10:37:31.173842+00:00",
-  "snapshot_date": "2026-09-27",
+  "generated_at": "2026-09-28T11:48:02.857345+00:00",
+  "snapshot_date": "2026-09-28",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-09-27T10:37:31.048505+00:00",
+  "source_generated_at": "2026-09-28T11:48:02.724058+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,11 +17,11 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 0,
+    "event_count": 1,
     "incident_count": 0,
     "activity_count": 0,
     "indicator_count": 0,
-    "assessment_count": 0,
+    "assessment_count": 1,
     "score_total": 0,
     "average_score": 0.0,
     "highest_score": 0,
@@ -30,9 +30,36 @@
     "threat_index": 0.0,
     "overall_level": "low"
   },
-  "country_summary": {},
+  "country_summary": {
+    "Poland": {
+      "country": "Poland",
+      "event_count": 1,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 0,
+      "assessment_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0,
+      "operational_index": 0.0,
+      "early_warning_index": 0.0,
+      "threat_index": 0.0,
+      "overall_level": "low",
+      "categories": {},
+      "actors": {
+        "Russia": 1
+      }
+    }
+  },
   "category_summary": {},
-  "actor_summary": {},
+  "actor_summary": {
+    "Russia": {
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
+    }
+  },
   "subtype_summary": {
     "incident": {
       "event_count": 0,
@@ -53,20 +80,85 @@
       "highest_score": 0
     },
     "assessment": {
-      "event_count": 0,
+      "event_count": 1,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
     }
   },
-  "scope_summary": {},
+  "scope_summary": {
+    "direct": {
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
+    }
+  },
   "hotspot": {
-    "location": null,
+    "location": "Poland",
     "score": 0,
-    "event_count": 0
+    "event_count": 1
   },
   "key_driver": null,
-  "dominant_actor": null,
-  "top_events": [],
-  "events": []
+  "dominant_actor": "Russia",
+  "top_events": [
+    {
+      "event_id": "03438c72d68453e1",
+      "title": "Residents brace for a possible Russian hybrid attack on Poland's border with Ukraine - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNUwzVWRoN2VLeDI5cUh5YlhBeV9xR0hKUTdsOHVidWJ1M25idngzZ2xPazJQZWFZNDdrUm5mUUVGVUZlT2ZNQnBjbko1ZGJWT2dSU2VVZzZ1UmFSVWhMblZjM0I1cDFRUEtTUEZQMXo2dU5OclVya241Z2lOa01jQXUzcHFrdFVJaVpqV1VvV2Mzby1yWmpJT2tJaDF2am9uNTJMNGVuYXhIVmF5LWE0ZW1iSjjSAboBQVVfeXFMUHBqc3Y4eVFvaVlqcm5vZ29TMHBXUFpmSDRSSmFXMGVrUmFfbjdHYU5ZeTljazNiN3FKMTRWX3gwZjRGTElzY0w5ZGtvNVVocldaS1JseWlHejB0cWJVaEk2RHdzM0lYaTdtcjMzQnFwTU1DTlpGSXZMdUJxNk1WUG1fdWpBelhOUWlEeDJIS3JPeURnT2JOeVEwMk01M1g5ajlqWU9fU3c3S3kyN3l2Y2wyUExGa2NoZzZR?oc=5",
+      "published_at": "2026-09-28T08:47:46+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic Russia hybrid threat"
+      ],
+      "related_item_count": 3
+    }
+  ],
+  "events": [
+    {
+      "event_id": "03438c72d68453e1",
+      "title": "Residents brace for a possible Russian hybrid attack on Poland's border with Ukraine - ABC News - Breaking News, Latest News and Videos",
+      "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNUwzVWRoN2VLeDI5cUh5YlhBeV9xR0hKUTdsOHVidWJ1M25idngzZ2xPazJQZWFZNDdrUm5mUUVGVUZlT2ZNQnBjbko1ZGJWT2dSU2VVZzZ1UmFSVWhMblZjM0I1cDFRUEtTUEZQMXo2dU5OclVya241Z2lOa01jQXUzcHFrdFVJaVpqV1VvV2Mzby1yWmpJT2tJaDF2am9uNTJMNGVuYXhIVmF5LWE0ZW1iSjjSAboBQVVfeXFMUHBqc3Y4eVFvaVlqcm5vZ29TMHBXUFpmSDRSSmFXMGVrUmFfbjdHYU5ZeTljazNiN3FKMTRWX3gwZjRGTElzY0w5ZGtvNVVocldaS1JseWlHejB0cWJVaEk2RHdzM0lYaTdtcjMzQnFwTU1DTlpGSXZMdUJxNk1WUG1fdWpBelhOUWlEeDJIS3JPeURnT2JOeVEwMk01M1g5ajlqWU9fU3c3S3kyN3l2Y2wyUExGa2NoZzZR?oc=5",
+      "published_at": "2026-09-28T08:47:46+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic Russia hybrid threat"
+      ],
+      "related_item_count": 3
+    }
+  ]
 }
