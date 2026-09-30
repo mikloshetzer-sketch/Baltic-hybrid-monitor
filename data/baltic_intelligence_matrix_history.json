@@ -2,23 +2,23 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Intelligence Matrix History",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-29T11:26:05.693584+00:00",
+  "generated_at": "2026-09-30T11:14:33.874087+00:00",
   "history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "record_count": 51,
+  "record_count": 52,
   "first_snapshot_date": "2026-08-01",
-  "last_snapshot_date": "2026-09-29",
+  "last_snapshot_date": "2026-09-30",
   "last_update": {
     "mode": "daily_snapshot",
     "action": "inserted",
-    "updated_at": "2026-09-29T11:26:05.693584+00:00",
+    "updated_at": "2026-09-30T11:14:33.874087+00:00",
     "processed_records": 1,
     "inserted_count": 1,
     "replaced_count": 0,
     "inserted_dates": [
-      "2026-09-29"
+      "2026-09-30"
     ],
     "replaced_dates": [],
-    "source_snapshot_generated_at": "2026-09-29T11:26:05.628338+00:00",
+    "source_snapshot_generated_at": "2026-09-30T11:14:33.804014+00:00",
     "source_snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
     "source_score_engine_version": "threat_score_v3_2_current_historical_split"
   },
@@ -10333,6 +10333,331 @@
             "Google News - Baltic Russia hybrid threat"
           ],
           "related_item_count": 3
+        }
+      ]
+    },
+    {
+      "project": "baltic-hybrid-monitor",
+      "title": "Baltic Hybrid Threat Daily Snapshot",
+      "region": "Baltic states and Poland",
+      "generated_at": "2026-09-30T11:14:33.804014+00:00",
+      "snapshot_date": "2026-09-30",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "source_generated_at": "2026-09-30T11:14:33.668913+00:00",
+      "method": {
+        "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
+        "time_basis": "UTC calendar day",
+        "rolling_window_used": false,
+        "rolling_window_days": 0,
+        "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used.",
+        "assessment_handling": "Assessment events remain visible in counts and event lists but do not contribute to operational or early-warning indices.",
+        "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
+      },
+      "overall_summary": {
+        "event_count": 3,
+        "incident_count": 0,
+        "activity_count": 0,
+        "indicator_count": 1,
+        "assessment_count": 2,
+        "score_total": 12,
+        "average_score": 12.0,
+        "highest_score": 12,
+        "operational_index": 0.0,
+        "early_warning_index": 12.0,
+        "threat_index": 12.0,
+        "overall_level": "low"
+      },
+      "country_summary": {
+        "Estonia": {
+          "country": "Estonia",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0,
+          "operational_index": 0.0,
+          "early_warning_index": 0.0,
+          "threat_index": 0.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Russia": 1
+          }
+        },
+        "Regional": {
+          "country": "Regional",
+          "event_count": 2,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 1,
+          "score_total": 12,
+          "average_score": 12.0,
+          "highest_score": 12,
+          "operational_index": 0.0,
+          "early_warning_index": 12.0,
+          "threat_index": 12.0,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {
+            "Russia": 2,
+            "NATO": 1
+          }
+        }
+      },
+      "category_summary": {
+        "sabotage": {
+          "event_count": 1,
+          "score_total": 12,
+          "average_score": 12.0,
+          "highest_score": 12
+        }
+      },
+      "actor_summary": {
+        "Russia": {
+          "event_count": 3,
+          "score_total": 12,
+          "average_score": 4.0,
+          "highest_score": 12
+        },
+        "NATO": {
+          "event_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 1,
+          "score_total": 12,
+          "average_score": 12.0,
+          "highest_score": 12
+        },
+        "assessment": {
+          "event_count": 2,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 2,
+          "score_total": 12,
+          "average_score": 6.0,
+          "highest_score": 12
+        },
+        "regional_direct": {
+          "event_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "hotspot": {
+        "location": "Regional",
+        "score": 12,
+        "event_count": 1
+      },
+      "key_driver": "sabotage",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "dcec0a60528d8ce5",
+          "title": "Lithuania lodged a protest with Russia over the sabotage in Estonia and the attacks on Ukraine - LIGA.net",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObXJiUXNQbjNTb05LTE5wMUVsV1I0ak84VkYtaWplZ0tCMmdlaVd0SWdyVV85N04yZDdmQTRUS3l0VDZScTFJTW9aRUo5cFdCalNvYWUzWi01OFlhZWRUM2s1Z3dzYUVlWXF5WUd0V2hxWEt4cVlHZFFVU2Rhd2FvNTRMNXpKdUx5WlFlOFNaTENYVWVTNHEtWElpalRNTUQwRTFkYWNvb2M5bTZELXVSM0FTazdDbGxNZzR4T284bVcwN1pLeTBuQkItLS1nUQ?oc=5",
+          "published_at": "2026-09-30T10:22:10+00:00",
+          "primary_country": "Regional",
+          "countries": [
+            "Estonia",
+            "Lithuania"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 12,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "de128076854e104c",
+          "title": "Russia issues new nuclear threat over Kaliningrad as tensions with NATO rise - The Kyiv Independent",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPLVBfSnp5ZmgwLTFFRjU0T3RuY1huSEdRZXl2ZGJNV0JjSERXeHVROF9KWGEwM01VbDZucjhJTzlaNXZDRVF3MFN4M3djUklCMzdSQnRKaFR1WHhCTkpDTHZaSnQ0VWpvM1UxV2lFLTBNcVREbzJxYXgtX3RhcXVoWC1KRVhuV0FUbWw0NENCNjloMXRnOTJ2a3N4Q2plb2NpRkV3UEpybm8?oc=5",
+          "published_at": "2026-09-30T08:07:46+00:00",
+          "primary_country": "Regional",
+          "countries": [],
+          "categories": [],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [
+            "Kaliningrad"
+          ],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "regional_direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - NATO Baltic hybrid threat"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "c09499aea291e4e9",
+          "title": "ISS director: We have prevented 'significant' number of Russian attacks",
+          "url": "https://news.err.ee/1610152138/iss-director-we-have-prevented-significant-number-of-russian-attacks",
+          "published_at": "2026-09-30T09:04:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "dcec0a60528d8ce5",
+          "title": "Lithuania lodged a protest with Russia over the sabotage in Estonia and the attacks on Ukraine - LIGA.net",
+          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObXJiUXNQbjNTb05LTE5wMUVsV1I0ak84VkYtaWplZ0tCMmdlaVd0SWdyVV85N04yZDdmQTRUS3l0VDZScTFJTW9aRUo5cFdCalNvYWUzWi01OFlhZWRUM2s1Z3dzYUVlWXF5WUd0V2hxWEt4cVlHZFFVU2Rhd2FvNTRMNXpKdUx5WlFlOFNaTENYVWVTNHEtWElpalRNTUQwRTFkYWNvb2M5bTZELXVSM0FTazdDbGxNZzR4T284bVcwN1pLeTBuQkItLS1nUQ?oc=5",
+          "published_at": "2026-09-30T10:22:10+00:00",
+          "primary_country": "Regional",
+          "countries": [
+            "Estonia",
+            "Lithuania"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 12,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "c09499aea291e4e9",
+          "title": "ISS director: We have prevented 'significant' number of Russian attacks",
+          "url": "https://news.err.ee/1610152138/iss-director-we-have-prevented-significant-number-of-russian-attacks",
+          "published_at": "2026-09-30T09:04:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "de128076854e104c",
+          "title": "Russia issues new nuclear threat over Kaliningrad as tensions with NATO rise - The Kyiv Independent",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPLVBfSnp5ZmgwLTFFRjU0T3RuY1huSEdRZXl2ZGJNV0JjSERXeHVROF9KWGEwM01VbDZucjhJTzlaNXZDRVF3MFN4M3djUklCMzdSQnRKaFR1WHhCTkpDTHZaSnQ0VWpvM1UxV2lFLTBNcVREbzJxYXgtX3RhcXVoWC1KRVhuV0FUbWw0NENCNjloMXRnOTJ2a3N4Q2plb2NpRkV3UEpybm8?oc=5",
+          "published_at": "2026-09-30T08:07:46+00:00",
+          "primary_country": "Regional",
+          "countries": [],
+          "categories": [],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [
+            "Kaliningrad"
+          ],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "regional_direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - NATO Baltic hybrid threat"
+          ],
+          "related_item_count": 1
         }
       ]
     }
