@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-09-30T11:14:33.804014+00:00",
-  "snapshot_date": "2026-09-30",
+  "generated_at": "2026-10-01T11:41:39.901692+00:00",
+  "snapshot_date": "2026-10-01",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-09-30T11:14:33.668913+00:00",
+  "source_generated_at": "2026-10-01T11:41:39.799897+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,58 +17,62 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 3,
-    "incident_count": 0,
+    "event_count": 5,
+    "incident_count": 1,
     "activity_count": 0,
-    "indicator_count": 1,
-    "assessment_count": 2,
-    "score_total": 12,
-    "average_score": 12.0,
-    "highest_score": 12,
-    "operational_index": 0.0,
-    "early_warning_index": 12.0,
-    "threat_index": 12.0,
-    "overall_level": "low"
+    "indicator_count": 3,
+    "assessment_count": 1,
+    "score_total": 88,
+    "average_score": 22.0,
+    "highest_score": 48,
+    "operational_index": 48.0,
+    "early_warning_index": 13.33,
+    "threat_index": 41.07,
+    "overall_level": "elevated"
   },
   "country_summary": {
     "Estonia": {
       "country": "Estonia",
       "event_count": 1,
-      "incident_count": 0,
+      "incident_count": 1,
       "activity_count": 0,
       "indicator_count": 0,
-      "assessment_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0,
-      "operational_index": 0.0,
+      "assessment_count": 0,
+      "score_total": 48,
+      "average_score": 48.0,
+      "highest_score": 48,
+      "operational_index": 48.0,
       "early_warning_index": 0.0,
-      "threat_index": 0.0,
-      "overall_level": "low",
-      "categories": {},
-      "actors": {
-        "Russia": 1
-      }
-    },
-    "Regional": {
-      "country": "Regional",
-      "event_count": 2,
-      "incident_count": 0,
-      "activity_count": 0,
-      "indicator_count": 1,
-      "assessment_count": 1,
-      "score_total": 12,
-      "average_score": 12.0,
-      "highest_score": 12,
-      "operational_index": 0.0,
-      "early_warning_index": 12.0,
-      "threat_index": 12.0,
-      "overall_level": "low",
+      "threat_index": 38.4,
+      "overall_level": "guarded",
       "categories": {
         "sabotage": 1
       },
       "actors": {
-        "Russia": 2,
+        "Russia": 1
+      }
+    },
+    "Latvia": {
+      "country": "Latvia",
+      "event_count": 4,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 3,
+      "assessment_count": 1,
+      "score_total": 40,
+      "average_score": 13.33,
+      "highest_score": 17,
+      "operational_index": 0.0,
+      "early_warning_index": 13.33,
+      "threat_index": 13.33,
+      "overall_level": "low",
+      "categories": {
+        "espionage": 2,
+        "disinformation": 1
+      },
+      "actors": {
+        "Russia": 4,
+        "GRU": 2,
         "NATO": 1
       }
     }
@@ -76,31 +80,49 @@
   "category_summary": {
     "sabotage": {
       "event_count": 1,
-      "score_total": 12,
-      "average_score": 12.0,
-      "highest_score": 12
+      "score_total": 48,
+      "average_score": 48.0,
+      "highest_score": 48
+    },
+    "espionage": {
+      "event_count": 2,
+      "score_total": 32,
+      "average_score": 16.0,
+      "highest_score": 17
+    },
+    "disinformation": {
+      "event_count": 1,
+      "score_total": 8,
+      "average_score": 8.0,
+      "highest_score": 8
     }
   },
   "actor_summary": {
     "Russia": {
-      "event_count": 3,
-      "score_total": 12,
-      "average_score": 4.0,
-      "highest_score": 12
+      "event_count": 5,
+      "score_total": 88,
+      "average_score": 17.6,
+      "highest_score": 48
+    },
+    "GRU": {
+      "event_count": 2,
+      "score_total": 32,
+      "average_score": 16.0,
+      "highest_score": 17
     },
     "NATO": {
       "event_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "score_total": 15,
+      "average_score": 15.0,
+      "highest_score": 15
     }
   },
   "subtype_summary": {
     "incident": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 1,
+      "score_total": 48,
+      "average_score": 48.0,
+      "highest_score": 48
     },
     "activity": {
       "event_count": 0,
@@ -109,13 +131,13 @@
       "highest_score": 0
     },
     "indicator": {
-      "event_count": 1,
-      "score_total": 12,
-      "average_score": 12.0,
-      "highest_score": 12
+      "event_count": 3,
+      "score_total": 40,
+      "average_score": 13.33,
+      "highest_score": 17
     },
     "assessment": {
-      "event_count": 2,
+      "event_count": 1,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
@@ -123,38 +145,125 @@
   },
   "scope_summary": {
     "direct": {
-      "event_count": 2,
-      "score_total": 12,
-      "average_score": 6.0,
-      "highest_score": 12
-    },
-    "regional_direct": {
-      "event_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 5,
+      "score_total": 88,
+      "average_score": 17.6,
+      "highest_score": 48
     }
   },
   "hotspot": {
-    "location": "Regional",
-    "score": 12,
+    "location": "Estonia",
+    "score": 48,
     "event_count": 1
   },
   "key_driver": "sabotage",
   "dominant_actor": "Russia",
   "top_events": [
     {
-      "event_id": "dcec0a60528d8ce5",
-      "title": "Lithuania lodged a protest with Russia over the sabotage in Estonia and the attacks on Ukraine - LIGA.net",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObXJiUXNQbjNTb05LTE5wMUVsV1I0ak84VkYtaWplZ0tCMmdlaVd0SWdyVV85N04yZDdmQTRUS3l0VDZScTFJTW9aRUo5cFdCalNvYWUzWi01OFlhZWRUM2s1Z3dzYUVlWXF5WUd0V2hxWEt4cVlHZFFVU2Rhd2FvNTRMNXpKdUx5WlFlOFNaTENYVWVTNHEtWElpalRNTUQwRTFkYWNvb2M5bTZELXVSM0FTazdDbGxNZzR4T284bVcwN1pLeTBuQkItLS1nUQ?oc=5",
-      "published_at": "2026-09-30T10:22:10+00:00",
-      "primary_country": "Regional",
+      "event_id": "dbdd6507ad17b66a",
+      "title": "Estonia blames Russia for arson attack on drone maker supplying Ukraine - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNc0plS3dOVGxvMGYwcjU3bXo3UXdfaWtiaGpOTmxEZ3VyVUpIV0luR0RDQ2s5TUplb0JPYV9lOHgzVEQ4eW9LZjlNNHdPODJIcEZ2RWxQY1E3cDJLbXRHc2ZNRTVOTXUwREthUG1VeEstTXdiRDFXdGhTZE5pT3VYaEg0TnI0cndlTktObl9UYVFkeHdvdzdLb3BvRDJVUWdFTnc?oc=5",
+      "published_at": "2026-10-01T00:41:00+00:00",
+      "primary_country": "Estonia",
       "countries": [
-        "Estonia",
-        "Lithuania"
+        "Estonia"
       ],
       "categories": [
         "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 48,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 4
+    },
+    {
+      "event_id": "0b3cc3b7ef7ba78c",
+      "title": "Latvia detains couple suspected of spying for Russia - politico.eu",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNTkRaUGhQLXFYM0JSeG1kTHp5ejVFUUJXNmh3XzBfQWZkMk9CYTUwRzF0NXhTcUo3SXV4VXRIemE4M2lGam9WQXRDSmpPLWxFUVQ5Yk1zWE5VUEJBcjJ3OWZ4Y3VsekMtNkRZbWlFQVhLMTl5ZnJoTndVdGNqM09WLTBhQ2Vtc1VFS0g0d19iZ3hVUFo2RFNRZTNCX2p0UQ?oc=5",
+      "published_at": "2026-10-01T09:28:27+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "espionage"
+      ],
+      "actors": [
+        "Russia",
+        "GRU"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "medium",
+      "confidence_score": 51,
+      "hybrid_threat_score": 17,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia",
+        "LSM English Latvia"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "b2851511b0fcd6e4",
+      "title": "Latvia Arrests Two Accused of Collecting NATO Intelligence for Russia’s GRU - united24media.com",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOcDhrazlwUW54eXRTSkMxMlJlN2N6cDdOVVN1M1ZLUHlFbHFxS3RJOUt1V09MNkZQMkxJT1NNY2R2WWZ4WjZfWWVYWkZ0eElid2h3NTFvSVNvVklDeDJka0s3NjlueU05emdPRzFXVGYzaDFOQXdlLVphaFRjSEg3WEtRTjVkdUdnR3ZEYTZRaG4zekw0NU50RXBXRFRZbEZhcmEwVlAxeWh4eGVoNnAzdlBn?oc=5",
+      "published_at": "2026-10-01T11:21:52+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "espionage"
+      ],
+      "actors": [
+        "Russia",
+        "NATO",
+        "GRU"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 15,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic Russia hybrid threat"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "d479e090dec8a3fe",
+      "title": "Saeima rules that LSM can write in Russian only on specific occasions",
+      "url": "https://eng.lsm.lv/article/features/media/01.10.2026-saeima-rules-that-lsm-can-write-in-russian-only-on-specific-occasions.a665628/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-10-01T08:33:37+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "disinformation"
       ],
       "actors": [
         "Russia"
@@ -167,50 +276,21 @@
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 12,
+      "hybrid_threat_score": 8,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 2
-    },
-    {
-      "event_id": "de128076854e104c",
-      "title": "Russia issues new nuclear threat over Kaliningrad as tensions with NATO rise - The Kyiv Independent",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPLVBfSnp5ZmgwLTFFRjU0T3RuY1huSEdRZXl2ZGJNV0JjSERXeHVROF9KWGEwM01VbDZucjhJTzlaNXZDRVF3MFN4M3djUklCMzdSQnRKaFR1WHhCTkpDTHZaSnQ0VWpvM1UxV2lFLTBNcVREbzJxYXgtX3RhcXVoWC1KRVhuV0FUbWw0NENCNjloMXRnOTJ2a3N4Q2plb2NpRkV3UEpybm8?oc=5",
-      "published_at": "2026-09-30T08:07:46+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "categories": [],
-      "actors": [
-        "Russia",
-        "NATO"
-      ],
-      "locations": [
-        "Kaliningrad"
-      ],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "analysis_layer": null,
-      "geographic_scope": "regional_direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 48,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - NATO Baltic hybrid threat"
+        "LSM English Latvia"
       ],
       "related_item_count": 1
     },
     {
-      "event_id": "c09499aea291e4e9",
-      "title": "ISS director: We have prevented 'significant' number of Russian attacks",
-      "url": "https://news.err.ee/1610152138/iss-director-we-have-prevented-significant-number-of-russian-attacks",
-      "published_at": "2026-09-30T09:04:00+00:00",
-      "primary_country": "Estonia",
+      "event_id": "d7ed949cbaf88f16",
+      "title": "Latvian Defense Minister Says Russia's Hybrid Attacks, Not Nuclear Rhetoric, Are The Main Concern - Radio Free Europe/Radio Liberty",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOcWNkbWowa2dvZHNoQTZmVkRhUnhnaDBhNzJnSENsN20xazI3ZWxvdFhwZHh2Y1B0SDVZLVlKYXVWRXEwcVVPT1doTUd2UlV1NTc3UHhuSGU0ZGtxRndrQTZ1a1JtaVo1c1JKRmhTNnIzWEt5NTZoRm9FMXNPYzVmeXI3aURGQURk0gGIAUFVX3lxTE5xY2RtajBrZ29kc2hBNmZWRGFSeGdoMGE3MmdIQ2w3bTFrMjdlbG90WHBkeHZjUHRINVktWUphdVZFcTBxVU9PV2hNR3ZSVXU1NzdQeG5IZTRka3FGd2tBNnVrUm1pWjVzUkpGaFM2cjNYS3k1NmhGb0Uxc09jNWZ5cjdpREZBRGQ?oc=5",
+      "published_at": "2026-10-01T09:47:27+00:00",
+      "primary_country": "Latvia",
       "countries": [
-        "Estonia"
+        "Latvia"
       ],
       "categories": [],
       "actors": [
@@ -223,28 +303,119 @@
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
-      "confidence_score": 38,
+      "confidence_score": 48,
       "hybrid_threat_score": 0,
       "hybrid_threat_level": "low",
       "source_names": [
-        "ERR News Estonia"
+        "Google News - NATO Baltic hybrid threat"
       ],
       "related_item_count": 1
     }
   ],
   "events": [
     {
-      "event_id": "dcec0a60528d8ce5",
-      "title": "Lithuania lodged a protest with Russia over the sabotage in Estonia and the attacks on Ukraine - LIGA.net",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObXJiUXNQbjNTb05LTE5wMUVsV1I0ak84VkYtaWplZ0tCMmdlaVd0SWdyVV85N04yZDdmQTRUS3l0VDZScTFJTW9aRUo5cFdCalNvYWUzWi01OFlhZWRUM2s1Z3dzYUVlWXF5WUd0V2hxWEt4cVlHZFFVU2Rhd2FvNTRMNXpKdUx5WlFlOFNaTENYVWVTNHEtWElpalRNTUQwRTFkYWNvb2M5bTZELXVSM0FTazdDbGxNZzR4T284bVcwN1pLeTBuQkItLS1nUQ?oc=5",
-      "published_at": "2026-09-30T10:22:10+00:00",
-      "primary_country": "Regional",
+      "event_id": "b2851511b0fcd6e4",
+      "title": "Latvia Arrests Two Accused of Collecting NATO Intelligence for Russia’s GRU - united24media.com",
+      "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOcDhrazlwUW54eXRTSkMxMlJlN2N6cDdOVVN1M1ZLUHlFbHFxS3RJOUt1V09MNkZQMkxJT1NNY2R2WWZ4WjZfWWVYWkZ0eElid2h3NTFvSVNvVklDeDJka0s3NjlueU05emdPRzFXVGYzaDFOQXdlLVphaFRjSEg3WEtRTjVkdUdnR3ZEYTZRaG4zekw0NU50RXBXRFRZbEZhcmEwVlAxeWh4eGVoNnAzdlBn?oc=5",
+      "published_at": "2026-10-01T11:21:52+00:00",
+      "primary_country": "Latvia",
       "countries": [
-        "Estonia",
-        "Lithuania"
+        "Latvia"
       ],
       "categories": [
-        "sabotage"
+        "espionage"
+      ],
+      "actors": [
+        "Russia",
+        "NATO",
+        "GRU"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 15,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic Russia hybrid threat"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "d7ed949cbaf88f16",
+      "title": "Latvian Defense Minister Says Russia's Hybrid Attacks, Not Nuclear Rhetoric, Are The Main Concern - Radio Free Europe/Radio Liberty",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOcWNkbWowa2dvZHNoQTZmVkRhUnhnaDBhNzJnSENsN20xazI3ZWxvdFhwZHh2Y1B0SDVZLVlKYXVWRXEwcVVPT1doTUd2UlV1NTc3UHhuSGU0ZGtxRndrQTZ1a1JtaVo1c1JKRmhTNnIzWEt5NTZoRm9FMXNPYzVmeXI3aURGQURk0gGIAUFVX3lxTE5xY2RtajBrZ29kc2hBNmZWRGFSeGdoMGE3MmdIQ2w3bTFrMjdlbG90WHBkeHZjUHRINVktWUphdVZFcTBxVU9PV2hNR3ZSVXU1NzdQeG5IZTRka3FGd2tBNnVrUm1pWjVzUkpGaFM2cjNYS3k1NmhGb0Uxc09jNWZ5cjdpREZBRGQ?oc=5",
+      "published_at": "2026-10-01T09:47:27+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 48,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - NATO Baltic hybrid threat"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "0b3cc3b7ef7ba78c",
+      "title": "Latvia detains couple suspected of spying for Russia - politico.eu",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNTkRaUGhQLXFYM0JSeG1kTHp5ejVFUUJXNmh3XzBfQWZkMk9CYTUwRzF0NXhTcUo3SXV4VXRIemE4M2lGam9WQXRDSmpPLWxFUVQ5Yk1zWE5VUEJBcjJ3OWZ4Y3VsekMtNkRZbWlFQVhLMTl5ZnJoTndVdGNqM09WLTBhQ2Vtc1VFS0g0d19iZ3hVUFo2RFNRZTNCX2p0UQ?oc=5",
+      "published_at": "2026-10-01T09:28:27+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "espionage"
+      ],
+      "actors": [
+        "Russia",
+        "GRU"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "medium",
+      "confidence_score": 51,
+      "hybrid_threat_score": 17,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia",
+        "LSM English Latvia"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "d479e090dec8a3fe",
+      "title": "Saeima rules that LSM can write in Russian only on specific occasions",
+      "url": "https://eng.lsm.lv/article/features/media/01.10.2026-saeima-rules-that-lsm-can-write-in-russian-only-on-specific-occasions.a665628/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-10-01T08:33:37+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "disinformation"
       ],
       "actors": [
         "Russia"
@@ -257,69 +428,42 @@
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 12,
+      "hybrid_threat_score": 8,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic sabotage Russia"
+        "LSM English Latvia"
       ],
-      "related_item_count": 2
+      "related_item_count": 1
     },
     {
-      "event_id": "c09499aea291e4e9",
-      "title": "ISS director: We have prevented 'significant' number of Russian attacks",
-      "url": "https://news.err.ee/1610152138/iss-director-we-have-prevented-significant-number-of-russian-attacks",
-      "published_at": "2026-09-30T09:04:00+00:00",
+      "event_id": "dbdd6507ad17b66a",
+      "title": "Estonia blames Russia for arson attack on drone maker supplying Ukraine - The Guardian",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNc0plS3dOVGxvMGYwcjU3bXo3UXdfaWtiaGpOTmxEZ3VyVUpIV0luR0RDQ2s5TUplb0JPYV9lOHgzVEQ4eW9LZjlNNHdPODJIcEZ2RWxQY1E3cDJLbXRHc2ZNRTVOTXUwREthUG1VeEstTXdiRDFXdGhTZE5pT3VYaEg0TnI0cndlTktObl9UYVFkeHdvdzdLb3BvRDJVUWdFTnc?oc=5",
+      "published_at": "2026-10-01T00:41:00+00:00",
       "primary_country": "Estonia",
       "countries": [
         "Estonia"
       ],
-      "categories": [],
+      "categories": [
+        "sabotage"
+      ],
       "actors": [
         "Russia"
       ],
       "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
+      "event_type": "operational",
+      "event_subtype": "incident",
       "analysis_layer": null,
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
+      "hybrid_threat_score": 48,
+      "hybrid_threat_level": "elevated",
       "source_names": [
-        "ERR News Estonia"
+        "Google News - Baltic sabotage Russia"
       ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "de128076854e104c",
-      "title": "Russia issues new nuclear threat over Kaliningrad as tensions with NATO rise - The Kyiv Independent",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPLVBfSnp5ZmgwLTFFRjU0T3RuY1huSEdRZXl2ZGJNV0JjSERXeHVROF9KWGEwM01VbDZucjhJTzlaNXZDRVF3MFN4M3djUklCMzdSQnRKaFR1WHhCTkpDTHZaSnQ0VWpvM1UxV2lFLTBNcVREbzJxYXgtX3RhcXVoWC1KRVhuV0FUbWw0NENCNjloMXRnOTJ2a3N4Q2plb2NpRkV3UEpybm8?oc=5",
-      "published_at": "2026-09-30T08:07:46+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "categories": [],
-      "actors": [
-        "Russia",
-        "NATO"
-      ],
-      "locations": [
-        "Kaliningrad"
-      ],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "analysis_layer": null,
-      "geographic_scope": "regional_direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 48,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - NATO Baltic hybrid threat"
-      ],
-      "related_item_count": 1
+      "related_item_count": 4
     }
   ]
 }
