@@ -2,8 +2,8 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-10-01T11:41:40.085911+00:00",
-  "record_count": 62,
+  "updated_at": "2026-10-02T11:11:15.560830+00:00",
+  "record_count": 63,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
     "warning": "Historical records are reconstructed from currently available scored items using published_at dates. The backfill is not a complete historical archive if older source items are no longer available.",
@@ -36709,6 +36709,561 @@
             "confidence": "medium",
             "hybrid_threat_score": 17,
             "hybrid_threat_level": "low"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-10-02",
+      "generated_at": "2026-10-02T11:11:15.560560+00:00",
+      "input_generated_at": "2026-10-02T11:11:15.200683+00:00",
+      "daily_activity": {
+        "description": "Calculated only from events published on this calendar day.",
+        "overall": {
+          "event_count": 2,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 2,
+          "assessment_count": 0,
+          "score_total": 26,
+          "average_score": 13.0,
+          "highest_score": 17,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 1,
+            "score_total": 17,
+            "average_score": 17.0,
+            "highest_score": 17,
+            "level": "low",
+            "categories": {
+              "espionage": 1
+            }
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 1,
+            "score_total": 9,
+            "average_score": 9.0,
+            "highest_score": 9,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {
+          "espionage": {
+            "category": "espionage",
+            "event_count": 1,
+            "score_total": 17,
+            "average_score": 17.0,
+            "highest_score": 17
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 2,
+            "score_total": 26,
+            "average_score": 13.0,
+            "highest_score": 17,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "assessment": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Kaliningrad",
+          "score": 9,
+          "event_count": 1
+        },
+        "key_driver": "espionage",
+        "trend": "decreasing",
+        "top_items": [
+          {
+            "id": null,
+            "title": "Latvia detains couple suspected of spying for Russia - TVP World",
+            "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQVWp4UENyLVJNZXdobGJMTWdkTXdfcHMwdzB4ZWE0YlZRbmRyWHc3R3hTa3FwMW91dU0wV0xmRXp2aVZLc0JXT2xMTW9rSzY1TTlYZnN4VFg1MVFzdHJvRFdSVXNpdnBZSldUUmZqYVllaDRWWmJUSkZReGpIUU0yS0QtRXBPX3piWGlOV3RzbmQ2Q2p1cEotVkI5TXNLVGpaTm9ST0xHenJRbHhMY3NmNw?oc=5",
+            "published_at": "2026-10-02T06:30:00+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia"
+            ],
+            "categories": [
+              "espionage"
+            ],
+            "actors": [
+              "Russia",
+              "GRU"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "medium",
+            "hybrid_threat_score": 17,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Putin warns West of ‘all weapons’ as Kaliningrad becomes new flashpoint - The News International",
+            "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNWDRfdkZib2Q5cXh6VVFiUXNjVjhtM055TzlEbFB4NTNUdTFTeWxUSUduX3VpZEYwUHNuQmRhVkdLREVYcWh5N1JKLVlSTVdnMFhJLUs4TS1wc1o2VVN0UEsyX1VYZjdzck9IRFZlaDFoblBXdXlWWndDUnA3NEVNbWhaeks4U2pqSV9RbXpBdEVBSWRROFBWbWU1TWlkQi1USWFhUWJyYm5VMEZkMXkwStIBrAFBVV95cUxQdmJUTFB5OHVkOUt1OFhIdm5NaC1TcVBlOGU2dzVlZmptZ0UtNDRsa3lVSHlIRHd2VEkzNVg2b0h4Mjd0eU1CZmVMUkp5MEYyMU8wQmZyRHJZX2VXbW1hZUJpREh1bVFodzN3cFEtd3FuVEpReWdET1hZc28td05WVkJBM3RUczZXM1lrZGUzczhoUU1XVDBMdTB0aVlnanBHMzlkeFlyMVFNeWhO?oc=5",
+            "published_at": "2026-10-02T06:37:00+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [
+              "Kaliningrad"
+            ],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "medium",
+            "hybrid_threat_score": 9,
+            "hybrid_threat_level": "low"
+          }
+        ]
+      },
+      "rolling_threat": {
+        "description": "Rolling threat environment ending on this calendar day.",
+        "window": {
+          "days": 14,
+          "start_date": "2026-09-19",
+          "end_date": "2026-10-02"
+        },
+        "overall": {
+          "event_count": 40,
+          "incident_count": 11,
+          "activity_count": 0,
+          "indicator_count": 17,
+          "assessment_count": 12,
+          "score_total": 628,
+          "average_score": 15.7,
+          "highest_score": 52,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 15,
+            "score_total": 328,
+            "average_score": 21.87,
+            "highest_score": 52,
+            "level": "guarded",
+            "categories": {
+              "drone_incident": 1,
+              "sabotage": 12
+            }
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 6,
+            "score_total": 52,
+            "average_score": 8.67,
+            "highest_score": 17,
+            "level": "low",
+            "categories": {
+              "espionage": 2,
+              "sabotage": 2,
+              "disinformation": 1
+            }
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 2,
+            "score_total": 42,
+            "average_score": 21.0,
+            "highest_score": 29,
+            "level": "guarded",
+            "categories": {
+              "military_provocation": 1,
+              "sabotage": 1
+            }
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 17,
+            "score_total": 233,
+            "average_score": 13.71,
+            "highest_score": 45,
+            "level": "low",
+            "categories": {
+              "drone_incident": 3,
+              "sabotage": 2,
+              "military_provocation": 1,
+              "cyber": 1
+            }
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 3,
+            "score_total": 15,
+            "average_score": 5.0,
+            "highest_score": 9,
+            "level": "low",
+            "categories": {
+              "sabotage": 1
+            }
+          }
+        },
+        "categories": {
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 16,
+            "score_total": 340,
+            "average_score": 21.25,
+            "highest_score": 47
+          },
+          "drone_incident": {
+            "category": "drone_incident",
+            "event_count": 4,
+            "score_total": 142,
+            "average_score": 35.5,
+            "highest_score": 52
+          },
+          "espionage": {
+            "category": "espionage",
+            "event_count": 2,
+            "score_total": 32,
+            "average_score": 16.0,
+            "highest_score": 17
+          },
+          "military_provocation": {
+            "category": "military_provocation",
+            "event_count": 1,
+            "score_total": 29,
+            "average_score": 29.0,
+            "highest_score": 29
+          },
+          "cyber": {
+            "category": "cyber",
+            "event_count": 1,
+            "score_total": 27,
+            "average_score": 27.0,
+            "highest_score": 27
+          },
+          "disinformation": {
+            "category": "disinformation",
+            "event_count": 1,
+            "score_total": 8,
+            "average_score": 8.0,
+            "highest_score": 8
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 17,
+            "score_total": 189,
+            "average_score": 11.12,
+            "highest_score": 17,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 11,
+            "score_total": 439,
+            "average_score": 39.91,
+            "highest_score": 52,
+            "level": "guarded"
+          },
+          "assessment": {
+            "event_count": 12,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Tallinn",
+          "score": 47,
+          "event_count": 1
+        },
+        "top_items": [
+          {
+            "id": null,
+            "title": "Estonia seeks urgent NATO consultation after Russian airspace violation - Modern Ghana",
+            "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9YRFlHc0VDTndfakpwclgxUTQydDJkVzZVX0wzOHRfN1ZyZGlXalJmTHcyNFhYZzdzc1lVUDJWNE1feG5FTlFVV0xuT2tSU2E3UHFIN29FMHFKVHBOU2fSAVxBVV95cUxQcFZTREdTU1BxOG1kNWg2UGcwakRpTk1yelpNNzhoWUZCMmktc3U3b2dJRG90dXkxNEZPUU1yZEczNDNXYU0yWGgwS0w2ZkdSc19CSGc4TE10RHZDcA?oc=5",
+            "published_at": "2026-10-01T16:57:59+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "drone_incident"
+            ],
+            "actors": [
+              "Russia",
+              "NATO"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 52,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Estonia blames Russia for arson attack on drone maker supplying Ukraine - The Guardian",
+            "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNc0plS3dOVGxvMGYwcjU3bXo3UXdfaWtiaGpOTmxEZ3VyVUpIV0luR0RDQ2s5TUplb0JPYV9lOHgzVEQ4eW9LZjlNNHdPODJIcEZ2RWxQY1E3cDJLbXRHc2ZNRTVOTXUwREthUG1VeEstTXdiRDFXdGhTZE5pT3VYaEg0TnI0cndlTktObl9UYVFkeHdvdzdLb3BvRDJVUWdFTnc?oc=5",
+            "published_at": "2026-10-01T00:41:00+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 47,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Estonia says Russia behind ‘sabotage’ attack on Ukraine defence supplier in Tallinn - The News International",
+            "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQU3huMGl5UDc4eHo5U2JLYVBKaENCVUlBQWhZNC1oMmpBWVVnd2Y5TmtsU25OVm92VU1Mb0ZNSFItSmR4UGQ5a0JJckNhZ0hLZ1hiVTJkV1pvYUdYRUc4OGVnaWl4RWRhbzl4MmlhYUw2cXZmZlAyajMzbVVCOTZaYUJtdjNyYVN2ZmItSEpuYWJlUmlwZ3R2aFdaSUo0ajBHYXdCeTE0OVZ0T0pDeWRpZ2RtN0gzcUNBOVFKb1VFR1fSAbwBQVVfeXFMTUhwUGxhU2hBRWN2NHhTcklqWVVxRzBQaVQ0aVRaZXNIQ3E4eG1JYmFoTEI0Q0VieE83dDgxUHRCMzdXX1ZWb1R0NVhBY2ZnMXhsUmVxdnVwaGhreUNwdTVCNzcyR3lERnBiM25HcktoOUhURHVLUTJPNm90VFZkN3J3YnBjc2FiWGhzUHRTMXd3VV9VbjgwVHdLX0tBZEVPS0p6Vl8xWkVqLUxsYzA0N1l0V1RIczZPV0VOdUk?oc=5",
+            "published_at": "2026-09-29T15:50:57+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [
+              "Tallinn"
+            ],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 47,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Estonia slams Russian 'sabotage' after arson attack on defence company - ABC News & Headlines – Australian Broadcasting Corporation",
+            "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQZjhhVFkzTXZTd1FFb0FZb3lxTWdRczNsNVFrd3dYdnlEdlgwcm9aT3ZWOGFtd2FwdEEyVW85NDhSbjUyZHlHNElaR050c25sQzE3LVJWZEstdGZkMGFUXzVQZlUySklia3RoOTRmVDRmVHpUbmR3VXpYMGZiaVppdk54aWNPdl9STWJxNU91c2txZTlyeVp3cVIzZw?oc=5",
+            "published_at": "2026-09-29T13:49:28+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 47,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Estonia: Russia responsible for arson attack on defense contractor Milrem - ERR",
+            "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNWRLU2JsOE1FOWhpSUZKbmRRczN3Q0d4NWR3b1pNd2RrQWU3SGgtVkZFVzdkSGtGblBkZXBjdWVuWkpQS1JfeGg5ZnN0VjBWR1dMTVJISFFxbXBMbFc5eTB1c0pIbHdSR1VpX05aQ0ppbW54YTV0T3hOQTB5VzFPUkx5SDNrVlRfVWxlMHZIV1hvZ1l1X2FBMVg3M2lwZmRQVHBMczRR?oc=5",
+            "published_at": "2026-09-29T07:36:00+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 46,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Polish army reports short airspace violation by Russian army helicopter - The Brussels Times",
+            "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNTUd4WjNwRXVPeGZCcEpyUHU0SGE0bjNwRkJ4R2VQZDVsUFFBd2dpNWJBcTdNQlhfM0F2LVlBTUFfbXBnMXphaXRoNy1NbThmaDl5VU1oc0JhanF1Y0pJUlJMLWxueXNTRS1nd2tHNXcwUVBpX2hvNms5c1B3d21LNFl4Q05jMThheURCdEU2a2lhUmNnaFRoVXQ2S2IweXlhbkkzX3YtMjdqSG9yTlE?oc=5",
+            "published_at": "2026-09-24T09:12:36+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "drone_incident"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 45,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "42 Seconds Over Poland: What Russia’s Mi-8 Airspace Violation Reveals - Oj - Odessa Journal",
+            "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNcGcyRzBvdGpvdlVSTVpId0lXaVdpY3I0akJmRjVoNkZjcUpoM0ZwR2U2aldQT1RFbEhBNXdWdV9FOWZYbDZUZmZYVzV2d2hFOGx1YVl4R05YdTl0WnlZT21kdWtRaV9aMG5EZVV4X0hpeUpuZmJ4V2hhWFJyRnY3TXlFTUgtdXV5QWdBN3dwSEpnbkFWdUJEeENKZlBnUDhiQjN1SHdvdXhqQnN1SkotUA?oc=5",
+            "published_at": "2026-09-23T16:56:41+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "drone_incident"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 45,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Starlink ground station in Poland hit by fire in suspected arson attack - Notes From Poland",
+            "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNTXM0NjdRT3NaUjBNdHlfQkdZMEdBaXVDbGxJZ0h5UzEzTk9rd0VYYVJJZ2dlaUhqYUFRT2M2dlZKd2JPcmJEa3c4d3M0a2ZKWDdUVHlybV9LT1RFTlI3STNxLS1uSjB6ekx2N3lKWjRJSWtGU2Uxa2FkUl8tOEVVSFQ4ZWdyUG9vZEtoWmUtNFY4YUNUalZPMU1YMDZhTGRzQVA4ZkZjam1hYWhKZm16bA?oc=5",
+            "published_at": "2026-09-24T09:21:37+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 33,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Russian military helicopter in Polish airspace. Warsaw has scrambled fighter jets and accuses Moscow of testing its defenses again - cotidianul.md",
+            "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPeU1oN01DUnpsSGZVa3RQdjR1RG9PWDNUZjdXVkhDU3FkN01wWk5QazFESkNwUGVwb2N5cTdxMXRtSDNuS0dnSEtKUXFCc2V5a3VJVjhaTTZhRTFiT2ZGbGp0Uk9OMUQ4bDgwRmlLRDQyYUZCcGVmWk1QbndleHBLX2xaRE9Za1ZoZVM2QUZDZmF6bklxbG4wczBKUk5nMTdyV05uWEdNNk5iQ0dmbEZBZEZUSS1pdTVyTmVwa09PMzhhZDJ0eXNKZWJ2d0R5c2d6UHlFallkR0NHd3Zxa0RqeTMya1ZleEV0bkszUGQyUUpXU2c?oc=5",
+            "published_at": "2026-09-23T15:07:13+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland",
+              "Lithuania"
+            ],
+            "categories": [
+              "military_provocation"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 29,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Cyberattack on major Polish invoicing platform exposes customer data",
+            "url": "https://therecord.media/poland-cyberattack-invoice-software",
+            "published_at": "2026-10-01T12:30:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "cyber"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 27,
+            "hybrid_threat_level": "guarded"
           }
         ]
       }
