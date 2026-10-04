@@ -2,8 +2,8 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-10-03T10:29:04.984230+00:00",
-  "record_count": 64,
+  "updated_at": "2026-10-04T11:10:42.158014+00:00",
+  "record_count": 65,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
     "warning": "Historical records are reconstructed from currently available scored items using published_at dates. The backfill is not a complete historical archive if older source items are no longer available.",
@@ -37754,6 +37754,526 @@
             "analytical_layer": "operational",
             "confidence": "low",
             "hybrid_threat_score": 21,
+            "hybrid_threat_level": "guarded"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-10-04",
+      "generated_at": "2026-10-04T11:10:42.157812+00:00",
+      "input_generated_at": "2026-10-04T11:10:41.857335+00:00",
+      "daily_activity": {
+        "description": "Calculated only from events published on this calendar day.",
+        "overall": {
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 1,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "assessment": {
+            "event_count": 1,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Latvia",
+          "score": 0,
+          "event_count": 1
+        },
+        "key_driver": null,
+        "trend": "stable",
+        "top_items": [
+          {
+            "id": null,
+            "title": "Latvian Defense Minister: Russia's hybrid attacks, not nuclear rhetoric, main concern",
+            "url": "https://www.lrt.lt/en/news-in-english/19/3070215/latvian-defense-minister-russia-s-hybrid-attacks-not-nuclear-rhetoric-main-concern",
+            "published_at": "2026-10-04T07:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia"
+            ],
+            "categories": [],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "assessment",
+            "analytical_layer": "assessment",
+            "confidence": "medium",
+            "hybrid_threat_score": 0,
+            "hybrid_threat_level": "low"
+          }
+        ]
+      },
+      "rolling_threat": {
+        "description": "Rolling threat environment ending on this calendar day.",
+        "window": {
+          "days": 14,
+          "start_date": "2026-09-21",
+          "end_date": "2026-10-04"
+        },
+        "overall": {
+          "event_count": 39,
+          "incident_count": 11,
+          "activity_count": 0,
+          "indicator_count": 16,
+          "assessment_count": 12,
+          "score_total": 608,
+          "average_score": 15.59,
+          "highest_score": 52,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 13,
+            "score_total": 284,
+            "average_score": 21.85,
+            "highest_score": 52,
+            "level": "guarded",
+            "categories": {
+              "drone_incident": 1,
+              "sabotage": 11
+            }
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 10,
+            "score_total": 92,
+            "average_score": 9.2,
+            "highest_score": 36,
+            "level": "low",
+            "categories": {
+              "cyber": 1,
+              "espionage": 2,
+              "sabotage": 2,
+              "disinformation": 2
+            }
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 1,
+            "score_total": 16,
+            "average_score": 16.0,
+            "highest_score": 16,
+            "level": "low",
+            "categories": {
+              "sabotage": 1
+            }
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 12,
+            "score_total": 190,
+            "average_score": 15.83,
+            "highest_score": 45,
+            "level": "low",
+            "categories": {
+              "drone_incident": 3,
+              "sabotage": 1,
+              "military_provocation": 1
+            }
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 5,
+            "score_total": 42,
+            "average_score": 8.4,
+            "highest_score": 22,
+            "level": "low",
+            "categories": {
+              "drone_incident": 1,
+              "sabotage": 2
+            }
+          }
+        },
+        "categories": {
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 15,
+            "score_total": 298,
+            "average_score": 19.87,
+            "highest_score": 47
+          },
+          "drone_incident": {
+            "category": "drone_incident",
+            "event_count": 5,
+            "score_total": 164,
+            "average_score": 32.8,
+            "highest_score": 52
+          },
+          "cyber": {
+            "category": "cyber",
+            "event_count": 1,
+            "score_total": 36,
+            "average_score": 36.0,
+            "highest_score": 36
+          },
+          "military_provocation": {
+            "category": "military_provocation",
+            "event_count": 1,
+            "score_total": 32,
+            "average_score": 32.0,
+            "highest_score": 32
+          },
+          "espionage": {
+            "category": "espionage",
+            "event_count": 2,
+            "score_total": 32,
+            "average_score": 16.0,
+            "highest_score": 17
+          },
+          "disinformation": {
+            "category": "disinformation",
+            "event_count": 2,
+            "score_total": 12,
+            "average_score": 6.0,
+            "highest_score": 8
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 16,
+            "score_total": 174,
+            "average_score": 10.88,
+            "highest_score": 17,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 11,
+            "score_total": 434,
+            "average_score": 39.45,
+            "highest_score": 52,
+            "level": "guarded"
+          },
+          "assessment": {
+            "event_count": 12,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Tallinn",
+          "score": 47,
+          "event_count": 1
+        },
+        "top_items": [
+          {
+            "id": null,
+            "title": "Estonia seeks urgent NATO consultation after Russian airspace violation - Modern Ghana",
+            "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9YRFlHc0VDTndfakpwclgxUTQydDJkVzZVX0wzOHRfN1ZyZGlXalJmTHcyNFhYZzdzc1lVUDJWNE1feG5FTlFVV0xuT2tSU2E3UHFIN29FMHFKVHBOU2fSAVxBVV95cUxQcFZTREdTU1BxOG1kNWg2UGcwakRpTk1yelpNNzhoWUZCMmktc3U3b2dJRG90dXkxNEZPUU1yZEczNDNXYU0yWGgwS0w2ZkdSc19CSGc4TE10RHZDcA?oc=5",
+            "published_at": "2026-10-01T16:57:59+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "drone_incident"
+            ],
+            "actors": [
+              "Russia",
+              "NATO"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 52,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Estonia says Russia behind ‘sabotage’ attack on Ukraine defence supplier in Tallinn - The News International",
+            "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQU3huMGl5UDc4eHo5U2JLYVBKaENCVUlBQWhZNC1oMmpBWVVnd2Y5TmtsU25OVm92VU1Mb0ZNSFItSmR4UGQ5a0JJckNhZ0hLZ1hiVTJkV1pvYUdYRUc4OGVnaWl4RWRhbzl4MmlhYUw2cXZmZlAyajMzbVVCOTZaYUJtdjNyYVN2ZmItSEpuYWJlUmlwZ3R2aFdaSUo0ajBHYXdCeTE0OVZ0T0pDeWRpZ2RtN0gzcUNBOVFKb1VFR1fSAbwBQVVfeXFMTUhwUGxhU2hBRWN2NHhTcklqWVVxRzBQaVQ0aVRaZXNIQ3E4eG1JYmFoTEI0Q0VieE83dDgxUHRCMzdXX1ZWb1R0NVhBY2ZnMXhsUmVxdnVwaGhreUNwdTVCNzcyR3lERnBiM25HcktoOUhURHVLUTJPNm90VFZkN3J3YnBjc2FiWGhzUHRTMXd3VV9VbjgwVHdLX0tBZEVPS0p6Vl8xWkVqLUxsYzA0N1l0V1RIczZPV0VOdUk?oc=5",
+            "published_at": "2026-09-29T15:50:57+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [
+              "Tallinn"
+            ],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 47,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Estonia slams Russian 'sabotage' after arson attack on defence company - ABC News & Headlines – Australian Broadcasting Corporation",
+            "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQZjhhVFkzTXZTd1FFb0FZb3lxTWdRczNsNVFrd3dYdnlEdlgwcm9aT3ZWOGFtd2FwdEEyVW85NDhSbjUyZHlHNElaR050c25sQzE3LVJWZEstdGZkMGFUXzVQZlUySklia3RoOTRmVDRmVHpUbmR3VXpYMGZiaVppdk54aWNPdl9STWJxNU91c2txZTlyeVp3cVIzZw?oc=5",
+            "published_at": "2026-09-29T13:49:28+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 47,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Estonia: Russia responsible for arson attack on defense contractor Milrem - ERR",
+            "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNWRLU2JsOE1FOWhpSUZKbmRRczN3Q0d4NWR3b1pNd2RrQWU3SGgtVkZFVzdkSGtGblBkZXBjdWVuWkpQS1JfeGg5ZnN0VjBWR1dMTVJISFFxbXBMbFc5eTB1c0pIbHdSR1VpX05aQ0ppbW54YTV0T3hOQTB5VzFPUkx5SDNrVlRfVWxlMHZIV1hvZ1l1X2FBMVg3M2lwZmRQVHBMczRR?oc=5",
+            "published_at": "2026-09-29T07:36:00+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 46,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Polish army reports short airspace violation by Russian army helicopter - brusselstimes.com",
+            "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNTUd4WjNwRXVPeGZCcEpyUHU0SGE0bjNwRkJ4R2VQZDVsUFFBd2dpNWJBcTdNQlhfM0F2LVlBTUFfbXBnMXphaXRoNy1NbThmaDl5VU1oc0JhanF1Y0pJUlJMLWxueXNTRS1nd2tHNXcwUVBpX2hvNms5c1B3d21LNFl4Q05jMThheURCdEU2a2lhUmNnaFRoVXQ2S2IweXlhbkkzX3YtMjdqSG9yTlE?oc=5",
+            "published_at": "2026-09-24T09:12:36+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "drone_incident"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 45,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "42 Seconds Over Poland: What Russia’s Mi-8 Airspace Violation Reveals - Oj - Odessa Journal",
+            "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNcGcyRzBvdGpvdlVSTVpId0lXaVdpY3I0akJmRjVoNkZjcUpoM0ZwR2U2aldQT1RFbEhBNXdWdV9FOWZYbDZUZmZYVzV2d2hFOGx1YVl4R05YdTl0WnlZT21kdWtRaV9aMG5EZVV4X0hpeUpuZmJ4V2hhWFJyRnY3TXlFTUgtdXV5QWdBN3dwSEpnbkFWdUJEeENKZlBnUDhiQjN1SHdvdXhqQnN1SkotUA?oc=5",
+            "published_at": "2026-09-23T16:56:41+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "drone_incident"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 45,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Starlink station fire in Poland investigated as sabotage, Russian intelligence link suspected - Українська правда",
+            "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1qUFhhWGl6SHEwR3J1RE5sSUVock1FNXlQZ2pzY3dibWJvUW0yclhSby1qZmVpNmpPcTBPRExQbVNCYUx3UkRkN2kyUzRpSlFXQmJWYzJoSlVVeDdHSDdsNG5oRXrSAXBBVV95cUxOY1ZUVGsydWJNMmFPSjV2VHlVWG9HelRFcU9ZTkw1dzNkdGplVm0zT0ljS3FSOXZ3bENmc3RCa3VITFU1QVRaQm56YUd6TVNOOXE1MUtNQjhQd2NQZjM4RC1OR2RHc1JiNGdRWWswM2xZ?oc=5",
+            "published_at": "2026-09-25T07:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 41,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Cyberattack on Latvian State Forests detected / Article - LSM",
+            "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQalp0aDhXcm85REdiZU05T09CU1YzVERmQUZtcWJkalFoQWZkbklMeldmTWNrWS0yYThka01IM3hfUTlwNUplZnJpdWFpZkdFMGdhLWh3Q3NBVjFRM0dPeThUOWkzR0o2QnZQazkxOWQ1MnpyUFl6VWlrbU5wMm5YNEZCUzhaakVZM2pTSDFyS21LcTFNSnBGSlpvbzRtbzN1OE5yY2tQaGFWUQ?oc=5",
+            "published_at": "2026-10-03T01:54:18+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia"
+            ],
+            "categories": [
+              "cyber"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "medium",
+            "hybrid_threat_score": 36,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Russian military helicopter in Polish airspace. Warsaw has raised the fighter jets and accuses Moscow of testing its defenses again - cotidianul.md",
+            "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxObUg5SVVLY1Bnb2RkSlU1ektEYk5mMXNjdWVOQlVZOFlSYnZsQk1LZWFqT3M2Znh3TFJTcHBlV1FuS1dMQktJeFQ4U1Vyd3R5LV9pQ29QTDNKa1NrS0dqcHo0ZkZyNHRMM1liY1VXTUpiYXNVR213XzlENmw2ZlR4b0dTWTJRMS14Rnkzb1o4bmRBdjFhVGJtNkgxSEVmQnlqZGJRbEplbnhqd3FLclVSbkZ1MllOeHczSDkyU0k4NHBYTWktZlYyR1BQa1J3Tno5dk1vaENRMlhPcnlsTnJ5WXBmRHhoSzQ3OTRvVDl1Vmd5VFJtamdfdU92cFM5NDNXNjE4?oc=5",
+            "published_at": "2026-09-23T15:07:13+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "military_provocation"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 32,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Sandu slams Russia as attack debris hits Moldova in latest airspace violation - politico.eu",
+            "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNRGJ3a09oUWZpV3lCdFFwMzZ1WW94VWJ4Q1dRbW9qdjhUODhmWVA3azVKWm1NWlE5U2hYR1RUUXJISUt3NWdHZ1NHeEwyYllQYkd5U09pRldsLWRQQUlkWldmd3FyWjAzMWZkYnRrLURuWkFKLXRMeGdSTXFQb21BUWpkNW40MjlqcmNJOHRjTE9MTjYxb1lleVlRSjdwRTZhOXNvcFhOcFItaVB2UDRMc3lOZFI5dw?oc=5",
+            "published_at": "2026-10-03T13:50:00+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "drone_incident"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 22,
             "hybrid_threat_level": "guarded"
           }
         ]
