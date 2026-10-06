@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-05T12:22:58.437863+00:00",
+  "generated_at": "2026-10-06T12:06:13.109826+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-10-05T12:22:58.383245+00:00",
+  "source_history_generated_at": "2026-10-06T12:06:13.046009+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-09-29",
-    "end_date": "2026-10-05",
+    "start_date": "2026-09-30",
+    "end_date": "2026-10-06",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -31,24 +31,24 @@
   "missing_dates": [],
   "seven_day_summary": {
     "totals": {
-      "event_count": 17,
-      "incident_count": 4,
+      "event_count": 12,
+      "incident_count": 1,
       "activity_count": 0,
       "indicator_count": 7,
-      "assessment_count": 6
+      "assessment_count": 4
     },
     "indices": {
-      "average_operational_index_observed_days": 15.14,
-      "average_early_warning_index_observed_days": 6.19,
-      "average_threat_index_observed_days": 16.21,
+      "average_operational_index_observed_days": 6.86,
+      "average_early_warning_index_observed_days": 7.48,
+      "average_threat_index_observed_days": 11.44,
       "average_threat_level_observed_days": "low",
-      "highest_daily_threat_index": 47.4
+      "highest_daily_threat_index": 41.07
     },
     "peak_day": {
-      "date": "2026-09-29",
-      "threat_index": 47.4,
+      "date": "2026-10-01",
+      "threat_index": 41.07,
       "overall_level": "elevated",
-      "event_count": 6
+      "event_count": 5
     },
     "country_totals": {
       "Estonia": 0.0,
@@ -59,7 +59,6 @@
     "category_totals": {
       "disinformation": 0.0,
       "espionage": 0.0,
-      "migration_pressure": 0.0,
       "sabotage": 0.0
     },
     "actor_totals": {
@@ -69,6 +68,39 @@
     }
   },
   "top_events": [
+    {
+      "event_id": "6bcb8e8836f3c98a",
+      "title": "From drone strikes to sabotage: Russia targets the rail corridor linking Ukraine and Poland - Defence24.com",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNbGdSaHJVTWpBbUsyNkhVMF90X043d0NaSlhrT2pDU0JkQTA0VmJES3JSeEY5R2piWlpRcGNBT0NMT2d1SmIxNW5fMko2R2lHUFZQUFB1RlpUUzNHaE15UEJRR0Z4ZndzYUhPcDUyVUg4ZHV0NWlLQ2xoMzR0T2pybldYUGpPWHpONk5OeGc1Y1ZsbEFOQ2VuVHhFaGpYQnJQTmRmR2xwYjQ0N3lDLVBPNHlISXI4V2xDSlI4dENmZ0czUQ?oc=5",
+      "published_at": "2026-10-06T05:30:02+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage",
+        "disinformation"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "low",
+      "confidence_score": 46,
+      "hybrid_threat_score": 14,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia",
+        "Google News - Baltic disinformation Russia"
+      ],
+      "related_item_count": 2,
+      "matrix_snapshot_date": "2026-10-06"
+    },
     {
       "event_id": "1c73328184e6eff3",
       "title": "Latvian Defense Minister: Russia's hybrid attacks, not nuclear rhetoric, main concern",
@@ -350,523 +382,9 @@
       ],
       "related_item_count": 2,
       "matrix_snapshot_date": "2026-09-30"
-    },
-    {
-      "event_id": "c09499aea291e4e9",
-      "title": "ISS director: We have prevented 'significant' number of Russian attacks",
-      "url": "https://news.err.ee/1610152138/iss-director-we-have-prevented-significant-number-of-russian-attacks",
-      "published_at": "2026-09-30T09:04:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-09-30"
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-09-29",
-      "status": "available",
-      "snapshot_generated_at": "2026-09-29T11:26:05.628338+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 6,
-      "incident_count": 3,
-      "activity_count": 0,
-      "indicator_count": 1,
-      "assessment_count": 2,
-      "score_total": 179.0,
-      "average_score": 44.75,
-      "highest_score": 65.0,
-      "operational_index": 58.0,
-      "early_warning_index": 5.0,
-      "threat_index": 47.4,
-      "overall_level": "elevated",
-      "country_summary": {
-        "Estonia": {
-          "country": "Estonia",
-          "event_count": 4,
-          "incident_count": 3,
-          "activity_count": 0,
-          "indicator_count": 1,
-          "assessment_count": 0,
-          "score_total": 179,
-          "average_score": 44.75,
-          "highest_score": 65,
-          "operational_index": 58.0,
-          "early_warning_index": 5.0,
-          "threat_index": 47.4,
-          "overall_level": "elevated",
-          "categories": {
-            "sabotage": 3,
-            "migration_pressure": 1
-          },
-          "actors": {
-            "Russia": 3
-          }
-        },
-        "Poland": {
-          "country": "Poland",
-          "event_count": 2,
-          "incident_count": 0,
-          "activity_count": 0,
-          "indicator_count": 0,
-          "assessment_count": 2,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0,
-          "operational_index": 0.0,
-          "early_warning_index": 0.0,
-          "threat_index": 0.0,
-          "overall_level": "low",
-          "categories": {},
-          "actors": {
-            "Russia": 2
-          }
-        }
-      },
-      "category_summary": {
-        "sabotage": {
-          "event_count": 3,
-          "score_total": 174,
-          "average_score": 58.0,
-          "highest_score": 65
-        },
-        "migration_pressure": {
-          "event_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5
-        }
-      },
-      "actor_summary": {
-        "Russia": {
-          "event_count": 5,
-          "score_total": 174,
-          "average_score": 34.8,
-          "highest_score": 65
-        }
-      },
-      "subtype_summary": {
-        "incident": {
-          "event_count": 3,
-          "score_total": 174,
-          "average_score": 58.0,
-          "highest_score": 65
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 1,
-          "score_total": 5,
-          "average_score": 5.0,
-          "highest_score": 5
-        },
-        "assessment": {
-          "event_count": 2,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {
-        "direct": {
-          "event_count": 6,
-          "score_total": 179,
-          "average_score": 29.83,
-          "highest_score": 65
-        }
-      },
-      "hotspot": {
-        "location": "Estonia",
-        "score": 114,
-        "event_count": 3
-      },
-      "key_driver": "sabotage",
-      "dominant_actor": "Russia",
-      "top_events": [
-        {
-          "event_id": "c88136f709cc13a9",
-          "title": "Estonia says Russia responsible for arson attack against defense tech company - The Kyiv Independent",
-          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPY1lXaVRaVm03MmJOUkU5cmN0Sm5FOVF5eFl3REYzOW9qbnJPUm1ieXAwbVBhZXc5NjVBT3lycUVxS3p0bzBpd3ZUdmJ1MTFjSnZBSXpoWGRYb1dxMWRYa2pRMklhQWUtY0Y0emZzd0RMT1pjZjc3em41UEVvbzl2VDlnak9yU1NvV3VYbDM2akdod0xLM3g2SGxnZmoxaEtHYlluRFFKYWt3UQ?oc=5",
-          "published_at": "2026-09-29T08:29:47+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [
-            "Tallinn"
-          ],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 2,
-          "confidence": "medium",
-          "confidence_score": 51,
-          "hybrid_threat_score": 65,
-          "hybrid_threat_level": "high",
-          "source_names": [
-            "Google News - Baltic sabotage Russia",
-            "ERR News Estonia"
-          ],
-          "related_item_count": 2
-        },
-        {
-          "event_id": "8955a56c7a4307a7",
-          "title": "Estonia says Russian intelligence ordered August arson attack on Milrem Robotics - english.nv.ua",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOemZJMlhyMk1yRGFMRWhQQTlhd0p5QS1PazFieHhSeHVuTG00WUpCdmVrWENvYUc3MHZtR25SWkRuWjZCaks5NXF2a2dyTnMxMWhPcWtXeS0ydDZkd2d4aVJJNndpd2ZOaW1jM3RoUDFBR3JMYWtqQ3drbF9TMS1tYUdTTFZZNm9aaXY5SVE4dWR4WTFiX1JPOVFfRUFqMTRHalQyM05RQ3FjQ2FZZkHSAaoBQVVfeXFMUG5xb0RCOFVQWUhxdmRYZUgxRG9HR2tSeFh5cVV0UVhDdy1xVGxOQnlDZkJrRDBDRFZrVEhoR0JYb3JPV2FEQnEyaTFZYmZNTU5EbnlMTEVhSFlsYzlBUnhQUUJwS2xpV0J3QkZpd01jMnloLS1NUXNkRmx1bGM0SmhLak5sVGI4aU96MDMzdlptRTY0QVVFNXpraG03WlFtVWttRkV5OS1iaWc?oc=5",
-          "published_at": "2026-09-29T11:05:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 2,
-          "confidence": "medium",
-          "confidence_score": 51,
-          "hybrid_threat_score": 62,
-          "hybrid_threat_level": "high",
-          "source_names": [
-            "Google News - Baltic sabotage Russia",
-            "ERR News Estonia"
-          ],
-          "related_item_count": 4
-        },
-        {
-          "event_id": "bac7e3f78580ad10",
-          "title": "Estonia slams Russian ‘sabotage’ after arson attack on defence company - The Australian",
-          "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQVmltMXdQQlFkTVBxU1BZRWxFaExydXJSWUhJdzBVU0Jtd3lMZDJCN0VUckZkMXRuMVAyOUFacFE2WHVFZkVQN2RqUnlxRFNKb3JqUXJCRUpmTExOdm1pd1VucEhmSno1UVdydjhqRldfWnNWRU1qbnVIWnNqczRsNDBId0pzdFZJazl2UE9zNlhIYVdoaEdQQ0s0a3RpNWo3UFhCN0JzV3lIOXZOQjF1QmlrVUx5V3Ayc0tNa2ZJYzBGc21vdFBPOWw5aHl0MnM1c1liRi1iWVhGSzQ3eWNsY0k5ckVfMk9YMzFCWlBJU2p3RnJG?oc=5",
-          "published_at": "2026-09-29T10:05:15+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 47,
-          "hybrid_threat_level": "elevated",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 3
-        },
-        {
-          "event_id": "eaeada5ad2bfd476",
-          "title": "Migration pressure clogs administrative courts, delaying other cases",
-          "url": "https://news.err.ee/1610151283/migration-pressure-clogs-administrative-courts-delaying-other-cases",
-          "published_at": "2026-09-29T10:12:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "migration_pressure"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "ERR News Estonia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "41c9d8b1f8ba2f03",
-          "title": "Danger zone near the border with Poland. Russian aviation and missiles are still a threat - Defence24.com",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOenU3ZWZXWFBjSFZodW5OMUxFMlJ4UVlYYVpUcWN3bld3SVpObzFWNElsYlRuVU8tSUFFQWctMlF1dEV4NnVSaHBiNV9XSWp1SlFQT3B0b1c3WGRoc29Oby1nY2trOUZYeVdfaXR5QTQteE8wUjlfMjVPRGYxVlhtam9MdThBVmRvMU1xYlV1TGdVNXJ2ODlKTnBxdDJUaGJEN0tyVE5vNVVydlp3TEh6dUw5ZTE5NFRheVhKc0VJQ3U0VWM?oc=5",
-          "published_at": "2026-09-29T11:16:46+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic Russia hybrid threat"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "67e67cc522c6e6a6",
-          "title": "Poland prepares for possible Russian hybrid attack - vijesti.me",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaWpxVmNnd0JtSm5hQWVjVXFyYjFnT3BuLWpldjdXQnRuc2t6WDNMWGNWSkx6VWZYNkJqeE5CLWJnTDI2cExPbzJUTUU3NjRiSDd0T3V5TXNncWg5MWM4eFpwT3hRNERvQkJ6RVBYenhfZzNLUEdCU3QzQ1cyY0tJOXFrT09xc1k5Y3pGUzlkVHBfM0tjRHdvb0dRVFlfOXdmUlHSAZMBQVVfeXFMT3ptaVBHTG1EVy1wS3RrWk1WaXZ4NWZ6ZkNEVDI5UWMxak4yN0s2RDRkZWxrVjBkNzZjemJmQk5qZ2Q3QjhaODMyWXJJMlJNbjFpemJIQlEwZVl2SndVcERpRG9kWHFScVhxZ0hvQ3RVWkJtS28xb1hmZDVTMGFqcE5wUEVscnNnSk5UeGxzQ0ZHUzc4?oc=5",
-          "published_at": "2026-09-29T04:53:49+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic Russia hybrid threat"
-          ],
-          "related_item_count": 3
-        }
-      ],
-      "events": [
-        {
-          "event_id": "41c9d8b1f8ba2f03",
-          "title": "Danger zone near the border with Poland. Russian aviation and missiles are still a threat - Defence24.com",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOenU3ZWZXWFBjSFZodW5OMUxFMlJ4UVlYYVpUcWN3bld3SVpObzFWNElsYlRuVU8tSUFFQWctMlF1dEV4NnVSaHBiNV9XSWp1SlFQT3B0b1c3WGRoc29Oby1nY2trOUZYeVdfaXR5QTQteE8wUjlfMjVPRGYxVlhtam9MdThBVmRvMU1xYlV1TGdVNXJ2ODlKTnBxdDJUaGJEN0tyVE5vNVVydlp3TEh6dUw5ZTE5NFRheVhKc0VJQ3U0VWM?oc=5",
-          "published_at": "2026-09-29T11:16:46+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic Russia hybrid threat"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "8955a56c7a4307a7",
-          "title": "Estonia says Russian intelligence ordered August arson attack on Milrem Robotics - english.nv.ua",
-          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOemZJMlhyMk1yRGFMRWhQQTlhd0p5QS1PazFieHhSeHVuTG00WUpCdmVrWENvYUc3MHZtR25SWkRuWjZCaks5NXF2a2dyTnMxMWhPcWtXeS0ydDZkd2d4aVJJNndpd2ZOaW1jM3RoUDFBR3JMYWtqQ3drbF9TMS1tYUdTTFZZNm9aaXY5SVE4dWR4WTFiX1JPOVFfRUFqMTRHalQyM05RQ3FjQ2FZZkHSAaoBQVVfeXFMUG5xb0RCOFVQWUhxdmRYZUgxRG9HR2tSeFh5cVV0UVhDdy1xVGxOQnlDZkJrRDBDRFZrVEhoR0JYb3JPV2FEQnEyaTFZYmZNTU5EbnlMTEVhSFlsYzlBUnhQUUJwS2xpV0J3QkZpd01jMnloLS1NUXNkRmx1bGM0SmhLak5sVGI4aU96MDMzdlptRTY0QVVFNXpraG03WlFtVWttRkV5OS1iaWc?oc=5",
-          "published_at": "2026-09-29T11:05:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 2,
-          "confidence": "medium",
-          "confidence_score": 51,
-          "hybrid_threat_score": 62,
-          "hybrid_threat_level": "high",
-          "source_names": [
-            "Google News - Baltic sabotage Russia",
-            "ERR News Estonia"
-          ],
-          "related_item_count": 4
-        },
-        {
-          "event_id": "eaeada5ad2bfd476",
-          "title": "Migration pressure clogs administrative courts, delaying other cases",
-          "url": "https://news.err.ee/1610151283/migration-pressure-clogs-administrative-courts-delaying-other-cases",
-          "published_at": "2026-09-29T10:12:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "migration_pressure"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 5,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "ERR News Estonia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "bac7e3f78580ad10",
-          "title": "Estonia slams Russian ‘sabotage’ after arson attack on defence company - The Australian",
-          "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQVmltMXdQQlFkTVBxU1BZRWxFaExydXJSWUhJdzBVU0Jtd3lMZDJCN0VUckZkMXRuMVAyOUFacFE2WHVFZkVQN2RqUnlxRFNKb3JqUXJCRUpmTExOdm1pd1VucEhmSno1UVdydjhqRldfWnNWRU1qbnVIWnNqczRsNDBId0pzdFZJazl2UE9zNlhIYVdoaEdQQ0s0a3RpNWo3UFhCN0JzV3lIOXZOQjF1QmlrVUx5V3Ayc0tNa2ZJYzBGc21vdFBPOWw5aHl0MnM1c1liRi1iWVhGSzQ3eWNsY0k5ckVfMk9YMzFCWlBJU2p3RnJG?oc=5",
-          "published_at": "2026-09-29T10:05:15+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 47,
-          "hybrid_threat_level": "elevated",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 3
-        },
-        {
-          "event_id": "c88136f709cc13a9",
-          "title": "Estonia says Russia responsible for arson attack against defense tech company - The Kyiv Independent",
-          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPY1lXaVRaVm03MmJOUkU5cmN0Sm5FOVF5eFl3REYzOW9qbnJPUm1ieXAwbVBhZXc5NjVBT3lycUVxS3p0bzBpd3ZUdmJ1MTFjSnZBSXpoWGRYb1dxMWRYa2pRMklhQWUtY0Y0emZzd0RMT1pjZjc3em41UEVvbzl2VDlnak9yU1NvV3VYbDM2akdod0xLM3g2SGxnZmoxaEtHYlluRFFKYWt3UQ?oc=5",
-          "published_at": "2026-09-29T08:29:47+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [
-            "Tallinn"
-          ],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 2,
-          "confidence": "medium",
-          "confidence_score": 51,
-          "hybrid_threat_score": 65,
-          "hybrid_threat_level": "high",
-          "source_names": [
-            "Google News - Baltic sabotage Russia",
-            "ERR News Estonia"
-          ],
-          "related_item_count": 2
-        },
-        {
-          "event_id": "67e67cc522c6e6a6",
-          "title": "Poland prepares for possible Russian hybrid attack - vijesti.me",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPaWpxVmNnd0JtSm5hQWVjVXFyYjFnT3BuLWpldjdXQnRuc2t6WDNMWGNWSkx6VWZYNkJqeE5CLWJnTDI2cExPbzJUTUU3NjRiSDd0T3V5TXNncWg5MWM4eFpwT3hRNERvQkJ6RVBYenhfZzNLUEdCU3QzQ1cyY0tJOXFrT09xc1k5Y3pGUzlkVHBfM0tjRHdvb0dRVFlfOXdmUlHSAZMBQVVfeXFMT3ptaVBHTG1EVy1wS3RrWk1WaXZ4NWZ6ZkNEVDI5UWMxak4yN0s2RDRkZWxrVjBkNzZjemJmQk5qZ2Q3QjhaODMyWXJJMlJNbjFpemJIQlEwZVl2SndVcERpRG9kWHFScVhxZ0hvQ3RVWkJtS28xb1hmZDVTMGFqcE5wUEVscnNnSk5UeGxzQ0ZHUzc4?oc=5",
-          "published_at": "2026-09-29T04:53:49+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic Russia hybrid threat"
-          ],
-          "related_item_count": 3
-        }
-      ]
-    },
     {
       "date": "2026-09-30",
       "status": "available",
@@ -2157,6 +1675,180 @@
       "dominant_actor": null,
       "top_events": [],
       "events": []
+    },
+    {
+      "date": "2026-10-06",
+      "status": "available",
+      "snapshot_generated_at": "2026-10-06T12:06:12.977037+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 1,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 14.0,
+      "average_score": 14.0,
+      "highest_score": 14.0,
+      "operational_index": 0.0,
+      "early_warning_index": 14.0,
+      "threat_index": 14.0,
+      "overall_level": "low",
+      "country_summary": {
+        "Poland": {
+          "country": "Poland",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14,
+          "operational_index": 0.0,
+          "early_warning_index": 14.0,
+          "threat_index": 14.0,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1,
+            "disinformation": 1
+          },
+          "actors": {
+            "Russia": 1
+          }
+        }
+      },
+      "category_summary": {
+        "disinformation": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        },
+        "sabotage": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        }
+      },
+      "actor_summary": {
+        "Russia": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 1,
+          "score_total": 14,
+          "average_score": 14.0,
+          "highest_score": 14
+        }
+      },
+      "hotspot": {
+        "location": "Poland",
+        "score": 14,
+        "event_count": 1
+      },
+      "key_driver": "sabotage",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "6bcb8e8836f3c98a",
+          "title": "From drone strikes to sabotage: Russia targets the rail corridor linking Ukraine and Poland - Defence24.com",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNbGdSaHJVTWpBbUsyNkhVMF90X043d0NaSlhrT2pDU0JkQTA0VmJES3JSeEY5R2piWlpRcGNBT0NMT2d1SmIxNW5fMko2R2lHUFZQUFB1RlpUUzNHaE15UEJRR0Z4ZndzYUhPcDUyVUg4ZHV0NWlLQ2xoMzR0T2pybldYUGpPWHpONk5OeGc1Y1ZsbEFOQ2VuVHhFaGpYQnJQTmRmR2xwYjQ0N3lDLVBPNHlISXI4V2xDSlI4dENmZ0czUQ?oc=5",
+          "published_at": "2026-10-06T05:30:02+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "sabotage",
+            "disinformation"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "low",
+          "confidence_score": 46,
+          "hybrid_threat_score": 14,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia",
+            "Google News - Baltic disinformation Russia"
+          ],
+          "related_item_count": 2
+        }
+      ],
+      "events": [
+        {
+          "event_id": "6bcb8e8836f3c98a",
+          "title": "From drone strikes to sabotage: Russia targets the rail corridor linking Ukraine and Poland - Defence24.com",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNbGdSaHJVTWpBbUsyNkhVMF90X043d0NaSlhrT2pDU0JkQTA0VmJES3JSeEY5R2piWlpRcGNBT0NMT2d1SmIxNW5fMko2R2lHUFZQUFB1RlpUUzNHaE15UEJRR0Z4ZndzYUhPcDUyVUg4ZHV0NWlLQ2xoMzR0T2pybldYUGpPWHpONk5OeGc1Y1ZsbEFOQ2VuVHhFaGpYQnJQTmRmR2xwYjQ0N3lDLVBPNHlISXI4V2xDSlI4dENmZ0czUQ?oc=5",
+          "published_at": "2026-10-06T05:30:02+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "sabotage",
+            "disinformation"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "low",
+          "confidence_score": 46,
+          "hybrid_threat_score": 14,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia",
+            "Google News - Baltic disinformation Russia"
+          ],
+          "related_item_count": 2
+        }
+      ]
     }
   ]
 }

@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-05T12:22:58.339587+00:00",
-  "snapshot_date": "2026-10-05",
+  "generated_at": "2026-10-06T12:06:12.977037+00:00",
+  "snapshot_date": "2026-10-06",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-10-05T12:22:58.250406+00:00",
+  "source_generated_at": "2026-10-06T12:06:12.883208+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,22 +17,65 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 0,
+    "event_count": 1,
     "incident_count": 0,
     "activity_count": 0,
-    "indicator_count": 0,
+    "indicator_count": 1,
     "assessment_count": 0,
-    "score_total": 0,
-    "average_score": 0.0,
-    "highest_score": 0,
+    "score_total": 14,
+    "average_score": 14.0,
+    "highest_score": 14,
     "operational_index": 0.0,
-    "early_warning_index": 0.0,
-    "threat_index": 0.0,
+    "early_warning_index": 14.0,
+    "threat_index": 14.0,
     "overall_level": "low"
   },
-  "country_summary": {},
-  "category_summary": {},
-  "actor_summary": {},
+  "country_summary": {
+    "Poland": {
+      "country": "Poland",
+      "event_count": 1,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 14,
+      "average_score": 14.0,
+      "highest_score": 14,
+      "operational_index": 0.0,
+      "early_warning_index": 14.0,
+      "threat_index": 14.0,
+      "overall_level": "low",
+      "categories": {
+        "sabotage": 1,
+        "disinformation": 1
+      },
+      "actors": {
+        "Russia": 1
+      }
+    }
+  },
+  "category_summary": {
+    "disinformation": {
+      "event_count": 1,
+      "score_total": 14,
+      "average_score": 14.0,
+      "highest_score": 14
+    },
+    "sabotage": {
+      "event_count": 1,
+      "score_total": 14,
+      "average_score": 14.0,
+      "highest_score": 14
+    }
+  },
+  "actor_summary": {
+    "Russia": {
+      "event_count": 1,
+      "score_total": 14,
+      "average_score": 14.0,
+      "highest_score": 14
+    }
+  },
   "subtype_summary": {
     "incident": {
       "event_count": 0,
@@ -47,10 +90,10 @@
       "highest_score": 0
     },
     "indicator": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 1,
+      "score_total": 14,
+      "average_score": 14.0,
+      "highest_score": 14
     },
     "assessment": {
       "event_count": 0,
@@ -59,14 +102,87 @@
       "highest_score": 0
     }
   },
-  "scope_summary": {},
-  "hotspot": {
-    "location": null,
-    "score": 0,
-    "event_count": 0
+  "scope_summary": {
+    "direct": {
+      "event_count": 1,
+      "score_total": 14,
+      "average_score": 14.0,
+      "highest_score": 14
+    }
   },
-  "key_driver": null,
-  "dominant_actor": null,
-  "top_events": [],
-  "events": []
+  "hotspot": {
+    "location": "Poland",
+    "score": 14,
+    "event_count": 1
+  },
+  "key_driver": "sabotage",
+  "dominant_actor": "Russia",
+  "top_events": [
+    {
+      "event_id": "6bcb8e8836f3c98a",
+      "title": "From drone strikes to sabotage: Russia targets the rail corridor linking Ukraine and Poland - Defence24.com",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNbGdSaHJVTWpBbUsyNkhVMF90X043d0NaSlhrT2pDU0JkQTA0VmJES3JSeEY5R2piWlpRcGNBT0NMT2d1SmIxNW5fMko2R2lHUFZQUFB1RlpUUzNHaE15UEJRR0Z4ZndzYUhPcDUyVUg4ZHV0NWlLQ2xoMzR0T2pybldYUGpPWHpONk5OeGc1Y1ZsbEFOQ2VuVHhFaGpYQnJQTmRmR2xwYjQ0N3lDLVBPNHlISXI4V2xDSlI4dENmZ0czUQ?oc=5",
+      "published_at": "2026-10-06T05:30:02+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage",
+        "disinformation"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "low",
+      "confidence_score": 46,
+      "hybrid_threat_score": 14,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia",
+        "Google News - Baltic disinformation Russia"
+      ],
+      "related_item_count": 2
+    }
+  ],
+  "events": [
+    {
+      "event_id": "6bcb8e8836f3c98a",
+      "title": "From drone strikes to sabotage: Russia targets the rail corridor linking Ukraine and Poland - Defence24.com",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNbGdSaHJVTWpBbUsyNkhVMF90X043d0NaSlhrT2pDU0JkQTA0VmJES3JSeEY5R2piWlpRcGNBT0NMT2d1SmIxNW5fMko2R2lHUFZQUFB1RlpUUzNHaE15UEJRR0Z4ZndzYUhPcDUyVUg4ZHV0NWlLQ2xoMzR0T2pybldYUGpPWHpONk5OeGc1Y1ZsbEFOQ2VuVHhFaGpYQnJQTmRmR2xwYjQ0N3lDLVBPNHlISXI4V2xDSlI4dENmZ0czUQ?oc=5",
+      "published_at": "2026-10-06T05:30:02+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage",
+        "disinformation"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "low",
+      "confidence_score": 46,
+      "hybrid_threat_score": 14,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia",
+        "Google News - Baltic disinformation Russia"
+      ],
+      "related_item_count": 2
+    }
+  ]
 }
