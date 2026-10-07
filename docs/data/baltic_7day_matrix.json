@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-06T12:06:13.109826+00:00",
+  "generated_at": "2026-10-07T11:56:58.087985+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-10-06T12:06:13.046009+00:00",
+  "source_history_generated_at": "2026-10-07T11:56:57.994484+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-09-30",
-    "end_date": "2026-10-06",
+    "start_date": "2026-10-01",
+    "end_date": "2026-10-07",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -32,15 +32,15 @@
   "seven_day_summary": {
     "totals": {
       "event_count": 12,
-      "incident_count": 1,
+      "incident_count": 2,
       "activity_count": 0,
-      "indicator_count": 7,
+      "indicator_count": 6,
       "assessment_count": 4
     },
     "indices": {
-      "average_operational_index_observed_days": 6.86,
-      "average_early_warning_index_observed_days": 7.48,
-      "average_threat_index_observed_days": 11.44,
+      "average_operational_index_observed_days": 10.71,
+      "average_early_warning_index_observed_days": 5.76,
+      "average_threat_index_observed_days": 12.81,
       "average_threat_level_observed_days": "low",
       "highest_daily_threat_index": 41.07
     },
@@ -53,10 +53,12 @@
     "country_totals": {
       "Estonia": 0.0,
       "Latvia": 0.0,
+      "Lithuania": 0.0,
       "Poland": 0.0,
       "Regional": 0.0
     },
     "category_totals": {
+      "cyber": 0.0,
       "disinformation": 0.0,
       "espionage": 0.0,
       "sabotage": 0.0
@@ -68,6 +70,93 @@
     }
   },
   "top_events": [
+    {
+      "event_id": "872811bda02e04d5",
+      "title": "Minister warns revealing defense companies supplying Ukraine would expose them to Russian threats",
+      "url": "https://news.err.ee/1610159491/minister-warns-revealing-defense-companies-supplying-ukraine-would-expose-them-to-russian-threats",
+      "published_at": "2026-10-07T08:08:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-10-07"
+    },
+    {
+      "event_id": "e6b475b8f43f388c",
+      "title": "Cyberattack on Latvian State Forests detected / Article - LSM",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQalp0aDhXcm85REdiZU05T09CU1YzVERmQUZtcWJkalFoQWZkbklMeldmTWNrWS0yYThka01IM3hfUTlwNUplZnJpdWFpZkdFMGdhLWh3Q3NBVjFRM0dPeThUOWkzR0o2QnZQazkxOWQ1MnpyUFl6VWlrbU5wMm5YNEZCUzhaakVZM2pTSDFyS21LcTFNSnBGSlpvbzRtbzN1OE5yY2tQaGFWUQ?oc=5",
+      "published_at": "2026-10-07T07:06:07+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 48,
+      "hybrid_threat_score": 27,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - CERT Latvia cyber threat"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-10-07"
+    },
+    {
+      "event_id": "104a283ee07049ac",
+      "title": "Lithuania could restrict transit from Russia if plague threat confirmed â minister",
+      "url": "https://www.lrt.lt/en/news-in-english/19/3075076/lithuania-could-restrict-transit-from-russia-if-plague-threat-confirmed-minister",
+      "published_at": "2026-10-07T06:23:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "LRT English Lithuania"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-10-07"
+    },
     {
       "event_id": "6bcb8e8836f3c98a",
       "title": "From drone strikes to sabotage: Russia targets the rail corridor linking Ukraine and Poland - Defence24.com",
@@ -288,414 +377,9 @@
       ],
       "related_item_count": 2,
       "matrix_snapshot_date": "2026-10-01"
-    },
-    {
-      "event_id": "d479e090dec8a3fe",
-      "title": "Saeima rules that LSM can write in Russian only on specific occasions",
-      "url": "https://eng.lsm.lv/article/features/media/01.10.2026-saeima-rules-that-lsm-can-write-in-russian-only-on-specific-occasions.a665628/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-      "published_at": "2026-10-01T08:33:37+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia"
-      ],
-      "categories": [
-        "disinformation"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 8,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "LSM English Latvia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-10-01"
-    },
-    {
-      "event_id": "dbdd6507ad17b66a",
-      "title": "Estonia blames Russia for arson attack on drone maker supplying Ukraine - The Guardian",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNc0plS3dOVGxvMGYwcjU3bXo3UXdfaWtiaGpOTmxEZ3VyVUpIV0luR0RDQ2s5TUplb0JPYV9lOHgzVEQ4eW9LZjlNNHdPODJIcEZ2RWxQY1E3cDJLbXRHc2ZNRTVOTXUwREthUG1VeEstTXdiRDFXdGhTZE5pT3VYaEg0TnI0cndlTktObl9UYVFkeHdvdzdLb3BvRDJVUWdFTnc?oc=5",
-      "published_at": "2026-10-01T00:41:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 48,
-      "hybrid_threat_level": "elevated",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 4,
-      "matrix_snapshot_date": "2026-10-01"
-    },
-    {
-      "event_id": "dcec0a60528d8ce5",
-      "title": "Lithuania lodged a protest with Russia over the sabotage in Estonia and the attacks on Ukraine - LIGA.net",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObXJiUXNQbjNTb05LTE5wMUVsV1I0ak84VkYtaWplZ0tCMmdlaVd0SWdyVV85N04yZDdmQTRUS3l0VDZScTFJTW9aRUo5cFdCalNvYWUzWi01OFlhZWRUM2s1Z3dzYUVlWXF5WUd0V2hxWEt4cVlHZFFVU2Rhd2FvNTRMNXpKdUx5WlFlOFNaTENYVWVTNHEtWElpalRNTUQwRTFkYWNvb2M5bTZELXVSM0FTazdDbGxNZzR4T284bVcwN1pLeTBuQkItLS1nUQ?oc=5",
-      "published_at": "2026-09-30T10:22:10+00:00",
-      "primary_country": "Regional",
-      "countries": [
-        "Estonia",
-        "Lithuania"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 12,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 2,
-      "matrix_snapshot_date": "2026-09-30"
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-09-30",
-      "status": "available",
-      "snapshot_generated_at": "2026-09-30T11:14:33.804014+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 3,
-      "incident_count": 0,
-      "activity_count": 0,
-      "indicator_count": 1,
-      "assessment_count": 2,
-      "score_total": 12.0,
-      "average_score": 12.0,
-      "highest_score": 12.0,
-      "operational_index": 0.0,
-      "early_warning_index": 12.0,
-      "threat_index": 12.0,
-      "overall_level": "low",
-      "country_summary": {
-        "Estonia": {
-          "country": "Estonia",
-          "event_count": 1,
-          "incident_count": 0,
-          "activity_count": 0,
-          "indicator_count": 0,
-          "assessment_count": 1,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0,
-          "operational_index": 0.0,
-          "early_warning_index": 0.0,
-          "threat_index": 0.0,
-          "overall_level": "low",
-          "categories": {},
-          "actors": {
-            "Russia": 1
-          }
-        },
-        "Regional": {
-          "country": "Regional",
-          "event_count": 2,
-          "incident_count": 0,
-          "activity_count": 0,
-          "indicator_count": 1,
-          "assessment_count": 1,
-          "score_total": 12,
-          "average_score": 12.0,
-          "highest_score": 12,
-          "operational_index": 0.0,
-          "early_warning_index": 12.0,
-          "threat_index": 12.0,
-          "overall_level": "low",
-          "categories": {
-            "sabotage": 1
-          },
-          "actors": {
-            "Russia": 2,
-            "NATO": 1
-          }
-        }
-      },
-      "category_summary": {
-        "sabotage": {
-          "event_count": 1,
-          "score_total": 12,
-          "average_score": 12.0,
-          "highest_score": 12
-        }
-      },
-      "actor_summary": {
-        "Russia": {
-          "event_count": 3,
-          "score_total": 12,
-          "average_score": 4.0,
-          "highest_score": 12
-        },
-        "NATO": {
-          "event_count": 1,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "subtype_summary": {
-        "incident": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 1,
-          "score_total": 12,
-          "average_score": 12.0,
-          "highest_score": 12
-        },
-        "assessment": {
-          "event_count": 2,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {
-        "direct": {
-          "event_count": 2,
-          "score_total": 12,
-          "average_score": 6.0,
-          "highest_score": 12
-        },
-        "regional_direct": {
-          "event_count": 1,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "hotspot": {
-        "location": "Regional",
-        "score": 12,
-        "event_count": 1
-      },
-      "key_driver": "sabotage",
-      "dominant_actor": "Russia",
-      "top_events": [
-        {
-          "event_id": "dcec0a60528d8ce5",
-          "title": "Lithuania lodged a protest with Russia over the sabotage in Estonia and the attacks on Ukraine - LIGA.net",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObXJiUXNQbjNTb05LTE5wMUVsV1I0ak84VkYtaWplZ0tCMmdlaVd0SWdyVV85N04yZDdmQTRUS3l0VDZScTFJTW9aRUo5cFdCalNvYWUzWi01OFlhZWRUM2s1Z3dzYUVlWXF5WUd0V2hxWEt4cVlHZFFVU2Rhd2FvNTRMNXpKdUx5WlFlOFNaTENYVWVTNHEtWElpalRNTUQwRTFkYWNvb2M5bTZELXVSM0FTazdDbGxNZzR4T284bVcwN1pLeTBuQkItLS1nUQ?oc=5",
-          "published_at": "2026-09-30T10:22:10+00:00",
-          "primary_country": "Regional",
-          "countries": [
-            "Estonia",
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 12,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 2
-        },
-        {
-          "event_id": "de128076854e104c",
-          "title": "Russia issues new nuclear threat over Kaliningrad as tensions with NATO rise - The Kyiv Independent",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPLVBfSnp5ZmgwLTFFRjU0T3RuY1huSEdRZXl2ZGJNV0JjSERXeHVROF9KWGEwM01VbDZucjhJTzlaNXZDRVF3MFN4M3djUklCMzdSQnRKaFR1WHhCTkpDTHZaSnQ0VWpvM1UxV2lFLTBNcVREbzJxYXgtX3RhcXVoWC1KRVhuV0FUbWw0NENCNjloMXRnOTJ2a3N4Q2plb2NpRkV3UEpybm8?oc=5",
-          "published_at": "2026-09-30T08:07:46+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "categories": [],
-          "actors": [
-            "Russia",
-            "NATO"
-          ],
-          "locations": [
-            "Kaliningrad"
-          ],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "regional_direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 48,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - NATO Baltic hybrid threat"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "c09499aea291e4e9",
-          "title": "ISS director: We have prevented 'significant' number of Russian attacks",
-          "url": "https://news.err.ee/1610152138/iss-director-we-have-prevented-significant-number-of-russian-attacks",
-          "published_at": "2026-09-30T09:04:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "ERR News Estonia"
-          ],
-          "related_item_count": 1
-        }
-      ],
-      "events": [
-        {
-          "event_id": "dcec0a60528d8ce5",
-          "title": "Lithuania lodged a protest with Russia over the sabotage in Estonia and the attacks on Ukraine - LIGA.net",
-          "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxObXJiUXNQbjNTb05LTE5wMUVsV1I0ak84VkYtaWplZ0tCMmdlaVd0SWdyVV85N04yZDdmQTRUS3l0VDZScTFJTW9aRUo5cFdCalNvYWUzWi01OFlhZWRUM2s1Z3dzYUVlWXF5WUd0V2hxWEt4cVlHZFFVU2Rhd2FvNTRMNXpKdUx5WlFlOFNaTENYVWVTNHEtWElpalRNTUQwRTFkYWNvb2M5bTZELXVSM0FTazdDbGxNZzR4T284bVcwN1pLeTBuQkItLS1nUQ?oc=5",
-          "published_at": "2026-09-30T10:22:10+00:00",
-          "primary_country": "Regional",
-          "countries": [
-            "Estonia",
-            "Lithuania"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 12,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 2
-        },
-        {
-          "event_id": "c09499aea291e4e9",
-          "title": "ISS director: We have prevented 'significant' number of Russian attacks",
-          "url": "https://news.err.ee/1610152138/iss-director-we-have-prevented-significant-number-of-russian-attacks",
-          "published_at": "2026-09-30T09:04:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "ERR News Estonia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "de128076854e104c",
-          "title": "Russia issues new nuclear threat over Kaliningrad as tensions with NATO rise - The Kyiv Independent",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPLVBfSnp5ZmgwLTFFRjU0T3RuY1huSEdRZXl2ZGJNV0JjSERXeHVROF9KWGEwM01VbDZucjhJTzlaNXZDRVF3MFN4M3djUklCMzdSQnRKaFR1WHhCTkpDTHZaSnQ0VWpvM1UxV2lFLTBNcVREbzJxYXgtX3RhcXVoWC1KRVhuV0FUbWw0NENCNjloMXRnOTJ2a3N4Q2plb2NpRkV3UEpybm8?oc=5",
-          "published_at": "2026-09-30T08:07:46+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "categories": [],
-          "actors": [
-            "Russia",
-            "NATO"
-          ],
-          "locations": [
-            "Kaliningrad"
-          ],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "regional_direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 48,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - NATO Baltic hybrid threat"
-          ],
-          "related_item_count": 1
-        }
-      ]
-    },
     {
       "date": "2026-10-01",
       "status": "available",
@@ -1847,6 +1531,313 @@
             "Google News - Baltic disinformation Russia"
           ],
           "related_item_count": 2
+        }
+      ]
+    },
+    {
+      "date": "2026-10-07",
+      "status": "available",
+      "snapshot_generated_at": "2026-10-07T11:56:57.915190+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 3,
+      "incident_count": 1,
+      "activity_count": 0,
+      "indicator_count": 0,
+      "assessment_count": 2,
+      "score_total": 27.0,
+      "average_score": 27.0,
+      "highest_score": 27.0,
+      "operational_index": 27.0,
+      "early_warning_index": 0.0,
+      "threat_index": 21.6,
+      "overall_level": "guarded",
+      "country_summary": {
+        "Estonia": {
+          "country": "Estonia",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0,
+          "operational_index": 0.0,
+          "early_warning_index": 0.0,
+          "threat_index": 0.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Russia": 1
+          }
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "event_count": 1,
+          "incident_count": 1,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 0,
+          "score_total": 27,
+          "average_score": 27.0,
+          "highest_score": 27,
+          "operational_index": 27.0,
+          "early_warning_index": 0.0,
+          "threat_index": 21.6,
+          "overall_level": "guarded",
+          "categories": {
+            "cyber": 1
+          },
+          "actors": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0,
+          "operational_index": 0.0,
+          "early_warning_index": 0.0,
+          "threat_index": 0.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Russia": 1
+          }
+        }
+      },
+      "category_summary": {
+        "cyber": {
+          "event_count": 1,
+          "score_total": 27,
+          "average_score": 27.0,
+          "highest_score": 27
+        }
+      },
+      "actor_summary": {
+        "Russia": {
+          "event_count": 2,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 1,
+          "score_total": 27,
+          "average_score": 27.0,
+          "highest_score": 27
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "assessment": {
+          "event_count": 2,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 3,
+          "score_total": 27,
+          "average_score": 9.0,
+          "highest_score": 27
+        }
+      },
+      "hotspot": {
+        "location": "Latvia",
+        "score": 27,
+        "event_count": 1
+      },
+      "key_driver": "cyber",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "e6b475b8f43f388c",
+          "title": "Cyberattack on Latvian State Forests detected / Article - LSM",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQalp0aDhXcm85REdiZU05T09CU1YzVERmQUZtcWJkalFoQWZkbklMeldmTWNrWS0yYThka01IM3hfUTlwNUplZnJpdWFpZkdFMGdhLWh3Q3NBVjFRM0dPeThUOWkzR0o2QnZQazkxOWQ1MnpyUFl6VWlrbU5wMm5YNEZCUzhaakVZM2pTSDFyS21LcTFNSnBGSlpvbzRtbzN1OE5yY2tQaGFWUQ?oc=5",
+          "published_at": "2026-10-07T07:06:07+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "cyber"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 27,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - CERT Latvia cyber threat"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "872811bda02e04d5",
+          "title": "Minister warns revealing defense companies supplying Ukraine would expose them to Russian threats",
+          "url": "https://news.err.ee/1610159491/minister-warns-revealing-defense-companies-supplying-ukraine-would-expose-them-to-russian-threats",
+          "published_at": "2026-10-07T08:08:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "104a283ee07049ac",
+          "title": "Lithuania could restrict transit from Russia if plague threat confirmed â minister",
+          "url": "https://www.lrt.lt/en/news-in-english/19/3075076/lithuania-could-restrict-transit-from-russia-if-plague-threat-confirmed-minister",
+          "published_at": "2026-10-07T06:23:00+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "LRT English Lithuania"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "872811bda02e04d5",
+          "title": "Minister warns revealing defense companies supplying Ukraine would expose them to Russian threats",
+          "url": "https://news.err.ee/1610159491/minister-warns-revealing-defense-companies-supplying-ukraine-would-expose-them-to-russian-threats",
+          "published_at": "2026-10-07T08:08:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "e6b475b8f43f388c",
+          "title": "Cyberattack on Latvian State Forests detected / Article - LSM",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQalp0aDhXcm85REdiZU05T09CU1YzVERmQUZtcWJkalFoQWZkbklMeldmTWNrWS0yYThka01IM3hfUTlwNUplZnJpdWFpZkdFMGdhLWh3Q3NBVjFRM0dPeThUOWkzR0o2QnZQazkxOWQ1MnpyUFl6VWlrbU5wMm5YNEZCUzhaakVZM2pTSDFyS21LcTFNSnBGSlpvbzRtbzN1OE5yY2tQaGFWUQ?oc=5",
+          "published_at": "2026-10-07T07:06:07+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "cyber"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 27,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - CERT Latvia cyber threat"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "104a283ee07049ac",
+          "title": "Lithuania could restrict transit from Russia if plague threat confirmed â minister",
+          "url": "https://www.lrt.lt/en/news-in-english/19/3075076/lithuania-could-restrict-transit-from-russia-if-plague-threat-confirmed-minister",
+          "published_at": "2026-10-07T06:23:00+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "LRT English Lithuania"
+          ],
+          "related_item_count": 1
         }
       ]
     }

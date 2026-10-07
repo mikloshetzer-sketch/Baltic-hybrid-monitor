@@ -2,23 +2,23 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Intelligence Matrix History",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-06T12:06:13.046009+00:00",
+  "generated_at": "2026-10-07T11:56:57.994484+00:00",
   "history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "record_count": 58,
+  "record_count": 59,
   "first_snapshot_date": "2026-08-01",
-  "last_snapshot_date": "2026-10-06",
+  "last_snapshot_date": "2026-10-07",
   "last_update": {
     "mode": "daily_snapshot",
     "action": "inserted",
-    "updated_at": "2026-10-06T12:06:13.046009+00:00",
+    "updated_at": "2026-10-07T11:56:57.994484+00:00",
     "processed_records": 1,
     "inserted_count": 1,
     "replaced_count": 0,
     "inserted_dates": [
-      "2026-10-06"
+      "2026-10-07"
     ],
     "replaced_dates": [],
-    "source_snapshot_generated_at": "2026-10-06T12:06:12.977037+00:00",
+    "source_snapshot_generated_at": "2026-10-07T11:56:57.915190+00:00",
     "source_snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
     "source_score_engine_version": "threat_score_v3_2_current_historical_split"
   },
@@ -11896,6 +11896,327 @@
             "Google News - Baltic disinformation Russia"
           ],
           "related_item_count": 2
+        }
+      ]
+    },
+    {
+      "project": "baltic-hybrid-monitor",
+      "title": "Baltic Hybrid Threat Daily Snapshot",
+      "region": "Baltic states and Poland",
+      "generated_at": "2026-10-07T11:56:57.915190+00:00",
+      "snapshot_date": "2026-10-07",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "source_generated_at": "2026-10-07T11:56:57.779137+00:00",
+      "method": {
+        "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
+        "time_basis": "UTC calendar day",
+        "rolling_window_used": false,
+        "rolling_window_days": 0,
+        "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used.",
+        "assessment_handling": "Assessment events remain visible in counts and event lists but do not contribute to operational or early-warning indices.",
+        "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
+      },
+      "overall_summary": {
+        "event_count": 3,
+        "incident_count": 1,
+        "activity_count": 0,
+        "indicator_count": 0,
+        "assessment_count": 2,
+        "score_total": 27,
+        "average_score": 27.0,
+        "highest_score": 27,
+        "operational_index": 27.0,
+        "early_warning_index": 0.0,
+        "threat_index": 21.6,
+        "overall_level": "guarded"
+      },
+      "country_summary": {
+        "Estonia": {
+          "country": "Estonia",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0,
+          "operational_index": 0.0,
+          "early_warning_index": 0.0,
+          "threat_index": 0.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Russia": 1
+          }
+        },
+        "Latvia": {
+          "country": "Latvia",
+          "event_count": 1,
+          "incident_count": 1,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 0,
+          "score_total": 27,
+          "average_score": 27.0,
+          "highest_score": 27,
+          "operational_index": 27.0,
+          "early_warning_index": 0.0,
+          "threat_index": 21.6,
+          "overall_level": "guarded",
+          "categories": {
+            "cyber": 1
+          },
+          "actors": {}
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0,
+          "operational_index": 0.0,
+          "early_warning_index": 0.0,
+          "threat_index": 0.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Russia": 1
+          }
+        }
+      },
+      "category_summary": {
+        "cyber": {
+          "event_count": 1,
+          "score_total": 27,
+          "average_score": 27.0,
+          "highest_score": 27
+        }
+      },
+      "actor_summary": {
+        "Russia": {
+          "event_count": 2,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 1,
+          "score_total": 27,
+          "average_score": 27.0,
+          "highest_score": 27
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "assessment": {
+          "event_count": 2,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 3,
+          "score_total": 27,
+          "average_score": 9.0,
+          "highest_score": 27
+        }
+      },
+      "hotspot": {
+        "location": "Latvia",
+        "score": 27,
+        "event_count": 1
+      },
+      "key_driver": "cyber",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "e6b475b8f43f388c",
+          "title": "Cyberattack on Latvian State Forests detected / Article - LSM",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQalp0aDhXcm85REdiZU05T09CU1YzVERmQUZtcWJkalFoQWZkbklMeldmTWNrWS0yYThka01IM3hfUTlwNUplZnJpdWFpZkdFMGdhLWh3Q3NBVjFRM0dPeThUOWkzR0o2QnZQazkxOWQ1MnpyUFl6VWlrbU5wMm5YNEZCUzhaakVZM2pTSDFyS21LcTFNSnBGSlpvbzRtbzN1OE5yY2tQaGFWUQ?oc=5",
+          "published_at": "2026-10-07T07:06:07+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "cyber"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 27,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - CERT Latvia cyber threat"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "872811bda02e04d5",
+          "title": "Minister warns revealing defense companies supplying Ukraine would expose them to Russian threats",
+          "url": "https://news.err.ee/1610159491/minister-warns-revealing-defense-companies-supplying-ukraine-would-expose-them-to-russian-threats",
+          "published_at": "2026-10-07T08:08:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "104a283ee07049ac",
+          "title": "Lithuania could restrict transit from Russia if plague threat confirmed â minister",
+          "url": "https://www.lrt.lt/en/news-in-english/19/3075076/lithuania-could-restrict-transit-from-russia-if-plague-threat-confirmed-minister",
+          "published_at": "2026-10-07T06:23:00+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "LRT English Lithuania"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "872811bda02e04d5",
+          "title": "Minister warns revealing defense companies supplying Ukraine would expose them to Russian threats",
+          "url": "https://news.err.ee/1610159491/minister-warns-revealing-defense-companies-supplying-ukraine-would-expose-them-to-russian-threats",
+          "published_at": "2026-10-07T08:08:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "e6b475b8f43f388c",
+          "title": "Cyberattack on Latvian State Forests detected / Article - LSM",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQalp0aDhXcm85REdiZU05T09CU1YzVERmQUZtcWJkalFoQWZkbklMeldmTWNrWS0yYThka01IM3hfUTlwNUplZnJpdWFpZkdFMGdhLWh3Q3NBVjFRM0dPeThUOWkzR0o2QnZQazkxOWQ1MnpyUFl6VWlrbU5wMm5YNEZCUzhaakVZM2pTSDFyS21LcTFNSnBGSlpvbzRtbzN1OE5yY2tQaGFWUQ?oc=5",
+          "published_at": "2026-10-07T07:06:07+00:00",
+          "primary_country": "Latvia",
+          "countries": [
+            "Latvia"
+          ],
+          "categories": [
+            "cyber"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 27,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - CERT Latvia cyber threat"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "104a283ee07049ac",
+          "title": "Lithuania could restrict transit from Russia if plague threat confirmed â minister",
+          "url": "https://www.lrt.lt/en/news-in-english/19/3075076/lithuania-could-restrict-transit-from-russia-if-plague-threat-confirmed-minister",
+          "published_at": "2026-10-07T06:23:00+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "LRT English Lithuania"
+          ],
+          "related_item_count": 1
         }
       ]
     }
