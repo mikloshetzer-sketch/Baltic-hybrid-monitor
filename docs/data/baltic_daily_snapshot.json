@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-07T11:56:57.915190+00:00",
-  "snapshot_date": "2026-10-07",
+  "generated_at": "2026-10-08T12:11:46.324394+00:00",
+  "snapshot_date": "2026-10-08",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-10-07T11:56:57.779137+00:00",
+  "source_generated_at": "2026-10-08T12:11:46.189156+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,100 +17,64 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 3,
+    "event_count": 1,
     "incident_count": 1,
     "activity_count": 0,
     "indicator_count": 0,
-    "assessment_count": 2,
-    "score_total": 27,
-    "average_score": 27.0,
-    "highest_score": 27,
-    "operational_index": 27.0,
+    "assessment_count": 0,
+    "score_total": 45,
+    "average_score": 45.0,
+    "highest_score": 45,
+    "operational_index": 45.0,
     "early_warning_index": 0.0,
-    "threat_index": 21.6,
+    "threat_index": 36.0,
     "overall_level": "guarded"
   },
   "country_summary": {
-    "Estonia": {
-      "country": "Estonia",
-      "event_count": 1,
-      "incident_count": 0,
-      "activity_count": 0,
-      "indicator_count": 0,
-      "assessment_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0,
-      "operational_index": 0.0,
-      "early_warning_index": 0.0,
-      "threat_index": 0.0,
-      "overall_level": "low",
-      "categories": {},
-      "actors": {
-        "Russia": 1
-      }
-    },
-    "Latvia": {
-      "country": "Latvia",
+    "Poland": {
+      "country": "Poland",
       "event_count": 1,
       "incident_count": 1,
       "activity_count": 0,
       "indicator_count": 0,
       "assessment_count": 0,
-      "score_total": 27,
-      "average_score": 27.0,
-      "highest_score": 27,
-      "operational_index": 27.0,
+      "score_total": 45,
+      "average_score": 45.0,
+      "highest_score": 45,
+      "operational_index": 45.0,
       "early_warning_index": 0.0,
-      "threat_index": 21.6,
+      "threat_index": 36.0,
       "overall_level": "guarded",
       "categories": {
-        "cyber": 1
+        "drone_incident": 1
       },
-      "actors": {}
-    },
-    "Lithuania": {
-      "country": "Lithuania",
-      "event_count": 1,
-      "incident_count": 0,
-      "activity_count": 0,
-      "indicator_count": 0,
-      "assessment_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0,
-      "operational_index": 0.0,
-      "early_warning_index": 0.0,
-      "threat_index": 0.0,
-      "overall_level": "low",
-      "categories": {},
       "actors": {
         "Russia": 1
       }
     }
   },
   "category_summary": {
-    "cyber": {
+    "drone_incident": {
       "event_count": 1,
-      "score_total": 27,
-      "average_score": 27.0,
-      "highest_score": 27
+      "score_total": 45,
+      "average_score": 45.0,
+      "highest_score": 45
     }
   },
   "actor_summary": {
     "Russia": {
-      "event_count": 2,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 1,
+      "score_total": 45,
+      "average_score": 45.0,
+      "highest_score": 45
     }
   },
   "subtype_summary": {
     "incident": {
       "event_count": 1,
-      "score_total": 27,
-      "average_score": 27.0,
-      "highest_score": 27
+      "score_total": 45,
+      "average_score": 45.0,
+      "highest_score": 45
     },
     "activity": {
       "event_count": 0,
@@ -125,7 +89,7 @@
       "highest_score": 0
     },
     "assessment": {
-      "event_count": 2,
+      "event_count": 0,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
@@ -133,33 +97,35 @@
   },
   "scope_summary": {
     "direct": {
-      "event_count": 3,
-      "score_total": 27,
-      "average_score": 9.0,
-      "highest_score": 27
+      "event_count": 1,
+      "score_total": 45,
+      "average_score": 45.0,
+      "highest_score": 45
     }
   },
   "hotspot": {
-    "location": "Latvia",
-    "score": 27,
+    "location": "Poland",
+    "score": 45,
     "event_count": 1
   },
-  "key_driver": "cyber",
+  "key_driver": "drone_incident",
   "dominant_actor": "Russia",
   "top_events": [
     {
-      "event_id": "e6b475b8f43f388c",
-      "title": "Cyberattack on Latvian State Forests detected / Article - LSM",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQalp0aDhXcm85REdiZU05T09CU1YzVERmQUZtcWJkalFoQWZkbklMeldmTWNrWS0yYThka01IM3hfUTlwNUplZnJpdWFpZkdFMGdhLWh3Q3NBVjFRM0dPeThUOWkzR0o2QnZQazkxOWQ1MnpyUFl6VWlrbU5wMm5YNEZCUzhaakVZM2pTSDFyS21LcTFNSnBGSlpvbzRtbzN1OE5yY2tQaGFWUQ?oc=5",
-      "published_at": "2026-10-07T07:06:07+00:00",
-      "primary_country": "Latvia",
+      "event_id": "c5815a26fd0a5802",
+      "title": "Polish prosecutors close inquiry into Russian airspace violation - The New Voice of Ukraine",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOS19aVzlqQXBMbVZZbHNEZGFjMWZDTUJQLXE5MEQ4RU01TjIxTGZoSkhEbUFvYTB0NDBUdTNqeTE5TGlYMzRvX3B2YXpFQjFlNEdLMWJsdHpWaGRKWVBFMFk4dXFjMjBiMWZyTVdGMGpSYW1yTEhFaDg5RlNmdkhoRzRWRHEzX0czUWVDNXJMWTg3RERkY3ZaMk91ejFWX0x5NVZwR0hBWjYyTTBzSHFsY3padGNsd2JKZ18tR19zWnI4T1RLV1dWZVEyQlhBYnfSAcsBQVVfeXFMTWI5alRLdWdjdVhuLWJzeHVQVVRBMWZLUW9aeFdGUDd5dlNTSU1kN0VmM3Ezdm0ySGg3bmd4VHhHWkdjOHM4SXlSYUthSmlJMXk5M29xNHNnc0lDd2N0a0lOMV9YM1R5akNNQUp5RzEzZ0ZXa25XN216RkhtaUFDOHExVHF3LV8zMkF6TjFzT1B2cHc2QmxoanBhNWhvQ0RSbTJhT2xsOXRjdGlLdFRCZTNCb0FKVDFVZXNVY1l3SFI3Z0tCN0tuMVoyQ2c?oc=5",
+      "published_at": "2026-10-08T08:29:00+00:00",
+      "primary_country": "Poland",
       "countries": [
-        "Latvia"
+        "Poland"
       ],
       "categories": [
-        "cyber"
+        "drone_incident"
       ],
-      "actors": [],
+      "actors": [
+        "Russia"
+      ],
       "locations": [],
       "event_type": "operational",
       "event_subtype": "incident",
@@ -167,113 +133,31 @@
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
-      "confidence_score": 48,
-      "hybrid_threat_score": 27,
-      "hybrid_threat_level": "guarded",
-      "source_names": [
-        "Google News - CERT Latvia cyber threat"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "872811bda02e04d5",
-      "title": "Minister warns revealing defense companies supplying Ukraine would expose them to Russian threats",
-      "url": "https://news.err.ee/1610159491/minister-warns-revealing-defense-companies-supplying-ukraine-would-expose-them-to-russian-threats",
-      "published_at": "2026-10-07T08:08:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
+      "hybrid_threat_score": 45,
+      "hybrid_threat_level": "elevated",
       "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "104a283ee07049ac",
-      "title": "Lithuania could restrict transit from Russia if plague threat confirmed â minister",
-      "url": "https://www.lrt.lt/en/news-in-english/19/3075076/lithuania-could-restrict-transit-from-russia-if-plague-threat-confirmed-minister",
-      "published_at": "2026-10-07T06:23:00+00:00",
-      "primary_country": "Lithuania",
-      "countries": [
-        "Lithuania"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "LRT English Lithuania"
+        "Google News - Baltic airspace violation Russia"
       ],
       "related_item_count": 1
     }
   ],
   "events": [
     {
-      "event_id": "872811bda02e04d5",
-      "title": "Minister warns revealing defense companies supplying Ukraine would expose them to Russian threats",
-      "url": "https://news.err.ee/1610159491/minister-warns-revealing-defense-companies-supplying-ukraine-would-expose-them-to-russian-threats",
-      "published_at": "2026-10-07T08:08:00+00:00",
-      "primary_country": "Estonia",
+      "event_id": "c5815a26fd0a5802",
+      "title": "Polish prosecutors close inquiry into Russian airspace violation - The New Voice of Ukraine",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOS19aVzlqQXBMbVZZbHNEZGFjMWZDTUJQLXE5MEQ4RU01TjIxTGZoSkhEbUFvYTB0NDBUdTNqeTE5TGlYMzRvX3B2YXpFQjFlNEdLMWJsdHpWaGRKWVBFMFk4dXFjMjBiMWZyTVdGMGpSYW1yTEhFaDg5RlNmdkhoRzRWRHEzX0czUWVDNXJMWTg3RERkY3ZaMk91ejFWX0x5NVZwR0hBWjYyTTBzSHFsY3padGNsd2JKZ18tR19zWnI4T1RLV1dWZVEyQlhBYnfSAcsBQVVfeXFMTWI5alRLdWdjdVhuLWJzeHVQVVRBMWZLUW9aeFdGUDd5dlNTSU1kN0VmM3Ezdm0ySGg3bmd4VHhHWkdjOHM4SXlSYUthSmlJMXk5M29xNHNnc0lDd2N0a0lOMV9YM1R5akNNQUp5RzEzZ0ZXa25XN216RkhtaUFDOHExVHF3LV8zMkF6TjFzT1B2cHc2QmxoanBhNWhvQ0RSbTJhT2xsOXRjdGlLdFRCZTNCb0FKVDFVZXNVY1l3SFI3Z0tCN0tuMVoyQ2c?oc=5",
+      "published_at": "2026-10-08T08:29:00+00:00",
+      "primary_country": "Poland",
       "countries": [
-        "Estonia"
+        "Poland"
       ],
-      "categories": [],
+      "categories": [
+        "drone_incident"
+      ],
       "actors": [
         "Russia"
       ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "e6b475b8f43f388c",
-      "title": "Cyberattack on Latvian State Forests detected / Article - LSM",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQalp0aDhXcm85REdiZU05T09CU1YzVERmQUZtcWJkalFoQWZkbklMeldmTWNrWS0yYThka01IM3hfUTlwNUplZnJpdWFpZkdFMGdhLWh3Q3NBVjFRM0dPeThUOWkzR0o2QnZQazkxOWQ1MnpyUFl6VWlrbU5wMm5YNEZCUzhaakVZM2pTSDFyS21LcTFNSnBGSlpvbzRtbzN1OE5yY2tQaGFWUQ?oc=5",
-      "published_at": "2026-10-07T07:06:07+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia"
-      ],
-      "categories": [
-        "cyber"
-      ],
-      "actors": [],
       "locations": [],
       "event_type": "operational",
       "event_subtype": "incident",
@@ -281,39 +165,11 @@
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
-      "confidence_score": 48,
-      "hybrid_threat_score": 27,
-      "hybrid_threat_level": "guarded",
-      "source_names": [
-        "Google News - CERT Latvia cyber threat"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "104a283ee07049ac",
-      "title": "Lithuania could restrict transit from Russia if plague threat confirmed â minister",
-      "url": "https://www.lrt.lt/en/news-in-english/19/3075076/lithuania-could-restrict-transit-from-russia-if-plague-threat-confirmed-minister",
-      "published_at": "2026-10-07T06:23:00+00:00",
-      "primary_country": "Lithuania",
-      "countries": [
-        "Lithuania"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
+      "hybrid_threat_score": 45,
+      "hybrid_threat_level": "elevated",
       "source_names": [
-        "LRT English Lithuania"
+        "Google News - Baltic airspace violation Russia"
       ],
       "related_item_count": 1
     }
