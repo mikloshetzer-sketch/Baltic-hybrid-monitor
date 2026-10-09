@@ -1,3 +1,4 @@
+
 name: Fetch Baltic Hybrid Threat News
 
 on:
@@ -50,6 +51,12 @@ jobs:
       - name: Score Baltic hybrid news
         run: |
           python scripts/score_baltic_hybrid_news.py
+
+      # NEW: Lifecycle validation and regression tests
+      - name: Validate Baltic event lifecycle
+        run: |
+          python -m unittest discover -s tests -p "test_event_lifecycle.py" -v
+          python scripts/validate_event_lifecycle.py
 
       - name: Generate exact-day Baltic snapshot
         run: |
