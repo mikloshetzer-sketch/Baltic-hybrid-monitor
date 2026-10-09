@@ -1,3 +1,4 @@
+
 import argparse
 import json
 from collections import Counter, defaultdict
@@ -24,243 +25,119 @@ COUNTRY_ORDER = [
 ]
 
 
-# ---------------------------------------------------------------------
+# ============================================================
 # BASIC IO
-# ---------------------------------------------------------------------
+# ============================================================
 
-def load_json(
-    path: Path,
-    default: Any = None
-) -> Any:
-
+def load_json(path: Path, default: Any = None) -> Any:
     if not path.exists():
         return default
-
     try:
-        return json.loads(
-            path.read_text(
-                encoding="utf-8"
-            )
-        )
-
+        return json.loads(path.read_text(encoding="utf-8"))
     except json.JSONDecodeError:
         return default
 
 
-def save_json(
-    path: Path,
-    payload: Dict[str, Any]
-) -> None:
-
-    path.parent.mkdir(
-        parents=True,
-        exist_ok=True
-    )
-
+def save_json(path: Path, payload: Dict[str, Any]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(
-        json.dumps(
-            payload,
-            ensure_ascii=False,
-            indent=2
-        ),
+        json.dumps(payload, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
 
 
-# ---------------------------------------------------------------------
+# ============================================================
 # HELPERS
-# ---------------------------------------------------------------------
+# ============================================================
 
-def safe_int(
-    value: Any
-) -> int:
-
+def safe_int(value: Any) -> int:
     try:
-        return int(
-            round(
-                float(value)
-            )
-        )
-
+        return int(round(float(value)))
     except (TypeError, ValueError):
         return 0
 
 
-def safe_round(
-    value: Any,
-    digits: int = 2
-) -> float:
-
+def safe_round(value: Any, digits: int = 2) -> float:
     try:
-        return round(
-            float(value),
-            digits
-        )
-
+        return round(float(value), digits)
     except (TypeError, ValueError):
         return 0.0
 
 
-def parse_datetime(
-    value: Optional[str]
-) -> Optional[datetime]:
-
+def parse_datetime(value: Optional[str]) -> Optional[datetime]:
     if not value:
         return None
-
     try:
         parsed = datetime.fromisoformat(
-            str(value).replace(
-                "Z",
-                "+00:00"
-            )
+            str(value).replace("Z", "+00:00")
         )
-
         if parsed.tzinfo is None:
-            parsed = parsed.replace(
-                tzinfo=timezone.utc
-            )
-
-        return parsed.astimezone(
-            timezone.utc
-        )
-
+            parsed = parsed.replace(tzinfo=timezone.utc)
+        return parsed.astimezone(timezone.utc)
     except Exception:
         return None
 
 
-def parse_date(
-    value: str
-) -> date:
-
+def parse_date(value: str) -> date:
     try:
-        return date.fromisoformat(
-            value
-        )
-
+        return date.fromisoformat(value)
     except ValueError as exc:
         raise argparse.ArgumentTypeError(
             f"Invalid date '{value}'. Expected YYYY-MM-DD."
         ) from exc
 
 
-def level_from_score(
-    score: float
-) -> str:
-
+def level_from_score(score: float) -> str:
     if score >= 80:
         return "critical"
-
     if score >= 60:
         return "high"
-
     if score >= 40:
         return "elevated"
-
     if score >= 20:
         return "guarded"
-
     return "low"
 
 
-def event_score(
-    event: Dict[str, Any]
-) -> int:
-
-    return safe_int(
-        event.get(
-            "hybrid_threat_score",
-            0
-        )
-    )
+def event_score(event: Dict[str, Any]) -> int:
+    return safe_int(event.get("hybrid_threat_score", 0))
 
 
-def event_subtype(
-    event: Dict[str, Any]
-) -> str:
-
-    return str(
-        event.get(
-            "event_subtype",
-            "assessment"
-        )
-        or "assessment"
-    )
+def event_subtype(event: Dict[str, Any]) -> str:
+    return str(event.get("event_subtype", "assessment") or "assessment")
 
 
-def event_scope(
-    event: Dict[str, Any]
-) -> str:
-
-    score_breakdown = event.get(
-        "score_breakdown",
-        {}
-    )
-
-    if isinstance(
-        score_breakdown,
-        dict
-    ):
-        scope = score_breakdown.get(
-            "geographic_scope"
-        )
-
+def event_scope(event: Dict[str, Any]) -> str:
+    breakdown = event.get("score_breakdown", {})
+    if isinstance(breakdown, dict):
+        scope = breakdown.get("geographic_scope")
         if scope:
-            return str(
-                scope
-            )
+            return str(scope)
 
-    scope = event.get(
-        "geographic_scope"
-    )
-
-    if scope:
-        return str(
-            scope
-        )
-
-    return "unknown"
+    scope = event.get("geographic_scope")
+    return str(scope) if scope else "unknown"
 
 
-def unique_strings(
-    values: Any
-) -> List[str]:
-
-    if not isinstance(
-        values,
-        list
-    ):
+def unique_strings(values: Any) -> List[str]:
+    if not isinstance(values, list):
         return []
 
     result = []
     seen = set()
 
     for value in values:
-
-        text = str(
-            value
-        ).strip()
-
-        if not text:
+        text = str(value).strip()
+        if not text or text in seen:
             continue
-
-        if text in seen:
-            continue
-
-        seen.add(
-            text
-        )
-
-        result.append(
-            text
-        )
+        seen.add(text)
+        result.append(text)
 
     return result
 
 
-# ---------------------------------------------------------------------
+# ============================================================
 # EXACT-DAY FILTER
-# ---------------------------------------------------------------------
+# ============================================================
 
 def filter_events_for_date(
     events: List[Dict[str, Any]],
@@ -270,27 +147,35 @@ def filter_events_for_date(
     exact_day_events = []
 
     for event in events:
-
-        published_at = parse_datetime(
-            event.get(
-                "published_at"
-            )
-        )
-
+        published_at = parse_datetime(event.get("published_at"))
         if published_at is None:
             continue
 
         if published_at.date() == target_date:
-            exact_day_events.append(
-                event
-            )
+            exact_day_events.append(event)
 
     return exact_day_events
 
 
-# ---------------------------------------------------------------------
-# THREAT INDEX
-# ---------------------------------------------------------------------
+# ============================================================
+# THREAT INDEX - LIFECYCLE V4 COMPATIBLE
+# ============================================================
+
+def index_eligible(event: Dict[str, Any]) -> bool:
+    """
+    Events explicitly excluded by Lifecycle v4 do not
+    contribute to indices.
+
+    Missing eligibility metadata retains the previous
+    calculation behavior for backward compatibility.
+    """
+    eligibility = event.get("index_eligibility") or {}
+
+    if not isinstance(eligibility, dict):
+        return True
+
+    return eligibility.get("eligible", True) is not False
+
 
 def average_top_scores(
     events: List[Dict[str, Any]],
@@ -298,211 +183,112 @@ def average_top_scores(
 ) -> float:
 
     scores = sorted(
-        (
-            event_score(
-                event
-            )
-            for event in events
-        ),
+        (event_score(event) for event in events),
         reverse=True
     )[:limit]
 
     if not scores:
         return 0.0
 
-    return safe_round(
-        sum(
-            scores
-        )
-        / len(
-            scores
-        )
-    )
+    return safe_round(sum(scores) / len(scores))
 
 
 def build_threat_indices(
     events: List[Dict[str, Any]]
 ) -> Dict[str, Any]:
 
+    # Only index calculation is filtered.
+    # Original event lists and counts remain unchanged.
+    eligible_events = [
+        event for event in events if index_eligible(event)
+    ]
+
     operational_events = [
         event
-        for event in events
-        if event_subtype(
-            event
-        ) in {
-            "incident",
-            "activity",
-        }
+        for event in eligible_events
+        if event_subtype(event) in {"incident", "activity"}
     ]
 
     warning_events = [
         event
-        for event in events
-        if event_subtype(
-            event
-        ) == "indicator"
+        for event in eligible_events
+        if event_subtype(event) == "indicator"
     ]
 
     operational_index = average_top_scores(
-        operational_events,
-        5
+        operational_events, 5
     )
 
     early_warning_index = average_top_scores(
-        warning_events,
-        8
+        warning_events, 8
     )
 
     if operational_events:
-
         threat_index = safe_round(
             operational_index * 0.8
             + early_warning_index * 0.2
         )
-
     elif warning_events:
-
         threat_index = early_warning_index
-
     else:
         threat_index = 0.0
 
     return {
-        "operational_index":
-            operational_index,
-
-        "early_warning_index":
-            early_warning_index,
-
-        "threat_index":
-            threat_index,
-
-        "threat_level":
-            level_from_score(
-                threat_index
-            )
+        "operational_index": operational_index,
+        "early_warning_index": early_warning_index,
+        "threat_index": threat_index,
+        "threat_level": level_from_score(threat_index)
     }
 
 
-# ---------------------------------------------------------------------
+# ============================================================
 # SUMMARY BUILDERS
-# ---------------------------------------------------------------------
+# ============================================================
 
 def build_overall_summary(
     events: List[Dict[str, Any]]
 ) -> Dict[str, Any]:
 
     subtype_counts = Counter(
-        event_subtype(
-            event
-        )
-        for event in events
+        event_subtype(event) for event in events
     )
 
     non_assessment_events = [
         event
         for event in events
-        if event_subtype(
-            event
-        ) != "assessment"
+        if event_subtype(event) != "assessment"
     ]
 
-    score_total = sum(
-        event_score(
-            event
-        )
-        for event in events
-    )
+    score_total = sum(event_score(event) for event in events)
 
     highest_score = max(
-        (
-            event_score(
-                event
-            )
-            for event in events
-        ),
+        (event_score(event) for event in events),
         default=0
     )
 
     if non_assessment_events:
-
         average_score = safe_round(
-            sum(
-                event_score(
-                    event
-                )
-                for event in non_assessment_events
-            )
-            / len(
-                non_assessment_events
-            )
+            sum(event_score(event) for event in non_assessment_events)
+            / len(non_assessment_events)
         )
-
     else:
         average_score = 0.0
 
-    indices = build_threat_indices(
-        events
-    )
+    indices = build_threat_indices(events)
 
     return {
-        "event_count":
-            len(
-                events
-            ),
-
-        "incident_count":
-            subtype_counts.get(
-                "incident",
-                0
-            ),
-
-        "activity_count":
-            subtype_counts.get(
-                "activity",
-                0
-            ),
-
-        "indicator_count":
-            subtype_counts.get(
-                "indicator",
-                0
-            ),
-
-        "assessment_count":
-            subtype_counts.get(
-                "assessment",
-                0
-            ),
-
-        "score_total":
-            score_total,
-
-        "average_score":
-            average_score,
-
-        "highest_score":
-            highest_score,
-
-        "operational_index":
-            indices[
-                "operational_index"
-            ],
-
-        "early_warning_index":
-            indices[
-                "early_warning_index"
-            ],
-
-        "threat_index":
-            indices[
-                "threat_index"
-            ],
-
-        "overall_level":
-            indices[
-                "threat_level"
-            ]
+        "event_count": len(events),
+        "incident_count": subtype_counts.get("incident", 0),
+        "activity_count": subtype_counts.get("activity", 0),
+        "indicator_count": subtype_counts.get("indicator", 0),
+        "assessment_count": subtype_counts.get("assessment", 0),
+        "score_total": score_total,
+        "average_score": average_score,
+        "highest_score": highest_score,
+        "operational_index": indices["operational_index"],
+        "early_warning_index": indices["early_warning_index"],
+        "threat_index": indices["threat_index"],
+        "overall_level": indices["threat_level"]
     }
 
 
@@ -510,91 +296,45 @@ def build_country_summary(
     events: List[Dict[str, Any]]
 ) -> Dict[str, Any]:
 
-    grouped = defaultdict(
-        list
-    )
+    grouped = defaultdict(list)
 
     for event in events:
-
         country = str(
-            event.get(
-                "primary_country",
-                "Regional"
-            )
-            or "Regional"
+            event.get("primary_country", "Regional") or "Regional"
         )
-
-        grouped[
-            country
-        ].append(
-            event
-        )
+        grouped[country].append(event)
 
     result = {}
 
-    ordered_countries = (
-        COUNTRY_ORDER
-        + sorted(
-            country
-            for country in grouped
-            if country not in COUNTRY_ORDER
-        )
+    ordered_countries = COUNTRY_ORDER + sorted(
+        country for country in grouped
+        if country not in COUNTRY_ORDER
     )
 
     for country in ordered_countries:
-
-        country_events = grouped.get(
-            country,
-            []
-        )
+        country_events = grouped.get(country, [])
 
         if not country_events:
             continue
 
-        summary = build_overall_summary(
-            country_events
-        )
+        summary = build_overall_summary(country_events)
 
         category_counts = Counter()
         actor_counts = Counter()
 
         for event in country_events:
-
             category_counts.update(
-                unique_strings(
-                    event.get(
-                        "categories",
-                        []
-                    )
-                )
+                unique_strings(event.get("categories", []))
             )
-
             actor_counts.update(
-                unique_strings(
-                    event.get(
-                        "actors",
-                        []
-                    )
-                )
+                unique_strings(event.get("actors", []))
             )
 
-        result[
-            country
-        ] = {
-            "country":
-                country,
-
+        result[country] = {
+            "country": country,
             **summary,
-
-            "categories":
-                dict(
-                    category_counts.most_common()
-                ),
-
-            "actors":
-                dict(
-                    actor_counts.most_common()
-                )
+            "categories": dict(category_counts.most_common()),
+            "actors": dict(actor_counts.most_common())
         }
 
     return result
@@ -605,82 +345,36 @@ def build_dimension_summary(
     field: str
 ) -> Dict[str, Any]:
 
-    grouped = defaultdict(
-        list
-    )
+    grouped = defaultdict(list)
 
     for event in events:
-
-        values = unique_strings(
-            event.get(
-                field,
-                []
-            )
-        )
-
+        values = unique_strings(event.get(field, []))
         for value in values:
-            grouped[
-                value
-            ].append(
-                event
-            )
+            grouped[value].append(event)
 
     result = {}
 
-    for value, grouped_events in sorted(
+    ordered = sorted(
         grouped.items(),
         key=lambda item: (
-            -sum(
-                event_score(
-                    event
-                )
-                for event in item[
-                    1
-                ]
-            ),
-            item[
-                0
-            ]
+            -sum(event_score(event) for event in item[1]),
+            item[0]
         )
-    ):
+    )
 
+    for value, grouped_events in ordered:
         scores = [
-            event_score(
-                event
-            )
-            for event in grouped_events
+            event_score(event) for event in grouped_events
         ]
 
-        result[
-            value
-        ] = {
-            "event_count":
-                len(
-                    grouped_events
-                ),
-
-            "score_total":
-                sum(
-                    scores
-                ),
-
-            "average_score":
-                safe_round(
-                    sum(
-                        scores
-                    )
-                    / len(
-                        scores
-                    )
-                )
-                if scores
-                else 0.0,
-
-            "highest_score":
-                max(
-                    scores,
-                    default=0
-                )
+        result[value] = {
+            "event_count": len(grouped_events),
+            "score_total": sum(scores),
+            "average_score": (
+                safe_round(sum(scores) / len(scores))
+                if scores else 0.0
+            ),
+            "highest_score": max(scores, default=0)
         }
 
     return result
@@ -696,54 +390,26 @@ def build_subtype_summary(
         "incident",
         "activity",
         "indicator",
-        "assessment",
+        "assessment"
     ]:
-
         subtype_events = [
             event
             for event in events
-            if event_subtype(
-                event
-            ) == subtype
+            if event_subtype(event) == subtype
         ]
 
         scores = [
-            event_score(
-                event
-            )
-            for event in subtype_events
+            event_score(event) for event in subtype_events
         ]
 
-        result[
-            subtype
-        ] = {
-            "event_count":
-                len(
-                    subtype_events
-                ),
-
-            "score_total":
-                sum(
-                    scores
-                ),
-
-            "average_score":
-                safe_round(
-                    sum(
-                        scores
-                    )
-                    / len(
-                        scores
-                    )
-                )
-                if scores
-                else 0.0,
-
-            "highest_score":
-                max(
-                    scores,
-                    default=0
-                )
+        result[subtype] = {
+            "event_count": len(subtype_events),
+            "score_total": sum(scores),
+            "average_score": (
+                safe_round(sum(scores) / len(scores))
+                if scores else 0.0
+            ),
+            "highest_score": max(scores, default=0)
         }
 
     return result
@@ -753,158 +419,75 @@ def build_scope_summary(
     events: List[Dict[str, Any]]
 ) -> Dict[str, Any]:
 
-    grouped = defaultdict(
-        list
-    )
+    grouped = defaultdict(list)
 
     for event in events:
-
-        grouped[
-            event_scope(
-                event
-            )
-        ].append(
-            event
-        )
+        grouped[event_scope(event)].append(event)
 
     result = {}
 
-    for scope, scope_events in sorted(
-        grouped.items()
-    ):
-
+    for scope, scope_events in sorted(grouped.items()):
         scores = [
-            event_score(
-                event
-            )
-            for event in scope_events
+            event_score(event) for event in scope_events
         ]
 
-        result[
-            scope
-        ] = {
-            "event_count":
-                len(
-                    scope_events
-                ),
-
-            "score_total":
-                sum(
-                    scores
-                ),
-
-            "average_score":
-                safe_round(
-                    sum(
-                        scores
-                    )
-                    / len(
-                        scores
-                    )
-                )
-                if scores
-                else 0.0,
-
-            "highest_score":
-                max(
-                    scores,
-                    default=0
-                )
+        result[scope] = {
+            "event_count": len(scope_events),
+            "score_total": sum(scores),
+            "average_score": (
+                safe_round(sum(scores) / len(scores))
+                if scores else 0.0
+            ),
+            "highest_score": max(scores, default=0)
         }
 
     return result
 
 
-# ---------------------------------------------------------------------
+# ============================================================
 # DRIVER / HOTSPOT
-# ---------------------------------------------------------------------
+# ============================================================
 
 def build_hotspot(
     events: List[Dict[str, Any]]
 ) -> Dict[str, Any]:
 
-    location_scores = defaultdict(
-        int
-    )
-
+    location_scores = defaultdict(int)
     location_counts = Counter()
 
     for event in events:
-
-        score = event_score(
-            event
-        )
-
-        locations = unique_strings(
-            event.get(
-                "locations",
-                []
-            )
-        )
+        score = event_score(event)
+        locations = unique_strings(event.get("locations", []))
 
         if not locations:
-
-            primary_country = str(
-                event.get(
-                    "primary_country",
-                    "Regional"
-                )
-                or "Regional"
-            )
-
             locations = [
-                primary_country
+                str(event.get("primary_country", "Regional") or "Regional")
             ]
 
         for location in locations:
-
-            location_scores[
-                location
-            ] += score
-
-            location_counts[
-                location
-            ] += 1
+            location_scores[location] += score
+            location_counts[location] += 1
 
     if not location_scores:
-
         return {
-            "location":
-                None,
-
-            "score":
-                0,
-
-            "event_count":
-                0
+            "location": None,
+            "score": 0,
+            "event_count": 0
         }
 
     location = max(
         location_scores,
         key=lambda item: (
-            location_scores[
-                item
-            ],
-            location_counts[
-                item
-            ],
+            location_scores[item],
+            location_counts[item],
             item
         )
     )
 
     return {
-        "location":
-            location,
-
-        "score":
-            location_scores[
-                location
-            ],
-
-        "event_count":
-            location_counts[
-                location
-            ]
+        "location": location,
+        "score": location_scores[location],
+        "event_count": location_counts[location]
     }
 
 
@@ -912,32 +495,17 @@ def build_key_driver(
     events: List[Dict[str, Any]]
 ) -> Optional[str]:
 
-    category_scores = defaultdict(
-        int
-    )
-
+    category_scores = defaultdict(int)
     category_counts = Counter()
 
     for event in events:
-
-        score = event_score(
-            event
-        )
+        score = event_score(event)
 
         for category in unique_strings(
-            event.get(
-                "categories",
-                []
-            )
+            event.get("categories", [])
         ):
-
-            category_scores[
-                category
-            ] += score
-
-            category_counts[
-                category
-            ] += 1
+            category_scores[category] += score
+            category_counts[category] += 1
 
     if not category_scores:
         return None
@@ -945,12 +513,8 @@ def build_key_driver(
     return max(
         category_scores,
         key=lambda item: (
-            category_scores[
-                item
-            ],
-            category_counts[
-                item
-            ],
+            category_scores[item],
+            category_counts[item],
             item
         )
     )
@@ -960,32 +524,15 @@ def build_dominant_actor(
     events: List[Dict[str, Any]]
 ) -> Optional[str]:
 
-    actor_scores = defaultdict(
-        int
-    )
-
+    actor_scores = defaultdict(int)
     actor_counts = Counter()
 
     for event in events:
+        score = event_score(event)
 
-        score = event_score(
-            event
-        )
-
-        for actor in unique_strings(
-            event.get(
-                "actors",
-                []
-            )
-        ):
-
-            actor_scores[
-                actor
-            ] += score
-
-            actor_counts[
-                actor
-            ] += 1
+        for actor in unique_strings(event.get("actors", [])):
+            actor_scores[actor] += score
+            actor_counts[actor] += 1
 
     if not actor_scores:
         return None
@@ -993,160 +540,67 @@ def build_dominant_actor(
     return max(
         actor_scores,
         key=lambda item: (
-            actor_scores[
-                item
-            ],
-            actor_counts[
-                item
-            ],
+            actor_scores[item],
+            actor_counts[item],
             item
         )
     )
 
 
-# ---------------------------------------------------------------------
+# ============================================================
 # EVENT OUTPUT
-# ---------------------------------------------------------------------
+# ============================================================
 
 def compact_event(
     event: Dict[str, Any]
 ) -> Dict[str, Any]:
 
     return {
-        "event_id":
-            event.get(
-                "event_id",
-                event.get(
-                    "id"
-                )
-            ),
-
-        "title":
-            event.get(
-                "title"
-            ),
-
-        "url":
-            event.get(
-                "url"
-            ),
-
-        "published_at":
-            event.get(
-                "published_at"
-            ),
-
-        "primary_country":
-            event.get(
-                "primary_country",
-                "Regional"
-            ),
-
-        "countries":
-            unique_strings(
-                event.get(
-                    "countries",
-                    []
-                )
-            )[:5],
-
-        "categories":
-            unique_strings(
-                event.get(
-                    "categories",
-                    []
-                )
-            )[:5],
-
-        "actors":
-            unique_strings(
-                event.get(
-                    "actors",
-                    []
-                )
-            )[:5],
-
-        "locations":
-            unique_strings(
-                event.get(
-                    "locations",
-                    []
-                )
-            )[:5],
-
-        "event_type":
-            event.get(
-                "event_type",
-                "background"
-            ),
-
-        "event_subtype":
-            event_subtype(
-                event
-            ),
-
-        "analysis_layer":
-            event.get(
-                "analysis_layer"
-            ),
-
-        "geographic_scope":
-            event_scope(
-                event
-            ),
-
-        "source_count":
-            safe_int(
-                event.get(
-                    "source_count",
-                    0
-                )
-            ),
-
-        "confidence":
-            event.get(
-                "confidence",
-                "low"
-            ),
-
-        "confidence_score":
-            safe_int(
-                event.get(
-                    "confidence_score",
-                    0
-                )
-            ),
-
-        "hybrid_threat_score":
-            event_score(
-                event
-            ),
-
-        "hybrid_threat_level":
-            event.get(
-                "hybrid_threat_level",
-                level_from_score(
-                    event_score(
-                        event
-                    )
-                )
-            ),
-
-        "source_names":
-            unique_strings(
-                event.get(
-                    "source_names",
-                    []
-                )
-            )[:5],
-
-        "related_item_count":
-            safe_int(
-                event.get(
-                    "related_item_count",
-                    0
-                )
-            )
+        "event_id": event.get("event_id", event.get("id")),
+        "title": event.get("title"),
+        "url": event.get("url"),
+        "published_at": event.get("published_at"),
+        "primary_country": event.get(
+            "primary_country", "Regional"
+        ),
+        "countries": unique_strings(
+            event.get("countries", [])
+        )[:5],
+        "categories": unique_strings(
+            event.get("categories", [])
+        )[:5],
+        "actors": unique_strings(
+            event.get("actors", [])
+        )[:5],
+        "locations": unique_strings(
+            event.get("locations", [])
+        )[:5],
+        "event_type": event.get(
+            "event_type", "background"
+        ),
+        "event_subtype": event_subtype(event),
+        "analysis_layer": event.get("analysis_layer"),
+        "geographic_scope": event_scope(event),
+        "source_count": safe_int(
+            event.get("source_count", 0)
+        ),
+        "confidence": event.get(
+            "confidence", "low"
+        ),
+        "confidence_score": safe_int(
+            event.get("confidence_score", 0)
+        ),
+        "hybrid_threat_score": event_score(event),
+        "hybrid_threat_level": event.get(
+            "hybrid_threat_level",
+            level_from_score(event_score(event))
+        ),
+        "source_names": unique_strings(
+            event.get("source_names", [])
+        )[:5],
+        "related_item_count": safe_int(
+            event.get("related_item_count", 0)
+        )
     }
 
 
@@ -1155,39 +609,25 @@ def build_top_events(
 ) -> List[Dict[str, Any]]:
 
     compact = [
-        compact_event(
-            event
-        )
-        for event in events
+        compact_event(event) for event in events
     ]
 
     compact = sorted(
         compact,
         key=lambda event: (
-            event.get(
-                "hybrid_threat_score",
-                0
-            ),
-            event.get(
-                "confidence_score",
-                0
-            ),
-            event.get(
-                "published_at",
-                ""
-            )
+            event.get("hybrid_threat_score", 0),
+            event.get("confidence_score", 0),
+            event.get("published_at", "")
         ),
         reverse=True
     )
 
-    return compact[
-        :TOP_EVENT_LIMIT
-    ]
+    return compact[:TOP_EVENT_LIMIT]
 
 
-# ---------------------------------------------------------------------
+# ============================================================
 # SNAPSHOT
-# ---------------------------------------------------------------------
+# ============================================================
 
 def build_snapshot(
     scored: Dict[str, Any],
@@ -1196,16 +636,10 @@ def build_snapshot(
 
     all_events = scored.get(
         "events",
-        scored.get(
-            "items",
-            []
-        )
+        scored.get("items", [])
     )
 
-    if not isinstance(
-        all_events,
-        list
-    ):
+    if not isinstance(all_events, list):
         all_events = []
 
     daily_events = filter_events_for_date(
@@ -1228,152 +662,119 @@ def build_snapshot(
     )
 
     payload = {
-        "project":
-            scored.get(
-                "project",
-                "baltic-hybrid-monitor"
-            ),
+        "project": scored.get(
+            "project", "baltic-hybrid-monitor"
+        ),
 
-        "title":
-            "Baltic Hybrid Threat Daily Snapshot",
+        "title": "Baltic Hybrid Threat Daily Snapshot",
 
-        "region":
-            scored.get(
-                "region",
-                "Baltic states and Poland"
-            ),
+        "region": scored.get(
+            "region", "Baltic states and Poland"
+        ),
 
-        "generated_at":
-            datetime.now(
-                timezone.utc
-            ).isoformat(),
+        "generated_at": datetime.now(
+            timezone.utc
+        ).isoformat(),
 
-        "snapshot_date":
-            target_date.isoformat(),
+        "snapshot_date": target_date.isoformat(),
 
-        "snapshot_version":
-            SNAPSHOT_VERSION,
+        "snapshot_version": SNAPSHOT_VERSION,
 
-        "score_engine_version":
-            scored.get(
-                "engine_version",
-                scored.get(
-                    "score_engine_version"
-                )
-            ),
+        "score_engine_version": scored.get(
+            "engine_version",
+            scored.get("score_engine_version")
+        ),
 
-        "source_generated_at":
-            scored.get(
-                "generated_at"
-            ),
+        "source_generated_at": scored.get(
+            "generated_at"
+        ),
 
         "method": {
-            "description":
-                (
-                    "Exact UTC calendar-day snapshot built only from scored "
-                    "events whose published_at date equals snapshot_date."
-                ),
+            "description": (
+                "Exact UTC calendar-day snapshot built only from scored "
+                "events whose published_at date equals snapshot_date."
+            ),
 
-            "time_basis":
-                "UTC calendar day",
+            "time_basis": "UTC calendar day",
 
-            "rolling_window_used":
-                False,
+            "rolling_window_used": False,
 
-            "rolling_window_days":
-                0,
+            "rolling_window_days": 0,
 
-            "threat_index_method":
-                (
-                    "Operational Index = average of top 5 incident/activity "
-                    "scores. Early Warning Index = average of top 8 indicator "
-                    "scores. Daily Threat Index = 80% operational + 20% early "
-                    "warning when operational events exist; otherwise the "
-                    "early-warning index is used."
-                ),
+            "threat_index_method": (
+                "Operational Index = average of top 5 incident/activity "
+                "scores. Early Warning Index = average of top 8 indicator "
+                "scores. Daily Threat Index = 80% operational + 20% early "
+                "warning when operational events exist; otherwise the "
+                "early-warning index is used. Lifecycle v4 index-ineligible "
+                "events are excluded from index calculations."
+            ),
 
-            "assessment_handling":
-                (
-                    "Assessment events remain visible in counts and event "
-                    "lists but do not contribute to operational or early-warning "
-                    "indices."
-                ),
+            "assessment_handling": (
+                "Assessment events remain visible in counts and event "
+                "lists but do not contribute to operational or early-warning "
+                "indices."
+            ),
 
-            "retention_role":
-                (
-                    "This file is the current exact-day snapshot. Long-term "
-                    "retention belongs to the history and future intelligence "
-                    "matrix history datasets."
-                )
+            "retention_role": (
+                "This file is the current exact-day snapshot. Long-term "
+                "retention belongs to the history and future intelligence "
+                "matrix history datasets."
+            )
         },
 
-        "overall_summary":
-            overall_summary,
+        "overall_summary": overall_summary,
 
-        "country_summary":
-            build_country_summary(
-                daily_events
-            ),
+        "country_summary": build_country_summary(
+            daily_events
+        ),
 
-        "category_summary":
-            category_summary,
+        "category_summary": category_summary,
 
-        "actor_summary":
-            actor_summary,
+        "actor_summary": actor_summary,
 
-        "subtype_summary":
-            build_subtype_summary(
-                daily_events
-            ),
+        "subtype_summary": build_subtype_summary(
+            daily_events
+        ),
 
-        "scope_summary":
-            build_scope_summary(
-                daily_events
-            ),
+        "scope_summary": build_scope_summary(
+            daily_events
+        ),
 
-        "hotspot":
-            build_hotspot(
-                daily_events
-            ),
+        "hotspot": build_hotspot(
+            daily_events
+        ),
 
-        "key_driver":
-            build_key_driver(
-                daily_events
-            ),
+        "key_driver": build_key_driver(
+            daily_events
+        ),
 
-        "dominant_actor":
-            build_dominant_actor(
-                daily_events
-            ),
+        "dominant_actor": build_dominant_actor(
+            daily_events
+        ),
 
-        "top_events":
-            build_top_events(
-                daily_events
-            ),
+        "top_events": build_top_events(
+            daily_events
+        ),
 
-        "events":
-            [
-                compact_event(
-                    event
-                )
-                for event in sorted(
-                    daily_events,
-                    key=lambda item:
-                        item.get(
-                            "published_at",
-                            ""
-                        ),
-                    reverse=True
-                )
-            ]
+        "events": [
+            compact_event(event)
+            for event in sorted(
+                daily_events,
+                key=lambda item: item.get(
+                    "published_at", ""
+                ),
+                reverse=True
+            )
+        ]
     }
 
     return payload
 
 
-# ---------------------------------------------------------------------
+# ============================================================
 # CLI
-# ---------------------------------------------------------------------
+# ============================================================
 
 def parse_args() -> argparse.Namespace:
 
@@ -1398,9 +799,9 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-# ---------------------------------------------------------------------
+# ============================================================
 # MAIN
-# ---------------------------------------------------------------------
+# ============================================================
 
 def main() -> None:
 
@@ -1412,7 +813,6 @@ def main() -> None:
     )
 
     if scored is None:
-
         raise FileNotFoundError(
             f"Missing scored input file: {SCORED_INPUT}. "
             "Run scripts/score_baltic_hybrid_news.py first."
@@ -1421,9 +821,7 @@ def main() -> None:
     target_date = (
         args.target_date
         if args.target_date is not None
-        else datetime.now(
-            timezone.utc
-        ).date()
+        else datetime.now(timezone.utc).date()
     )
 
     snapshot = build_snapshot(
@@ -1441,61 +839,21 @@ def main() -> None:
         snapshot
     )
 
-    summary = snapshot[
-        "overall_summary"
-    ]
+    summary = snapshot["overall_summary"]
 
-    print(
-        f"Daily snapshot version: {SNAPSHOT_VERSION}"
-    )
-
-    print(
-        f"Snapshot date: {snapshot['snapshot_date']} UTC"
-    )
-
-    print(
-        f"Events: {summary['event_count']}"
-    )
-
-    print(
-        f"Incidents: {summary['incident_count']}"
-    )
-
-    print(
-        f"Activities: {summary['activity_count']}"
-    )
-
-    print(
-        f"Indicators: {summary['indicator_count']}"
-    )
-
-    print(
-        f"Assessments: {summary['assessment_count']}"
-    )
-
-    print(
-        f"Operational index: {summary['operational_index']}"
-    )
-
-    print(
-        f"Early warning index: {summary['early_warning_index']}"
-    )
-
-    print(
-        f"Daily threat index: {summary['threat_index']}"
-    )
-
-    print(
-        f"Daily threat level: {summary['overall_level']}"
-    )
-
-    print(
-        f"Saved snapshot to: {SNAPSHOT_OUTPUT}"
-    )
-
-    print(
-        f"Saved public snapshot to: {DOCS_SNAPSHOT_OUTPUT}"
-    )
+    print(f"Daily snapshot version: {SNAPSHOT_VERSION}")
+    print(f"Snapshot date: {snapshot['snapshot_date']} UTC")
+    print(f"Events: {summary['event_count']}")
+    print(f"Incidents: {summary['incident_count']}")
+    print(f"Activities: {summary['activity_count']}")
+    print(f"Indicators: {summary['indicator_count']}")
+    print(f"Assessments: {summary['assessment_count']}")
+    print(f"Operational index: {summary['operational_index']}")
+    print(f"Early warning index: {summary['early_warning_index']}")
+    print(f"Daily threat index: {summary['threat_index']}")
+    print(f"Daily threat level: {summary['overall_level']}")
+    print(f"Saved snapshot to: {SNAPSHOT_OUTPUT}")
+    print(f"Saved public snapshot to: {DOCS_SNAPSHOT_OUTPUT}")
 
 
 if __name__ == "__main__":
