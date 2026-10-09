@@ -3,24 +3,24 @@
   "title": "Baltic Hybrid Intelligence Platform",
   "subtitle": "Event-based OSINT monitoring of hybrid threats in the Baltic states and Poland",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-09T12:03:44.962574+00:00",
-  "latest_update": "2026-10-09T12:03:44.126690+00:00",
+  "generated_at": "2026-10-09T12:16:52.180632+00:00",
+  "latest_update": "2026-10-09T12:16:51.511460+00:00",
   "version": "Baltic Dashboard Data v1.6",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
   "summary": {
-    "threat_index": 32.78,
+    "threat_index": 28.3,
     "threat_level": "guarded",
-    "operational_index": 37.6,
+    "operational_index": 32.0,
     "early_warning_index": 13.5,
-    "event_count": 28,
-    "incident_count": 5,
+    "event_count": 29,
+    "incident_count": 3,
     "activity_count": 0,
     "indicator_count": 16,
-    "assessment_count": 7,
-    "score_total": 357,
-    "average_score": 17.0,
+    "assessment_count": 10,
+    "score_total": 267,
+    "average_score": 14.05,
     "highest_score": 47,
-    "raw_item_count": 434,
+    "raw_item_count": 433,
     "filtered_item_count": 240,
     "clustered_event_count": 197,
     "merged_item_count": 43
@@ -28,14 +28,14 @@
   "current_threat_picture": {
     "location_hotspot": {
       "location": "Kaliningrad",
-      "event_count": 3,
-      "score_total": 7,
-      "highest_score": 7,
+      "event_count": 2,
+      "score_total": 0,
+      "highest_score": 0,
       "basis": "explicit_event_locations"
     },
     "most_affected_country": {
       "country": "Estonia",
-      "event_count": 6,
+      "event_count": 7,
       "score_total": 107,
       "highest_score": 47,
       "level": "low",
@@ -48,8 +48,8 @@
     },
     "dominant_actor": {
       "actor": "Russia",
-      "event_count": 23,
-      "score_total": 306
+      "event_count": 24,
+      "score_total": 216
     },
     "semantics": {
       "location_hotspot": "Highest-scoring non-country location from event location fields inside the current 14-day window.",
@@ -61,9 +61,9 @@
     {
       "subtype": "incident",
       "label": "Incident",
-      "event_count": 5,
-      "score_total": 188,
-      "average_score": 37.6
+      "event_count": 3,
+      "score_total": 96,
+      "average_score": 32.0
     },
     {
       "subtype": "activity",
@@ -76,13 +76,13 @@
       "subtype": "indicator",
       "label": "Indicator",
       "event_count": 16,
-      "score_total": 169,
-      "average_score": 10.56
+      "score_total": 171,
+      "average_score": 10.69
     },
     {
       "subtype": "assessment",
       "label": "Assessment",
-      "event_count": 7,
+      "event_count": 10,
       "score_total": 0,
       "average_score": 0.0
     }
@@ -90,11 +90,11 @@
   "country_cards": [
     {
       "country": "Estonia",
-      "event_count": 6,
+      "event_count": 7,
       "incident_count": 1,
       "activity_count": 0,
       "indicator_count": 5,
-      "assessment_count": 0,
+      "assessment_count": 1,
       "score_total": 107,
       "average_score": 17.83,
       "highest_score": 47,
@@ -105,83 +105,11 @@
           "count": 5
         },
         {
+          "name": "drone_incident",
+          "count": 1
+        },
+        {
           "name": "cyber",
-          "count": 1
-        }
-      ],
-      "top_actors": [
-        {
-          "name": "Russia",
-          "count": 5
-        },
-        {
-          "name": "NATO",
-          "count": 1
-        }
-      ]
-    },
-    {
-      "country": "Regional",
-      "event_count": 8,
-      "incident_count": 2,
-      "activity_count": 0,
-      "indicator_count": 4,
-      "assessment_count": 2,
-      "score_total": 99,
-      "average_score": 16.5,
-      "highest_score": 47,
-      "level": "low",
-      "top_categories": [
-        {
-          "name": "drone_incident",
-          "count": 2
-        },
-        {
-          "name": "sabotage",
-          "count": 2
-        },
-        {
-          "name": "migration_pressure",
-          "count": 1
-        }
-      ],
-      "top_actors": [
-        {
-          "name": "Russia",
-          "count": 7
-        },
-        {
-          "name": "NATO",
-          "count": 2
-        },
-        {
-          "name": "Belarus",
-          "count": 1
-        }
-      ]
-    },
-    {
-      "country": "Poland",
-      "event_count": 6,
-      "incident_count": 1,
-      "activity_count": 0,
-      "indicator_count": 2,
-      "assessment_count": 3,
-      "score_total": 75,
-      "average_score": 25.0,
-      "highest_score": 45,
-      "level": "guarded",
-      "top_categories": [
-        {
-          "name": "sabotage",
-          "count": 2
-        },
-        {
-          "name": "drone_incident",
-          "count": 1
-        },
-        {
-          "name": "disinformation",
           "count": 1
         }
       ],
@@ -192,7 +120,7 @@
         },
         {
           "name": "NATO",
-          "count": 1
+          "count": 2
         }
       ]
     },
@@ -233,6 +161,82 @@
       ]
     },
     {
+      "country": "Regional",
+      "event_count": 7,
+      "incident_count": 1,
+      "activity_count": 0,
+      "indicator_count": 3,
+      "assessment_count": 3,
+      "score_total": 45,
+      "average_score": 11.25,
+      "highest_score": 22,
+      "level": "low",
+      "top_categories": [
+        {
+          "name": "drone_incident",
+          "count": 2
+        },
+        {
+          "name": "sabotage",
+          "count": 2
+        },
+        {
+          "name": "migration_pressure",
+          "count": 1
+        }
+      ],
+      "top_actors": [
+        {
+          "name": "Russia",
+          "count": 6
+        },
+        {
+          "name": "NATO",
+          "count": 2
+        },
+        {
+          "name": "Belarus",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "country": "Poland",
+      "event_count": 7,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 3,
+      "assessment_count": 4,
+      "score_total": 39,
+      "average_score": 13.0,
+      "highest_score": 16,
+      "level": "low",
+      "top_categories": [
+        {
+          "name": "sabotage",
+          "count": 2
+        },
+        {
+          "name": "disinformation",
+          "count": 2
+        },
+        {
+          "name": "drone_incident",
+          "count": 1
+        }
+      ],
+      "top_actors": [
+        {
+          "name": "Russia",
+          "count": 7
+        },
+        {
+          "name": "NATO",
+          "count": 1
+        }
+      ]
+    },
+    {
       "country": "Lithuania",
       "event_count": 2,
       "incident_count": 0,
@@ -261,13 +265,6 @@
       "highest_score": 47
     },
     {
-      "category": "drone_incident",
-      "event_count": 3,
-      "score_total": 114,
-      "average_score": 38.0,
-      "highest_score": 47
-    },
-    {
       "category": "cyber",
       "event_count": 2,
       "score_total": 35,
@@ -276,10 +273,17 @@
     },
     {
       "category": "disinformation",
-      "event_count": 1,
-      "score_total": 14,
-      "average_score": 14.0,
+      "event_count": 2,
+      "score_total": 23,
+      "average_score": 11.5,
       "highest_score": 14
+    },
+    {
+      "category": "drone_incident",
+      "event_count": 4,
+      "score_total": 22,
+      "average_score": 5.5,
+      "highest_score": 22
     },
     {
       "category": "espionage",
@@ -299,16 +303,16 @@
   "actor_drivers": [
     {
       "actor": "Russia",
-      "event_count": 23,
-      "score_total": 306,
-      "average_score": 13.3,
+      "event_count": 24,
+      "score_total": 216,
+      "average_score": 9.0,
       "highest_score": 47
     },
     {
       "actor": "NATO",
-      "event_count": 4,
+      "event_count": 5,
       "score_total": 42,
-      "average_score": 10.5,
+      "average_score": 8.4,
       "highest_score": 16
     },
     {
@@ -320,35 +324,6 @@
     }
   ],
   "top_events": [
-    {
-      "event_id": "63380736585e59f7",
-      "title": "Poland Confronts Russia Over Estonia Airspace Violation, “Your Empire Will Not Be Rebuilt” | AC1G Pliskova (fR176QIs2T) - Unisba Media",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBiMU83c0hDR3E1ZzBmUS13MklBeWFiSzV5OU9nUzhPUVpLQUxZTHAwakNjNzR2N2VRYkpYdENXWU1KOHo0X2QxUVRHaDB0dzZqZUI2XzVxWmUtQUFWNXoxb0lQYnRfQQ?oc=5",
-      "published_at": "2026-10-05T07:12:07+00:00",
-      "primary_country": "Regional",
-      "countries": [
-        "Estonia",
-        "Poland"
-      ],
-      "categories": [
-        "drone_incident"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 47,
-      "hybrid_threat_level": "elevated",
-      "source_names": [
-        "Google News - Baltic airspace violation Russia"
-      ],
-      "related_item_count": 1
-    },
     {
       "event_id": "88d9000738fb6558",
       "title": "Estonia slams Russian ‘sabotage’ after arson attack on defense company - Al Arabiya English",
@@ -376,34 +351,6 @@
         "Google News - Baltic sabotage Russia"
       ],
       "related_item_count": 3
-    },
-    {
-      "event_id": "c5815a26fd0a5802",
-      "title": "Polish prosecutors close inquiry into Russian airspace violation - The New Voice of Ukraine",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOS19aVzlqQXBMbVZZbHNEZGFjMWZDTUJQLXE5MEQ4RU01TjIxTGZoSkhEbUFvYTB0NDBUdTNqeTE5TGlYMzRvX3B2YXpFQjFlNEdLMWJsdHpWaGRKWVBFMFk4dXFjMjBiMWZyTVdGMGpSYW1yTEhFaDg5RlNmdkhoRzRWRHEzX0czUWVDNXJMWTg3RERkY3ZaMk91ejFWX0x5NVZwR0hBWjYyTTBzSHFsY3padGNsd2JKZ18tR19zWnI4T1RLV1dWZVEyQlhBYnfSAcsBQVVfeXFMTWI5alRLdWdjdVhuLWJzeHVQVVRBMWZLUW9aeFdGUDd5dlNTSU1kN0VmM3Ezdm0ySGg3bmd4VHhHWkdjOHM4SXlSYUthSmlJMXk5M29xNHNnc0lDd2N0a0lOMV9YM1R5akNNQUp5RzEzZ0ZXa25XN216RkhtaUFDOHExVHF3LV8zMkF6TjFzT1B2cHc2QmxoanBhNWhvQ0RSbTJhT2xsOXRjdGlLdFRCZTNCb0FKVDFVZXNVY1l3SFI3Z0tCN0tuMVoyQ2c?oc=5",
-      "published_at": "2026-10-08T08:29:00+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "drone_incident"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 45,
-      "hybrid_threat_level": "elevated",
-      "source_names": [
-        "Google News - Baltic airspace violation Russia"
-      ],
-      "related_item_count": 1
     },
     {
       "event_id": "efa13e38e0226ac5",
@@ -745,6 +692,35 @@
       "related_item_count": 1
     },
     {
+      "event_id": "1e530a0a35d94d44",
+      "title": "Poland says Russia waging 'full-scale cognitive war' as hybrid threat concerns grow - Ednews.net",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQRl9YMVA1Nm5ITkJHRTl0UDVNSE5xUm91QXk2OTlrNWZyNlBjVXFxbEtuSldzS1dzakNJTUMwN29QWnNjamZNMkVoZDNpdU9yZnl4dk44aGhvTmdqWlBpMFUzZFBoM1pKYkFFNGwxQUlwZ29keXpuTjBjZ0xVczE3ak5STlIxb1VVb3NiMFlXaEtkSDBSclNmQXU3YlFWQmp0UW9jbFpoaW5qeU0?oc=5",
+      "published_at": "2026-10-05T08:09:17+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "disinformation"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 2,
+      "confidence": "low",
+      "confidence_score": 46,
+      "hybrid_threat_score": 9,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic Russia hybrid threat",
+        "Google News - Baltic disinformation Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
       "event_id": "7d49cab00f305158",
       "title": "Possible cyberattack halts Estonian Artists' Association fundraiser auction",
       "url": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction",
@@ -793,32 +769,6 @@
       "hybrid_threat_level": "low",
       "source_names": [
         "Google News - Baltic Russia hybrid threat"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "ec0dec7cddad38a0",
-      "title": "Putin warns West that Russia is ready to use every weapon to protect Kaliningrad - BBC",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE45djZCSHRoUWlOWThQNWlOd0p0cnVzSG1JSTNBOFFrUlRjeEljOEVQYnJSY2VLOUNGb2YtM1RUWUw5VlFfckl4YlpfT2o1eml1RHFMZWcxWmdxYzQ?oc=5",
-      "published_at": "2026-10-01T07:00:00+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [
-        "Kaliningrad"
-      ],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 48,
-      "hybrid_threat_score": 7,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - NATO Baltic hybrid threat"
       ],
       "related_item_count": 1
     },
@@ -981,6 +931,34 @@
       "related_item_count": 1
     },
     {
+      "event_id": "c5815a26fd0a5802",
+      "title": "Polish prosecutors close inquiry into Russian airspace violation - The New Voice of Ukraine",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOS19aVzlqQXBMbVZZbHNEZGFjMWZDTUJQLXE5MEQ4RU01TjIxTGZoSkhEbUFvYTB0NDBUdTNqeTE5TGlYMzRvX3B2YXpFQjFlNEdLMWJsdHpWaGRKWVBFMFk4dXFjMjBiMWZyTVdGMGpSYW1yTEhFaDg5RlNmdkhoRzRWRHEzX0czUWVDNXJMWTg3RERkY3ZaMk91ejFWX0x5NVZwR0hBWjYyTTBzSHFsY3padGNsd2JKZ18tR19zWnI4T1RLV1dWZVEyQlhBYnfSAcsBQVVfeXFMTWI5alRLdWdjdVhuLWJzeHVQVVRBMWZLUW9aeFdGUDd5dlNTSU1kN0VmM3Ezdm0ySGg3bmd4VHhHWkdjOHM4SXlSYUthSmlJMXk5M29xNHNnc0lDd2N0a0lOMV9YM1R5akNNQUp5RzEzZ0ZXa25XN216RkhtaUFDOHExVHF3LV8zMkF6TjFzT1B2cHc2QmxoanBhNWhvQ0RSbTJhT2xsOXRjdGlLdFRCZTNCb0FKVDFVZXNVY1l3SFI3Z0tCN0tuMVoyQ2c?oc=5",
+      "published_at": "2026-10-08T08:29:00+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "assessment",
+      "event_subtype": "assessment",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic airspace violation Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
       "event_id": "0d48b04690335d03",
       "title": "Masked Infiltrators From Belarus Sabotage Latvian Border Surveillance System - UNITED24 Media",
       "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQd21PQ3g2aGhfY2Y5RVljdExwYnNXdEdMLTFnX0Y0bnBtQ3hMRExGelJIT0xiSWc3aFhTdVI1MW85RVA4Tmt6ZmlmT1Exd2RLcVA0TlhnYnlsS1JMOWtDM0ZmeXFUWE9lbGtLN0hMRUNPU21Pa2FxeXRTMFVZSzdmZXBTWDZ3RUMwaWhVc09xMG81SnNzczhLekpYUzY0RHZQT3JOQVRFa1U3dzYteW5KM25sOTA5UHhJZUhjYkxiWDg?oc=5",
@@ -1009,6 +987,35 @@
       "related_item_count": 1
     },
     {
+      "event_id": "63380736585e59f7",
+      "title": "Poland Confronts Russia Over Estonia Airspace Violation, “Your Empire Will Not Be Rebuilt” | AC1G Pliskova (fR176QIs2T) - Unisba Media",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBiMU83c0hDR3E1ZzBmUS13MklBeWFiSzV5OU9nUzhPUVpLQUxZTHAwakNjNzR2N2VRYkpYdENXWU1KOHo0X2QxUVRHaDB0dzZqZUI2XzVxWmUtQUFWNXoxb0lQYnRfQQ?oc=5",
+      "published_at": "2026-10-05T07:12:07+00:00",
+      "primary_country": "Regional",
+      "countries": [
+        "Estonia",
+        "Poland"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "assessment",
+      "event_subtype": "assessment",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic airspace violation Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
       "event_id": "9c4a75f018a134c3",
       "title": "Why Kaliningrad matters to Putin: The Suwałki Gap vulnerability, Kremlin's nuclear threat and India link - The Times of India",
       "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxNdV93cGpMcGg5Z3h1c2Z5MWJDejNDWVZNNEVlNEVUeFIxOV9OX3JSTl9MeF9yOExYbTQyQ2tzaEZkOXpmb0lyUVVxQ1VuZjZuU1ZDX2dySzZWMGNtQ3NEbVB0T3ZIWUFQQVp2SE5tTjZ6OG82WUtnb0ljQ3pOV1o1WWVnN3F1VGQzbHhyNlUwdDI2N0NwRVpKVGxralhOSFZKOXp3N0w5c2tnQ1lNZThwWDIxS29yYjZzdWQ3OFRZTmF4VVdrVUtzSVdzOHEyamxhbUlSbm9wWWpMQ0xDZ3BvVUQ0M1FEYzV6LUUwZVVRemJzZ25QNTY0VmdLYldhb2JLSjR0M05RMmp2QnVLNUpV0gGUAkFVX3lxTFBmTEF6c1VwRWNGZmhmUy1SYzJBYnBLR09JV2tMU3ZQY1FBaXVMRTFLbTRuQ3BtOEY2ZFNLT29NYXd5QmtqSVc3NFhQQWJJVWt3OWxrNjVDUnEyNGx4SlIwZ2tzWjFSel8tTmMzYnE2OEI4UVRlSFFOQUZQY0tIcldYTXA4YU1jQUpQTVZsdFN6Ykw2T2NlNlZTQllqTU5fTkRMbnFvWDZWenloMFlNUlpSWTdNZGxvY2FvTE85WHM0dEl0M2VsWDBZeFhILUtZVG52R05TTHAta0lSVElsQl9Ja1k5SkUtTTVSWnNrUXpCcC0weEtMdUx5ZGhfUFlQbElzdnI0QlpjUWhFUzN6cXVTMkpkcA?oc=5",
@@ -1032,6 +1039,35 @@
       "hybrid_threat_level": "low",
       "source_names": [
         "Google News - Suwalki Gap Russia Belarus"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "efa73e26b0db1142",
+      "title": "Estonia seeks urgent NATO consultation after Russian airspace violation - Modern Ghana",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9YRFlHc0VDTndfakpwclgxUTQydDJkVzZVX0wzOHRfN1ZyZGlXalJmTHcyNFhYZzdzc1lVUDJWNE1feG5FTlFVV0xuT2tSU2E3UHFIN29FMHFKVHBOU2fSAVxBVV95cUxQcFZTREdTU1BxOG1kNWg2UGcwakRpTk1yelpNNzhoWUZCMmktc3U3b2dJRG90dXkxNEZPUU1yZEczNDNXYU0yWGgwS0w2ZkdSc19CSGc4TE10RHZDcA?oc=5",
+      "published_at": "2026-10-01T16:57:59+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [
+        "Russia",
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "assessment",
+      "event_subtype": "assessment",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic airspace violation Russia"
       ],
       "related_item_count": 1
     },
@@ -1184,13 +1220,13 @@
         "Russia"
       ],
       "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
+      "event_type": "assessment",
+      "event_subtype": "assessment",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 45,
-      "hybrid_threat_level": "elevated",
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
       "source_names": [
         "Google News - Baltic airspace violation Russia"
       ],
@@ -1415,6 +1451,35 @@
       "related_item_count": 1
     },
     {
+      "event_id": "1e530a0a35d94d44",
+      "title": "Poland says Russia waging 'full-scale cognitive war' as hybrid threat concerns grow - Ednews.net",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQRl9YMVA1Nm5ITkJHRTl0UDVNSE5xUm91QXk2OTlrNWZyNlBjVXFxbEtuSldzS1dzakNJTUMwN29QWnNjamZNMkVoZDNpdU9yZnl4dk44aGhvTmdqWlBpMFUzZFBoM1pKYkFFNGwxQUlwZ29keXpuTjBjZ0xVczE3ak5STlIxb1VVb3NiMFlXaEtkSDBSclNmQXU3YlFWQmp0UW9jbFpoaW5qeU0?oc=5",
+      "published_at": "2026-10-05T08:09:17+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "disinformation"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 2,
+      "confidence": "low",
+      "confidence_score": 46,
+      "hybrid_threat_score": 9,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic Russia hybrid threat",
+        "Google News - Baltic disinformation Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
       "event_id": "63380736585e59f7",
       "title": "Poland Confronts Russia Over Estonia Airspace Violation, “Your Empire Will Not Be Rebuilt” | AC1G Pliskova (fR176QIs2T) - Unisba Media",
       "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBiMU83c0hDR3E1ZzBmUS13MklBeWFiSzV5OU9nUzhPUVpLQUxZTHAwakNjNzR2N2VRYkpYdENXWU1KOHo0X2QxUVRHaDB0dzZqZUI2XzVxWmUtQUFWNXoxb0lQYnRfQQ?oc=5",
@@ -1431,13 +1496,13 @@
         "Russia"
       ],
       "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
+      "event_type": "assessment",
+      "event_subtype": "assessment",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 47,
-      "hybrid_threat_level": "elevated",
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
       "source_names": [
         "Google News - Baltic airspace violation Russia"
       ],
@@ -1582,6 +1647,35 @@
       "related_item_count": 1
     },
     {
+      "event_id": "efa73e26b0db1142",
+      "title": "Estonia seeks urgent NATO consultation after Russian airspace violation - Modern Ghana",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9YRFlHc0VDTndfakpwclgxUTQydDJkVzZVX0wzOHRfN1ZyZGlXalJmTHcyNFhYZzdzc1lVUDJWNE1feG5FTlFVV0xuT2tSU2E3UHFIN29FMHFKVHBOU2fSAVxBVV95cUxQcFZTREdTU1BxOG1kNWg2UGcwakRpTk1yelpNNzhoWUZCMmktc3U3b2dJRG90dXkxNEZPUU1yZEczNDNXYU0yWGgwS0w2ZkdSc19CSGc4TE10RHZDcA?oc=5",
+      "published_at": "2026-10-01T16:57:59+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [
+        "Russia",
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "assessment",
+      "event_subtype": "assessment",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic airspace violation Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
       "event_id": "79d5237389e51382",
       "title": "Estonia warns of Russian sabotage against European defence companies - Oj - Odessa Journal",
       "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQR015UFM3QzBRU2FZNTN6bjJBUktxVXFSOURTMlNqb0hlMUppTEFuWGVtV2lXU3hfSmVsNGl2dGstZEFHN0YyUzFnLVFVWmlzd1lWTHZlSTR4Y1dhZGtCQWlPV1NfRnl0M1dpYVphTlozNkRKZmg0QndISXduSnMtQ3YxU19VS2cxeG5pZjFQUW5lc2V0RUhjRVd6OTNCWDBZb0ZfTTBqajc?oc=5",
@@ -1657,32 +1751,6 @@
       "confidence": "low",
       "confidence_score": 48,
       "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - NATO Baltic hybrid threat"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "ec0dec7cddad38a0",
-      "title": "Putin warns West that Russia is ready to use every weapon to protect Kaliningrad - BBC",
-      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE45djZCSHRoUWlOWThQNWlOd0p0cnVzSG1JSTNBOFFrUlRjeEljOEVQYnJSY2VLOUNGb2YtM1RUWUw5VlFfckl4YlpfT2o1eml1RHFMZWcxWmdxYzQ?oc=5",
-      "published_at": "2026-10-01T07:00:00+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [
-        "Kaliningrad"
-      ],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 48,
-      "hybrid_threat_score": 7,
       "hybrid_threat_level": "low",
       "source_names": [
         "Google News - NATO Baltic hybrid threat"
@@ -1909,7 +1977,7 @@
       18.0,
       6.0,
       0.0,
-      17.0,
+      0.0,
       12.0,
       0.0,
       32.94,
@@ -1920,14 +1988,14 @@
       0.0,
       40.3,
       12.0,
-      10.0,
+      11.5,
       6.0,
       20.8,
       14.0,
-      37.6,
+      9.0,
       12.33,
       8.0,
-      30.0,
+      22.8,
       6.5
     ],
     "daily_threat_index": [
@@ -1941,7 +2009,7 @@
       18.0,
       6.0,
       0.0,
-      17.0,
+      0.0,
       12.0,
       0.0,
       32.94,
@@ -1952,14 +2020,14 @@
       0.0,
       40.3,
       12.0,
-      10.0,
+      11.5,
       6.0,
       20.8,
       14.0,
-      37.6,
+      9.0,
       12.33,
       8.0,
-      30.0,
+      22.8,
       6.5
     ],
     "daily_operational_index": [
@@ -1988,10 +2056,10 @@
       0.0,
       22.0,
       0.0,
-      47.0,
       0.0,
       0.0,
-      36.0,
+      0.0,
+      27.0,
       0.0
     ],
     "daily_early_warning_index": [
@@ -2005,7 +2073,7 @@
       10.0,
       6.0,
       0.0,
-      17.0,
+      0.0,
       12.0,
       0.0,
       6.0,
@@ -2016,11 +2084,11 @@
       0.0,
       13.5,
       12.0,
-      10.0,
+      11.5,
       6.0,
       16.0,
       14.0,
-      0.0,
+      9.0,
       12.33,
       8.0,
       6.0,
@@ -2052,7 +2120,7 @@
       "low",
       "guarded",
       "low",
-      "guarded",
+      "low",
       "low",
       "low",
       "guarded",
@@ -2069,26 +2137,26 @@
       18.88,
       18.88,
       18.88,
-      19.15,
-      19.3,
-      19.3,
-      28.02,
-      28.88,
-      33.84,
-      33.84,
-      33.84,
-      33.84,
-      36.95,
-      36.97,
-      37.17,
-      37.17,
-      37.4,
+      18.88,
+      19.02,
+      19.02,
+      27.74,
+      28.6,
+      33.56,
+      33.56,
+      33.56,
+      33.64,
+      36.75,
+      36.81,
+      36.87,
+      36.87,
+      37.12,
       37.32,
-      38.48,
-      38.7,
-      34.7,
-      37.74,
-      32.78
+      37.24,
+      37.42,
+      30.7,
+      30.86,
+      28.3
     ],
     "rolling_operational_index": [
       0.0,
@@ -2116,11 +2184,11 @@
       43.4,
       43.4,
       43.4,
-      45.0,
-      45.0,
-      40.0,
-      43.8,
-      37.6
+      43.4,
+      43.4,
+      35.0,
+      35.2,
+      32.0
     ],
     "rolling_early_warning_index": [
       8.0,
@@ -2133,22 +2201,22 @@
       8.38,
       8.38,
       8.38,
-      9.75,
-      10.5,
-      10.5,
-      10.5,
-      10.0,
-      10.0,
-      10.0,
-      10.0,
-      10.0,
-      11.14,
-      11.25,
-      12.25,
-      12.25,
-      13.38,
+      8.38,
+      9.12,
+      9.12,
+      9.12,
+      8.62,
+      8.62,
+      8.62,
+      8.62,
+      9.0,
+      10.17,
+      10.43,
+      10.75,
+      10.75,
+      12.0,
       13.0,
-      12.38,
+      12.62,
       13.5,
       13.5,
       13.5,
@@ -2212,10 +2280,10 @@
       0,
       1,
       0,
+      0,
+      0,
+      0,
       1,
-      0,
-      0,
-      2,
       0
     ],
     "activity_count": [
@@ -2261,7 +2329,7 @@
       1,
       1,
       0,
-      1,
+      0,
       1,
       0,
       1,
@@ -2272,11 +2340,11 @@
       0,
       2,
       1,
-      3,
+      2,
       1,
       1,
       1,
-      0,
+      1,
       3,
       1,
       1,
@@ -2293,8 +2361,8 @@
       0,
       0,
       0,
-      0,
-      0,
+      1,
+      1,
       3,
       0,
       1,
@@ -2304,14 +2372,14 @@
       1,
       1,
       0,
-      1,
-      1,
-      0,
-      0,
+      2,
       1,
       0,
+      0,
+      2,
+      0,
       1,
-      1,
+      2,
       0
     ],
     "country_scores": {
@@ -2341,7 +2409,7 @@
         0.0,
         0.0,
         0.0,
-        37.6,
+        0.0,
         0.0,
         0.0,
         0.0,
@@ -2422,7 +2490,7 @@
         16.0,
         6.0,
         0.0,
-        17.0,
+        0.0,
         0.0,
         0.0,
         32.94,
@@ -2437,10 +2505,10 @@
         0.0,
         16.0,
         0.0,
-        37.6,
+        9.0,
         14.0,
         0.0,
-        36.0,
+        0.0,
         0.0
       ],
       "Regional": [
@@ -2465,11 +2533,11 @@
         0.0,
         0.0,
         0.0,
-        7.0,
+        0.0,
         6.0,
         17.6,
         0.0,
-        37.6,
+        0.0,
         12.0,
         0.0,
         0.0,
@@ -2584,26 +2652,26 @@
         17.2,
         18.4,
         18.4,
-        19.5,
-        19.5,
-        19.5,
-        27.85,
-        28.81,
-        33.77,
-        33.77,
-        33.77,
-        33.77,
-        33.77,
-        33.77,
-        33.77,
-        34.14,
-        34.44,
+        18.4,
+        18.4,
+        18.4,
+        27.12,
+        28.08,
+        33.04,
+        33.04,
+        33.04,
+        33.04,
+        33.04,
+        33.04,
+        33.04,
+        33.04,
         34.04,
-        36.92,
-        37.12,
-        30.84,
-        37.4,
-        39.8
+        34.04,
+        33.91,
+        34.09,
+        28.0,
+        34.6,
+        13.0
       ],
       "Regional": [
         10.0,
@@ -2627,15 +2695,15 @@
         10.67,
         10.0,
         10.0,
-        7.0,
-        6.5,
-        18.9,
-        18.9,
-        28.9,
-        29.27,
-        29.27,
-        29.27,
-        29.1
+        0.0,
+        6.0,
+        18.8,
+        18.8,
+        18.8,
+        19.4,
+        19.4,
+        19.4,
+        19.13
       ]
     },
     "daily_hotspots": [
@@ -2938,8 +3006,8 @@
       },
       {
         "location": "Kaliningrad",
-        "score": 7,
-        "event_count": 3
+        "score": 0,
+        "event_count": 2
       }
     ],
     "key_drivers": [
@@ -3087,17 +3155,17 @@
       "comparable": true,
       "history_latest_date": "2026-10-09",
       "scorer_reference_date": "2026-10-09",
-      "summary_threat_index": 32.78,
-      "history_latest_rolling_threat_index": 32.78,
+      "summary_threat_index": 28.3,
+      "history_latest_rolling_threat_index": 28.3,
       "matches_current_summary": true
     }
   },
   "data_quality": {
-    "raw_item_count": 434,
+    "raw_item_count": 433,
     "filtered_item_count": 240,
     "clustered_event_count": 197,
     "merged_item_count": 43,
-    "filter_reduction_percent": 44.7,
+    "filter_reduction_percent": 44.57,
     "cluster_reduction_percent": 17.92
   },
   "methodology": {
