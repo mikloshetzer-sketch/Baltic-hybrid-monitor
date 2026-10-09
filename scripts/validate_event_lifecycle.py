@@ -1,4 +1,4 @@
-"""Baltic lifecycle gate v2. Run after scoring and before snapshot.
+"""Baltic lifecycle gate v3. Run after scoring and before snapshot.
 
 Conservative: explicit legal closure and diplomatic reaction to prior incident
 become assessments. All other doubtful cases are flagged, not suppressed.
@@ -6,7 +6,7 @@ Rebuilds scored-data summaries using the existing scoring engine helpers.
 """
 import json
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -34,6 +34,52 @@ NEW_ACTION = re.compile(r'\b(?:new|fresh|another|second)\s+(?:attack|strike|incu
 YEAR = re.compile(r'\b20\d{2}\b')
 
 
+
+# Audits are advisory: never infer incident dates from article publication dates.
+# Geographic_scope comes from the scoring engine and is kept unchanged.
+EXPLICIT_DATE = re.compile(r'\b(20\d{2})-(0[1-9]|1[0-2])-([0-2]\d|3[01])\b')
+OUTSIDE = re.compile(r'\b(?:moldova|moldovan|romania|romanian|france|french|germany|german|italy|italian|spain|spanish)\b', re.I)
+INSIDE = re.compile(r'\b(?:estonia|estonian|latvia|latvian|lithuania|lithuanian|poland|polish|kaliningrad|suwalki|suwałki|baltic sea)\b', re.I)
+
+def audit_event(event):
+    e = dict(event)
+    title = str(e.get('title') or '')
+    summary = str(e.get('summary') or '')
+    # Do not treat the publication date as the actual incident date.
+    candidates = []
+    for y, m, d in EXPLICIT_DATE.findall(f'{title} {summary}'):
+        try:
+            candidates.append(date(int(y), int(m), int(d)).isoformat())
+        except ValueError:
+            continue
+    dates = sorted(set(candidates))
+    e['event_date_review'] = {
+        'status': 'explicit_date_needs_verification' if dates else 'unknown',
+        'candidate_dates': dates,
+        'event_date': None,
+        'note': 'Article publication time is not proof of the incident date',
+        'rule_version': 'v3',
+    }
+    scope = str(e.get('geographic_scope') or '')
+    # Mixed-location articles are not automatically treated as out-of-area.
+    if scope == 'external_context':
+        status = 'outside_core_area_review'
+        reason = 'existing_external_context_scope'
+    elif OUTSIDE.search(title) and not INSIDE.search(title):
+        status = 'outside_core_area_review'
+        reason = 'external_place_in_title'
+    elif OUTSIDE.search(title) and INSIDE.search(title):
+        status = 'mixed_geography_review'
+        reason = 'mixed_place_names_in_title'
+    else:
+        status = 'not_flagged'
+        reason = 'no_explicit_external_signal'
+    e['geographic_review'] = {
+        'status': status, 'reason': reason,
+        'original_geographic_scope': scope, 'rule_version': 'v3',
+    }
+    return e
+
 def classify(event):
     e = dict(event)
     title = str(e.get('title') or '')
@@ -55,7 +101,7 @@ def classify(event):
     e['lifecycle_review'] = {
         'status': status, 'reason': reason,
         'reviewed_at': datetime.now(timezone.utc).isoformat(),
-        'rule_version': 'v2',
+        'rule_version': 'v3',
     }
     if confirmed and e.get('event_subtype') in {'incident', 'activity', 'indicator'}:
         e.setdefault('original_event_subtype', e['event_subtype'])
@@ -102,7 +148,7 @@ def main():
     events = data.get('events')
     if not isinstance(events, list):
         raise ValueError('Expected events list in scored data')
-    updated = [classify(e) for e in events]
+    updated = [audit_event(classify(e)) for e in events]
     data['events'] = updated
     data['items'] = updated  # Existing output aliases must agree.
     rebuild_summaries(data, updated)
@@ -116,8 +162,9 @@ def main():
     print(f'Lifecycle validation v2: {len(updated)} events; '
           f"{counts['historical_follow_up']} follow-ups; {counts['needs_review']} need review")
     print(f"Rebuilt current threat index: {data['overall_summary']['threat_index']}")
+    print('Geography review flags:', sum(e['geographic_review']['status'] != 'not_flagged' for e in updated))
+    print('Explicit date candidates:', sum(bool(e['event_date_review']['candidate_dates']) for e in updated))
 
 
 if __name__ == '__main__':
     main()
-
