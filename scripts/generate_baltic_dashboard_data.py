@@ -1442,6 +1442,12 @@ def calculate_v32_indices(
 
     for event in events:
 
+        eligibility = event.get("index_eligibility") or {}
+        eligible_for_index = (
+            not isinstance(eligibility, dict)
+            or eligibility.get("eligible", True) is not False
+        )
+
         subtype = str(
             event.get(
                 "event_subtype",
@@ -1459,23 +1465,26 @@ def calculate_v32_indices(
         if subtype == "incident":
 
             incident_count += 1
-            operational_scores.append(
-                score
-            )
+            if eligible_for_index:
+                operational_scores.append(
+                    score
+                )
 
         elif subtype == "activity":
 
             activity_count += 1
-            operational_scores.append(
-                score
-            )
+            if eligible_for_index:
+                operational_scores.append(
+                    score
+                )
 
         elif subtype == "indicator":
 
             indicator_count += 1
-            early_warning_scores.append(
-                score
-            )
+            if eligible_for_index:
+                early_warning_scores.append(
+                    score
+                )
 
         else:
 
@@ -1816,10 +1825,6 @@ def build_history(
                 record_date,
                 CURRENT_THREAT_WINDOW_DAYS
             )
-        )
-
-        daily_indices = calculate_v32_indices(
-            daily_events
         )
 
         rolling_indices = calculate_v32_indices(
@@ -2370,11 +2375,81 @@ def build_history(
                 (
                     "Assessment events are counted but do not "
                     "contribute to either component index."
-                )
+                ),
+
+            "lifecycle_index_eligibility": (
+                "Lifecycle v4 excluded events remain in event counts "
+                "and lists but do not contribute to component indices."
+            )
         },
 
         "current_alignment":
             current_alignment
+    }
+
+
+# ---------------------------------------------------------------------
+# MANUAL REVIEW QUEUE (ADVISORY, NO AUTOMATIC CHANGES)
+# ---------------------------------------------------------------------
+
+def build_manual_review_queue(scored: Dict[str, Any]) -> Dict[str, Any]:
+    """Surface uncertain classifications without altering scored events."""
+    events = get_scored_events(scored)
+    items = []
+
+    for event in events:
+        if not isinstance(event, dict):
+            continue
+
+        lifecycle = event.get("lifecycle_review") or {}
+        geography = event.get("geographic_review") or {}
+        date_review = event.get("event_date_review") or {}
+        eligibility = event.get("index_eligibility") or {}
+
+        lifecycle = lifecycle if isinstance(lifecycle, dict) else {}
+        geography = geography if isinstance(geography, dict) else {}
+        date_review = date_review if isinstance(date_review, dict) else {}
+        eligibility = eligibility if isinstance(eligibility, dict) else {}
+
+        reasons = []
+        if lifecycle.get("status") in ("needs_review", "manual_review", "uncertain"):
+            reasons.append("lifecycle_uncertain")
+        if geography.get("status") in (
+            "mixed_geography_review", "outside_core_area_review",
+            "needs_review", "uncertain"
+        ):
+            reasons.append("geographic_scope_uncertain")
+        if date_review.get("status") in (
+            "explicit_date_needs_verification", "needs_review"
+        ):
+            reasons.append("event_date_verification")
+        if eligibility.get("eligible") is False:
+            reasons.append("index_exclusion_audit")
+
+        if not reasons:
+            continue
+
+        items.append({
+            "event_id": event.get("event_id", event.get("id")),
+            "title": event.get("title"),
+            "url": event.get("url"),
+            "published_at": event.get("published_at"),
+            "primary_country": event.get("primary_country"),
+            "event_subtype": event.get("event_subtype"),
+            "hybrid_threat_score": event.get("hybrid_threat_score"),
+            "reasons": reasons,
+            "review_status": "pending",
+            "index_eligible": eligibility.get("eligible", True),
+        })
+
+    items.sort(key=lambda item: str(item.get("published_at") or ""), reverse=True)
+    return {
+        "pending_count": len(items),
+        "items": items,
+        "note": (
+            "Advisory review queue; events and index eligibility are not "
+            "changed by this report. Pending is not a persisted decision."
+        ),
     }
 
 
@@ -2533,7 +2608,7 @@ def main() -> None:
             ),
 
         "version":
-            "Baltic Dashboard Data v1.6",
+            "Baltic Dashboard Data v1.7",
 
         "score_engine_version":
             scorer_engine_version,
@@ -2605,6 +2680,9 @@ def main() -> None:
 
         "history":
             dashboard_history,
+
+        "manual_review_queue":
+            build_manual_review_queue(scored),
 
         "data_quality":
             build_data_quality(
