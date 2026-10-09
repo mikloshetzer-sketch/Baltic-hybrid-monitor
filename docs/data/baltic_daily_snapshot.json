@@ -2,26 +2,26 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-09T12:50:12.057815+00:00",
+  "generated_at": "2026-10-09T18:57:42.399276+00:00",
   "snapshot_date": "2026-10-09",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-10-09T12:50:11.734532+00:00",
+  "source_generated_at": "2026-10-09T18:57:41.880277+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
     "rolling_window_used": false,
     "rolling_window_days": 0,
-    "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used.",
+    "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used. Lifecycle v4 index-ineligible events are excluded from index calculations.",
     "assessment_handling": "Assessment events remain visible in counts and event lists but do not contribute to operational or early-warning indices.",
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 3,
+    "event_count": 4,
     "incident_count": 0,
     "activity_count": 0,
     "indicator_count": 3,
-    "assessment_count": 0,
+    "assessment_count": 1,
     "score_total": 24,
     "average_score": 8.0,
     "highest_score": 11,
@@ -33,22 +33,26 @@
   "country_summary": {
     "Estonia": {
       "country": "Estonia",
-      "event_count": 1,
+      "event_count": 2,
       "incident_count": 0,
       "activity_count": 0,
       "indicator_count": 1,
-      "assessment_count": 0,
+      "assessment_count": 1,
       "score_total": 8,
       "average_score": 8.0,
       "highest_score": 8,
       "operational_index": 0.0,
-      "early_warning_index": 8.0,
-      "threat_index": 8.0,
+      "early_warning_index": 0.0,
+      "threat_index": 0.0,
       "overall_level": "low",
       "categories": {
-        "cyber": 1
+        "cyber": 1,
+        "espionage": 1,
+        "sabotage": 1
       },
-      "actors": {}
+      "actors": {
+        "Russia": 1
+      }
     },
     "Regional": {
       "country": "Regional",
@@ -93,6 +97,18 @@
       "score_total": 5,
       "average_score": 5.0,
       "highest_score": 5
+    },
+    "espionage": {
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
+    },
+    "sabotage": {
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
     }
   },
   "actor_summary": {
@@ -103,9 +119,9 @@
       "highest_score": 11
     },
     "Russia": {
-      "event_count": 1,
+      "event_count": 2,
       "score_total": 11,
-      "average_score": 11.0,
+      "average_score": 5.5,
       "highest_score": 11
     },
     "Belarus": {
@@ -135,7 +151,7 @@
       "highest_score": 11
     },
     "assessment": {
-      "event_count": 0,
+      "event_count": 1,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
@@ -143,9 +159,9 @@
   },
   "scope_summary": {
     "direct": {
-      "event_count": 1,
+      "event_count": 2,
       "score_total": 8,
-      "average_score": 8.0,
+      "average_score": 4.0,
       "highest_score": 8
     },
     "external_context": {
@@ -255,9 +271,71 @@
         "ERR News Estonia"
       ],
       "related_item_count": 1
+    },
+    {
+      "event_id": "942dd211157636b0",
+      "title": "Russian Sabotage in Europe Is No Longer 'Symbolic,' Estonian Counterintelligence Chief Says - Foreign Policy",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdWoyZ3ZNak9QY1hqNW1lSnBmaV85NUV1Z3Fkb1lLRm1fYlJmZEx0Yk1IVUdVY2REY3daUE1VM2VoeVU5WnM0aHRNOUVUckRBeURmb0lBSWRaLTBnODhadmVpamFMOXBoM3FVWC1mRTFhSHlNdk5KVWgxa0FaZ1JiaVJZUzcwbDBCamhhNEM0aDFmNnVOWmk1M3lLWmxZR25CMTlaNUZGT2ZHQ29samtaRnF0Q2d0TmM?oc=5",
+      "published_at": "2026-10-09T18:55:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "espionage",
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
     }
   ],
   "events": [
+    {
+      "event_id": "942dd211157636b0",
+      "title": "Russian Sabotage in Europe Is No Longer 'Symbolic,' Estonian Counterintelligence Chief Says - Foreign Policy",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdWoyZ3ZNak9QY1hqNW1lSnBmaV85NUV1Z3Fkb1lLRm1fYlJmZEx0Yk1IVUdVY2REY3daUE1VM2VoeVU5WnM0aHRNOUVUckRBeURmb0lBSWRaLTBnODhadmVpamFMOXBoM3FVWC1mRTFhSHlNdk5KVWgxa0FaZ1JiaVJZUzcwbDBCamhhNEM0aDFmNnVOWmk1M3lLWmxZR25CMTlaNUZGT2ZHQ29samtaRnF0Q2d0TmM?oc=5",
+      "published_at": "2026-10-09T18:55:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "espionage",
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
     {
       "event_id": "7d49cab00f305158",
       "title": "Possible cyberattack halts Estonian Artists' Association fundraiser auction",

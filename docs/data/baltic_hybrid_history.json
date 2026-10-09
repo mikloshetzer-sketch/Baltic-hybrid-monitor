@@ -2,7 +2,7 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-10-09T12:50:12.255691+00:00",
+  "updated_at": "2026-10-09T18:57:42.644943+00:00",
   "record_count": 70,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
@@ -40392,31 +40392,33 @@
     },
     {
       "date": "2026-10-09",
-      "generated_at": "2026-10-09T12:50:12.255493+00:00",
-      "input_generated_at": "2026-10-09T12:50:11.734532+00:00",
+      "generated_at": "2026-10-09T18:57:42.644690+00:00",
+      "input_generated_at": "2026-10-09T18:57:41.880277+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
-          "event_count": 3,
+          "event_count": 4,
           "incident_count": 0,
           "activity_count": 0,
           "indicator_count": 3,
-          "assessment_count": 0,
+          "assessment_count": 1,
           "score_total": 24,
-          "average_score": 8.0,
+          "average_score": 6.0,
           "highest_score": 11,
           "overall_level": "low"
         },
         "countries": {
           "Estonia": {
             "country": "Estonia",
-            "event_count": 1,
+            "event_count": 2,
             "score_total": 8,
-            "average_score": 8.0,
+            "average_score": 4.0,
             "highest_score": 8,
             "level": "low",
             "categories": {
-              "cyber": 1
+              "cyber": 1,
+              "espionage": 1,
+              "sabotage": 1
             }
           },
           "Latvia": {
@@ -40480,6 +40482,20 @@
             "score_total": 5,
             "average_score": 5.0,
             "highest_score": 5
+          },
+          "espionage": {
+            "category": "espionage",
+            "event_count": 1,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0
+          },
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 1,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0
           }
         },
         "layers": {
@@ -40505,9 +40521,9 @@
             "level": "low"
           },
           "assessment": {
-            "event_count": 0,
+            "event_count": 1,
             "score_total": 0,
-            "average_score": 0,
+            "average_score": 0.0,
             "highest_score": 0,
             "level": "low"
           }
@@ -40585,6 +40601,30 @@
             "confidence": "low",
             "hybrid_threat_score": 5,
             "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Russian Sabotage in Europe Is No Longer 'Symbolic,' Estonian Counterintelligence Chief Says - Foreign Policy",
+            "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdWoyZ3ZNak9QY1hqNW1lSnBmaV85NUV1Z3Fkb1lLRm1fYlJmZEx0Yk1IVUdVY2REY3daUE1VM2VoeVU5WnM0aHRNOUVUckRBeURmb0lBSWRaLTBnODhadmVpamFMOXBoM3FVWC1mRTFhSHlNdk5KVWgxa0FaZ1JiaVJZUzcwbDBCamhhNEM0aDFmNnVOWmk1M3lLWmxZR25CMTlaNUZGT2ZHQ29samtaRnF0Q2d0TmM?oc=5",
+            "published_at": "2026-10-09T18:55:00+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "espionage",
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "assessment",
+            "analytical_layer": "assessment",
+            "confidence": "low",
+            "hybrid_threat_score": 0,
+            "hybrid_threat_level": "low"
           }
         ]
       },
@@ -40597,12 +40637,12 @@
         },
         "overall": {
           "event_count": 30,
-          "incident_count": 3,
+          "incident_count": 4,
           "activity_count": 0,
-          "indicator_count": 17,
+          "indicator_count": 16,
           "assessment_count": 10,
-          "score_total": 278,
-          "average_score": 9.27,
+          "score_total": 298,
+          "average_score": 9.93,
           "highest_score": 47,
           "overall_level": "low"
         },
@@ -40615,9 +40655,10 @@
             "highest_score": 47,
             "level": "low",
             "categories": {
-              "drone_incident": 2,
-              "sabotage": 5,
-              "cyber": 1
+              "drone_incident": 1,
+              "sabotage": 6,
+              "cyber": 1,
+              "espionage": 1
             }
           },
           "Latvia": {
@@ -40646,27 +40687,27 @@
           },
           "Poland": {
             "country": "Poland",
-            "event_count": 9,
-            "score_total": 39,
-            "average_score": 4.33,
+            "event_count": 8,
+            "score_total": 30,
+            "average_score": 3.75,
             "highest_score": 16,
             "level": "low",
             "categories": {
               "drone_incident": 2,
               "sabotage": 2,
-              "disinformation": 2
+              "disinformation": 1
             }
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 8,
-            "score_total": 56,
-            "average_score": 7.0,
-            "highest_score": 22,
+            "event_count": 9,
+            "score_total": 85,
+            "average_score": 9.44,
+            "highest_score": 29,
             "level": "low",
             "categories": {
               "drone_incident": 2,
-              "sabotage": 2,
+              "sabotage": 3,
               "disinformation": 1,
               "migration_pressure": 1
             }
@@ -40675,9 +40716,9 @@
         "categories": {
           "sabotage": {
             "category": "sabotage",
-            "event_count": 12,
-            "score_total": 172,
-            "average_score": 14.33,
+            "event_count": 14,
+            "score_total": 201,
+            "average_score": 14.36,
             "highest_score": 47
           },
           "cyber": {
@@ -40689,23 +40730,23 @@
           },
           "disinformation": {
             "category": "disinformation",
-            "event_count": 3,
-            "score_total": 34,
-            "average_score": 11.33,
+            "event_count": 2,
+            "score_total": 25,
+            "average_score": 12.5,
             "highest_score": 14
           },
           "drone_incident": {
             "category": "drone_incident",
-            "event_count": 4,
+            "event_count": 3,
             "score_total": 22,
-            "average_score": 5.5,
+            "average_score": 7.33,
             "highest_score": 22
           },
           "espionage": {
             "category": "espionage",
-            "event_count": 1,
+            "event_count": 2,
             "score_total": 10,
-            "average_score": 10.0,
+            "average_score": 5.0,
             "highest_score": 10
           },
           "migration_pressure": {
@@ -40725,16 +40766,16 @@
             "level": "low"
           },
           "early_warning": {
-            "event_count": 17,
-            "score_total": 182,
-            "average_score": 10.71,
+            "event_count": 16,
+            "score_total": 173,
+            "average_score": 10.81,
             "highest_score": 16,
             "level": "low"
           },
           "operational": {
-            "event_count": 3,
-            "score_total": 96,
-            "average_score": 32.0,
+            "event_count": 4,
+            "score_total": 125,
+            "average_score": 31.25,
             "highest_score": 47,
             "level": "guarded"
           },
@@ -40774,6 +40815,27 @@
             "confidence": "low",
             "hybrid_threat_score": 47,
             "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "A botched sabotage attempt in Leipzig has shed light on a broader Russian campaign · BNN - Baltic News Network",
+            "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPU0MySDlGSGlUenVwUlVxcDNNenJiY1lzNWtwMlZ3cmh3ZU1OcGpRWFJ5ZE9WQ05kYTU0ekhxbWM1U0puZmxia3NDbWRKUGx5YXVrQkdzQTJhYldfVTF2b0JfVHlvV1pweG5yS21ZdW1yRGR2QkhWTDlOVjNDZ1lhbnNKRkR4SGIta010V1U4M3N4bGVTTnhHYjgyUll1eFptcWljWG9EeE9tT182R29zNDhTLXRLVkxP?oc=5",
+            "published_at": "2026-10-02T12:01:20+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 29,
+            "hybrid_threat_level": "guarded"
           },
           {
             "id": null,
@@ -40956,28 +41018,6 @@
             "analytical_layer": "early_warning",
             "confidence": "low",
             "hybrid_threat_score": 13,
-            "hybrid_threat_level": "low"
-          },
-          {
-            "id": null,
-            "title": "Russian Drone Strikes and Sabotage Push NATO's Eastern Flank to High Alert - CBN.com",
-            "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPaTZ3V0dKazlJaHJmMVlMd3JxU3VRNkFWSmMzY084MnJtRkRTS09VRDRzMncycjJnQzNPSGtYVXRQd0tWcWV0RFJmMjUweEVuZTdwcjFXVl9jTzZ4TkZWeXR5LW5wYVdfZGR2VWp2WFNfeUpTaEtLdzZEQXlOODBDZklmSzVfODMwTC1NMllLQThTV2dKUzJESDgwc3pCQQ?oc=5",
-            "published_at": "2026-10-06T15:26:24+00:00",
-            "source_name": null,
-            "primary_country": "Regional",
-            "countries": [],
-            "categories": [
-              "sabotage"
-            ],
-            "actors": [
-              "Russia",
-              "NATO"
-            ],
-            "locations": [],
-            "event_subtype": "indicator",
-            "analytical_layer": "early_warning",
-            "confidence": "low",
-            "hybrid_threat_score": 12,
             "hybrid_threat_level": "low"
           }
         ]

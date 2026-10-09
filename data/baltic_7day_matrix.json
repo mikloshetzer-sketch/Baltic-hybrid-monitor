@@ -2,10 +2,10 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-09T12:50:12.184135+00:00",
+  "generated_at": "2026-10-09T18:57:42.560800+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-10-09T12:50:12.112893+00:00",
+  "source_history_generated_at": "2026-10-09T18:57:42.470251+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
@@ -31,11 +31,11 @@
   "missing_dates": [],
   "seven_day_summary": {
     "totals": {
-      "event_count": 9,
+      "event_count": 10,
       "incident_count": 2,
       "activity_count": 0,
       "indicator_count": 4,
-      "assessment_count": 3
+      "assessment_count": 4
     },
     "indices": {
       "average_operational_index_observed_days": 10.29,
@@ -61,6 +61,7 @@
       "cyber": 0.0,
       "disinformation": 0.0,
       "drone_incident": 0.0,
+      "espionage": 0.0,
       "migration_pressure": 0.0,
       "sabotage": 0.0
     },
@@ -71,6 +72,38 @@
     }
   },
   "top_events": [
+    {
+      "event_id": "942dd211157636b0",
+      "title": "Russian Sabotage in Europe Is No Longer 'Symbolic,' Estonian Counterintelligence Chief Says - Foreign Policy",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdWoyZ3ZNak9QY1hqNW1lSnBmaV85NUV1Z3Fkb1lLRm1fYlJmZEx0Yk1IVUdVY2REY3daUE1VM2VoeVU5WnM0aHRNOUVUckRBeURmb0lBSWRaLTBnODhadmVpamFMOXBoM3FVWC1mRTFhSHlNdk5KVWgxa0FaZ1JiaVJZUzcwbDBCamhhNEM0aDFmNnVOWmk1M3lLWmxZR25CMTlaNUZGT2ZHQ29samtaRnF0Q2d0TmM?oc=5",
+      "published_at": "2026-10-09T18:55:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "espionage",
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-10-09"
+    },
     {
       "event_id": "7d49cab00f305158",
       "title": "Possible cyberattack halts Estonian Artists' Association fundraiser auction",
@@ -1259,14 +1292,14 @@
     {
       "date": "2026-10-09",
       "status": "available",
-      "snapshot_generated_at": "2026-10-09T12:50:12.057815+00:00",
+      "snapshot_generated_at": "2026-10-09T18:57:42.399276+00:00",
       "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
       "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 3,
+      "event_count": 4,
       "incident_count": 0,
       "activity_count": 0,
       "indicator_count": 3,
-      "assessment_count": 0,
+      "assessment_count": 1,
       "score_total": 24.0,
       "average_score": 8.0,
       "highest_score": 11.0,
@@ -1277,22 +1310,26 @@
       "country_summary": {
         "Estonia": {
           "country": "Estonia",
-          "event_count": 1,
+          "event_count": 2,
           "incident_count": 0,
           "activity_count": 0,
           "indicator_count": 1,
-          "assessment_count": 0,
+          "assessment_count": 1,
           "score_total": 8,
           "average_score": 8.0,
           "highest_score": 8,
           "operational_index": 0.0,
-          "early_warning_index": 8.0,
-          "threat_index": 8.0,
+          "early_warning_index": 0.0,
+          "threat_index": 0.0,
           "overall_level": "low",
           "categories": {
-            "cyber": 1
+            "cyber": 1,
+            "espionage": 1,
+            "sabotage": 1
           },
-          "actors": {}
+          "actors": {
+            "Russia": 1
+          }
         },
         "Regional": {
           "country": "Regional",
@@ -1337,6 +1374,18 @@
           "score_total": 5,
           "average_score": 5.0,
           "highest_score": 5
+        },
+        "espionage": {
+          "event_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "sabotage": {
+          "event_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
         }
       },
       "actor_summary": {
@@ -1347,9 +1396,9 @@
           "highest_score": 11
         },
         "Russia": {
-          "event_count": 1,
+          "event_count": 2,
           "score_total": 11,
-          "average_score": 11.0,
+          "average_score": 5.5,
           "highest_score": 11
         },
         "Belarus": {
@@ -1379,7 +1428,7 @@
           "highest_score": 11
         },
         "assessment": {
-          "event_count": 0,
+          "event_count": 1,
           "score_total": 0,
           "average_score": 0.0,
           "highest_score": 0
@@ -1387,9 +1436,9 @@
       },
       "scope_summary": {
         "direct": {
-          "event_count": 1,
+          "event_count": 2,
           "score_total": 8,
-          "average_score": 8.0,
+          "average_score": 4.0,
           "highest_score": 8
         },
         "external_context": {
@@ -1499,9 +1548,71 @@
             "ERR News Estonia"
           ],
           "related_item_count": 1
+        },
+        {
+          "event_id": "942dd211157636b0",
+          "title": "Russian Sabotage in Europe Is No Longer 'Symbolic,' Estonian Counterintelligence Chief Says - Foreign Policy",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdWoyZ3ZNak9QY1hqNW1lSnBmaV85NUV1Z3Fkb1lLRm1fYlJmZEx0Yk1IVUdVY2REY3daUE1VM2VoeVU5WnM0aHRNOUVUckRBeURmb0lBSWRaLTBnODhadmVpamFMOXBoM3FVWC1mRTFhSHlNdk5KVWgxa0FaZ1JiaVJZUzcwbDBCamhhNEM0aDFmNnVOWmk1M3lLWmxZR25CMTlaNUZGT2ZHQ29samtaRnF0Q2d0TmM?oc=5",
+          "published_at": "2026-10-09T18:55:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "espionage",
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
         }
       ],
       "events": [
+        {
+          "event_id": "942dd211157636b0",
+          "title": "Russian Sabotage in Europe Is No Longer 'Symbolic,' Estonian Counterintelligence Chief Says - Foreign Policy",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNdWoyZ3ZNak9QY1hqNW1lSnBmaV85NUV1Z3Fkb1lLRm1fYlJmZEx0Yk1IVUdVY2REY3daUE1VM2VoeVU5WnM0aHRNOUVUckRBeURmb0lBSWRaLTBnODhadmVpamFMOXBoM3FVWC1mRTFhSHlNdk5KVWgxa0FaZ1JiaVJZUzcwbDBCamhhNEM0aDFmNnVOWmk1M3lLWmxZR25CMTlaNUZGT2ZHQ29samtaRnF0Q2d0TmM?oc=5",
+          "published_at": "2026-10-09T18:55:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "espionage",
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        },
         {
           "event_id": "7d49cab00f305158",
           "title": "Possible cyberattack halts Estonian Artists' Association fundraiser auction",
