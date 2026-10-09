@@ -2,7 +2,7 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-10-09T12:16:52.022030+00:00",
+  "updated_at": "2026-10-09T12:32:08.991252+00:00",
   "record_count": 70,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
@@ -40392,19 +40392,19 @@
     },
     {
       "date": "2026-10-09",
-      "generated_at": "2026-10-09T12:16:52.021838+00:00",
-      "input_generated_at": "2026-10-09T12:16:51.511460+00:00",
+      "generated_at": "2026-10-09T12:32:08.990985+00:00",
+      "input_generated_at": "2026-10-09T12:32:08.229505+00:00",
       "daily_activity": {
         "description": "Calculated only from events published on this calendar day.",
         "overall": {
-          "event_count": 2,
+          "event_count": 3,
           "incident_count": 0,
           "activity_count": 0,
-          "indicator_count": 2,
+          "indicator_count": 3,
           "assessment_count": 0,
-          "score_total": 13,
-          "average_score": 6.5,
-          "highest_score": 8,
+          "score_total": 24,
+          "average_score": 8.0,
+          "highest_score": 11,
           "overall_level": "low"
         },
         "countries": {
@@ -40448,17 +40448,25 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 1,
-            "score_total": 5,
-            "average_score": 5.0,
-            "highest_score": 5,
+            "event_count": 2,
+            "score_total": 16,
+            "average_score": 8.0,
+            "highest_score": 11,
             "level": "low",
             "categories": {
+              "disinformation": 1,
               "migration_pressure": 1
             }
           }
         },
         "categories": {
+          "disinformation": {
+            "category": "disinformation",
+            "event_count": 1,
+            "score_total": 11,
+            "average_score": 11.0,
+            "highest_score": 11
+          },
           "cyber": {
             "category": "cyber",
             "event_count": 1,
@@ -40483,10 +40491,10 @@
             "level": "low"
           },
           "early_warning": {
-            "event_count": 2,
-            "score_total": 13,
-            "average_score": 6.5,
-            "highest_score": 8,
+            "event_count": 3,
+            "score_total": 24,
+            "average_score": 8.0,
+            "highest_score": 11,
             "level": "low"
           },
           "operational": {
@@ -40505,13 +40513,37 @@
           }
         },
         "hotspot": {
-          "location": "Estonia",
-          "score": 8,
+          "location": "Kaliningrad",
+          "score": 11,
           "event_count": 1
         },
-        "key_driver": "cyber",
+        "key_driver": "disinformation",
         "trend": "decreasing",
         "top_items": [
+          {
+            "id": null,
+            "title": "How to justify crimes against humanity: the Kremlin method",
+            "url": "https://euvsdisinfo.eu/how-to-justify-crimes-against-humanity-the-kremlin-method/",
+            "published_at": "2026-10-09T08:30:47+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "disinformation"
+            ],
+            "actors": [
+              "Russia",
+              "NATO"
+            ],
+            "locations": [
+              "Kaliningrad"
+            ],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 11,
+            "hybrid_threat_level": "low"
+          },
           {
             "id": null,
             "title": "Possible cyberattack halts Estonian Artists' Association fundraiser auction",
@@ -40564,13 +40596,13 @@
           "end_date": "2026-10-09"
         },
         "overall": {
-          "event_count": 29,
+          "event_count": 30,
           "incident_count": 3,
           "activity_count": 0,
-          "indicator_count": 16,
+          "indicator_count": 17,
           "assessment_count": 10,
-          "score_total": 267,
-          "average_score": 9.21,
+          "score_total": 278,
+          "average_score": 9.27,
           "highest_score": 47,
           "overall_level": "low"
         },
@@ -40627,14 +40659,15 @@
           },
           "Regional": {
             "country": "Regional",
-            "event_count": 7,
-            "score_total": 45,
-            "average_score": 6.43,
+            "event_count": 8,
+            "score_total": 56,
+            "average_score": 7.0,
             "highest_score": 22,
             "level": "low",
             "categories": {
               "drone_incident": 2,
               "sabotage": 2,
+              "disinformation": 1,
               "migration_pressure": 1
             }
           }
@@ -40656,9 +40689,9 @@
           },
           "disinformation": {
             "category": "disinformation",
-            "event_count": 2,
-            "score_total": 23,
-            "average_score": 11.5,
+            "event_count": 3,
+            "score_total": 34,
+            "average_score": 11.33,
             "highest_score": 14
           },
           "drone_incident": {
@@ -40692,9 +40725,9 @@
             "level": "low"
           },
           "early_warning": {
-            "event_count": 16,
-            "score_total": 171,
-            "average_score": 10.69,
+            "event_count": 17,
+            "score_total": 182,
+            "average_score": 10.71,
             "highest_score": 16,
             "level": "low"
           },
@@ -40715,8 +40748,8 @@
         },
         "hotspot": {
           "location": "Kaliningrad",
-          "score": 0,
-          "event_count": 2
+          "score": 11,
+          "event_count": 3
         },
         "top_items": [
           {
