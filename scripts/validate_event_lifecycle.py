@@ -1,4 +1,4 @@
-"""Baltic lifecycle gate v3. Run after scoring and before snapshot.
+"""Baltic lifecycle gate v4. Run after scoring and before snapshot.
 
 Conservative: explicit legal closure and diplomatic reaction to prior incident
 become assessments. All other doubtful cases are flagged, not suppressed.
@@ -119,11 +119,50 @@ def classify(event):
     return e
 
 
+def index_eligibility(event):
+    """Conservative geographic gate: explicit external-only incident, no core link.
+
+    Advisory geographic_review alone is insufficient for exclusion. A record
+    may be externally scoped but still directly relevant to Baltic security.
+    """
+    title = str(event.get('title') or '')
+    core_countries = {'Estonia', 'Latvia', 'Lithuania', 'Poland'}
+    countries = set(event.get('countries') or [])
+    outside = bool(OUTSIDE.search(title))
+    inside = bool(INSIDE.search(title))
+    excluded = (event.get('geographic_scope') == 'external_context'
+                and outside and not inside and not (countries & core_countries))
+    return {
+        'eligible': not excluded,
+        'reason': 'explicit_external_only_incident' if excluded else 'included',
+        'rule_version': 'v4',
+    }
+
+
 def rebuild_summaries(data, events):
     # Import existing engine to avoid creating a second, inconsistent index formula.
     import score_baltic_hybrid_news as scorer
     current = scorer.filter_current_window(events, datetime.now(timezone.utc))
     data['overall_summary'] = scorer.build_current_summary(current)
+    eligible = [e for e in current if e['index_eligibility']['eligible']]
+    index_summary = scorer.build_current_summary(eligible)
+    # Keep all current news and category/country counts. Change only indices.
+    for field in ('operational_index', 'early_warning_index', 'threat_index', 'overall_level'):
+        data['overall_summary'][field] = index_summary[field]
+    data['index_eligibility_audit'] = {
+        'rule_version': 'v4',
+        'current_total': len(current),
+        'included_count': len(eligible),
+        'excluded_count': len(current) - len(eligible),
+        'excluded_events': [
+            {'event_id': e.get('event_id'), 'title': e.get('title'),
+             'score': e.get('hybrid_threat_score'),
+             'reason': e['index_eligibility']['reason']}
+            for e in current if not e['index_eligibility']['eligible']
+        ],
+        'unfiltered_threat_index': scorer.build_current_summary(current)['threat_index'],
+        'filtered_threat_index': index_summary['threat_index'],
+    }
     data['country_summary'] = scorer.build_country_summary(current)
     data['category_summary'] = scorer.build_category_summary(current)
     data['actor_summary'] = scorer.build_actor_summary(current)
@@ -148,7 +187,11 @@ def main():
     events = data.get('events')
     if not isinstance(events, list):
         raise ValueError('Expected events list in scored data')
-    updated = [audit_event(classify(e)) for e in events]
+    updated = []
+    for event in events:
+        reviewed = audit_event(classify(event))
+        reviewed['index_eligibility'] = index_eligibility(reviewed)
+        updated.append(reviewed)
     data['events'] = updated
     data['items'] = updated  # Existing output aliases must agree.
     rebuild_summaries(data, updated)
@@ -159,10 +202,11 @@ def main():
         temp.replace(target)
     counts = {k: sum(e['lifecycle_review']['status'] == k for e in updated)
               for k in ('historical_follow_up', 'needs_review', 'not_determined')}
-    print(f'Lifecycle validation v2: {len(updated)} events; '
+    print(f'Lifecycle validation v4: {len(updated)} events; '
           f"{counts['historical_follow_up']} follow-ups; {counts['needs_review']} need review")
     print(f"Rebuilt current threat index: {data['overall_summary']['threat_index']}")
     print('Geography review flags:', sum(e['geographic_review']['status'] != 'not_flagged' for e in updated))
+    print('Index exclusions:', data['index_eligibility_audit']['excluded_count'])
     print('Explicit date candidates:', sum(bool(e['event_date_review']['candidate_dates']) for e in updated))
 
 
