@@ -31,8 +31,32 @@
 .baltic-map-bubble.active{background:#e69a00}
 .baltic-map-placeholder{display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;height:100%;color:#365b70}
 @media(max-width:850px){.baltic-map-layout{grid-template-columns:1fr}#balticGeoMap{height:380px}}
+
+/* Leaflet containment and tile sizing: protects against global dashboard CSS. */
+#balticGeoMap {position:relative;overflow:hidden;isolation:isolate;min-width:0;width:100%;z-index:0}
+.baltic-map-layout > div,.baltic-map-layout > aside{min-width:0}
+#balticGeoMap .leaflet-pane,#balticGeoMap .leaflet-tile,#balticGeoMap .leaflet-marker-icon,#balticGeoMap .leaflet-marker-shadow,#balticGeoMap .leaflet-tile-container,#balticGeoMap .leaflet-pane > svg,#balticGeoMap .leaflet-pane > canvas{position:absolute;left:0;top:0}
+#balticGeoMap .leaflet-map-pane,#balticGeoMap .leaflet-pane,#balticGeoMap .leaflet-tile-container{width:100%;height:100%}
+#balticGeoMap .leaflet-tile-pane{z-index:200}
+#balticGeoMap .leaflet-overlay-pane{z-index:400}
+#balticGeoMap .leaflet-shadow-pane{z-index:500}
+#balticGeoMap .leaflet-marker-pane{z-index:600}
+#balticGeoMap .leaflet-tooltip-pane{z-index:650}
+#balticGeoMap .leaflet-popup-pane{z-index:700}
+#balticGeoMap .leaflet-tile{width:256px!important;height:256px!important;max-width:none!important;max-height:none!important;min-width:0!important;display:block!important;margin:0!important;padding:0!important;border:0!important;object-fit:fill!important;transform-origin:0 0}
+#balticGeoMap .leaflet-marker-icon{max-width:none!important;max-height:none!important}
+#balticGeoMap .leaflet-control-container{position:relative;z-index:800}
+#balticGeoMap .leaflet-top,#balticGeoMap .leaflet-bottom{position:absolute;z-index:800;pointer-events:none}
+#balticGeoMap .leaflet-top{top:0}#balticGeoMap .leaflet-bottom{bottom:0}
+#balticGeoMap .leaflet-left{left:0}#balticGeoMap .leaflet-right{right:0}
+#balticGeoMap .leaflet-control{pointer-events:auto;position:relative;z-index:800;margin:10px}
+#balticGeoMap .leaflet-control-zoom a{display:block;background:#fff;color:#073b59;width:30px;height:30px;line-height:30px;text-align:center;text-decoration:none;border:1px solid #cfdde6;font-size:19px}
+#balticGeoMap .leaflet-control-attribution{background:#ffffffcc;font:10px Arial,sans-serif;padding:2px 5px}
+#balticGeoMap .leaflet-control-attribution a{color:#0b83c9}
+#balticGeoMap .leaflet-zoom-animated{will-change:transform}
+#balticGeoMap .leaflet-container{background:#e8f3f8}
 </style>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoKZ1q+g0k5G5Q=" crossorigin=""/>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
