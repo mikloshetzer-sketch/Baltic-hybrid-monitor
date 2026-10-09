@@ -2,7 +2,7 @@ import sys
 import unittest
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
-from validate_event_lifecycle import classify, audit_event
+from validate_event_lifecycle import classify, index_eligibility, audit_event
 
 class LifecycleTests(unittest.TestCase):
     def make(self, title):
@@ -56,3 +56,26 @@ class AuditTests(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
+class GeographicIndexTests(unittest.TestCase):
+    def event(self, title, scope='external_context', countries=None):
+        return {'title': title, 'geographic_scope': scope, 'countries': countries or []}
+
+    def test_moldova_external_excluded(self):
+        e = self.event('Drone debris hits Moldova after airspace violation')
+        self.assertFalse(index_eligibility(e)['eligible'])
+
+    def test_baltic_link_retained(self):
+        e = self.event('Poland responds to incident in Moldova')
+        self.assertTrue(index_eligibility(e)['eligible'])
+
+    def test_core_country_retained(self):
+        e = self.event('Romanian reports of attack', countries=['Latvia'])
+        self.assertTrue(index_eligibility(e)['eligible'])
+
+    def test_no_place_not_excluded(self):
+        e = self.event('European security concerns')
+        self.assertTrue(index_eligibility(e)['eligible'])
+
+    def test_direct_scope_not_excluded(self):
+        e = self.event('Drone incident in Moldova', scope='direct')
+        self.assertTrue(index_eligibility(e)['eligible'])
