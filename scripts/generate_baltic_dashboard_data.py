@@ -2393,9 +2393,19 @@ def build_history(
 # ---------------------------------------------------------------------
 
 def build_manual_review_queue(scored: Dict[str, Any]) -> Dict[str, Any]:
-    """Surface uncertain classifications without altering scored events."""
+    """Prioritize review work; preserve event scores and eligibility unchanged."""
     events = get_scored_events(scored)
+    window = scored.get("current_threat_window") or {}
+    reference_text = str(window.get("reference_date") or "")[:10]
+    try:
+        reference_date = datetime.fromisoformat(reference_text).date()
+    except ValueError:
+        reference_date = datetime.now(timezone.utc).date()
+
+    window_days = max(1, int(window.get("window_days") or 14))
+    start_date = reference_date - timedelta(days=window_days - 1)
     items = []
+    priority_counts = {"P1": 0, "P2": 0, "P3": 0}
 
     for event in events:
         if not isinstance(event, dict):
@@ -2405,7 +2415,6 @@ def build_manual_review_queue(scored: Dict[str, Any]) -> Dict[str, Any]:
         geography = event.get("geographic_review") or {}
         date_review = event.get("event_date_review") or {}
         eligibility = event.get("index_eligibility") or {}
-
         lifecycle = lifecycle if isinstance(lifecycle, dict) else {}
         geography = geography if isinstance(geography, dict) else {}
         date_review = date_review if isinstance(date_review, dict) else {}
@@ -2425,10 +2434,35 @@ def build_manual_review_queue(scored: Dict[str, Any]) -> Dict[str, Any]:
             reasons.append("event_date_verification")
         if eligibility.get("eligible") is False:
             reasons.append("index_exclusion_audit")
-
         if not reasons:
             continue
 
+        published_text = str(event.get("published_at") or "")
+        try:
+            published_date = datetime.fromisoformat(
+                published_text.replace("Z", "+00:00")
+            ).date()
+        except ValueError:
+            published_date = None
+
+        is_current = (
+            published_date is not None
+            and start_date <= published_date <= reference_date
+        )
+        eligible = eligibility.get("eligible") is not False
+        score = event.get("hybrid_threat_score") or 0
+
+        if not is_current:
+            priority = "P3"
+            priority_reason = "historical_or_undated_review"
+        elif eligible:
+            priority = "P1"
+            priority_reason = "current_index_eligible_uncertain_event"
+        else:
+            priority = "P2"
+            priority_reason = "current_exclusion_audit"
+
+        priority_counts[priority] += 1
         items.append({
             "event_id": event.get("event_id", event.get("id")),
             "title": event.get("title"),
@@ -2436,19 +2470,37 @@ def build_manual_review_queue(scored: Dict[str, Any]) -> Dict[str, Any]:
             "published_at": event.get("published_at"),
             "primary_country": event.get("primary_country"),
             "event_subtype": event.get("event_subtype"),
-            "hybrid_threat_score": event.get("hybrid_threat_score"),
+            "hybrid_threat_score": score,
             "reasons": reasons,
             "review_status": "pending",
-            "index_eligible": eligibility.get("eligible", True),
+            "index_eligible": eligible,
+            "priority": priority,
+            "priority_reason": priority_reason,
+            "time_group": "current_14d" if is_current else "historical",
         })
 
-    items.sort(key=lambda item: str(item.get("published_at") or ""), reverse=True)
+    items.sort(key=lambda item: (
+        {"P1": 0, "P2": 1, "P3": 2}[item["priority"]],
+        -(float(item.get("hybrid_threat_score") or 0)),
+        str(item.get("published_at") or ""),
+    ))
+    current_items = [item for item in items if item["time_group"] == "current_14d"]
+    historical_items = [item for item in items if item["time_group"] == "historical"]
     return {
         "pending_count": len(items),
+        "priority_counts": priority_counts,
+        "current_pending_count": len(current_items),
+        "historical_pending_count": len(historical_items),
+        "current_items": current_items,
+        "historical_items": historical_items,
         "items": items,
+        "reference_date": reference_date.isoformat(),
+        "window_start_date": start_date.isoformat(),
+        "window_days": window_days,
         "note": (
-            "Advisory review queue; events and index eligibility are not "
-            "changed by this report. Pending is not a persisted decision."
+            "Advisory review queue. P1=current eligible uncertainty, "
+            "P2=current exclusion audit, P3=historical or undated. "
+            "No event or index eligibility is changed; pending is not persisted."
         ),
     }
 
