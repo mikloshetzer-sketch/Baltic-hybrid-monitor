@@ -1,253 +1,135 @@
-import json
-import shutil
+#!/usr/bin/env python3
+"""Baltic Hybrid Intelligence Brief: source-bound, Hungarian, daily PDF.
+Only dashboard JSON is used; no invented facts or external LLM dependency.
+"""
+import json, shutil, re, html
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
-
+from urllib.parse import urlparse
 from reportlab.lib import colors
+from reportlab.lib.enums import TA_LEFT
 from reportlab.lib.pagesizes import A4
-from reportlab.lib.styles import ParagraphStyle, getSampleStyleSheet
+from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.units import cm
-from reportlab.platypus import (
-    SimpleDocTemplate,
-    Paragraph,
-    Spacer,
-    Table,
-    TableStyle,
-    PageBreak,
-)
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, HRFlowable
 
+ROOT=Path(__file__).resolve().parents[1] if Path(__file__).resolve().parent.name == 'scripts' else Path(__file__).resolve().parent
+DATA_PATH=ROOT/'docs/data/baltic_dashboard.json'
+REPORT_DIR=ROOT/'docs/reports'
+ARCHIVE_DIR=REPORT_DIR/'archive'
+LATEST_REPORT=REPORT_DIR/'latest-baltic-hybrid-threat-report.pdf'
+NAVY=colors.HexColor('#083a54'); BLUE=colors.HexColor('#0b83c9'); TEXT=colors.HexColor('#28485d'); MUTED=colors.HexColor('#607b8d'); LIGHT=colors.HexColor('#edf5f9')
 
-ROOT = Path(__file__).resolve().parents[1]
-DATA_PATH = ROOT / "docs" / "data" / "baltic_dashboard.json"
-REPORT_DIR = ROOT / "docs" / "reports"
-ARCHIVE_DIR = REPORT_DIR / "archive"
-LATEST_REPORT = REPORT_DIR / "latest-baltic-hybrid-threat-report.pdf"
+def fonts():
+    candidates=[('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf','/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'),('/usr/share/fonts/truetype/liberation2/LiberationSans-Regular.ttf','/usr/share/fonts/truetype/liberation2/LiberationSans-Bold.ttf')]
+    for normal,bold in candidates:
+        if Path(normal).exists() and Path(bold).exists():
+            pdfmetrics.registerFont(TTFont('BriefRegular',normal));pdfmetrics.registerFont(TTFont('BriefBold',bold));pdfmetrics.registerFontFamily('BriefRegular',normal='BriefRegular',bold='BriefBold');return 'BriefRegular','BriefBold'
+    raise RuntimeError('Unicode TTF fonts missing; cannot reliably render Hungarian accents.')
 
+def esc(x):return html.escape(str(x if x is not None else '—'))
+def num(x):
+    try:return int(x or 0)
+    except (ValueError,TypeError):return 0
 
-def load_dashboard_data():
-    if not DATA_PATH.exists():
-        raise FileNotFoundError(f"Missing dashboard data: {DATA_PATH}")
+def fmt(x):
+    try:return f'{float(x):.2f}'.replace('.',',')
+    except (ValueError,TypeError):return '—'
 
-    return json.loads(DATA_PATH.read_text(encoding="utf-8"))
+def short_date(x):return str(x or '')[:10] or 'ismeretlen dátum'
 
+def country(x):return {'Estonia':'Észtország','Latvia':'Lettország','Lithuania':'Litvánia','Poland':'Lengyelország','Regional':'regionális / több országot érintő'}.get(x,str(x or 'nem meghatározott'))
 
-def safe(value, default="—"):
-    if value is None:
-        return default
-    return value
+def category(x):return {'sabotage':'szabotázs','cyber':'kiberműveletek','drone_incident':'drónincidensek','disinformation':'dezinformáció','espionage':'hírszerzés / kémkedés','migration_pressure':'migrációs nyomás','gnss_interference':'GNSS-zavarás'}.get(str(x),str(x).replace('_',' '))
 
+def link_url(url):
+    p=urlparse(str(url or ''))
+    return str(url) if p.scheme in ('https','http') and p.netloc else None
 
-def fmt(value, digits=0):
-    try:
-        number = float(value)
-    except (TypeError, ValueError):
-        return "—"
+def unique_events(data):
+    found={}
+    for event in list(data.get('top_events') or [])+list(data.get('recent_events') or []):
+        if not isinstance(event,dict):continue
+        key=event.get('event_id') or event.get('url') or event.get('title')
+        if key and key not in found:found[key]=event
+    return list(found.values())
 
-    if digits == 0:
-        return f"{int(round(number)):,}".replace(",", " ")
+def paragraph(text,style):return Paragraph(text,style)
 
-    return f"{number:,.{digits}f}".replace(",", " ")
+def footer(canvas,doc):
+    canvas.saveState();w,h=A4;canvas.setStrokeColor(colors.HexColor('#d8e5ed'));canvas.line(1.65*cm,1.5*cm,w-1.65*cm,1.5*cm)
+    canvas.setFont('BriefRegular',8);canvas.setFillColor(MUTED);canvas.drawString(1.65*cm,1.17*cm,'TÖRÉSVONALAK · Baltic Hybrid Intelligence Platform');canvas.drawRightString(w-1.65*cm,1.17*cm,f'{doc.page}. oldal');canvas.restoreState()
 
-
-def paragraph(text, style):
-    return Paragraph(str(text).replace("&", "&amp;"), style)
-
-
-def build_table(rows, col_widths=None):
-    table = Table(rows, colWidths=col_widths, repeatRows=1)
-    table.setStyle(
-        TableStyle(
-            [
-                ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#0f172a")),
-                ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
-                ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
-                ("FONTSIZE", (0, 0), (-1, -1), 8),
-                ("BACKGROUND", (0, 1), (-1, -1), colors.HexColor("#f8fafc")),
-                ("GRID", (0, 0), (-1, -1), 0.25, colors.HexColor("#cbd5e1")),
-                ("VALIGN", (0, 0), (-1, -1), "TOP"),
-                ("LEFTPADDING", (0, 0), (-1, -1), 5),
-                ("RIGHTPADDING", (0, 0), (-1, -1), 5),
-                ("TOPPADDING", (0, 0), (-1, -1), 5),
-                ("BOTTOMPADDING", (0, 0), (-1, -1), 5),
-            ]
-        )
-    )
-    return table
-
+def build_report(data,output):
+    regular,bold=fonts()
+    summary=data.get('summary') or {};events=unique_events(data);countries=data.get('country_cards') or [];drivers=data.get('category_drivers') or []
+    generated=data.get('latest_update') or data.get('generated_at') or datetime.now(timezone.utc).isoformat();date=short_date(generated)
+    title=ParagraphStyle('title',fontName=bold,fontSize=20,leading=27,textColor=NAVY,spaceAfter=11)
+    subtitle=ParagraphStyle('sub',fontName=regular,fontSize=10,leading=15,textColor=MUTED,spaceAfter=15)
+    h2=ParagraphStyle('h2',fontName=bold,fontSize=12,leading=17,textColor=BLUE,spaceBefore=17,spaceAfter=8,keepWithNext=True)
+    body=ParagraphStyle('body',fontName=regular,fontSize=9.5,leading=15.3,textColor=TEXT,spaceAfter=9,alignment=TA_LEFT)
+    small=ParagraphStyle('small',parent=body,fontSize=8,leading=12,textColor=MUTED,spaceAfter=6)
+    eventstyle=ParagraphStyle('event',parent=body,fontSize=9,leading=14,spaceAfter=5)
+    story=[]
+    def add(text,style=body):story.append(paragraph(text,style))
+    add('BALTIC HYBRID INTELLIGENCE BRIEF',title)
+    add(f'Napi regionális biztonságpolitikai helyzetértékelés · {esc(date)} · Észtország, Lettország, Litvánia és Lengyelország',subtitle)
+    score=fmt(summary.get('threat_index'));level=esc(summary.get('threat_level','—')).upper();n=num(summary.get('event_count'));inc=num(summary.get('incident_count'));ind=num(summary.get('indicator_count'));ass=num(summary.get('assessment_count'))
+    cards=[('THREAT INDEX',score),('BESOROLÁS',level),('ESEMÉNYEK',str(n)),('INCIDENSEK',str(inc)),('INDIKÁTOROK',str(ind))]
+    table=Table([[Paragraph(f'<font color="#607b8d">{a}</font><br/><font size="13" color="#083a54"><b>{b}</b></font>',small) for a,b in cards]],colWidths=[3.45*cm]*5)
+    table.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,-1),LIGHT),('BOX',(0,0),(-1,-1),.6,colors.HexColor('#cbdde8')),('INNERGRID',(0,0),(-1,-1),.4,colors.white),('VALIGN',(0,0),(-1,-1),'MIDDLE'),('TOPPADDING',(0,0),(-1,-1),10),('BOTTOMPADDING',(0,0),(-1,-1),8)]));story.append(table)
+    story.append(Spacer(1,10))
+    add('Vezetői összefoglaló',h2)
+    main=drivers[0] if drivers else None
+    dominant=f"A feldolgozott kategóriák közül a {category(main.get('category'))} szerepel a leggyakrabban ({num(main.get('event_count'))} esemény)." if main else 'A kategóriák rangsora a rendelkezésre álló adatokból nem állapítható meg.'
+    add(f'A Baltic Hybrid Monitor {esc(date)}-i adatállapotában a regionális Threat Index <b>{score}</b>, a modell besorolása <b>{level}</b>. A 14 napos gördülő helyzetképben <b>{n} esemény</b> szerepel, köztük <b>{inc} incidens</b>, <b>{ind} korai figyelmeztető indikátor</b> és <b>{ass} háttérértékelés</b>. {esc(dominant)} A mutatók nem azt jelentik, hogy ennyi esemény történt az adott naptári napon: a jelentés a legfrissebb rendelkezésre álló, gördülő adatállomány értelmezése.')
+    add('A fenyegetési index önmagában nem azonos a katonai eszkaláció valószínűségével. A magasabb pontszám több vagy erősebb jelzést jelent a monitor módszertana szerint, de nem bizonyítja az események közötti koordinációt, sem az elkövető kilétét. Az alacsony bizonyosságú és ellenőrzésre váró tételek értékelését ezért külön kezeljük.')
+    add('A helyzet értelmezése',h2)
+    if drivers:
+        ds=drivers[:3];bits=[f'{category(x.get("category"))}: {num(x.get("event_count"))} esemény' for x in ds]
+        add('A megfigyelt fenyegetési kép fő témái: <b>'+esc('; '.join(bits))+'</b>. Ez a megoszlás a monitor kategorizálását tükrözi, és nem feltétlenül az incidensek tényleges súlyossági sorrendje. Egyetlen hír több fenyegetési kategóriához is tartozhat.')
+    else:add('Nem áll rendelkezésre elegendő kategóriaadat a fenyegetési összetétel megállapításához.')
+    if inc==0:add('A jelenlegi mintában nincs incidensként besorolt esemény. Ez nem bizonyítja az incidensek teljes hiányát a térségben.')
+    else:add(f'A rendszer {inc} incidensnek minősített tételt különít el. Az incidens-besorolás nem azonos a hatósági megerősítéssel; az egyes események forrását és bizonyossági szintjét külön szükséges vizsgálni.')
+    add('Országonkénti helyzetkép',h2)
+    for c in countries:
+        code=c.get('country');cnt=num(c.get('event_count'));cats=c.get('top_categories') or []
+        catphrase=', '.join(category(x.get('name')) for x in cats[:2]) if cats else 'nincs kiemelkedő kategória a rendelkezésre álló adatokban'
+        intro='A regionális besorolás nem egyetlen országban történt eseményt jelent.' if code=='Regional' else 'A számszerű országos eloszlás nem pontos eseménykoordináták alapján készült.'
+        add(f'<b>{esc(country(code))}.</b> A monitor {cnt} ide sorolt eseményt tart nyilván, ebből {num(c.get("incident_count"))} incidens és {num(c.get("indicator_count"))} indikátor. Jellemző témák: {esc(catphrase)}. Legmagasabb eseménypontszám: {num(c.get("highest_score"))}. {esc(intro)}')
+    add('Kiemelt események – forrással és bizonyossággal',h2)
+    top=sorted(events,key=lambda x:num(x.get('hybrid_threat_score')),reverse=True)[:6]
+    if not top:add('Nem érhető el eseménykivonat.');
+    for i,e in enumerate(top,1):
+        title_text=esc(e.get('title','Cím nélküli esemény'))
+        link=link_url(e.get('url'))
+        title_markup=f'<link href="{esc(link)}" color="#0b83c9">{title_text}</link>' if link else title_text
+        add(f'<b>[{i}] {title_markup}</b><br/>{esc(country(e.get("primary_country")))} · pontszám: {num(e.get("hybrid_threat_score"))} · besorolás: {esc(e.get("event_subtype","—"))} · bizonyosság: {esc(e.get("confidence","nem jelölt"))} ({num(e.get("confidence_score"))}/100) · publikálás: {esc(short_date(e.get("published_at")))}.',eventstyle)
+    add('Mit figyeljünk a következő időszakban?',h2)
+    add('Az új, megerősített incidensek számát; a szabotázs-, kiber- és drónjelzések területi koncentrációját; az azonos eseményről érkező független források számát; valamint azt, hogy a korai indikátorokból tényleges operatív esemény lesz-e. Ezek figyelési szempontok, nem előrejelzett történések.')
+    review=data.get('manual_review_queue') or {};p=review.get('priority_counts') or {}
+    add('Adatminőség és elemzői fenntartások',h2)
+    add(f'A kézi ellenőrzésre váró tételek száma: <b>{num(review.get("pending_count"))}</b>; ebből aktuális: <b>{num(review.get("current_pending_count"))}</b>, történeti: <b>{num(review.get("historical_pending_count"))}</b>. Prioritások: P1 {num(p.get("P1"))}, P2 {num(p.get("P2"))}, P3 {num(p.get("P3"))}. Ezek a tételek nem tekinthetők automatikusan bizonyított eseményeknek. A jelentés a JSON-ban szereplő publikálási dátumot ismerheti, amely nem feltétlenül egyezik az esemény tényleges időpontjával.')
+    add('Módszertan és források',h2)
+    add('Forrás: Baltic Hybrid Intelligence Platform, <i>baltic_dashboard.json</i> aktuális automatikus adatállománya. A kiemelt eseményekhez kattintható forráshivatkozások tartoznak. A jelentés szabályalapú, ellenőrizhető szöveges összefoglaló; nem állít önállóan igazolt tényként olyan körülményt, amelyet a monitor csak hírcím vagy pontszám alapján ismer.')
+    add(f'Adatfrissítés: {esc(generated)}. A 14 napos fenyegetési ablak és az egynapos eseményértékelés nem keverendő össze. Az index változásáról nem teszünk állítást korábbi, összehasonlítható napi érték nélkül.',small)
+    output.parent.mkdir(parents=True,exist_ok=True)
+    doc=SimpleDocTemplate(str(output),pagesize=A4,leftMargin=1.65*cm,rightMargin=1.65*cm,topMargin=1.7*cm,bottomMargin=1.9*cm,title=f'Baltic Hybrid Intelligence Brief - {date}',author='Törésvonalak Monitor Network')
+    doc.build(story,onFirstPage=footer,onLaterPages=footer)
+    return date
 
 def make_report():
-    data = load_dashboard_data()
-    summary = data.get("summary", {})
-    generated_at = data.get("latest_update") or data.get("generated_at") or datetime.now(timezone.utc).isoformat()
-    report_date = generated_at[:10]
+    if not DATA_PATH.exists():raise FileNotFoundError(f'Missing dashboard data: {DATA_PATH}')
+    data=json.loads(DATA_PATH.read_text(encoding='utf-8'))
+    if not isinstance(data.get('summary'),dict):raise ValueError('Missing summary in dashboard JSON')
+    date=short_date(data.get('latest_update') or data.get('generated_at'))
+    archive=ARCHIVE_DIR/f'baltic-hybrid-threat-report-{date}.pdf'
+    build_report(data,archive)
+    LATEST_REPORT.parent.mkdir(parents=True,exist_ok=True)
+    shutil.copyfile(archive,LATEST_REPORT)
+    print(f'Archived: {archive}\nLatest: {LATEST_REPORT}')
 
-    REPORT_DIR.mkdir(parents=True, exist_ok=True)
-    ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
-
-    archive_report = ARCHIVE_DIR / f"baltic-hybrid-threat-report-{report_date}.pdf"
-
-    doc = SimpleDocTemplate(
-        str(archive_report),
-        pagesize=A4,
-        rightMargin=1.5 * cm,
-        leftMargin=1.5 * cm,
-        topMargin=1.4 * cm,
-        bottomMargin=1.4 * cm,
-        title=f"Baltic Hybrid Threat Daily Report - {report_date}",
-        author="Törésvonalak Monitor Network",
-    )
-
-    styles = getSampleStyleSheet()
-    title_style = ParagraphStyle(
-        "ReportTitle",
-        parent=styles["Title"],
-        fontName="Helvetica-Bold",
-        fontSize=22,
-        leading=26,
-        textColor=colors.HexColor("#0f172a"),
-        spaceAfter=12,
-    )
-    h2 = ParagraphStyle(
-        "H2",
-        parent=styles["Heading2"],
-        fontName="Helvetica-Bold",
-        fontSize=14,
-        leading=18,
-        textColor=colors.HexColor("#0284c7"),
-        spaceBefore=12,
-        spaceAfter=8,
-    )
-    body = ParagraphStyle(
-        "Body",
-        parent=styles["BodyText"],
-        fontName="Helvetica",
-        fontSize=9,
-        leading=13,
-        textColor=colors.HexColor("#334155"),
-        spaceAfter=7,
-    )
-
-    story = []
-
-    story.append(paragraph("Baltic Hybrid Threat Daily Report", title_style))
-    story.append(paragraph(f"Report date: {report_date}", body))
-    story.append(paragraph(f"Region: {data.get('region', 'Baltic states and Poland')}", body))
-    story.append(paragraph("This report is generated automatically from open-source monitoring data.", body))
-
-    story.append(paragraph("Executive summary", h2))
-    story.append(
-        build_table(
-            [
-                ["Metric", "Value"],
-                ["Threat Index", fmt(summary.get("threat_index"), 2)],
-                ["Threat Level", str(summary.get("threat_level", "—")).upper()],
-                ["Events", fmt(summary.get("event_count"))],
-                ["Incidents", fmt(summary.get("incident_count"))],
-                ["Activity", fmt(summary.get("activity_count"))],
-                ["Indicators", fmt(summary.get("indicator_count"))],
-                ["Assessments", fmt(summary.get("assessment_count"))],
-                ["Highest event score", fmt(summary.get("highest_score"))],
-            ],
-            [7 * cm, 8 * cm],
-        )
-    )
-
-    story.append(paragraph("Subtype breakdown", h2))
-    subtype_rows = [["Subtype", "Events", "Score total", "Average score"]]
-    for item in data.get("subtype_cards", []):
-        subtype_rows.append(
-            [
-                safe(item.get("label")),
-                fmt(item.get("event_count")),
-                fmt(item.get("score_total")),
-                fmt(item.get("average_score"), 2),
-            ]
-        )
-    story.append(build_table(subtype_rows, [4.5 * cm, 3 * cm, 3.5 * cm, 3.5 * cm]))
-
-    story.append(paragraph("Country overview", h2))
-    country_rows = [["Country", "Events", "Incidents", "Average score", "Highest", "Level"]]
-    for country in data.get("country_cards", []):
-        country_rows.append(
-            [
-                country.get("country", "—"),
-                fmt(country.get("event_count")),
-                fmt(country.get("incident_count")),
-                fmt(country.get("average_score"), 2),
-                fmt(country.get("highest_score")),
-                str(country.get("level", "—")).upper(),
-            ]
-        )
-    story.append(build_table(country_rows, [3.2 * cm, 2.3 * cm, 2.3 * cm, 3 * cm, 2.3 * cm, 2.5 * cm]))
-
-    story.append(PageBreak())
-    story.append(paragraph("Top threat drivers", h2))
-    driver_rows = [["Category", "Events", "Score total", "Average score", "Highest"]]
-    for item in data.get("category_drivers", [])[:10]:
-        driver_rows.append(
-            [
-                str(item.get("category", "—")).replace("_", " ").title(),
-                fmt(item.get("event_count")),
-                fmt(item.get("score_total")),
-                fmt(item.get("average_score"), 2),
-                fmt(item.get("highest_score")),
-            ]
-        )
-    story.append(build_table(driver_rows, [5 * cm, 2.5 * cm, 3 * cm, 3 * cm, 2.5 * cm]))
-
-    story.append(paragraph("Actor exposure", h2))
-    actor_rows = [["Actor", "Events", "Score total", "Average score", "Highest"]]
-    for item in data.get("actor_drivers", [])[:10]:
-        actor_rows.append(
-            [
-                item.get("actor", "—"),
-                fmt(item.get("event_count")),
-                fmt(item.get("score_total")),
-                fmt(item.get("average_score"), 2),
-                fmt(item.get("highest_score")),
-            ]
-        )
-    story.append(build_table(actor_rows, [5 * cm, 2.5 * cm, 3 * cm, 3 * cm, 2.5 * cm]))
-
-    story.append(PageBreak())
-    story.append(paragraph("Critical events", h2))
-    event_rows = [["Score", "Event", "Country", "Subtype", "Sources", "Confidence"]]
-    for event in data.get("top_events", [])[:12]:
-        event_rows.append(
-            [
-                fmt(event.get("hybrid_threat_score")),
-                paragraph(event.get("title", "Untitled event"), body),
-                event.get("primary_country", "—"),
-                str(event.get("event_subtype", "—")).title(),
-                fmt(event.get("source_count")),
-                fmt(event.get("confidence_score")),
-            ]
-        )
-    story.append(build_table(event_rows, [1.5 * cm, 8 * cm, 2.2 * cm, 2.2 * cm, 1.7 * cm, 2 * cm]))
-
-    story.append(PageBreak())
-    story.append(paragraph("Methodology", h2))
-    methodology = data.get("methodology", {})
-    story.append(paragraph(methodology.get("model", "Event-based rule-driven OSINT threat intelligence model."), body))
-
-    story.append(paragraph("Pipeline", h2))
-    for step in methodology.get("pipeline", []):
-        story.append(paragraph(f"- {step}", body))
-
-    story.append(paragraph("Event ontology", h2))
-    for key, value in methodology.get("event_subtypes", {}).items():
-        story.append(paragraph(f"<b>{key.title()}</b>: {value}", body))
-
-    story.append(paragraph("Warning", h2))
-    story.append(paragraph(methodology.get("warning", "This dashboard is an OSINT monitoring aid and not an official threat assessment."), body))
-
-    doc.build(story)
-
-    shutil.copyfile(archive_report, LATEST_REPORT)
-
-    print(f"Saved archived report: {archive_report}")
-    print(f"Saved latest report: {LATEST_REPORT}")
-
-
-if __name__ == "__main__":
-    make_report()
+if __name__=='__main__':make_report()
