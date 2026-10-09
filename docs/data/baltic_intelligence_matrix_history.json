@@ -2,23 +2,23 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Intelligence Matrix History",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-08T12:11:46.395615+00:00",
+  "generated_at": "2026-10-09T11:53:58.108409+00:00",
   "history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "record_count": 60,
+  "record_count": 61,
   "first_snapshot_date": "2026-08-01",
-  "last_snapshot_date": "2026-10-08",
+  "last_snapshot_date": "2026-10-09",
   "last_update": {
     "mode": "daily_snapshot",
     "action": "inserted",
-    "updated_at": "2026-10-08T12:11:46.395615+00:00",
+    "updated_at": "2026-10-09T11:53:58.108409+00:00",
     "processed_records": 1,
     "inserted_count": 1,
     "replaced_count": 0,
     "inserted_dates": [
-      "2026-10-08"
+      "2026-10-09"
     ],
     "replaced_dates": [],
-    "source_snapshot_generated_at": "2026-10-08T12:11:46.324394+00:00",
+    "source_snapshot_generated_at": "2026-10-09T11:53:58.050343+00:00",
     "source_snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
     "source_score_engine_version": "threat_score_v3_2_current_historical_split"
   },
@@ -12392,6 +12392,266 @@
           "hybrid_threat_level": "elevated",
           "source_names": [
             "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 1
+        }
+      ]
+    },
+    {
+      "project": "baltic-hybrid-monitor",
+      "title": "Baltic Hybrid Threat Daily Snapshot",
+      "region": "Baltic states and Poland",
+      "generated_at": "2026-10-09T11:53:58.050343+00:00",
+      "snapshot_date": "2026-10-09",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "source_generated_at": "2026-10-09T11:53:57.728600+00:00",
+      "method": {
+        "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
+        "time_basis": "UTC calendar day",
+        "rolling_window_used": false,
+        "rolling_window_days": 0,
+        "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used.",
+        "assessment_handling": "Assessment events remain visible in counts and event lists but do not contribute to operational or early-warning indices.",
+        "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
+      },
+      "overall_summary": {
+        "event_count": 2,
+        "incident_count": 0,
+        "activity_count": 0,
+        "indicator_count": 2,
+        "assessment_count": 0,
+        "score_total": 13,
+        "average_score": 6.5,
+        "highest_score": 8,
+        "operational_index": 0.0,
+        "early_warning_index": 6.5,
+        "threat_index": 6.5,
+        "overall_level": "low"
+      },
+      "country_summary": {
+        "Estonia": {
+          "country": "Estonia",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 8,
+          "average_score": 8.0,
+          "highest_score": 8,
+          "operational_index": 0.0,
+          "early_warning_index": 8.0,
+          "threat_index": 8.0,
+          "overall_level": "low",
+          "categories": {
+            "cyber": 1
+          },
+          "actors": {}
+        },
+        "Regional": {
+          "country": "Regional",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 5,
+          "average_score": 5.0,
+          "highest_score": 5,
+          "operational_index": 0.0,
+          "early_warning_index": 5.0,
+          "threat_index": 5.0,
+          "overall_level": "low",
+          "categories": {
+            "migration_pressure": 1
+          },
+          "actors": {
+            "Belarus": 1
+          }
+        }
+      },
+      "category_summary": {
+        "cyber": {
+          "event_count": 1,
+          "score_total": 8,
+          "average_score": 8.0,
+          "highest_score": 8
+        },
+        "migration_pressure": {
+          "event_count": 1,
+          "score_total": 5,
+          "average_score": 5.0,
+          "highest_score": 5
+        }
+      },
+      "actor_summary": {
+        "Belarus": {
+          "event_count": 1,
+          "score_total": 5,
+          "average_score": 5.0,
+          "highest_score": 5
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 2,
+          "score_total": 13,
+          "average_score": 6.5,
+          "highest_score": 8
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 1,
+          "score_total": 8,
+          "average_score": 8.0,
+          "highest_score": 8
+        },
+        "external_context": {
+          "event_count": 1,
+          "score_total": 5,
+          "average_score": 5.0,
+          "highest_score": 5
+        }
+      },
+      "hotspot": {
+        "location": "Estonia",
+        "score": 8,
+        "event_count": 1
+      },
+      "key_driver": "cyber",
+      "dominant_actor": "Belarus",
+      "top_events": [
+        {
+          "event_id": "7d49cab00f305158",
+          "title": "Possible cyberattack halts Estonian Artists' Association fundraiser auction",
+          "url": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction",
+          "published_at": "2026-10-09T09:59:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "cyber"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 8,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "11005d92ef15488f",
+          "title": "Migration pressure could rise sharply in coming weeks, PPA chief says",
+          "url": "https://news.err.ee/1610161669/migration-pressure-could-rise-sharply-in-coming-weeks-ppa-chief-says",
+          "published_at": "2026-10-09T04:43:00+00:00",
+          "primary_country": "Regional",
+          "countries": [],
+          "categories": [
+            "migration_pressure"
+          ],
+          "actors": [
+            "Belarus"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "external_context",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 5,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "7d49cab00f305158",
+          "title": "Possible cyberattack halts Estonian Artists' Association fundraiser auction",
+          "url": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction",
+          "published_at": "2026-10-09T09:59:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "cyber"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 8,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "11005d92ef15488f",
+          "title": "Migration pressure could rise sharply in coming weeks, PPA chief says",
+          "url": "https://news.err.ee/1610161669/migration-pressure-could-rise-sharply-in-coming-weeks-ppa-chief-says",
+          "published_at": "2026-10-09T04:43:00+00:00",
+          "primary_country": "Regional",
+          "countries": [],
+          "categories": [
+            "migration_pressure"
+          ],
+          "actors": [
+            "Belarus"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "external_context",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 5,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
           ],
           "related_item_count": 1
         }
