@@ -8,7 +8,7 @@ permissions:
 jobs:
   fetch-baltic-hybrid-news:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 35
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -51,7 +51,7 @@ jobs:
         continue-on-error: true
         env:
           EVIDENCE_MAX_EVENTS: "8"
-          EVIDENCE_WEB_DISCOVERY: "0"
+          EVIDENCE_WEB_DISCOVERY: "1"
         run: python scripts/generate_baltic_source_evidence.py
       - name: Generate AI intelligence draft
         continue-on-error: true
