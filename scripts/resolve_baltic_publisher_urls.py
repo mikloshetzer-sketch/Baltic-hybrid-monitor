@@ -5,6 +5,7 @@ Does not modify source data, workflow, event IDs or dashboard. Only writes a
 separate diagnostics JSON. Candidate URLs are NOT treated as verified evidence.
 """
 import argparse
+import collections
 import base64
 import xml.etree.ElementTree as ET
 import html
@@ -162,50 +163,78 @@ def normalized_title(value):
 
 
 def search_article_candidates(title, summary='', max_candidates=8):
-    """Discover publisher pages from search-result links, not Google News redirect IDs.
-
-    A search result is a lead only. Never claim it is verified article evidence.
-    """
+    """Search with bounded diagnostics explaining why candidates are rejected."""
     headline = re.split(r'\s+[-|–—]\s+', str(title or ''))[0].strip()
+    report = {'queries': [], 'total_links_seen': 0, 'rejection_totals': {}}
     if not headline:
-        return [], ['missing_title']
-    terms = headline[:135]
-    queries = ['"' + terms + '"', terms]
+        return [], ['missing_title'], report
+    queries = ['"' + headline[:135] + '"', headline[:135]]
     candidates, errors, seen = [], [], set()
+    rejection_totals = collections.Counter()
     for query in queries:
         if len(candidates) >= max_candidates:
             break
         search_url = 'https://www.bing.com/search?' + urllib.parse.urlencode({'q': query, 'setlang': 'en-US'})
+        stats = {'query': query, 'http_final_host': None, 'response_chars': 0,
+                 'html_title': None, 'anchor_count': 0, 'rejections': {},
+                 'candidate_count': 0, 'sample_links': [], 'error': None}
+        rejects = collections.Counter()
         try:
-            _, page = request_page(search_url)
+            final, page = request_page(search_url)
+            stats['http_final_host'] = urllib.parse.urlsplit(final).hostname
+            stats['response_chars'] = len(page)
+            match = re.search(r'<title[^>]*>(.*?)</title>', page, re.I | re.S)
+            if match:
+                stats['html_title'] = html.unescape(re.sub(r'<[^>]*>', '', match.group(1)))[:120]
             parser = Links()
             parser.feed(page)
-            for _, raw in parser.urls:
+            stats['anchor_count'] = len(parser.urls)
+            for method, raw in parser.urls:
                 link = html.unescape(raw)
                 parsed = urllib.parse.urlsplit(link)
-                if parsed.hostname and parsed.hostname.endswith('bing.com'):
+                if parsed.hostname and parsed.hostname.lower().endswith('.bing.com'):
                     qs = urllib.parse.parse_qs(parsed.query)
                     if 'url' in qs:
                         link = qs['url'][0]
                 parsed = urllib.parse.urlsplit(link)
                 host = (parsed.hostname or '').lower()
-                if parsed.scheme != 'https' or not host or aggregator(link) or host.endswith(('gstatic.com', 'microsoft.com', 'msn.com')):
+                if len(stats['sample_links']) < 5 and host:
+                    stats['sample_links'].append({'host': host, 'path_prefix': parsed.path[:75], 'method': method})
+                if parsed.scheme != 'https' or not host:
+                    rejects['invalid_https'] += 1
                     continue
-                if link in seen or len(link) > 1200:
+                if aggregator(link) or host.endswith(('gstatic.com', 'microsoft.com', 'msn.com')):
+                    rejects['aggregator_or_asset'] += 1
+                    continue
+                if link in seen:
+                    rejects['duplicate'] += 1
+                    continue
+                if len(link) > 1200:
+                    rejects['oversized_url'] += 1
                     continue
                 seen.add(link)
                 overlap = len(normalized_title(title) & title_words(urllib.parse.unquote(parsed.path).replace('-', ' ')))
                 if overlap < 2:
+                    rejects['low_title_path_overlap'] += 1
                     continue
                 if not safe_https(link):
+                    rejects['unsafe_or_dns_failed'] += 1
                     continue
-                candidates.append({'url': link, 'method': 'bing_search_url_path', 'title_path_overlap': overlap, 'verification': 'unverified'})
+                candidates.append({'url': link, 'method': 'bing_search_url_path',
+                                   'title_path_overlap': overlap, 'verification': 'unverified'})
+                stats['candidate_count'] += 1
                 if len(candidates) >= max_candidates:
                     break
         except Exception as exc:
-            errors.append('bing_search: ' + str(exc)[:130])
-    return candidates, errors
-
+            stats['error'] = str(exc)[:150]
+            errors.append('bing_search: ' + stats['error'])
+        stats['rejections'] = dict(rejects)
+        rejection_totals.update(rejects)
+        report['total_links_seen'] += stats['anchor_count']
+        report['queries'].append(stats)
+    report['rejection_totals'] = dict(rejection_totals)
+    report['candidate_count'] = len(candidates)
+    return candidates, errors, report
 
 def verify_article_candidate(candidate, title):
     """Verify title similarity on publisher HTML; never infer from search snippet alone."""
@@ -247,10 +276,11 @@ def resolve(item):
     decoded = decode_legacy_google_url(original)
     if decoded:
         result['candidates'].append({'url': decoded, 'method': 'legacy_google_rss_base64', 'verification': 'unverified'})
-    discovered, errors = search_article_candidates(title, summary)
+    discovered, errors, search_report = search_article_candidates(title, summary)
     existing = {x['url'] for x in result['candidates']}
     result['candidates'].extend(x for x in discovered if x['url'] not in existing)
     result['diagnostics']['search_errors'] = errors
+    result['diagnostics']['search_report'] = search_report
     for candidate in result['candidates'][:8]:
         verified = verify_article_candidate(candidate, title)
         if verified:
@@ -288,7 +318,7 @@ def main():
     output = {'generated_at': datetime.now(timezone.utc).isoformat(),
               'source_input_generated_at': data.get('generated_at'),
               'diagnostic_only': True, 'pipeline_integrated': False,
-              'note': 'Candidate URL is not article-text evidence and is not independent verification.',
+              'note': 'Candidate URL is not article-text evidence and is not independent verification. Diagnostic query samples may contain headline text.',
               'summary': {'processed': len(results), 'statuses': counts}, 'results': results}
     args.output.parent.mkdir(parents=True, exist_ok=True)
     temp = args.output.with_suffix(args.output.suffix + '.tmp')
@@ -300,4 +330,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
