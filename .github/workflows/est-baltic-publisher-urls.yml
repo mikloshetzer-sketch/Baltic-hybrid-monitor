@@ -1,0 +1,23 @@
+name: Test Baltic Publisher URL Resolver
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose-publisher-urls:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Test URL resolver on 10 Google News entries
+        run: python scripts/resolve_baltic_publisher_urls.py --limit 10 --only-google
+      - name: Upload standalone diagnostic JSON
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: baltic-publisher-url-diagnostic
+          path: docs/data/baltic_publisher_urls.json
+          if-no-files-found: warn
