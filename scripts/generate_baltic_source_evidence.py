@@ -21,7 +21,7 @@ CLUSTER = ROOT / 'data/baltic_hybrid_clustered_events.json'
 OUTPUT = ROOT / 'docs/data/baltic_source_evidence.json'
 MAX_EVENTS = max(1, min(10, int(os.getenv('EVIDENCE_MAX_EVENTS', '8'))))
 MAX_ARTICLES = 4
-MAX_DISCOVERED = 3
+MAX_DISCOVERED = 4
 MAX_CHARS = 7000
 MAX_BYTES = 650000
 UA = 'Mozilla/5.0 (compatible; BalticHybridMonitor/2.1; public-research)'
@@ -127,6 +127,34 @@ def article(url):
     except Exception as exc:
         return {'url': url, 'status': 'unavailable', 'text': '', 'error': str(exc)[:180]}
 
+def google_news_discover(title):
+    """Google News RSS may expose publisher URLs in item descriptions.
+    Treat all returned links as unverified candidates only.
+    """
+    clean = re.split(r'\s+[–—-]\s+', unescape(title))[0].strip()[:95]
+    url = 'https://news.google.com/rss/search?' + urllib.parse.urlencode({
+        'q': '"' + clean + '"', 'hl': 'en-US', 'gl': 'US', 'ceid': 'US:en'})
+    try:
+        raw, _ = fetch(url)
+        root = ET.fromstring(raw)
+        found, seen = [], set()
+        for item in root.findall('.//item')[:12]:
+            description = unescape(item.findtext('description') or '')
+            for href in re.findall(r'href=["\'](https://[^"\']+)', description):
+                candidate = unescape(href).replace('&amp;', '&')
+                host = (urllib.parse.urlsplit(candidate).hostname or '').lower()
+                if host in ('news.google.com', 'google.com', 'www.google.com'):
+                    continue
+                if candidate not in seen and safe_url(candidate):
+                    seen.add(candidate)
+                    found.append({'url': candidate, 'title': item.findtext('title') or ''})
+                    if len(found) >= MAX_DISCOVERED:
+                        return found
+        return found
+    except Exception as exc:
+        print('Google RSS discovery unavailable: ' + str(exc)[:110])
+        return []
+
 def discover(title):
     """Discover publisher URL candidates via Bing News RSS, without treating results as verification."""
     clean = re.split(r'\s+[–—-]\s+', unescape(title))[0]
@@ -175,12 +203,15 @@ def main():
         articles = [article(u) for u in urls]
         discovered = []
         if os.getenv('EVIDENCE_WEB_DISCOVERY', '1') == '1':
-            for candidate in discover(title):
-                if candidate['url'] not in urls:
+            candidates = google_news_discover(title) + discover(title)
+            for candidate in candidates:
+                if candidate['url'] not in urls and len(discovered) < MAX_DISCOVERED:
                     record = article(candidate['url'])
                     record['discovery_title'] = candidate['title']
                     discovered.append(record)
         retrieved = sum(a['status'] == 'retrieved' for a in articles + discovered)
+        if retrieved == 0:
+            print(f'Event {eid}: no original publisher text retrieved; evidence remains unverified')
         selected.append({
             'event_id': eid, 'title': title, 'primary_country': item.get('primary_country'),
             'published_at': item.get('published_at'), 'articles': articles,
