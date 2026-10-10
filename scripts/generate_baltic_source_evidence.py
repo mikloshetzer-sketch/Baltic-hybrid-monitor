@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Bounded public-source evidence collection for Baltic Hybrid Monitor."""
+"""Collect cautiously matched publisher article text for Baltic Hybrid Monitor.
+
+Only public HTTPS pages are fetched. A retrieved page is NOT independent verification.
+"""
 import ipaddress
 import json
 import os
@@ -10,6 +13,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
+from difflib import SequenceMatcher
 from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
@@ -21,34 +25,74 @@ CLUSTER = ROOT / 'data/baltic_hybrid_clustered_events.json'
 OUTPUT = ROOT / 'docs/data/baltic_source_evidence.json'
 MAX_EVENTS = max(1, min(10, int(os.getenv('EVIDENCE_MAX_EVENTS', '8'))))
 MAX_ARTICLES = 4
-MAX_DISCOVERED = 4
+MAX_DISCOVERED = 5
 MAX_CHARS = 7000
 MAX_BYTES = 650000
-UA = 'Mozilla/5.0 (compatible; BalticHybridMonitor/2.1; public-research)'
+UA = 'Mozilla/5.0 (compatible; BalticHybridMonitor/2.2; public-research)'
+AGGREGATORS = ('google.com', 'bing.com', 'googleusercontent.com', 'yahoo.com',
+               'duckduckgo.com', 'msn.com', 'feedly.com')
+BLOCK_PHRASES = ('before you continue to google', 'enable javascript to continue',
+                 'sign in to continue reading', 'verify you are human', 'access denied',
+                 'just a moment...', 'checking your browser', 'enable cookies to continue')
+
+
+def hostname(url):
+    return (urllib.parse.urlsplit(url).hostname or '').lower().rstrip('.')
+
+
+def aggregator(url):
+    h = hostname(url)
+    return any(h == d or h.endswith('.' + d) for d in AGGREGATORS)
+
 
 class Extractor(HTMLParser):
     SKIP = {'script', 'style', 'nav', 'footer', 'header', 'form', 'svg', 'noscript', 'aside'}
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.skip_depth = 0
+        self.title_depth = 0
+        self.article_depth = 0
+        self.article_seen = False
         self.parts = []
+        self.article_parts = []
         self.title = []
-        self.in_title = False
+        self.metadata = {}
+        self.links = []
     def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
         if tag in self.SKIP:
             self.skip_depth += 1
         if tag == 'title':
-            self.in_title = True
+            self.title_depth += 1
+        if tag == 'article':
+            self.article_depth += 1
+            self.article_seen = True
+        if tag == 'meta':
+            key = (a.get('property') or a.get('name') or '').lower()
+            if key in ('og:title', 'twitter:title', 'article:published_time', 'description', 'og:description'):
+                self.metadata[key] = a.get('content', '')
+        if tag == 'link' and (a.get('rel') or '').lower() == 'canonical':
+            self.metadata['canonical'] = a.get('href', '')
+        if tag == 'a' and a.get('href'):
+            self.links.append(a['href'])
     def handle_endtag(self, tag):
+        if tag == 'article' and self.article_depth:
+            self.article_depth -= 1
+        if tag == 'title' and self.title_depth:
+            self.title_depth -= 1
         if tag in self.SKIP and self.skip_depth:
             self.skip_depth -= 1
-        if tag == 'title':
-            self.in_title = False
     def handle_data(self, data):
-        if self.in_title:
-            self.title.append(data)
-        elif not self.skip_depth and data.strip():
-            self.parts.append(data.strip())
+        value = data.strip()
+        if not value:
+            return
+        if self.title_depth:
+            self.title.append(value)
+        elif not self.skip_depth:
+            self.parts.append(value)
+            if self.article_depth:
+                self.article_parts.append(value)
+
 
 def safe_url(url):
     try:
@@ -63,11 +107,14 @@ def safe_url(url):
     except (ValueError, OSError, TypeError):
         return False
 
+
 class NoRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         return None
 
+
 OPENER = urllib.request.build_opener(NoRedirect())
+
 
 def fetch(url, max_hops=5):
     current, seen = url, set()
@@ -102,79 +149,118 @@ def fetch(url, max_hops=5):
             return content.decode(charset, errors='replace'), current
     raise ValueError('too many redirects')
 
-def article(url):
+
+def clean_title(title):
+    value = unescape(str(title or ''))
+    value = re.split(r'\s+[|–—-]\s+', value)[0]
+    return re.sub(r'\s+', ' ', value).strip()
+
+
+def words(value):
+    return set(re.findall(r'\w{4,}', clean_title(value).casefold(), re.UNICODE))
+
+
+def title_match(expected, found):
+    """Prevent a generic search result or unrelated publisher page counting as evidence."""
+    a, b = words(expected), words(found)
+    if len(a) < 3 or len(b) < 3:
+        return False
+    overlap = len(a & b) / min(len(a), len(b))
+    ratio = SequenceMatcher(None, clean_title(expected).casefold(), clean_title(found).casefold()).ratio()
+    return overlap >= 0.60 or (overlap >= 0.45 and ratio >= 0.62)
+
+
+def article(url, expected_title):
     try:
         raw, final = fetch(url)
-        host = (urllib.parse.urlsplit(final).hostname or '').lower()
-        if host in ('news.google.com', 'www.google.com', 'google.com', 'www.bing.com', 'bing.com'):
+        if aggregator(final):
             return {'url': url, 'final_url': final, 'status': 'aggregator_only',
-                    'text': '', 'error': 'Search/news landing page is not publisher article text'}
+                    'text': '', 'error': 'Aggregator/search page is not publisher article text'}
         parser = Extractor()
         parser.feed(raw)
-        body = re.sub(r'\s+', ' ', ' '.join(parser.parts)).strip()
-        title = re.sub(r'\s+', ' ', ' '.join(parser.title)).strip()[:220]
-        if len(body) < 450:
-            return {'url': url, 'final_url': final, 'status': 'insufficient_text',
-                    'text': '', 'page_title': title, 'error': 'less than 450 characters'}
-        if any(term in (title + ' ' + body[:500]).lower() for term in (
-            'before you continue to google', 'enable javascript to continue',
-            'sign in to continue reading', 'verify you are human', 'access denied')):
+        page_title = clean_title(parser.metadata.get('og:title') or parser.metadata.get('twitter:title')
+                                 or ' '.join(parser.title))[:220]
+        canonical = parser.metadata.get('canonical', '')
+        if canonical:
+            canonical = urllib.parse.urljoin(final, canonical)
+            if safe_url(canonical) and aggregator(canonical):
+                return {'url': url, 'final_url': final, 'status': 'aggregator_only',
+                        'text': '', 'page_title': page_title, 'error': 'Aggregator canonical URL'}
+        body = re.sub(r'\s+', ' ', ' '.join(parser.article_parts if parser.article_parts else parser.parts)).strip()
+        if any(term in (page_title + ' ' + body[:900]).casefold() for term in BLOCK_PHRASES):
             return {'url': url, 'final_url': final, 'status': 'access_limited',
-                    'text': '', 'page_title': title, 'error': 'consent/login/JS gate'}
+                    'text': '', 'page_title': page_title, 'error': 'Login/consent/JS gate'}
+        if not title_match(expected_title, page_title):
+            return {'url': url, 'final_url': final, 'status': 'title_mismatch',
+                    'text': '', 'page_title': page_title, 'error': 'Page title does not match monitored headline'}
+        if len(body) < 600:
+            return {'url': url, 'final_url': final, 'status': 'insufficient_text',
+                    'text': '', 'page_title': page_title, 'error': 'Less than 600 characters'}
+        if not parser.article_seen and len(body) < 1100:
+            return {'url': url, 'final_url': final, 'status': 'insufficient_text',
+                    'text': '', 'page_title': page_title, 'error': 'No article element and little body text'}
         return {'url': url, 'final_url': final, 'status': 'retrieved',
-                'text': body[:MAX_CHARS], 'page_title': title,
-                'text_chars': min(len(body), MAX_CHARS)}
+                'text': body[:MAX_CHARS], 'page_title': page_title,
+                'text_chars': min(len(body), MAX_CHARS),
+                'note': 'Text retrieval does not establish independent verification'}
     except Exception as exc:
         return {'url': url, 'status': 'unavailable', 'text': '', 'error': str(exc)[:180]}
 
-def google_news_discover(title):
-    """Google News RSS may expose publisher URLs in item descriptions.
-    Treat all returned links as unverified candidates only.
-    """
-    clean = re.split(r'\s+[–—-]\s+', unescape(title))[0].strip()[:95]
-    url = 'https://news.google.com/rss/search?' + urllib.parse.urlencode({
-        'q': '"' + clean + '"', 'hl': 'en-US', 'gl': 'US', 'ceid': 'US:en'})
+
+def extract_candidates_from_google_landing(url):
+    """Look for explicit publisher links in a Google News landing page, without bypassing access gates."""
     try:
-        raw, _ = fetch(url)
-        root = ET.fromstring(raw)
-        found, seen = [], set()
-        for item in root.findall('.//item')[:12]:
-            description = unescape(item.findtext('description') or '')
-            for href in re.findall(r'href=["\'](https://[^"\']+)', description):
-                candidate = unescape(href).replace('&amp;', '&')
-                host = (urllib.parse.urlsplit(candidate).hostname or '').lower()
-                if host in ('news.google.com', 'google.com', 'www.google.com'):
-                    continue
-                if candidate not in seen and safe_url(candidate):
-                    seen.add(candidate)
-                    found.append({'url': candidate, 'title': item.findtext('title') or ''})
-                    if len(found) >= MAX_DISCOVERED:
-                        return found
-        return found
-    except Exception as exc:
-        print('Google RSS discovery unavailable: ' + str(exc)[:110])
+        raw, final = fetch(url)
+        if not aggregator(final):
+            return [final]
+        parser = Extractor()
+        parser.feed(raw)
+        candidates = []
+        for href in parser.links:
+            link = urllib.parse.urljoin(final, unescape(href))
+            if link.startswith('https://') and not aggregator(link):
+                candidates.append(link)
+        return list(dict.fromkeys(candidates))[:5]
+    except Exception:
         return []
 
-def discover(title):
-    """Discover publisher URL candidates via Bing News RSS, without treating results as verification."""
-    clean = re.split(r'\s+[–—-]\s+', unescape(title))[0]
-    q = re.sub(r'[^\w\s-]', ' ', clean, flags=re.UNICODE).strip()[:85]
-    if len(q) < 12:
+
+def search_candidates(title):
+    """Bing News RSS and Google News RSS discovery; results are unverified candidates."""
+    query = clean_title(title)[:100]
+    if len(words(query)) < 3:
         return []
-    url = 'https://www.bing.com/news/search?' + urllib.parse.urlencode({'q': q, 'format': 'rss'})
-    try:
-        raw, _ = fetch(url)
-        root = ET.fromstring(raw)
-        found, seen = [], set()
-        for item in root.findall('.//item')[:12]:
-            link = (item.findtext('link') or '').strip()
-            if link.startswith('https://') and link not in seen and safe_url(link):
-                seen.add(link)
-                found.append({'url': link, 'title': (item.findtext('title') or '')[:250]})
-        return found[:MAX_DISCOVERED]
-    except Exception as exc:
-        print('Supplementary RSS discovery unavailable: ' + str(exc)[:110])
-        return []
+    endpoints = [
+        ('bing_rss', 'https://www.bing.com/news/search?' + urllib.parse.urlencode({'q': '"' + query + '"', 'format': 'rss'})),
+        ('google_rss', 'https://news.google.com/rss/search?' + urllib.parse.urlencode({
+            'q': '"' + query + '"', 'hl': 'en-US', 'gl': 'US', 'ceid': 'US:en'})),
+    ]
+    found, seen = [], set()
+    for method, endpoint in endpoints:
+        try:
+            raw, _ = fetch(endpoint)
+            root = ET.fromstring(raw)
+            for item in root.findall('.//item')[:12]:
+                item_title = item.findtext('title') or ''
+                if not title_match(title, item_title):
+                    continue
+                links = [(item.findtext('link') or '').strip()]
+                description = unescape(item.findtext('description') or '')
+                links += re.findall(r'href=["\'](https://[^"\']+)', description)
+                for href in links:
+                    candidate = unescape(href).replace('&amp;', '&')
+                    if not candidate.startswith('https://') or aggregator(candidate) or candidate in seen:
+                        continue
+                    if not safe_url(candidate):
+                        continue
+                    seen.add(candidate)
+                    found.append({'url': candidate, 'title': item_title[:250], 'method': method})
+                    if len(found) >= MAX_DISCOVERED:
+                        return found
+        except Exception as exc:
+            print(method + ' discovery unavailable: ' + str(exc)[:110])
+    return found
+
 
 def main():
     if not DASH.exists() or not CLUSTER.exists():
@@ -200,25 +286,33 @@ def main():
         if not urls:
             continue
         title = str(item.get('title') or '')[:300]
-        articles = [article(u) for u in urls]
+        articles = [article(u, title) for u in urls]
         discovered = []
         if os.getenv('EVIDENCE_WEB_DISCOVERY', '1') == '1':
-            candidates = google_news_discover(title) + discover(title)
+            candidates = []
+            for u in urls:
+                if aggregator(u):
+                    candidates.extend({'url': x, 'title': title, 'method': 'landing_link'}
+                                      for x in extract_candidates_from_google_landing(u))
+            candidates.extend(search_candidates(title))
+            known = set(urls)
             for candidate in candidates:
-                if candidate['url'] not in urls and len(discovered) < MAX_DISCOVERED:
-                    record = article(candidate['url'])
-                    record['discovery_title'] = candidate['title']
-                    discovered.append(record)
+                link = candidate['url']
+                if link in known or len(discovered) >= MAX_DISCOVERED:
+                    continue
+                known.add(link)
+                record = article(link, title)
+                record['discovery_title'] = candidate['title']
+                record['discovery_method'] = candidate['method']
+                discovered.append(record)
         retrieved = sum(a['status'] == 'retrieved' for a in articles + discovered)
-        if retrieved == 0:
-            print(f'Event {eid}: no original publisher text retrieved; evidence remains unverified')
         selected.append({
             'event_id': eid, 'title': title, 'primary_country': item.get('primary_country'),
             'published_at': item.get('published_at'), 'articles': articles,
             'discovered_articles': discovered, 'retrieved_count': retrieved,
             'verification_status': 'NOT_INDEPENDENTLY_VERIFIED',
             'note': 'Retrieved text is not proof of truth, attribution, or independent corroboration.'})
-        print(f'Event {eid}: readable publisher pages {retrieved}/{len(articles) + len(discovered)}')
+        print(f'Event {eid}: readable matched publisher pages {retrieved}/{len(articles) + len(discovered)}')
         if len(selected) >= MAX_EVENTS:
             break
     output = {
@@ -226,8 +320,8 @@ def main():
         'source_dashboard_generated_at': dash.get('generated_at'),
         'source_cluster_generated_at': cluster.get('generated_at'),
         'events': selected,
-        'methodology': ('Bounded public HTML extraction with validated redirects and optional Bing News RSS '
-                        'discovery. Aggregator pages are excluded. Retrieval is not independent verification.')}
+        'methodology': ('Public HTTPS extraction; title matching and aggregator exclusion; '
+                        'Google/Bing RSS discovery. Retrieved text is not independent verification.')}
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     tmp = OUTPUT.with_suffix('.json.tmp')
     tmp.write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
@@ -235,6 +329,7 @@ def main():
     print(f'Evidence saved: {OUTPUT}; events: {len(selected)}; '
           f'readable articles: {sum(e["retrieved_count"] for e in selected)}')
     return 0
+
 
 if __name__ == '__main__':
     sys.exit(main())
