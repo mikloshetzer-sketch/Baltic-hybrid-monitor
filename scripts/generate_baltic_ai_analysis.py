@@ -166,6 +166,70 @@ limitations (Hungarian methodological limitations); cited_event_ids (real event 
     if not isinstance(watch, list) or not 3 <= len(watch) <= 5 or not all(isinstance(x, str) for x in watch):
         print('Invalid watchpoints', file=sys.stderr)
         return 1
+    # Evidence-aware claims gate: never publish a confident attribution/trend
+    # from headlines and index categories alone. For zero full texts, replace
+    # the AI narrative with a conservative, deterministic analytical scaffold.
+    if retrieved_total == 0:
+        result['lead'] = (
+            'A balti térség hibrid biztonsági helyzetét a monitor nyílt hírcímek és '
+            'metaadatok alapján követi. A kiválasztott eseményekről nem sikerült '
+            'teljes kiadói cikkszöveget beolvasni. A monitor kategóriái és pontszámai '
+            'nem bizonyítják az incidensek megtörténtét vagy az elkövetők kilétét. '
+            'Az alábbi összegzés ellenőrzendő jelzéseket, nem igazolt fenyegetési '
+            'tényállásokat mutat be.')
+        result['executive_summary'] = (
+            'A rendszer a kiválasztott nyílt forrású hírcímeket és a hozzájuk '
+            'kapcsolt metaadatokat dolgozta fel. Egyetlen eredeti cikk teljes '
+            'szövege sem állt rendelkezésre. Emiatt a források állításait nem '
+            'lehetett tartalmilag ellenőrizni, az események közötti kapcsolatot '
+            'vagy az elkövető személyét nem lehet megállapítani. A monitor '
+            'mutatói figyelemfelhívó jelzések, nem függetlenül igazolt '
+            'biztonságpolitikai következtetések. Az elsődleges feladat az '
+            'eredeti közlések megszerzése és több, egymástól független forrás '
+            'összevetése. A hírek megjelenési dátuma nem feltétlenül azonos '
+            'az események időpontjával.')
+        result['regional_assessment'] = (
+            'A balti térségre vonatkozó monitoreredmények különböző '
+            'biztonsági témákban megjelenő nyílt forrású jelzéseket összesítenek. '
+            'A jelenlegi adatállományban a hivatkozott cikkek teljes szövege '
+            'nem volt elérhető. Ebből nem következik sem fenyegetésnövekedés, '
+            'sem összehangolt művelet, sem konkrét állami felelősség. '
+            'A besorolások értelmezéséhez az eredeti közlések, az időpontok '
+            'és a bizonyítékok további vizsgálata szükséges.')
+        result['conclusion'] = (
+            'A monitor jelenlegi kimenete előzetes figyelési lista, nem '
+            'függetlenül ellenőrzött incidensjelentés. A kiválasztott hírek '
+            'eredeti szövege nem volt hozzáférhető, ezért nem állapítható meg '
+            'megbízhatóan sem az állítások pontossága, sem az esetleges '
+            'elkövetők kiléte, sem az események közötti kapcsolat. '
+            'A következő lépés a kiadói források ellenőrzése és az állítások '
+            'összevetése. A jelentés emberi felülvizsgálat nélkül nem '
+            'tekinthető publikálásra kész elemzésnek.')
+        result['english_summary'] = (
+            'The Baltic Hybrid Monitor collected open-source headlines and '
+            'associated metadata, but no full publisher article text was '
+            'retrieved for the selected events. Its categories and indicators '
+            'are monitoring signals, not independently verified incidents. '
+            'The available material does not establish perpetrators, state '
+            'responsibility, escalation, coordination or causal connections. '
+            'The listed items require verification against original publisher '
+            'reports and independent sources. Publication dates should not '
+            'be treated as incident dates. This is a preliminary monitoring '
+            'summary requiring human review before publication.')
+        for x in result['country_assessments']:
+            x['assessment'] = (
+                'Az országhoz kapcsolódó monitorjelzések kizárólag hírcímek és '
+                'metaadatok alapján értékelhetők. Teljes cikkszöveg hiányában '
+                'konkrét incidens, elkövető vagy trend nem igazolható.')
+        for x in result['event_assessments']:
+            x['assessment'] = (
+                'A monitor ezt az eseményt jelzésként tartja nyilván ('
+                + str(x['event_id']) + '). Az eredeti cikkszöveg nem volt '
+                'elérhető; az állítás és az esetleges elkövető nem ellenőrzött.')
+        result['watchpoints'] = [
+            'Eredeti kiadói cikkek elérése és a közlések dátumának ellenőrzése',
+            'Az állítások összevetése egymástól független forrásokkal',
+            'A monitorindexek és a tényleges incidensek elkülönítése']
     # Add mandatory disclosure programmatically: never depend on model wording.
     if retrieved_total == 0:
         disclosure = ('Forrásfeldolgozási korlát: egyetlen teljes cikk szövegét sem sikerült '
