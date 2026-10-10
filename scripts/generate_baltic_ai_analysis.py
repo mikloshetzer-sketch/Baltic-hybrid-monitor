@@ -139,7 +139,7 @@ Ne hivatkozz olyan tényre, amelyet a bemeneti adatok nem támasztanak alá."""
     body = {
         "model": MODEL,
         "instructions": instructions,
-        "input": json.dumps(context, ensure_ascii=False),
+        "input": "Return a valid JSON object only. Source data (JSON):\n" + json.dumps(context, ensure_ascii=False),
         "max_output_tokens": 5500,
         "store": False,
         "text": {"format": {"type": "json_object"}}
