@@ -1,11 +1,11 @@
 {
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-10T06:17:28.404528+00:00",
-  "input_generated_at": "2026-10-10T06:17:28.196974+00:00",
-  "raw_item_count": 431,
-  "filtered_item_count": 235,
-  "clustered_event_count": 198,
+  "generated_at": "2026-10-10T06:40:49.040471+00:00",
+  "input_generated_at": "2026-10-10T06:40:48.651722+00:00",
+  "raw_item_count": 434,
+  "filtered_item_count": 238,
+  "clustered_event_count": 201,
   "merged_item_count": 37,
   "engine_version": "threat_score_v3_2_current_historical_split",
   "current_threat_window": {
@@ -14,7 +14,7 @@
     "reference_date": "2026-10-10",
     "start_date": "2026-09-27",
     "end_date": "2026-10-10",
-    "event_count": 24,
+    "event_count": 26,
     "rule": "Current threat indices and current summary blocks use only events published inside the latest 14 UTC calendar days. Historical events remain scored and stored separately."
   },
   "method": {
@@ -69,13 +69,13 @@
     }
   },
   "overall_summary": {
-    "event_count": 24,
+    "event_count": 26,
     "incident_count": 3,
     "activity_count": 0,
-    "indicator_count": 11,
+    "indicator_count": 13,
     "assessment_count": 10,
-    "score_total": 219,
-    "average_score": 15.64,
+    "score_total": 232,
+    "average_score": 14.5,
     "highest_score": 47,
     "operational_index": 47.0,
     "early_warning_index": 12.38,
@@ -85,17 +85,18 @@
   "country_summary": {
     "Estonia": {
       "country": "Estonia",
-      "event_count": 5,
+      "event_count": 6,
       "incident_count": 1,
       "activity_count": 0,
-      "indicator_count": 3,
+      "indicator_count": 4,
       "assessment_count": 1,
-      "score_total": 86,
-      "average_score": 21.5,
+      "score_total": 94,
+      "average_score": 18.8,
       "highest_score": 47,
-      "level": "guarded",
+      "level": "low",
       "categories": {
         "sabotage": 5,
+        "cyber": 1,
         "espionage": 1
       },
       "actors": {
@@ -162,23 +163,25 @@
     },
     "Regional": {
       "country": "Regional",
-      "event_count": 6,
+      "event_count": 7,
       "incident_count": 1,
       "activity_count": 0,
-      "indicator_count": 2,
+      "indicator_count": 3,
       "assessment_count": 3,
-      "score_total": 45,
-      "average_score": 15.0,
+      "score_total": 50,
+      "average_score": 12.5,
       "highest_score": 22,
       "level": "low",
       "categories": {
         "drone_incident": 2,
         "sabotage": 1,
-        "disinformation": 1
+        "disinformation": 1,
+        "migration_pressure": 1
       },
       "actors": {
         "Russia": 6,
-        "NATO": 3
+        "NATO": 3,
+        "Belarus": 1
       }
     }
   },
@@ -192,9 +195,9 @@
     },
     "cyber": {
       "category": "cyber",
-      "event_count": 1,
-      "score_total": 27,
-      "average_score": 27.0,
+      "event_count": 2,
+      "score_total": 35,
+      "average_score": 17.5,
       "highest_score": 27
     },
     "disinformation": {
@@ -217,6 +220,13 @@
       "score_total": 10,
       "average_score": 5.0,
       "highest_score": 10
+    },
+    "migration_pressure": {
+      "category": "migration_pressure",
+      "event_count": 1,
+      "score_total": 5,
+      "average_score": 5.0,
+      "highest_score": 5
     }
   },
   "actor_summary": {
@@ -236,9 +246,9 @@
     },
     "Belarus": {
       "actor": "Belarus",
-      "event_count": 2,
-      "score_total": 11,
-      "average_score": 5.5,
+      "event_count": 3,
+      "score_total": 16,
+      "average_score": 5.33,
       "highest_score": 11
     }
   },
@@ -254,9 +264,9 @@
       "average_score": 0.0
     },
     "indicator": {
-      "event_count": 11,
-      "score_total": 123,
-      "average_score": 11.18
+      "event_count": 13,
+      "score_total": 136,
+      "average_score": 10.46
     },
     "assessment": {
       "event_count": 10,
@@ -266,9 +276,9 @@
   },
   "scope_summary": {
     "direct": {
-      "event_count": 20,
-      "score_total": 174,
-      "average_score": 8.7
+      "event_count": 21,
+      "score_total": 182,
+      "average_score": 8.67
     },
     "regional_direct": {
       "event_count": 3,
@@ -276,37 +286,37 @@
       "average_score": 7.67
     },
     "external_context": {
-      "event_count": 1,
-      "score_total": 22,
-      "average_score": 22.0
+      "event_count": 2,
+      "score_total": 27,
+      "average_score": 13.5
     }
   },
   "historical_summary": {
-    "event_count": 198,
-    "incident_count": 44,
+    "event_count": 201,
+    "incident_count": 45,
     "activity_count": 2,
-    "indicator_count": 111,
+    "indicator_count": 113,
     "assessment_count": 41,
-    "score_total": 2369,
-    "average_score": 15.09,
+    "score_total": 2420,
+    "average_score": 15.12,
     "highest_score": 54
   },
   "historical_summaries": {
     "country_summary": {
       "Estonia": {
         "country": "Estonia",
-        "event_count": 14,
+        "event_count": 15,
         "incident_count": 3,
         "activity_count": 0,
-        "indicator_count": 9,
+        "indicator_count": 10,
         "assessment_count": 2,
-        "score_total": 209,
-        "average_score": 17.42,
+        "score_total": 217,
+        "average_score": 16.69,
         "highest_score": 47,
         "level": "low",
         "categories": {
           "sabotage": 7,
-          "cyber": 1,
+          "cyber": 2,
           "gps_interference": 1,
           "disinformation": 4,
           "espionage": 1
@@ -318,17 +328,18 @@
       },
       "Latvia": {
         "country": "Latvia",
-        "event_count": 17,
-        "incident_count": 3,
+        "event_count": 18,
+        "incident_count": 4,
         "activity_count": 0,
         "indicator_count": 9,
         "assessment_count": 5,
-        "score_total": 174,
-        "average_score": 14.5,
+        "score_total": 212,
+        "average_score": 16.31,
         "highest_score": 38,
         "level": "low",
         "categories": {
           "border_pressure": 1,
+          "drone_incident": 1,
           "cyber": 4,
           "sabotage": 5,
           "migration_pressure": 1,
@@ -337,7 +348,7 @@
         "actors": {
           "Belarus": 5,
           "EU": 1,
-          "Russia": 8,
+          "Russia": 9,
           "NATO": 1
         }
       },
@@ -394,13 +405,13 @@
       },
       "Regional": {
         "country": "Regional",
-        "event_count": 77,
+        "event_count": 78,
         "incident_count": 20,
         "activity_count": 1,
-        "indicator_count": 43,
+        "indicator_count": 44,
         "assessment_count": 13,
-        "score_total": 833,
-        "average_score": 13.02,
+        "score_total": 838,
+        "average_score": 12.89,
         "highest_score": 50,
         "level": "low",
         "categories": {
@@ -411,12 +422,12 @@
           "critical_infrastructure": 7,
           "disinformation": 10,
           "espionage": 4,
-          "migration_pressure": 1
+          "migration_pressure": 2
         },
         "actors": {
           "Russia": 67,
           "NATO": 25,
-          "Belarus": 2,
+          "Belarus": 3,
           "FSB": 1
         }
       }
@@ -438,16 +449,16 @@
       },
       "cyber": {
         "category": "cyber",
-        "event_count": 20,
-        "score_total": 409,
-        "average_score": 20.45,
+        "event_count": 21,
+        "score_total": 417,
+        "average_score": 19.86,
         "highest_score": 45
       },
       "drone_incident": {
         "category": "drone_incident",
-        "event_count": 13,
-        "score_total": 310,
-        "average_score": 23.85,
+        "event_count": 14,
+        "score_total": 348,
+        "average_score": 24.86,
         "highest_score": 45
       },
       "disinformation": {
@@ -487,18 +498,18 @@
       },
       "migration_pressure": {
         "category": "migration_pressure",
-        "event_count": 2,
-        "score_total": 16,
-        "average_score": 8.0,
+        "event_count": 3,
+        "score_total": 21,
+        "average_score": 7.0,
         "highest_score": 12
       }
     },
     "actor_summary": {
       "Russia": {
         "actor": "Russia",
-        "event_count": 156,
-        "score_total": 1816,
-        "average_score": 11.64,
+        "event_count": 157,
+        "score_total": 1854,
+        "average_score": 11.81,
         "highest_score": 54
       },
       "NATO": {
@@ -510,9 +521,9 @@
       },
       "Belarus": {
         "actor": "Belarus",
-        "event_count": 16,
-        "score_total": 160,
-        "average_score": 10.0,
+        "event_count": 17,
+        "score_total": 165,
+        "average_score": 9.71,
         "highest_score": 38
       },
       "FSB": {
@@ -532,9 +543,9 @@
     },
     "subtype_summary": {
       "incident": {
-        "event_count": 44,
-        "score_total": 1347,
-        "average_score": 30.61
+        "event_count": 45,
+        "score_total": 1385,
+        "average_score": 30.78
       },
       "activity": {
         "event_count": 2,
@@ -542,9 +553,9 @@
         "average_score": 18.0
       },
       "indicator": {
-        "event_count": 111,
-        "score_total": 986,
-        "average_score": 8.88
+        "event_count": 113,
+        "score_total": 999,
+        "average_score": 8.84
       },
       "assessment": {
         "event_count": 41,
@@ -554,9 +565,9 @@
     },
     "scope_summary": {
       "direct": {
-        "event_count": 129,
-        "score_total": 1576,
-        "average_score": 12.22
+        "event_count": 131,
+        "score_total": 1622,
+        "average_score": 12.38
       },
       "regional_direct": {
         "event_count": 27,
@@ -564,9 +575,9 @@
         "average_score": 12.3
       },
       "external_context": {
-        "event_count": 42,
-        "score_total": 461,
-        "average_score": 10.98
+        "event_count": 43,
+        "score_total": 466,
+        "average_score": 10.84
       }
     }
   },
@@ -652,7 +663,7 @@
       "lifecycle_review": {
         "status": "historical_follow_up",
         "reason": "diplomatic_reaction_to_prior_incident",
-        "reviewed_at": "2026-10-10T06:17:28.643253+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314710+00:00",
         "rule_version": "v5"
       },
       "original_event_subtype": "incident",
@@ -764,7 +775,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643295+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314784+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -870,7 +881,7 @@
       "lifecycle_review": {
         "status": "historical_follow_up",
         "reason": "legal_followup",
-        "reviewed_at": "2026-10-10T06:17:28.643358+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314895+00:00",
         "rule_version": "v5"
       },
       "original_event_subtype": "incident",
@@ -972,7 +983,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643993+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316119+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -1083,7 +1094,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644221+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316566+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -1193,7 +1204,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644859+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317775+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -1300,7 +1311,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644923+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317887+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -1409,7 +1420,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645002+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318039+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -1516,7 +1527,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645114+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318234+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -1624,7 +1635,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645136+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318307+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -1737,7 +1748,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645157+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318349+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -1844,7 +1855,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645394+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318802+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -1950,7 +1961,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645443+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318890+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -2056,7 +2067,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645590+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319145+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -2080,6 +2091,110 @@
         "eligible": true,
         "reason": "included",
         "rule_version": "v5"
+      }
+    },
+    {
+      "event_id": "7d49cab00f305158",
+      "title": "Possible cyberattack halts Estonian Artists' Association fundraiser auction",
+      "summary": "A fundraiser auction for the Estonian Artists' Association (EKL) was suspended Thursday evening amid concerns over a possible cyberattack. The auction is set to resume Friday.",
+      "url": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction",
+      "published_at": "2026-10-09T09:59:00+00:00",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "actors": [],
+      "locations": [],
+      "relevance_score": 9.38,
+      "source_count": 1,
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "source_groups": [
+        "direct_regional_media"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Possible cyberattack halts Estonian Artists' Association fundraiser auction"
+      ],
+      "related_urls": [
+        "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Estonia",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "geographic_scope": "direct",
+      "geographic_multiplier": 1.0,
+      "attribution": {
+        "status": "unattributed",
+        "actors": [],
+        "confidence": 0.0
+      },
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "score_breakdown": {
+        "raw_base_score": 31,
+        "relevance": 9,
+        "keywords": 5,
+        "categories": 14,
+        "actors": 0,
+        "locations": 0,
+        "source_confirmation": 3,
+        "strategic_modifier": 0,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.3,
+        "confidence": "low",
+        "confidence_multiplier": 0.88,
+        "geographic_scope": "direct",
+        "geographic_multiplier": 1.0,
+        "incident_context_multiplier": 1.0,
+        "incident_context_reasons": [],
+        "attribution": {
+          "status": "unattributed",
+          "actors": [],
+          "confidence": 0.0
+        },
+        "weighted_score": 8.18
+      },
+      "lifecycle_review": {
+        "status": "not_determined",
+        "reason": "insufficient_evidence",
+        "reviewed_at": "2026-10-10T06:40:49.319847+00:00",
+        "rule_version": "v5"
+      },
+      "event_date_review": {
+        "status": "unknown",
+        "candidate_dates": [],
+        "event_date": null,
+        "note": "Article publication time is not proof of the incident date",
+        "rule_version": "v5"
+      },
+      "geographic_review": {
+        "status": "not_flagged",
+        "reason": "no_explicit_external_signal",
+        "original_geographic_scope": "direct",
+        "rule_version": "v5"
+      },
+      "source_correction_review": {
+        "status": "source_correction",
+        "reason": "operator_found_no_evidence_of_malicious_activity",
+        "source": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction",
+        "note": "The updated ERR report quotes the server operator: no evidence of malicious activity. Technical disruption remains a real event; cyber attribution is unsupported.",
+        "rule_version": "v5"
+      },
+      "index_eligibility": {
+        "eligible": false,
+        "reason": "operator_found_no_evidence_of_malicious_activity",
+        "rule_version": "v5",
+        "verification_source": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction"
       }
     },
     {
@@ -2160,7 +2275,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645964+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319885+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -2264,7 +2379,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646804+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321525+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -2278,6 +2393,110 @@
         "status": "not_flagged",
         "reason": "no_explicit_external_signal",
         "original_geographic_scope": "direct",
+        "rule_version": "v5"
+      },
+      "source_correction_review": {
+        "status": "not_flagged",
+        "rule_version": "v5"
+      },
+      "index_eligibility": {
+        "eligible": true,
+        "reason": "included",
+        "rule_version": "v5"
+      }
+    },
+    {
+      "event_id": "11005d92ef15488f",
+      "title": "Migration pressure could rise sharply in coming weeks, PPA chief says",
+      "summary": "Migration pressure could rise sharply in the coming weeks as people try to leave Belarus ahead of winter, Police and Border Guard Board (PPA) chief Egert Belitšev said.",
+      "url": "https://news.err.ee/1610161669/migration-pressure-could-rise-sharply-in-coming-weeks-ppa-chief-says",
+      "published_at": "2026-10-09T04:43:00+00:00",
+      "countries": [],
+      "categories": [
+        "migration_pressure"
+      ],
+      "actors": [
+        "Belarus"
+      ],
+      "locations": [],
+      "relevance_score": 11.88,
+      "source_count": 1,
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "source_groups": [
+        "direct_regional_media"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Migration pressure could rise sharply in coming weeks, PPA chief says"
+      ],
+      "related_urls": [
+        "https://news.err.ee/1610161669/migration-pressure-could-rise-sharply-in-coming-weeks-ppa-chief-says"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Regional",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "geographic_scope": "external_context",
+      "geographic_multiplier": 0.55,
+      "attribution": {
+        "status": "probable",
+        "actors": [
+          "Belarus"
+        ],
+        "confidence": 0.75
+      },
+      "hybrid_threat_score": 5,
+      "hybrid_threat_level": "low",
+      "score_breakdown": {
+        "raw_base_score": 34,
+        "relevance": 12,
+        "keywords": 0,
+        "categories": 8,
+        "actors": 6,
+        "locations": 0,
+        "source_confirmation": 3,
+        "strategic_modifier": 5,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.3,
+        "confidence": "low",
+        "confidence_multiplier": 0.88,
+        "geographic_scope": "external_context",
+        "geographic_multiplier": 0.55,
+        "incident_context_multiplier": 1.0,
+        "incident_context_reasons": [],
+        "attribution": {
+          "status": "probable",
+          "actors": [
+            "Belarus"
+          ],
+          "confidence": 0.75
+        },
+        "weighted_score": 4.94
+      },
+      "lifecycle_review": {
+        "status": "not_determined",
+        "reason": "insufficient_evidence",
+        "reviewed_at": "2026-10-10T06:40:49.322105+00:00",
+        "rule_version": "v5"
+      },
+      "event_date_review": {
+        "status": "unknown",
+        "candidate_dates": [],
+        "event_date": null,
+        "note": "Article publication time is not proof of the incident date",
+        "rule_version": "v5"
+      },
+      "geographic_review": {
+        "status": "outside_core_area_review",
+        "reason": "existing_external_context_scope",
+        "original_geographic_scope": "external_context",
         "rule_version": "v5"
       },
       "source_correction_review": {
@@ -2369,7 +2588,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647499+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322869+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -2473,7 +2692,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647534+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322931+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -2580,7 +2799,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647810+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323451+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -2685,7 +2904,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647837+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323506+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -2791,7 +3010,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647862+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323552+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -2896,7 +3115,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647891+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323607+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -3000,7 +3219,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647927+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323670+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -3104,7 +3323,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647955+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323725+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -3214,7 +3433,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643153+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314550+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -3321,7 +3540,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643206+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314635+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -3428,7 +3647,7 @@
       "lifecycle_review": {
         "status": "historical_follow_up",
         "reason": "diplomatic_reaction_to_prior_incident",
-        "reviewed_at": "2026-10-10T06:17:28.643253+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314710+00:00",
         "rule_version": "v5"
       },
       "original_event_subtype": "incident",
@@ -3540,7 +3759,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643295+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314784+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -3641,7 +3860,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643327+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314839+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -3747,7 +3966,7 @@
       "lifecycle_review": {
         "status": "historical_follow_up",
         "reason": "legal_followup",
-        "reviewed_at": "2026-10-10T06:17:28.643358+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314895+00:00",
         "rule_version": "v5"
       },
       "original_event_subtype": "incident",
@@ -3855,7 +4074,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643386+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314950+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -3961,7 +4180,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643421+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315011+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -4067,7 +4286,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643455+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315068+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -4174,7 +4393,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643485+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315123+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -4280,7 +4499,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643509+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315167+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -4325,7 +4544,7 @@
       "relevance_score": 16.8,
       "source_count": 1,
       "source_names": [
-        "Google News - Lithuania cyber security Russia"
+        "Google News - CERT Estonia cyber threat"
       ],
       "source_groups": [
         "google_news_search"
@@ -4338,7 +4557,7 @@
         "https://news.google.com/rss/articles/CBMijwJBVV95cUxOeGJNMWV1bmxxbFJsNUwyV0hacEVDMVdGWmhMUmhUV1U1dXlUdWJ3WVJzandvMHlEb01JMTMxeGdENHhhUVU4NTZzM1Npa2x0WUJLMEJPN1poOHQ2eGpjSVJtUnBvWHZQb3BISE5xdnYtUDJlaGhWWVZXXzIxREJ3d3huaEd6NkE5R1dzRW1KX2Q0Q3hyZm94V19fQlkzS0dHeGZrOFlQbzZvLUhBVVdvN0NvYmxHVUFTMHBBTTJJeDVmb1JGd015Z29TUDR2ZlYtck05Nmxtanp4cXg1Ymk3WkFWSnphTnN3UVRfLV9ydUthd1I2blA3Q05UTXAyUkNDclBNOHZEbkJBMW9tajhN0gGUAkFVX3lxTE1fZnBCUTd1RVlIYkVjSG5Rb1pOYmd5RXlNelJtZDlzV3BYMWhfLVFjdHdjNEJqdVhHMTZjV3RxakpJYmpaS2p0Q21YTnpmSUoxQklvWEJnWW51NTRzSmwzRVBZYThCTkM0aTJpamtuR3lERVNFXy1lOC1VSElwLU53NklsWXNQZ1BfZGxyYUg2c2tqRTRmM2FEeDByQUJJWGdfMEZXNG05V2JaZlJDaXJMM1JuR3J6ZEROTG55R19LY1JfejFGdkx4N29rUVFEZHN5RnZZNzNVNnBBaHptSEZCSDlkdUVtZXVrVmZfdTZPR2toTnpGM0hxUF9lWmlHazhVVHdBOVdrWlViTXhaQmYwYjJKNw?oc=5"
       ],
       "confidence": "low",
-      "confidence_score": 38,
+      "confidence_score": 48,
       "collection_methods": [
         "rss"
       ],
@@ -4386,7 +4605,7 @@
       "lifecycle_review": {
         "status": "needs_review",
         "reason": "date_or_conflicting_signal",
-        "reviewed_at": "2026-10-10T06:17:28.643614+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315375+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -4503,7 +4722,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643663+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315466+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -4609,7 +4828,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643693+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315522+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -4715,7 +4934,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643718+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315566+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -4824,7 +5043,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643769+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315649+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -4930,7 +5149,113 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643821+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315747+00:00",
+        "rule_version": "v5"
+      },
+      "event_date_review": {
+        "status": "unknown",
+        "candidate_dates": [],
+        "event_date": null,
+        "note": "Article publication time is not proof of the incident date",
+        "rule_version": "v5"
+      },
+      "geographic_review": {
+        "status": "not_flagged",
+        "reason": "no_explicit_external_signal",
+        "original_geographic_scope": "direct",
+        "rule_version": "v5"
+      },
+      "source_correction_review": {
+        "status": "not_flagged",
+        "rule_version": "v5"
+      },
+      "index_eligibility": {
+        "eligible": true,
+        "reason": "included",
+        "rule_version": "v5"
+      }
+    },
+    {
+      "event_id": "afa42de9974726b9",
+      "title": "Russian drone shot down in eastern Latvia, confirms top politician - Euronews.com",
+      "summary": "Russian drone shot down in eastern Latvia, confirms top politician Euronews.com",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMEJSRnV3cmJnVzlJT2hqYlc3VUt6ekZMQ3plQ3VjSjhndUQxN1N3SE94T2pfaXk1NktCY3hGamp5eTF5TWxOWU11QWFBcFBHMTJYcDVoUEIzTlZWQkFxQ25ZVWVTN2pFY1BZWWwzdFA2SHJ6clpfNmk4VS1NMGhQWTlTRFNBSEJLYm5YSV9VM21tMzhOLXBZRHZXUjJsTy05MldjNjlkRmRLdXpk?oc=5",
+      "published_at": "2026-06-08T07:00:00+00:00",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "relevance_score": 16.1,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Russian drone shot down in eastern Latvia, confirms top politician - Euronews.com"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMEJSRnV3cmJnVzlJT2hqYlc3VUt6ekZMQ3plQ3VjSjhndUQxN1N3SE94T2pfaXk1NktCY3hGamp5eTF5TWxOWU11QWFBcFBHMTJYcDVoUEIzTlZWQkFxQ25ZVWVTN2pFY1BZWWwzdFA2SHJ6clpfNmk4VS1NMGhQWTlTRFNBSEJLYm5YSV9VM21tMzhOLXBZRHZXUjJsTy05MldjNjlkRmRLdXpk?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Latvia",
+      "event_subtype": "incident",
+      "event_type": "operational",
+      "analytical_layer": "operational",
+      "geographic_scope": "direct",
+      "geographic_multiplier": 1.0,
+      "attribution": {
+        "status": "probable",
+        "actors": [
+          "Russia"
+        ],
+        "confidence": 0.75
+      },
+      "hybrid_threat_score": 38,
+      "hybrid_threat_level": "guarded",
+      "score_breakdown": {
+        "raw_base_score": 43,
+        "relevance": 16,
+        "keywords": 0,
+        "categories": 16,
+        "actors": 8,
+        "locations": 0,
+        "source_confirmation": 3,
+        "strategic_modifier": 0,
+        "event_subtype": "incident",
+        "subtype_weight": 1.0,
+        "confidence": "low",
+        "confidence_multiplier": 0.88,
+        "geographic_scope": "direct",
+        "geographic_multiplier": 1.0,
+        "incident_context_multiplier": 1.0,
+        "incident_context_reasons": [],
+        "attribution": {
+          "status": "probable",
+          "actors": [
+            "Russia"
+          ],
+          "confidence": 0.75
+        },
+        "weighted_score": 37.84
+      },
+      "lifecycle_review": {
+        "status": "not_determined",
+        "reason": "insufficient_evidence",
+        "reviewed_at": "2026-10-10T06:40:49.315786+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -5036,7 +5361,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643840+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315832+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -5142,7 +5467,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643861+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315873+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -5246,7 +5571,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643888+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315924+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -5357,7 +5682,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643912+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315975+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -5457,7 +5782,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643937+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316019+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -5557,7 +5882,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643965+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316071+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -5657,7 +5982,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643993+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316119+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -5764,7 +6089,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644017+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316162+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -5864,7 +6189,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644046+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316217+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -5964,7 +6289,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644073+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316284+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -6064,7 +6389,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644101+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316343+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -6164,7 +6489,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644128+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316394+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -6269,7 +6594,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644159+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316445+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -6373,7 +6698,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644179+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316481+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -6478,7 +6803,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644201+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316525+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -6582,7 +6907,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644221+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316566+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -6686,7 +7011,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644241+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316604+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -6794,7 +7119,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644261+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316641+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -6899,7 +7224,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644285+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316689+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -7003,7 +7328,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644304+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316758+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -7108,7 +7433,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644330+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316807+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -7214,7 +7539,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644366+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316866+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -7318,7 +7643,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644390+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316911+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -7422,7 +7747,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644412+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316953+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -7526,7 +7851,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644433+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316991+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -7630,7 +7955,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644453+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317028+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -7734,7 +8059,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644471+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317061+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -7838,7 +8163,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644489+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317097+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -7948,7 +8273,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644516+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317147+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -8055,7 +8380,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644551+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317211+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -8165,7 +8490,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644576+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317296+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -8275,7 +8600,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644606+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317359+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -8379,7 +8704,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644639+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317415+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -8487,7 +8812,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644660+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317456+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -8597,7 +8922,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644681+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317496+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -8703,7 +9028,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644705+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317547+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -8801,7 +9126,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644738+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317609+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -8910,7 +9235,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644765+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317640+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -9019,7 +9344,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644805+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317676+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -9132,7 +9457,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644831+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317722+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -9242,7 +9567,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644859+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317775+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -9354,7 +9679,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644888+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317831+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -9461,7 +9786,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644923+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317887+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -9562,7 +9887,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644948+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317935+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -9668,7 +9993,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644977+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317994+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -9777,7 +10102,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645002+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318039+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -9884,7 +10209,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645027+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318086+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -9991,7 +10316,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645053+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318130+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -10092,7 +10417,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645082+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318179+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -10199,7 +10524,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645114+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318234+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -10307,7 +10632,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645136+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318307+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -10420,7 +10745,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645157+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318349+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -10528,7 +10853,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645178+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318394+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -10636,7 +10961,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645201+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318436+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -10742,7 +11067,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645230+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318488+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -10848,7 +11173,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645255+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318534+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -10954,7 +11279,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645277+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318576+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -11060,7 +11385,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645297+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318615+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -11168,7 +11493,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645319+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318659+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -11269,7 +11594,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645340+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318700+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -11378,7 +11703,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645364+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318746+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -11485,7 +11810,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645394+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318802+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -11591,7 +11916,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645417+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318846+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -11697,7 +12022,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645443+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318890+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -11803,7 +12128,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645473+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318937+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -11909,7 +12234,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645503+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318986+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -12018,7 +12343,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645535+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319041+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -12124,7 +12449,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645564+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319098+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -12230,7 +12555,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645590+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319145+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -12336,7 +12661,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645608+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319181+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -12444,7 +12769,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645631+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319219+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -12548,7 +12873,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645660+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319287+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -12657,7 +12982,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645684+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319333+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -12758,7 +13083,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645714+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319387+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -12865,7 +13190,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645739+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319434+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -12970,7 +13295,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645770+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319486+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -13072,7 +13397,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645791+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319524+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -13172,7 +13497,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645815+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319574+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -13279,7 +13604,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645845+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319630+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -13384,7 +13709,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645881+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319692+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -13484,7 +13809,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645919+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319759+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -13584,7 +13909,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645944+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319809+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -13608,6 +13933,110 @@
         "eligible": true,
         "reason": "included",
         "rule_version": "v5"
+      }
+    },
+    {
+      "event_id": "7d49cab00f305158",
+      "title": "Possible cyberattack halts Estonian Artists' Association fundraiser auction",
+      "summary": "A fundraiser auction for the Estonian Artists' Association (EKL) was suspended Thursday evening amid concerns over a possible cyberattack. The auction is set to resume Friday.",
+      "url": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction",
+      "published_at": "2026-10-09T09:59:00+00:00",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "actors": [],
+      "locations": [],
+      "relevance_score": 9.38,
+      "source_count": 1,
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "source_groups": [
+        "direct_regional_media"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Possible cyberattack halts Estonian Artists' Association fundraiser auction"
+      ],
+      "related_urls": [
+        "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Estonia",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "geographic_scope": "direct",
+      "geographic_multiplier": 1.0,
+      "attribution": {
+        "status": "unattributed",
+        "actors": [],
+        "confidence": 0.0
+      },
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "score_breakdown": {
+        "raw_base_score": 31,
+        "relevance": 9,
+        "keywords": 5,
+        "categories": 14,
+        "actors": 0,
+        "locations": 0,
+        "source_confirmation": 3,
+        "strategic_modifier": 0,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.3,
+        "confidence": "low",
+        "confidence_multiplier": 0.88,
+        "geographic_scope": "direct",
+        "geographic_multiplier": 1.0,
+        "incident_context_multiplier": 1.0,
+        "incident_context_reasons": [],
+        "attribution": {
+          "status": "unattributed",
+          "actors": [],
+          "confidence": 0.0
+        },
+        "weighted_score": 8.18
+      },
+      "lifecycle_review": {
+        "status": "not_determined",
+        "reason": "insufficient_evidence",
+        "reviewed_at": "2026-10-10T06:40:49.319847+00:00",
+        "rule_version": "v5"
+      },
+      "event_date_review": {
+        "status": "unknown",
+        "candidate_dates": [],
+        "event_date": null,
+        "note": "Article publication time is not proof of the incident date",
+        "rule_version": "v5"
+      },
+      "geographic_review": {
+        "status": "not_flagged",
+        "reason": "no_explicit_external_signal",
+        "original_geographic_scope": "direct",
+        "rule_version": "v5"
+      },
+      "source_correction_review": {
+        "status": "source_correction",
+        "reason": "operator_found_no_evidence_of_malicious_activity",
+        "source": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction",
+        "note": "The updated ERR report quotes the server operator: no evidence of malicious activity. Technical disruption remains a real event; cyber attribution is unsupported.",
+        "rule_version": "v5"
+      },
+      "index_eligibility": {
+        "eligible": false,
+        "reason": "operator_found_no_evidence_of_malicious_activity",
+        "rule_version": "v5",
+        "verification_source": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction"
       }
     },
     {
@@ -13688,7 +14117,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645964+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319885+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -13788,7 +14217,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645991+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319942+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -13888,7 +14317,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646016+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319993+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -13994,7 +14423,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646037+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320036+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -14099,7 +14528,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646063+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320088+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -14204,7 +14633,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646093+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320145+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -14312,7 +14741,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646114+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320185+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -14417,7 +14846,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646136+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320226+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -14517,7 +14946,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646160+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320293+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -14622,7 +15051,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646186+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320343+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -14728,7 +15157,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646212+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320394+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -14828,7 +15257,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646235+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320436+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -14933,7 +15362,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646257+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320479+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -15042,7 +15471,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646280+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320523+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -15145,7 +15574,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646307+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320573+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -15245,7 +15674,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646330+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320617+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -15345,7 +15774,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646348+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320655+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -15451,7 +15880,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646371+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320696+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -15557,7 +15986,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646398+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320748+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -15663,7 +16092,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646426+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320795+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -15766,7 +16195,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646456+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320845+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -15872,7 +16301,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646482+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320890+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -15977,7 +16406,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646511+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320952+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -16083,7 +16512,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646548+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321012+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -16189,7 +16618,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646577+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321062+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -16294,7 +16723,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646601+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321109+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -16400,7 +16829,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646617+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321142+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -16500,7 +16929,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646637+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321183+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -16606,7 +17035,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646659+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321223+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -16712,7 +17141,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646679+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321295+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -16816,7 +17245,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646700+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321337+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -16920,7 +17349,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646724+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321384+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -17025,7 +17454,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646759+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321440+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -17129,7 +17558,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646787+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321489+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -17233,7 +17662,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646804+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321525+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -17337,7 +17766,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646827+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321569+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -17441,7 +17870,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646863+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321657+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -17545,7 +17974,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646888+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321710+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -17649,7 +18078,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646910+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321750+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -17753,7 +18182,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646933+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321791+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -17857,7 +18286,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646957+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321834+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -17961,7 +18390,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646977+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321873+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -18065,7 +18494,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647004+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321926+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -18169,7 +18598,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647036+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321981+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -18273,7 +18702,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647061+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322028+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -18377,7 +18806,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647082+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322066+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -18391,6 +18820,110 @@
         "status": "not_flagged",
         "reason": "no_explicit_external_signal",
         "original_geographic_scope": "regional_direct",
+        "rule_version": "v5"
+      },
+      "source_correction_review": {
+        "status": "not_flagged",
+        "rule_version": "v5"
+      },
+      "index_eligibility": {
+        "eligible": true,
+        "reason": "included",
+        "rule_version": "v5"
+      }
+    },
+    {
+      "event_id": "11005d92ef15488f",
+      "title": "Migration pressure could rise sharply in coming weeks, PPA chief says",
+      "summary": "Migration pressure could rise sharply in the coming weeks as people try to leave Belarus ahead of winter, Police and Border Guard Board (PPA) chief Egert Belitšev said.",
+      "url": "https://news.err.ee/1610161669/migration-pressure-could-rise-sharply-in-coming-weeks-ppa-chief-says",
+      "published_at": "2026-10-09T04:43:00+00:00",
+      "countries": [],
+      "categories": [
+        "migration_pressure"
+      ],
+      "actors": [
+        "Belarus"
+      ],
+      "locations": [],
+      "relevance_score": 11.88,
+      "source_count": 1,
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "source_groups": [
+        "direct_regional_media"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Migration pressure could rise sharply in coming weeks, PPA chief says"
+      ],
+      "related_urls": [
+        "https://news.err.ee/1610161669/migration-pressure-could-rise-sharply-in-coming-weeks-ppa-chief-says"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Regional",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "geographic_scope": "external_context",
+      "geographic_multiplier": 0.55,
+      "attribution": {
+        "status": "probable",
+        "actors": [
+          "Belarus"
+        ],
+        "confidence": 0.75
+      },
+      "hybrid_threat_score": 5,
+      "hybrid_threat_level": "low",
+      "score_breakdown": {
+        "raw_base_score": 34,
+        "relevance": 12,
+        "keywords": 0,
+        "categories": 8,
+        "actors": 6,
+        "locations": 0,
+        "source_confirmation": 3,
+        "strategic_modifier": 5,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.3,
+        "confidence": "low",
+        "confidence_multiplier": 0.88,
+        "geographic_scope": "external_context",
+        "geographic_multiplier": 0.55,
+        "incident_context_multiplier": 1.0,
+        "incident_context_reasons": [],
+        "attribution": {
+          "status": "probable",
+          "actors": [
+            "Belarus"
+          ],
+          "confidence": 0.75
+        },
+        "weighted_score": 4.94
+      },
+      "lifecycle_review": {
+        "status": "not_determined",
+        "reason": "insufficient_evidence",
+        "reviewed_at": "2026-10-10T06:40:49.322105+00:00",
+        "rule_version": "v5"
+      },
+      "event_date_review": {
+        "status": "unknown",
+        "candidate_dates": [],
+        "event_date": null,
+        "note": "Article publication time is not proof of the incident date",
+        "rule_version": "v5"
+      },
+      "geographic_review": {
+        "status": "outside_core_area_review",
+        "reason": "existing_external_context_scope",
+        "original_geographic_scope": "external_context",
         "rule_version": "v5"
       },
       "source_correction_review": {
@@ -18481,7 +19014,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647102+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322140+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -18587,7 +19120,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647124+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322186+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -18693,7 +19226,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647144+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322221+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -18797,7 +19330,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647165+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322273+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -18901,7 +19434,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647185+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322315+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -19006,7 +19539,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647203+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322350+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -19110,7 +19643,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647231+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322399+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -19210,7 +19743,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647260+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322452+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -19314,7 +19847,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647283+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322498+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -19414,7 +19947,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647300+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322528+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -19518,7 +20051,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647340+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322572+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -19622,7 +20155,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647361+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322610+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -19726,7 +20259,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647387+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322655+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -19830,7 +20363,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647413+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322708+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -19939,7 +20472,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647438+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322752+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -20044,7 +20577,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647465+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322806+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -20149,7 +20682,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647499+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322869+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -20253,7 +20786,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647534+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322931+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -20357,7 +20890,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647566+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322994+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -20461,7 +20994,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647591+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323046+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -20563,7 +21096,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647623+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323108+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -20665,7 +21198,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647673+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323202+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -20769,7 +21302,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647698+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323261+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -20873,7 +21406,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647729+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323322+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -20977,7 +21510,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647765+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323368+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -21088,7 +21621,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647787+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323406+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -21195,7 +21728,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647810+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323451+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -21300,7 +21833,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647837+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323506+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -21406,7 +21939,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647862+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323552+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -21511,7 +22044,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647891+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323607+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -21615,7 +22148,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647927+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323670+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -21719,7 +22252,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647955+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323725+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -21823,7 +22356,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647986+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323781+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -21928,7 +22461,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648009+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323830+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -22032,7 +22565,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648031+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323873+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -22136,7 +22669,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648056+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323917+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -22240,7 +22773,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648090+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323983+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -22347,7 +22880,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648127+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324056+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -22452,7 +22985,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648153+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324108+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -22556,7 +23089,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648187+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324165+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -22660,7 +23193,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648218+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324221+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -22760,7 +23293,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648247+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324303+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -22863,7 +23396,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648276+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324365+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -22967,7 +23500,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648300+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324411+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -23073,7 +23606,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648325+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324459+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -23179,7 +23712,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648351+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324514+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -23284,7 +23817,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648373+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324561+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -23391,7 +23924,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648404+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324623+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -23498,7 +24031,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648440+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324685+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -23604,7 +24137,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648474+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324743+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -23710,7 +24243,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648504+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324796+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -23814,7 +24347,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648545+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324877+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -23918,7 +24451,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648588+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324956+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -24028,7 +24561,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643153+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314550+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -24135,7 +24668,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643206+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314635+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -24242,7 +24775,7 @@
       "lifecycle_review": {
         "status": "historical_follow_up",
         "reason": "diplomatic_reaction_to_prior_incident",
-        "reviewed_at": "2026-10-10T06:17:28.643253+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314710+00:00",
         "rule_version": "v5"
       },
       "original_event_subtype": "incident",
@@ -24354,7 +24887,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643295+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314784+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -24455,7 +24988,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643327+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314839+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -24561,7 +25094,7 @@
       "lifecycle_review": {
         "status": "historical_follow_up",
         "reason": "legal_followup",
-        "reviewed_at": "2026-10-10T06:17:28.643358+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314895+00:00",
         "rule_version": "v5"
       },
       "original_event_subtype": "incident",
@@ -24669,7 +25202,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643386+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.314950+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -24775,7 +25308,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643421+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315011+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -24881,7 +25414,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643455+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315068+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -24988,7 +25521,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643485+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315123+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -25094,7 +25627,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643509+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315167+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -25139,7 +25672,7 @@
       "relevance_score": 16.8,
       "source_count": 1,
       "source_names": [
-        "Google News - Lithuania cyber security Russia"
+        "Google News - CERT Estonia cyber threat"
       ],
       "source_groups": [
         "google_news_search"
@@ -25152,7 +25685,7 @@
         "https://news.google.com/rss/articles/CBMijwJBVV95cUxOeGJNMWV1bmxxbFJsNUwyV0hacEVDMVdGWmhMUmhUV1U1dXlUdWJ3WVJzandvMHlEb01JMTMxeGdENHhhUVU4NTZzM1Npa2x0WUJLMEJPN1poOHQ2eGpjSVJtUnBvWHZQb3BISE5xdnYtUDJlaGhWWVZXXzIxREJ3d3huaEd6NkE5R1dzRW1KX2Q0Q3hyZm94V19fQlkzS0dHeGZrOFlQbzZvLUhBVVdvN0NvYmxHVUFTMHBBTTJJeDVmb1JGd015Z29TUDR2ZlYtck05Nmxtanp4cXg1Ymk3WkFWSnphTnN3UVRfLV9ydUthd1I2blA3Q05UTXAyUkNDclBNOHZEbkJBMW9tajhN0gGUAkFVX3lxTE1fZnBCUTd1RVlIYkVjSG5Rb1pOYmd5RXlNelJtZDlzV3BYMWhfLVFjdHdjNEJqdVhHMTZjV3RxakpJYmpaS2p0Q21YTnpmSUoxQklvWEJnWW51NTRzSmwzRVBZYThCTkM0aTJpamtuR3lERVNFXy1lOC1VSElwLU53NklsWXNQZ1BfZGxyYUg2c2tqRTRmM2FEeDByQUJJWGdfMEZXNG05V2JaZlJDaXJMM1JuR3J6ZEROTG55R19LY1JfejFGdkx4N29rUVFEZHN5RnZZNzNVNnBBaHptSEZCSDlkdUVtZXVrVmZfdTZPR2toTnpGM0hxUF9lWmlHazhVVHdBOVdrWlViTXhaQmYwYjJKNw?oc=5"
       ],
       "confidence": "low",
-      "confidence_score": 38,
+      "confidence_score": 48,
       "collection_methods": [
         "rss"
       ],
@@ -25200,7 +25733,7 @@
       "lifecycle_review": {
         "status": "needs_review",
         "reason": "date_or_conflicting_signal",
-        "reviewed_at": "2026-10-10T06:17:28.643614+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315375+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -25317,7 +25850,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643663+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315466+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -25423,7 +25956,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643693+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315522+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -25529,7 +26062,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643718+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315566+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -25638,7 +26171,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643769+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315649+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -25744,7 +26277,113 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643821+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315747+00:00",
+        "rule_version": "v5"
+      },
+      "event_date_review": {
+        "status": "unknown",
+        "candidate_dates": [],
+        "event_date": null,
+        "note": "Article publication time is not proof of the incident date",
+        "rule_version": "v5"
+      },
+      "geographic_review": {
+        "status": "not_flagged",
+        "reason": "no_explicit_external_signal",
+        "original_geographic_scope": "direct",
+        "rule_version": "v5"
+      },
+      "source_correction_review": {
+        "status": "not_flagged",
+        "rule_version": "v5"
+      },
+      "index_eligibility": {
+        "eligible": true,
+        "reason": "included",
+        "rule_version": "v5"
+      }
+    },
+    {
+      "event_id": "afa42de9974726b9",
+      "title": "Russian drone shot down in eastern Latvia, confirms top politician - Euronews.com",
+      "summary": "Russian drone shot down in eastern Latvia, confirms top politician Euronews.com",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMEJSRnV3cmJnVzlJT2hqYlc3VUt6ekZMQ3plQ3VjSjhndUQxN1N3SE94T2pfaXk1NktCY3hGamp5eTF5TWxOWU11QWFBcFBHMTJYcDVoUEIzTlZWQkFxQ25ZVWVTN2pFY1BZWWwzdFA2SHJ6clpfNmk4VS1NMGhQWTlTRFNBSEJLYm5YSV9VM21tMzhOLXBZRHZXUjJsTy05MldjNjlkRmRLdXpk?oc=5",
+      "published_at": "2026-06-08T07:00:00+00:00",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "relevance_score": 16.1,
+      "source_count": 1,
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "source_groups": [
+        "google_news_search"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Russian drone shot down in eastern Latvia, confirms top politician - Euronews.com"
+      ],
+      "related_urls": [
+        "https://news.google.com/rss/articles/CBMirAFBVV95cUxQMEJSRnV3cmJnVzlJT2hqYlc3VUt6ekZMQ3plQ3VjSjhndUQxN1N3SE94T2pfaXk1NktCY3hGamp5eTF5TWxOWU11QWFBcFBHMTJYcDVoUEIzTlZWQkFxQ25ZVWVTN2pFY1BZWWwzdFA2SHJ6clpfNmk4VS1NMGhQWTlTRFNBSEJLYm5YSV9VM21tMzhOLXBZRHZXUjJsTy05MldjNjlkRmRLdXpk?oc=5"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Latvia",
+      "event_subtype": "incident",
+      "event_type": "operational",
+      "analytical_layer": "operational",
+      "geographic_scope": "direct",
+      "geographic_multiplier": 1.0,
+      "attribution": {
+        "status": "probable",
+        "actors": [
+          "Russia"
+        ],
+        "confidence": 0.75
+      },
+      "hybrid_threat_score": 38,
+      "hybrid_threat_level": "guarded",
+      "score_breakdown": {
+        "raw_base_score": 43,
+        "relevance": 16,
+        "keywords": 0,
+        "categories": 16,
+        "actors": 8,
+        "locations": 0,
+        "source_confirmation": 3,
+        "strategic_modifier": 0,
+        "event_subtype": "incident",
+        "subtype_weight": 1.0,
+        "confidence": "low",
+        "confidence_multiplier": 0.88,
+        "geographic_scope": "direct",
+        "geographic_multiplier": 1.0,
+        "incident_context_multiplier": 1.0,
+        "incident_context_reasons": [],
+        "attribution": {
+          "status": "probable",
+          "actors": [
+            "Russia"
+          ],
+          "confidence": 0.75
+        },
+        "weighted_score": 37.84
+      },
+      "lifecycle_review": {
+        "status": "not_determined",
+        "reason": "insufficient_evidence",
+        "reviewed_at": "2026-10-10T06:40:49.315786+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -25850,7 +26489,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643840+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315832+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -25956,7 +26595,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643861+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315873+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -26060,7 +26699,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643888+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315924+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -26171,7 +26810,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643912+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.315975+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -26271,7 +26910,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643937+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316019+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -26371,7 +27010,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643965+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316071+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -26471,7 +27110,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.643993+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316119+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -26578,7 +27217,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644017+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316162+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -26678,7 +27317,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644046+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316217+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -26778,7 +27417,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644073+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316284+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -26878,7 +27517,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644101+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316343+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -26978,7 +27617,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644128+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316394+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -27083,7 +27722,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644159+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316445+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -27187,7 +27826,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644179+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316481+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -27292,7 +27931,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644201+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316525+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -27396,7 +28035,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644221+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316566+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -27500,7 +28139,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644241+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316604+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -27608,7 +28247,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644261+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316641+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -27713,7 +28352,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644285+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316689+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -27817,7 +28456,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644304+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316758+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -27922,7 +28561,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644330+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316807+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -28028,7 +28667,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644366+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316866+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -28132,7 +28771,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644390+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316911+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -28236,7 +28875,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644412+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316953+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -28340,7 +28979,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644433+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.316991+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -28444,7 +29083,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644453+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317028+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -28548,7 +29187,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644471+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317061+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -28652,7 +29291,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644489+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317097+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -28762,7 +29401,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644516+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317147+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -28869,7 +29508,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644551+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317211+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -28979,7 +29618,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644576+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317296+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -29089,7 +29728,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644606+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317359+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -29193,7 +29832,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644639+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317415+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -29301,7 +29940,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644660+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317456+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -29411,7 +30050,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644681+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317496+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -29517,7 +30156,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644705+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317547+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -29615,7 +30254,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644738+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317609+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -29724,7 +30363,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644765+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317640+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -29833,7 +30472,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644805+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317676+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -29946,7 +30585,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644831+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317722+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -30056,7 +30695,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644859+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317775+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -30168,7 +30807,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644888+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317831+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -30275,7 +30914,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644923+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317887+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -30376,7 +31015,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644948+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317935+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -30482,7 +31121,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.644977+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.317994+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -30591,7 +31230,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645002+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318039+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -30698,7 +31337,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645027+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318086+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -30805,7 +31444,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645053+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318130+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -30906,7 +31545,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645082+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318179+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -31013,7 +31652,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645114+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318234+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -31121,7 +31760,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645136+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318307+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -31234,7 +31873,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645157+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318349+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -31342,7 +31981,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645178+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318394+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -31450,7 +32089,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645201+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318436+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -31556,7 +32195,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645230+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318488+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -31662,7 +32301,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645255+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318534+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -31768,7 +32407,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645277+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318576+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -31874,7 +32513,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645297+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318615+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -31982,7 +32621,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645319+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318659+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -32083,7 +32722,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645340+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318700+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -32192,7 +32831,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645364+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318746+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -32299,7 +32938,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645394+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318802+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -32405,7 +33044,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645417+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318846+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -32511,7 +33150,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645443+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318890+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -32617,7 +33256,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645473+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318937+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -32723,7 +33362,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645503+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.318986+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -32832,7 +33471,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645535+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319041+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -32938,7 +33577,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645564+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319098+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -33044,7 +33683,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645590+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319145+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -33150,7 +33789,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645608+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319181+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -33258,7 +33897,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645631+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319219+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -33362,7 +34001,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645660+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319287+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -33471,7 +34110,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645684+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319333+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -33572,7 +34211,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645714+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319387+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -33679,7 +34318,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645739+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319434+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -33784,7 +34423,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645770+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319486+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -33886,7 +34525,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645791+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319524+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -33986,7 +34625,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645815+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319574+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -34093,7 +34732,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645845+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319630+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -34198,7 +34837,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645881+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319692+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -34298,7 +34937,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645919+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319759+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -34398,7 +35037,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645944+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319809+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -34422,6 +35061,110 @@
         "eligible": true,
         "reason": "included",
         "rule_version": "v5"
+      }
+    },
+    {
+      "event_id": "7d49cab00f305158",
+      "title": "Possible cyberattack halts Estonian Artists' Association fundraiser auction",
+      "summary": "A fundraiser auction for the Estonian Artists' Association (EKL) was suspended Thursday evening amid concerns over a possible cyberattack. The auction is set to resume Friday.",
+      "url": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction",
+      "published_at": "2026-10-09T09:59:00+00:00",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "actors": [],
+      "locations": [],
+      "relevance_score": 9.38,
+      "source_count": 1,
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "source_groups": [
+        "direct_regional_media"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Possible cyberattack halts Estonian Artists' Association fundraiser auction"
+      ],
+      "related_urls": [
+        "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Estonia",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "geographic_scope": "direct",
+      "geographic_multiplier": 1.0,
+      "attribution": {
+        "status": "unattributed",
+        "actors": [],
+        "confidence": 0.0
+      },
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "score_breakdown": {
+        "raw_base_score": 31,
+        "relevance": 9,
+        "keywords": 5,
+        "categories": 14,
+        "actors": 0,
+        "locations": 0,
+        "source_confirmation": 3,
+        "strategic_modifier": 0,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.3,
+        "confidence": "low",
+        "confidence_multiplier": 0.88,
+        "geographic_scope": "direct",
+        "geographic_multiplier": 1.0,
+        "incident_context_multiplier": 1.0,
+        "incident_context_reasons": [],
+        "attribution": {
+          "status": "unattributed",
+          "actors": [],
+          "confidence": 0.0
+        },
+        "weighted_score": 8.18
+      },
+      "lifecycle_review": {
+        "status": "not_determined",
+        "reason": "insufficient_evidence",
+        "reviewed_at": "2026-10-10T06:40:49.319847+00:00",
+        "rule_version": "v5"
+      },
+      "event_date_review": {
+        "status": "unknown",
+        "candidate_dates": [],
+        "event_date": null,
+        "note": "Article publication time is not proof of the incident date",
+        "rule_version": "v5"
+      },
+      "geographic_review": {
+        "status": "not_flagged",
+        "reason": "no_explicit_external_signal",
+        "original_geographic_scope": "direct",
+        "rule_version": "v5"
+      },
+      "source_correction_review": {
+        "status": "source_correction",
+        "reason": "operator_found_no_evidence_of_malicious_activity",
+        "source": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction",
+        "note": "The updated ERR report quotes the server operator: no evidence of malicious activity. Technical disruption remains a real event; cyber attribution is unsupported.",
+        "rule_version": "v5"
+      },
+      "index_eligibility": {
+        "eligible": false,
+        "reason": "operator_found_no_evidence_of_malicious_activity",
+        "rule_version": "v5",
+        "verification_source": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction"
       }
     },
     {
@@ -34502,7 +35245,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645964+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319885+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -34602,7 +35345,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.645991+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319942+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -34702,7 +35445,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646016+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.319993+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -34808,7 +35551,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646037+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320036+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -34913,7 +35656,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646063+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320088+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -35018,7 +35761,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646093+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320145+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -35126,7 +35869,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646114+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320185+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -35231,7 +35974,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646136+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320226+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -35331,7 +36074,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646160+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320293+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -35436,7 +36179,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646186+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320343+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -35542,7 +36285,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646212+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320394+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -35642,7 +36385,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646235+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320436+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -35747,7 +36490,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646257+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320479+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -35856,7 +36599,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646280+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320523+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -35959,7 +36702,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646307+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320573+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -36059,7 +36802,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646330+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320617+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -36159,7 +36902,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646348+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320655+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -36265,7 +37008,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646371+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320696+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -36371,7 +37114,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646398+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320748+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -36477,7 +37220,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646426+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320795+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -36580,7 +37323,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646456+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320845+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -36686,7 +37429,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646482+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320890+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -36791,7 +37534,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646511+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.320952+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -36897,7 +37640,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646548+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321012+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -37003,7 +37746,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646577+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321062+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -37108,7 +37851,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646601+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321109+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -37214,7 +37957,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646617+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321142+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -37314,7 +38057,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646637+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321183+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -37420,7 +38163,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646659+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321223+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -37526,7 +38269,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646679+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321295+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -37630,7 +38373,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646700+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321337+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -37734,7 +38477,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646724+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321384+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -37839,7 +38582,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646759+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321440+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -37943,7 +38686,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646787+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321489+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -38047,7 +38790,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646804+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321525+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -38151,7 +38894,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646827+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321569+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -38255,7 +38998,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646863+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321657+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -38359,7 +39102,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646888+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321710+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -38463,7 +39206,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646910+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321750+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -38567,7 +39310,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646933+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321791+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -38671,7 +39414,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646957+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321834+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -38775,7 +39518,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.646977+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321873+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -38879,7 +39622,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647004+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321926+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -38983,7 +39726,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647036+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.321981+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -39087,7 +39830,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647061+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322028+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -39191,7 +39934,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647082+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322066+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -39205,6 +39948,110 @@
         "status": "not_flagged",
         "reason": "no_explicit_external_signal",
         "original_geographic_scope": "regional_direct",
+        "rule_version": "v5"
+      },
+      "source_correction_review": {
+        "status": "not_flagged",
+        "rule_version": "v5"
+      },
+      "index_eligibility": {
+        "eligible": true,
+        "reason": "included",
+        "rule_version": "v5"
+      }
+    },
+    {
+      "event_id": "11005d92ef15488f",
+      "title": "Migration pressure could rise sharply in coming weeks, PPA chief says",
+      "summary": "Migration pressure could rise sharply in the coming weeks as people try to leave Belarus ahead of winter, Police and Border Guard Board (PPA) chief Egert Belitšev said.",
+      "url": "https://news.err.ee/1610161669/migration-pressure-could-rise-sharply-in-coming-weeks-ppa-chief-says",
+      "published_at": "2026-10-09T04:43:00+00:00",
+      "countries": [],
+      "categories": [
+        "migration_pressure"
+      ],
+      "actors": [
+        "Belarus"
+      ],
+      "locations": [],
+      "relevance_score": 11.88,
+      "source_count": 1,
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "source_groups": [
+        "direct_regional_media"
+      ],
+      "related_item_count": 1,
+      "related_titles": [
+        "Migration pressure could rise sharply in coming weeks, PPA chief says"
+      ],
+      "related_urls": [
+        "https://news.err.ee/1610161669/migration-pressure-could-rise-sharply-in-coming-weeks-ppa-chief-says"
+      ],
+      "confidence": "low",
+      "confidence_score": 38,
+      "collection_methods": [
+        "rss"
+      ],
+      "primary_country": "Regional",
+      "event_subtype": "indicator",
+      "event_type": "warning",
+      "analytical_layer": "early_warning",
+      "geographic_scope": "external_context",
+      "geographic_multiplier": 0.55,
+      "attribution": {
+        "status": "probable",
+        "actors": [
+          "Belarus"
+        ],
+        "confidence": 0.75
+      },
+      "hybrid_threat_score": 5,
+      "hybrid_threat_level": "low",
+      "score_breakdown": {
+        "raw_base_score": 34,
+        "relevance": 12,
+        "keywords": 0,
+        "categories": 8,
+        "actors": 6,
+        "locations": 0,
+        "source_confirmation": 3,
+        "strategic_modifier": 5,
+        "event_subtype": "indicator",
+        "subtype_weight": 0.3,
+        "confidence": "low",
+        "confidence_multiplier": 0.88,
+        "geographic_scope": "external_context",
+        "geographic_multiplier": 0.55,
+        "incident_context_multiplier": 1.0,
+        "incident_context_reasons": [],
+        "attribution": {
+          "status": "probable",
+          "actors": [
+            "Belarus"
+          ],
+          "confidence": 0.75
+        },
+        "weighted_score": 4.94
+      },
+      "lifecycle_review": {
+        "status": "not_determined",
+        "reason": "insufficient_evidence",
+        "reviewed_at": "2026-10-10T06:40:49.322105+00:00",
+        "rule_version": "v5"
+      },
+      "event_date_review": {
+        "status": "unknown",
+        "candidate_dates": [],
+        "event_date": null,
+        "note": "Article publication time is not proof of the incident date",
+        "rule_version": "v5"
+      },
+      "geographic_review": {
+        "status": "outside_core_area_review",
+        "reason": "existing_external_context_scope",
+        "original_geographic_scope": "external_context",
         "rule_version": "v5"
       },
       "source_correction_review": {
@@ -39295,7 +40142,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647102+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322140+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -39401,7 +40248,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647124+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322186+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -39507,7 +40354,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647144+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322221+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -39611,7 +40458,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647165+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322273+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -39715,7 +40562,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647185+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322315+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -39820,7 +40667,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647203+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322350+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -39924,7 +40771,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647231+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322399+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -40024,7 +40871,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647260+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322452+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -40128,7 +40975,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647283+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322498+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -40228,7 +41075,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647300+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322528+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -40332,7 +41179,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647340+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322572+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -40436,7 +41283,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647361+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322610+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -40540,7 +41387,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647387+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322655+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -40644,7 +41491,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647413+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322708+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -40753,7 +41600,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647438+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322752+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -40858,7 +41705,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647465+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322806+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -40963,7 +41810,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647499+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322869+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -41067,7 +41914,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647534+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322931+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -41171,7 +42018,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647566+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.322994+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -41275,7 +42122,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647591+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323046+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -41377,7 +42224,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647623+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323108+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -41479,7 +42326,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647673+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323202+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -41583,7 +42430,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647698+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323261+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -41687,7 +42534,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647729+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323322+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -41791,7 +42638,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647765+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323368+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -41902,7 +42749,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647787+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323406+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -42009,7 +42856,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647810+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323451+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -42114,7 +42961,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647837+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323506+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -42220,7 +43067,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647862+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323552+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -42325,7 +43172,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647891+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323607+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -42429,7 +43276,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647927+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323670+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -42533,7 +43380,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647955+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323725+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -42637,7 +43484,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.647986+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323781+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -42742,7 +43589,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648009+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323830+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -42846,7 +43693,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648031+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323873+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -42950,7 +43797,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648056+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323917+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -43054,7 +43901,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648090+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.323983+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -43161,7 +44008,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648127+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324056+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -43266,7 +44113,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648153+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324108+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -43370,7 +44217,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648187+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324165+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -43474,7 +44321,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648218+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324221+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -43574,7 +44421,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648247+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324303+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -43677,7 +44524,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648276+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324365+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -43781,7 +44628,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648300+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324411+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -43887,7 +44734,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648325+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324459+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -43993,7 +44840,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648351+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324514+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -44098,7 +44945,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648373+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324561+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -44205,7 +45052,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648404+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324623+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -44312,7 +45159,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648440+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324685+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -44418,7 +45265,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648474+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324743+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -44524,7 +45371,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648504+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324796+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -44628,7 +45475,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648545+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324877+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -44732,7 +45579,7 @@
       "lifecycle_review": {
         "status": "not_determined",
         "reason": "insufficient_evidence",
-        "reviewed_at": "2026-10-10T06:17:28.648588+00:00",
+        "reviewed_at": "2026-10-10T06:40:49.324956+00:00",
         "rule_version": "v5"
       },
       "event_date_review": {
@@ -44761,9 +45608,9 @@
   ],
   "index_eligibility_audit": {
     "rule_version": "v5",
-    "current_total": 24,
-    "included_count": 22,
-    "excluded_count": 2,
+    "current_total": 26,
+    "included_count": 23,
+    "excluded_count": 3,
     "excluded_events": [
       {
         "event_id": "efa13e38e0226ac5",
@@ -44778,6 +45625,13 @@
         "score": 22,
         "reason": "explicit_external_only_incident",
         "verification_source": null
+      },
+      {
+        "event_id": "7d49cab00f305158",
+        "title": "Possible cyberattack halts Estonian Artists' Association fundraiser auction",
+        "score": 8,
+        "reason": "operator_found_no_evidence_of_malicious_activity",
+        "verification_source": "https://news.err.ee/1610161744/possible-cyberattack-halts-estonian-artists-association-fundraiser-auction"
       }
     ],
     "unfiltered_threat_index": 28.08,
