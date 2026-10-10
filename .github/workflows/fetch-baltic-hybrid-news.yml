@@ -1,138 +1,83 @@
-
 name: Fetch Baltic Hybrid Threat News
-
 on:
   workflow_dispatch:
-
   schedule:
     - cron: "20 5 * * *"
-
 permissions:
   contents: write
-
 jobs:
   fetch-baltic-hybrid-news:
     runs-on: ubuntu-latest
     timeout-minutes: 25
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install reportlab
-
       - name: Check RSS sources
-        run: |
-          python scripts/check_baltic_rss_sources.py
-
+        run: python scripts/check_baltic_rss_sources.py
       - name: Fetch Baltic hybrid news
         env:
           CEE_SECURITY_MAP_JSON_URL: ${{ secrets.CEE_SECURITY_MAP_JSON_URL }}
-        run: |
-          python scripts/fetch_baltic_hybrid_news.py
-
+        run: python scripts/fetch_baltic_hybrid_news.py
       - name: Filter Baltic hybrid news
-        run: |
-          python scripts/filter_baltic_hybrid_news.py
-
+        run: python scripts/filter_baltic_hybrid_news.py
       - name: Cluster Baltic hybrid events
-        run: |
-          python scripts/cluster_baltic_hybrid_events.py
-
+        run: python scripts/cluster_baltic_hybrid_events.py
       - name: Score Baltic hybrid news
-        run: |
-          python scripts/score_baltic_hybrid_news.py
-
+        run: python scripts/score_baltic_hybrid_news.py
       - name: Validate Baltic event lifecycle
         run: |
           python -m unittest discover -s tests -p "test_event_lifecycle.py" -v
           python scripts/validate_event_lifecycle.py
-
       - name: Generate exact-day Baltic snapshot
-        run: |
-          python scripts/generate_baltic_daily_snapshot.py
-
+        run: python scripts/generate_baltic_daily_snapshot.py
       - name: Update Baltic intelligence matrix history
-        run: |
-          python scripts/update_baltic_intelligence_matrix_history.py
-
+        run: python scripts/update_baltic_intelligence_matrix_history.py
       - name: Generate Baltic 7-day intelligence matrix
-        run: |
-          python scripts/generate_baltic_7day_matrix.py
-
+        run: python scripts/generate_baltic_7day_matrix.py
       - name: Update Baltic hybrid history
-        run: |
-          python scripts/update_baltic_hybrid_history.py --rolling-days 14
-
+        run: python scripts/update_baltic_hybrid_history.py --rolling-days 14
       - name: Generate dashboard data
-        run: |
-          python scripts/generate_baltic_dashboard_data.py
-
-      # AI analysis is independent of scoring and PDF generation.
-      # An API failure must not interrupt the existing workflow.
+        run: python scripts/generate_baltic_dashboard_data.py
+      - name: Enrich Baltic sources with readable article evidence
+        continue-on-error: true
+        env:
+          EVIDENCE_MAX_EVENTS: "8"
+          EVIDENCE_WEB_DISCOVERY: "0"
+        run: python scripts/generate_baltic_source_evidence.py
       - name: Generate AI intelligence draft
         continue-on-error: true
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           OPENAI_MODEL: gpt-4.1-mini
-        run: |
-          python scripts/generate_baltic_ai_analysis.py
-
-      # Existing Hungarian PDF generator remains unchanged.
+        run: python scripts/generate_baltic_ai_analysis.py
       - name: Generate daily PDF report
-        run: |
-          python scripts/generate_baltic_daily_report.py
-
+        run: python scripts/generate_baltic_daily_report.py
       - name: Commit updated Baltic data and reports
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-
-          git add data/baltic_rss_status.json
-          git add docs/data/baltic_rss_status.json
-
-          git add data/baltic_hybrid_raw_news.json
-          git add docs/data/baltic_hybrid_raw_news.json
-
-          git add data/baltic_hybrid_filtered_news.json
-          git add docs/data/baltic_hybrid_filtered_news.json
-
-          git add data/baltic_hybrid_clustered_events.json
-          git add docs/data/baltic_hybrid_clustered_events.json
-
-          git add data/baltic_hybrid_scored_news.json
-          git add docs/data/baltic_hybrid_scored_news.json
-
-          git add data/baltic_daily_snapshot.json
-          git add docs/data/baltic_daily_snapshot.json
-
-          git add data/baltic_intelligence_matrix_history.json
-          git add docs/data/baltic_intelligence_matrix_history.json
-
-          git add data/baltic_7day_matrix.json
-          git add docs/data/baltic_7day_matrix.json
-
-          git add data/baltic_hybrid_history.json
-          git add docs/data/baltic_hybrid_history.json
-
+          git add data/baltic_rss_status.json docs/data/baltic_rss_status.json
+          git add data/baltic_hybrid_raw_news.json docs/data/baltic_hybrid_raw_news.json
+          git add data/baltic_hybrid_filtered_news.json docs/data/baltic_hybrid_filtered_news.json
+          git add data/baltic_hybrid_clustered_events.json docs/data/baltic_hybrid_clustered_events.json
+          git add data/baltic_hybrid_scored_news.json docs/data/baltic_hybrid_scored_news.json
+          git add data/baltic_daily_snapshot.json docs/data/baltic_daily_snapshot.json
+          git add data/baltic_intelligence_matrix_history.json docs/data/baltic_intelligence_matrix_history.json
+          git add data/baltic_7day_matrix.json docs/data/baltic_7day_matrix.json
+          git add data/baltic_hybrid_history.json docs/data/baltic_hybrid_history.json
           git add docs/data/baltic_dashboard.json
-
-          # Save AI analysis only when a valid output exists.
-          if [ -f docs/data/baltic_ai_analysis.json ]; then
-            git add docs/data/baltic_ai_analysis.json
-          fi
-
+          if [ -f docs/data/baltic_source_evidence.json ]; then git add docs/data/baltic_source_evidence.json; fi
+          if [ -f docs/data/baltic_ai_analysis.json ]; then git add docs/data/baltic_ai_analysis.json; fi
           git add docs/reports/latest-baltic-hybrid-threat-report.pdf
           git add docs/reports/archive/*.pdf
-
           git commit -m "Update Baltic hybrid threat monitor data and daily report" || echo "Nothing to commit"
           git push
