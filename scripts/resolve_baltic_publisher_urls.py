@@ -21,7 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT = ROOT / 'data/baltic_hybrid_raw_news.json'
 DEFAULT_OUTPUT = ROOT / 'docs/data/baltic_publisher_urls.json'
 UA = 'Mozilla/5.0 (compatible; BalticHybridMonitorPublisherURLDiagnostic/1.0)'
-MAX_BYTES = 400_000
+MAX_BYTES = 3_000_000  # Diagnostic Google News HTML can exceed 400 KB
 AGGREGATORS = ('news.google.com', 'google.com', 'www.google.com', 'bing.com', 'www.bing.com')
 
 
@@ -202,3 +202,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
