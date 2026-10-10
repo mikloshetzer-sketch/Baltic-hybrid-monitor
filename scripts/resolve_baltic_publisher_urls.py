@@ -5,6 +5,8 @@ Does not modify source data, workflow, event IDs or dashboard. Only writes a
 separate diagnostics JSON. Candidate URLs are NOT treated as verified evidence.
 """
 import argparse
+import base64
+import xml.etree.ElementTree as ET
 import html
 import ipaddress
 import json
@@ -73,7 +75,7 @@ def request_page(url, max_redirects=4):
             raise ValueError('http_' + str(exc.code)) from exc
         with response:
             ctype = response.headers.get('Content-Type', '').lower()
-            if not any(t in ctype for t in ('text/html', 'application/xhtml', 'text/plain', 'application/xml')):
+            if not any(t in ctype for t in ('text/html', 'application/xhtml', 'text/plain', 'application/xml', 'application/rss+xml', 'text/xml')):
                 raise ValueError('unsupported_content_type')
             raw = response.read(MAX_BYTES + 1)
             if len(raw) > MAX_BYTES:
@@ -132,6 +134,60 @@ def candidate_from_html(page, source_url, title):
     return found[:12]
 
 
+def decode_legacy_google_url(url):
+    """Decode only old-style RSS IDs that actually contain a publisher URL.
+
+    Modern AU_yq... Google News identifiers contain no publisher URL; never
+    manufacture one from those identifiers.
+    """
+    match = re.search(r'/rss/articles/([A-Za-z0-9_-]+)', url)
+    if not match:
+        return None
+    token = match.group(1)
+    try:
+        data = base64.urlsafe_b64decode(token + '=' * (-len(token) % 4))
+    except (ValueError, Exception):
+        return None
+    for candidate in re.findall(rb'https://[^\x00\s\x02-\x1f"<>]{8,1500}', data):
+        target = candidate.decode('utf-8', errors='ignore').rstrip('\\')
+        if target.startswith('https://') and not aggregator(target) and safe_https(target):
+            return target
+    return None
+
+
+def normalized_title(value):
+    # RSS headlines often append a publisher name after a dash.
+    value = re.split(r'\s+[-|–—]\s+', str(value or ''))[0]
+    return title_words(value)
+
+
+def search_bing_rss(title):
+    """Public RSS search, strictly diagnostic; does not trust a search snippet."""
+    base_title = re.split(r'\s+[-|–—]\s+', title)[0].strip()
+    query = '"' + base_title[:115] + '"'
+    url = 'https://www.bing.com/news/search?' + urllib.parse.urlencode({'q': query, 'format': 'rss', 'setlang': 'en-US'})
+    _, xml_text = request_page(url)
+    root = ET.fromstring(xml_text)
+    results = []
+    expected = normalized_title(title)
+    for node in root.findall('.//item')[:15]:
+        result_title = node.findtext('title') or ''
+        result_url = html.unescape(node.findtext('link') or '').strip()
+        if not result_url.startswith('https://') or aggregator(result_url):
+            continue
+        found = normalized_title(result_title)
+        if len(expected) < 4 or not found:
+            continue
+        overlap = len(expected & found) / max(len(expected), len(found))
+        if overlap < 0.72:
+            continue
+        if not safe_https(result_url):
+            continue
+        results.append({'url': result_url, 'method': 'bing_news_rss_title_match',
+                        'title_overlap': round(overlap, 3), 'search_title': result_title})
+    return results[:5]
+
+
 def resolve(item):
     original = str(item.get('url') or '').strip()
     title = str(item.get('title') or '')
@@ -144,21 +200,42 @@ def resolve(item):
     if not aggregator(original):
         result.update({'publisher_url': original, 'status': 'direct_publisher_url', 'method': 'rss_link'})
         return result
+    result['diagnostics'] = {}
+    try:
+        decoded = decode_legacy_google_url(original)
+        if decoded:
+            result.update({'publisher_url': decoded, 'status': 'decoded_publisher_candidate_unverified',
+                           'method': 'legacy_google_rss_base64'})
+            return result
+        result['diagnostics']['rss_id'] = 'no_embedded_publisher_url'
+    except Exception as exc:
+        result['diagnostics']['rss_id_error'] = str(exc)[:160]
     try:
         final, page = request_page(original)
         if not aggregator(final):
             result.update({'publisher_url': final, 'status': 'redirect_to_publisher', 'method': 'http_redirect'})
             return result
         candidates = candidate_from_html(page, final, title)
+        # Google static assets and page scaffolding are never publisher candidates.
+        candidates = [c for c in candidates if not (urllib.parse.urlsplit(c['url']).hostname or '').endswith('gstatic.com')]
         result['candidates'] = candidates
-        # Do not automatically accept generic links found in an aggregator page.
-        if len(candidates) == 1 and candidates[0]['method'] in ('html_canonical', 'html_data-n-a-url'):
-            result.update({'publisher_url': candidates[0]['url'], 'status': 'publisher_candidate_unverified', 'method': candidates[0]['method']})
-        else:
-            result['status'] = 'aggregator_not_resolved'
+        result['diagnostics']['html'] = 'no_verified_publisher_url'
     except Exception as exc:
-        result['status'] = 'request_failed'
-        result['error'] = str(exc)[:160]
+        result['diagnostics']['html_error'] = str(exc)[:160]
+    try:
+        matches = search_bing_rss(title)
+        result['candidates'].extend(matches)
+        if len(matches) == 1:
+            result.update({'publisher_url': matches[0]['url'],
+                           'status': 'publisher_candidate_unverified',
+                           'method': 'bing_news_rss_title_match'})
+        elif len(matches) > 1:
+            result['status'] = 'multiple_publisher_candidates'
+        else:
+            result['status'] = 'no_publisher_match'
+    except Exception as exc:
+        result['status'] = 'search_failed'
+        result['diagnostics']['search_error'] = str(exc)[:160]
     return result
 
 
@@ -185,7 +262,7 @@ def main():
     for item in items[:args.limit]:
         result = resolve(item)
         results.append(result)
-        print(f"{str(result['item_id'])[:16]}: {result['status']} | {result.get('publisher_url') or '-'}")
+        print(f"{str(result['item_id'])[:16]}: {result['status']} | {result.get('publisher_url') or '-'} | {result.get('diagnostics', {})}")
     counts = {s: sum(x['status'] == s for x in results) for s in sorted({x['status'] for x in results})}
     output = {'generated_at': datetime.now(timezone.utc).isoformat(),
               'source_input_generated_at': data.get('generated_at'),
@@ -202,4 +279,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
