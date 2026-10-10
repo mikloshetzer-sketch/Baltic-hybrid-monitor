@@ -52,7 +52,6 @@ jobs:
         run: |
           python scripts/score_baltic_hybrid_news.py
 
-      # NEW: Lifecycle validation and regression tests
       - name: Validate Baltic event lifecycle
         run: |
           python -m unittest discover -s tests -p "test_event_lifecycle.py" -v
@@ -78,6 +77,17 @@ jobs:
         run: |
           python scripts/generate_baltic_dashboard_data.py
 
+      # AI analysis is independent of scoring and PDF generation.
+      # An API failure must not interrupt the existing workflow.
+      - name: Generate AI intelligence draft
+        continue-on-error: true
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-4.1-mini
+        run: |
+          python scripts/generate_baltic_ai_analysis.py
+
+      # Existing Hungarian PDF generator remains unchanged.
       - name: Generate daily PDF report
         run: |
           python scripts/generate_baltic_daily_report.py
@@ -115,6 +125,11 @@ jobs:
           git add docs/data/baltic_hybrid_history.json
 
           git add docs/data/baltic_dashboard.json
+
+          # Save AI analysis only when a valid output exists.
+          if [ -f docs/data/baltic_ai_analysis.json ]; then
+            git add docs/data/baltic_ai_analysis.json
+          fi
 
           git add docs/reports/latest-baltic-hybrid-threat-report.pdf
           git add docs/reports/archive/*.pdf
