@@ -161,83 +161,104 @@ def normalized_title(value):
     return title_words(value)
 
 
-def search_bing_rss(title):
-    """Public RSS search, strictly diagnostic; does not trust a search snippet."""
-    base_title = re.split(r'\s+[-|–—]\s+', title)[0].strip()
-    query = '"' + base_title[:115] + '"'
-    url = 'https://www.bing.com/news/search?' + urllib.parse.urlencode({'q': query, 'format': 'rss', 'setlang': 'en-US'})
-    _, xml_text = request_page(url)
-    root = ET.fromstring(xml_text)
-    results = []
-    expected = normalized_title(title)
-    for node in root.findall('.//item')[:15]:
-        result_title = node.findtext('title') or ''
-        result_url = html.unescape(node.findtext('link') or '').strip()
-        if not result_url.startswith('https://') or aggregator(result_url):
-            continue
-        found = normalized_title(result_title)
-        if len(expected) < 4 or not found:
-            continue
-        overlap = len(expected & found) / max(len(expected), len(found))
-        if overlap < 0.72:
-            continue
-        if not safe_https(result_url):
-            continue
-        results.append({'url': result_url, 'method': 'bing_news_rss_title_match',
-                        'title_overlap': round(overlap, 3), 'search_title': result_title})
-    return results[:5]
+def search_article_candidates(title, summary='', max_candidates=8):
+    """Discover publisher pages from search-result links, not Google News redirect IDs.
+
+    A search result is a lead only. Never claim it is verified article evidence.
+    """
+    headline = re.split(r'\s+[-|–—]\s+', str(title or ''))[0].strip()
+    if not headline:
+        return [], ['missing_title']
+    terms = headline[:135]
+    queries = ['"' + terms + '"', terms]
+    candidates, errors, seen = [], [], set()
+    for query in queries:
+        if len(candidates) >= max_candidates:
+            break
+        search_url = 'https://www.bing.com/search?' + urllib.parse.urlencode({'q': query, 'setlang': 'en-US'})
+        try:
+            _, page = request_page(search_url)
+            parser = Links()
+            parser.feed(page)
+            for _, raw in parser.urls:
+                link = html.unescape(raw)
+                parsed = urllib.parse.urlsplit(link)
+                if parsed.hostname and parsed.hostname.endswith('bing.com'):
+                    qs = urllib.parse.parse_qs(parsed.query)
+                    if 'url' in qs:
+                        link = qs['url'][0]
+                parsed = urllib.parse.urlsplit(link)
+                host = (parsed.hostname or '').lower()
+                if parsed.scheme != 'https' or not host or aggregator(link) or host.endswith(('gstatic.com', 'microsoft.com', 'msn.com')):
+                    continue
+                if link in seen or len(link) > 1200:
+                    continue
+                seen.add(link)
+                overlap = len(normalized_title(title) & title_words(urllib.parse.unquote(parsed.path).replace('-', ' ')))
+                if overlap < 2:
+                    continue
+                if not safe_https(link):
+                    continue
+                candidates.append({'url': link, 'method': 'bing_search_url_path', 'title_path_overlap': overlap, 'verification': 'unverified'})
+                if len(candidates) >= max_candidates:
+                    break
+        except Exception as exc:
+            errors.append('bing_search: ' + str(exc)[:130])
+    return candidates, errors
+
+
+def verify_article_candidate(candidate, title):
+    """Verify title similarity on publisher HTML; never infer from search snippet alone."""
+    try:
+        final, page = request_page(candidate['url'])
+        if aggregator(final):
+            return None
+        page_title = ''
+        match = re.search(r'<title[^>]*>(.*?)</title>', page, re.I | re.S)
+        if match:
+            page_title = html.unescape(re.sub(r'<[^>]+>', '', match.group(1))).strip()
+        if not page_title:
+            match = re.search(r'<meta[^>]+property=["\']og:title["\'][^>]+content=["\']([^"\']+)', page, re.I)
+            if match:
+                page_title = html.unescape(match.group(1))
+        expected, actual = normalized_title(title), normalized_title(page_title)
+        similarity = len(expected & actual) / max(1, len(expected | actual))
+        if len(expected) >= 4 and similarity >= 0.65:
+            return {'url': final, 'method': 'publisher_page_title_match', 'title_similarity': round(similarity, 3), 'page_title': page_title[:240], 'verification': 'title_matched_not_independently_corroborated'}
+    except Exception as exc:
+        candidate['verification_error'] = str(exc)[:120]
+    return None
 
 
 def resolve(item):
     original = str(item.get('url') or '').strip()
     title = str(item.get('title') or '')
+    summary = str(item.get('summary') or '')
     result = {'item_id': item.get('id'), 'title': title, 'original_rss_url': original,
               'source_group': item.get('source_group'), 'publisher_url': None,
-              'status': 'unresolved', 'method': None, 'candidates': []}
+              'status': 'unresolved', 'method': None, 'candidates': [], 'diagnostics': {}}
     if not original.startswith('https://'):
         result['status'] = 'invalid_input_url'
         return result
     if not aggregator(original):
         result.update({'publisher_url': original, 'status': 'direct_publisher_url', 'method': 'rss_link'})
         return result
-    result['diagnostics'] = {}
-    try:
-        decoded = decode_legacy_google_url(original)
-        if decoded:
-            result.update({'publisher_url': decoded, 'status': 'decoded_publisher_candidate_unverified',
-                           'method': 'legacy_google_rss_base64'})
+    # Preserve the inexpensive legacy decoder, but do not rely on Google HTML.
+    decoded = decode_legacy_google_url(original)
+    if decoded:
+        result['candidates'].append({'url': decoded, 'method': 'legacy_google_rss_base64', 'verification': 'unverified'})
+    discovered, errors = search_article_candidates(title, summary)
+    existing = {x['url'] for x in result['candidates']}
+    result['candidates'].extend(x for x in discovered if x['url'] not in existing)
+    result['diagnostics']['search_errors'] = errors
+    for candidate in result['candidates'][:8]:
+        verified = verify_article_candidate(candidate, title)
+        if verified:
+            result.update({'publisher_url': verified['url'], 'status': 'publisher_page_title_matched', 'method': verified['method']})
+            result['matched_article'] = verified
             return result
-        result['diagnostics']['rss_id'] = 'no_embedded_publisher_url'
-    except Exception as exc:
-        result['diagnostics']['rss_id_error'] = str(exc)[:160]
-    try:
-        final, page = request_page(original)
-        if not aggregator(final):
-            result.update({'publisher_url': final, 'status': 'redirect_to_publisher', 'method': 'http_redirect'})
-            return result
-        candidates = candidate_from_html(page, final, title)
-        # Google static assets and page scaffolding are never publisher candidates.
-        candidates = [c for c in candidates if not (urllib.parse.urlsplit(c['url']).hostname or '').endswith('gstatic.com')]
-        result['candidates'] = candidates
-        result['diagnostics']['html'] = 'no_verified_publisher_url'
-    except Exception as exc:
-        result['diagnostics']['html_error'] = str(exc)[:160]
-    try:
-        matches = search_bing_rss(title)
-        result['candidates'].extend(matches)
-        if len(matches) == 1:
-            result.update({'publisher_url': matches[0]['url'],
-                           'status': 'publisher_candidate_unverified',
-                           'method': 'bing_news_rss_title_match'})
-        elif len(matches) > 1:
-            result['status'] = 'multiple_publisher_candidates'
-        else:
-            result['status'] = 'no_publisher_match'
-    except Exception as exc:
-        result['status'] = 'search_failed'
-        result['diagnostics']['search_error'] = str(exc)[:160]
+    result['status'] = 'candidates_unverified' if result['candidates'] else ('search_failed' if errors else 'no_publisher_match')
     return result
-
 
 def main():
     parser = argparse.ArgumentParser(description='Standalone publisher URL diagnostic; no changes to monitor pipeline')
@@ -279,3 +300,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
