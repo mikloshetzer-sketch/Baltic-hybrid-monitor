@@ -162,6 +162,29 @@ def normalized_title(value):
     return title_words(value)
 
 
+def unwrap_bing_click_url(link):
+    """Decode Bing /ck/a destination locally; never follow a click-tracking URL."""
+    parsed = urllib.parse.urlsplit(html.unescape(link))
+    host = (parsed.hostname or '').lower()
+    if host not in ('bing.com', 'www.bing.com') or not parsed.path.startswith('/ck/a'):
+        return link, 'direct_link'
+    params = urllib.parse.parse_qs(parsed.query)
+    for key in ('url', 'u'):
+        for raw in params.get(key, []):
+            raw = urllib.parse.unquote(raw)
+            if raw.startswith('https://'):
+                return raw, 'bing_click_plain'
+            if raw.startswith(('a1', 'a2')):
+                encoded = raw[2:]
+                try:
+                    decoded = base64.urlsafe_b64decode(encoded + '=' * (-len(encoded) % 4)).decode('utf-8')
+                    if decoded.startswith('https://'):
+                        return decoded, 'bing_click_base64'
+                except (ValueError, UnicodeDecodeError):
+                    pass
+    return link, 'bing_click_undecodable'
+
+
 def search_article_candidates(title, summary='', max_candidates=8):
     """Search with bounded diagnostics explaining why candidates are rejected."""
     headline = re.split(r'\s+[-|–—]\s+', str(title or ''))[0].strip()
@@ -177,7 +200,7 @@ def search_article_candidates(title, summary='', max_candidates=8):
         search_url = 'https://www.bing.com/search?' + urllib.parse.urlencode({'q': query, 'setlang': 'en-US'})
         stats = {'query': query, 'http_final_host': None, 'response_chars': 0,
                  'html_title': None, 'anchor_count': 0, 'rejections': {},
-                 'candidate_count': 0, 'sample_links': [], 'error': None}
+                 'candidate_count': 0, 'sample_links': [], 'decoded_bing_clicks': 0, 'error': None}
         rejects = collections.Counter()
         try:
             final, page = request_page(search_url)
@@ -190,13 +213,15 @@ def search_article_candidates(title, summary='', max_candidates=8):
             parser.feed(page)
             stats['anchor_count'] = len(parser.urls)
             for method, raw in parser.urls:
-                link = html.unescape(raw)
+                link, link_method = unwrap_bing_click_url(raw)
                 parsed = urllib.parse.urlsplit(link)
                 if parsed.hostname and parsed.hostname.lower().endswith('.bing.com'):
                     qs = urllib.parse.parse_qs(parsed.query)
                     if 'url' in qs:
                         link = qs['url'][0]
                 parsed = urllib.parse.urlsplit(link)
+                if link_method == 'bing_click_base64':
+                    stats['decoded_bing_clicks'] += 1
                 host = (parsed.hostname or '').lower()
                 if len(stats['sample_links']) < 5 and host:
                     stats['sample_links'].append({'host': host, 'path_prefix': parsed.path[:75], 'method': method})
@@ -220,7 +245,7 @@ def search_article_candidates(title, summary='', max_candidates=8):
                 if not safe_https(link):
                     rejects['unsafe_or_dns_failed'] += 1
                     continue
-                candidates.append({'url': link, 'method': 'bing_search_url_path',
+                candidates.append({'url': link, 'method': link_method + '_url_path',
                                    'title_path_overlap': overlap, 'verification': 'unverified'})
                 stats['candidate_count'] += 1
                 if len(candidates) >= max_candidates:
