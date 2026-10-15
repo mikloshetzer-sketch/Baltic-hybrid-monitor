@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-14T10:24:49.929073+00:00",
+  "generated_at": "2026-10-15T10:08:49.660869+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-10-14T10:24:49.838356+00:00",
+  "source_history_generated_at": "2026-10-15T10:08:49.586635+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-10-08",
-    "end_date": "2026-10-14",
+    "start_date": "2026-10-09",
+    "end_date": "2026-10-15",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -31,16 +31,16 @@
   "missing_dates": [],
   "seven_day_summary": {
     "totals": {
-      "event_count": 16,
-      "incident_count": 2,
+      "event_count": 15,
+      "incident_count": 1,
       "activity_count": 0,
       "indicator_count": 11,
       "assessment_count": 3
     },
     "indices": {
-      "average_operational_index_observed_days": 12.71,
+      "average_operational_index_observed_days": 6.29,
       "average_early_warning_index_observed_days": 4.24,
-      "average_threat_index_observed_days": 13.13,
+      "average_threat_index_observed_days": 7.99,
       "average_threat_level_observed_days": "low",
       "highest_daily_threat_index": 37.43
     },
@@ -60,7 +60,6 @@
       "border_pressure": 0.0,
       "cyber": 0.0,
       "disinformation": 0.0,
-      "drone_incident": 0.0,
       "espionage": 0.0,
       "migration_pressure": 0.0,
       "sabotage": 0.0
@@ -386,169 +385,6 @@
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-10-08",
-      "status": "available",
-      "snapshot_generated_at": "2026-10-08T12:11:46.324394+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 1,
-      "incident_count": 1,
-      "activity_count": 0,
-      "indicator_count": 0,
-      "assessment_count": 0,
-      "score_total": 45.0,
-      "average_score": 45.0,
-      "highest_score": 45.0,
-      "operational_index": 45.0,
-      "early_warning_index": 0.0,
-      "threat_index": 36.0,
-      "overall_level": "guarded",
-      "country_summary": {
-        "Poland": {
-          "country": "Poland",
-          "event_count": 1,
-          "incident_count": 1,
-          "activity_count": 0,
-          "indicator_count": 0,
-          "assessment_count": 0,
-          "score_total": 45,
-          "average_score": 45.0,
-          "highest_score": 45,
-          "operational_index": 45.0,
-          "early_warning_index": 0.0,
-          "threat_index": 36.0,
-          "overall_level": "guarded",
-          "categories": {
-            "drone_incident": 1
-          },
-          "actors": {
-            "Russia": 1
-          }
-        }
-      },
-      "category_summary": {
-        "drone_incident": {
-          "event_count": 1,
-          "score_total": 45,
-          "average_score": 45.0,
-          "highest_score": 45
-        }
-      },
-      "actor_summary": {
-        "Russia": {
-          "event_count": 1,
-          "score_total": 45,
-          "average_score": 45.0,
-          "highest_score": 45
-        }
-      },
-      "subtype_summary": {
-        "incident": {
-          "event_count": 1,
-          "score_total": 45,
-          "average_score": 45.0,
-          "highest_score": 45
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "assessment": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {
-        "direct": {
-          "event_count": 1,
-          "score_total": 45,
-          "average_score": 45.0,
-          "highest_score": 45
-        }
-      },
-      "hotspot": {
-        "location": "Poland",
-        "score": 45,
-        "event_count": 1
-      },
-      "key_driver": "drone_incident",
-      "dominant_actor": "Russia",
-      "top_events": [
-        {
-          "event_id": "c5815a26fd0a5802",
-          "title": "Polish prosecutors close inquiry into Russian airspace violation - The New Voice of Ukraine",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOS19aVzlqQXBMbVZZbHNEZGFjMWZDTUJQLXE5MEQ4RU01TjIxTGZoSkhEbUFvYTB0NDBUdTNqeTE5TGlYMzRvX3B2YXpFQjFlNEdLMWJsdHpWaGRKWVBFMFk4dXFjMjBiMWZyTVdGMGpSYW1yTEhFaDg5RlNmdkhoRzRWRHEzX0czUWVDNXJMWTg3RERkY3ZaMk91ejFWX0x5NVZwR0hBWjYyTTBzSHFsY3padGNsd2JKZ18tR19zWnI4T1RLV1dWZVEyQlhBYnfSAcsBQVVfeXFMTWI5alRLdWdjdVhuLWJzeHVQVVRBMWZLUW9aeFdGUDd5dlNTSU1kN0VmM3Ezdm0ySGg3bmd4VHhHWkdjOHM4SXlSYUthSmlJMXk5M29xNHNnc0lDd2N0a0lOMV9YM1R5akNNQUp5RzEzZ0ZXa25XN216RkhtaUFDOHExVHF3LV8zMkF6TjFzT1B2cHc2QmxoanBhNWhvQ0RSbTJhT2xsOXRjdGlLdFRCZTNCb0FKVDFVZXNVY1l3SFI3Z0tCN0tuMVoyQ2c?oc=5",
-          "published_at": "2026-10-08T08:29:00+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 45,
-          "hybrid_threat_level": "elevated",
-          "source_names": [
-            "Google News - Baltic airspace violation Russia"
-          ],
-          "related_item_count": 1
-        }
-      ],
-      "events": [
-        {
-          "event_id": "c5815a26fd0a5802",
-          "title": "Polish prosecutors close inquiry into Russian airspace violation - The New Voice of Ukraine",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOS19aVzlqQXBMbVZZbHNEZGFjMWZDTUJQLXE5MEQ4RU01TjIxTGZoSkhEbUFvYTB0NDBUdTNqeTE5TGlYMzRvX3B2YXpFQjFlNEdLMWJsdHpWaGRKWVBFMFk4dXFjMjBiMWZyTVdGMGpSYW1yTEhFaDg5RlNmdkhoRzRWRHEzX0czUWVDNXJMWTg3RERkY3ZaMk91ejFWX0x5NVZwR0hBWjYyTTBzSHFsY3padGNsd2JKZ18tR19zWnI4T1RLV1dWZVEyQlhBYnfSAcsBQVVfeXFMTWI5alRLdWdjdVhuLWJzeHVQVVRBMWZLUW9aeFdGUDd5dlNTSU1kN0VmM3Ezdm0ySGg3bmd4VHhHWkdjOHM4SXlSYUthSmlJMXk5M29xNHNnc0lDd2N0a0lOMV9YM1R5akNNQUp5RzEzZ0ZXa25XN216RkhtaUFDOHExVHF3LV8zMkF6TjFzT1B2cHc2QmxoanBhNWhvQ0RSbTJhT2xsOXRjdGlLdFRCZTNCb0FKVDFVZXNVY1l3SFI3Z0tCN0tuMVoyQ2c?oc=5",
-          "published_at": "2026-10-08T08:29:00+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "drone_incident"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 45,
-          "hybrid_threat_level": "elevated",
-          "source_names": [
-            "Google News - Baltic airspace violation Russia"
-          ],
-          "related_item_count": 1
-        }
-      ]
-    },
     {
       "date": "2026-10-09",
       "status": "available",
@@ -2141,6 +1977,64 @@
           "related_item_count": 3
         }
       ]
+    },
+    {
+      "date": "2026-10-15",
+      "status": "available",
+      "snapshot_generated_at": "2026-10-15T10:08:49.531129+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 0,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 0,
+      "assessment_count": 0,
+      "score_total": 0.0,
+      "average_score": 0.0,
+      "highest_score": 0.0,
+      "operational_index": 0.0,
+      "early_warning_index": 0.0,
+      "threat_index": 0.0,
+      "overall_level": "low",
+      "country_summary": {},
+      "category_summary": {},
+      "actor_summary": {},
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {},
+      "hotspot": {
+        "location": null,
+        "score": 0,
+        "event_count": 0
+      },
+      "key_driver": null,
+      "dominant_actor": null,
+      "top_events": [],
+      "events": []
     }
   ]
 }

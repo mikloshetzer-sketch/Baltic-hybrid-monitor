@@ -2,8 +2,8 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-10-14T10:24:50.031553+00:00",
-  "record_count": 75,
+  "updated_at": "2026-10-15T10:08:49.734382+00:00",
+  "record_count": 76,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
     "warning": "Historical records are reconstructed from currently available scored items using published_at dates. The backfill is not a complete historical archive if older source items are no longer available.",
@@ -43801,6 +43801,504 @@
             "analytical_layer": "early_warning",
             "confidence": "low",
             "hybrid_threat_score": 12,
+            "hybrid_threat_level": "low"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "generated_at": "2026-10-15T10:08:49.734207+00:00",
+      "input_generated_at": "2026-10-15T10:08:49.200459+00:00",
+      "daily_activity": {
+        "description": "Calculated only from events published on this calendar day.",
+        "overall": {
+          "event_count": 0,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 0,
+          "score_total": 0,
+          "average_score": 0,
+          "highest_score": 0,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {},
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "assessment": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": null,
+          "score": 0,
+          "event_count": 0
+        },
+        "key_driver": null,
+        "trend": "decreasing",
+        "top_items": []
+      },
+      "rolling_threat": {
+        "description": "Rolling threat environment ending on this calendar day.",
+        "window": {
+          "days": 14,
+          "start_date": "2026-10-02",
+          "end_date": "2026-10-15"
+        },
+        "overall": {
+          "event_count": 26,
+          "incident_count": 2,
+          "activity_count": 0,
+          "indicator_count": 15,
+          "assessment_count": 9,
+          "score_total": 229,
+          "average_score": 8.81,
+          "highest_score": 44,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 4,
+            "score_total": 7,
+            "average_score": 1.75,
+            "highest_score": 7,
+            "level": "low",
+            "categories": {
+              "drone_incident": 1,
+              "espionage": 2,
+              "sabotage": 1
+            }
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 4,
+            "score_total": 77,
+            "average_score": 19.25,
+            "highest_score": 44,
+            "level": "low",
+            "categories": {
+              "border_pressure": 1,
+              "sabotage": 2
+            }
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 2,
+            "score_total": 6,
+            "average_score": 3.0,
+            "highest_score": 6,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 13,
+            "score_total": 93,
+            "average_score": 7.15,
+            "highest_score": 14,
+            "level": "low",
+            "categories": {
+              "drone_incident": 3,
+              "sabotage": 7,
+              "disinformation": 1
+            }
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 7,
+            "score_total": 46,
+            "average_score": 6.57,
+            "highest_score": 22,
+            "level": "low",
+            "categories": {
+              "drone_incident": 2,
+              "disinformation": 1,
+              "sabotage": 2
+            }
+          }
+        },
+        "categories": {
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 12,
+            "score_total": 128,
+            "average_score": 10.67,
+            "highest_score": 20
+          },
+          "border_pressure": {
+            "category": "border_pressure",
+            "event_count": 1,
+            "score_total": 44,
+            "average_score": 44.0,
+            "highest_score": 44
+          },
+          "drone_incident": {
+            "category": "drone_incident",
+            "event_count": 4,
+            "score_total": 33,
+            "average_score": 8.25,
+            "highest_score": 22
+          },
+          "disinformation": {
+            "category": "disinformation",
+            "event_count": 2,
+            "score_total": 25,
+            "average_score": 12.5,
+            "highest_score": 14
+          },
+          "espionage": {
+            "category": "espionage",
+            "event_count": 2,
+            "score_total": 7,
+            "average_score": 3.5,
+            "highest_score": 7
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 15,
+            "score_total": 163,
+            "average_score": 10.87,
+            "highest_score": 20,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 2,
+            "score_total": 66,
+            "average_score": 33.0,
+            "highest_score": 44,
+            "level": "guarded"
+          },
+          "assessment": {
+            "event_count": 9,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Belarus Border",
+          "score": 64,
+          "event_count": 2
+        },
+        "top_items": [
+          {
+            "id": null,
+            "title": "Record number of illegal border crossing attempts forecast in Latvia",
+            "url": "https://eng.lsm.lv/article/society/defence/13.10.2026-record-number-of-illegal-border-crossing-attempts-forecast-in-latvia.a667274/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+            "published_at": "2026-10-13T04:12:49+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia"
+            ],
+            "categories": [
+              "border_pressure"
+            ],
+            "actors": [
+              "Belarus"
+            ],
+            "locations": [
+              "Belarus Border"
+            ],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 44,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Sandu slams Russia as attack debris hits Moldova in latest airspace violation - POLITICO.eu",
+            "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNRGJ3a09oUWZpV3lCdFFwMzZ1WW94VWJ4Q1dRbW9qdjhUODhmWVA3azVKWm1NWlE5U2hYR1RUUXJISUt3NWdHZ1NHeEwyYllQYkd5U09pRldsLWRQQUlkWldmd3FyWjAzMWZkYnRrLURuWkFKLXRMeGdSTXFQb21BUWpkNW40MjlqcmNJOHRjTE9MTjYxb1lleVlRSjdwRTZhOXNvcFhOcFItaVB2UDRMc3lOZFI5dw?oc=5",
+            "published_at": "2026-10-03T07:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "drone_incident"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 22,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "'Black Russian' sabotage group is probably a front, experts suggest / Article - Latvian Public Media",
+            "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQMDZTYVV6Q1BCM0VZX1VVSmRaQzBhUnJIV05LYXZ2aERjbmpXTm10dWVRSVdaNkRla19wby0yWXJYNnBiY2Y5Qm1GRHFzOTY3eFY1N1NVV1hESTRVTnpsR1pvdVdudU93dmwwRm5fdWI1OEQzV0s0ODJIeENGVC1VbUd0SE5FRVJpd0YxSGZiWGt1WlFHQkJzUUNzWmFpb1JhNEw4YzJLYjRVdTVzemdRbHVqVzNWTnFrdzRxaTctNEZLWnh3MVE?oc=5",
+            "published_at": "2026-10-12T18:07:28+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia",
+              "Belarus"
+            ],
+            "locations": [
+              "Belarus Border"
+            ],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "medium",
+            "hybrid_threat_score": 20,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Poland Arrests Two Turks Over Suspected Russian Sabotage - GreekReporter.com",
+            "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5JQnBfWUJsSW9TdnMzdHVWaDRFaEZEQ3BOdkU2SGtOcFhZSUN2dEtuVXBkNGI1V3pTcHMxWWstTnh3aFdmWnUyQWpWRmNQSmVqWkVMd2tCa19WTm9odXFud1RpdWwwdGdrN3VBWlZCdXltQQ?oc=5",
+            "published_at": "2026-10-13T11:16:47+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia",
+              "NATO"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 14,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "From drone strikes to sabotage: Russia targets the rail corridor linking Ukraine and Poland - ACLED",
+            "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPWXMxaG0xUTVYWVotVHNVYnVfUkhxSDNDN1BtTTI0allkQ0dqekF1dTBDeUlsSmFVOWVtaFlpQlI0SjhTWmlldzZRNVRHalMzZnR1OVZDYk16Sm9tLWhFQzZPc3NYOWJSemtmQndzY2tGMU05VTBTdkt3ZDlCQXU0X3ZiakdlY0hWMXVXWUswZHNmUDN0RVBHcWR0SWRwRHNTZTFMODZuOXFuVDl4THUxZVM4U1hnUQ?oc=5",
+            "published_at": "2026-10-07T11:31:34+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage",
+              "disinformation"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 14,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "NATO’s ‘Russian Sabotage’ Alarm Grows As Poland Links Starlink Blaze To Moscow | WATCH - The Times of India",
+            "url": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxObWxrZE5pLW95cmdlVTFfRlF5LVB0YjNmMFdzdlZ5cmFMVFk3cVlESFB5NnVxTUh0Qy1sZG1WR1lXU0lndUpOY1ZyZTdfSk9ZaGQyYU1QVGJHLVE0NUdIUVE1czc0NTR6cEk2VXRvR1FLQ3RkX3NhQWtVdmZmc3piMEdiOHBOVFkxcmNJSHJWeTRGYjFMaEd0Qk81U0RLZTRUUmhKaU1JemFyWFBXdlVTTm1OUVNlbURvV2NOaWdfS3A0clU2RE1YTkcydmg4WlA4Um1mUmVYdWdQMnlSRkhNbVRicVlOYkVHQXVGMC16aGQxNkJS0gH6AUFVX3lxTFBXZ1lIU2puYkx4Wk1qcXdjOU9qeXRxbjgtU1RuNXhWbUVRQWtvZGNHaGhoeTVmYUQxZ0F4cHBhc1I4WDRRVHFEUTkwd0hpMXNxTDVoWmM4VXNjSUxZZHRYWWtpNzJQNktrb0oySXEtN28xQnhpQ0EtUUNGVEFMX3ZBUy1Ed0cyUS0xVFF5VnlmenIwWEp2MUdzeTZ0R3VLOXJLeHJvU3VMRS1SN0JxZ1dRRjRlYkhTMHB6aHl4UERLT21jb3IwcHEyd0k5dGJ2RFgxdXZCbFBOWFJpXzN0dlFjbmEyZ3Q4M0lCOUF5SlVmU2Raekw4b0NQT1E?oc=5",
+            "published_at": "2026-10-13T00:15:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia",
+              "NATO"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 14,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Group likely linked to Belarus, Russia takes responsibility for sabotage at Latvian border - Gwara Media",
+            "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQN3BuU0hIN1JNQkRFZzkxMUtselV5cmlwR2xDaC1IN3FMazNFM0ppQXh0MDVHR2YyLXllTWJqbFFJQ3U4VlZVYldDeVI5QmxsU1NrMFhuM1BIcF9jR0lPMkw3cl92dk1YOFJGM3VhQmhFcWxmMG1HYTZlajlQUkgwV0hVanFrZXJpbFZLMEZ1VXE4R3NWaTgyMDVfNFhWTjcxRWRyd1FyazJ2dVR4d3BvUTUyYnE5dWc?oc=5",
+            "published_at": "2026-10-13T16:08:40+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia",
+              "Belarus"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 13,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Russia's shadow war in Europe: Why the Starlink sabotage case in Poland raises fears of a wider confrontation - Latest news from Azerbaijan",
+            "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPTFRUT0FndWdkTWVkdVRXMDRXQWYtakplMGFXTmkyZjloNVYyWHh0Rl9SU0p6LXI3MGhHdUlUc0tMbVluc2xEVFlYSTljbENxUjZBelplVWNNN0RMaF94UFpsUk94aGpJTzczOTVzazJoV0NIc0s4THN1VHVXalpqbWJCYXp2VzRndVZXT2pfX2NpbEtONm5DbG5iY01qb3daV2lUc0YyN2VyYlpTWkhDVXZXc1gxbXdhMlVHU21FS0VRQkRvY3plQg?oc=5",
+            "published_at": "2026-10-14T07:14:19+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 12,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Russia responsible for Starlink sabotage, says Poland - The Kyiv Independent",
+            "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUUg2ZXNfWWhKaFhzQ2VIbW5WMDJ1LTVKNUdkQXJacUNjR0kybFllbDkwS25vVUhveWhVVEF1ZnpXcnFjMFhoakZJb0VBQTlZdVhGOTVLYjdoSkUybmdjaHFsdFRRRFQ3dmpzWVdvR3BjS0tvbzZlXzYwS0I4MDRzVGFzWWtnN3ZL?oc=5",
+            "published_at": "2026-10-13T16:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 12,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "How to justify crimes against humanity: the Kremlin method",
+            "url": "https://euvsdisinfo.eu/how-to-justify-crimes-against-humanity-the-kremlin-method/",
+            "published_at": "2026-10-09T08:30:47+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "disinformation"
+            ],
+            "actors": [
+              "Russia",
+              "NATO"
+            ],
+            "locations": [
+              "Kaliningrad"
+            ],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 11,
             "hybrid_threat_level": "low"
           }
         ]
