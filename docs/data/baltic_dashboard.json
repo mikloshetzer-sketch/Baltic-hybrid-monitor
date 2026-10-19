@@ -3,53 +3,53 @@
   "title": "Baltic Hybrid Intelligence Platform",
   "subtitle": "Event-based OSINT monitoring of hybrid threats in the Baltic states and Poland",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-18T09:43:21.360883+00:00",
-  "latest_update": "2026-10-18T09:43:20.678880+00:00",
+  "generated_at": "2026-10-19T10:55:34.888927+00:00",
+  "latest_update": "2026-10-19T10:55:33.957555+00:00",
   "version": "Baltic Dashboard Data v1.7",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
   "summary": {
-    "threat_index": 22.92,
+    "threat_index": 36.37,
     "threat_level": "guarded",
-    "operational_index": 25.5,
-    "early_warning_index": 12.62,
-    "event_count": 23,
-    "incident_count": 3,
+    "operational_index": 42.4,
+    "early_warning_index": 12.25,
+    "event_count": 40,
+    "incident_count": 13,
     "activity_count": 0,
-    "indicator_count": 15,
-    "assessment_count": 5,
-    "score_total": 242,
-    "average_score": 13.44,
-    "highest_score": 36,
-    "raw_item_count": 422,
-    "filtered_item_count": 227,
-    "clustered_event_count": 189,
+    "indicator_count": 21,
+    "assessment_count": 6,
+    "score_total": 616,
+    "average_score": 18.12,
+    "highest_score": 47,
+    "raw_item_count": 435,
+    "filtered_item_count": 245,
+    "clustered_event_count": 207,
     "merged_item_count": 38
   },
   "current_threat_picture": {
     "location_hotspot": {
-      "location": null,
-      "event_count": 0,
-      "score_total": 0,
-      "highest_score": 0,
+      "location": "Kaliningrad",
+      "event_count": 1,
+      "score_total": 11,
+      "highest_score": 11,
       "basis": "explicit_event_locations"
     },
     "most_affected_country": {
-      "country": "Poland",
-      "event_count": 10,
-      "score_total": 88,
-      "highest_score": 14,
-      "level": "low",
+      "country": "Lithuania",
+      "event_count": 12,
+      "score_total": 234,
+      "highest_score": 47,
+      "level": "guarded",
       "basis": "country_threat_concentration"
     },
     "key_driver": {
       "category": "sabotage",
-      "event_count": 11,
-      "score_total": 113
+      "event_count": 19,
+      "score_total": 356
     },
     "dominant_actor": {
       "actor": "Russia",
-      "event_count": 19,
-      "score_total": 156
+      "event_count": 27,
+      "score_total": 414
     },
     "semantics": {
       "location_hotspot": "Highest-scoring non-country location from event location fields inside the current 14-day window.",
@@ -61,9 +61,9 @@
     {
       "subtype": "incident",
       "label": "Incident",
-      "event_count": 3,
-      "score_total": 87,
-      "average_score": 29.0
+      "event_count": 13,
+      "score_total": 429,
+      "average_score": 33.0
     },
     {
       "subtype": "activity",
@@ -75,38 +75,70 @@
     {
       "subtype": "indicator",
       "label": "Indicator",
-      "event_count": 15,
-      "score_total": 155,
-      "average_score": 10.33
+      "event_count": 21,
+      "score_total": 187,
+      "average_score": 8.9
     },
     {
       "subtype": "assessment",
       "label": "Assessment",
-      "event_count": 5,
+      "event_count": 6,
       "score_total": 0,
       "average_score": 0.0
     }
   ],
   "country_cards": [
     {
+      "country": "Lithuania",
+      "event_count": 12,
+      "incident_count": 6,
+      "activity_count": 0,
+      "indicator_count": 5,
+      "assessment_count": 1,
+      "score_total": 234,
+      "average_score": 21.27,
+      "highest_score": 47,
+      "level": "guarded",
+      "top_categories": [
+        {
+          "name": "sabotage",
+          "count": 5
+        },
+        {
+          "name": "drone_incident",
+          "count": 5
+        }
+      ],
+      "top_actors": [
+        {
+          "name": "Russia",
+          "count": 6
+        },
+        {
+          "name": "NATO",
+          "count": 2
+        }
+      ]
+    },
+    {
       "country": "Poland",
-      "event_count": 10,
-      "incident_count": 0,
+      "event_count": 12,
+      "incident_count": 2,
       "activity_count": 0,
       "indicator_count": 8,
       "assessment_count": 2,
-      "score_total": 88,
-      "average_score": 11.0,
-      "highest_score": 14,
+      "score_total": 161,
+      "average_score": 16.1,
+      "highest_score": 44,
       "level": "low",
       "top_categories": [
         {
           "name": "sabotage",
-          "count": 6
+          "count": 7
         },
         {
           "name": "drone_incident",
-          "count": 2
+          "count": 3
         },
         {
           "name": "disinformation",
@@ -125,24 +157,68 @@
       ]
     },
     {
-      "country": "Latvia",
-      "event_count": 4,
-      "incident_count": 1,
+      "country": "Regional",
+      "event_count": 10,
+      "incident_count": 3,
       "activity_count": 0,
-      "indicator_count": 3,
-      "assessment_count": 0,
-      "score_total": 72,
-      "average_score": 18.0,
-      "highest_score": 36,
+      "indicator_count": 6,
+      "assessment_count": 1,
+      "score_total": 134,
+      "average_score": 14.89,
+      "highest_score": 40,
       "level": "low",
       "top_categories": [
         {
           "name": "sabotage",
-          "count": 3
+          "count": 4
+        },
+        {
+          "name": "drone_incident",
+          "count": 2
         },
         {
           "name": "cyber",
           "count": 1
+        },
+        {
+          "name": "disinformation",
+          "count": 1
+        },
+        {
+          "name": "gps_interference",
+          "count": 1
+        }
+      ],
+      "top_actors": [
+        {
+          "name": "Russia",
+          "count": 8
+        },
+        {
+          "name": "NATO",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "country": "Latvia",
+      "event_count": 4,
+      "incident_count": 2,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 1,
+      "score_total": 81,
+      "average_score": 27.0,
+      "highest_score": 41,
+      "level": "guarded",
+      "top_categories": [
+        {
+          "name": "sabotage",
+          "count": 2
+        },
+        {
+          "name": "cyber",
+          "count": 2
         }
       ],
       "top_actors": [
@@ -152,94 +228,35 @@
         },
         {
           "name": "Belarus",
-          "count": 2
+          "count": 1
         }
       ]
     },
     {
       "country": "Estonia",
-      "event_count": 4,
-      "incident_count": 1,
-      "activity_count": 0,
-      "indicator_count": 2,
-      "assessment_count": 1,
-      "score_total": 50,
-      "average_score": 16.67,
-      "highest_score": 31,
-      "level": "low",
-      "top_categories": [
-        {
-          "name": "espionage",
-          "count": 2
-        },
-        {
-          "name": "cyber",
-          "count": 1
-        },
-        {
-          "name": "sabotage",
-          "count": 1
-        }
-      ],
-      "top_actors": [
-        {
-          "name": "Russia",
-          "count": 3
-        },
-        {
-          "name": "FSB",
-          "count": 1
-        }
-      ]
-    },
-    {
-      "country": "Regional",
-      "event_count": 4,
-      "incident_count": 1,
-      "activity_count": 0,
-      "indicator_count": 1,
-      "assessment_count": 2,
-      "score_total": 26,
-      "average_score": 13.0,
-      "highest_score": 20,
-      "level": "low",
-      "top_categories": [
-        {
-          "name": "drone_incident",
-          "count": 1
-        },
-        {
-          "name": "cyber",
-          "count": 1
-        },
-        {
-          "name": "sabotage",
-          "count": 1
-        }
-      ],
-      "top_actors": [
-        {
-          "name": "Russia",
-          "count": 4
-        }
-      ]
-    },
-    {
-      "country": "Lithuania",
-      "event_count": 1,
+      "event_count": 2,
       "incident_count": 0,
       "activity_count": 0,
       "indicator_count": 1,
-      "assessment_count": 0,
+      "assessment_count": 1,
       "score_total": 6,
       "average_score": 6.0,
       "highest_score": 6,
       "level": "low",
-      "top_categories": [],
+      "top_categories": [
+        {
+          "name": "espionage",
+          "count": 1
+        },
+        {
+          "name": "sabotage",
+          "count": 1
+        }
+      ],
       "top_actors": [
         {
           "name": "Russia",
-          "count": 1
+          "count": 2
         }
       ]
     }
@@ -247,64 +264,64 @@
   "category_drivers": [
     {
       "category": "sabotage",
-      "event_count": 11,
-      "score_total": 113,
-      "average_score": 10.27,
-      "highest_score": 14
+      "event_count": 19,
+      "score_total": 356,
+      "average_score": 18.74,
+      "highest_score": 47
+    },
+    {
+      "category": "drone_incident",
+      "event_count": 10,
+      "score_total": 170,
+      "average_score": 17.0,
+      "highest_score": 32
     },
     {
       "category": "cyber",
       "event_count": 3,
-      "score_total": 87,
-      "average_score": 29.0,
-      "highest_score": 36
+      "score_total": 47,
+      "average_score": 15.67,
+      "highest_score": 27
     },
     {
       "category": "disinformation",
-      "event_count": 1,
-      "score_total": 14,
-      "average_score": 14.0,
+      "event_count": 2,
+      "score_total": 25,
+      "average_score": 12.5,
       "highest_score": 14
     },
     {
-      "category": "espionage",
-      "event_count": 2,
-      "score_total": 13,
-      "average_score": 6.5,
-      "highest_score": 13
+      "category": "gps_interference",
+      "event_count": 1,
+      "score_total": 11,
+      "average_score": 11.0,
+      "highest_score": 11
     },
     {
-      "category": "drone_incident",
-      "event_count": 3,
-      "score_total": 11,
-      "average_score": 3.67,
-      "highest_score": 11
+      "category": "espionage",
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
     }
   ],
   "actor_drivers": [
     {
       "actor": "Russia",
-      "event_count": 19,
-      "score_total": 156,
-      "average_score": 8.21,
-      "highest_score": 20
-    },
-    {
-      "actor": "Belarus",
-      "event_count": 2,
-      "score_total": 24,
-      "average_score": 12.0,
-      "highest_score": 13
+      "event_count": 27,
+      "score_total": 414,
+      "average_score": 15.33,
+      "highest_score": 47
     },
     {
       "actor": "NATO",
-      "event_count": 2,
-      "score_total": 14,
-      "average_score": 7.0,
-      "highest_score": 14
+      "event_count": 5,
+      "score_total": 53,
+      "average_score": 10.6,
+      "highest_score": 25
     },
     {
-      "actor": "FSB",
+      "actor": "Belarus",
       "event_count": 1,
       "score_total": 13,
       "average_score": 13.0,
@@ -313,6 +330,202 @@
   ],
   "top_events": [
     {
+      "event_id": "71bffed5366ad74a",
+      "title": "Lithuania foils arson attack on Starlink equipment, suspects Russian involvement - The Kyiv Independent",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNREY4RUJRSzlQWUNiUFV3SzNKX09hVHdtQS02eUdSLXMzQlA1enlYSUtLV3lTdW5XUDBsaVI5VFJFWjZLUmdxSDA1a1E4WHA1TVRmeTRxM2tGVlJ2X1U4U3FqSnZ2SjBWU0ZoZ1REU202U1pEY3otbmRZTm5nOGszLUlWNHQ1M0xHY3p3UWVEY0FpbzZ4QktQRnF4a0ZmZjRBY1lXcFpnalk3ZlpS?oc=5",
+      "published_at": "2026-10-18T12:57:44+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 47,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "11bcf158fdae6eb4",
+      "title": "Russia Turns to Turkish Mafia for Starlink Sabotage Attack in Poland - UNITED24 Media",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQVVFuMG8xeEEwZGd5SzFzbW55RE9EbVhDeFpBcEhxZHc5QkRnS0RrajJkMVljNTJXdFpQS0U5NEVSbHJlbzBWZDM0SkY0ck5OQVY0aTUtbFZCbjR2cHZWeHNYSDJScjhXbk9Ob3BqMlB4dGk2SGlyWkEyRTlITmlQRXJDel9nMmlPZU14OVBVN2loNW5qa2xvSEFjNTYyQU8yc0VOWjBYY3RUckJmZFJpNEpfWkhNQQ?oc=5",
+      "published_at": "2026-10-18T10:53:07+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 44,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 3
+    },
+    {
+      "event_id": "f61657f18aea5e8f",
+      "title": "Latvian citizen, Russian businessman, German sabotage suspect: who is Oleg Levushkin?",
+      "url": "https://eng.lsm.lv/article/society/crime/19.10.2026-latvian-citizen-russian-businessman-german-sabotage-suspect-who-is-oleg-levushkin.a668125/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-10-19T07:30:00+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 41,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "LSM English Latvia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "5aee440a9f980d02",
+      "title": "Lithuania links failed Starlink arson attempt to Russian sabotage, citing Pattern with Poland and Bulgaria - EUalive",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOd0o3NGxhRmF3TkFQdVhmcld1M3k1RDFfemxWeDRXbnBzUGx0QVluYzh5bV80NEs3cHNJemhKbHlzSUl6QkljSXp4WVFHcmlrV0s3VzZEdXJuNkQ1Um90dGJCZHZnLWJFVURKN3NWRkJEdUFLOFhCUHZ1QWx3aG9PejNwOFZ5VVU2dkdSVi16MXJ3NUJ2RmNSVnN5d1RQclRzeF8xQjV5cWZhV2EyMkJidUdwUHNjWEFYQVZ0RW1PS0E5SXQ3?oc=5",
+      "published_at": "2026-10-19T03:56:32+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania",
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 40,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "f56b9834de0699d1",
+      "title": "Poland, Bulgaria, now Lithuania: Russia’s suspected arson campaign reaches a third Starlink site serving Ukraine - Euromaidan Press",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPSFR6aXNaa210TFNLNldDUS1hV2RNWGwyRlNzaC1oOTUxLXNEVEtDQ0VidHdpMW9ocEZFZHdubS1PbTJzZ0hnM04wTG9IWFNQYmdFbE1TSjFZSVdjeFJldjhXb3h0N1BZUGNVaWZqUzZaMzBTX0pORHJaYjE1dzM3QXEwTUNUMWg3MTlyU0RaTTJlNGxXcEdqR09mWWRWbWZUaXZzUkU4QnU5YTJKNVBUNFlfZ1FERFJjeFJJbDBVcWZsaGFwdGtHTlg2NldLWm9MamF6VktfWXREVGtJOEZOV0d3?oc=5",
+      "published_at": "2026-10-18T13:42:03+00:00",
+      "primary_country": "Regional",
+      "countries": [
+        "Lithuania",
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 40,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "ad02e31abcae9f8f",
+      "title": "Lithuania says attempted arson of Starlink station sabotage is aimed at influencing Ukraine - Українська правда",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE4wWkNTN1ZZOGZyMTJMRmFxZWk2UUlHVzRWZjV3Ujl5djBuR0daa0R2R0lfVExPZkUtUzRteE1WLXlDSk9rNFBDemNLOG5DNlltR2prM1NsMWdSUERwbzlvOEVrUE3SAXBBVV95cUxNcXVvY2VyUE4tMTFhYWpPWjNFY2k0QWNveFpyQ0dZSENZY3Bla2NnZGppREdfSUl4UkwxdGZ3blJUTjJlUlNVZlhXMlN6b2hPR3FxdlVWZWZhaWZzTFU0eUVQamlDamp4Y1B1c2tEUlJK?oc=5",
+      "published_at": "2026-10-18T16:20:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 37,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "4f8e0adbc665e6f1",
+      "title": "Search Continues In Poland After Possible Airspace Violation. Military Investigating Several Scenarios - REFORM.news",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPN0RpSW9VUmhucHh5aFFuaXVwMGJrbV9vaC1LV2dES0I1cDVsVTgyTU1vX1l5eEo1U0FmNktSWGxnNUVGZUVDektEMWZKVlcwdkhWYUFSSWhGZnNhZGFfRmgtb2dLcGVMVUs0cWtDbThSSzIyV1NGX24xLXVPQ3VoS0MxZWJ3VGVEWFBpMkt3QUVldlZBSEFsVHRMaGZlanVyaTlrX2hBdjRkT2RWVU1Fb0pVV290V3BBOWVCN09fVmVILWvSAcgBQVVfeXFMTklnakppRy1jUG10Z0lYc3BTLVJzcXNRZHhIVGRuV2xSMUswMkF5RFUwSWl4THE4d0xETXJfUFdWLU5HTk8xbW9HUWdZeTFkTnpkYVFpSkFMSzFvVzFwQmRGTzJlZ0dSeVkxaGI1UUQ1ZUpGbzQ4OENPdFRqSHJUWENYTUJjNlhDdkw4LURTclhyVl9ZWE9xa3hwRFRuR3dnb0M0Mk43dXdUeWdNbG5QV1NNbzlRYUJQUlBOcVhGeUttXzA4Vk9FbzU?oc=5",
+      "published_at": "2026-10-18T12:46:13+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 32,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic airspace violation Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
       "event_id": "2b65b9958c03a501",
       "title": "Cyberattack on Latvian State Forests detected / Article - Latvian Public Media",
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQalp0aDhXcm85REdiZU05T09CU1YzVERmQUZtcWJkalFoQWZkbklMeldmTWNrWS0yYThka01IM3hfUTlwNUplZnJpdWFpZkdFMGdhLWh3Q3NBVjFRM0dPeThUOWkzR0o2QnZQazkxOWQ1MnpyUFl6VWlrbU5wMm5YNEZCUzhaakVZM2pTSDFyS21LcTFNSnBGSlpvbzRtbzN1OE5yY2tQaGFWUQ?oc=5",
@@ -328,28 +541,28 @@
       "locations": [],
       "event_type": "operational",
       "event_subtype": "incident",
-      "source_count": 2,
-      "confidence": "medium",
-      "confidence_score": 56,
-      "hybrid_threat_score": 36,
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 48,
+      "hybrid_threat_score": 27,
       "hybrid_threat_level": "guarded",
       "source_names": [
-        "Google News - CERT Latvia cyber threat",
-        "Google News - Baltic cyber attack Russia"
+        "Google News - CERT Latvia cyber threat"
       ],
-      "related_item_count": 2
+      "related_item_count": 1
     },
     {
-      "event_id": "c79fb69cb835da2e",
-      "title": "Experts: French grocery store cyberattack a warning sign for Estonia",
-      "url": "https://news.err.ee/1610167132/experts-french-grocery-store-cyberattack-a-warning-sign-for-estonia",
-      "published_at": "2026-10-16T08:52:00+00:00",
-      "primary_country": "Estonia",
+      "event_id": "68545a118091458b",
+      "title": "Lithuania has evidence Sundayâs drone crossed from Poland, presidential adviser says",
+      "url": "https://www.lrt.lt/en/news-in-english/19/3087132/lithuania-has-evidence-sunday-s-drone-crossed-from-poland-presidential-adviser-says",
+      "published_at": "2026-10-19T08:28:00+00:00",
+      "primary_country": "Regional",
       "countries": [
-        "Estonia"
+        "Lithuania",
+        "Poland"
       ],
       "categories": [
-        "cyber"
+        "drone_incident"
       ],
       "actors": [],
       "locations": [],
@@ -358,10 +571,90 @@
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 31,
+      "hybrid_threat_score": 26,
       "hybrid_threat_level": "guarded",
       "source_names": [
-        "ERR News Estonia"
+        "LRT English Lithuania"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "f0e127f4cd9d62bc",
+      "title": "Lithuanian minister says Sunday drone crash was part of Ukrainian attack on St Petersburg",
+      "url": "https://www.lrt.lt/en/news-in-english/19/3087078/lithuanian-minister-says-sunday-drone-crash-was-part-of-ukrainian-attack-on-st-petersburg",
+      "published_at": "2026-10-19T06:40:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 25,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "LRT English Lithuania"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "eebb1600102faa8e",
+      "title": "Lithuania Drone Incident: Suspected Drone Explodes, Not Shot Down - MiGFlug",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQV2FmWjdibVJXZUMtOFAycU83TEk3em95VzVBYWR6cEhwWlVHam96eHVlNWNfTzNlUEhMR251RTJhenJZZjlVZXY1MHh0RVhkR2RMdm9CUXg5S1FCdlBxRXNHbWlMWDNwcGRYLVdjYzdSRWlzQXJ0VGJFdktRLVpuT2RRU1M3ZWFIdmxTMENwSmU1eDBhcWFOd2dpemJXQk9QUUNyV2hxTmdkUQ?oc=5",
+      "published_at": "2026-10-18T19:13:19+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 25,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "7dc1ee41f0ed3f77",
+      "title": "Ukraine Apologizes After Drone Crash in Lithuania, NATO Scrambles Fighter Jets - Nacionale",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPdzloT2o5bWdlN0RlN1l1bmNsa3p4VmNuM3FzbHF0MHJLN2dnOXBuWEdRMktrMWhPcFZFTmExMHZ2dk9udXV4RlU2bVFZWDNaWE1vTW1nRTdtOXN1ZS1wbTFkYmE1OFlzdUY5QXpZNzlyLXhQNm5zcnBoQmJmaFZMQkRtWUV2eThfRmEwME4wNG1CLXpHRUp0NGg5NGJOOU1mY3A4UFpPLTZ3WkJUbF90bG1iLUJDQQ?oc=5",
+      "published_at": "2026-10-18T14:45:44+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 25,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
       ],
       "related_item_count": 1
     },
@@ -452,35 +745,6 @@
       "related_item_count": 2
     },
     {
-      "event_id": "9118271d61802331",
-      "title": "Estonian ex-soldier jailed in Russia after visiting his wife",
-      "url": "https://news.err.ee/1610166811/estonian-ex-soldier-jailed-in-russia-after-visiting-his-wife",
-      "published_at": "2026-10-15T13:21:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "espionage"
-      ],
-      "actors": [
-        "Russia",
-        "FSB"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 13,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1
-    },
-    {
       "event_id": "c801c18b5425e147",
       "title": "Group likely linked to Belarus, Russia takes responsibility for sabotage at Latvian border - Gwara Media",
       "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQN3BuU0hIN1JNQkRFZzkxMUtselV5cmlwR2xDaC1IN3FMazNFM0ppQXh0MDVHR2YyLXllTWJqbFFJQ3U4VlZVYldDeVI5QmxsU1NrMFhuM1BIcF9jR0lPMkw3cl92dk1YOFJGM3VhQmhFcWxmMG1HYTZlajlQUkgwV0hVanFrZXJpbFZLMEZ1VXE4R3NWaTgyMDVfNFhWTjcxRWRyd1FyazJ2dVR4d3BvUTUyYnE5dWc?oc=5",
@@ -563,47 +827,48 @@
       "source_names": [
         "Google News - Baltic sabotage Russia"
       ],
-      "related_item_count": 2
+      "related_item_count": 1
     },
     {
-      "event_id": "631f222506b02a19",
-      "title": "'Black Russian' sabotage group is probably a front, experts suggest / Article - Latvian Public Media",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQMDZTYVV6Q1BCM0VZX1VVSmRaQzBhUnJIV05LYXZ2aERjbmpXTm10dWVRSVdaNkRla19wby0yWXJYNnBiY2Y5Qm1GRHFzOTY3eFY1N1NVV1hESTRVTnpsR1pvdVdudU93dmwwRm5fdWI1OEQzV0s0ODJIeENGVC1VbUd0SE5FRVJpd0YxSGZiWGt1WlFHQkJzUUNzWmFpb1JhNEw4YzJLYjRVdTVzemdRbHVqVzNWTnFrdzRxaTctNEZLWnh3MVE?oc=5",
-      "published_at": "2026-10-12T18:08:00+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia"
-      ],
+      "event_id": "7066aac09c442b33",
+      "title": "How to justify crimes against humanity: the Kremlin method",
+      "url": "https://euvsdisinfo.eu/how-to-justify-crimes-against-humanity-the-kremlin-method/",
+      "published_at": "2026-10-09T08:30:47+00:00",
+      "primary_country": "Regional",
+      "countries": [],
       "categories": [
-        "sabotage"
+        "disinformation"
       ],
       "actors": [
-        "Russia"
+        "Russia",
+        "NATO"
       ],
-      "locations": [],
+      "locations": [
+        "Kaliningrad"
+      ],
       "event_type": "warning",
       "event_subtype": "indicator",
       "source_count": 1,
       "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 12,
+      "confidence_score": 48,
+      "hybrid_threat_score": 11,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic sabotage Russia"
+        "EUvsDisinfo"
       ],
       "related_item_count": 1
     },
     {
-      "event_id": "fce7dff37c2bf437",
-      "title": "Russia responsible for Starlink sabotage, says Poland - The Kyiv Independent",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUUg2ZXNfWWhKaFhzQ2VIbW5WMDJ1LTVKNUdkQXJacUNjR0kybFllbDkwS25vVUhveWhVVEF1ZnpXcnFjMFhoakZJb0VBQTlZdVhGOTVLYjdoSkUybmdjaHFsdFRRRFQ3dmpzWVdvR3BjS0tvbzZlXzYwS0I4MDRzVGFzWWtnN3ZL?oc=5",
-      "published_at": "2026-10-13T16:00:00+00:00",
-      "primary_country": "Poland",
+      "event_id": "4506cfa941442408",
+      "title": "Ukraine's FM: Russian EW systems likely caused drone incident in Lithuania - Ukrinform",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNYVlrc182RGpSQzJMNW5GX1RaU0JzUmJuV0JSM212bzFPcVNVMkJna3JwU1VJdEc3bV9FX0YwSHRnbEVpYnV1VnFYc3h6bGVTSmM1a0lFUkFHd2YzTUZrSlNCWGQxSFNUMVJfSGpGWnV5Wml5R1VWSW5Cdk1SZ1ZkcjQwNUJUZk01SVR3VkVZSkxOb2ctbjNfOWYwZU1KSVVrMUN4RTlFTVZ5VDZFYWJ4ZlhKNEZSWGJZNDdHMGoxYzljMXp1c2M4UkR4Z9IBywFBVV95cUxNYVlrc182RGpSQzJMNW5GX1RaU0JzUmJuV0JSM212bzFPcVNVMkJna3JwU1VJdEc3bV9FX0YwSHRnbEVpYnV1VnFYc3h6bGVTSmM1a0lFUkFHd2YzTUZrSlNCWGQxSFNUMVJfSGpGWnV5Wml5R1VWSW5Cdk1SZ1ZkcjQwNUJUZk01SVR3VkVZSkxOb2ctbjNfOWYwZU1KSVVrMUN4RTlFTVZ5VDZFYWJ4ZlhKNEZSWGJZNDdHMGoxYzljMXp1c2M4UkR4Zw?oc=5",
+      "published_at": "2026-10-18T15:59:00+00:00",
+      "primary_country": "Lithuania",
       "countries": [
-        "Poland"
+        "Lithuania"
       ],
       "categories": [
-        "sabotage"
+        "drone_incident"
       ],
       "actors": [
         "Russia"
@@ -617,9 +882,35 @@
       "hybrid_threat_score": 11,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic sabotage Russia"
+        "Google News - Baltic drone incident Russia"
       ],
       "related_item_count": 3
+    },
+    {
+      "event_id": "9dad0c8fd9f6e340",
+      "title": "Kyiv apologises again as Russia diverts Ukrainian drones into Baltic states; what is GPS spoofing - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxOTm5STjlKTVhwaFR4WnE0S01oNVBQMThLbkF1MDJhN0VXdnVTaExsTVc0MkQ3SFpXUFBoSkNzVFVFR3B0azFEM1RpbDcwSjdpdWtCai1ZeERoaUYyQWxmLVhlSmN4aVdYZ1B6NkNvTV9uakR2ZjZTQ2NNa3kxeFZEb1JLem1SdkZneHRjZ25KSUdCemJvZVV4eEFMbVNmOW85NTVyMUVudzlBa1pVdmNMWnJKZWI0dFoxa2xVbzN0Z0xqSzNjSGdjamkzSjRvanI3Vm1pM2lFekZRNTZNelVLZTh5MGpyVVB5aTVFWEs1MEJrYmhaRzdCaU8wREFPMktQVnNUdWNFZnVhQzFl0gGSAkFVX3lxTE1OU09sWldwYU5jOVh4ZWFFNEFtY3V3YjhNVWtHWGpEMm5BOXpESVQ1WTF1MmV1dDlHT1RxX0JmSWo5MHlxQ3czaDRfNHV1M3A5azIyUlJLekU3dEJkTUstQ2hSQ3VMY3FWYVBJS1kzdUoxVjZaUFhEelNxbFBZTmNOUl9ZX2E3T2hGOFJqM1plbDE4anc1TDUxWWUyRFdvU3lwaURvQV9WaWxZZm1xcUdULUVHT281Y05HN1YwcDZtLUt2aGtQSDlPaVV6c3dZcTJnUnZ3bi1xZGFqcHFCRWw4bUNFZ3lsbnpJODBZOVloYURJWFR4cXVualVBMnJURUpmcC1TcDN6TlE0RDVkNjRQQUE?oc=5",
+      "published_at": "2026-10-18T14:14:00+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "gps_interference"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 11,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1
     },
     {
       "event_id": "77a46cd438c6a930",
@@ -650,30 +941,55 @@
       "related_item_count": 1
     },
     {
-      "event_id": "4ab88feb83281b94",
-      "title": "Masked armed men enter Latvia from Belarus and carry out sabotage - Українська правда",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5palFTVXdIWnM2ZEcxcGtYbnM0SjFaWXhyLTgtanZYUG9WQ3BVMEU3b3NZcHhsellUZlRjeGFPZjdRTWVwTjFueGtERDRLRXJqNjFrUlRLa2xBdERuWXYtSlNIaGnSAXBBVV95cUxQUTFNQ1R0cklIak1wVjZIcGlDd0ZtSnpRREx4MmdiTXo4bDNteHdtMW90NUFLQkcxSjUyVW1vN2ZhbmdsazQyUjRWYnM1LUVZVUIyX1ljUUh4WktVcGlXX0ZKb1lHSzFqZVZidHlZUlJ0?oc=5",
-      "published_at": "2026-10-07T07:00:00+00:00",
-      "primary_country": "Latvia",
+      "event_id": "96500146be773935",
+      "title": "Lithuania accuses Moscow of Starlink sabotage - Free Malaysia Today",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPU1FhTVF6WUFIUDJFYXREc25IV0JJQnRkSU10QnVqWG43czdMckZVYVdsYmlXdk53dkhuRnllYUZibEhfeXRCMm9SZmVURlJPU0RMOG91cWlIa3d3bnRYM2ktanhRUnVjQ29kdWVoWmhhZldKUkZWdGpEY2FqeU5UclFGeE1UczZ3WnQ3QWtLRnFLelVrenJBRHRSelM5UmFWZVF5OURFR2k?oc=5",
+      "published_at": "2026-10-18T15:37:09+00:00",
+      "primary_country": "Lithuania",
       "countries": [
-        "Latvia"
+        "Lithuania"
       ],
       "categories": [
         "sabotage"
       ],
-      "actors": [
-        "Belarus"
-      ],
+      "actors": [],
       "locations": [],
       "event_type": "warning",
       "event_subtype": "indicator",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 11,
+      "hybrid_threat_score": 8,
       "hybrid_threat_level": "low",
       "source_names": [
         "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "c6ffe969edce32cb",
+      "title": "Latvia and Lithuania declare air alerts after unidentified drone spotted in Baltic airspace - The New Voice of Ukraine",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOQ2NQS0hRNjQ5Snc5RFFrM01nWnBjLVZiMFU3V3kyQ2JYcTJRWks5ZnI1S2Fnam5SMFAyU1Vtd2s5Sk1Td1VqejBLQTlZTG1wOWFlMjNsVV83T3YwanVGSmppMWo0M09XZDJJMnlOUkRBTjZSZ3VzY2RLd1J1aGNEdFc2b1liSnNRdnk3cW81TzJiVjhDbHlGT0lfWnXSAZgBQVVfeXFMTkxHQ2pzRzVsdjRBbXIzZkpmQ3BHYklVWXlvd0owRHNtY0pSc2tDakg5VW5jSVU5ZGFEdDlKQXY4S0ViU2Frbm5HVmVVcm5NRU93ek44VXkwQlU1LXBmRHlxY01PcXhGaWJ0SzM0OF9TcHlpVlpBbTBiV0JfVEotVG9PajRPY2c4Zk5Yb3JsX2FzNy1yUGpTTjU?oc=5",
+      "published_at": "2026-10-18T07:51:00+00:00",
+      "primary_country": "Regional",
+      "countries": [
+        "Latvia",
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
       ],
       "related_item_count": 1
     },
@@ -704,31 +1020,82 @@
       "related_item_count": 2
     },
     {
-      "event_id": "6d6517c5ae51935b",
-      "title": "Russia may escalate hybrid warfare before Christmas, Poland’s PM warns - TVP World",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNX0dhWTlNdjg5UVRYLTVRTW5xRzRrMDJPNWVyRndRclVWSWhob0hWdURjRHk4T25hRnY1TTZmX0U1X1p5N3NoMDBqLXBmSHJMa1NGZkhsc1NhMDdnbW1tQTItYlhYbXFaR1R4QXJoZEF1bXdnOUlhZm9OUjJ6cm5CbnpPeDdtcFhSZmZKeHVMV0V2N1R6dlZxYno0Yng?oc=5",
-      "published_at": "2026-10-16T19:44:00+00:00",
+      "event_id": "05a7114e3a2e828d",
+      "title": "Ukraine allies in Poland after Starlink sabotage, Trump diesel deal - DW.com",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPbktKbFY0bUZSZk5ZZ0o2SVhycnFMeGwzQ1hDcFdUQlV1Q2xscmI3VmVIOEdibGg1R1Rxd2lBU0xMMzRIeWtrT0hXSDYyaFBtUG1oczRROHA1cVAxVDdXdnkyb3FIN3ZHWUYzTEFnZnRMakc4VXJpT0QxQjlnTmZyZWpWSlJYWTRuRUZNenpLRC11akR1VnZBWHlySjFMajVJ0gGgAUFVX3lxTFBoclA1aElnbXdDRENYSlp3eW05eTBhbGNVR0M3ZW0td2hkN1JTY3VmbW9GWkJ4Vm0yeW1jd0hkZ1dWejN0bVRmaXlfU1llUy1VUWdORzR1WU9vVkhiQVE3MGpfM29yOXdYdWJGUmhpa1ZPaXRRMTB5cFBtYXk4YTkzN3JHb1VWWWdMNnpJQmZpZlVhNFpzYzBVeEI5dzNpa1Y?oc=5",
+      "published_at": "2026-10-14T02:09:08+00:00",
       "primary_country": "Poland",
       "countries": [
         "Poland"
       ],
-      "categories": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "e4d961deb635df44",
+      "title": "Ukraine Apologized for the Drone Incident in Lithuania—the Foreign Ministry Explained Why It Happened - LIGA.net",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNRGJUZlZCV1Q0RzRQbTJmRjhqOVRlTFJncGZBRjlaZ2JEVndEcEw5VmFORVpXOXl6anM4TG5BOWhpVXZSTDdiMXpRVzJKaHE2VTBtc0xFWG82T0ZmZkk4ZlZtZXFUV2V3QmVPWDE3SHRsWjBoRWVYZ2JfSUJ1bW9SZXhSOVhXbkRyNFFMQlhQel9sZUQ4Y0NrUzBNZXlyS2tab3RvWDkzRF9EcjNMYVZJelRadTFOMXU5QVcxaS13a1VyUVU1VnRXU0ZjRldRMUpWcGRfT1pNb9IB3AFBVV95cUxPYzJDZjNURlNCcG8xNXpZVnVnT2t2eDhoNG82X1ZOblBLN3paVVloZ0Y5YjYxREs1azhuY1U5S29iZC0yNS1mUVJwLXQ3MHVIeENRREViQkNsU0JKd1N0UVFhdDVqbmdMalU1YUluSWdDUmc1T0lMNzBDY011QnZGLURyQXNXV0YxSUw2NHJmamVlM2xqcnlJNE92WEdqQ295VE5IR00wcGNRVVAwYU1COURHWl9aVHk0VnpCTUh1bUtXRTJ6b2ZzcGJXRDBSdzVuYXlrMU9WVXFUWEFY?oc=5",
+      "published_at": "2026-10-18T14:24:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 7,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "ced0f534938b59ea",
+      "title": "Inside the shadowy world of anti-Putin sabotage from within Russia - BBC",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9qY21CNS0ybVFpUUFjVEpReHJCVFREVUhTYXMyazdPS0NDUHZQVF9JWDZzcVotX1dycW5NbVVwSnhGZmx4cWZsRWdrTVRZc0xTdC0tOWdpU1hTamc?oc=5",
+      "published_at": "2026-10-19T00:06:25+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
       "actors": [
         "Russia"
       ],
       "locations": [],
       "event_type": "warning",
       "event_subtype": "indicator",
-      "source_count": 2,
+      "source_count": 1,
       "confidence": "low",
-      "confidence_score": 46,
+      "confidence_score": 38,
       "hybrid_threat_score": 6,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic Russia hybrid threat",
-        "Google News - Poland Belarus border hybrid"
+        "Google News - Baltic sabotage Russia"
       ],
-      "related_item_count": 3
+      "related_item_count": 1
     },
     {
       "event_id": "3e1b5d8ce5637f6a",
@@ -757,39 +1124,13 @@
       "related_item_count": 1
     },
     {
-      "event_id": "42292257cf553b87",
-      "title": "Estonia Warns Russia Could Weaken Western Support For Ukraine Through Hybrid Attacks - Arise News",
-      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRWNlSFNHa21wdUlBWXJ4YXExb1hoYUczanFmM1VsVlZKN0Nad3FrN0NBdlJVZzJQbmkwT2cyNTB3MjFwV1g3dTBkSWFhUXFrQ0tGYWhkOHRyWk9RMDhDdWxWM1VmWGlhSzJObjFPOExMZldIM05uTnF1V053czhQSXA1b3VMeWJQNnVCVzFxS09ISVNqNmtzcmVybktPUFNJeUJvNXBnR2Y5Zw?oc=5",
-      "published_at": "2026-10-15T16:09:33+00:00",
-      "primary_country": "Estonia",
+      "event_id": "d4959e18f28f8810",
+      "title": "Russia could escalate hybrid warfare before Christmas Eve, Poland warns - TVP World",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNX0dhWTlNdjg5UVRYLTVRTW5xRzRrMDJPNWVyRndRclVWSWhob0hWdURjRHk4T25hRnY1TTZmX0U1X1p5N3NoMDBqLXBmSHJMa1NGZkhsc1NhMDdnbW1tQTItYlhYbXFaR1R4QXJoZEF1bXdnOUlhZm9OUjJ6cm5CbnpPeDdtcFhSZmZKeHVMV0V2N1R6dlZxYno0Yng?oc=5",
+      "published_at": "2026-10-16T19:44:00+00:00",
+      "primary_country": "Poland",
       "countries": [
-        "Estonia"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 6,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic critical infrastructure Russia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "0872c0e99f345c56",
-      "title": "Lithuanian PM warns of Russian nuclear threat - DW.com",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxObE5OUElBMEtmdExxOF8wbzFSSHhaMUZLbU5lVDFkdG1IOU1SckdRQXZyZWhLZlRWc19SWDE3ZXBIRkpjUVFQdVc1MC1GSmI4WmxsZTFUSzZaU2NXSjJ0OG5PUjZhNGFpUHdaNU5iUGhMemVPRzhubXU0dVpEaVFEV2lvRl9XZEtMNmc?oc=5",
-      "published_at": "2026-10-07T07:00:00+00:00",
-      "primary_country": "Lithuania",
-      "countries": [
-        "Lithuania"
+        "Poland"
       ],
       "categories": [],
       "actors": [
@@ -805,152 +1146,528 @@
       "hybrid_threat_level": "low",
       "source_names": [
         "Google News - Baltic Russia hybrid threat"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "5914c2620af89eb3",
-      "title": "Nato should prepare for deadly Russian ‘hybrid’ attack, says Poland - Financial Times",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZ1o4MjFQa2ZRUndVdS00aHpIVFJPZ0RpMlJxQ1lXMGV0eVF1ZGhvM1dlVlo4LUE2Qy1qWkkwYzlVa2k1QlhYREtYVjBaUEVJRVhCb05oTHRRWklublMwM01sS3BpUmJUZldDM1VSUE5MVlo0RTNfeW5oTjF0VVVwNDVaRmc?oc=5",
-      "published_at": "2026-10-12T04:01:09+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia",
-        "NATO"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic Russia hybrid threat"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "942dd211157636b0",
-      "title": "Russian Sabotage in Europe Is No Longer 'Symbolic,' Estonian Counterintelligence Chief Says - Foreign Policy",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNR1ZJUEVYaVp4SlR1QUVRWjdJejY1QWVSU3QwWG5wNFFINGRmMFhaMkhldHotUlQtX0dld2NaSGJBaDNMTTRoSGtzYzJtOFVBbTNHWkJhYjIwaGFsY1o0T2d0bGgwampnY0dWcW9YWFN3WjB3SXp4WnJSaVhjdldsUDFiWlZ4WkFMN3NpUmcwRjN2UnN1WXc?oc=5",
-      "published_at": "2026-10-09T18:54:59+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "espionage",
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "c5815a26fd0a5802",
-      "title": "Polish prosecutors close inquiry into Russian airspace violation - The New Voice of Ukraine",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOS19aVzlqQXBMbVZZbHNEZGFjMWZDTUJQLXE5MEQ4RU01TjIxTGZoSkhEbUFvYTB0NDBUdTNqeTE5TGlYMzRvX3B2YXpFQjFlNEdLMWJsdHpWaGRKWVBFMFk4dXFjMjBiMWZyTVdGMGpSYW1yTEhFaDg5RlNmdkhoRzRWRHEzX0czUWVDNXJMWTg3RERkY3ZaMk91ejFWX0x5NVZwR0hBWjYyTTBzSHFsY3padGNsd2JKZ18tR19zWnI4T1RLV1dWZVEyQlhBYnfSAcsBQVVfeXFMTWI5alRLdWdjdVhuLWJzeHVQVVRBMWZLUW9aeFdGUDd5dlNTSU1kN0VmM3Ezdm0ySGg3bmd4VHhHWkdjOHM4SXlSYUthSmlJMXk5M29xNHNnc0lDd2N0a0lOMV9YM1R5akNNQUp5RzEzZ0ZXa25XN216RkhtaUFDOHExVHF3LV8zMkF6TjFzT1B2cHc2QmxoanBhNWhvQ0RSbTJhT2xsOXRjdGlLdFRCZTNCb0FKVDFVZXNVY1l3SFI3Z0tCN0tuMVoyQ2c?oc=5",
-      "published_at": "2026-10-08T08:29:00+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "drone_incident"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "assessment",
-      "event_subtype": "assessment",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic airspace violation Russia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "6aeed34b026112dd",
-      "title": "Poland, Lithuania move closer to new power link as Russian hybrid threats loom - TVP World",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZjlvamNOcmJwN1p5VkZiX09OcEFWRjdsRlI1STlHUEM1Y091UUtFdjB5WGFZM09UMzFBSkhZaFlYM2tmcmlSSWVOMUhYVml4amptRm1mYV9YYlR6RUl2TWpvVXdjUEtYZEN1UTNMZWdTTWFtaHBHd1hQY2JSQmxycHhndFBLdnhlbGVvWS1IbjJpQUVkR1h4SWlzWWxmaGRaVllGUTRlQ0gzbFRx?oc=5",
-      "published_at": "2026-10-08T07:00:00+00:00",
-      "primary_country": "Regional",
-      "countries": [
-        "Lithuania",
-        "Poland"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic Russia hybrid threat"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "63380736585e59f7",
-      "title": "Poland Confronts Russia Over Estonia Airspace Violation, “Your Empire Will Not Be Rebuilt” | AC1G Pliskova (fR176QIs2T) - Unisba Media",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBiMU83c0hDR3E1ZzBmUS13MklBeWFiSzV5OU9nUzhPUVpLQUxZTHAwakNjNzR2N2VRYkpYdENXWU1KOHo0X2QxUVRHaDB0dzZqZUI2XzVxWmUtQUFWNXoxb0lQYnRfQQ?oc=5",
-      "published_at": "2026-10-05T07:12:07+00:00",
-      "primary_country": "Regional",
-      "countries": [
-        "Estonia",
-        "Poland"
-      ],
-      "categories": [
-        "drone_incident"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "assessment",
-      "event_subtype": "assessment",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic airspace violation Russia"
       ],
       "related_item_count": 1
     }
   ],
   "recent_events": [
     {
+      "event_id": "68545a118091458b",
+      "title": "Lithuania has evidence Sundayâs drone crossed from Poland, presidential adviser says",
+      "url": "https://www.lrt.lt/en/news-in-english/19/3087132/lithuania-has-evidence-sunday-s-drone-crossed-from-poland-presidential-adviser-says",
+      "published_at": "2026-10-19T08:28:00+00:00",
+      "primary_country": "Regional",
+      "countries": [
+        "Lithuania",
+        "Poland"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 26,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "LRT English Lithuania"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "f61657f18aea5e8f",
+      "title": "Latvian citizen, Russian businessman, German sabotage suspect: who is Oleg Levushkin?",
+      "url": "https://eng.lsm.lv/article/society/crime/19.10.2026-latvian-citizen-russian-businessman-german-sabotage-suspect-who-is-oleg-levushkin.a668125/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-10-19T07:30:00+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 41,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "LSM English Latvia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "37617920850952ab",
+      "title": "NATO, Lithuanian troops holding hybrid threat exercises in western Lithuania",
+      "url": "https://www.lrt.lt/en/news-in-english/19/3087082/nato-lithuanian-troops-holding-hybrid-threat-exercises-in-western-lithuania",
+      "published_at": "2026-10-19T06:50:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [],
+      "actors": [
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 3,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "LRT English Lithuania"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "f0e127f4cd9d62bc",
+      "title": "Lithuanian minister says Sunday drone crash was part of Ukrainian attack on St Petersburg",
+      "url": "https://www.lrt.lt/en/news-in-english/19/3087078/lithuanian-minister-says-sunday-drone-crash-was-part-of-ukrainian-attack-on-st-petersburg",
+      "published_at": "2026-10-19T06:40:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 25,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "LRT English Lithuania"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "5aee440a9f980d02",
+      "title": "Lithuania links failed Starlink arson attempt to Russian sabotage, citing Pattern with Poland and Bulgaria - EUalive",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOd0o3NGxhRmF3TkFQdVhmcld1M3k1RDFfemxWeDRXbnBzUGx0QVluYzh5bV80NEs3cHNJemhKbHlzSUl6QkljSXp4WVFHcmlrV0s3VzZEdXJuNkQ1Um90dGJCZHZnLWJFVURKN3NWRkJEdUFLOFhCUHZ1QWx3aG9PejNwOFZ5VVU2dkdSVi16MXJ3NUJ2RmNSVnN5d1RQclRzeF8xQjV5cWZhV2EyMkJidUdwUHNjWEFYQVZ0RW1PS0E5SXQ3?oc=5",
+      "published_at": "2026-10-19T03:56:32+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania",
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 40,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "ced0f534938b59ea",
+      "title": "Inside the shadowy world of anti-Putin sabotage from within Russia - BBC",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9qY21CNS0ybVFpUUFjVEpReHJCVFREVUhTYXMyazdPS0NDUHZQVF9JWDZzcVotX1dycW5NbVVwSnhGZmx4cWZsRWdrTVRZc0xTdC0tOWdpU1hTamc?oc=5",
+      "published_at": "2026-10-19T00:06:25+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 6,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "eebb1600102faa8e",
+      "title": "Lithuania Drone Incident: Suspected Drone Explodes, Not Shot Down - MiGFlug",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQV2FmWjdibVJXZUMtOFAycU83TEk3em95VzVBYWR6cEhwWlVHam96eHVlNWNfTzNlUEhMR251RTJhenJZZjlVZXY1MHh0RVhkR2RMdm9CUXg5S1FCdlBxRXNHbWlMWDNwcGRYLVdjYzdSRWlzQXJ0VGJFdktRLVpuT2RRU1M3ZWFIdmxTMENwSmU1eDBhcWFOd2dpemJXQk9QUUNyV2hxTmdkUQ?oc=5",
+      "published_at": "2026-10-18T19:13:19+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 25,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "ad02e31abcae9f8f",
+      "title": "Lithuania says attempted arson of Starlink station sabotage is aimed at influencing Ukraine - Українська правда",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE4wWkNTN1ZZOGZyMTJMRmFxZWk2UUlHVzRWZjV3Ujl5djBuR0daa0R2R0lfVExPZkUtUzRteE1WLXlDSk9rNFBDemNLOG5DNlltR2prM1NsMWdSUERwbzlvOEVrUE3SAXBBVV95cUxNcXVvY2VyUE4tMTFhYWpPWjNFY2k0QWNveFpyQ0dZSENZY3Bla2NnZGppREdfSUl4UkwxdGZ3blJUTjJlUlNVZlhXMlN6b2hPR3FxdlVWZWZhaWZzTFU0eUVQamlDamp4Y1B1c2tEUlJK?oc=5",
+      "published_at": "2026-10-18T16:20:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 37,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "4506cfa941442408",
+      "title": "Ukraine's FM: Russian EW systems likely caused drone incident in Lithuania - Ukrinform",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNYVlrc182RGpSQzJMNW5GX1RaU0JzUmJuV0JSM212bzFPcVNVMkJna3JwU1VJdEc3bV9FX0YwSHRnbEVpYnV1VnFYc3h6bGVTSmM1a0lFUkFHd2YzTUZrSlNCWGQxSFNUMVJfSGpGWnV5Wml5R1VWSW5Cdk1SZ1ZkcjQwNUJUZk01SVR3VkVZSkxOb2ctbjNfOWYwZU1KSVVrMUN4RTlFTVZ5VDZFYWJ4ZlhKNEZSWGJZNDdHMGoxYzljMXp1c2M4UkR4Z9IBywFBVV95cUxNYVlrc182RGpSQzJMNW5GX1RaU0JzUmJuV0JSM212bzFPcVNVMkJna3JwU1VJdEc3bV9FX0YwSHRnbEVpYnV1VnFYc3h6bGVTSmM1a0lFUkFHd2YzTUZrSlNCWGQxSFNUMVJfSGpGWnV5Wml5R1VWSW5Cdk1SZ1ZkcjQwNUJUZk01SVR3VkVZSkxOb2ctbjNfOWYwZU1KSVVrMUN4RTlFTVZ5VDZFYWJ4ZlhKNEZSWGJZNDdHMGoxYzljMXp1c2M4UkR4Zw?oc=5",
+      "published_at": "2026-10-18T15:59:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 11,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 3
+    },
+    {
+      "event_id": "96500146be773935",
+      "title": "Lithuania accuses Moscow of Starlink sabotage - Free Malaysia Today",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPU1FhTVF6WUFIUDJFYXREc25IV0JJQnRkSU10QnVqWG43czdMckZVYVdsYmlXdk53dkhuRnllYUZibEhfeXRCMm9SZmVURlJPU0RMOG91cWlIa3d3bnRYM2ktanhRUnVjQ29kdWVoWmhhZldKUkZWdGpEY2FqeU5UclFGeE1UczZ3WnQ3QWtLRnFLelVrenJBRHRSelM5UmFWZVF5OURFR2k?oc=5",
+      "published_at": "2026-10-18T15:37:09+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "7dc1ee41f0ed3f77",
+      "title": "Ukraine Apologizes After Drone Crash in Lithuania, NATO Scrambles Fighter Jets - Nacionale",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPdzloT2o5bWdlN0RlN1l1bmNsa3p4VmNuM3FzbHF0MHJLN2dnOXBuWEdRMktrMWhPcFZFTmExMHZ2dk9udXV4RlU2bVFZWDNaWE1vTW1nRTdtOXN1ZS1wbTFkYmE1OFlzdUY5QXpZNzlyLXhQNm5zcnBoQmJmaFZMQkRtWUV2eThfRmEwME4wNG1CLXpHRUp0NGg5NGJOOU1mY3A4UFpPLTZ3WkJUbF90bG1iLUJDQQ?oc=5",
+      "published_at": "2026-10-18T14:45:44+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 25,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "e4d961deb635df44",
+      "title": "Ukraine Apologized for the Drone Incident in Lithuania—the Foreign Ministry Explained Why It Happened - LIGA.net",
+      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxNRGJUZlZCV1Q0RzRQbTJmRjhqOVRlTFJncGZBRjlaZ2JEVndEcEw5VmFORVpXOXl6anM4TG5BOWhpVXZSTDdiMXpRVzJKaHE2VTBtc0xFWG82T0ZmZkk4ZlZtZXFUV2V3QmVPWDE3SHRsWjBoRWVYZ2JfSUJ1bW9SZXhSOVhXbkRyNFFMQlhQel9sZUQ4Y0NrUzBNZXlyS2tab3RvWDkzRF9EcjNMYVZJelRadTFOMXU5QVcxaS13a1VyUVU1VnRXU0ZjRldRMUpWcGRfT1pNb9IB3AFBVV95cUxPYzJDZjNURlNCcG8xNXpZVnVnT2t2eDhoNG82X1ZOblBLN3paVVloZ0Y5YjYxREs1azhuY1U5S29iZC0yNS1mUVJwLXQ3MHVIeENRREViQkNsU0JKd1N0UVFhdDVqbmdMalU1YUluSWdDUmc1T0lMNzBDY011QnZGLURyQXNXV0YxSUw2NHJmamVlM2xqcnlJNE92WEdqQ295VE5IR00wcGNRVVAwYU1COURHWl9aVHk0VnpCTUh1bUtXRTJ6b2ZzcGJXRDBSdzVuYXlrMU9WVXFUWEFY?oc=5",
+      "published_at": "2026-10-18T14:24:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 7,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "9dad0c8fd9f6e340",
+      "title": "Kyiv apologises again as Russia diverts Ukrainian drones into Baltic states; what is GPS spoofing - The Times of India",
+      "url": "https://news.google.com/rss/articles/CBMijAJBVV95cUxOTm5STjlKTVhwaFR4WnE0S01oNVBQMThLbkF1MDJhN0VXdnVTaExsTVc0MkQ3SFpXUFBoSkNzVFVFR3B0azFEM1RpbDcwSjdpdWtCai1ZeERoaUYyQWxmLVhlSmN4aVdYZ1B6NkNvTV9uakR2ZjZTQ2NNa3kxeFZEb1JLem1SdkZneHRjZ25KSUdCemJvZVV4eEFMbVNmOW85NTVyMUVudzlBa1pVdmNMWnJKZWI0dFoxa2xVbzN0Z0xqSzNjSGdjamkzSjRvanI3Vm1pM2lFekZRNTZNelVLZTh5MGpyVVB5aTVFWEs1MEJrYmhaRzdCaU8wREFPMktQVnNUdWNFZnVhQzFl0gGSAkFVX3lxTE1OU09sWldwYU5jOVh4ZWFFNEFtY3V3YjhNVWtHWGpEMm5BOXpESVQ1WTF1MmV1dDlHT1RxX0JmSWo5MHlxQ3czaDRfNHV1M3A5azIyUlJLekU3dEJkTUstQ2hSQ3VMY3FWYVBJS1kzdUoxVjZaUFhEelNxbFBZTmNOUl9ZX2E3T2hGOFJqM1plbDE4anc1TDUxWWUyRFdvU3lwaURvQV9WaWxZZm1xcUdULUVHT281Y05HN1YwcDZtLUt2aGtQSDlPaVV6c3dZcTJnUnZ3bi1xZGFqcHFCRWw4bUNFZ3lsbnpJODBZOVloYURJWFR4cXVualVBMnJURUpmcC1TcDN6TlE0RDVkNjRQQUE?oc=5",
+      "published_at": "2026-10-18T14:14:00+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "gps_interference"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 11,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "d502adce9426e4d2",
+      "title": "Lithuanian Prime Minister Sinkevičius believes that Russia is behind attempted arson attack on facility housing Starlink equipment - Цензор.НЕТ",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQTGVQd1ljQVZTNkQ5ZGJsRTdqb2M0dWctYXp2U2Z2dS1pMHEzZVZydkV1aWdxN1daTW96OTF1WXpjZ0w0a2hiTENUdXE0SVJOeS1QMXRTdWhIUjhFaEh4Wm53Yzhmd01YaUVzUl9wd0gwNDc2SWNvVV94ZnowSDNqVXhwZURTOVlhTUZTMGZWX282WUhTSm5uYXR0UFNHZFE4UkNERnoyMGNmdnVkbnZaYlRyR3F5WFd4bW1kOWVFcGhiUQ?oc=5",
+      "published_at": "2026-10-18T14:09:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic Russia hybrid threat"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "f56b9834de0699d1",
+      "title": "Poland, Bulgaria, now Lithuania: Russia’s suspected arson campaign reaches a third Starlink site serving Ukraine - Euromaidan Press",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPSFR6aXNaa210TFNLNldDUS1hV2RNWGwyRlNzaC1oOTUxLXNEVEtDQ0VidHdpMW9ocEZFZHdubS1PbTJzZ0hnM04wTG9IWFNQYmdFbE1TSjFZSVdjeFJldjhXb3h0N1BZUGNVaWZqUzZaMzBTX0pORHJaYjE1dzM3QXEwTUNUMWg3MTlyU0RaTTJlNGxXcEdqR09mWWRWbWZUaXZzUkU4QnU5YTJKNVBUNFlfZ1FERFJjeFJJbDBVcWZsaGFwdGtHTlg2NldLWm9MamF6VktfWXREVGtJOEZOV0d3?oc=5",
+      "published_at": "2026-10-18T13:42:03+00:00",
+      "primary_country": "Regional",
+      "countries": [
+        "Lithuania",
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 40,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "71bffed5366ad74a",
+      "title": "Lithuania foils arson attack on Starlink equipment, suspects Russian involvement - The Kyiv Independent",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNREY4RUJRSzlQWUNiUFV3SzNKX09hVHdtQS02eUdSLXMzQlA1enlYSUtLV3lTdW5XUDBsaVI5VFJFWjZLUmdxSDA1a1E4WHA1TVRmeTRxM2tGVlJ2X1U4U3FqSnZ2SjBWU0ZoZ1REU202U1pEY3otbmRZTm5nOGszLUlWNHQ1M0xHY3p3UWVEY0FpbzZ4QktQRnF4a0ZmZjRBY1lXcFpnalk3ZlpS?oc=5",
+      "published_at": "2026-10-18T12:57:44+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 47,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "4f8e0adbc665e6f1",
+      "title": "Search Continues In Poland After Possible Airspace Violation. Military Investigating Several Scenarios - REFORM.news",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPN0RpSW9VUmhucHh5aFFuaXVwMGJrbV9vaC1LV2dES0I1cDVsVTgyTU1vX1l5eEo1U0FmNktSWGxnNUVGZUVDektEMWZKVlcwdkhWYUFSSWhGZnNhZGFfRmgtb2dLcGVMVUs0cWtDbThSSzIyV1NGX24xLXVPQ3VoS0MxZWJ3VGVEWFBpMkt3QUVldlZBSEFsVHRMaGZlanVyaTlrX2hBdjRkT2RWVU1Fb0pVV290V3BBOWVCN09fVmVILWvSAcgBQVVfeXFMTklnakppRy1jUG10Z0lYc3BTLVJzcXNRZHhIVGRuV2xSMUswMkF5RFUwSWl4THE4d0xETXJfUFdWLU5HTk8xbW9HUWdZeTFkTnpkYVFpSkFMSzFvVzFwQmRGTzJlZ0dSeVkxaGI1UUQ1ZUpGbzQ4OENPdFRqSHJUWENYTUJjNlhDdkw4LURTclhyVl9ZWE9xa3hwRFRuR3dnb0M0Mk43dXdUeWdNbG5QV1NNbzlRYUJQUlBOcVhGeUttXzA4Vk9FbzU?oc=5",
+      "published_at": "2026-10-18T12:46:13+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 32,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "Google News - Baltic airspace violation Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "11bcf158fdae6eb4",
+      "title": "Russia Turns to Turkish Mafia for Starlink Sabotage Attack in Poland - UNITED24 Media",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQVVFuMG8xeEEwZGd5SzFzbW55RE9EbVhDeFpBcEhxZHc5QkRnS0RrajJkMVljNTJXdFpQS0U5NEVSbHJlbzBWZDM0SkY0ck5OQVY0aTUtbFZCbjR2cHZWeHNYSDJScjhXbk9Ob3BqMlB4dGk2SGlyWkEyRTlITmlQRXJDel9nMmlPZU14OVBVN2loNW5qa2xvSEFjNTYyQU8yc0VOWjBYY3RUckJmZFJpNEpfWkhNQQ?oc=5",
+      "published_at": "2026-10-18T10:53:07+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 44,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 3
+    },
+    {
+      "event_id": "c6ffe969edce32cb",
+      "title": "Latvia and Lithuania declare air alerts after unidentified drone spotted in Baltic airspace - The New Voice of Ukraine",
+      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOQ2NQS0hRNjQ5Snc5RFFrM01nWnBjLVZiMFU3V3kyQ2JYcTJRWks5ZnI1S2Fnam5SMFAyU1Vtd2s5Sk1Td1VqejBLQTlZTG1wOWFlMjNsVV83T3YwanVGSmppMWo0M09XZDJJMnlOUkRBTjZSZ3VzY2RLd1J1aGNEdFc2b1liSnNRdnk3cW81TzJiVjhDbHlGT0lfWnXSAZgBQVVfeXFMTkxHQ2pzRzVsdjRBbXIzZkpmQ3BHYklVWXlvd0owRHNtY0pSc2tDakg5VW5jSVU5ZGFEdDlKQXY4S0ViU2Frbm5HVmVVcm5NRU93ek44VXkwQlU1LXBmRHlxY01PcXhGaWJ0SzM0OF9TcHlpVlpBbTBiV0JfVEotVG9PajRPY2c4Zk5Yb3JsX2FzNy1yUGpTTjU?oc=5",
+      "published_at": "2026-10-18T07:51:00+00:00",
+      "primary_country": "Regional",
+      "countries": [
+        "Latvia",
+        "Lithuania"
+      ],
+      "categories": [
+        "drone_incident"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic drone incident Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
       "event_id": "3e1b5d8ce5637f6a",
       "title": "Kremlin plans to intensify sabotage in Europe amid winter strikes on Ukraine – ISW - The New Voice of Ukraine",
       "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOTjVEQ2JmQWxGSV9fa2gxWkxGRWtmaGhnNWdHLWE1UGFfYjFkLVpCLUs5RVJkWE42cHJ6SS1UVmpwMWlsQk43OTVQVnJhcUtJS3NtbVE4Y2pTZklkSm5xdlZGSHh3Q2V3SWtaQk1IbUJNbmRXSWhiTHBOSk51WW1vZ3lrSm9NX01mZDRJX3lHajc1MHBkSV9SdTM0NDJCbU9V0gGcAUFVX3lxTE5oVzVEak1zWEE5aXExSVdOWVNxaGJTRHJsdGpQb2tsZlZtX3lqaWdfRDBtRHkwdWEzTkVsR0tpSW1sYS0zdlZPSUV6QU54Xzc3TkJpc09Yc2RQRnMyOXVqWHJtc3BlVWlYcEl0THVRZUhKN1podHhhS0VKdm9Sb3E3ZGN0NHNRVmUzUHZGV3hFNjZfWmxrVUlucGtScA?oc=5",
@@ -1031,6 +1748,33 @@
       "related_item_count": 2
     },
     {
+      "event_id": "350b35dce489e94a",
+      "title": "Latvian CSDD was late to report cyber attack / Article - Latvian Public Media",
+      "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOcHZVbkswNzdKUDFTNmsxLUVCVnBMV1VjRWlDbnR2X25ISHVRZWxCazd0NXNQS3MyejRVR3JINFpzMXVleU81R0hCX2o2UUdHVEVBQ1M1cTgzb3JjNDlNSG5NcHY4MnktYmNPbDBEN21Obm5jTExFclFiU04yY2VReHZ4R3kxRjF0ck44YUIwZWwwX0VzTnJLT19PN3oyWU9qdGdLQ0JQMnZkQXF3eGc?oc=5",
+      "published_at": "2026-10-17T05:17:33+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "source_count": 2,
+      "confidence": "medium",
+      "confidence_score": 56,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - CERT Latvia cyber threat",
+        "Google News - Baltic cyber attack Russia"
+      ],
+      "related_item_count": 2
+    },
+    {
       "event_id": "2b65b9958c03a501",
       "title": "Cyberattack on Latvian State Forests detected / Article - Latvian Public Media",
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQalp0aDhXcm85REdiZU05T09CU1YzVERmQUZtcWJkalFoQWZkbklMeldmTWNrWS0yYThka01IM3hfUTlwNUplZnJpdWFpZkdFMGdhLWh3Q3NBVjFRM0dPeThUOWkzR0o2QnZQazkxOWQ1MnpyUFl6VWlrbU5wMm5YNEZCUzhaakVZM2pTSDFyS21LcTFNSnBGSlpvbzRtbzN1OE5yY2tQaGFWUQ?oc=5",
@@ -1046,20 +1790,19 @@
       "locations": [],
       "event_type": "operational",
       "event_subtype": "incident",
-      "source_count": 2,
-      "confidence": "medium",
-      "confidence_score": 56,
-      "hybrid_threat_score": 36,
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 48,
+      "hybrid_threat_score": 27,
       "hybrid_threat_level": "guarded",
       "source_names": [
-        "Google News - CERT Latvia cyber threat",
-        "Google News - Baltic cyber attack Russia"
+        "Google News - CERT Latvia cyber threat"
       ],
-      "related_item_count": 2
+      "related_item_count": 1
     },
     {
-      "event_id": "6d6517c5ae51935b",
-      "title": "Russia may escalate hybrid warfare before Christmas, Poland’s PM warns - TVP World",
+      "event_id": "d4959e18f28f8810",
+      "title": "Russia could escalate hybrid warfare before Christmas Eve, Poland warns - TVP World",
       "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNX0dhWTlNdjg5UVRYLTVRTW5xRzRrMDJPNWVyRndRclVWSWhob0hWdURjRHk4T25hRnY1TTZmX0U1X1p5N3NoMDBqLXBmSHJMa1NGZkhsc1NhMDdnbW1tQTItYlhYbXFaR1R4QXJoZEF1bXdnOUlhZm9OUjJ6cm5CbnpPeDdtcFhSZmZKeHVMV0V2N1R6dlZxYno0Yng?oc=5",
       "published_at": "2026-10-16T19:44:00+00:00",
       "primary_country": "Poland",
@@ -1073,16 +1816,15 @@
       "locations": [],
       "event_type": "warning",
       "event_subtype": "indicator",
-      "source_count": 2,
+      "source_count": 1,
       "confidence": "low",
-      "confidence_score": 46,
+      "confidence_score": 38,
       "hybrid_threat_score": 6,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic Russia hybrid threat",
-        "Google News - Poland Belarus border hybrid"
+        "Google News - Baltic Russia hybrid threat"
       ],
-      "related_item_count": 3
+      "related_item_count": 1
     },
     {
       "event_id": "8a44660d76d22166",
@@ -1111,32 +1853,6 @@
       "related_item_count": 1
     },
     {
-      "event_id": "c79fb69cb835da2e",
-      "title": "Experts: French grocery store cyberattack a warning sign for Estonia",
-      "url": "https://news.err.ee/1610167132/experts-french-grocery-store-cyberattack-a-warning-sign-for-estonia",
-      "published_at": "2026-10-16T08:52:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "cyber"
-      ],
-      "actors": [],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 31,
-      "hybrid_threat_level": "guarded",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1
-    },
-    {
       "event_id": "42292257cf553b87",
       "title": "Estonia Warns Russia Could Weaken Western Support For Ukraine Through Hybrid Attacks - Arise News",
       "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRWNlSFNHa21wdUlBWXJ4YXExb1hoYUczanFmM1VsVlZKN0Nad3FrN0NBdlJVZzJQbmkwT2cyNTB3MjFwV1g3dTBkSWFhUXFrQ0tGYWhkOHRyWk9RMDhDdWxWM1VmWGlhSzJObjFPOExMZldIM05uTnF1V053czhQSXA1b3VMeWJQNnVCVzFxS09ISVNqNmtzcmVybktPUFNJeUJvNXBnR2Y5Zw?oc=5",
@@ -1158,25 +1874,22 @@
       "hybrid_threat_score": 6,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic critical infrastructure Russia"
+        "Google News - Baltic Russia hybrid threat"
       ],
       "related_item_count": 1
     },
     {
-      "event_id": "9118271d61802331",
-      "title": "Estonian ex-soldier jailed in Russia after visiting his wife",
-      "url": "https://news.err.ee/1610166811/estonian-ex-soldier-jailed-in-russia-after-visiting-his-wife",
-      "published_at": "2026-10-15T13:21:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
+      "event_id": "69eb2dd8316d654a",
+      "title": "‘Black Russian’ Sabotage Group Could Be Part of Russian Hybrid Campaign - The National Interest",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNYjNLRktMb3ptR19Lcjk5Zy1NS29BSnhDX0dwX3QyYl83ZV9zLUY5NHQ0OEUwUTBCeU1EVlZBeDNHclpPeGFkUm81M283UXRXdWFkSkhvU19Cam1rWkthTk5TdTlzdkFRcmpBV09rUXJhdXJ1X3M0THZBdDZYNEFyZXJYaG91V3FWOEpDVXQ4Tm1ta0RWZlJTVTA5emc0YW1LSGFmdnRfMjRlWnl2U2dTXzBJUjdnMW94MXc?oc=5",
+      "published_at": "2026-10-14T15:01:27+00:00",
+      "primary_country": "Regional",
+      "countries": [],
       "categories": [
-        "espionage"
+        "sabotage"
       ],
       "actors": [
-        "Russia",
-        "FSB"
+        "Russia"
       ],
       "locations": [],
       "event_type": "warning",
@@ -1184,10 +1897,10 @@
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 13,
+      "hybrid_threat_score": 6,
       "hybrid_threat_level": "low",
       "source_names": [
-        "ERR News Estonia"
+        "Google News - Baltic sabotage Russia"
       ],
       "related_item_count": 1
     },
@@ -1217,42 +1930,13 @@
       "source_names": [
         "Google News - Baltic sabotage Russia"
       ],
-      "related_item_count": 2
-    },
-    {
-      "event_id": "c801c18b5425e147",
-      "title": "Group likely linked to Belarus, Russia takes responsibility for sabotage at Latvian border - Gwara Media",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQN3BuU0hIN1JNQkRFZzkxMUtselV5cmlwR2xDaC1IN3FMazNFM0ppQXh0MDVHR2YyLXllTWJqbFFJQ3U4VlZVYldDeVI5QmxsU1NrMFhuM1BIcF9jR0lPMkw3cl92dk1YOFJGM3VhQmhFcWxmMG1HYTZlajlQUkgwV0hVanFrZXJpbFZLMEZ1VXE4R3NWaTgyMDVfNFhWTjcxRWRyd1FyazJ2dVR4d3BvUTUyYnE5dWc?oc=5",
-      "published_at": "2026-10-13T16:08:40+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia",
-        "Belarus"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 13,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
       "related_item_count": 1
     },
     {
-      "event_id": "fce7dff37c2bf437",
-      "title": "Russia responsible for Starlink sabotage, says Poland - The Kyiv Independent",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPUUg2ZXNfWWhKaFhzQ2VIbW5WMDJ1LTVKNUdkQXJacUNjR0kybFllbDkwS25vVUhveWhVVEF1ZnpXcnFjMFhoakZJb0VBQTlZdVhGOTVLYjdoSkUybmdjaHFsdFRRRFQ3dmpzWVdvR3BjS0tvbzZlXzYwS0I4MDRzVGFzWWtnN3ZL?oc=5",
-      "published_at": "2026-10-13T16:00:00+00:00",
+      "event_id": "05a7114e3a2e828d",
+      "title": "Ukraine allies in Poland after Starlink sabotage, Trump diesel deal - DW.com",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPbktKbFY0bUZSZk5ZZ0o2SVhycnFMeGwzQ1hDcFdUQlV1Q2xscmI3VmVIOEdibGg1R1Rxd2lBU0xMMzRIeWtrT0hXSDYyaFBtUG1oczRROHA1cVAxVDdXdnkyb3FIN3ZHWUYzTEFnZnRMakc4VXJpT0QxQjlnTmZyZWpWSlJYWTRuRUZNenpLRC11akR1VnZBWHlySjFMajVJ0gGgAUFVX3lxTFBoclA1aElnbXdDRENYSlp3eW05eTBhbGNVR0M3ZW0td2hkN1JTY3VmbW9GWkJ4Vm0yeW1jd0hkZ1dWejN0bVRmaXlfU1llUy1VUWdORzR1WU9vVkhiQVE3MGpfM29yOXdYdWJGUmhpa1ZPaXRRMTB5cFBtYXk4YTkzN3JHb1VWWWdMNnpJQmZpZlVhNFpzYzBVeEI5dzNpa1Y?oc=5",
+      "published_at": "2026-10-14T02:09:08+00:00",
       "primary_country": "Poland",
       "countries": [
         "Poland"
@@ -1260,331 +1944,19 @@
       "categories": [
         "sabotage"
       ],
-      "actors": [
-        "Russia"
-      ],
+      "actors": [],
       "locations": [],
       "event_type": "warning",
       "event_subtype": "indicator",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 11,
+      "hybrid_threat_score": 8,
       "hybrid_threat_level": "low",
       "source_names": [
         "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 3
-    },
-    {
-      "event_id": "2924ade425609743",
-      "title": "Poland Arrests Two Turks Over Suspected Russian Sabotage - GreekReporter.com",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5JQnBfWUJsSW9TdnMzdHVWaDRFaEZEQ3BOdkU2SGtOcFhZSUN2dEtuVXBkNGI1V3pTcHMxWWstTnh3aFdmWnUyQWpWRmNQSmVqWkVMd2tCa19WTm9odXFud1RpdWwwdGdrN3VBWlZCdXltQQ?oc=5",
-      "published_at": "2026-10-13T11:16:47+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia",
-        "NATO"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "source_count": 2,
-      "confidence": "low",
-      "confidence_score": 46,
-      "hybrid_threat_score": 14,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia",
-        "Google News - Baltic Sea infrastructure sabotage"
       ],
       "related_item_count": 2
-    },
-    {
-      "event_id": "631f222506b02a19",
-      "title": "'Black Russian' sabotage group is probably a front, experts suggest / Article - Latvian Public Media",
-      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQMDZTYVV6Q1BCM0VZX1VVSmRaQzBhUnJIV05LYXZ2aERjbmpXTm10dWVRSVdaNkRla19wby0yWXJYNnBiY2Y5Qm1GRHFzOTY3eFY1N1NVV1hESTRVTnpsR1pvdVdudU93dmwwRm5fdWI1OEQzV0s0ODJIeENGVC1VbUd0SE5FRVJpd0YxSGZiWGt1WlFHQkJzUUNzWmFpb1JhNEw4YzJLYjRVdTVzemdRbHVqVzNWTnFrdzRxaTctNEZLWnh3MVE?oc=5",
-      "published_at": "2026-10-12T18:08:00+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 12,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "5914c2620af89eb3",
-      "title": "Nato should prepare for deadly Russian ‘hybrid’ attack, says Poland - Financial Times",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxOZ1o4MjFQa2ZRUndVdS00aHpIVFJPZ0RpMlJxQ1lXMGV0eVF1ZGhvM1dlVlo4LUE2Qy1qWkkwYzlVa2k1QlhYREtYVjBaUEVJRVhCb05oTHRRWklublMwM01sS3BpUmJUZldDM1VSUE5MVlo0RTNfeW5oTjF0VVVwNDVaRmc?oc=5",
-      "published_at": "2026-10-12T04:01:09+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia",
-        "NATO"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic Russia hybrid threat"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "942dd211157636b0",
-      "title": "Russian Sabotage in Europe Is No Longer 'Symbolic,' Estonian Counterintelligence Chief Says - Foreign Policy",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNR1ZJUEVYaVp4SlR1QUVRWjdJejY1QWVSU3QwWG5wNFFINGRmMFhaMkhldHotUlQtX0dld2NaSGJBaDNMTTRoSGtzYzJtOFVBbTNHWkJhYjIwaGFsY1o0T2d0bGgwampnY0dWcW9YWFN3WjB3SXp4WnJSaVhjdldsUDFiWlZ4WkFMN3NpUmcwRjN2UnN1WXc?oc=5",
-      "published_at": "2026-10-09T18:54:59+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "espionage",
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "c5815a26fd0a5802",
-      "title": "Polish prosecutors close inquiry into Russian airspace violation - The New Voice of Ukraine",
-      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxOS19aVzlqQXBMbVZZbHNEZGFjMWZDTUJQLXE5MEQ4RU01TjIxTGZoSkhEbUFvYTB0NDBUdTNqeTE5TGlYMzRvX3B2YXpFQjFlNEdLMWJsdHpWaGRKWVBFMFk4dXFjMjBiMWZyTVdGMGpSYW1yTEhFaDg5RlNmdkhoRzRWRHEzX0czUWVDNXJMWTg3RERkY3ZaMk91ejFWX0x5NVZwR0hBWjYyTTBzSHFsY3padGNsd2JKZ18tR19zWnI4T1RLV1dWZVEyQlhBYnfSAcsBQVVfeXFMTWI5alRLdWdjdVhuLWJzeHVQVVRBMWZLUW9aeFdGUDd5dlNTSU1kN0VmM3Ezdm0ySGg3bmd4VHhHWkdjOHM4SXlSYUthSmlJMXk5M29xNHNnc0lDd2N0a0lOMV9YM1R5akNNQUp5RzEzZ0ZXa25XN216RkhtaUFDOHExVHF3LV8zMkF6TjFzT1B2cHc2QmxoanBhNWhvQ0RSbTJhT2xsOXRjdGlLdFRCZTNCb0FKVDFVZXNVY1l3SFI3Z0tCN0tuMVoyQ2c?oc=5",
-      "published_at": "2026-10-08T08:29:00+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "drone_incident"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "assessment",
-      "event_subtype": "assessment",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic airspace violation Russia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "77a46cd438c6a930",
-      "title": "Poland concludes investigation into Russian drone incursion: some had Polish SIM cards - Українська правда",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1faTd5N21rUGhhLWxWcjlaeWxEYU45V1JiUnA4TWM4ZkFUMWlNSjlqaGNIdmx5RWRFaUZjWEllTU9qd1hJRHNKX2x5VzlyT2lkam5ISlNNbDR1LXhybVUxMmJHWG3SAXBBVV95cUxNMDFjNDFETkRxNDMtRGdVcnllaGV0clJzNXdwdGVtZHpZRTR6d2t0SXNaRUVwalBJa1FPRFZfekFJRUlMZDAxRWVXeFZHUVNfaXNQcTZZRHJpZ1k2UjNIaVZwNEVsSGZ3ekFSM0lBU0dq?oc=5",
-      "published_at": "2026-10-08T07:00:00+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "drone_incident"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 11,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic drone incident Russia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "6aeed34b026112dd",
-      "title": "Poland, Lithuania move closer to new power link as Russian hybrid threats loom - TVP World",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQZjlvamNOcmJwN1p5VkZiX09OcEFWRjdsRlI1STlHUEM1Y091UUtFdjB5WGFZM09UMzFBSkhZaFlYM2tmcmlSSWVOMUhYVml4amptRm1mYV9YYlR6RUl2TWpvVXdjUEtYZEN1UTNMZWdTTWFtaHBHd1hQY2JSQmxycHhndFBLdnhlbGVvWS1IbjJpQUVkR1h4SWlzWWxmaGRaVllGUTRlQ0gzbFRx?oc=5",
-      "published_at": "2026-10-08T07:00:00+00:00",
-      "primary_country": "Regional",
-      "countries": [
-        "Lithuania",
-        "Poland"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic Russia hybrid threat"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "f0a91c0cce323258",
-      "title": "From drone strikes to sabotage: Russia targets the rail corridor linking Ukraine and Poland - ACLED",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPWXMxaG0xUTVYWVotVHNVYnVfUkhxSDNDN1BtTTI0allkQ0dqekF1dTBDeUlsSmFVOWVtaFlpQlI0SjhTWmlldzZRNVRHalMzZnR1OVZDYk16Sm9tLWhFQzZPc3NYOWJSemtmQndzY2tGMU05VTBTdkt3ZDlCQXU0X3ZiakdlY0hWMXVXWUswZHNmUDN0RVBHcWR0SWRwRHNTZTFMODZuOXFuVDl4THUxZVM4U1hnUQ?oc=5",
-      "published_at": "2026-10-07T07:00:00+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "sabotage",
-        "disinformation"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "source_count": 2,
-      "confidence": "low",
-      "confidence_score": 46,
-      "hybrid_threat_score": 14,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic drone incident Russia",
-        "Google News - Baltic disinformation Russia"
-      ],
-      "related_item_count": 2
-    },
-    {
-      "event_id": "4ab88feb83281b94",
-      "title": "Masked armed men enter Latvia from Belarus and carry out sabotage - Українська правда",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5palFTVXdIWnM2ZEcxcGtYbnM0SjFaWXhyLTgtanZYUG9WQ3BVMEU3b3NZcHhsellUZlRjeGFPZjdRTWVwTjFueGtERDRLRXJqNjFrUlRLa2xBdERuWXYtSlNIaGnSAXBBVV95cUxQUTFNQ1R0cklIak1wVjZIcGlDd0ZtSnpRREx4MmdiTXo4bDNteHdtMW90NUFLQkcxSjUyVW1vN2ZhbmdsazQyUjRWYnM1LUVZVUIyX1ljUUh4WktVcGlXX0ZKb1lHSzFqZVZidHlZUlJ0?oc=5",
-      "published_at": "2026-10-07T07:00:00+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Belarus"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 11,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "0872c0e99f345c56",
-      "title": "Lithuanian PM warns of Russian nuclear threat - DW.com",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxObE5OUElBMEtmdExxOF8wbzFSSHhaMUZLbU5lVDFkdG1IOU1SckdRQXZyZWhLZlRWc19SWDE3ZXBIRkpjUVFQdVc1MC1GSmI4WmxsZTFUSzZaU2NXSjJ0OG5PUjZhNGFpUHdaNU5iUGhMemVPRzhubXU0dVpEaVFEV2lvRl9XZEtMNmc?oc=5",
-      "published_at": "2026-10-07T07:00:00+00:00",
-      "primary_country": "Lithuania",
-      "countries": [
-        "Lithuania"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 6,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic Russia hybrid threat"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "63380736585e59f7",
-      "title": "Poland Confronts Russia Over Estonia Airspace Violation, “Your Empire Will Not Be Rebuilt” | AC1G Pliskova (fR176QIs2T) - Unisba Media",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFBiMU83c0hDR3E1ZzBmUS13MklBeWFiSzV5OU9nUzhPUVpLQUxZTHAwakNjNzR2N2VRYkpYdENXWU1KOHo0X2QxUVRHaDB0dzZqZUI2XzVxWmUtQUFWNXoxb0lQYnRfQQ?oc=5",
-      "published_at": "2026-10-05T07:12:07+00:00",
-      "primary_country": "Regional",
-      "countries": [
-        "Estonia",
-        "Poland"
-      ],
-      "categories": [
-        "drone_incident"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "assessment",
-      "event_subtype": "assessment",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic airspace violation Russia"
-      ],
-      "related_item_count": 1
     }
   ],
   "current_threat_window": {
@@ -1597,7 +1969,6 @@
   },
   "history": {
     "labels": [
-      "2026-09-19",
       "2026-09-20",
       "2026-09-21",
       "2026-09-22",
@@ -1626,84 +1997,85 @@
       "2026-10-15",
       "2026-10-16",
       "2026-10-17",
-      "2026-10-18"
+      "2026-10-18",
+      "2026-10-19"
     ],
     "threat_index": [
-      0.0,
       17.0,
       9.5,
       0.0,
-      32.8,
-      24.2,
-      10.5,
+      30.8,
+      24.4,
+      6.0,
       0.0,
       0.0,
       0.0,
-      39.5,
-      0.0,
+      39.4,
+      36.8,
       11.5,
       0.0,
       0.0,
       0.0,
       0.0,
       0.0,
-      10.33,
+      10.0,
+      11.0,
       11.0,
       0.0,
       0.0,
       0.0,
-      12.0,
-      12.67,
-      12.0,
-      9.5,
-      21.6,
+      13.5,
+      8.67,
+      6.0,
+      17.2,
       8.0,
-      9.0
+      33.8,
+      27.3
     ],
     "daily_threat_index": [
-      0.0,
       17.0,
       9.5,
       0.0,
-      32.8,
-      24.2,
-      10.5,
+      30.8,
+      24.4,
+      6.0,
       0.0,
       0.0,
       0.0,
-      39.5,
-      0.0,
+      39.4,
+      36.8,
       11.5,
       0.0,
       0.0,
       0.0,
       0.0,
       0.0,
-      10.33,
+      10.0,
+      11.0,
       11.0,
       0.0,
       0.0,
       0.0,
-      12.0,
-      12.67,
-      12.0,
-      9.5,
-      21.6,
+      13.5,
+      8.67,
+      6.0,
+      17.2,
       8.0,
-      9.0
+      33.8,
+      27.3
     ],
     "daily_operational_index": [
       0.0,
       0.0,
       0.0,
-      0.0,
-      41.0,
+      38.5,
       27.0,
       0.0,
       0.0,
       0.0,
       0.0,
       46.0,
+      46.0,
       0.0,
       0.0,
       0.0,
@@ -1719,23 +2091,22 @@
       0.0,
       0.0,
       0.0,
+      20.0,
       0.0,
-      25.5,
-      0.0,
-      0.0
+      40.0,
+      33.0
     ],
     "daily_early_warning_index": [
-      0.0,
       17.0,
       9.5,
       0.0,
       0.0,
+      14.0,
+      6.0,
+      0.0,
+      0.0,
+      0.0,
       13.0,
-      10.5,
-      0.0,
-      0.0,
-      0.0,
-      13.5,
       0.0,
       11.5,
       0.0,
@@ -1743,24 +2114,24 @@
       0.0,
       0.0,
       0.0,
-      10.33,
+      10.0,
+      11.0,
       11.0,
       0.0,
       0.0,
       0.0,
-      12.0,
-      12.67,
-      12.0,
-      9.5,
+      13.5,
+      8.67,
+      6.0,
       6.0,
       8.0,
-      9.0
+      9.0,
+      4.5
     ],
     "daily_level": [
       "low",
       "low",
       "low",
-      "low",
       "guarded",
       "guarded",
       "low",
@@ -1768,6 +2139,8 @@
       "low",
       "low",
       "guarded",
+      "guarded",
+      "low",
       "low",
       "low",
       "low",
@@ -1785,134 +2158,133 @@
       "low",
       "low",
       "guarded",
-      "low",
-      "low"
+      "guarded"
     ],
     "rolling_threat_index": [
-      18.04,
-      18.27,
+      18.28,
       18.23,
       18.23,
-      30.83,
-      30.63,
-      30.72,
-      30.72,
-      30.72,
-      30.72,
-      34.87,
-      34.87,
-      35.0,
-      35.0,
-      35.0,
-      34.74,
-      34.72,
-      34.72,
-      29.24,
-      39.32,
+      28.1,
+      26.53,
+      26.24,
+      26.24,
+      26.24,
+      26.24,
+      30.52,
+      34.52,
+      34.8,
+      34.8,
+      34.8,
+      34.52,
+      34.46,
+      34.46,
+      31.42,
+      38.95,
+      39.08,
+      39.08,
+      39.08,
+      39.08,
       39.1,
-      39.1,
-      39.1,
-      39.25,
       12.25,
-      12.38,
-      12.5,
-      22.9,
-      22.9,
-      22.92
+      11.12,
+      18.22,
+      18.28,
+      34.45,
+      36.37
     ],
     "rolling_operational_index": [
       20.0,
       20.0,
       20.0,
+      32.33,
+      30.2,
+      30.2,
+      30.2,
+      30.2,
+      30.2,
+      35.4,
+      40.4,
+      40.4,
+      40.4,
+      40.4,
+      40.4,
+      40.4,
+      40.4,
+      36.5,
+      46.0,
+      46.0,
+      46.0,
+      46.0,
+      46.0,
+      46.0,
+      0.0,
+      0.0,
       20.0,
-      35.75,
-      35.4,
-      35.4,
-      35.4,
-      35.4,
-      35.4,
-      40.4,
-      40.4,
-      40.4,
-      40.4,
-      40.4,
-      40.4,
-      40.4,
-      40.4,
-      33.33,
-      46.0,
-      46.0,
-      46.0,
-      46.0,
-      46.0,
-      0.0,
-      0.0,
-      0.0,
-      25.5,
-      25.5,
-      25.5
+      20.0,
+      40.0,
+      42.4
     ],
     "rolling_early_warning_index": [
-      10.2,
-      11.33,
-      11.14,
-      11.14,
-      11.14,
-      11.57,
-      12.0,
-      12.0,
-      12.0,
-      12.0,
-      12.75,
-      12.75,
-      13.38,
-      13.38,
-      13.38,
-      12.12,
-      12.0,
-      12.0,
-      12.88,
-      12.62,
-      11.5,
-      11.5,
-      11.5,
-      12.25,
-      12.25,
+      11.4,
+      11.17,
+      11.17,
+      11.17,
+      11.83,
+      10.38,
+      10.38,
+      10.38,
+      10.38,
+      11.0,
+      11.0,
       12.38,
-      12.5,
-      12.5,
-      12.5,
-      12.62
+      12.38,
+      12.38,
+      11.0,
+      10.71,
+      10.71,
+      11.12,
+      10.75,
+      11.38,
+      11.38,
+      11.38,
+      11.38,
+      11.5,
+      12.25,
+      11.12,
+      11.12,
+      11.38,
+      12.25,
+      12.25
     ],
     "rolling_level": [
       "low",
       "low",
       "low",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
+      "guarded",
       "low",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
-      "guarded",
       "low",
       "low",
       "low",
-      "guarded",
       "guarded",
       "guarded"
     ],
@@ -1920,15 +2292,14 @@
       0,
       0,
       0,
-      0,
-      3,
+      2,
       2,
       0,
       0,
       0,
       0,
       1,
-      0,
+      1,
       0,
       0,
       1,
@@ -1944,9 +2315,10 @@
       0,
       0,
       0,
-      2,
       1,
-      0
+      1,
+      7,
+      4
     ],
     "activity_count": [
       0,
@@ -1981,7 +2353,6 @@
       0
     ],
     "indicator_count": [
-      0,
       1,
       2,
       0,
@@ -1999,21 +2370,21 @@
       0,
       0,
       0,
+      2,
+      1,
+      1,
+      0,
+      0,
+      0,
+      2,
       3,
       1,
-      0,
-      0,
-      0,
-      1,
-      3,
-      1,
-      2,
       1,
       1,
+      7,
       2
     ],
     "assessment_count": [
-      1,
       0,
       0,
       2,
@@ -2029,19 +2400,20 @@
       1,
       0,
       0,
-      1,
+      0,
       0,
       0,
       2,
       1,
       0,
-      0,
       1,
       0,
       0,
       0,
       0,
       0,
+      1,
+      1,
       0
     ],
     "country_scores": {
@@ -2055,9 +2427,8 @@
         0.0,
         0.0,
         0.0,
-        0.0,
-        39.5,
-        0.0,
+        39.4,
+        36.8,
         12.0,
         0.0,
         0.0,
@@ -2072,19 +2443,19 @@
         0.0,
         0.0,
         0.0,
-        9.5,
-        24.8,
+        6.0,
+        0.0,
+        0.0,
         0.0,
         0.0
       ],
       "Latvia": [
         0.0,
-        0.0,
         12.0,
         0.0,
         0.0,
         0.0,
-        15.0,
+        0.0,
         0.0,
         0.0,
         0.0,
@@ -2096,21 +2467,21 @@
         0.0,
         0.0,
         0.0,
-        11.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        12.0,
+        0.0,
+        0.0,
         13.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        0.0
+        8.0,
+        32.8
       ],
       "Lithuania": [
-        0.0,
         0.0,
         7.0,
         0.0,
@@ -2139,15 +2510,15 @@
         0.0,
         0.0,
         0.0,
-        0.0
+        29.54,
+        24.86
       ],
       "Poland": [
-        0.0,
         17.0,
         0.0,
         0.0,
-        32.8,
-        24.2,
+        30.8,
+        24.4,
         0.0,
         0.0,
         0.0,
@@ -2166,12 +2537,13 @@
         0.0,
         0.0,
         0.0,
-        12.5,
-        12.0,
+        14.0,
+        10.0,
         0.0,
         6.0,
         8.0,
-        12.0
+        33.34,
+        26.4
       ],
       "Regional": [
         0.0,
@@ -2179,7 +2551,6 @@
         0.0,
         0.0,
         0.0,
-        0.0,
         6.0,
         0.0,
         0.0,
@@ -2194,16 +2565,17 @@
         0.0,
         0.0,
         0.0,
+        11.0,
         0.0,
         0.0,
         0.0,
         0.0,
-        0.0,
-        0.0,
+        6.0,
         0.0,
         16.0,
         0.0,
-        6.0
+        33.67,
+        22.0
       ]
     },
     "rolling_country_scores": {
@@ -2217,59 +2589,59 @@
         0.0,
         0.0,
         0.0,
-        0.0,
-        39.5,
-        39.5,
         39.4,
         39.4,
-        39.4,
-        39.4,
-        39.4,
-        39.4,
-        39.4,
-        39.4,
-        39.4,
-        39.4,
-        39.4,
-        39.4,
+        39.33,
+        39.33,
+        39.33,
+        39.33,
+        39.33,
+        39.33,
+        39.33,
+        39.33,
+        39.33,
+        39.33,
+        39.33,
+        39.33,
+        39.2,
         12.0,
-        12.0,
-        9.5,
-        26.7,
-        26.7,
-        26.7
+        6.0,
+        6.0,
+        6.0,
+        6.0,
+        6.0
       ],
       "Latvia": [
         9.0,
-        9.0,
         12.0,
         12.0,
         12.0,
         12.0,
-        13.5,
-        13.5,
-        13.5,
-        13.5,
-        13.5,
-        13.5,
-        12.67,
-        12.67,
-        12.67,
-        12.67,
+        12.0,
+        12.0,
+        12.0,
+        12.0,
+        12.0,
+        12.0,
+        11.5,
+        11.5,
+        11.5,
+        11.5,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        11.0,
+        12.0,
+        12.0,
         13.0,
         13.0,
-        12.33,
-        12.33,
-        11.0,
-        11.0,
-        11.0,
-        11.33,
-        11.75,
-        11.75,
-        12.0,
-        12.0,
-        12.0,
-        12.0
+        13.0,
+        10.5,
+        34.9
       ],
       "Lithuania": [
         7.0,
@@ -2283,7 +2655,6 @@
         7.0,
         7.0,
         7.0,
-        7.0,
         9.5,
         9.5,
         9.5,
@@ -2301,79 +2672,75 @@
         6.0,
         6.0,
         6.0,
-        6.0
+        29.44,
+        31.83
       ],
       "Poland": [
-        18.2,
-        18.8,
-        18.8,
-        18.8,
-        31.4,
-        31.05,
-        31.05,
-        31.05,
-        31.05,
-        31.05,
-        31.05,
-        31.05,
-        31.32,
-        31.32,
-        31.32,
-        30.92,
-        30.92,
-        30.92,
-        24.3,
+        19.4,
+        19.4,
+        19.4,
+        29.26,
+        27.26,
+        27.26,
+        27.26,
+        27.26,
+        27.26,
+        27.26,
+        27.26,
+        29.3,
+        29.3,
+        29.3,
+        29.0,
+        29.0,
+        29.0,
+        24.4,
         12.5,
         12.5,
         12.5,
         12.5,
         12.5,
-        12.5,
-        12.4,
-        12.4,
-        11.33,
-        10.86,
-        11.0
+        13.0,
+        11.8,
+        11.8,
+        10.83,
+        10.43,
+        33.06,
+        31.24
       ],
       "Regional": [
         12.0,
         12.0,
         12.0,
         12.0,
-        12.0,
         14.0,
-        10.0,
-        10.0,
-        10.0,
-        10.0,
+        8.67,
+        8.67,
+        8.67,
+        8.67,
         6.0,
         6.0,
-        9.0,
-        9.0,
-        9.0,
-        9.0,
-        9.0,
-        9.0,
-        9.0,
-        9.0,
-        12.0,
-        12.0,
-        12.0,
-        12.0,
-        12.0,
-        12.0,
-        0.0,
-        16.0,
-        16.0,
-        17.2
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        8.0,
+        11.5,
+        11.5,
+        11.5,
+        11.5,
+        11.5,
+        9.67,
+        8.5,
+        17.7,
+        17.7,
+        25.68,
+        24.54
       ]
     },
     "daily_hotspots": [
-      {
-        "location": null,
-        "score": 0,
-        "event_count": 0
-      },
       {
         "location": null,
         "score": 0,
@@ -2518,14 +2885,14 @@
         "location": "Poland",
         "score": 12,
         "event_count": 1
+      },
+      {
+        "location": "Lithuania",
+        "score": 68,
+        "event_count": 3
       }
     ],
     "rolling_hotspots": [
-      {
-        "location": "Suwalki Gap",
-        "score": 20,
-        "event_count": 2
-      },
       {
         "location": "Estonia",
         "score": 6,
@@ -2670,10 +3037,14 @@
         "location": "Poland",
         "score": 88,
         "event_count": 10
+      },
+      {
+        "location": "Kaliningrad",
+        "score": 11,
+        "event_count": 1
       }
     ],
     "key_drivers": [
-      null,
       null,
       null,
       "sabotage",
@@ -2702,12 +3073,12 @@
       null,
       "cyber",
       "sabotage",
+      "sabotage",
       "sabotage"
     ],
     "trends": [
       "stable",
       "stable",
-      "stable",
       "increasing",
       "decreasing",
       "increasing",
@@ -2734,7 +3105,8 @@
       "decreasing",
       "increasing",
       "decreasing",
-      "stable"
+      "stable",
+      "increasing"
     ],
     "history_window": 30,
     "exact_day_availability": {
@@ -2809,7 +3181,8 @@
         "2026-10-15",
         "2026-10-16",
         "2026-10-17",
-        "2026-10-18"
+        "2026-10-18",
+        "2026-10-19"
       ],
       "rule": "A missing historical snapshot is represented as null, never as a synthetic zero-event day."
     },
@@ -2825,31 +3198,31 @@
     },
     "current_alignment": {
       "comparable": true,
-      "history_latest_date": "2026-10-18",
-      "scorer_reference_date": "2026-10-18",
-      "summary_threat_index": 22.92,
-      "history_latest_rolling_threat_index": 22.92,
+      "history_latest_date": "2026-10-19",
+      "scorer_reference_date": "2026-10-19",
+      "summary_threat_index": 36.37,
+      "history_latest_rolling_threat_index": 36.37,
       "matches_current_summary": true
     }
   },
   "manual_review_queue": {
-    "pending_count": 48,
+    "pending_count": 52,
     "priority_counts": {
-      "P1": 3,
+      "P1": 5,
       "P2": 1,
-      "P3": 44
+      "P3": 46
     },
-    "current_pending_count": 4,
-    "historical_pending_count": 44,
+    "current_pending_count": 6,
+    "historical_pending_count": 46,
     "current_items": [
       {
-        "event_id": "c79fb69cb835da2e",
-        "title": "Experts: French grocery store cyberattack a warning sign for Estonia",
-        "url": "https://news.err.ee/1610167132/experts-french-grocery-store-cyberattack-a-warning-sign-for-estonia",
-        "published_at": "2026-10-16T08:52:00+00:00",
-        "primary_country": "Estonia",
+        "event_id": "f61657f18aea5e8f",
+        "title": "Latvian citizen, Russian businessman, German sabotage suspect: who is Oleg Levushkin?",
+        "url": "https://eng.lsm.lv/article/society/crime/19.10.2026-latvian-citizen-russian-businessman-german-sabotage-suspect-who-is-oleg-levushkin.a668125/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+        "published_at": "2026-10-19T07:30:00+00:00",
+        "primary_country": "Latvia",
         "event_subtype": "incident",
-        "hybrid_threat_score": 31,
+        "hybrid_threat_score": 41,
         "reasons": [
           "geographic_scope_uncertain"
         ],
@@ -2877,10 +3250,44 @@
         "time_group": "current_14d"
       },
       {
+        "event_id": "69eb2dd8316d654a",
+        "title": "‘Black Russian’ Sabotage Group Could Be Part of Russian Hybrid Campaign - The National Interest",
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNYjNLRktMb3ptR19Lcjk5Zy1NS29BSnhDX0dwX3QyYl83ZV9zLUY5NHQ0OEUwUTBCeU1EVlZBeDNHclpPeGFkUm81M283UXRXdWFkSkhvU19Cam1rWkthTk5TdTlzdkFRcmpBV09rUXJhdXJ1X3M0THZBdDZYNEFyZXJYaG91V3FWOEpDVXQ4Tm1ta0RWZlJTVTA5emc0YW1LSGFmdnRfMjRlWnl2U2dTXzBJUjdnMW94MXc?oc=5",
+        "published_at": "2026-10-14T15:01:27+00:00",
+        "primary_country": "Regional",
+        "event_subtype": "indicator",
+        "hybrid_threat_score": 6,
+        "reasons": [
+          "geographic_scope_uncertain"
+        ],
+        "review_status": "pending",
+        "index_eligible": true,
+        "priority": "P1",
+        "priority_reason": "current_index_eligible_uncertain_event",
+        "time_group": "current_14d"
+      },
+      {
         "event_id": "3e1b5d8ce5637f6a",
         "title": "Kremlin plans to intensify sabotage in Europe amid winter strikes on Ukraine – ISW - The New Voice of Ukraine",
         "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOTjVEQ2JmQWxGSV9fa2gxWkxGRWtmaGhnNWdHLWE1UGFfYjFkLVpCLUs5RVJkWE42cHJ6SS1UVmpwMWlsQk43OTVQVnJhcUtJS3NtbVE4Y2pTZklkSm5xdlZGSHh3Q2V3SWtaQk1IbUJNbmRXSWhiTHBOSk51WW1vZ3lrSm9NX01mZDRJX3lHajc1MHBkSV9SdTM0NDJCbU9V0gGcAUFVX3lxTE5oVzVEak1zWEE5aXExSVdOWVNxaGJTRHJsdGpQb2tsZlZtX3lqaWdfRDBtRHkwdWEzTkVsR0tpSW1sYS0zdlZPSUV6QU54Xzc3TkJpc09Yc2RQRnMyOXVqWHJtc3BlVWlYcEl0THVRZUhKN1podHhhS0VKdm9Sb3E3ZGN0NHNRVmUzUHZGV3hFNjZfWmxrVUlucGtScA?oc=5",
         "published_at": "2026-10-18T07:40:43+00:00",
+        "primary_country": "Regional",
+        "event_subtype": "indicator",
+        "hybrid_threat_score": 6,
+        "reasons": [
+          "geographic_scope_uncertain"
+        ],
+        "review_status": "pending",
+        "index_eligible": true,
+        "priority": "P1",
+        "priority_reason": "current_index_eligible_uncertain_event",
+        "time_group": "current_14d"
+      },
+      {
+        "event_id": "ced0f534938b59ea",
+        "title": "Inside the shadowy world of anti-Putin sabotage from within Russia - BBC",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9qY21CNS0ybVFpUUFjVEpReHJCVFREVUhTYXMyazdPS0NDUHZQVF9JWDZzcVotX1dycW5NbVVwSnhGZmx4cWZsRWdrTVRZc0xTdC0tOWdpU1hTamc?oc=5",
+        "published_at": "2026-10-19T00:06:25+00:00",
         "primary_country": "Regional",
         "event_subtype": "indicator",
         "hybrid_threat_score": 6,
@@ -2900,7 +3307,7 @@
         "published_at": "2026-10-17T00:22:58+00:00",
         "primary_country": "Latvia",
         "event_subtype": "incident",
-        "hybrid_threat_score": 36,
+        "hybrid_threat_score": 27,
         "reasons": [
           "index_exclusion_audit"
         ],
@@ -2937,6 +3344,23 @@
         "primary_country": "Regional",
         "event_subtype": "incident",
         "hybrid_threat_score": 24,
+        "reasons": [
+          "geographic_scope_uncertain"
+        ],
+        "review_status": "pending",
+        "index_eligible": true,
+        "priority": "P3",
+        "priority_reason": "historical_or_undated_review",
+        "time_group": "historical"
+      },
+      {
+        "event_id": "2bf7bd85f0b33b4a",
+        "title": "Nato narrowly beats Russia-style enemy in cyber attack simulation - Financial Times",
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNejVpVV92U3gtQlhDT0RleUpqTFkwQlZXY0tNenpZdFBjVHZLN1QxTmhnZF8xS0V6MEZybzZUNlktWVdtODVYUGgzdHJtRXVlUjJQenZpY2lfc3FEcHZiMEFUVU5YVnBOajh2dEMxYlI4UjFqN2V3Y1c0N2pIV25zcWpCS2k?oc=5",
+        "published_at": "2026-06-06T07:00:00+00:00",
+        "primary_country": "Regional",
+        "event_subtype": "incident",
+        "hybrid_threat_score": 23,
         "reasons": [
           "geographic_scope_uncertain"
         ],
@@ -3358,23 +3782,6 @@
         "time_group": "historical"
       },
       {
-        "event_id": "5beeef9afbe22cff",
-        "title": "Europe’s new war with Russia: Deep sea sabotage - POLITICO.eu",
-        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQSVppY1hqQUJrcHU3X21YTTVFWl96eC1pVkVJMTRYRVp4aFlsS3R5clRRMkVzR29jUS1PYlZsVmxIbVNlM0ZRMHBMYXYzTVBETm9wLUxVSDNzNXp2N0R0Y1VnWEVESzlUZ0l0T1JLS2U0c042bDJJVUxGMUNDcGp3SzZISjV4VC1HYTRES0wzMA?oc=5",
-        "published_at": "2025-04-07T07:00:00+00:00",
-        "primary_country": "Regional",
-        "event_subtype": "indicator",
-        "hybrid_threat_score": 6,
-        "reasons": [
-          "geographic_scope_uncertain"
-        ],
-        "review_status": "pending",
-        "index_eligible": true,
-        "priority": "P3",
-        "priority_reason": "historical_or_undated_review",
-        "time_group": "historical"
-      },
-      {
         "event_id": "68248faba51e986d",
         "title": "Risk of undersea cable attacks backed by Russia and China likely to rise, report warns - The Guardian",
         "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNWkx2ZXpZTkJ0TmpwSDMzcUI5ajJVdkgwdWw0dDNjU0Z0bzdaT050WTJVLVZEdXZDTVZwaTRwLTR6XzZKUEtuNTFSS1BnZWlpdmhZUUhxUk9rRXFTbnRCU0tCbXJiX3NpZWx0Z3ZkOGcxOVlta0hPbUU3UlJTQ0VRclFNdTA2eGtVMVlHUm02QUg0dW9CWGNzNndLTzk5dWhCSm50TmNzS2RzN19VaWhpODN6ZGk1YndMejJNWV9mcjc?oc=5",
@@ -3429,6 +3836,23 @@
         "event_id": "789d474800877011",
         "title": "'No longer hybrid' — As Russian sabotage grows bolder, Europe lacks red lines - The Kyiv Independent",
         "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxObjRvT1FtLUw4aTV5M0NoTGNZNnRQTHdpRDJXcU56MUFhVzY2Mkh6MExIM05jV0U2enl4NDZtNFZWQV9wS1R3MEgwaU1WWkJST2x5NDNpYmNMb09yRjViX2k4TVFQcllOT2VmdEFPcVJXN0F1eFNLQ29tSGNsNWQzUVdzbEtTQUcySUZwR0pTYm0yUmVuV1hvN1NIcnRDRGNfSFgw?oc=5",
+        "published_at": "2026-09-25T07:00:00+00:00",
+        "primary_country": "Regional",
+        "event_subtype": "indicator",
+        "hybrid_threat_score": 6,
+        "reasons": [
+          "geographic_scope_uncertain"
+        ],
+        "review_status": "pending",
+        "index_eligible": true,
+        "priority": "P3",
+        "priority_reason": "historical_or_undated_review",
+        "time_group": "historical"
+      },
+      {
+        "event_id": "fe41be038c80c077",
+        "title": "Map Shows Russian Incursions, Acts of Sabotage Across Europe This Week - Newsweek",
+        "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNWWtnNUtHMWwwZnpUb2RhZHkxREQzZGlWQUplVzhsYUpaWXM3Ui1qcU9vbkJBUkRzRFZhOW9yMVhrdDVWdGFXSXdWZmtMRWYxOV91OVlPdnk2RGRhS3lVSVBrMnA5MXZPOEE0UkNYVU9yRnJCelRIcHBZN3lzbzk1QjRVQnYyMjVVa1ZJTXFyb1lMUXR6Q3VzVldR?oc=5",
         "published_at": "2026-09-25T07:00:00+00:00",
         "primary_country": "Regional",
         "event_subtype": "indicator",
@@ -3597,13 +4021,30 @@
         "time_group": "historical"
       },
       {
-        "event_id": "20999650ec7d2b55",
-        "title": "Russia pounds Kyiv as NATO military chief warns Moscow would 'lose a lot' by attacking Baltics - CNBC",
-        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQSV9ZLXBFVld4Q0JLYnBMTTBrSkZYOS1PZFBrTldWc3JENlNvXzA3bFplTG1PRm1HRWxMXzVLcWRkbl9xMVh6bUlaSl9jcmZ3MlBuWHVmbS13QzcyYnpfT09lYUJQVzIwSXJoXzdKZXhQaUtDWjBoT1lDd3NtWFlfNDQ4aEpBZUVTUUV0NEplenhYdmxiTXJoRjFhQVFVakXSAaQBQVVfeXFMUERRS2NSQnhNNjB2RjYxSklLVU1fNV9hQjhPZEJOODUyTndGRHIxZldBek5MUzdONUpHX3lWcVpyNmM3ZGdjdlp1ZUx2Ri1FV1hqSWJVNzg0RWxWY1Q5VHdsSVBIYmM0am5IZ0J4NEhmN2dvMFBSSm9UcE5QbFhyUFByaHduQUNtQTNzZ3ZYQWNtSTJSNEhGaDhfdmdZeXZTb3ZpM0M?oc=5",
-        "published_at": "2026-07-20T07:00:00+00:00",
+        "event_id": "98842fdc5ece90f1",
+        "title": "Russia’s attacks on Ukraine’s cultural heritage: a nail in the coffin of FIMI",
+        "url": "https://euvsdisinfo.eu/russias-attacks-on-ukraines-cultural-heritage-a-nail-in-the-coffin-of-fimi/",
+        "published_at": "2026-07-07T08:44:00+00:00",
         "primary_country": "Regional",
         "event_subtype": "indicator",
-        "hybrid_threat_score": 4,
+        "hybrid_threat_score": 3,
+        "reasons": [
+          "geographic_scope_uncertain"
+        ],
+        "review_status": "pending",
+        "index_eligible": true,
+        "priority": "P3",
+        "priority_reason": "historical_or_undated_review",
+        "time_group": "historical"
+      },
+      {
+        "event_id": "5006296eb0c74348",
+        "title": "From denial to exploitation: how the Kremlin has adapted its climate disinformation",
+        "url": "https://euvsdisinfo.eu/from-denial-to-exploitation-how-the-kremlin-has-adapted-its-climate-disinformation/",
+        "published_at": "2026-08-21T10:03:58+00:00",
+        "primary_country": "Regional",
+        "event_subtype": "indicator",
+        "hybrid_threat_score": 3,
         "reasons": [
           "geographic_scope_uncertain"
         ],
@@ -3667,13 +4108,13 @@
     ],
     "items": [
       {
-        "event_id": "c79fb69cb835da2e",
-        "title": "Experts: French grocery store cyberattack a warning sign for Estonia",
-        "url": "https://news.err.ee/1610167132/experts-french-grocery-store-cyberattack-a-warning-sign-for-estonia",
-        "published_at": "2026-10-16T08:52:00+00:00",
-        "primary_country": "Estonia",
+        "event_id": "f61657f18aea5e8f",
+        "title": "Latvian citizen, Russian businessman, German sabotage suspect: who is Oleg Levushkin?",
+        "url": "https://eng.lsm.lv/article/society/crime/19.10.2026-latvian-citizen-russian-businessman-german-sabotage-suspect-who-is-oleg-levushkin.a668125/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+        "published_at": "2026-10-19T07:30:00+00:00",
+        "primary_country": "Latvia",
         "event_subtype": "incident",
-        "hybrid_threat_score": 31,
+        "hybrid_threat_score": 41,
         "reasons": [
           "geographic_scope_uncertain"
         ],
@@ -3701,10 +4142,44 @@
         "time_group": "current_14d"
       },
       {
+        "event_id": "69eb2dd8316d654a",
+        "title": "‘Black Russian’ Sabotage Group Could Be Part of Russian Hybrid Campaign - The National Interest",
+        "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNYjNLRktMb3ptR19Lcjk5Zy1NS29BSnhDX0dwX3QyYl83ZV9zLUY5NHQ0OEUwUTBCeU1EVlZBeDNHclpPeGFkUm81M283UXRXdWFkSkhvU19Cam1rWkthTk5TdTlzdkFRcmpBV09rUXJhdXJ1X3M0THZBdDZYNEFyZXJYaG91V3FWOEpDVXQ4Tm1ta0RWZlJTVTA5emc0YW1LSGFmdnRfMjRlWnl2U2dTXzBJUjdnMW94MXc?oc=5",
+        "published_at": "2026-10-14T15:01:27+00:00",
+        "primary_country": "Regional",
+        "event_subtype": "indicator",
+        "hybrid_threat_score": 6,
+        "reasons": [
+          "geographic_scope_uncertain"
+        ],
+        "review_status": "pending",
+        "index_eligible": true,
+        "priority": "P1",
+        "priority_reason": "current_index_eligible_uncertain_event",
+        "time_group": "current_14d"
+      },
+      {
         "event_id": "3e1b5d8ce5637f6a",
         "title": "Kremlin plans to intensify sabotage in Europe amid winter strikes on Ukraine – ISW - The New Voice of Ukraine",
         "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOTjVEQ2JmQWxGSV9fa2gxWkxGRWtmaGhnNWdHLWE1UGFfYjFkLVpCLUs5RVJkWE42cHJ6SS1UVmpwMWlsQk43OTVQVnJhcUtJS3NtbVE4Y2pTZklkSm5xdlZGSHh3Q2V3SWtaQk1IbUJNbmRXSWhiTHBOSk51WW1vZ3lrSm9NX01mZDRJX3lHajc1MHBkSV9SdTM0NDJCbU9V0gGcAUFVX3lxTE5oVzVEak1zWEE5aXExSVdOWVNxaGJTRHJsdGpQb2tsZlZtX3lqaWdfRDBtRHkwdWEzTkVsR0tpSW1sYS0zdlZPSUV6QU54Xzc3TkJpc09Yc2RQRnMyOXVqWHJtc3BlVWlYcEl0THVRZUhKN1podHhhS0VKdm9Sb3E3ZGN0NHNRVmUzUHZGV3hFNjZfWmxrVUlucGtScA?oc=5",
         "published_at": "2026-10-18T07:40:43+00:00",
+        "primary_country": "Regional",
+        "event_subtype": "indicator",
+        "hybrid_threat_score": 6,
+        "reasons": [
+          "geographic_scope_uncertain"
+        ],
+        "review_status": "pending",
+        "index_eligible": true,
+        "priority": "P1",
+        "priority_reason": "current_index_eligible_uncertain_event",
+        "time_group": "current_14d"
+      },
+      {
+        "event_id": "ced0f534938b59ea",
+        "title": "Inside the shadowy world of anti-Putin sabotage from within Russia - BBC",
+        "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9qY21CNS0ybVFpUUFjVEpReHJCVFREVUhTYXMyazdPS0NDUHZQVF9JWDZzcVotX1dycW5NbVVwSnhGZmx4cWZsRWdrTVRZc0xTdC0tOWdpU1hTamc?oc=5",
+        "published_at": "2026-10-19T00:06:25+00:00",
         "primary_country": "Regional",
         "event_subtype": "indicator",
         "hybrid_threat_score": 6,
@@ -3724,7 +4199,7 @@
         "published_at": "2026-10-17T00:22:58+00:00",
         "primary_country": "Latvia",
         "event_subtype": "incident",
-        "hybrid_threat_score": 36,
+        "hybrid_threat_score": 27,
         "reasons": [
           "index_exclusion_audit"
         ],
@@ -3759,6 +4234,23 @@
         "primary_country": "Regional",
         "event_subtype": "incident",
         "hybrid_threat_score": 24,
+        "reasons": [
+          "geographic_scope_uncertain"
+        ],
+        "review_status": "pending",
+        "index_eligible": true,
+        "priority": "P3",
+        "priority_reason": "historical_or_undated_review",
+        "time_group": "historical"
+      },
+      {
+        "event_id": "2bf7bd85f0b33b4a",
+        "title": "Nato narrowly beats Russia-style enemy in cyber attack simulation - Financial Times",
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxNejVpVV92U3gtQlhDT0RleUpqTFkwQlZXY0tNenpZdFBjVHZLN1QxTmhnZF8xS0V6MEZybzZUNlktWVdtODVYUGgzdHJtRXVlUjJQenZpY2lfc3FEcHZiMEFUVU5YVnBOajh2dEMxYlI4UjFqN2V3Y1c0N2pIV25zcWpCS2k?oc=5",
+        "published_at": "2026-06-06T07:00:00+00:00",
+        "primary_country": "Regional",
+        "event_subtype": "incident",
+        "hybrid_threat_score": 23,
         "reasons": [
           "geographic_scope_uncertain"
         ],
@@ -4180,23 +4672,6 @@
         "time_group": "historical"
       },
       {
-        "event_id": "5beeef9afbe22cff",
-        "title": "Europe’s new war with Russia: Deep sea sabotage - POLITICO.eu",
-        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQSVppY1hqQUJrcHU3X21YTTVFWl96eC1pVkVJMTRYRVp4aFlsS3R5clRRMkVzR29jUS1PYlZsVmxIbVNlM0ZRMHBMYXYzTVBETm9wLUxVSDNzNXp2N0R0Y1VnWEVESzlUZ0l0T1JLS2U0c042bDJJVUxGMUNDcGp3SzZISjV4VC1HYTRES0wzMA?oc=5",
-        "published_at": "2025-04-07T07:00:00+00:00",
-        "primary_country": "Regional",
-        "event_subtype": "indicator",
-        "hybrid_threat_score": 6,
-        "reasons": [
-          "geographic_scope_uncertain"
-        ],
-        "review_status": "pending",
-        "index_eligible": true,
-        "priority": "P3",
-        "priority_reason": "historical_or_undated_review",
-        "time_group": "historical"
-      },
-      {
         "event_id": "68248faba51e986d",
         "title": "Risk of undersea cable attacks backed by Russia and China likely to rise, report warns - The Guardian",
         "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNWkx2ZXpZTkJ0TmpwSDMzcUI5ajJVdkgwdWw0dDNjU0Z0bzdaT050WTJVLVZEdXZDTVZwaTRwLTR6XzZKUEtuNTFSS1BnZWlpdmhZUUhxUk9rRXFTbnRCU0tCbXJiX3NpZWx0Z3ZkOGcxOVlta0hPbUU3UlJTQ0VRclFNdTA2eGtVMVlHUm02QUg0dW9CWGNzNndLTzk5dWhCSm50TmNzS2RzN19VaWhpODN6ZGk1YndMejJNWV9mcjc?oc=5",
@@ -4251,6 +4726,23 @@
         "event_id": "789d474800877011",
         "title": "'No longer hybrid' — As Russian sabotage grows bolder, Europe lacks red lines - The Kyiv Independent",
         "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxObjRvT1FtLUw4aTV5M0NoTGNZNnRQTHdpRDJXcU56MUFhVzY2Mkh6MExIM05jV0U2enl4NDZtNFZWQV9wS1R3MEgwaU1WWkJST2x5NDNpYmNMb09yRjViX2k4TVFQcllOT2VmdEFPcVJXN0F1eFNLQ29tSGNsNWQzUVdzbEtTQUcySUZwR0pTYm0yUmVuV1hvN1NIcnRDRGNfSFgw?oc=5",
+        "published_at": "2026-09-25T07:00:00+00:00",
+        "primary_country": "Regional",
+        "event_subtype": "indicator",
+        "hybrid_threat_score": 6,
+        "reasons": [
+          "geographic_scope_uncertain"
+        ],
+        "review_status": "pending",
+        "index_eligible": true,
+        "priority": "P3",
+        "priority_reason": "historical_or_undated_review",
+        "time_group": "historical"
+      },
+      {
+        "event_id": "fe41be038c80c077",
+        "title": "Map Shows Russian Incursions, Acts of Sabotage Across Europe This Week - Newsweek",
+        "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNWWtnNUtHMWwwZnpUb2RhZHkxREQzZGlWQUplVzhsYUpaWXM3Ui1qcU9vbkJBUkRzRFZhOW9yMVhrdDVWdGFXSXdWZmtMRWYxOV91OVlPdnk2RGRhS3lVSVBrMnA5MXZPOEE0UkNYVU9yRnJCelRIcHBZN3lzbzk1QjRVQnYyMjVVa1ZJTXFyb1lMUXR6Q3VzVldR?oc=5",
         "published_at": "2026-09-25T07:00:00+00:00",
         "primary_country": "Regional",
         "event_subtype": "indicator",
@@ -4419,13 +4911,30 @@
         "time_group": "historical"
       },
       {
-        "event_id": "20999650ec7d2b55",
-        "title": "Russia pounds Kyiv as NATO military chief warns Moscow would 'lose a lot' by attacking Baltics - CNBC",
-        "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQSV9ZLXBFVld4Q0JLYnBMTTBrSkZYOS1PZFBrTldWc3JENlNvXzA3bFplTG1PRm1HRWxMXzVLcWRkbl9xMVh6bUlaSl9jcmZ3MlBuWHVmbS13QzcyYnpfT09lYUJQVzIwSXJoXzdKZXhQaUtDWjBoT1lDd3NtWFlfNDQ4aEpBZUVTUUV0NEplenhYdmxiTXJoRjFhQVFVakXSAaQBQVVfeXFMUERRS2NSQnhNNjB2RjYxSklLVU1fNV9hQjhPZEJOODUyTndGRHIxZldBek5MUzdONUpHX3lWcVpyNmM3ZGdjdlp1ZUx2Ri1FV1hqSWJVNzg0RWxWY1Q5VHdsSVBIYmM0am5IZ0J4NEhmN2dvMFBSSm9UcE5QbFhyUFByaHduQUNtQTNzZ3ZYQWNtSTJSNEhGaDhfdmdZeXZTb3ZpM0M?oc=5",
-        "published_at": "2026-07-20T07:00:00+00:00",
+        "event_id": "98842fdc5ece90f1",
+        "title": "Russia’s attacks on Ukraine’s cultural heritage: a nail in the coffin of FIMI",
+        "url": "https://euvsdisinfo.eu/russias-attacks-on-ukraines-cultural-heritage-a-nail-in-the-coffin-of-fimi/",
+        "published_at": "2026-07-07T08:44:00+00:00",
         "primary_country": "Regional",
         "event_subtype": "indicator",
-        "hybrid_threat_score": 4,
+        "hybrid_threat_score": 3,
+        "reasons": [
+          "geographic_scope_uncertain"
+        ],
+        "review_status": "pending",
+        "index_eligible": true,
+        "priority": "P3",
+        "priority_reason": "historical_or_undated_review",
+        "time_group": "historical"
+      },
+      {
+        "event_id": "5006296eb0c74348",
+        "title": "From denial to exploitation: how the Kremlin has adapted its climate disinformation",
+        "url": "https://euvsdisinfo.eu/from-denial-to-exploitation-how-the-kremlin-has-adapted-its-climate-disinformation/",
+        "published_at": "2026-08-21T10:03:58+00:00",
+        "primary_country": "Regional",
+        "event_subtype": "indicator",
+        "hybrid_threat_score": 3,
         "reasons": [
           "geographic_scope_uncertain"
         ],
@@ -4487,18 +4996,18 @@
         "time_group": "historical"
       }
     ],
-    "reference_date": "2026-10-18",
-    "window_start_date": "2026-10-05",
+    "reference_date": "2026-10-19",
+    "window_start_date": "2026-10-06",
     "window_days": 14,
     "note": "Advisory review queue. P1=current eligible uncertainty, P2=current exclusion audit, P3=historical or undated. No event or index eligibility is changed; pending is not persisted."
   },
   "data_quality": {
-    "raw_item_count": 422,
-    "filtered_item_count": 227,
-    "clustered_event_count": 189,
+    "raw_item_count": 435,
+    "filtered_item_count": 245,
+    "clustered_event_count": 207,
     "merged_item_count": 38,
-    "filter_reduction_percent": 46.21,
-    "cluster_reduction_percent": 16.74
+    "filter_reduction_percent": 43.68,
+    "cluster_reduction_percent": 15.51
   },
   "methodology": {
     "model": "Event-based rule-driven OSINT threat intelligence model.",
