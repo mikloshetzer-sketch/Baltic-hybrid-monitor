@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-20T10:10:58.365415+00:00",
+  "generated_at": "2026-10-21T10:18:28.175661+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-10-20T10:10:58.274651+00:00",
+  "source_history_generated_at": "2026-10-21T10:18:28.100052+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-10-14",
-    "end_date": "2026-10-20",
+    "start_date": "2026-10-15",
+    "end_date": "2026-10-21",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -31,16 +31,16 @@
   "missing_dates": [],
   "seven_day_summary": {
     "totals": {
-      "event_count": 12,
+      "event_count": 11,
       "incident_count": 5,
       "activity_count": 0,
-      "indicator_count": 7,
-      "assessment_count": 0
+      "indicator_count": 5,
+      "assessment_count": 1
     },
     "indices": {
       "average_operational_index_observed_days": 9.14,
-      "average_early_warning_index_observed_days": 4.71,
-      "average_threat_index_observed_days": 11.51,
+      "average_early_warning_index_observed_days": 3.21,
+      "average_threat_index_observed_days": 10.01,
       "average_threat_level_observed_days": "low",
       "highest_daily_threat_index": 27.3
     },
@@ -68,6 +68,36 @@
     }
   },
   "top_events": [
+    {
+      "event_id": "751b7ce62e51ba3d",
+      "title": "Fear grows in Poland as Russian threat looms over NATO's eastern flank - Yahoo",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQcUI4TWtFLXQ0SFI0NDNyeXVqcHR2WHV1NWt5QUYxMm93SlA2Qk9McnBjams2SUdlSWdNU294N2pRMmZ6Z3ZtQmZaMDE0QkE3M0l1QUlhQzZmMl81elBBRWFTMndabG9VcVplbEF1WW95WkF4WFhGalJWa3E5R2c4emEzdjYxZmVsY0J2aGQzSVlvZWc?oc=5",
+      "published_at": "2026-10-21T09:18:49+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia",
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 48,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - NATO Eastern Flank Baltic Poland"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-10-21"
+    },
     {
       "event_id": "68545a118091458b",
       "title": "Lithuania has evidence Sundayâs drone crossed from Poland, presidential adviser says",
@@ -337,259 +367,9 @@
       ],
       "related_item_count": 2,
       "matrix_snapshot_date": "2026-10-17"
-    },
-    {
-      "event_id": "c79fb69cb835da2e",
-      "title": "Experts: French grocery store cyberattack a warning sign for Estonia",
-      "url": "https://news.err.ee/1610167132/experts-french-grocery-store-cyberattack-a-warning-sign-for-estonia",
-      "published_at": "2026-10-16T08:52:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "cyber"
-      ],
-      "actors": [],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 31,
-      "hybrid_threat_level": "guarded",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-10-16"
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-10-14",
-      "status": "available",
-      "snapshot_generated_at": "2026-10-14T10:24:49.759875+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 2,
-      "incident_count": 0,
-      "activity_count": 0,
-      "indicator_count": 2,
-      "assessment_count": 0,
-      "score_total": 21.0,
-      "average_score": 10.5,
-      "highest_score": 12.0,
-      "operational_index": 0.0,
-      "early_warning_index": 10.5,
-      "threat_index": 10.5,
-      "overall_level": "low",
-      "country_summary": {
-        "Poland": {
-          "country": "Poland",
-          "event_count": 2,
-          "incident_count": 0,
-          "activity_count": 0,
-          "indicator_count": 2,
-          "assessment_count": 0,
-          "score_total": 21,
-          "average_score": 10.5,
-          "highest_score": 12,
-          "operational_index": 0.0,
-          "early_warning_index": 10.5,
-          "threat_index": 10.5,
-          "overall_level": "low",
-          "categories": {
-            "sabotage": 2
-          },
-          "actors": {
-            "Russia": 1
-          }
-        }
-      },
-      "category_summary": {
-        "sabotage": {
-          "event_count": 2,
-          "score_total": 21,
-          "average_score": 10.5,
-          "highest_score": 12
-        }
-      },
-      "actor_summary": {
-        "Russia": {
-          "event_count": 1,
-          "score_total": 12,
-          "average_score": 12.0,
-          "highest_score": 12
-        }
-      },
-      "subtype_summary": {
-        "incident": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 2,
-          "score_total": 21,
-          "average_score": 10.5,
-          "highest_score": 12
-        },
-        "assessment": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {
-        "direct": {
-          "event_count": 2,
-          "score_total": 21,
-          "average_score": 10.5,
-          "highest_score": 12
-        }
-      },
-      "hotspot": {
-        "location": "Poland",
-        "score": 21,
-        "event_count": 2
-      },
-      "key_driver": "sabotage",
-      "dominant_actor": "Russia",
-      "top_events": [
-        {
-          "event_id": "536697e9f5accd5c",
-          "title": "Russia's shadow war in Europe: Why the Starlink sabotage case in Poland raises fears of a wider confrontation - Latest news from Azerbaijan",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPTFRUT0FndWdkTWVkdVRXMDRXQWYtakplMGFXTmkyZjloNVYyWHh0Rl9SU0p6LXI3MGhHdUlUc0tMbVluc2xEVFlYSTljbENxUjZBelplVWNNN0RMaF94UFpsUk94aGpJTzczOTVzazJoV0NIc0s4THN1VHVXalpqbWJCYXp2VzRndVZXT2pfX2NpbEtONm5DbG5iY01qb3daV2lUc0YyN2VyYlpTWkhDVXZXc1gxbXdhMlVHU21FS0VRQkRvY3plQg?oc=5",
-          "published_at": "2026-10-14T07:11:16+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 12,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "05a7114e3a2e828d",
-          "title": "Ukraine allies in Poland after Starlink sabotage, Trump diesel deal - DW.com",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPbktKbFY0bUZSZk5ZZ0o2SVhycnFMeGwzQ1hDcFdUQlV1Q2xscmI3VmVIOEdibGg1R1Rxd2lBU0xMMzRIeWtrT0hXSDYyaFBtUG1oczRROHA1cVAxVDdXdnkyb3FIN3ZHWUYzTEFnZnRMakc4VXJpT0QxQjlnTmZyZWpWSlJYWTRuRUZNenpLRC11akR1VnZBWHlySjFMajVJ0gGgAUFVX3lxTFBoclA1aElnbXdDRENYSlp3eW05eTBhbGNVR0M3ZW0td2hkN1JTY3VmbW9GWkJ4Vm0yeW1jd0hkZ1dWejN0bVRmaXlfU1llUy1VUWdORzR1WU9vVkhiQVE3MGpfM29yOXdYdWJGUmhpa1ZPaXRRMTB5cFBtYXk4YTkzN3JHb1VWWWdMNnpJQmZpZlVhNFpzYzBVeEI5dzNpa1Y?oc=5",
-          "published_at": "2026-10-14T02:33:59+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 2,
-          "confidence": "low",
-          "confidence_score": 46,
-          "hybrid_threat_score": 9,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia",
-            "Google News - Baltic Russia hybrid threat"
-          ],
-          "related_item_count": 3
-        }
-      ],
-      "events": [
-        {
-          "event_id": "536697e9f5accd5c",
-          "title": "Russia's shadow war in Europe: Why the Starlink sabotage case in Poland raises fears of a wider confrontation - Latest news from Azerbaijan",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPTFRUT0FndWdkTWVkdVRXMDRXQWYtakplMGFXTmkyZjloNVYyWHh0Rl9SU0p6LXI3MGhHdUlUc0tMbVluc2xEVFlYSTljbENxUjZBelplVWNNN0RMaF94UFpsUk94aGpJTzczOTVzazJoV0NIc0s4THN1VHVXalpqbWJCYXp2VzRndVZXT2pfX2NpbEtONm5DbG5iY01qb3daV2lUc0YyN2VyYlpTWkhDVXZXc1gxbXdhMlVHU21FS0VRQkRvY3plQg?oc=5",
-          "published_at": "2026-10-14T07:11:16+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 12,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "05a7114e3a2e828d",
-          "title": "Ukraine allies in Poland after Starlink sabotage, Trump diesel deal - DW.com",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPbktKbFY0bUZSZk5ZZ0o2SVhycnFMeGwzQ1hDcFdUQlV1Q2xscmI3VmVIOEdibGg1R1Rxd2lBU0xMMzRIeWtrT0hXSDYyaFBtUG1oczRROHA1cVAxVDdXdnkyb3FIN3ZHWUYzTEFnZnRMakc4VXJpT0QxQjlnTmZyZWpWSlJYWTRuRUZNenpLRC11akR1VnZBWHlySjFMajVJ0gGgAUFVX3lxTFBoclA1aElnbXdDRENYSlp3eW05eTBhbGNVR0M3ZW0td2hkN1JTY3VmbW9GWkJ4Vm0yeW1jd0hkZ1dWejN0bVRmaXlfU1llUy1VUWdORzR1WU9vVkhiQVE3MGpfM29yOXdYdWJGUmhpa1ZPaXRRMTB5cFBtYXk4YTkzN3JHb1VWWWdMNnpJQmZpZlVhNFpzYzBVeEI5dzNpa1Y?oc=5",
-          "published_at": "2026-10-14T02:33:59+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 2,
-          "confidence": "low",
-          "confidence_score": 46,
-          "hybrid_threat_score": 9,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia",
-            "Google News - Baltic Russia hybrid threat"
-          ],
-          "related_item_count": 3
-        }
-      ]
-    },
     {
       "date": "2026-10-15",
       "status": "available",
@@ -1767,6 +1547,165 @@
       "dominant_actor": null,
       "top_events": [],
       "events": []
+    },
+    {
+      "date": "2026-10-21",
+      "status": "available",
+      "snapshot_generated_at": "2026-10-21T10:18:28.033205+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 1,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 0,
+      "assessment_count": 1,
+      "score_total": 0.0,
+      "average_score": 0.0,
+      "highest_score": 0.0,
+      "operational_index": 0.0,
+      "early_warning_index": 0.0,
+      "threat_index": 0.0,
+      "overall_level": "low",
+      "country_summary": {
+        "Poland": {
+          "country": "Poland",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0,
+          "operational_index": 0.0,
+          "early_warning_index": 0.0,
+          "threat_index": 0.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Russia": 1,
+            "NATO": 1
+          }
+        }
+      },
+      "category_summary": {},
+      "actor_summary": {
+        "NATO": {
+          "event_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "Russia": {
+          "event_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "assessment": {
+          "event_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "hotspot": {
+        "location": "Poland",
+        "score": 0,
+        "event_count": 1
+      },
+      "key_driver": null,
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "751b7ce62e51ba3d",
+          "title": "Fear grows in Poland as Russian threat looms over NATO's eastern flank - Yahoo",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQcUI4TWtFLXQ0SFI0NDNyeXVqcHR2WHV1NWt5QUYxMm93SlA2Qk9McnBjams2SUdlSWdNU294N2pRMmZ6Z3ZtQmZaMDE0QkE3M0l1QUlhQzZmMl81elBBRWFTMndabG9VcVplbEF1WW95WkF4WFhGalJWa3E5R2c4emEzdjYxZmVsY0J2aGQzSVlvZWc?oc=5",
+          "published_at": "2026-10-21T09:18:49+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - NATO Eastern Flank Baltic Poland"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "751b7ce62e51ba3d",
+          "title": "Fear grows in Poland as Russian threat looms over NATO's eastern flank - Yahoo",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQcUI4TWtFLXQ0SFI0NDNyeXVqcHR2WHV1NWt5QUYxMm93SlA2Qk9McnBjams2SUdlSWdNU294N2pRMmZ6Z3ZtQmZaMDE0QkE3M0l1QUlhQzZmMl81elBBRWFTMndabG9VcVplbEF1WW95WkF4WFhGalJWa3E5R2c4emEzdjYxZmVsY0J2aGQzSVlvZWc?oc=5",
+          "published_at": "2026-10-21T09:18:49+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - NATO Eastern Flank Baltic Poland"
+          ],
+          "related_item_count": 1
+        }
+      ]
     }
   ]
 }

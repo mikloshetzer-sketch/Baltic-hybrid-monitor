@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-20T10:10:58.202067+00:00",
-  "snapshot_date": "2026-10-20",
+  "generated_at": "2026-10-21T10:18:28.033205+00:00",
+  "snapshot_date": "2026-10-21",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-10-20T10:10:57.674307+00:00",
+  "source_generated_at": "2026-10-21T10:18:27.597180+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,11 +17,11 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 0,
+    "event_count": 1,
     "incident_count": 0,
     "activity_count": 0,
     "indicator_count": 0,
-    "assessment_count": 0,
+    "assessment_count": 1,
     "score_total": 0,
     "average_score": 0.0,
     "highest_score": 0,
@@ -30,9 +30,43 @@
     "threat_index": 0.0,
     "overall_level": "low"
   },
-  "country_summary": {},
+  "country_summary": {
+    "Poland": {
+      "country": "Poland",
+      "event_count": 1,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 0,
+      "assessment_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0,
+      "operational_index": 0.0,
+      "early_warning_index": 0.0,
+      "threat_index": 0.0,
+      "overall_level": "low",
+      "categories": {},
+      "actors": {
+        "Russia": 1,
+        "NATO": 1
+      }
+    }
+  },
   "category_summary": {},
-  "actor_summary": {},
+  "actor_summary": {
+    "NATO": {
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
+    },
+    "Russia": {
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
+    }
+  },
   "subtype_summary": {
     "incident": {
       "event_count": 0,
@@ -53,20 +87,87 @@
       "highest_score": 0
     },
     "assessment": {
-      "event_count": 0,
+      "event_count": 1,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
     }
   },
-  "scope_summary": {},
+  "scope_summary": {
+    "direct": {
+      "event_count": 1,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
+    }
+  },
   "hotspot": {
-    "location": null,
+    "location": "Poland",
     "score": 0,
-    "event_count": 0
+    "event_count": 1
   },
   "key_driver": null,
-  "dominant_actor": null,
-  "top_events": [],
-  "events": []
+  "dominant_actor": "Russia",
+  "top_events": [
+    {
+      "event_id": "751b7ce62e51ba3d",
+      "title": "Fear grows in Poland as Russian threat looms over NATO's eastern flank - Yahoo",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQcUI4TWtFLXQ0SFI0NDNyeXVqcHR2WHV1NWt5QUYxMm93SlA2Qk9McnBjams2SUdlSWdNU294N2pRMmZ6Z3ZtQmZaMDE0QkE3M0l1QUlhQzZmMl81elBBRWFTMndabG9VcVplbEF1WW95WkF4WFhGalJWa3E5R2c4emEzdjYxZmVsY0J2aGQzSVlvZWc?oc=5",
+      "published_at": "2026-10-21T09:18:49+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia",
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 48,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - NATO Eastern Flank Baltic Poland"
+      ],
+      "related_item_count": 1
+    }
+  ],
+  "events": [
+    {
+      "event_id": "751b7ce62e51ba3d",
+      "title": "Fear grows in Poland as Russian threat looms over NATO's eastern flank - Yahoo",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQcUI4TWtFLXQ0SFI0NDNyeXVqcHR2WHV1NWt5QUYxMm93SlA2Qk9McnBjams2SUdlSWdNU294N2pRMmZ6Z3ZtQmZaMDE0QkE3M0l1QUlhQzZmMl81elBBRWFTMndabG9VcVplbEF1WW95WkF4WFhGalJWa3E5R2c4emEzdjYxZmVsY0J2aGQzSVlvZWc?oc=5",
+      "published_at": "2026-10-21T09:18:49+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia",
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 48,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - NATO Eastern Flank Baltic Poland"
+      ],
+      "related_item_count": 1
+    }
+  ]
 }
