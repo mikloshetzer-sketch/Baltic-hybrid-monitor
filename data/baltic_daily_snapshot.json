@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-21T10:18:28.033205+00:00",
-  "snapshot_date": "2026-10-21",
+  "generated_at": "2026-10-22T10:19:18.968107+00:00",
+  "snapshot_date": "2026-10-22",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-10-21T10:18:27.597180+00:00",
+  "source_generated_at": "2026-10-22T10:19:18.546604+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -20,51 +20,53 @@
     "event_count": 1,
     "incident_count": 0,
     "activity_count": 0,
-    "indicator_count": 0,
-    "assessment_count": 1,
-    "score_total": 0,
-    "average_score": 0.0,
-    "highest_score": 0,
+    "indicator_count": 1,
+    "assessment_count": 0,
+    "score_total": 13,
+    "average_score": 13.0,
+    "highest_score": 13,
     "operational_index": 0.0,
-    "early_warning_index": 0.0,
-    "threat_index": 0.0,
+    "early_warning_index": 13.0,
+    "threat_index": 13.0,
     "overall_level": "low"
   },
   "country_summary": {
-    "Poland": {
-      "country": "Poland",
+    "Estonia": {
+      "country": "Estonia",
       "event_count": 1,
       "incident_count": 0,
       "activity_count": 0,
-      "indicator_count": 0,
-      "assessment_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 13,
+      "average_score": 13.0,
+      "highest_score": 13,
       "operational_index": 0.0,
-      "early_warning_index": 0.0,
-      "threat_index": 0.0,
+      "early_warning_index": 13.0,
+      "threat_index": 13.0,
       "overall_level": "low",
-      "categories": {},
+      "categories": {
+        "sabotage": 1
+      },
       "actors": {
-        "Russia": 1,
-        "NATO": 1
+        "Russia": 1
       }
     }
   },
-  "category_summary": {},
-  "actor_summary": {
-    "NATO": {
+  "category_summary": {
+    "sabotage": {
       "event_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
-    },
+      "score_total": 13,
+      "average_score": 13.0,
+      "highest_score": 13
+    }
+  },
+  "actor_summary": {
     "Russia": {
       "event_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "score_total": 13,
+      "average_score": 13.0,
+      "highest_score": 13
     }
   },
   "subtype_summary": {
@@ -81,13 +83,13 @@
       "highest_score": 0
     },
     "indicator": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 1,
+      "score_total": 13,
+      "average_score": 13.0,
+      "highest_score": 13
     },
     "assessment": {
-      "event_count": 1,
+      "event_count": 0,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
@@ -96,78 +98,82 @@
   "scope_summary": {
     "direct": {
       "event_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "score_total": 13,
+      "average_score": 13.0,
+      "highest_score": 13
     }
   },
   "hotspot": {
-    "location": "Poland",
-    "score": 0,
+    "location": "Estonia",
+    "score": 13,
     "event_count": 1
   },
-  "key_driver": null,
+  "key_driver": "sabotage",
   "dominant_actor": "Russia",
   "top_events": [
     {
-      "event_id": "751b7ce62e51ba3d",
-      "title": "Fear grows in Poland as Russian threat looms over NATO's eastern flank - Yahoo",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQcUI4TWtFLXQ0SFI0NDNyeXVqcHR2WHV1NWt5QUYxMm93SlA2Qk9McnBjams2SUdlSWdNU294N2pRMmZ6Z3ZtQmZaMDE0QkE3M0l1QUlhQzZmMl81elBBRWFTMndabG9VcVplbEF1WW95WkF4WFhGalJWa3E5R2c4emEzdjYxZmVsY0J2aGQzSVlvZWc?oc=5",
-      "published_at": "2026-10-21T09:18:49+00:00",
-      "primary_country": "Poland",
+      "event_id": "658a5a8a2467c011",
+      "title": "European leaders voice support for Estonia over alleged Russian sabotage - TRT World",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9hYlRmQkdaMGUtalBMQUtPSGJLVDA4cVVTU0lmZXFmdHpKVFlnaFRTdEJ2UjBRQ3ZzRUJ4c29PSzVabW5jS3FhZ3VIamRsRUw2X3NOMU5zNzc?oc=5",
+      "published_at": "2026-10-22T03:07:22+00:00",
+      "primary_country": "Estonia",
       "countries": [
-        "Poland"
+        "Estonia"
       ],
-      "categories": [],
+      "categories": [
+        "sabotage"
+      ],
       "actors": [
-        "Russia",
-        "NATO"
+        "Russia"
       ],
       "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
+      "event_type": "warning",
+      "event_subtype": "indicator",
       "analysis_layer": null,
       "geographic_scope": "direct",
-      "source_count": 1,
+      "source_count": 2,
       "confidence": "low",
-      "confidence_score": 48,
-      "hybrid_threat_score": 0,
+      "confidence_score": 46,
+      "hybrid_threat_score": 13,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - NATO Eastern Flank Baltic Poland"
+        "Google News - Baltic sabotage Russia",
+        "Google News - Baltic drone incident Russia"
       ],
-      "related_item_count": 1
+      "related_item_count": 2
     }
   ],
   "events": [
     {
-      "event_id": "751b7ce62e51ba3d",
-      "title": "Fear grows in Poland as Russian threat looms over NATO's eastern flank - Yahoo",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQcUI4TWtFLXQ0SFI0NDNyeXVqcHR2WHV1NWt5QUYxMm93SlA2Qk9McnBjams2SUdlSWdNU294N2pRMmZ6Z3ZtQmZaMDE0QkE3M0l1QUlhQzZmMl81elBBRWFTMndabG9VcVplbEF1WW95WkF4WFhGalJWa3E5R2c4emEzdjYxZmVsY0J2aGQzSVlvZWc?oc=5",
-      "published_at": "2026-10-21T09:18:49+00:00",
-      "primary_country": "Poland",
+      "event_id": "658a5a8a2467c011",
+      "title": "European leaders voice support for Estonia over alleged Russian sabotage - TRT World",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9hYlRmQkdaMGUtalBMQUtPSGJLVDA4cVVTU0lmZXFmdHpKVFlnaFRTdEJ2UjBRQ3ZzRUJ4c29PSzVabW5jS3FhZ3VIamRsRUw2X3NOMU5zNzc?oc=5",
+      "published_at": "2026-10-22T03:07:22+00:00",
+      "primary_country": "Estonia",
       "countries": [
-        "Poland"
+        "Estonia"
       ],
-      "categories": [],
+      "categories": [
+        "sabotage"
+      ],
       "actors": [
-        "Russia",
-        "NATO"
+        "Russia"
       ],
       "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
+      "event_type": "warning",
+      "event_subtype": "indicator",
       "analysis_layer": null,
       "geographic_scope": "direct",
-      "source_count": 1,
+      "source_count": 2,
       "confidence": "low",
-      "confidence_score": 48,
-      "hybrid_threat_score": 0,
+      "confidence_score": 46,
+      "hybrid_threat_score": 13,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - NATO Eastern Flank Baltic Poland"
+        "Google News - Baltic sabotage Russia",
+        "Google News - Baltic drone incident Russia"
       ],
-      "related_item_count": 1
+      "related_item_count": 2
     }
   ]
 }
