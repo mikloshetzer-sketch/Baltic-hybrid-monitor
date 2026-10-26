@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-25T09:55:23.166237+00:00",
-  "snapshot_date": "2026-10-25",
+  "generated_at": "2026-10-26T11:16:01.490588+00:00",
+  "snapshot_date": "2026-10-26",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-10-25T09:55:22.833837+00:00",
+  "source_generated_at": "2026-10-26T11:16:00.999389+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,28 +17,89 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 0,
-    "incident_count": 0,
+    "event_count": 2,
+    "incident_count": 1,
     "activity_count": 0,
-    "indicator_count": 0,
+    "indicator_count": 1,
     "assessment_count": 0,
-    "score_total": 0,
-    "average_score": 0.0,
-    "highest_score": 0,
-    "operational_index": 0.0,
-    "early_warning_index": 0.0,
-    "threat_index": 0.0,
-    "overall_level": "low"
+    "score_total": 52,
+    "average_score": 26.0,
+    "highest_score": 44,
+    "operational_index": 44.0,
+    "early_warning_index": 8.0,
+    "threat_index": 36.8,
+    "overall_level": "guarded"
   },
-  "country_summary": {},
-  "category_summary": {},
-  "actor_summary": {},
+  "country_summary": {
+    "Latvia": {
+      "country": "Latvia",
+      "event_count": 1,
+      "incident_count": 1,
+      "activity_count": 0,
+      "indicator_count": 0,
+      "assessment_count": 0,
+      "score_total": 44,
+      "average_score": 44.0,
+      "highest_score": 44,
+      "operational_index": 44.0,
+      "early_warning_index": 0.0,
+      "threat_index": 35.2,
+      "overall_level": "guarded",
+      "categories": {
+        "border_pressure": 1
+      },
+      "actors": {
+        "Belarus": 1
+      }
+    },
+    "Lithuania": {
+      "country": "Lithuania",
+      "event_count": 1,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 8,
+      "average_score": 8.0,
+      "highest_score": 8,
+      "operational_index": 0.0,
+      "early_warning_index": 8.0,
+      "threat_index": 8.0,
+      "overall_level": "low",
+      "categories": {
+        "sabotage": 1
+      },
+      "actors": {}
+    }
+  },
+  "category_summary": {
+    "border_pressure": {
+      "event_count": 1,
+      "score_total": 44,
+      "average_score": 44.0,
+      "highest_score": 44
+    },
+    "sabotage": {
+      "event_count": 1,
+      "score_total": 8,
+      "average_score": 8.0,
+      "highest_score": 8
+    }
+  },
+  "actor_summary": {
+    "Belarus": {
+      "event_count": 1,
+      "score_total": 44,
+      "average_score": 44.0,
+      "highest_score": 44
+    }
+  },
   "subtype_summary": {
     "incident": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 1,
+      "score_total": 44,
+      "average_score": 44.0,
+      "highest_score": 44
     },
     "activity": {
       "event_count": 0,
@@ -47,10 +108,10 @@
       "highest_score": 0
     },
     "indicator": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 1,
+      "score_total": 8,
+      "average_score": 8.0,
+      "highest_score": 8
     },
     "assessment": {
       "event_count": 0,
@@ -59,14 +120,143 @@
       "highest_score": 0
     }
   },
-  "scope_summary": {},
-  "hotspot": {
-    "location": null,
-    "score": 0,
-    "event_count": 0
+  "scope_summary": {
+    "direct": {
+      "event_count": 2,
+      "score_total": 52,
+      "average_score": 26.0,
+      "highest_score": 44
+    }
   },
-  "key_driver": null,
-  "dominant_actor": null,
-  "top_events": [],
-  "events": []
+  "hotspot": {
+    "location": "Belarus Border",
+    "score": 44,
+    "event_count": 1
+  },
+  "key_driver": "border_pressure",
+  "dominant_actor": "Belarus",
+  "top_events": [
+    {
+      "event_id": "aad2df211dd6707c",
+      "title": "De Facto reveals brutality of Belarusian border guard people smugglers",
+      "url": "https://eng.lsm.lv/article/society/crime/26.10.2026-de-facto-reveals-brutality-of-belarusian-border-guard-people-smugglers.a669043/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-10-26T07:14:57+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "border_pressure"
+      ],
+      "actors": [
+        "Belarus"
+      ],
+      "locations": [
+        "Belarus Border"
+      ],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 44,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "LSM English Latvia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "59718450c541ad9c",
+      "title": "Lithuanian defence companies seek more state help amid suspected sabotage and threats",
+      "url": "https://www.lrt.lt/en/news-in-english/19/3090303/lithuanian-defence-companies-seek-more-state-help-amid-suspected-sabotage-and-threats",
+      "published_at": "2026-10-26T06:00:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "LRT English Lithuania"
+      ],
+      "related_item_count": 1
+    }
+  ],
+  "events": [
+    {
+      "event_id": "aad2df211dd6707c",
+      "title": "De Facto reveals brutality of Belarusian border guard people smugglers",
+      "url": "https://eng.lsm.lv/article/society/crime/26.10.2026-de-facto-reveals-brutality-of-belarusian-border-guard-people-smugglers.a669043/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-10-26T07:14:57+00:00",
+      "primary_country": "Latvia",
+      "countries": [
+        "Latvia"
+      ],
+      "categories": [
+        "border_pressure"
+      ],
+      "actors": [
+        "Belarus"
+      ],
+      "locations": [
+        "Belarus Border"
+      ],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 44,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "LSM English Latvia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "59718450c541ad9c",
+      "title": "Lithuanian defence companies seek more state help amid suspected sabotage and threats",
+      "url": "https://www.lrt.lt/en/news-in-english/19/3090303/lithuanian-defence-companies-seek-more-state-help-amid-suspected-sabotage-and-threats",
+      "published_at": "2026-10-26T06:00:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "LRT English Lithuania"
+      ],
+      "related_item_count": 1
+    }
+  ]
 }
