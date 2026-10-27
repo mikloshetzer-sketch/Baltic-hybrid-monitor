@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-26T11:16:01.490588+00:00",
-  "snapshot_date": "2026-10-26",
+  "generated_at": "2026-10-27T10:42:01.785806+00:00",
+  "snapshot_date": "2026-10-27",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-10-26T11:16:00.999389+00:00",
+  "source_generated_at": "2026-10-27T10:42:01.373978+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -18,88 +18,88 @@
   },
   "overall_summary": {
     "event_count": 2,
-    "incident_count": 1,
+    "incident_count": 0,
     "activity_count": 0,
-    "indicator_count": 1,
+    "indicator_count": 2,
     "assessment_count": 0,
-    "score_total": 52,
-    "average_score": 26.0,
-    "highest_score": 44,
-    "operational_index": 44.0,
-    "early_warning_index": 8.0,
-    "threat_index": 36.8,
-    "overall_level": "guarded"
+    "score_total": 15,
+    "average_score": 7.5,
+    "highest_score": 9,
+    "operational_index": 0.0,
+    "early_warning_index": 7.5,
+    "threat_index": 7.5,
+    "overall_level": "low"
   },
   "country_summary": {
     "Latvia": {
       "country": "Latvia",
       "event_count": 1,
-      "incident_count": 1,
+      "incident_count": 0,
       "activity_count": 0,
-      "indicator_count": 0,
+      "indicator_count": 1,
       "assessment_count": 0,
-      "score_total": 44,
-      "average_score": 44.0,
-      "highest_score": 44,
-      "operational_index": 44.0,
-      "early_warning_index": 0.0,
-      "threat_index": 35.2,
-      "overall_level": "guarded",
+      "score_total": 6,
+      "average_score": 6.0,
+      "highest_score": 6,
+      "operational_index": 0.0,
+      "early_warning_index": 6.0,
+      "threat_index": 6.0,
+      "overall_level": "low",
       "categories": {
         "border_pressure": 1
       },
-      "actors": {
-        "Belarus": 1
-      }
+      "actors": {}
     },
-    "Lithuania": {
-      "country": "Lithuania",
+    "Regional": {
+      "country": "Regional",
       "event_count": 1,
       "incident_count": 0,
       "activity_count": 0,
       "indicator_count": 1,
       "assessment_count": 0,
-      "score_total": 8,
-      "average_score": 8.0,
-      "highest_score": 8,
+      "score_total": 9,
+      "average_score": 9.0,
+      "highest_score": 9,
       "operational_index": 0.0,
-      "early_warning_index": 8.0,
-      "threat_index": 8.0,
+      "early_warning_index": 9.0,
+      "threat_index": 9.0,
       "overall_level": "low",
       "categories": {
         "sabotage": 1
       },
-      "actors": {}
+      "actors": {
+        "Russia": 1
+      }
     }
   },
   "category_summary": {
-    "border_pressure": {
-      "event_count": 1,
-      "score_total": 44,
-      "average_score": 44.0,
-      "highest_score": 44
-    },
     "sabotage": {
       "event_count": 1,
-      "score_total": 8,
-      "average_score": 8.0,
-      "highest_score": 8
+      "score_total": 9,
+      "average_score": 9.0,
+      "highest_score": 9
+    },
+    "border_pressure": {
+      "event_count": 1,
+      "score_total": 6,
+      "average_score": 6.0,
+      "highest_score": 6
     }
   },
   "actor_summary": {
-    "Belarus": {
+    "Russia": {
       "event_count": 1,
-      "score_total": 44,
-      "average_score": 44.0,
-      "highest_score": 44
+      "score_total": 9,
+      "average_score": 9.0,
+      "highest_score": 9
     }
   },
   "subtype_summary": {
     "incident": {
-      "event_count": 1,
-      "score_total": 44,
-      "average_score": 44.0,
-      "highest_score": 44
+      "event_count": 0,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
     },
     "activity": {
       "event_count": 0,
@@ -108,10 +108,10 @@
       "highest_score": 0
     },
     "indicator": {
-      "event_count": 1,
-      "score_total": 8,
-      "average_score": 8.0,
-      "highest_score": 8
+      "event_count": 2,
+      "score_total": 15,
+      "average_score": 7.5,
+      "highest_score": 9
     },
     "assessment": {
       "event_count": 0,
@@ -122,63 +122,65 @@
   },
   "scope_summary": {
     "direct": {
-      "event_count": 2,
-      "score_total": 52,
-      "average_score": 26.0,
-      "highest_score": 44
+      "event_count": 1,
+      "score_total": 6,
+      "average_score": 6.0,
+      "highest_score": 6
+    },
+    "regional_direct": {
+      "event_count": 1,
+      "score_total": 9,
+      "average_score": 9.0,
+      "highest_score": 9
     }
   },
   "hotspot": {
-    "location": "Belarus Border",
-    "score": 44,
+    "location": "Regional",
+    "score": 9,
     "event_count": 1
   },
-  "key_driver": "border_pressure",
-  "dominant_actor": "Belarus",
+  "key_driver": "sabotage",
+  "dominant_actor": "Russia",
   "top_events": [
     {
-      "event_id": "aad2df211dd6707c",
-      "title": "De Facto reveals brutality of Belarusian border guard people smugglers",
-      "url": "https://eng.lsm.lv/article/society/crime/26.10.2026-de-facto-reveals-brutality-of-belarusian-border-guard-people-smugglers.a669043/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-      "published_at": "2026-10-26T07:14:57+00:00",
+      "event_id": "99f9e1dcc896afd9",
+      "title": "Romanian intelligence uncovers Russian-coordinated sabotage network – suspects sought across several countries - Baltic News Network",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNbXB6aVlkcmJrV19MZXFzLU1NRUJDR0hDQzFDQmFfMU5wRXRkU1kwd1VwOERRS1Yxbkt4cHBxMlh0QnhwbndHeTRxS0JVTExKd2x4UENNeEpBbktNZjZfWVR6cFhWRTVQRk5tUHhrR0JWOEJycXZwZDVDd2dNd0dvdWxvTTB2V3lxSENuVlgwb0V3LUcwMDc0U0VWWXluVkMweTUwckZUMHRwdnU1QklSZnNYdFJObkpINjJ4QkpQdFlkdGh6cENMTDFYSXJrTGtGeXl6d1FuNU1JWDg?oc=5",
+      "published_at": "2026-10-27T10:31:55+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "regional_direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 9,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "3fee8a04d656b2d8",
+      "title": "Upstairs, downstairs: life returns to historic Bebrene Manor",
+      "url": "https://eng.lsm.lv/article/culture/culture/27.10.2026-upstairs-downstairs-life-returns-to-historic-bebrene-manor.a669198/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-10-27T06:30:11+00:00",
       "primary_country": "Latvia",
       "countries": [
         "Latvia"
       ],
       "categories": [
         "border_pressure"
-      ],
-      "actors": [
-        "Belarus"
-      ],
-      "locations": [
-        "Belarus Border"
-      ],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 44,
-      "hybrid_threat_level": "elevated",
-      "source_names": [
-        "LSM English Latvia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "59718450c541ad9c",
-      "title": "Lithuanian defence companies seek more state help amid suspected sabotage and threats",
-      "url": "https://www.lrt.lt/en/news-in-english/19/3090303/lithuanian-defence-companies-seek-more-state-help-amid-suspected-sabotage-and-threats",
-      "published_at": "2026-10-26T06:00:00+00:00",
-      "primary_country": "Lithuania",
-      "countries": [
-        "Lithuania"
-      ],
-      "categories": [
-        "sabotage"
       ],
       "actors": [],
       "locations": [],
@@ -189,58 +191,54 @@
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 8,
+      "hybrid_threat_score": 6,
       "hybrid_threat_level": "low",
       "source_names": [
-        "LRT English Lithuania"
+        "LSM English Latvia"
       ],
       "related_item_count": 1
     }
   ],
   "events": [
     {
-      "event_id": "aad2df211dd6707c",
-      "title": "De Facto reveals brutality of Belarusian border guard people smugglers",
-      "url": "https://eng.lsm.lv/article/society/crime/26.10.2026-de-facto-reveals-brutality-of-belarusian-border-guard-people-smugglers.a669043/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-      "published_at": "2026-10-26T07:14:57+00:00",
+      "event_id": "99f9e1dcc896afd9",
+      "title": "Romanian intelligence uncovers Russian-coordinated sabotage network – suspects sought across several countries - Baltic News Network",
+      "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxNbXB6aVlkcmJrV19MZXFzLU1NRUJDR0hDQzFDQmFfMU5wRXRkU1kwd1VwOERRS1Yxbkt4cHBxMlh0QnhwbndHeTRxS0JVTExKd2x4UENNeEpBbktNZjZfWVR6cFhWRTVQRk5tUHhrR0JWOEJycXZwZDVDd2dNd0dvdWxvTTB2V3lxSENuVlgwb0V3LUcwMDc0U0VWWXluVkMweTUwckZUMHRwdnU1QklSZnNYdFJObkpINjJ4QkpQdFlkdGh6cENMTDFYSXJrTGtGeXl6d1FuNU1JWDg?oc=5",
+      "published_at": "2026-10-27T10:31:55+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "regional_direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 9,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "3fee8a04d656b2d8",
+      "title": "Upstairs, downstairs: life returns to historic Bebrene Manor",
+      "url": "https://eng.lsm.lv/article/culture/culture/27.10.2026-upstairs-downstairs-life-returns-to-historic-bebrene-manor.a669198/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-10-27T06:30:11+00:00",
       "primary_country": "Latvia",
       "countries": [
         "Latvia"
       ],
       "categories": [
         "border_pressure"
-      ],
-      "actors": [
-        "Belarus"
-      ],
-      "locations": [
-        "Belarus Border"
-      ],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 44,
-      "hybrid_threat_level": "elevated",
-      "source_names": [
-        "LSM English Latvia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "59718450c541ad9c",
-      "title": "Lithuanian defence companies seek more state help amid suspected sabotage and threats",
-      "url": "https://www.lrt.lt/en/news-in-english/19/3090303/lithuanian-defence-companies-seek-more-state-help-amid-suspected-sabotage-and-threats",
-      "published_at": "2026-10-26T06:00:00+00:00",
-      "primary_country": "Lithuania",
-      "countries": [
-        "Lithuania"
-      ],
-      "categories": [
-        "sabotage"
       ],
       "actors": [],
       "locations": [],
@@ -251,10 +249,10 @@
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 8,
+      "hybrid_threat_score": 6,
       "hybrid_threat_level": "low",
       "source_names": [
-        "LRT English Lithuania"
+        "LSM English Latvia"
       ],
       "related_item_count": 1
     }
