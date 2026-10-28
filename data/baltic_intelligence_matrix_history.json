@@ -2,23 +2,23 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Intelligence Matrix History",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-10-27T10:42:01.878607+00:00",
+  "generated_at": "2026-10-28T11:26:10.591681+00:00",
   "history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "record_count": 79,
+  "record_count": 80,
   "first_snapshot_date": "2026-08-01",
-  "last_snapshot_date": "2026-10-27",
+  "last_snapshot_date": "2026-10-28",
   "last_update": {
     "mode": "daily_snapshot",
     "action": "inserted",
-    "updated_at": "2026-10-27T10:42:01.878607+00:00",
+    "updated_at": "2026-10-28T11:26:10.591681+00:00",
     "processed_records": 1,
     "inserted_count": 1,
     "replaced_count": 0,
     "inserted_dates": [
-      "2026-10-27"
+      "2026-10-28"
     ],
     "replaced_dates": [],
-    "source_snapshot_generated_at": "2026-10-27T10:42:01.785806+00:00",
+    "source_snapshot_generated_at": "2026-10-28T11:26:10.507352+00:00",
     "source_snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
     "source_score_engine_version": "threat_score_v3_2_current_historical_split"
   },
@@ -16690,6 +16690,172 @@
             "LSM English Latvia"
           ],
           "related_item_count": 1
+        }
+      ]
+    },
+    {
+      "project": "baltic-hybrid-monitor",
+      "title": "Baltic Hybrid Threat Daily Snapshot",
+      "region": "Baltic states and Poland",
+      "generated_at": "2026-10-28T11:26:10.507352+00:00",
+      "snapshot_date": "2026-10-28",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "source_generated_at": "2026-10-28T11:26:09.973285+00:00",
+      "method": {
+        "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
+        "time_basis": "UTC calendar day",
+        "rolling_window_used": false,
+        "rolling_window_days": 0,
+        "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used. Lifecycle v4 index-ineligible events are excluded from index calculations.",
+        "assessment_handling": "Assessment events remain visible in counts and event lists but do not contribute to operational or early-warning indices.",
+        "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
+      },
+      "overall_summary": {
+        "event_count": 1,
+        "incident_count": 0,
+        "activity_count": 0,
+        "indicator_count": 1,
+        "assessment_count": 0,
+        "score_total": 11,
+        "average_score": 11.0,
+        "highest_score": 11,
+        "operational_index": 0.0,
+        "early_warning_index": 11.0,
+        "threat_index": 11.0,
+        "overall_level": "low"
+      },
+      "country_summary": {
+        "Poland": {
+          "country": "Poland",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 11,
+          "average_score": 11.0,
+          "highest_score": 11,
+          "operational_index": 0.0,
+          "early_warning_index": 11.0,
+          "threat_index": 11.0,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {}
+        }
+      },
+      "category_summary": {
+        "sabotage": {
+          "event_count": 1,
+          "score_total": 11,
+          "average_score": 11.0,
+          "highest_score": 11
+        }
+      },
+      "actor_summary": {},
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 1,
+          "score_total": 11,
+          "average_score": 11.0,
+          "highest_score": 11
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 1,
+          "score_total": 11,
+          "average_score": 11.0,
+          "highest_score": 11
+        }
+      },
+      "hotspot": {
+        "location": "Poland",
+        "score": 11,
+        "event_count": 1
+      },
+      "key_driver": "sabotage",
+      "dominant_actor": null,
+      "top_events": [
+        {
+          "event_id": "73f6a7bf212a6538",
+          "title": "Poland arrests Ukrainian man suspected of Romania sabotage plot - TVP World",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQendxNWtGWXJBZDVzdXBlWmhiUnVRYXZGNU9HU1NHMVlsZzlDdG9FRURQZ1lqOEVCbW1zaWpnWGxIX2JvTVNqZTFDZDhqbXFGSGJrREZ5YmxPN0JzNTh3azFyUVc1NGZvYURtZ3N1RkJxMDBDQURPWG1kOW02ZjVlV0R1SUJlX3V5bWxwbUN5N2YwVmVDbjQyelRQUGdBNk4z?oc=5",
+          "published_at": "2026-10-28T09:35:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "medium",
+          "confidence_score": 51,
+          "hybrid_threat_score": 11,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia",
+            "Polish Radio English"
+          ],
+          "related_item_count": 2
+        }
+      ],
+      "events": [
+        {
+          "event_id": "73f6a7bf212a6538",
+          "title": "Poland arrests Ukrainian man suspected of Romania sabotage plot - TVP World",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQendxNWtGWXJBZDVzdXBlWmhiUnVRYXZGNU9HU1NHMVlsZzlDdG9FRURQZ1lqOEVCbW1zaWpnWGxIX2JvTVNqZTFDZDhqbXFGSGJrREZ5YmxPN0JzNTh3azFyUVc1NGZvYURtZ3N1RkJxMDBDQURPWG1kOW02ZjVlV0R1SUJlX3V5bWxwbUN5N2YwVmVDbjQyelRQUGdBNk4z?oc=5",
+          "published_at": "2026-10-28T09:35:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "medium",
+          "confidence_score": 51,
+          "hybrid_threat_score": 11,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia",
+            "Polish Radio English"
+          ],
+          "related_item_count": 2
         }
       ]
     }
