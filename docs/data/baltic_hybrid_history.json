@@ -2,8 +2,8 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-11-01T11:54:57.051121+00:00",
-  "record_count": 93,
+  "updated_at": "2026-11-02T13:39:27.506724+00:00",
+  "record_count": 94,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
     "warning": "Historical records are reconstructed from currently available scored items using published_at dates. The backfill is not a complete historical archive if older source items are no longer available.",
@@ -53296,6 +53296,610 @@
             "event_subtype": "indicator",
             "analytical_layer": "early_warning",
             "confidence": "medium",
+            "hybrid_threat_score": 8,
+            "hybrid_threat_level": "low"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-11-02",
+      "generated_at": "2026-11-02T13:39:27.506542+00:00",
+      "input_generated_at": "2026-11-02T13:39:26.870370+00:00",
+      "daily_activity": {
+        "description": "Calculated only from events published on this calendar day.",
+        "overall": {
+          "event_count": 4,
+          "incident_count": 1,
+          "activity_count": 0,
+          "indicator_count": 3,
+          "assessment_count": 0,
+          "score_total": 60,
+          "average_score": 15.0,
+          "highest_score": 27,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 1,
+            "score_total": 27,
+            "average_score": 27.0,
+            "highest_score": 27,
+            "level": "guarded",
+            "categories": {
+              "cyber": 1
+            }
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 1,
+            "score_total": 7,
+            "average_score": 7.0,
+            "highest_score": 7,
+            "level": "low",
+            "categories": {
+              "drone_incident": 1
+            }
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 1,
+            "score_total": 13,
+            "average_score": 13.0,
+            "highest_score": 13,
+            "level": "low",
+            "categories": {
+              "sabotage": 1
+            }
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 1,
+            "score_total": 13,
+            "average_score": 13.0,
+            "highest_score": 13,
+            "level": "low",
+            "categories": {
+              "sabotage": 1
+            }
+          }
+        },
+        "categories": {
+          "cyber": {
+            "category": "cyber",
+            "event_count": 1,
+            "score_total": 27,
+            "average_score": 27.0,
+            "highest_score": 27
+          },
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 2,
+            "score_total": 26,
+            "average_score": 13.0,
+            "highest_score": 13
+          },
+          "drone_incident": {
+            "category": "drone_incident",
+            "event_count": 1,
+            "score_total": 7,
+            "average_score": 7.0,
+            "highest_score": 7
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 3,
+            "score_total": 33,
+            "average_score": 11.0,
+            "highest_score": 13,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 1,
+            "score_total": 27,
+            "average_score": 27.0,
+            "highest_score": 27,
+            "level": "guarded"
+          },
+          "assessment": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Kaliningrad",
+          "score": 13,
+          "event_count": 1
+        },
+        "key_driver": "cyber",
+        "trend": "increasing",
+        "top_items": [
+          {
+            "id": null,
+            "title": "Hackers raised freezer temperature at Selver supermarket to +50°C",
+            "url": "https://news.err.ee/1610183296/hackers-raised-freezer-temperature-at-selver-supermarket-to-50-c",
+            "published_at": "2026-11-02T09:44:00+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "cyber"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 27,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Russia's new suspected radar in Kaliningrad could spy deep into Europe - DW.com",
+            "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdFI1cnhfdFhUQnRHcUVLVld4WWx3Mm9jUVBwVDRvQTlhRUJGalNiaURNS3FWMWhiaGZ2UjNOT251cXA1WkhULWNib3NTeFpZelB2bXhfTDV6M0cweUI4UjFiN2k3STJrMnpHRzRGYXJsSm11dXVFUkhuVEMyYjBlSnJHZ0Zid0hrdEJQRHJGbzZ6WlBhSzlV0gGXAUFVX3lxTE1LMVhVYm9ZbVAwams1enBvZGZqTWZoYlk0bmgxMUM2Ul9FaHhsLThmdnNQSUpqTk8tTDZEQnpla0pTTlNacFZzUEV2WmhoUE1FUlV5ZnhYcDhUTFFOTXhjVkNWeU5WY3NBQWNtYVE2eEllbUJnVGVqTHZ1SUxOZE5jTmxXWXNTZFlsYnNXd3c2ZVd2TDF3aWc?oc=5",
+            "published_at": "2026-11-02T09:18:52+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [
+              "Kaliningrad"
+            ],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "medium",
+            "hybrid_threat_score": 13,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Poland strengthens security on border with Russia over risk of sabotage — RMF24 - UA.NEWS",
+            "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPUmh4YWZOajRhZzBzZ3BWOXVKaTZ2RjUxM084NlpSZ0pTV3F6TURKMmtrN3ZJRjZLNnVYZ2hGZXFpNUNfbUNtZnkzVV94Nld5R0RKYTU3RHhkUHpKVmpIR0NfTmZKOWFJQVNmVzdESTJYOXBGcUJpcVI0VzNCYV9TUFJlanM1cVhLaGJHUVY5Sl9HQ0l3Yk9Va1pn?oc=5",
+            "published_at": "2026-11-02T11:16:36+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 13,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Latvian military deploys interceptor drone after unidentified drone violates its airspace - Українська правда",
+            "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5BTDUwNlowWHN3NGRLT1dtNmRFbmxQaHZFU19PMXdwWXFPMnZWMWlYbVpyRk5aQnNSQWcxNDM5Z2FDNE40dDhiYV9zN1p6YVZsNkh1UTlDQ3hiRG5VQVRtWmlVZDQ?oc=5",
+            "published_at": "2026-11-02T07:30:00+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia"
+            ],
+            "categories": [
+              "drone_incident"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 7,
+            "hybrid_threat_level": "low"
+          }
+        ]
+      },
+      "rolling_threat": {
+        "description": "Rolling threat environment ending on this calendar day.",
+        "window": {
+          "days": 14,
+          "start_date": "2026-10-20",
+          "end_date": "2026-11-02"
+        },
+        "overall": {
+          "event_count": 23,
+          "incident_count": 5,
+          "activity_count": 0,
+          "indicator_count": 12,
+          "assessment_count": 6,
+          "score_total": 249,
+          "average_score": 10.83,
+          "highest_score": 39,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 5,
+            "score_total": 45,
+            "average_score": 9.0,
+            "highest_score": 27,
+            "level": "low",
+            "categories": {
+              "cyber": 1,
+              "sabotage": 1
+            }
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 3,
+            "score_total": 41,
+            "average_score": 13.67,
+            "highest_score": 27,
+            "level": "low",
+            "categories": {
+              "cyber": 1,
+              "drone_incident": 1,
+              "disinformation": 1
+            }
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 2,
+            "score_total": 8,
+            "average_score": 4.0,
+            "highest_score": 8,
+            "level": "low",
+            "categories": {
+              "drone_incident": 1
+            }
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 6,
+            "score_total": 105,
+            "average_score": 17.5,
+            "highest_score": 39,
+            "level": "low",
+            "categories": {
+              "sabotage": 3,
+              "espionage": 1,
+              "drone_incident": 1
+            }
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 9,
+            "score_total": 66,
+            "average_score": 7.33,
+            "highest_score": 19,
+            "level": "low",
+            "categories": {
+              "sabotage": 7,
+              "cyber": 1,
+              "drone_incident": 1
+            }
+          }
+        },
+        "categories": {
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 11,
+            "score_total": 133,
+            "average_score": 12.09,
+            "highest_score": 39
+          },
+          "cyber": {
+            "category": "cyber",
+            "event_count": 3,
+            "score_total": 62,
+            "average_score": 20.67,
+            "highest_score": 27
+          },
+          "espionage": {
+            "category": "espionage",
+            "event_count": 1,
+            "score_total": 34,
+            "average_score": 34.0,
+            "highest_score": 34
+          },
+          "drone_incident": {
+            "category": "drone_incident",
+            "event_count": 2,
+            "score_total": 15,
+            "average_score": 7.5,
+            "highest_score": 8
+          },
+          "disinformation": {
+            "category": "disinformation",
+            "event_count": 1,
+            "score_total": 7,
+            "average_score": 7.0,
+            "highest_score": 7
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 12,
+            "score_total": 103,
+            "average_score": 8.58,
+            "highest_score": 13,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 5,
+            "score_total": 146,
+            "average_score": 29.2,
+            "highest_score": 39,
+            "level": "guarded"
+          },
+          "assessment": {
+            "event_count": 6,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Kaliningrad",
+          "score": 13,
+          "event_count": 1
+        },
+        "top_items": [
+          {
+            "id": null,
+            "title": "Ukrainian man detained in Poland on suspicion of carrying out sabotage for Russia in Romania - Українські Національні Новини (УНН)",
+            "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQMWlfQkc2RjFOcWVkZlZrVHdZSk4wWVJaLW1VWVY0WFRaUkpUNWx1WTFTcmdKS3VBSEVxR2F5eTFOYVZuNlA2T3RKRzJSTW1sT20yT3g4N2dKM3QydHFTdHk2SGlfMjNRZDVTbUJoNUtxOVdmV2NFY09hTnJ4bkFDMmJqcEhuTUZHdUFiVjhsbHVWN2RCMlllb3FJLUZGSHRvUkxMVllWTXlyeHpHRjJTRUE1Tk9YNXVMQjFBcEhn0gG8AUFVX3lxTFBoY3lyZzNoVnZZUkw1bU9UTkRCNHlPeXZpbDZFZWtKdjZHMnZMd1BJWkFGYXA2YzRHdDA2NXZXdWpXMkN3aWF3cV9jU3J6NFZ0ZjNsSVdOQzN0cHlVX1BYLTJlYXJWYkcxU19VUEJER3JDeTJmeVRfOHRNRnNpUGFDVl9pY0FOYW5ReFlzXzZNOENuV2Ixc0wtRDM2UGJLVzB4djRvbHFoanp0eU05VVdZVzB6Um9wTHMya1pK?oc=5",
+            "published_at": "2026-10-28T11:57:52+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 39,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Russian citizen detained in Poland on suspicion of spying after photographing trains and rail infrastructure - https://theins.press/en",
+            "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFAwNkpCWGROMjRxN0VqQXR2RmpMYVZRcnFmMVlNMjM1MG9NcDAtUl9IVW91blBPVDVOZDlsWTBsTmZVN2g3MVVTUkk0cw?oc=5",
+            "published_at": "2026-10-30T15:39:24+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "espionage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 34,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Cyberattack on Latvian State Forests detected / Article - LSM",
+            "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQalp0aDhXcm85REdiZU05T09CU1YzVERmQUZtcWJkalFoQWZkbklMeldmTWNrWS0yYThka01IM3hfUTlwNUplZnJpdWFpZkdFMGdhLWh3Q3NBVjFRM0dPeThUOWkzR0o2QnZQazkxOWQ1MnpyUFl6VWlrbU5wMm5YNEZCUzhaakVZM2pTSDFyS21LcTFNSnBGSlpvbzRtbzN1OE5yY2tQaGFWUQ?oc=5",
+            "published_at": "2026-10-30T20:59:32+00:00",
+            "source_name": null,
+            "primary_country": "Latvia",
+            "countries": [
+              "Latvia"
+            ],
+            "categories": [
+              "cyber"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 27,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Hackers raised freezer temperature at Selver supermarket to +50°C",
+            "url": "https://news.err.ee/1610183296/hackers-raised-freezer-temperature-at-selver-supermarket-to-50-c",
+            "published_at": "2026-11-02T09:44:00+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "cyber"
+            ],
+            "actors": [],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 27,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Romania says Russia-run sabotage network set fire near weapons factory - Al Jazeera",
+            "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNei1XRDhzSTJxMHhYNV9yQ1NIMWp0T0pDZHc0ckJ4UGVPbUsxRmV1UUFaWUhYSGU4czNHRS1TcUlXaElSZzZXVDlTVlU4clFXN2dmOFJGSUkxVHlGRGdGZWo5b0VRQmZGaVFjeDQ3ZW5xSmZSYjFzSEN2ZWtrZWFWMExvRjd5TExZWmFiWkt0WGMxTmRyRHI5VFdvaFJSYjhTbWl5MGozcG9pV2FJWTd2XzZB0gG3AUFVX3lxTE5qbDFpN1FjX0c0T3V5MTAwQnZyNWRCdmsxNERsUDRUNGNzZ3NwQzJHOWg1dEhpd0hVN25aVmRRWEo5U0h0ZmI1aHFnUWl0bWJmRW9Rbkx5dy1wRWtUemltUndmaWxQSGhwblFYMWNZMU9RY0d3dUlVRGpScFBnRVBVRkJQeGZjbFEyVVNNTk0zSGl4Rk84MkFiQmNfSmdqUkNRa2dnMkYxTFJVZTRxNUI1YVhwQ3d3Zw?oc=5",
+            "published_at": "2026-10-27T00:36:25+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 19,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Russia's new suspected radar in Kaliningrad could spy deep into Europe - DW.com",
+            "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdFI1cnhfdFhUQnRHcUVLVld4WWx3Mm9jUVBwVDRvQTlhRUJGalNiaURNS3FWMWhiaGZ2UjNOT251cXA1WkhULWNib3NTeFpZelB2bXhfTDV6M0cweUI4UjFiN2k3STJrMnpHRzRGYXJsSm11dXVFUkhuVEMyYjBlSnJHZ0Zid0hrdEJQRHJGbzZ6WlBhSzlV0gGXAUFVX3lxTE1LMVhVYm9ZbVAwams1enBvZGZqTWZoYlk0bmgxMUM2Ul9FaHhsLThmdnNQSUpqTk8tTDZEQnpla0pTTlNacFZzUEV2WmhoUE1FUlV5ZnhYcDhUTFFOTXhjVkNWeU5WY3NBQWNtYVE2eEllbUJnVGVqTHZ1SUxOZE5jTmxXWXNTZFlsYnNXd3c2ZVd2TDF3aWc?oc=5",
+            "published_at": "2026-11-02T09:18:52+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [
+              "Kaliningrad"
+            ],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "medium",
+            "hybrid_threat_score": 13,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Poland strengthens security on border with Russia over risk of sabotage — RMF24 - UA.NEWS",
+            "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPUmh4YWZOajRhZzBzZ3BWOXVKaTZ2RjUxM084NlpSZ0pTV3F6TURKMmtrN3ZJRjZLNnVYZ2hGZXFpNUNfbUNtZnkzVV94Nld5R0RKYTU3RHhkUHpKVmpIR0NfTmZKOWFJQVNmVzdESTJYOXBGcUJpcVI0VzNCYV9TUFJlanM1cVhLaGJHUVY5Sl9HQ0l3Yk9Va1pn?oc=5",
+            "published_at": "2026-11-02T11:16:36+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 13,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "European leaders voice support for Estonia over alleged Russian sabotage - TRT World",
+            "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9hYlRmQkdaMGUtalBMQUtPSGJLVDA4cVVTU0lmZXFmdHpKVFlnaFRTdEJ2UjBRQ3ZzRUJ4c29PSzVabW5jS3FhZ3VIamRsRUw2X3NOMU5zNzc?oc=5",
+            "published_at": "2026-10-22T03:07:22+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 12,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Poland arrests Ukrainian suspected of involvement in Russia-linked sabotage plot in Romania - The New Voice of Ukraine",
+            "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQMS1fVEotcmgyWEIwbjZ3RGphQTNCd2FJSGtrQ2tua1p1Ulg1UVN6ZEROMlVkaDZoMldiSDJsc3ZNUER1ZFluTnM3QTVmd3c2Rk9yZlBWbkpWc2pBbmZkWEhhTFRFZzdRSFdpWDdnMHpBMXN6amU2OURGMWxqQVhpVlc4Zmx1d0I4WUFUcEVZeElmazI1U0lLMGFWdFpnZFHSAZsBQVVfeXFMTzBrY1VaVU55OXB1elJ2dURHN0kxVVdKRDJoV3RGT09mSGkwVERZZWo5d09xQWQwTXVub01UMHZjYTFJZ1ozN2pIZW9ELWYwXzdHTC1kaTQzZzM2UUFQWGY1SjRlb1RrQVBqbGF5TGF3Uk9YQjdSMjdaeC14dDJ0V1Y4T0ZGNHhfVENEQ3lkQ1h4WmRtSlA2UjV2TWc?oc=5",
+            "published_at": "2026-10-28T15:55:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 11,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Inside the Cyber Sabotage Campaign Waged by Russian Supporters - Bloomberg",
+            "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPbk44b2VnOXppVnlPMG9TeERwRDZMUDNFV2pKVlE0OHViTFdKSVFjYUxkaVRYRS1rWmNZdFBGeUpCTGFRVEhJeFRvcm1uUVhTeVkyaFQtTTBjTWpfbWZaMEU1TkVaYzVqZUQyN1JfbllwRVRzVl9aRW5lb1M1Snc3c3V4R2Q2dnN3d3BpVEhpS1R4bFlUVEM5aEgtS3o0N2lIbmdXRHI4SmdGT2d4Q3l4WFdWTG9OOUdqRmJtWg?oc=5",
+            "published_at": "2026-10-27T21:10:15+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "cyber",
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
             "hybrid_threat_score": 8,
             "hybrid_threat_level": "low"
           }
