@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-11-05T13:19:06.801687+00:00",
-  "snapshot_date": "2026-11-05",
+  "generated_at": "2026-11-06T13:02:30.687514+00:00",
+  "snapshot_date": "2026-11-06",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-11-05T13:19:06.463560+00:00",
+  "source_generated_at": "2026-11-06T13:02:30.338108+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,153 +17,116 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 5,
-    "incident_count": 1,
+    "event_count": 4,
+    "incident_count": 0,
     "activity_count": 0,
     "indicator_count": 4,
     "assessment_count": 0,
-    "score_total": 100,
-    "average_score": 20.0,
-    "highest_score": 43,
-    "operational_index": 43.0,
-    "early_warning_index": 14.25,
-    "threat_index": 37.25,
-    "overall_level": "guarded"
+    "score_total": 39,
+    "average_score": 9.75,
+    "highest_score": 18,
+    "operational_index": 0.0,
+    "early_warning_index": 9.75,
+    "threat_index": 9.75,
+    "overall_level": "low"
   },
   "country_summary": {
-    "Estonia": {
-      "country": "Estonia",
-      "event_count": 1,
-      "incident_count": 1,
-      "activity_count": 0,
-      "indicator_count": 0,
-      "assessment_count": 0,
-      "score_total": 43,
-      "average_score": 43.0,
-      "highest_score": 43,
-      "operational_index": 43.0,
-      "early_warning_index": 0.0,
-      "threat_index": 34.4,
-      "overall_level": "guarded",
-      "categories": {
-        "sabotage": 1
-      },
-      "actors": {
-        "Russia": 1
-      }
-    },
-    "Latvia": {
-      "country": "Latvia",
+    "Lithuania": {
+      "country": "Lithuania",
       "event_count": 1,
       "incident_count": 0,
       "activity_count": 0,
       "indicator_count": 1,
       "assessment_count": 0,
-      "score_total": 13,
-      "average_score": 13.0,
-      "highest_score": 13,
+      "score_total": 6,
+      "average_score": 6.0,
+      "highest_score": 6,
       "operational_index": 0.0,
-      "early_warning_index": 13.0,
-      "threat_index": 13.0,
+      "early_warning_index": 6.0,
+      "threat_index": 6.0,
       "overall_level": "low",
-      "categories": {
-        "border_pressure": 1
-      },
+      "categories": {},
       "actors": {
-        "Belarus": 1
+        "Russia": 1
       }
     },
     "Poland": {
       "country": "Poland",
+      "event_count": 1,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 8,
+      "average_score": 8.0,
+      "highest_score": 8,
+      "operational_index": 0.0,
+      "early_warning_index": 8.0,
+      "threat_index": 8.0,
+      "overall_level": "low",
+      "categories": {},
+      "actors": {
+        "Russia": 1
+      }
+    },
+    "Regional": {
+      "country": "Regional",
       "event_count": 2,
       "incident_count": 0,
       "activity_count": 0,
       "indicator_count": 2,
       "assessment_count": 0,
-      "score_total": 23,
-      "average_score": 11.5,
-      "highest_score": 13,
+      "score_total": 25,
+      "average_score": 12.5,
+      "highest_score": 18,
       "operational_index": 0.0,
-      "early_warning_index": 11.5,
-      "threat_index": 11.5,
+      "early_warning_index": 12.5,
+      "threat_index": 12.5,
       "overall_level": "low",
       "categories": {
-        "sabotage": 1,
-        "espionage": 1
+        "sabotage": 2,
+        "critical_infrastructure": 1
       },
       "actors": {
-        "Russia": 2
-      }
-    },
-    "Regional": {
-      "country": "Regional",
-      "event_count": 1,
-      "incident_count": 0,
-      "activity_count": 0,
-      "indicator_count": 1,
-      "assessment_count": 0,
-      "score_total": 21,
-      "average_score": 21.0,
-      "highest_score": 21,
-      "operational_index": 0.0,
-      "early_warning_index": 21.0,
-      "threat_index": 21.0,
-      "overall_level": "guarded",
-      "categories": {
-        "critical_infrastructure": 1,
-        "sabotage": 1
-      },
-      "actors": {
-        "Russia": 1
+        "Russia": 2,
+        "NATO": 1
       }
     }
   },
   "category_summary": {
     "sabotage": {
-      "event_count": 3,
-      "score_total": 77,
-      "average_score": 25.67,
-      "highest_score": 43
+      "event_count": 2,
+      "score_total": 25,
+      "average_score": 12.5,
+      "highest_score": 18
     },
     "critical_infrastructure": {
       "event_count": 1,
-      "score_total": 21,
-      "average_score": 21.0,
-      "highest_score": 21
-    },
-    "border_pressure": {
-      "event_count": 1,
-      "score_total": 13,
-      "average_score": 13.0,
-      "highest_score": 13
-    },
-    "espionage": {
-      "event_count": 1,
-      "score_total": 10,
-      "average_score": 10.0,
-      "highest_score": 10
+      "score_total": 18,
+      "average_score": 18.0,
+      "highest_score": 18
     }
   },
   "actor_summary": {
     "Russia": {
       "event_count": 4,
-      "score_total": 87,
-      "average_score": 21.75,
-      "highest_score": 43
+      "score_total": 39,
+      "average_score": 9.75,
+      "highest_score": 18
     },
-    "Belarus": {
+    "NATO": {
       "event_count": 1,
-      "score_total": 13,
-      "average_score": 13.0,
-      "highest_score": 13
+      "score_total": 7,
+      "average_score": 7.0,
+      "highest_score": 7
     }
   },
   "subtype_summary": {
     "incident": {
-      "event_count": 1,
-      "score_total": 43,
-      "average_score": 43.0,
-      "highest_score": 43
+      "event_count": 0,
+      "score_total": 0,
+      "average_score": 0.0,
+      "highest_score": 0
     },
     "activity": {
       "event_count": 0,
@@ -173,9 +136,9 @@
     },
     "indicator": {
       "event_count": 4,
-      "score_total": 57,
-      "average_score": 14.25,
-      "highest_score": 21
+      "score_total": 39,
+      "average_score": 9.75,
+      "highest_score": 18
     },
     "assessment": {
       "event_count": 0,
@@ -186,61 +149,37 @@
   },
   "scope_summary": {
     "direct": {
-      "event_count": 4,
-      "score_total": 79,
-      "average_score": 19.75,
-      "highest_score": 43
+      "event_count": 2,
+      "score_total": 14,
+      "average_score": 7.0,
+      "highest_score": 8
+    },
+    "external_context": {
+      "event_count": 1,
+      "score_total": 7,
+      "average_score": 7.0,
+      "highest_score": 7
     },
     "regional_direct": {
       "event_count": 1,
-      "score_total": 21,
-      "average_score": 21.0,
-      "highest_score": 21
+      "score_total": 18,
+      "average_score": 18.0,
+      "highest_score": 18
     }
   },
   "hotspot": {
-    "location": "Estonia",
-    "score": 43,
+    "location": "Baltic Sea",
+    "score": 18,
     "event_count": 1
   },
   "key_driver": "sabotage",
   "dominant_actor": "Russia",
   "top_events": [
     {
-      "event_id": "fac3d91c5f1dfb59",
-      "title": "Estonian youths offer arson and property damage services online",
-      "url": "https://news.err.ee/1610186890/estonian-youths-offer-arson-and-property-damage-services-online",
-      "published_at": "2026-11-05T07:42:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 43,
-      "hybrid_threat_level": "elevated",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "d38e05d4bd76d70f",
-      "title": "Finland jails Russian cargo ship captain over Baltic Sea cable sabotage - South China Morning Post",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQQXg2YTZTRTFqS0VVTjRZb09vckU0YWd2bC1YWEhHSFlfUEp2dVRjYkp5d2t0X0FVRmZ4cUdwT3pmeXZqb0lYTXhvWllPdjE1YTBBVTVJNi1kUXliR0xfbm9VQW5IdUJVdlFxNmZXc3NWcENjclNsblNHa0pfcHRFQnZoTVdSTVFqSnlBM2FLUVNlcHNlNGdVVzhiRHhubEhBd0cxdHVKSHI1T0VISTRUNXhuVlBpS1ZoM1dVSjJSWndDazJv0gHEAUFVX3lxTE16RjRyamJVVV9FWnlBQUJfTWhUODJzbks2eHpTcmlWSm9BZ3ZwSVFEQVkxN1paUl9uTEpvWVdUeHVncDZtaDJnN1RheGRDQS1XeGxrWlBrNkZsemo5SlFha0xiQ0RJY0h4YU40Q3lUYktUN0NzN1JfQ2VXVWZVLWNYbTk4cTRXaXhXNmx5X29MdVFNQmFIeko5ZkliR0lCWUE5WFIwd0R2TkdidzgxT2lobUg1OTNXNFIzSFJ4UjRmMmd4LXg?oc=5",
-      "published_at": "2026-11-05T12:30:38+00:00",
+      "event_id": "d2d811edfa2d1e42",
+      "title": "Finnish court jails Russian captain over Baltic cable sabotage - Courthouse News",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPbU1weUhsLTJncHdxZ2NPN3dFb29DTU0zZ0NoaE04Y3E4N254bUJfN3dGdWV4MXBadjlhTGt0TUFjQzNfMGU3VE9VM25rR1pJZmFzdW9nV3ZMcFdUeDdsaS1XN3hVenFOOWhtWVhxMGxRYW82dGxRcnpudUYzN0dac2dwRGY2Tl9rTTV5VHd1eXZSTzBuLWxPaQ?oc=5",
+      "published_at": "2026-11-06T01:14:34+00:00",
       "primary_country": "Regional",
       "countries": [],
       "categories": [
@@ -257,93 +196,84 @@
       "event_subtype": "indicator",
       "analysis_layer": null,
       "geographic_scope": "regional_direct",
-      "source_count": 2,
-      "confidence": "medium",
-      "confidence_score": 56,
-      "hybrid_threat_score": 21,
-      "hybrid_threat_level": "guarded",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 18,
+      "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic Sea infrastructure sabotage",
-        "Google News - NATO Baltic hybrid threat"
+        "Google News - Baltic Sea infrastructure sabotage"
       ],
-      "related_item_count": 3
+      "related_item_count": 4
     },
     {
-      "event_id": "891a0ff365250907",
-      "title": "Poland border operation expands after Kaliningrad incident and sabotage warnings - finchannel",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQb0ZTQ2F1Z2VrOVgya2tUeVp2OG5zS0RMU2t6Y0Y2LTRFOXctNlFyVHk2NFlTR3UxSlJhUE12bkRHTXEwYVhDVkxkcnhONGFKa0VWX1g2QzVLTGhuWTZ2YUFFYVJmSW11bVc3S0gzWVVuV1BTazZwOGdhNURlUzEyTzhTaDA0N3gyM1cwbTIwNUJuVk9wWkU2bEpuSHEyT193WVI4Q09ITTJzejJyd3NRQ2l4eVFVVjdaLUd0R3NUcjVZWnI0aGxZM0tYTGI?oc=5",
-      "published_at": "2026-11-05T10:05:02+00:00",
+      "event_id": "f064d3d94f03798e",
+      "title": "Poland warns allies: Don't negotiate with Russia over Eastern Europe's head - Euronews.com",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONF95X0VYMjFRMy1JQkFhdk1DSTViSmM2dFlhSGdqU2N3aFJ1WWFpZU4yel9aR19iQ0NUeklXRE9RVWd4SklYQWVNeXl0M193OFBVa0VLMldLblkyZFFPX3Y1QzF6c1dBYVY2ZDhHek5rVFI1bmh1eE1rU09ZbjY0UmM0MkFiNkVIOVdySGJ2Yk5UY21HdjRJMDlneHZFVjExZFFFeV8zdjNrajJG?oc=5",
+      "published_at": "2026-11-06T09:22:49+00:00",
       "primary_country": "Poland",
       "countries": [
         "Poland"
       ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "medium",
+      "confidence_score": 56,
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - NATO Baltic hybrid threat",
+        "Google News - Poland Belarus border hybrid"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "b51cbb2b5192b07f",
+      "title": "Map Shows How Russia Has Escalated Sabotage Attacks on NATO This Year - Newsweek",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMGpCWklONUcxb2czeW55ZVctQ0kyRlhRcURPd2duaFpFcVFQejBYS0xEYlI1Sy1LRHZpSVRFTFBBNDVIRk9zSU80RUlaTmlpYzNySGRUeFRhazVTVWV5SWRsb1R0WEhfRGl2WTE0T3pQNTNZeWtocGNZNGEyTVBHbC1ranJkcElvMU90TlJNLTVkNVdvVWxpb2FyTDVWUHZBdHlXbVhB?oc=5",
+      "published_at": "2026-11-06T12:26:00+00:00",
+      "primary_country": "Regional",
+      "countries": [],
       "categories": [
         "sabotage"
       ],
       "actors": [
-        "Russia"
+        "Russia",
+        "NATO"
       ],
-      "locations": [
-        "Kaliningrad"
-      ],
+      "locations": [],
       "event_type": "warning",
       "event_subtype": "indicator",
       "analysis_layer": null,
-      "geographic_scope": "direct",
+      "geographic_scope": "external_context",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 13,
+      "hybrid_threat_score": 7,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 9
-    },
-    {
-      "event_id": "52d82e405cebba37",
-      "title": "Dozens more illegal crossings prevented on Latvia-Belarus border",
-      "url": "https://eng.lsm.lv/article/society/defence/05.11.2026-dozens-more-illegal-crossings-prevented-on-latvia-belarus-border.a670643/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-      "published_at": "2026-11-05T08:20:52+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia"
-      ],
-      "categories": [
-        "border_pressure"
-      ],
-      "actors": [
-        "Belarus"
-      ],
-      "locations": [
-        "Belarus Border"
-      ],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 13,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "LSM English Latvia"
+        "Google News - Baltic critical infrastructure Russia"
       ],
       "related_item_count": 1
     },
     {
-      "event_id": "0f311a45fee65f44",
-      "title": "Poland arrests six suspected of spying for Russia - Al Arabiya English",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPamZJejh0S3ZhcXRmM0tibm1Kb09neXBreXhqSDlZb2ZFN0cwRXVGTFFWMFBKbGxuOHltWkZsSjlvX0YtV2x0eFZBNkpZOU1seTlLRFo1dWwwaTNpOFYtR29mQnoyeUgzalN0YlFLaHJONkF6VmdHbDNCNWtPZjFYM04zWUdMWDljMDY0OWhDUlJjVDFtb2M5dzVnUlZ3ZWllU0J30gGoAUFVX3lxTFBfYlBwQ1hWMTV6LXJ5dFNOMlpGMDk5emNpU2U4RW9lT3hBaW9yaVp4S2hQeHd3SGhQTTh0VmRLYVZVYURJMTlBeXN4R2lBc21QeGlVSWYzRGY0ZkN4YlpUVmxCOFpHMzZMSm84TTBzaXhEeTRsVWtzem9HV25UNGs2M2g1Ry1LdFZvRDJRRy1EbHQtUlVMZjRWYWpOOV9LQ0d5eC1xV0ZCcA?oc=5",
-      "published_at": "2026-11-05T09:52:00+00:00",
-      "primary_country": "Poland",
+      "event_id": "332ea000bf6e4cb8",
+      "title": "‘I don’t trust them’: Lithuanian president warns Putin’s provocations will continue - POLITICO.eu",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNQ3AwcnppTFAxWkt4cVdfQVR6U0dwM0pUYTdQb1FoOEYteU1KNXNjT19HUVRnYWU4R1NvbHFTUmFNeU5MZmxvTWZtZi00bm85bGZQY1d5ZWE1Q2xnLXNZUm9CTjU1b0t6c2NaTFlvcjhTNmY5eElHTFg2dDNxcXpZZXJDZ2F6TDI3U1FrbDI2cTZ4Z0VtU005cjFvYw?oc=5",
+      "published_at": "2026-11-06T08:03:00+00:00",
+      "primary_country": "Lithuania",
       "countries": [
-        "Poland"
+        "Lithuania"
       ],
-      "categories": [
-        "espionage"
-      ],
+      "categories": [],
       "actors": [
         "Russia"
       ],
@@ -354,21 +284,107 @@
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 10,
+      "confidence_score": 48,
+      "hybrid_threat_score": 6,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic sabotage Russia"
+        "Google News - NATO Baltic hybrid threat"
       ],
       "related_item_count": 1
     }
   ],
   "events": [
     {
-      "event_id": "d38e05d4bd76d70f",
-      "title": "Finland jails Russian cargo ship captain over Baltic Sea cable sabotage - South China Morning Post",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQQXg2YTZTRTFqS0VVTjRZb09vckU0YWd2bC1YWEhHSFlfUEp2dVRjYkp5d2t0X0FVRmZ4cUdwT3pmeXZqb0lYTXhvWllPdjE1YTBBVTVJNi1kUXliR0xfbm9VQW5IdUJVdlFxNmZXc3NWcENjclNsblNHa0pfcHRFQnZoTVdSTVFqSnlBM2FLUVNlcHNlNGdVVzhiRHhubEhBd0cxdHVKSHI1T0VISTRUNXhuVlBpS1ZoM1dVSjJSWndDazJv0gHEAUFVX3lxTE16RjRyamJVVV9FWnlBQUJfTWhUODJzbks2eHpTcmlWSm9BZ3ZwSVFEQVkxN1paUl9uTEpvWVdUeHVncDZtaDJnN1RheGRDQS1XeGxrWlBrNkZsemo5SlFha0xiQ0RJY0h4YU40Q3lUYktUN0NzN1JfQ2VXVWZVLWNYbTk4cTRXaXhXNmx5X29MdVFNQmFIeko5ZkliR0lCWUE5WFIwd0R2TkdidzgxT2lobUg1OTNXNFIzSFJ4UjRmMmd4LXg?oc=5",
-      "published_at": "2026-11-05T12:30:38+00:00",
+      "event_id": "b51cbb2b5192b07f",
+      "title": "Map Shows How Russia Has Escalated Sabotage Attacks on NATO This Year - Newsweek",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMGpCWklONUcxb2czeW55ZVctQ0kyRlhRcURPd2duaFpFcVFQejBYS0xEYlI1Sy1LRHZpSVRFTFBBNDVIRk9zSU80RUlaTmlpYzNySGRUeFRhazVTVWV5SWRsb1R0WEhfRGl2WTE0T3pQNTNZeWtocGNZNGEyTVBHbC1ranJkcElvMU90TlJNLTVkNVdvVWxpb2FyTDVWUHZBdHlXbVhB?oc=5",
+      "published_at": "2026-11-06T12:26:00+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia",
+        "NATO"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 7,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "f064d3d94f03798e",
+      "title": "Poland warns allies: Don't negotiate with Russia over Eastern Europe's head - Euronews.com",
+      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxONF95X0VYMjFRMy1JQkFhdk1DSTViSmM2dFlhSGdqU2N3aFJ1WWFpZU4yel9aR19iQ0NUeklXRE9RVWd4SklYQWVNeXl0M193OFBVa0VLMldLblkyZFFPX3Y1QzF6c1dBYVY2ZDhHek5rVFI1bmh1eE1rU09ZbjY0UmM0MkFiNkVIOVdySGJ2Yk5UY21HdjRJMDlneHZFVjExZFFFeV8zdjNrajJG?oc=5",
+      "published_at": "2026-11-06T09:22:49+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 2,
+      "confidence": "medium",
+      "confidence_score": 56,
+      "hybrid_threat_score": 8,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - NATO Baltic hybrid threat",
+        "Google News - Poland Belarus border hybrid"
+      ],
+      "related_item_count": 2
+    },
+    {
+      "event_id": "332ea000bf6e4cb8",
+      "title": "‘I don’t trust them’: Lithuanian president warns Putin’s provocations will continue - POLITICO.eu",
+      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNQ3AwcnppTFAxWkt4cVdfQVR6U0dwM0pUYTdQb1FoOEYteU1KNXNjT19HUVRnYWU4R1NvbHFTUmFNeU5MZmxvTWZtZi00bm85bGZQY1d5ZWE1Q2xnLXNZUm9CTjU1b0t6c2NaTFlvcjhTNmY5eElHTFg2dDNxcXpZZXJDZ2F6TDI3U1FrbDI2cTZ4Z0VtU005cjFvYw?oc=5",
+      "published_at": "2026-11-06T08:03:00+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 48,
+      "hybrid_threat_score": 6,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - NATO Baltic hybrid threat"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "d2d811edfa2d1e42",
+      "title": "Finnish court jails Russian captain over Baltic cable sabotage - Courthouse News",
+      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPbU1weUhsLTJncHdxZ2NPN3dFb29DTU0zZ0NoaE04Y3E4N254bUJfN3dGdWV4MXBadjlhTGt0TUFjQzNfMGU3VE9VM25rR1pJZmFzdW9nV3ZMcFdUeDdsaS1XN3hVenFOOWhtWVhxMGxRYW82dGxRcnpudUYzN0dac2dwRGY2Tl9rTTV5VHd1eXZSTzBuLWxPaQ?oc=5",
+      "published_at": "2026-11-06T01:14:34+00:00",
       "primary_country": "Regional",
       "countries": [],
       "categories": [
@@ -385,140 +401,15 @@
       "event_subtype": "indicator",
       "analysis_layer": null,
       "geographic_scope": "regional_direct",
-      "source_count": 2,
-      "confidence": "medium",
-      "confidence_score": 56,
-      "hybrid_threat_score": 21,
-      "hybrid_threat_level": "guarded",
-      "source_names": [
-        "Google News - Baltic Sea infrastructure sabotage",
-        "Google News - NATO Baltic hybrid threat"
-      ],
-      "related_item_count": 3
-    },
-    {
-      "event_id": "891a0ff365250907",
-      "title": "Poland border operation expands after Kaliningrad incident and sabotage warnings - finchannel",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQb0ZTQ2F1Z2VrOVgya2tUeVp2OG5zS0RMU2t6Y0Y2LTRFOXctNlFyVHk2NFlTR3UxSlJhUE12bkRHTXEwYVhDVkxkcnhONGFKa0VWX1g2QzVLTGhuWTZ2YUFFYVJmSW11bVc3S0gzWVVuV1BTazZwOGdhNURlUzEyTzhTaDA0N3gyM1cwbTIwNUJuVk9wWkU2bEpuSHEyT193WVI4Q09ITTJzejJyd3NRQ2l4eVFVVjdaLUd0R3NUcjVZWnI0aGxZM0tYTGI?oc=5",
-      "published_at": "2026-11-05T10:05:02+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [
-        "Kaliningrad"
-      ],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 13,
+      "hybrid_threat_score": 18,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic sabotage Russia"
+        "Google News - Baltic Sea infrastructure sabotage"
       ],
-      "related_item_count": 9
-    },
-    {
-      "event_id": "0f311a45fee65f44",
-      "title": "Poland arrests six suspected of spying for Russia - Al Arabiya English",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPamZJejh0S3ZhcXRmM0tibm1Kb09neXBreXhqSDlZb2ZFN0cwRXVGTFFWMFBKbGxuOHltWkZsSjlvX0YtV2x0eFZBNkpZOU1seTlLRFo1dWwwaTNpOFYtR29mQnoyeUgzalN0YlFLaHJONkF6VmdHbDNCNWtPZjFYM04zWUdMWDljMDY0OWhDUlJjVDFtb2M5dzVnUlZ3ZWllU0J30gGoAUFVX3lxTFBfYlBwQ1hWMTV6LXJ5dFNOMlpGMDk5emNpU2U4RW9lT3hBaW9yaVp4S2hQeHd3SGhQTTh0VmRLYVZVYURJMTlBeXN4R2lBc21QeGlVSWYzRGY0ZkN4YlpUVmxCOFpHMzZMSm84TTBzaXhEeTRsVWtzem9HV25UNGs2M2g1Ry1LdFZvRDJRRy1EbHQtUlVMZjRWYWpOOV9LQ0d5eC1xV0ZCcA?oc=5",
-      "published_at": "2026-11-05T09:52:00+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "espionage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 10,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "52d82e405cebba37",
-      "title": "Dozens more illegal crossings prevented on Latvia-Belarus border",
-      "url": "https://eng.lsm.lv/article/society/defence/05.11.2026-dozens-more-illegal-crossings-prevented-on-latvia-belarus-border.a670643/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-      "published_at": "2026-11-05T08:20:52+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia"
-      ],
-      "categories": [
-        "border_pressure"
-      ],
-      "actors": [
-        "Belarus"
-      ],
-      "locations": [
-        "Belarus Border"
-      ],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 13,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "LSM English Latvia"
-      ],
-      "related_item_count": 1
-    },
-    {
-      "event_id": "fac3d91c5f1dfb59",
-      "title": "Estonian youths offer arson and property damage services online",
-      "url": "https://news.err.ee/1610186890/estonian-youths-offer-arson-and-property-damage-services-online",
-      "published_at": "2026-11-05T07:42:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 43,
-      "hybrid_threat_level": "elevated",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1
+      "related_item_count": 4
     }
   ]
 }
