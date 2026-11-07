@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-11-06T13:02:30.826520+00:00",
+  "generated_at": "2026-11-07T11:48:24.950993+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-11-06T13:02:30.747557+00:00",
+  "source_history_generated_at": "2026-11-07T11:48:24.871118+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-10-31",
-    "end_date": "2026-11-06",
+    "start_date": "2026-11-01",
+    "end_date": "2026-11-07",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -31,16 +31,16 @@
   "missing_dates": [],
   "seven_day_summary": {
     "totals": {
-      "event_count": 24,
+      "event_count": 26,
       "incident_count": 4,
       "activity_count": 0,
-      "indicator_count": 20,
+      "indicator_count": 22,
       "assessment_count": 0
     },
     "indices": {
       "average_operational_index_observed_days": 17.14,
-      "average_early_warning_index_observed_days": 8.88,
-      "average_threat_index_observed_days": 18.55,
+      "average_early_warning_index_observed_days": 9.74,
+      "average_threat_index_observed_days": 19.4,
       "average_threat_level_observed_days": "low",
       "highest_daily_threat_index": 42.03
     },
@@ -72,6 +72,64 @@
     }
   },
   "top_events": [
+    {
+      "event_id": "7699e5292c5a7a59",
+      "title": "400 Estonian students in Russia face recruitment risk, warns KAPO",
+      "url": "https://news.err.ee/1610189221/400-estonian-students-in-russia-face-recruitment-risk-warns-kapo",
+      "published_at": "2026-11-07T11:02:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 6,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-11-07"
+    },
+    {
+      "event_id": "a1f4f5c6ba109cdb",
+      "title": "‘Ceasefire First’: Poland Warns Against US-Russia Deal on Europe’s Security - Kyiv Post",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBwTGRqMXBYTHhyYnNZRG5SNkVUVE44SG9uTk9reWN2clVhVVhGS05MM0RTNHVzSllhNVd2NnNadF94M29vSzFXRzQwdw?oc=5",
+      "published_at": "2026-11-07T03:42:07+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 48,
+      "hybrid_threat_score": 6,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - NATO Eastern Flank Baltic Poland"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-11-07"
+    },
     {
       "event_id": "b51cbb2b5192b07f",
       "title": "Map Shows How Russia Has Escalated Sabotage Attacks on NATO This Year - Newsweek",
@@ -322,127 +380,9 @@
       ],
       "related_item_count": 1,
       "matrix_snapshot_date": "2026-11-05"
-    },
-    {
-      "event_id": "fac3d91c5f1dfb59",
-      "title": "Estonian youths offer arson and property damage services online",
-      "url": "https://news.err.ee/1610186890/estonian-youths-offer-arson-and-property-damage-services-online",
-      "published_at": "2026-11-05T07:42:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 43,
-      "hybrid_threat_level": "elevated",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-11-05"
-    },
-    {
-      "event_id": "10dfe85a8ff15d2f",
-      "title": "Insurance won't cover cyberattack damage to stores, experts warn",
-      "url": "https://news.err.ee/1610185591/insurance-won-t-cover-cyberattack-damage-to-stores-experts-warn",
-      "published_at": "2026-11-04T07:31:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "cyber"
-      ],
-      "actors": [],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 11,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-11-04"
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-10-31",
-      "status": "available",
-      "snapshot_generated_at": "2026-10-31T10:59:32.026132+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 0,
-      "incident_count": 0,
-      "activity_count": 0,
-      "indicator_count": 0,
-      "assessment_count": 0,
-      "score_total": 0.0,
-      "average_score": 0.0,
-      "highest_score": 0.0,
-      "operational_index": 0.0,
-      "early_warning_index": 0.0,
-      "threat_index": 0.0,
-      "overall_level": "low",
-      "country_summary": {},
-      "category_summary": {},
-      "actor_summary": {},
-      "subtype_summary": {
-        "incident": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "assessment": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {},
-      "hotspot": {
-        "location": null,
-        "score": 0,
-        "event_count": 0
-      },
-      "key_driver": null,
-      "dominant_actor": null,
-      "top_events": [],
-      "events": []
-    },
     {
       "date": "2026-11-01",
       "status": "available",
@@ -2806,6 +2746,231 @@
             "Google News - Baltic Sea infrastructure sabotage"
           ],
           "related_item_count": 4
+        }
+      ]
+    },
+    {
+      "date": "2026-11-07",
+      "status": "available",
+      "snapshot_generated_at": "2026-11-07T11:48:24.818233+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 2,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 2,
+      "assessment_count": 0,
+      "score_total": 12.0,
+      "average_score": 6.0,
+      "highest_score": 6.0,
+      "operational_index": 0.0,
+      "early_warning_index": 6.0,
+      "threat_index": 6.0,
+      "overall_level": "low",
+      "country_summary": {
+        "Estonia": {
+          "country": "Estonia",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6,
+          "operational_index": 0.0,
+          "early_warning_index": 6.0,
+          "threat_index": 6.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Russia": 1
+          }
+        },
+        "Poland": {
+          "country": "Poland",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6,
+          "operational_index": 0.0,
+          "early_warning_index": 6.0,
+          "threat_index": 6.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Russia": 1
+          }
+        }
+      },
+      "category_summary": {},
+      "actor_summary": {
+        "Russia": {
+          "event_count": 2,
+          "score_total": 12,
+          "average_score": 6.0,
+          "highest_score": 6
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 2,
+          "score_total": 12,
+          "average_score": 6.0,
+          "highest_score": 6
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 2,
+          "score_total": 12,
+          "average_score": 6.0,
+          "highest_score": 6
+        }
+      },
+      "hotspot": {
+        "location": "Poland",
+        "score": 6,
+        "event_count": 1
+      },
+      "key_driver": null,
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "a1f4f5c6ba109cdb",
+          "title": "‘Ceasefire First’: Poland Warns Against US-Russia Deal on Europe’s Security - Kyiv Post",
+          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBwTGRqMXBYTHhyYnNZRG5SNkVUVE44SG9uTk9reWN2clVhVVhGS05MM0RTNHVzSllhNVd2NnNadF94M29vSzFXRzQwdw?oc=5",
+          "published_at": "2026-11-07T03:42:07+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - NATO Eastern Flank Baltic Poland"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "7699e5292c5a7a59",
+          "title": "400 Estonian students in Russia face recruitment risk, warns KAPO",
+          "url": "https://news.err.ee/1610189221/400-estonian-students-in-russia-face-recruitment-risk-warns-kapo",
+          "published_at": "2026-11-07T11:02:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "7699e5292c5a7a59",
+          "title": "400 Estonian students in Russia face recruitment risk, warns KAPO",
+          "url": "https://news.err.ee/1610189221/400-estonian-students-in-russia-face-recruitment-risk-warns-kapo",
+          "published_at": "2026-11-07T11:02:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "a1f4f5c6ba109cdb",
+          "title": "‘Ceasefire First’: Poland Warns Against US-Russia Deal on Europe’s Security - Kyiv Post",
+          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBwTGRqMXBYTHhyYnNZRG5SNkVUVE44SG9uTk9reWN2clVhVVhGS05MM0RTNHVzSllhNVd2NnNadF94M29vSzFXRzQwdw?oc=5",
+          "published_at": "2026-11-07T03:42:07+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - NATO Eastern Flank Baltic Poland"
+          ],
+          "related_item_count": 1
         }
       ]
     }
