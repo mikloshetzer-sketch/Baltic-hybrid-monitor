@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-11-08T12:00:24.096520+00:00",
+  "generated_at": "2026-11-09T14:02:12.611703+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-11-08T12:00:24.018612+00:00",
+  "source_history_generated_at": "2026-11-09T14:02:12.503703+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-11-02",
-    "end_date": "2026-11-08",
+    "start_date": "2026-11-03",
+    "end_date": "2026-11-09",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -34,13 +34,13 @@
       "event_count": 25,
       "incident_count": 4,
       "activity_count": 0,
-      "indicator_count": 21,
-      "assessment_count": 0
+      "indicator_count": 19,
+      "assessment_count": 2
     },
     "indices": {
       "average_operational_index_observed_days": 17.14,
-      "average_early_warning_index_observed_days": 8.88,
-      "average_threat_index_observed_days": 18.55,
+      "average_early_warning_index_observed_days": 8.17,
+      "average_threat_index_observed_days": 18.4,
       "average_threat_level_observed_days": "low",
       "highest_daily_threat_index": 42.03
     },
@@ -72,6 +72,122 @@
     }
   },
   "top_events": [
+    {
+      "event_id": "ebcb6e32c145f575",
+      "title": "How is Estonia protecting itself against intensifying cyberthreats?",
+      "url": "https://news.err.ee/1610190514/how-is-estonia-protecting-itself-against-intensifying-cyberthreats",
+      "published_at": "2026-11-09T12:04:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "cyber"
+      ],
+      "actors": [],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 27,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-11-09"
+    },
+    {
+      "event_id": "07f55b9d685c5744",
+      "title": "Nearly 100 European Supermarkets Hit by Cyberattacks as Estonia Warns of Russian Terrorism - Kyiv Post",
+      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1qVTdGbkJTZXRLVHkzcmI2THRDVE9fSFR6Mi1GN09XS3phdU1xY1JWYmg3eWJJYVlDM2l6bkpWZWFhQVNQZ2h0TlgxVQ?oc=5",
+      "published_at": "2026-11-09T09:26:56+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-11-09"
+    },
+    {
+      "event_id": "628ba344ded414de",
+      "title": "Russia Uses 'Disposable Agents' Recruited Locally for Sabotage Operations - news.sbs.co.kr",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE55d0ZuTEY1ZTF6eTUyOWduNjBmVmxQMUwwRVNRQ3l3S1hDLTdJTG1zQnd4dDlIVGk4NVgzRDRRMTd4SF95aDVQUk50WnF3UmV4SFZ0UFhTdjg2VEFncWhiUkhLdDYzRENFSjNaUF9n?oc=5",
+      "published_at": "2026-11-09T08:10:49+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 6,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-11-09"
+    },
+    {
+      "event_id": "3c30598ef4837715",
+      "title": "Estonia accuses Russia of state-sponsored terrorism over hybrid attacks - Financial Times",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQWWJ2a1dNdHphbHplcDVRWEg2TFNENENFb3hrcElva083ZGxhb0JJWWh3RFZDaGd3T0hyUlhoeTJpZUJWbUIxVHhpakhzX1JieVdPNXhGb0xyZkNBa2x1VVJUSk9MUDByYkJvb24wVE9nRWtEWUc2RTFMcjBKelFSMDN3Mzk?oc=5",
+      "published_at": "2026-11-09T05:00:25+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic Russia hybrid threat"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-11-09"
+    },
     {
       "event_id": "7699e5292c5a7a59",
       "title": "400 Estonian students in Russia face recruitment risk, warns KAPO",
@@ -250,553 +366,9 @@
       ],
       "related_item_count": 4,
       "matrix_snapshot_date": "2026-11-06"
-    },
-    {
-      "event_id": "d38e05d4bd76d70f",
-      "title": "Finland jails Russian cargo ship captain over Baltic Sea cable sabotage - South China Morning Post",
-      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQQXg2YTZTRTFqS0VVTjRZb09vckU0YWd2bC1YWEhHSFlfUEp2dVRjYkp5d2t0X0FVRmZ4cUdwT3pmeXZqb0lYTXhvWllPdjE1YTBBVTVJNi1kUXliR0xfbm9VQW5IdUJVdlFxNmZXc3NWcENjclNsblNHa0pfcHRFQnZoTVdSTVFqSnlBM2FLUVNlcHNlNGdVVzhiRHhubEhBd0cxdHVKSHI1T0VISTRUNXhuVlBpS1ZoM1dVSjJSWndDazJv0gHEAUFVX3lxTE16RjRyamJVVV9FWnlBQUJfTWhUODJzbks2eHpTcmlWSm9BZ3ZwSVFEQVkxN1paUl9uTEpvWVdUeHVncDZtaDJnN1RheGRDQS1XeGxrWlBrNkZsemo5SlFha0xiQ0RJY0h4YU40Q3lUYktUN0NzN1JfQ2VXVWZVLWNYbTk4cTRXaXhXNmx5X29MdVFNQmFIeko5ZkliR0lCWUE5WFIwd0R2TkdidzgxT2lobUg1OTNXNFIzSFJ4UjRmMmd4LXg?oc=5",
-      "published_at": "2026-11-05T12:30:38+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "categories": [
-        "critical_infrastructure",
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [
-        "Baltic Sea"
-      ],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "regional_direct",
-      "source_count": 2,
-      "confidence": "medium",
-      "confidence_score": 56,
-      "hybrid_threat_score": 21,
-      "hybrid_threat_level": "guarded",
-      "source_names": [
-        "Google News - Baltic Sea infrastructure sabotage",
-        "Google News - NATO Baltic hybrid threat"
-      ],
-      "related_item_count": 3,
-      "matrix_snapshot_date": "2026-11-05"
-    },
-    {
-      "event_id": "891a0ff365250907",
-      "title": "Poland border operation expands after Kaliningrad incident and sabotage warnings - finchannel",
-      "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQb0ZTQ2F1Z2VrOVgya2tUeVp2OG5zS0RMU2t6Y0Y2LTRFOXctNlFyVHk2NFlTR3UxSlJhUE12bkRHTXEwYVhDVkxkcnhONGFKa0VWX1g2QzVLTGhuWTZ2YUFFYVJmSW11bVc3S0gzWVVuV1BTazZwOGdhNURlUzEyTzhTaDA0N3gyM1cwbTIwNUJuVk9wWkU2bEpuSHEyT193WVI4Q09ITTJzejJyd3NRQ2l4eVFVVjdaLUd0R3NUcjVZWnI0aGxZM0tYTGI?oc=5",
-      "published_at": "2026-11-05T10:05:02+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [
-        "Kaliningrad"
-      ],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 13,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 9,
-      "matrix_snapshot_date": "2026-11-05"
-    },
-    {
-      "event_id": "0f311a45fee65f44",
-      "title": "Poland arrests six suspected of spying for Russia - Al Arabiya English",
-      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPamZJejh0S3ZhcXRmM0tibm1Kb09neXBreXhqSDlZb2ZFN0cwRXVGTFFWMFBKbGxuOHltWkZsSjlvX0YtV2x0eFZBNkpZOU1seTlLRFo1dWwwaTNpOFYtR29mQnoyeUgzalN0YlFLaHJONkF6VmdHbDNCNWtPZjFYM04zWUdMWDljMDY0OWhDUlJjVDFtb2M5dzVnUlZ3ZWllU0J30gGoAUFVX3lxTFBfYlBwQ1hWMTV6LXJ5dFNOMlpGMDk5emNpU2U4RW9lT3hBaW9yaVp4S2hQeHd3SGhQTTh0VmRLYVZVYURJMTlBeXN4R2lBc21QeGlVSWYzRGY0ZkN4YlpUVmxCOFpHMzZMSm84TTBzaXhEeTRsVWtzem9HV25UNGs2M2g1Ry1LdFZvRDJRRy1EbHQtUlVMZjRWYWpOOV9LQ0d5eC1xV0ZCcA?oc=5",
-      "published_at": "2026-11-05T09:52:00+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "espionage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 10,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-11-05"
-    },
-    {
-      "event_id": "52d82e405cebba37",
-      "title": "Dozens more illegal crossings prevented on Latvia-Belarus border",
-      "url": "https://eng.lsm.lv/article/society/defence/05.11.2026-dozens-more-illegal-crossings-prevented-on-latvia-belarus-border.a670643/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-      "published_at": "2026-11-05T08:20:52+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia"
-      ],
-      "categories": [
-        "border_pressure"
-      ],
-      "actors": [
-        "Belarus"
-      ],
-      "locations": [
-        "Belarus Border"
-      ],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 13,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "LSM English Latvia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-11-05"
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-11-02",
-      "status": "available",
-      "snapshot_generated_at": "2026-11-02T13:39:27.302907+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 4,
-      "incident_count": 1,
-      "activity_count": 0,
-      "indicator_count": 3,
-      "assessment_count": 0,
-      "score_total": 60.0,
-      "average_score": 15.0,
-      "highest_score": 27.0,
-      "operational_index": 27.0,
-      "early_warning_index": 11.0,
-      "threat_index": 23.8,
-      "overall_level": "guarded",
-      "country_summary": {
-        "Estonia": {
-          "country": "Estonia",
-          "event_count": 1,
-          "incident_count": 1,
-          "activity_count": 0,
-          "indicator_count": 0,
-          "assessment_count": 0,
-          "score_total": 27,
-          "average_score": 27.0,
-          "highest_score": 27,
-          "operational_index": 27.0,
-          "early_warning_index": 0.0,
-          "threat_index": 21.6,
-          "overall_level": "guarded",
-          "categories": {
-            "cyber": 1
-          },
-          "actors": {}
-        },
-        "Latvia": {
-          "country": "Latvia",
-          "event_count": 1,
-          "incident_count": 0,
-          "activity_count": 0,
-          "indicator_count": 1,
-          "assessment_count": 0,
-          "score_total": 7,
-          "average_score": 7.0,
-          "highest_score": 7,
-          "operational_index": 0.0,
-          "early_warning_index": 7.0,
-          "threat_index": 7.0,
-          "overall_level": "low",
-          "categories": {
-            "drone_incident": 1
-          },
-          "actors": {}
-        },
-        "Poland": {
-          "country": "Poland",
-          "event_count": 1,
-          "incident_count": 0,
-          "activity_count": 0,
-          "indicator_count": 1,
-          "assessment_count": 0,
-          "score_total": 13,
-          "average_score": 13.0,
-          "highest_score": 13,
-          "operational_index": 0.0,
-          "early_warning_index": 13.0,
-          "threat_index": 13.0,
-          "overall_level": "low",
-          "categories": {
-            "sabotage": 1
-          },
-          "actors": {
-            "Russia": 1
-          }
-        },
-        "Regional": {
-          "country": "Regional",
-          "event_count": 1,
-          "incident_count": 0,
-          "activity_count": 0,
-          "indicator_count": 1,
-          "assessment_count": 0,
-          "score_total": 13,
-          "average_score": 13.0,
-          "highest_score": 13,
-          "operational_index": 0.0,
-          "early_warning_index": 13.0,
-          "threat_index": 13.0,
-          "overall_level": "low",
-          "categories": {
-            "sabotage": 1
-          },
-          "actors": {
-            "Russia": 1
-          }
-        }
-      },
-      "category_summary": {
-        "cyber": {
-          "event_count": 1,
-          "score_total": 27,
-          "average_score": 27.0,
-          "highest_score": 27
-        },
-        "sabotage": {
-          "event_count": 2,
-          "score_total": 26,
-          "average_score": 13.0,
-          "highest_score": 13
-        },
-        "drone_incident": {
-          "event_count": 1,
-          "score_total": 7,
-          "average_score": 7.0,
-          "highest_score": 7
-        }
-      },
-      "actor_summary": {
-        "Russia": {
-          "event_count": 2,
-          "score_total": 26,
-          "average_score": 13.0,
-          "highest_score": 13
-        }
-      },
-      "subtype_summary": {
-        "incident": {
-          "event_count": 1,
-          "score_total": 27,
-          "average_score": 27.0,
-          "highest_score": 27
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 3,
-          "score_total": 33,
-          "average_score": 11.0,
-          "highest_score": 13
-        },
-        "assessment": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {
-        "direct": {
-          "event_count": 3,
-          "score_total": 47,
-          "average_score": 15.67,
-          "highest_score": 27
-        },
-        "regional_direct": {
-          "event_count": 1,
-          "score_total": 13,
-          "average_score": 13.0,
-          "highest_score": 13
-        }
-      },
-      "hotspot": {
-        "location": "Estonia",
-        "score": 27,
-        "event_count": 1
-      },
-      "key_driver": "cyber",
-      "dominant_actor": "Russia",
-      "top_events": [
-        {
-          "event_id": "30d229ee8387b916",
-          "title": "Hackers raised freezer temperature at Selver supermarket to +50°C",
-          "url": "https://news.err.ee/1610183296/hackers-raised-freezer-temperature-at-selver-supermarket-to-50-c",
-          "published_at": "2026-11-02T09:44:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "cyber"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 27,
-          "hybrid_threat_level": "guarded",
-          "source_names": [
-            "ERR News Estonia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "0ad296c90e2d5fa1",
-          "title": "Russia's new suspected radar in Kaliningrad could spy deep into Europe - DW.com",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdFI1cnhfdFhUQnRHcUVLVld4WWx3Mm9jUVBwVDRvQTlhRUJGalNiaURNS3FWMWhiaGZ2UjNOT251cXA1WkhULWNib3NTeFpZelB2bXhfTDV6M0cweUI4UjFiN2k3STJrMnpHRzRGYXJsSm11dXVFUkhuVEMyYjBlSnJHZ0Zid0hrdEJQRHJGbzZ6WlBhSzlV0gGXAUFVX3lxTE1LMVhVYm9ZbVAwams1enBvZGZqTWZoYlk0bmgxMUM2Ul9FaHhsLThmdnNQSUpqTk8tTDZEQnpla0pTTlNacFZzUEV2WmhoUE1FUlV5ZnhYcDhUTFFOTXhjVkNWeU5WY3NBQWNtYVE2eEllbUJnVGVqTHZ1SUxOZE5jTmxXWXNTZFlsYnNXd3c2ZVd2TDF3aWc?oc=5",
-          "published_at": "2026-11-02T09:18:52+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [
-            "Kaliningrad"
-          ],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "regional_direct",
-          "source_count": 2,
-          "confidence": "medium",
-          "confidence_score": 56,
-          "hybrid_threat_score": 13,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - NATO Baltic hybrid threat",
-            "Google News - Baltic Sea infrastructure sabotage"
-          ],
-          "related_item_count": 2
-        },
-        {
-          "event_id": "e2f8a48d607db4ce",
-          "title": "Poland strengthens security on border with Russia over risk of sabotage — RMF24 - UA.NEWS",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPUmh4YWZOajRhZzBzZ3BWOXVKaTZ2RjUxM084NlpSZ0pTV3F6TURKMmtrN3ZJRjZLNnVYZ2hGZXFpNUNfbUNtZnkzVV94Nld5R0RKYTU3RHhkUHpKVmpIR0NfTmZKOWFJQVNmVzdESTJYOXBGcUJpcVI0VzNCYV9TUFJlanM1cVhLaGJHUVY5Sl9HQ0l3Yk9Va1pn?oc=5",
-          "published_at": "2026-11-02T11:16:36+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 13,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 2
-        },
-        {
-          "event_id": "4e59224fc8bc71de",
-          "title": "Latvian military deploys interceptor drone after unidentified drone violates its airspace - Українська правда",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5BTDUwNlowWHN3NGRLT1dtNmRFbmxQaHZFU19PMXdwWXFPMnZWMWlYbVpyRk5aQnNSQWcxNDM5Z2FDNE40dDhiYV9zN1p6YVZsNkh1UTlDQ3hiRG5VQVRtWmlVZDQ?oc=5",
-          "published_at": "2026-11-02T07:30:00+00:00",
-          "primary_country": "Latvia",
-          "countries": [
-            "Latvia"
-          ],
-          "categories": [
-            "drone_incident"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic airspace violation Russia"
-          ],
-          "related_item_count": 1
-        }
-      ],
-      "events": [
-        {
-          "event_id": "e2f8a48d607db4ce",
-          "title": "Poland strengthens security on border with Russia over risk of sabotage — RMF24 - UA.NEWS",
-          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPUmh4YWZOajRhZzBzZ3BWOXVKaTZ2RjUxM084NlpSZ0pTV3F6TURKMmtrN3ZJRjZLNnVYZ2hGZXFpNUNfbUNtZnkzVV94Nld5R0RKYTU3RHhkUHpKVmpIR0NfTmZKOWFJQVNmVzdESTJYOXBGcUJpcVI0VzNCYV9TUFJlanM1cVhLaGJHUVY5Sl9HQ0l3Yk9Va1pn?oc=5",
-          "published_at": "2026-11-02T11:16:36+00:00",
-          "primary_country": "Poland",
-          "countries": [
-            "Poland"
-          ],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 13,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 2
-        },
-        {
-          "event_id": "30d229ee8387b916",
-          "title": "Hackers raised freezer temperature at Selver supermarket to +50°C",
-          "url": "https://news.err.ee/1610183296/hackers-raised-freezer-temperature-at-selver-supermarket-to-50-c",
-          "published_at": "2026-11-02T09:44:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "cyber"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 27,
-          "hybrid_threat_level": "guarded",
-          "source_names": [
-            "ERR News Estonia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "0ad296c90e2d5fa1",
-          "title": "Russia's new suspected radar in Kaliningrad could spy deep into Europe - DW.com",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQdFI1cnhfdFhUQnRHcUVLVld4WWx3Mm9jUVBwVDRvQTlhRUJGalNiaURNS3FWMWhiaGZ2UjNOT251cXA1WkhULWNib3NTeFpZelB2bXhfTDV6M0cweUI4UjFiN2k3STJrMnpHRzRGYXJsSm11dXVFUkhuVEMyYjBlSnJHZ0Zid0hrdEJQRHJGbzZ6WlBhSzlV0gGXAUFVX3lxTE1LMVhVYm9ZbVAwams1enBvZGZqTWZoYlk0bmgxMUM2Ul9FaHhsLThmdnNQSUpqTk8tTDZEQnpla0pTTlNacFZzUEV2WmhoUE1FUlV5ZnhYcDhUTFFOTXhjVkNWeU5WY3NBQWNtYVE2eEllbUJnVGVqTHZ1SUxOZE5jTmxXWXNTZFlsYnNXd3c2ZVd2TDF3aWc?oc=5",
-          "published_at": "2026-11-02T09:18:52+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [
-            "Kaliningrad"
-          ],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "regional_direct",
-          "source_count": 2,
-          "confidence": "medium",
-          "confidence_score": 56,
-          "hybrid_threat_score": 13,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - NATO Baltic hybrid threat",
-            "Google News - Baltic Sea infrastructure sabotage"
-          ],
-          "related_item_count": 2
-        },
-        {
-          "event_id": "4e59224fc8bc71de",
-          "title": "Latvian military deploys interceptor drone after unidentified drone violates its airspace - Українська правда",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5BTDUwNlowWHN3NGRLT1dtNmRFbmxQaHZFU19PMXdwWXFPMnZWMWlYbVpyRk5aQnNSQWcxNDM5Z2FDNE40dDhiYV9zN1p6YVZsNkh1UTlDQ3hiRG5VQVRtWmlVZDQ?oc=5",
-          "published_at": "2026-11-02T07:30:00+00:00",
-          "primary_country": "Latvia",
-          "countries": [
-            "Latvia"
-          ],
-          "categories": [
-            "drone_incident"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 7,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic airspace violation Russia"
-          ],
-          "related_item_count": 1
-        }
-      ]
-    },
     {
       "date": "2026-11-03",
       "status": "available",
@@ -2881,6 +2453,366 @@
       "dominant_actor": null,
       "top_events": [],
       "events": []
+    },
+    {
+      "date": "2026-11-09",
+      "status": "available",
+      "snapshot_generated_at": "2026-11-09T14:02:12.440851+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 4,
+      "incident_count": 1,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 2,
+      "score_total": 33.0,
+      "average_score": 16.5,
+      "highest_score": 27.0,
+      "operational_index": 27.0,
+      "early_warning_index": 6.0,
+      "threat_index": 22.8,
+      "overall_level": "guarded",
+      "country_summary": {
+        "Estonia": {
+          "country": "Estonia",
+          "event_count": 3,
+          "incident_count": 1,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 2,
+          "score_total": 27,
+          "average_score": 27.0,
+          "highest_score": 27,
+          "operational_index": 27.0,
+          "early_warning_index": 0.0,
+          "threat_index": 21.6,
+          "overall_level": "guarded",
+          "categories": {
+            "cyber": 1
+          },
+          "actors": {
+            "Russia": 2
+          }
+        },
+        "Regional": {
+          "country": "Regional",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6,
+          "operational_index": 0.0,
+          "early_warning_index": 6.0,
+          "threat_index": 6.0,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {
+            "Russia": 1
+          }
+        }
+      },
+      "category_summary": {
+        "cyber": {
+          "event_count": 1,
+          "score_total": 27,
+          "average_score": 27.0,
+          "highest_score": 27
+        },
+        "sabotage": {
+          "event_count": 1,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6
+        }
+      },
+      "actor_summary": {
+        "Russia": {
+          "event_count": 3,
+          "score_total": 6,
+          "average_score": 2.0,
+          "highest_score": 6
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 1,
+          "score_total": 27,
+          "average_score": 27.0,
+          "highest_score": 27
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 1,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6
+        },
+        "assessment": {
+          "event_count": 2,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 3,
+          "score_total": 27,
+          "average_score": 9.0,
+          "highest_score": 27
+        },
+        "external_context": {
+          "event_count": 1,
+          "score_total": 6,
+          "average_score": 6.0,
+          "highest_score": 6
+        }
+      },
+      "hotspot": {
+        "location": "Estonia",
+        "score": 27,
+        "event_count": 3
+      },
+      "key_driver": "cyber",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "ebcb6e32c145f575",
+          "title": "How is Estonia protecting itself against intensifying cyberthreats?",
+          "url": "https://news.err.ee/1610190514/how-is-estonia-protecting-itself-against-intensifying-cyberthreats",
+          "published_at": "2026-11-09T12:04:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "cyber"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 27,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "628ba344ded414de",
+          "title": "Russia Uses 'Disposable Agents' Recruited Locally for Sabotage Operations - news.sbs.co.kr",
+          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE55d0ZuTEY1ZTF6eTUyOWduNjBmVmxQMUwwRVNRQ3l3S1hDLTdJTG1zQnd4dDlIVGk4NVgzRDRRMTd4SF95aDVQUk50WnF3UmV4SFZ0UFhTdjg2VEFncWhiUkhLdDYzRENFSjNaUF9n?oc=5",
+          "published_at": "2026-11-09T08:10:49+00:00",
+          "primary_country": "Regional",
+          "countries": [],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "external_context",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "07f55b9d685c5744",
+          "title": "Nearly 100 European Supermarkets Hit by Cyberattacks as Estonia Warns of Russian Terrorism - Kyiv Post",
+          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1qVTdGbkJTZXRLVHkzcmI2THRDVE9fSFR6Mi1GN09XS3phdU1xY1JWYmg3eWJJYVlDM2l6bkpWZWFhQVNQZ2h0TlgxVQ?oc=5",
+          "published_at": "2026-11-09T09:26:56+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "3c30598ef4837715",
+          "title": "Estonia accuses Russia of state-sponsored terrorism over hybrid attacks - Financial Times",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQWWJ2a1dNdHphbHplcDVRWEg2TFNENENFb3hrcElva083ZGxhb0JJWWh3RFZDaGd3T0hyUlhoeTJpZUJWbUIxVHhpakhzX1JieVdPNXhGb0xyZkNBa2x1VVJUSk9MUDByYkJvb24wVE9nRWtEWUc2RTFMcjBKelFSMDN3Mzk?oc=5",
+          "published_at": "2026-11-09T05:00:25+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic Russia hybrid threat"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "ebcb6e32c145f575",
+          "title": "How is Estonia protecting itself against intensifying cyberthreats?",
+          "url": "https://news.err.ee/1610190514/how-is-estonia-protecting-itself-against-intensifying-cyberthreats",
+          "published_at": "2026-11-09T12:04:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "cyber"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 27,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "07f55b9d685c5744",
+          "title": "Nearly 100 European Supermarkets Hit by Cyberattacks as Estonia Warns of Russian Terrorism - Kyiv Post",
+          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1qVTdGbkJTZXRLVHkzcmI2THRDVE9fSFR6Mi1GN09XS3phdU1xY1JWYmg3eWJJYVlDM2l6bkpWZWFhQVNQZ2h0TlgxVQ?oc=5",
+          "published_at": "2026-11-09T09:26:56+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "628ba344ded414de",
+          "title": "Russia Uses 'Disposable Agents' Recruited Locally for Sabotage Operations - news.sbs.co.kr",
+          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE55d0ZuTEY1ZTF6eTUyOWduNjBmVmxQMUwwRVNRQ3l3S1hDLTdJTG1zQnd4dDlIVGk4NVgzRDRRMTd4SF95aDVQUk50WnF3UmV4SFZ0UFhTdjg2VEFncWhiUkhLdDYzRENFSjNaUF9n?oc=5",
+          "published_at": "2026-11-09T08:10:49+00:00",
+          "primary_country": "Regional",
+          "countries": [],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "external_context",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "3c30598ef4837715",
+          "title": "Estonia accuses Russia of state-sponsored terrorism over hybrid attacks - Financial Times",
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQWWJ2a1dNdHphbHplcDVRWEg2TFNENENFb3hrcElva083ZGxhb0JJWWh3RFZDaGd3T0hyUlhoeTJpZUJWbUIxVHhpakhzX1JieVdPNXhGb0xyZkNBa2x1VVJUSk9MUDByYkJvb24wVE9nRWtEWUc2RTFMcjBKelFSMDN3Mzk?oc=5",
+          "published_at": "2026-11-09T05:00:25+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic Russia hybrid threat"
+          ],
+          "related_item_count": 1
+        }
+      ]
     }
   ]
 }
