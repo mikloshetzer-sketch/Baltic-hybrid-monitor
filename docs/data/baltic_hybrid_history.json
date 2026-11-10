@@ -2,8 +2,8 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-11-09T14:02:12.705350+00:00",
-  "record_count": 101,
+  "updated_at": "2026-11-10T13:36:56.308814+00:00",
+  "record_count": 102,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
     "warning": "Historical records are reconstructed from currently available scored items using published_at dates. The backfill is not a complete historical archive if older source items are no longer available.",
@@ -58057,6 +58057,609 @@
             "analytical_layer": "early_warning",
             "confidence": "low",
             "hybrid_threat_score": 14,
+            "hybrid_threat_level": "low"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-11-10",
+      "generated_at": "2026-11-10T13:36:56.308531+00:00",
+      "input_generated_at": "2026-11-10T13:36:55.580410+00:00",
+      "daily_activity": {
+        "description": "Calculated only from events published on this calendar day.",
+        "overall": {
+          "event_count": 4,
+          "incident_count": 2,
+          "activity_count": 0,
+          "indicator_count": 2,
+          "assessment_count": 0,
+          "score_total": 140,
+          "average_score": 35.0,
+          "highest_score": 68,
+          "overall_level": "guarded"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 4,
+            "score_total": 140,
+            "average_score": 35.0,
+            "highest_score": 68,
+            "level": "guarded",
+            "categories": {
+              "espionage": 2,
+              "sabotage": 4
+            }
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          }
+        },
+        "categories": {
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 4,
+            "score_total": 140,
+            "average_score": 35.0,
+            "highest_score": 68
+          },
+          "espionage": {
+            "category": "espionage",
+            "event_count": 2,
+            "score_total": 84,
+            "average_score": 42.0,
+            "highest_score": 68
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 2,
+            "score_total": 28,
+            "average_score": 14.0,
+            "highest_score": 16,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 2,
+            "score_total": 112,
+            "average_score": 56.0,
+            "highest_score": 68,
+            "level": "elevated"
+          },
+          "assessment": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Poland",
+          "score": 140,
+          "event_count": 4
+        },
+        "key_driver": "sabotage",
+        "trend": "increasing",
+        "top_items": [
+          {
+            "id": null,
+            "title": "Two Ukrainians charged with spying and sabotage for Russia in Poland - Notes From Poland",
+            "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPZVNHWHkta0dnYWJPOFMyN0hJUXFlWHJxSE9qU0IyU1ZacG5fbzJfY3dscTF0djNSWV80MDRWWGZGOVh2djFWMl9OaWpGM1FXcTkyQ05JbmtPdUloaW1kcTBHZmpoQmc0MUhHRWNDZlFZUmUxYk5GX2JuSE9tMEx0SUpkNmI4OHFpUVZDbmozUkxETEp6UnJxY3hJZDI2QzBlRWlIUG9SNUpNSnd4?oc=5",
+            "published_at": "2026-11-10T12:56:58+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "espionage",
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "medium",
+            "hybrid_threat_score": 68,
+            "hybrid_threat_level": "high"
+          },
+          {
+            "id": null,
+            "title": "Two Ukrainians arrested in Poland over alleged Russian spy and sabotage operation - TVP World",
+            "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNZEZwQjRIVzNsaHdKb0RQYjFYOS10RFBqd2VYTlVKWW9IQmg3X09BaTdZLW1wNVZMTnp3TjJnNkhBT3NPSnVqX29rcm5YSWJuTlFKVW1wSnRiTERfSTk2aGx5ckoyM2lhcWRxSktWd3YyVmcyS1BJamVrM2VrMlg1Zng3QTloRUo5cmwxRTRtWGF0Zw?oc=5",
+            "published_at": "2026-11-10T10:16:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 44,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Poland arrests two Ukrainians suspected of Russian espionage - Latest news from Azerbaijan",
+            "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNV0hVdG5UNFhVRGs1U19EWGh1VnVxcnJiT2JpMGxJdVhySktmXzNycFR3dnIzLUJtRjluRnVZTU1nWFdfZy1KbEhzLVhRV3ZsQ1VyVllBNGVGS2c5cW1FSkI2Q3Y4VTVld2ZIbU9rS0JCSzE3ZEF1Wlc5VEE5N08wbjZvNUU4cXVy?oc=5",
+            "published_at": "2026-11-10T11:53:48+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "espionage",
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 16,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Russian agents posed as Ukrainian soldiers to carry out sabotage in Poland - RBC-Ukraine",
+            "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWGVJQUJ0S2pReVBpOENsWFhodEFtWHI3NVppMmlFR2tqeHpNWE9uZHRYR2pUY2NmMTZFc0lKVTluTWVjTmppbDNFU01pNkRrNktLb0NaM1BoQUVhT3RUNGlUdmtHMWFsS3drZXpPWEs0SUtpT05zb3l2amFsc0Qwei1samR0aUIzaC1CazVZSlJ6NXpp?oc=5",
+            "published_at": "2026-11-10T13:30:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 12,
+            "hybrid_threat_level": "low"
+          }
+        ]
+      },
+      "rolling_threat": {
+        "description": "Rolling threat environment ending on this calendar day.",
+        "window": {
+          "days": 14,
+          "start_date": "2026-10-28",
+          "end_date": "2026-11-10"
+        },
+        "overall": {
+          "event_count": 23,
+          "incident_count": 5,
+          "activity_count": 0,
+          "indicator_count": 15,
+          "assessment_count": 3,
+          "score_total": 346,
+          "average_score": 15.04,
+          "highest_score": 68,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 2,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 1,
+            "score_total": 7,
+            "average_score": 7.0,
+            "highest_score": 7,
+            "level": "low",
+            "categories": {
+              "drone_incident": 1
+            }
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 1,
+            "score_total": 6,
+            "average_score": 6.0,
+            "highest_score": 6,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 11,
+            "score_total": 206,
+            "average_score": 18.73,
+            "highest_score": 68,
+            "level": "low",
+            "categories": {
+              "espionage": 3,
+              "sabotage": 8
+            }
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 8,
+            "score_total": 127,
+            "average_score": 15.88,
+            "highest_score": 28,
+            "level": "low",
+            "categories": {
+              "gps_interference": 2,
+              "cyber": 1,
+              "critical_infrastructure": 2,
+              "sabotage": 5
+            }
+          }
+        },
+        "categories": {
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 13,
+            "score_total": 242,
+            "average_score": 18.62,
+            "highest_score": 68
+          },
+          "espionage": {
+            "category": "espionage",
+            "event_count": 3,
+            "score_total": 95,
+            "average_score": 31.67,
+            "highest_score": 68
+          },
+          "gps_interference": {
+            "category": "gps_interference",
+            "event_count": 2,
+            "score_total": 53,
+            "average_score": 26.5,
+            "highest_score": 28
+          },
+          "critical_infrastructure": {
+            "category": "critical_infrastructure",
+            "event_count": 2,
+            "score_total": 34,
+            "average_score": 17.0,
+            "highest_score": 18
+          },
+          "cyber": {
+            "category": "cyber",
+            "event_count": 1,
+            "score_total": 21,
+            "average_score": 21.0,
+            "highest_score": 21
+          },
+          "drone_incident": {
+            "category": "drone_incident",
+            "event_count": 1,
+            "score_total": 7,
+            "average_score": 7.0,
+            "highest_score": 7
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 15,
+            "score_total": 160,
+            "average_score": 10.67,
+            "highest_score": 18,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 5,
+            "score_total": 186,
+            "average_score": 37.2,
+            "highest_score": 68,
+            "level": "guarded"
+          },
+          "assessment": {
+            "event_count": 3,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Baltic Sea",
+          "score": 34,
+          "event_count": 2
+        },
+        "top_items": [
+          {
+            "id": null,
+            "title": "Two Ukrainians charged with spying and sabotage for Russia in Poland - Notes From Poland",
+            "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPZVNHWHkta0dnYWJPOFMyN0hJUXFlWHJxSE9qU0IyU1ZacG5fbzJfY3dscTF0djNSWV80MDRWWGZGOVh2djFWMl9OaWpGM1FXcTkyQ05JbmtPdUloaW1kcTBHZmpoQmc0MUhHRWNDZlFZUmUxYk5GX2JuSE9tMEx0SUpkNmI4OHFpUVZDbmozUkxETEp6UnJxY3hJZDI2QzBlRWlIUG9SNUpNSnd4?oc=5",
+            "published_at": "2026-11-10T12:56:58+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "espionage",
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "medium",
+            "hybrid_threat_score": 68,
+            "hybrid_threat_level": "high"
+          },
+          {
+            "id": null,
+            "title": "Two Ukrainians arrested in Poland over alleged Russian spy and sabotage operation - TVP World",
+            "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNZEZwQjRIVzNsaHdKb0RQYjFYOS10RFBqd2VYTlVKWW9IQmg3X09BaTdZLW1wNVZMTnp3TjJnNkhBT3NPSnVqX29rcm5YSWJuTlFKVW1wSnRiTERfSTk2aGx5ckoyM2lhcWRxSktWd3YyVmcyS1BJamVrM2VrMlg1Zng3QTloRUo5cmwxRTRtWGF0Zw?oc=5",
+            "published_at": "2026-11-10T10:16:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 44,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "GPS jamming hits almost all of NATO’s eastern flank in one day - The Defence Blog",
+            "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNNWx0dTV6MHNianJkTjM4eTItNjFQUW9BTUp4QTAycTVGd3RWOTNLOTNiR0VMUmY3OGtTcUEzOFlRUTZuaWctWGUzLUs1TURTazRBR3dxdEpkTDZJTFVmVlVOTE4zVmxVSEItTjhEOU9LLVI2SUZ0OXpONkZ2Y2YzVzhvRlVKOXlfYTVheVlDMjfSAZYBQVVfeXFMTnJlR1k3ZVBWU1Y0aU5pTUJxZmVPd3pZaTRDcm9rdnVXRThJcjNoTm5WUFlDSmFDVFJoN1RHamtxS3FXb0JLMGpjc3RkSGdEU0t4T3NrMFpyUEdVa0dQbmxrTlQzaUlya1N3R2JBSGE3LXB2RVRGczB4SFUtRTlZMTJoSXJQaGNxQ1loZG5JYldjNFFLaXFR?oc=5",
+            "published_at": "2026-11-04T13:20:09+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "gps_interference"
+            ],
+            "actors": [
+              "NATO"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 28,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "From the Baltic to the Black Sea: Large-Scale GPS Jamming Detected Along NATO Borders - Мілітарний",
+            "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQbkhnYkxlVlpmZ1BzT3Y2T3lkQWRTTlFEM29uNFFxVHVCdUJZYlYtT0l4NUFVdWhoUTNtM2NqTExDZ0ZKZlB4SnlRMEpfZ1JGU3N6dnZIYVlfVGVpUENnUl9qd0FrdjJlV21oQmJLMkxVa3JZS1hsdUlheUg3OE8zS19EanhBQTY2bVg3YXJUVGlFTEVRUGc1c1ktcThZUVN1UlN2anlrWTRaQ1p4N1BhaVItRDRtbDQ?oc=5",
+            "published_at": "2026-11-04T16:23:40+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "gps_interference"
+            ],
+            "actors": [
+              "NATO"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 25,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Russian cloud firm Beget rebuilds from scratch after data wiper attack",
+            "url": "https://www.bleepingcomputer.com/news/security/russian-cloud-firm-beget-rebuilds-from-scratch-after-data-wiper-attack/",
+            "published_at": "2026-11-09T17:50:32+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "cyber"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 21,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Finland jails Russian cargo ship captain over Baltic Sea cable sabotage - South China Morning Post",
+            "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQQXg2YTZTRTFqS0VVTjRZb09vckU0YWd2bC1YWEhHSFlfUEp2dVRjYkp5d2t0X0FVRmZ4cUdwT3pmeXZqb0lYTXhvWllPdjE1YTBBVTVJNi1kUXliR0xfbm9VQW5IdUJVdlFxNmZXc3NWcENjclNsblNHa0pfcHRFQnZoTVdSTVFqSnlBM2FLUVNlcHNlNGdVVzhiRHhubEhBd0cxdHVKSHI1T0VISTRUNXhuVlBpS1ZoM1dVSjJSWndDazJv0gHEAUFVX3lxTE16RjRyamJVVV9FWnlBQUJfTWhUODJzbks2eHpTcmlWSm9BZ3ZwSVFEQVkxN1paUl9uTEpvWVdUeHVncDZtaDJnN1RheGRDQS1XeGxrWlBrNkZsemo5SlFha0xiQ0RJY0h4YU40Q3lUYktUN0NzN1JfQ2VXVWZVLWNYbTk4cTRXaXhXNmx5X29MdVFNQmFIeko5ZkliR0lCWUE5WFIwd0R2TkdidzgxT2lobUg1OTNXNFIzSFJ4UjRmMmd4LXg?oc=5",
+            "published_at": "2026-11-05T12:30:38+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "critical_infrastructure",
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [
+              "Baltic Sea"
+            ],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 18,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Poland arrests two Ukrainians suspected of Russian espionage - Latest news from Azerbaijan",
+            "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNV0hVdG5UNFhVRGs1U19EWGh1VnVxcnJiT2JpMGxJdVhySktmXzNycFR3dnIzLUJtRjluRnVZTU1nWFdfZy1KbEhzLVhRV3ZsQ1VyVllBNGVGS2c5cW1FSkI2Q3Y4VTVld2ZIbU9rS0JCSzE3ZEF1Wlc5VEE5N08wbjZvNUU4cXVy?oc=5",
+            "published_at": "2026-11-10T11:53:48+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "espionage",
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 16,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Finnish Court Jails Cargo Ship Captain, Crew Member for Baltic Sea Cable Sabotage - gCaptain",
+            "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOLVNNNElOWHp1cVlKOXE2UmRYZmVIWUNmWUMtMEdEX2JxWkpXTjdpMlNKQm9QdlY2QmEzNXNjeE1XeXZOaXl4cDhxUUJPS3M4eXYyYmV0RjRLS1FTMk9HQXZ3dWhjNTMyUlJ2bk11a0trM2YxR1FqenZCYngzTm01ajhmV0I2R19Td0M3Z2VSSkU2ZmMteVhhelZKcnFQTGVxTTk1WA?oc=5",
+            "published_at": "2026-11-05T22:44:20+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "critical_infrastructure",
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [
+              "Baltic Sea"
+            ],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 16,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "The threat of Russian sabotage on the border with Poland may materialize this month, — Donald Tusk - Судово-юридична газета",
+            "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQMEtoX0tFME9vZkEtYnVYOXlvNDlKMklxS3JodFJrQzFhX2ZTUEZ0bmxrazlKUzFvZnkxcUMxaTFVQWNwck5RVW03RzJCWGxDLWo3MHo2SmNTbXVDM2xRUEFVWWEzRlBDZ1VVYk5xbXFLeWlyZFdsOFRlM3FIQ2taSHZpckxhSl8xVkxWeTBON3VobzVzUWdka3hOako0TUV6SzN4NEZUWHhPTHR0TGRYeHBZMA?oc=5",
+            "published_at": "2026-11-03T18:52:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 13,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Russian agents posed as Ukrainian soldiers to carry out sabotage in Poland - RBC-Ukraine",
+            "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNWGVJQUJ0S2pReVBpOENsWFhodEFtWHI3NVppMmlFR2tqeHpNWE9uZHRYR2pUY2NmMTZFc0lKVTluTWVjTmppbDNFU01pNkRrNktLb0NaM1BoQUVhT3RUNGlUdmtHMWFsS3drZXpPWEs0SUtpT05zb3l2amFsc0Qwei1samR0aUIzaC1CazVZSlJ6NXpp?oc=5",
+            "published_at": "2026-11-10T13:30:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 12,
             "hybrid_threat_level": "low"
           }
         ]
