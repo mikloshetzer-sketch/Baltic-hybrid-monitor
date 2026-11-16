@@ -2,15 +2,15 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat 7-Day Intelligence Matrix",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-11-15T12:50:34.801149+00:00",
+  "generated_at": "2026-11-16T13:47:32.962786+00:00",
   "matrix_version": "baltic_7day_matrix_v1_0",
   "source_history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "source_history_generated_at": "2026-11-15T12:50:34.700501+00:00",
+  "source_history_generated_at": "2026-11-16T13:47:32.858008+00:00",
   "window": {
     "time_basis": "UTC calendar day",
     "window_days": 7,
-    "start_date": "2026-11-09",
-    "end_date": "2026-11-15",
+    "start_date": "2026-11-10",
+    "end_date": "2026-11-16",
     "anchor": "latest available snapshot_date in history",
     "construction": "Seven separate exact-day snapshots. No rolling-window snapshots are used."
   },
@@ -31,24 +31,24 @@
   "missing_dates": [],
   "seven_day_summary": {
     "totals": {
-      "event_count": 19,
-      "incident_count": 6,
+      "event_count": 24,
+      "incident_count": 12,
       "activity_count": 0,
       "indicator_count": 9,
-      "assessment_count": 4
+      "assessment_count": 3
     },
     "indices": {
-      "average_operational_index_observed_days": 16.0,
-      "average_early_warning_index_observed_days": 6.74,
-      "average_threat_index_observed_days": 16.34,
-      "average_threat_level_observed_days": "low",
-      "highest_daily_threat_index": 47.6
+      "average_operational_index_observed_days": 21.89,
+      "average_early_warning_index_observed_days": 7.6,
+      "average_threat_index_observed_days": 21.22,
+      "average_threat_level_observed_days": "guarded",
+      "highest_daily_threat_index": 56.96
     },
     "peak_day": {
-      "date": "2026-11-10",
-      "threat_index": 47.6,
+      "date": "2026-11-16",
+      "threat_index": 56.96,
       "overall_level": "elevated",
-      "event_count": 4
+      "event_count": 9
     },
     "country_totals": {
       "Estonia": 0.0,
@@ -65,11 +65,304 @@
       "sabotage": 0.0
     },
     "actor_totals": {
+      "GRU": 0.0,
       "NATO": 0.0,
       "Russia": 0.0
     }
   },
   "top_events": [
+    {
+      "event_id": "b858b53b7d639819",
+      "title": "Estonia to close border with Russia after arson attack on local drone maker - Defense News",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUEVLYktfcjBFLXQwa2F5SEJaNThZMmIxZmNxWFp1bVVRUXFJMFF5c1JTUFUzOUxmYkpQSmhHQ2RTdUt3Qm1OaHo1WW4xa2QwZVhHRUVtWjhEemVwM2JhR1E2VThpQVBTd3o2OGtsdGFyWVYyXzdBWURHemZiY3FjUnhGdkFheFc2OXNwbE9odXNQYl9GUW5aM1gwYnRHcFNURXJhYlptWTlsQmZMZmxjd1pLZV9yMzU5UnVmNlF6QWVFZ1g5b2FiWA?oc=5",
+      "published_at": "2026-11-16T13:23:20+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "sabotage",
+        "espionage"
+      ],
+      "actors": [
+        "Russia",
+        "NATO",
+        "GRU"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 3,
+      "confidence": "medium",
+      "confidence_score": 64,
+      "hybrid_threat_score": 94,
+      "hybrid_threat_level": "critical",
+      "source_names": [
+        "Google News - CERT Estonia cyber threat",
+        "Google News - Baltic sabotage Russia",
+        "Google News - Baltic critical infrastructure Russia"
+      ],
+      "related_item_count": 10,
+      "matrix_snapshot_date": "2026-11-16"
+    },
+    {
+      "event_id": "fb1f59c56ed66215",
+      "title": "Lithuania could consider closing border with Russia if sabotage threats persist: President - Anadolu Ajansı",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOMThYVVdDLWVHM09jWEE1dEozdXNMQ044UnFjeE5TVUFXakxHLVFfNzhxdkJCNEZ0RlJOQm11d3ZPRk5URzBjbmVYSWpMbDVBWkN3VjdtUUdEU3BEOGhjTWlOcVAyT0dwdkVseVZjX2lITFp2NVotOWt2SnpabGtvY0l3SDc3dGgwRDY5MHU1TFhxVndsQWd1VEVQUzFuWGRyZnlMQ1l3a2VfSzBxYnA0R3J2cGVfalF4R3BrV2RqaHdxRTU4cGFGVA?oc=5",
+      "published_at": "2026-11-16T12:28:24+00:00",
+      "primary_country": "Lithuania",
+      "countries": [
+        "Lithuania"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 12,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-11-16"
+    },
+    {
+      "event_id": "0eb88a1ac10d6854",
+      "title": "Estonia to Close Border Crossings With Russia After Foiled Sabotage Attempt - The Moscow Times",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOUGFTRjB1dTRhd1EtMTRrYUloMndQR0Y3RHE3cWZVYmgwWndKRmtHbFNNeEdTZVUwRkd1VnNncjNLdkNjY19ua2g0ZTh0dHc5Q3lmLW9fUE5VX2Z5VjBQd2FaR0VhTXhDYi12UE4zYjVPSEttcVo1bDVEUGZsVWhDaDJfeXZvRFBCR25zSVU4SGRCWHRERTkwZmVtN0Q4djR3b0VCWllqcjc1enkwYm1hVTNxVU4wamE5aHI1cGp2UzR0Zw?oc=5",
+      "published_at": "2026-11-16T10:44:32+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "sabotage",
+        "espionage"
+      ],
+      "actors": [
+        "Russia",
+        "GRU"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 5,
+      "confidence": "very_high",
+      "confidence_score": 93,
+      "hybrid_threat_score": 100,
+      "hybrid_threat_level": "critical",
+      "source_names": [
+        "Google News - Baltic sabotage Russia",
+        "Google News - Baltic drone incident Russia",
+        "Google News - CERT Estonia cyber threat",
+        "ERR News Estonia",
+        "Polish Radio English"
+      ],
+      "related_item_count": 18,
+      "matrix_snapshot_date": "2026-11-16"
+    },
+    {
+      "event_id": "35318b0ea8a9354e",
+      "title": "Estonian drone company targeted in sabotage attempt as part of 'Russia's hybrid war against Europe': Prime Minister Michal - Breaking Defense",
+      "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPR1JzU1JvTzlvVE9BTVowVnduaEVsYVZUN3ZUczgta05FQTZtVlZabk9aYmlQTVYybWZybzB6S3ktM3FqcW5zTWR5cFZhbWJZMmoya2VHSjM5Z0k5WFVydkR1V0k5QWRXdE9UR242blRJcWRBT0phR1FyR0NJanFvYV9XSjFBMmMwTklRMWY4dVFwNGhFWUNlZHZJbkg5dzdFTWNIMWRoa3JtYlRZSWduelZ4RlhpSEQzbTJNTExZYVJ4amF1dzhyYWg1dmlQaXBzdjNOR3lyQlhPRXhWNEpta0RHNlVaU0R1NnFZ?oc=5",
+      "published_at": "2026-11-16T10:30:50+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 48,
+      "hybrid_threat_score": 40,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - NATO Baltic hybrid threat"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-11-16"
+    },
+    {
+      "event_id": "344e939f7cf9ed8d",
+      "title": "Estonia To Close Russian Border After Alleged Sabotage Attack On Defence Firm - Yahoo",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQbHdhY1NEd19vS01KNEMtUENXaG5SR1dQckFkU1Fyd1BvbHRfTkhXdkpfR0kyVmtIdGJ5OVBlUnZhN3U5Tk9CNXNiOWhXLThWZGEwSEVrSlZiNi1ZZHVWb1kwUWJLMmxyN0FiUUlXZ21ZQ2RSaXNWeVVsNF9UU1NyTHFCa1Bwdm0tSTZ1YnZn?oc=5",
+      "published_at": "2026-11-16T10:15:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 44,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 2,
+      "matrix_snapshot_date": "2026-11-16"
+    },
+    {
+      "event_id": "c5f7b0c9d7c97570",
+      "title": "Estonian security chief: 'I hope Latvia will take sufficient measures'",
+      "url": "https://eng.lsm.lv/article/society/defence/16.11.2026-estonian-security-chief-i-hope-latvia-will-take-sufficient-measures.a672073/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+      "published_at": "2026-11-16T08:09:08+00:00",
+      "primary_country": "Regional",
+      "countries": [
+        "Estonia",
+        "Latvia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 42,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "LSM English Latvia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-11-16"
+    },
+    {
+      "event_id": "1a50501cecda999c",
+      "title": "Estonia's proposed eastern border closures are 'Russophobia,' Russian MFA says",
+      "url": "https://news.err.ee/1610197091/estonia-s-proposed-eastern-border-closures-are-russophobia-russian-mfa-says",
+      "published_at": "2026-11-16T06:55:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 48,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-11-16"
+    },
+    {
+      "event_id": "36bcd9282c8af53a",
+      "title": "\"Glory to UPA\" inscriptions appeared on two monuments in Warsaw: Ukrainian embassy says this is part of Russia’s hybrid war. PHOTOS - Цензор.НЕТ",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPVkZYX1R6SjJwcm5oTTRyWG51QVNDbGNDeHF0VldLTmtmVmZKbVdmdWdOcHozYjJWNjZCQ1hRZkZKSW1aenpFUmdEMGJFczE4MFRXS09GLXZQY0J2MUlMbFNZalpPMUFZSldLODFDcmN0YVJmT2JDc2FhcFlVWE5kQzFGeWp4NS1OYmlMcDhrVUYtUkFZdHdSRWRINEE3Z1lRREM2Tg?oc=5",
+      "published_at": "2026-11-16T05:36:00+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic Russia hybrid threat"
+      ],
+      "related_item_count": 2,
+      "matrix_snapshot_date": "2026-11-16"
+    },
+    {
+      "event_id": "2ec32b3f359cc350",
+      "title": "DW News. . Estonia will shut all border crossings with Russia from December 1. The move follows a suspected sabotage attack on a drone manufacturer, which Tallinn says was orchestrated by Russian military intelligence. #dwnews - Facebook",
+      "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQNmNZSXNieDJaM1FvY2Jia3BrWVFwbXZhN256ZEctQVI0VUdjS09tZ0tDT09md1NDR1BzS052WDI1Z29JTGlfLW04TU05OHB4OFJTc1Z0Y0ZPQnFCZVZMcnFDUkNMWWNRSzhlaTN1MU15Q0t3eW5DUWRsQWE2RlpYY3R5ZFQ0bzA3cVdlRjRMRjJDZHJPMW9uV3lSbHRxMDlGZ3B1T2dsNFhoZ0tpRjdtN0FRWnZLSjdfR21IUVI1S0R6Wm05Sk80VTVQZFpPdnhET1hnVThHUlJVSFhqVkJSVHh3?oc=5",
+      "published_at": "2026-11-16T05:00:39+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia",
+        "GRU"
+      ],
+      "locations": [
+        "Tallinn"
+      ],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 55,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1,
+      "matrix_snapshot_date": "2026-11-16"
+    },
     {
       "event_id": "cd3f95315b950def",
       "title": "Peace on Moscow’s terms: disinformation ahead of the Abu Dhabi talks",
@@ -98,639 +391,9 @@
       ],
       "related_item_count": 1,
       "matrix_snapshot_date": "2026-11-13"
-    },
-    {
-      "event_id": "d0804ec1dcb06d71",
-      "title": "Baltic power grids face new security reality",
-      "url": "https://eng.lsm.lv/article/features/features/13.11.2026-baltic-power-grids-face-new-security-reality.a671809/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-      "published_at": "2026-11-13T09:41:00+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "regional_direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 6,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "LSM English Latvia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-11-13"
-    },
-    {
-      "event_id": "4efe41099bdf3a08",
-      "title": "Romania says it stopped Russian cyberattack targeting government emails",
-      "url": "https://therecord.media/romania-russia-cyberattack-emails",
-      "published_at": "2026-11-12T13:30:00+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "categories": [
-        "cyber",
-        "espionage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "analysis_layer": null,
-      "geographic_scope": "external_context",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 27,
-      "hybrid_threat_level": "guarded",
-      "source_names": [
-        "The Record Cybersecurity"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-11-12"
-    },
-    {
-      "event_id": "38863ef776c4f29a",
-      "title": "Indictment filed over alleged Russian-linked railway sabotage in Poland - Polska Agencja Prasowa SA",
-      "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNWFVPTHY1MjZnd2ZYM3BxcWhDVEFUaEs5TFRBTHlldGk4Q2xHVkt0QlhneGxNekszWU9EZ05mTzhpZTdKWlZzSTFuYzBMOVlBWm1MdUNMRlpqN1Y2TWxYREVsZThqMXF2d19ocXlsbnNDaUlFSEVTTGpUallZRTVuU0FCNFBKVHNuRjhGNVMyT2VHc20zUXVvT3NiQQ?oc=5",
-      "published_at": "2026-11-12T12:35:19+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 12,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-11-12"
-    },
-    {
-      "event_id": "59cf99e786265271",
-      "title": "Poland continued special operation on the border with Russia due to sabotage - Прямий",
-      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQd25JbHJEMGxIaHdiU21WZ0xqekZqakRUYWt1OXRBZUpWZVhEbkVEUWt3ZjNnVTYtbktVeUtLbkhPaUFXZnNZX3AxRHdSbWZTbWw4bGZVVHNUY01zS0o1bm9iN2U4SXZBYU41ZFI5cFBFdF82UHhoZzlPUkN0cndXRmMwVXh6b3RjWnRTenJsM2dERXRtSXc?oc=5",
-      "published_at": "2026-11-12T12:30:50+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "sabotage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 12,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 2,
-      "matrix_snapshot_date": "2026-11-12"
-    },
-    {
-      "event_id": "c749c568da006fd0",
-      "title": "Poland indicts Ukrainian man for assisting in rail sabotage on behalf of Russia - Notes From Poland",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQeDQwRFhtaHUyMWU2OEtSNlVyMTRZaVhjTFlOSXlYdEI3X0VHTWpYb29rTWcyRDI4OUVVYjI1NjBwRUswT3QtZVB1Y01MbVpWMUN0S0t6bjBqeGhyWWJBTVZxdXpic1pSOFdHSkUwODJVTGdxMTdmdHZPNllUb25Zd2ZqQ1hnZE5GUXpfTXRwMUFSVXpQSndkN2tCSXd4TzFQa29UNktjOFdTS3VndUpfcWVOdnEzeTBJNHFN?oc=5",
-      "published_at": "2026-11-12T10:48:36+00:00",
-      "primary_country": "Poland",
-      "countries": [
-        "Poland"
-      ],
-      "categories": [
-        "critical_infrastructure",
-        "sabotage",
-        "espionage"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 20,
-      "hybrid_threat_level": "guarded",
-      "source_names": [
-        "Google News - Baltic sabotage Russia"
-      ],
-      "related_item_count": 3,
-      "matrix_snapshot_date": "2026-11-12"
-    },
-    {
-      "event_id": "ace9af6e00b5c524",
-      "title": "Minister sees no threat in people changing their ethnicity in the population register",
-      "url": "https://news.err.ee/1610192707/minister-sees-no-threat-in-people-changing-their-ethnicity-in-the-population-register",
-      "published_at": "2026-11-12T10:00:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-11-12"
-    },
-    {
-      "event_id": "a2501b3f6ca92f2c",
-      "title": "Lithuania warns Russia is exploiting drone incidents to spread disinformation - Yahoo",
-      "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNTUFhelFSV2dHQ2RkZFg1N1BjMzNDS3pkVE5aaldUcGtPRXZfVVNIRnJxNHJPNWNvc3NaQkxrNDlhWDcxTk40YVYzaC1iMHJLcnVWWlkwVmZmQm03MUUteklxU2JKdWhXdUV0YzBacE52SXVib2ZaZ0UzQWhteDZTS052d3l0bWt6TVh4OUM4SXpZQkkzTUp5aHJmWWc?oc=5",
-      "published_at": "2026-11-11T10:56:00+00:00",
-      "primary_country": "Lithuania",
-      "countries": [
-        "Lithuania"
-      ],
-      "categories": [
-        "disinformation"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "warning",
-      "event_subtype": "indicator",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 8,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic drone incident Russia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-11-11"
-    },
-    {
-      "event_id": "062a6d5d108489b4",
-      "title": "NATO fighter jets miss drone as air-threat alerts sweep Baltic states - AeroTime",
-      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPZWdZRUhQTWhRSnR3QUNwckMwcnM1czU4TzdvRS1aYmloYXlnRTJDbkFDeXZnN0FWY3ZHWC1ZaDVVMG9INlQzS0d3bjhQbkRIZ2VsNlJWYlQxNU5DT1lVYTlVOXVOMEJ4UktyZklNZnRHc0JqZGhVWUl0SkwtUk9ua0c2MTLSAYoBQVVfeXFMT1laM2dtbzd1S0xBQnhfMFhDQlRNZWp0eE9uc0VVY2dZTFRPSUhWVW1lSlJObGctMnF5MFZkQy1XdU5pcWJEcXlIdG9DdzM0TVlXQzNNaUVzSkpzbllqbTlZQmo5WS1KWC1VNzM5Wk0zbldPZVY0ZUhiUkNLWjg0MlZMNmt2cWFrMm1n?oc=5",
-      "published_at": "2026-11-11T08:56:41+00:00",
-      "primary_country": "Regional",
-      "countries": [],
-      "categories": [],
-      "actors": [
-        "NATO"
-      ],
-      "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
-      "analysis_layer": null,
-      "geographic_scope": "regional_direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 0,
-      "hybrid_threat_level": "low",
-      "source_names": [
-        "Google News - Baltic critical infrastructure Russia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-11-11"
-    },
-    {
-      "event_id": "8ecdbca21f1bfb46",
-      "title": "EDF issues potential air threat alerts across southern, eastern Estonia",
-      "url": "https://news.err.ee/1610192126/edf-issues-potential-air-threat-alerts-across-southern-eastern-estonia",
-      "published_at": "2026-11-11T05:11:00+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
-      ],
-      "categories": [
-        "critical_infrastructure"
-      ],
-      "actors": [
-        "Russia"
-      ],
-      "locations": [],
-      "event_type": "operational",
-      "event_subtype": "incident",
-      "analysis_layer": null,
-      "geographic_scope": "direct",
-      "source_count": 1,
-      "confidence": "low",
-      "confidence_score": 38,
-      "hybrid_threat_score": 38,
-      "hybrid_threat_level": "guarded",
-      "source_names": [
-        "ERR News Estonia"
-      ],
-      "related_item_count": 1,
-      "matrix_snapshot_date": "2026-11-11"
     }
   ],
   "daily_matrix": [
-    {
-      "date": "2026-11-09",
-      "status": "available",
-      "snapshot_generated_at": "2026-11-09T14:02:12.440851+00:00",
-      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
-      "score_engine_version": "threat_score_v3_2_current_historical_split",
-      "event_count": 4,
-      "incident_count": 1,
-      "activity_count": 0,
-      "indicator_count": 1,
-      "assessment_count": 2,
-      "score_total": 33.0,
-      "average_score": 16.5,
-      "highest_score": 27.0,
-      "operational_index": 27.0,
-      "early_warning_index": 6.0,
-      "threat_index": 22.8,
-      "overall_level": "guarded",
-      "country_summary": {
-        "Estonia": {
-          "country": "Estonia",
-          "event_count": 3,
-          "incident_count": 1,
-          "activity_count": 0,
-          "indicator_count": 0,
-          "assessment_count": 2,
-          "score_total": 27,
-          "average_score": 27.0,
-          "highest_score": 27,
-          "operational_index": 27.0,
-          "early_warning_index": 0.0,
-          "threat_index": 21.6,
-          "overall_level": "guarded",
-          "categories": {
-            "cyber": 1
-          },
-          "actors": {
-            "Russia": 2
-          }
-        },
-        "Regional": {
-          "country": "Regional",
-          "event_count": 1,
-          "incident_count": 0,
-          "activity_count": 0,
-          "indicator_count": 1,
-          "assessment_count": 0,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6,
-          "operational_index": 0.0,
-          "early_warning_index": 6.0,
-          "threat_index": 6.0,
-          "overall_level": "low",
-          "categories": {
-            "sabotage": 1
-          },
-          "actors": {
-            "Russia": 1
-          }
-        }
-      },
-      "category_summary": {
-        "cyber": {
-          "event_count": 1,
-          "score_total": 27,
-          "average_score": 27.0,
-          "highest_score": 27
-        },
-        "sabotage": {
-          "event_count": 1,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6
-        }
-      },
-      "actor_summary": {
-        "Russia": {
-          "event_count": 3,
-          "score_total": 6,
-          "average_score": 2.0,
-          "highest_score": 6
-        }
-      },
-      "subtype_summary": {
-        "incident": {
-          "event_count": 1,
-          "score_total": 27,
-          "average_score": 27.0,
-          "highest_score": 27
-        },
-        "activity": {
-          "event_count": 0,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        },
-        "indicator": {
-          "event_count": 1,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6
-        },
-        "assessment": {
-          "event_count": 2,
-          "score_total": 0,
-          "average_score": 0.0,
-          "highest_score": 0
-        }
-      },
-      "scope_summary": {
-        "direct": {
-          "event_count": 3,
-          "score_total": 27,
-          "average_score": 9.0,
-          "highest_score": 27
-        },
-        "external_context": {
-          "event_count": 1,
-          "score_total": 6,
-          "average_score": 6.0,
-          "highest_score": 6
-        }
-      },
-      "hotspot": {
-        "location": "Estonia",
-        "score": 27,
-        "event_count": 3
-      },
-      "key_driver": "cyber",
-      "dominant_actor": "Russia",
-      "top_events": [
-        {
-          "event_id": "ebcb6e32c145f575",
-          "title": "How is Estonia protecting itself against intensifying cyberthreats?",
-          "url": "https://news.err.ee/1610190514/how-is-estonia-protecting-itself-against-intensifying-cyberthreats",
-          "published_at": "2026-11-09T12:04:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "cyber"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 27,
-          "hybrid_threat_level": "guarded",
-          "source_names": [
-            "ERR News Estonia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "628ba344ded414de",
-          "title": "Russia Uses 'Disposable Agents' Recruited Locally for Sabotage Operations - news.sbs.co.kr",
-          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE55d0ZuTEY1ZTF6eTUyOWduNjBmVmxQMUwwRVNRQ3l3S1hDLTdJTG1zQnd4dDlIVGk4NVgzRDRRMTd4SF95aDVQUk50WnF3UmV4SFZ0UFhTdjg2VEFncWhiUkhLdDYzRENFSjNaUF9n?oc=5",
-          "published_at": "2026-11-09T08:10:49+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "external_context",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 6,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "07f55b9d685c5744",
-          "title": "Nearly 100 European Supermarkets Hit by Cyberattacks as Estonia Warns of Russian Terrorism - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1qVTdGbkJTZXRLVHkzcmI2THRDVE9fSFR6Mi1GN09XS3phdU1xY1JWYmg3eWJJYVlDM2l6bkpWZWFhQVNQZ2h0TlgxVQ?oc=5",
-          "published_at": "2026-11-09T09:26:56+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "3c30598ef4837715",
-          "title": "Estonia accuses Russia of state-sponsored terrorism over hybrid attacks - Financial Times",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQWWJ2a1dNdHphbHplcDVRWEg2TFNENENFb3hrcElva083ZGxhb0JJWWh3RFZDaGd3T0hyUlhoeTJpZUJWbUIxVHhpakhzX1JieVdPNXhGb0xyZkNBa2x1VVJUSk9MUDByYkJvb24wVE9nRWtEWUc2RTFMcjBKelFSMDN3Mzk?oc=5",
-          "published_at": "2026-11-09T05:00:25+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic Russia hybrid threat"
-          ],
-          "related_item_count": 1
-        }
-      ],
-      "events": [
-        {
-          "event_id": "ebcb6e32c145f575",
-          "title": "How is Estonia protecting itself against intensifying cyberthreats?",
-          "url": "https://news.err.ee/1610190514/how-is-estonia-protecting-itself-against-intensifying-cyberthreats",
-          "published_at": "2026-11-09T12:04:00+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [
-            "cyber"
-          ],
-          "actors": [],
-          "locations": [],
-          "event_type": "operational",
-          "event_subtype": "incident",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 27,
-          "hybrid_threat_level": "guarded",
-          "source_names": [
-            "ERR News Estonia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "07f55b9d685c5744",
-          "title": "Nearly 100 European Supermarkets Hit by Cyberattacks as Estonia Warns of Russian Terrorism - Kyiv Post",
-          "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1qVTdGbkJTZXRLVHkzcmI2THRDVE9fSFR6Mi1GN09XS3phdU1xY1JWYmg3eWJJYVlDM2l6bkpWZWFhQVNQZ2h0TlgxVQ?oc=5",
-          "published_at": "2026-11-09T09:26:56+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "628ba344ded414de",
-          "title": "Russia Uses 'Disposable Agents' Recruited Locally for Sabotage Operations - news.sbs.co.kr",
-          "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE55d0ZuTEY1ZTF6eTUyOWduNjBmVmxQMUwwRVNRQ3l3S1hDLTdJTG1zQnd4dDlIVGk4NVgzRDRRMTd4SF95aDVQUk50WnF3UmV4SFZ0UFhTdjg2VEFncWhiUkhLdDYzRENFSjNaUF9n?oc=5",
-          "published_at": "2026-11-09T08:10:49+00:00",
-          "primary_country": "Regional",
-          "countries": [],
-          "categories": [
-            "sabotage"
-          ],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "warning",
-          "event_subtype": "indicator",
-          "analysis_layer": null,
-          "geographic_scope": "external_context",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 6,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic sabotage Russia"
-          ],
-          "related_item_count": 1
-        },
-        {
-          "event_id": "3c30598ef4837715",
-          "title": "Estonia accuses Russia of state-sponsored terrorism over hybrid attacks - Financial Times",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQWWJ2a1dNdHphbHplcDVRWEg2TFNENENFb3hrcElva083ZGxhb0JJWWh3RFZDaGd3T0hyUlhoeTJpZUJWbUIxVHhpakhzX1JieVdPNXhGb0xyZkNBa2x1VVJUSk9MUDByYkJvb24wVE9nRWtEWUc2RTFMcjBKelFSMDN3Mzk?oc=5",
-          "published_at": "2026-11-09T05:00:25+00:00",
-          "primary_country": "Estonia",
-          "countries": [
-            "Estonia"
-          ],
-          "categories": [],
-          "actors": [
-            "Russia"
-          ],
-          "locations": [],
-          "event_type": "background",
-          "event_subtype": "assessment",
-          "analysis_layer": null,
-          "geographic_scope": "direct",
-          "source_count": 1,
-          "confidence": "low",
-          "confidence_score": 38,
-          "hybrid_threat_score": 0,
-          "hybrid_threat_level": "low",
-          "source_names": [
-            "Google News - Baltic Russia hybrid threat"
-          ],
-          "related_item_count": 1
-        }
-      ]
-    },
     {
       "date": "2026-11-10",
       "status": "available",
@@ -2302,6 +1965,757 @@
       "dominant_actor": null,
       "top_events": [],
       "events": []
+    },
+    {
+      "date": "2026-11-16",
+      "status": "available",
+      "snapshot_generated_at": "2026-11-16T13:47:32.788604+00:00",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "event_count": 9,
+      "incident_count": 7,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 1,
+      "score_total": 435.0,
+      "average_score": 54.38,
+      "highest_score": 100.0,
+      "operational_index": 68.2,
+      "early_warning_index": 12.0,
+      "threat_index": 56.96,
+      "overall_level": "elevated",
+      "country_summary": {
+        "Estonia": {
+          "country": "Estonia",
+          "event_count": 6,
+          "incident_count": 6,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 0,
+          "score_total": 381,
+          "average_score": 63.5,
+          "highest_score": 100,
+          "operational_index": 68.2,
+          "early_warning_index": 0.0,
+          "threat_index": 54.56,
+          "overall_level": "elevated",
+          "categories": {
+            "sabotage": 6,
+            "espionage": 2
+          },
+          "actors": {
+            "Russia": 6,
+            "GRU": 3,
+            "NATO": 1
+          }
+        },
+        "Lithuania": {
+          "country": "Lithuania",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 12,
+          "average_score": 12.0,
+          "highest_score": 12,
+          "operational_index": 0.0,
+          "early_warning_index": 12.0,
+          "threat_index": 12.0,
+          "overall_level": "low",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {
+            "Russia": 1
+          }
+        },
+        "Poland": {
+          "country": "Poland",
+          "event_count": 1,
+          "incident_count": 0,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0,
+          "operational_index": 0.0,
+          "early_warning_index": 0.0,
+          "threat_index": 0.0,
+          "overall_level": "low",
+          "categories": {},
+          "actors": {
+            "Russia": 1
+          }
+        },
+        "Regional": {
+          "country": "Regional",
+          "event_count": 1,
+          "incident_count": 1,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 0,
+          "score_total": 42,
+          "average_score": 42.0,
+          "highest_score": 42,
+          "operational_index": 42.0,
+          "early_warning_index": 0.0,
+          "threat_index": 33.6,
+          "overall_level": "guarded",
+          "categories": {
+            "sabotage": 1
+          },
+          "actors": {
+            "Russia": 1
+          }
+        }
+      },
+      "category_summary": {
+        "sabotage": {
+          "event_count": 8,
+          "score_total": 435,
+          "average_score": 54.38,
+          "highest_score": 100
+        },
+        "espionage": {
+          "event_count": 2,
+          "score_total": 194,
+          "average_score": 97.0,
+          "highest_score": 100
+        }
+      },
+      "actor_summary": {
+        "Russia": {
+          "event_count": 9,
+          "score_total": 435,
+          "average_score": 48.33,
+          "highest_score": 100
+        },
+        "GRU": {
+          "event_count": 3,
+          "score_total": 249,
+          "average_score": 83.0,
+          "highest_score": 100
+        },
+        "NATO": {
+          "event_count": 1,
+          "score_total": 94,
+          "average_score": 94.0,
+          "highest_score": 94
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 7,
+          "score_total": 423,
+          "average_score": 60.43,
+          "highest_score": 100
+        },
+        "activity": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "indicator": {
+          "event_count": 1,
+          "score_total": 12,
+          "average_score": 12.0,
+          "highest_score": 12
+        },
+        "assessment": {
+          "event_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 9,
+          "score_total": 435,
+          "average_score": 48.33,
+          "highest_score": 100
+        }
+      },
+      "hotspot": {
+        "location": "Estonia",
+        "score": 326,
+        "event_count": 5
+      },
+      "key_driver": "sabotage",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "0eb88a1ac10d6854",
+          "title": "Estonia to Close Border Crossings With Russia After Foiled Sabotage Attempt - The Moscow Times",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOUGFTRjB1dTRhd1EtMTRrYUloMndQR0Y3RHE3cWZVYmgwWndKRmtHbFNNeEdTZVUwRkd1VnNncjNLdkNjY19ua2g0ZTh0dHc5Q3lmLW9fUE5VX2Z5VjBQd2FaR0VhTXhDYi12UE4zYjVPSEttcVo1bDVEUGZsVWhDaDJfeXZvRFBCR25zSVU4SGRCWHRERTkwZmVtN0Q4djR3b0VCWllqcjc1enkwYm1hVTNxVU4wamE5aHI1cGp2UzR0Zw?oc=5",
+          "published_at": "2026-11-16T10:44:32+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage",
+            "espionage"
+          ],
+          "actors": [
+            "Russia",
+            "GRU"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 5,
+          "confidence": "very_high",
+          "confidence_score": 93,
+          "hybrid_threat_score": 100,
+          "hybrid_threat_level": "critical",
+          "source_names": [
+            "Google News - Baltic sabotage Russia",
+            "Google News - Baltic drone incident Russia",
+            "Google News - CERT Estonia cyber threat",
+            "ERR News Estonia",
+            "Polish Radio English"
+          ],
+          "related_item_count": 18
+        },
+        {
+          "event_id": "b858b53b7d639819",
+          "title": "Estonia to close border with Russia after arson attack on local drone maker - Defense News",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUEVLYktfcjBFLXQwa2F5SEJaNThZMmIxZmNxWFp1bVVRUXFJMFF5c1JTUFUzOUxmYkpQSmhHQ2RTdUt3Qm1OaHo1WW4xa2QwZVhHRUVtWjhEemVwM2JhR1E2VThpQVBTd3o2OGtsdGFyWVYyXzdBWURHemZiY3FjUnhGdkFheFc2OXNwbE9odXNQYl9GUW5aM1gwYnRHcFNURXJhYlptWTlsQmZMZmxjd1pLZV9yMzU5UnVmNlF6QWVFZ1g5b2FiWA?oc=5",
+          "published_at": "2026-11-16T13:23:20+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage",
+            "espionage"
+          ],
+          "actors": [
+            "Russia",
+            "NATO",
+            "GRU"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 3,
+          "confidence": "medium",
+          "confidence_score": 64,
+          "hybrid_threat_score": 94,
+          "hybrid_threat_level": "critical",
+          "source_names": [
+            "Google News - CERT Estonia cyber threat",
+            "Google News - Baltic sabotage Russia",
+            "Google News - Baltic critical infrastructure Russia"
+          ],
+          "related_item_count": 10
+        },
+        {
+          "event_id": "2ec32b3f359cc350",
+          "title": "DW News. . Estonia will shut all border crossings with Russia from December 1. The move follows a suspected sabotage attack on a drone manufacturer, which Tallinn says was orchestrated by Russian military intelligence. #dwnews - Facebook",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQNmNZSXNieDJaM1FvY2Jia3BrWVFwbXZhN256ZEctQVI0VUdjS09tZ0tDT09md1NDR1BzS052WDI1Z29JTGlfLW04TU05OHB4OFJTc1Z0Y0ZPQnFCZVZMcnFDUkNMWWNRSzhlaTN1MU15Q0t3eW5DUWRsQWE2RlpYY3R5ZFQ0bzA3cVdlRjRMRjJDZHJPMW9uV3lSbHRxMDlGZ3B1T2dsNFhoZ0tpRjdtN0FRWnZLSjdfR21IUVI1S0R6Wm05Sk80VTVQZFpPdnhET1hnVThHUlJVSFhqVkJSVHh3?oc=5",
+          "published_at": "2026-11-16T05:00:39+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia",
+            "GRU"
+          ],
+          "locations": [
+            "Tallinn"
+          ],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 55,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "1a50501cecda999c",
+          "title": "Estonia's proposed eastern border closures are 'Russophobia,' Russian MFA says",
+          "url": "https://news.err.ee/1610197091/estonia-s-proposed-eastern-border-closures-are-russophobia-russian-mfa-says",
+          "published_at": "2026-11-16T06:55:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 48,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "344e939f7cf9ed8d",
+          "title": "Estonia To Close Russian Border After Alleged Sabotage Attack On Defence Firm - Yahoo",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQbHdhY1NEd19vS01KNEMtUENXaG5SR1dQckFkU1Fyd1BvbHRfTkhXdkpfR0kyVmtIdGJ5OVBlUnZhN3U5Tk9CNXNiOWhXLThWZGEwSEVrSlZiNi1ZZHVWb1kwUWJLMmxyN0FiUUlXZ21ZQ2RSaXNWeVVsNF9UU1NyTHFCa1Bwdm0tSTZ1YnZn?oc=5",
+          "published_at": "2026-11-16T10:15:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 44,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "c5f7b0c9d7c97570",
+          "title": "Estonian security chief: 'I hope Latvia will take sufficient measures'",
+          "url": "https://eng.lsm.lv/article/society/defence/16.11.2026-estonian-security-chief-i-hope-latvia-will-take-sufficient-measures.a672073/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+          "published_at": "2026-11-16T08:09:08+00:00",
+          "primary_country": "Regional",
+          "countries": [
+            "Estonia",
+            "Latvia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 42,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "LSM English Latvia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "35318b0ea8a9354e",
+          "title": "Estonian drone company targeted in sabotage attempt as part of 'Russia's hybrid war against Europe': Prime Minister Michal - Breaking Defense",
+          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPR1JzU1JvTzlvVE9BTVowVnduaEVsYVZUN3ZUczgta05FQTZtVlZabk9aYmlQTVYybWZybzB6S3ktM3FqcW5zTWR5cFZhbWJZMmoya2VHSjM5Z0k5WFVydkR1V0k5QWRXdE9UR242blRJcWRBT0phR1FyR0NJanFvYV9XSjFBMmMwTklRMWY4dVFwNGhFWUNlZHZJbkg5dzdFTWNIMWRoa3JtYlRZSWduelZ4RlhpSEQzbTJNTExZYVJ4amF1dzhyYWg1dmlQaXBzdjNOR3lyQlhPRXhWNEpta0RHNlVaU0R1NnFZ?oc=5",
+          "published_at": "2026-11-16T10:30:50+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 40,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - NATO Baltic hybrid threat"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "fb1f59c56ed66215",
+          "title": "Lithuania could consider closing border with Russia if sabotage threats persist: President - Anadolu Ajansı",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOMThYVVdDLWVHM09jWEE1dEozdXNMQ044UnFjeE5TVUFXakxHLVFfNzhxdkJCNEZ0RlJOQm11d3ZPRk5URzBjbmVYSWpMbDVBWkN3VjdtUUdEU3BEOGhjTWlOcVAyT0dwdkVseVZjX2lITFp2NVotOWt2SnpabGtvY0l3SDc3dGgwRDY5MHU1TFhxVndsQWd1VEVQUzFuWGRyZnlMQ1l3a2VfSzBxYnA0R3J2cGVfalF4R3BrV2RqaHdxRTU4cGFGVA?oc=5",
+          "published_at": "2026-11-16T12:28:24+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 12,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "36bcd9282c8af53a",
+          "title": "\"Glory to UPA\" inscriptions appeared on two monuments in Warsaw: Ukrainian embassy says this is part of Russia’s hybrid war. PHOTOS - Цензор.НЕТ",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPVkZYX1R6SjJwcm5oTTRyWG51QVNDbGNDeHF0VldLTmtmVmZKbVdmdWdOcHozYjJWNjZCQ1hRZkZKSW1aenpFUmdEMGJFczE4MFRXS09GLXZQY0J2MUlMbFNZalpPMUFZSldLODFDcmN0YVJmT2JDc2FhcFlVWE5kQzFGeWp4NS1OYmlMcDhrVUYtUkFZdHdSRWRINEE3Z1lRREM2Tg?oc=5",
+          "published_at": "2026-11-16T05:36:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic Russia hybrid threat"
+          ],
+          "related_item_count": 2
+        }
+      ],
+      "events": [
+        {
+          "event_id": "b858b53b7d639819",
+          "title": "Estonia to close border with Russia after arson attack on local drone maker - Defense News",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOUEVLYktfcjBFLXQwa2F5SEJaNThZMmIxZmNxWFp1bVVRUXFJMFF5c1JTUFUzOUxmYkpQSmhHQ2RTdUt3Qm1OaHo1WW4xa2QwZVhHRUVtWjhEemVwM2JhR1E2VThpQVBTd3o2OGtsdGFyWVYyXzdBWURHemZiY3FjUnhGdkFheFc2OXNwbE9odXNQYl9GUW5aM1gwYnRHcFNURXJhYlptWTlsQmZMZmxjd1pLZV9yMzU5UnVmNlF6QWVFZ1g5b2FiWA?oc=5",
+          "published_at": "2026-11-16T13:23:20+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage",
+            "espionage"
+          ],
+          "actors": [
+            "Russia",
+            "NATO",
+            "GRU"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 3,
+          "confidence": "medium",
+          "confidence_score": 64,
+          "hybrid_threat_score": 94,
+          "hybrid_threat_level": "critical",
+          "source_names": [
+            "Google News - CERT Estonia cyber threat",
+            "Google News - Baltic sabotage Russia",
+            "Google News - Baltic critical infrastructure Russia"
+          ],
+          "related_item_count": 10
+        },
+        {
+          "event_id": "fb1f59c56ed66215",
+          "title": "Lithuania could consider closing border with Russia if sabotage threats persist: President - Anadolu Ajansı",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxOMThYVVdDLWVHM09jWEE1dEozdXNMQ044UnFjeE5TVUFXakxHLVFfNzhxdkJCNEZ0RlJOQm11d3ZPRk5URzBjbmVYSWpMbDVBWkN3VjdtUUdEU3BEOGhjTWlOcVAyT0dwdkVseVZjX2lITFp2NVotOWt2SnpabGtvY0l3SDc3dGgwRDY5MHU1TFhxVndsQWd1VEVQUzFuWGRyZnlMQ1l3a2VfSzBxYnA0R3J2cGVfalF4R3BrV2RqaHdxRTU4cGFGVA?oc=5",
+          "published_at": "2026-11-16T12:28:24+00:00",
+          "primary_country": "Lithuania",
+          "countries": [
+            "Lithuania"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 12,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "0eb88a1ac10d6854",
+          "title": "Estonia to Close Border Crossings With Russia After Foiled Sabotage Attempt - The Moscow Times",
+          "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOUGFTRjB1dTRhd1EtMTRrYUloMndQR0Y3RHE3cWZVYmgwWndKRmtHbFNNeEdTZVUwRkd1VnNncjNLdkNjY19ua2g0ZTh0dHc5Q3lmLW9fUE5VX2Z5VjBQd2FaR0VhTXhDYi12UE4zYjVPSEttcVo1bDVEUGZsVWhDaDJfeXZvRFBCR25zSVU4SGRCWHRERTkwZmVtN0Q4djR3b0VCWllqcjc1enkwYm1hVTNxVU4wamE5aHI1cGp2UzR0Zw?oc=5",
+          "published_at": "2026-11-16T10:44:32+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage",
+            "espionage"
+          ],
+          "actors": [
+            "Russia",
+            "GRU"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 5,
+          "confidence": "very_high",
+          "confidence_score": 93,
+          "hybrid_threat_score": 100,
+          "hybrid_threat_level": "critical",
+          "source_names": [
+            "Google News - Baltic sabotage Russia",
+            "Google News - Baltic drone incident Russia",
+            "Google News - CERT Estonia cyber threat",
+            "ERR News Estonia",
+            "Polish Radio English"
+          ],
+          "related_item_count": 18
+        },
+        {
+          "event_id": "35318b0ea8a9354e",
+          "title": "Estonian drone company targeted in sabotage attempt as part of 'Russia's hybrid war against Europe': Prime Minister Michal - Breaking Defense",
+          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPR1JzU1JvTzlvVE9BTVowVnduaEVsYVZUN3ZUczgta05FQTZtVlZabk9aYmlQTVYybWZybzB6S3ktM3FqcW5zTWR5cFZhbWJZMmoya2VHSjM5Z0k5WFVydkR1V0k5QWRXdE9UR242blRJcWRBT0phR1FyR0NJanFvYV9XSjFBMmMwTklRMWY4dVFwNGhFWUNlZHZJbkg5dzdFTWNIMWRoa3JtYlRZSWduelZ4RlhpSEQzbTJNTExZYVJ4amF1dzhyYWg1dmlQaXBzdjNOR3lyQlhPRXhWNEpta0RHNlVaU0R1NnFZ?oc=5",
+          "published_at": "2026-11-16T10:30:50+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 40,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - NATO Baltic hybrid threat"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "344e939f7cf9ed8d",
+          "title": "Estonia To Close Russian Border After Alleged Sabotage Attack On Defence Firm - Yahoo",
+          "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQbHdhY1NEd19vS01KNEMtUENXaG5SR1dQckFkU1Fyd1BvbHRfTkhXdkpfR0kyVmtIdGJ5OVBlUnZhN3U5Tk9CNXNiOWhXLThWZGEwSEVrSlZiNi1ZZHVWb1kwUWJLMmxyN0FiUUlXZ21ZQ2RSaXNWeVVsNF9UU1NyTHFCa1Bwdm0tSTZ1YnZn?oc=5",
+          "published_at": "2026-11-16T10:15:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 44,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "c5f7b0c9d7c97570",
+          "title": "Estonian security chief: 'I hope Latvia will take sufficient measures'",
+          "url": "https://eng.lsm.lv/article/society/defence/16.11.2026-estonian-security-chief-i-hope-latvia-will-take-sufficient-measures.a672073/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+          "published_at": "2026-11-16T08:09:08+00:00",
+          "primary_country": "Regional",
+          "countries": [
+            "Estonia",
+            "Latvia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 42,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "LSM English Latvia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "1a50501cecda999c",
+          "title": "Estonia's proposed eastern border closures are 'Russophobia,' Russian MFA says",
+          "url": "https://news.err.ee/1610197091/estonia-s-proposed-eastern-border-closures-are-russophobia-russian-mfa-says",
+          "published_at": "2026-11-16T06:55:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 48,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "36bcd9282c8af53a",
+          "title": "\"Glory to UPA\" inscriptions appeared on two monuments in Warsaw: Ukrainian embassy says this is part of Russia’s hybrid war. PHOTOS - Цензор.НЕТ",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPVkZYX1R6SjJwcm5oTTRyWG51QVNDbGNDeHF0VldLTmtmVmZKbVdmdWdOcHozYjJWNjZCQ1hRZkZKSW1aenpFUmdEMGJFczE4MFRXS09GLXZQY0J2MUlMbFNZalpPMUFZSldLODFDcmN0YVJmT2JDc2FhcFlVWE5kQzFGeWp4NS1OYmlMcDhrVUYtUkFZdHdSRWRINEE3Z1lRREM2Tg?oc=5",
+          "published_at": "2026-11-16T05:36:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic Russia hybrid threat"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "2ec32b3f359cc350",
+          "title": "DW News. . Estonia will shut all border crossings with Russia from December 1. The move follows a suspected sabotage attack on a drone manufacturer, which Tallinn says was orchestrated by Russian military intelligence. #dwnews - Facebook",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxQNmNZSXNieDJaM1FvY2Jia3BrWVFwbXZhN256ZEctQVI0VUdjS09tZ0tDT09md1NDR1BzS052WDI1Z29JTGlfLW04TU05OHB4OFJTc1Z0Y0ZPQnFCZVZMcnFDUkNMWWNRSzhlaTN1MU15Q0t3eW5DUWRsQWE2RlpYY3R5ZFQ0bzA3cVdlRjRMRjJDZHJPMW9uV3lSbHRxMDlGZ3B1T2dsNFhoZ0tpRjdtN0FRWnZLSjdfR21IUVI1S0R6Wm05Sk80VTVQZFpPdnhET1hnVThHUlJVSFhqVkJSVHh3?oc=5",
+          "published_at": "2026-11-16T05:00:39+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage"
+          ],
+          "actors": [
+            "Russia",
+            "GRU"
+          ],
+          "locations": [
+            "Tallinn"
+          ],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 55,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 1
+        }
+      ]
     }
   ]
 }
