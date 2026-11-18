@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-11-17T14:39:27.278535+00:00",
-  "snapshot_date": "2026-11-17",
+  "generated_at": "2026-11-18T14:16:26.959431+00:00",
+  "snapshot_date": "2026-11-18",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-11-17T14:39:26.964798+00:00",
+  "source_generated_at": "2026-11-18T14:16:26.454505+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,55 +17,91 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 1,
-    "incident_count": 0,
+    "event_count": 3,
+    "incident_count": 2,
     "activity_count": 0,
-    "indicator_count": 0,
-    "assessment_count": 1,
-    "score_total": 0,
-    "average_score": 0.0,
-    "highest_score": 0,
-    "operational_index": 0.0,
-    "early_warning_index": 0.0,
-    "threat_index": 0.0,
-    "overall_level": "low"
+    "indicator_count": 1,
+    "assessment_count": 0,
+    "score_total": 77,
+    "average_score": 25.67,
+    "highest_score": 45,
+    "operational_index": 32.5,
+    "early_warning_index": 12.0,
+    "threat_index": 28.4,
+    "overall_level": "guarded"
   },
   "country_summary": {
-    "Estonia": {
-      "country": "Estonia",
+    "Poland": {
+      "country": "Poland",
+      "event_count": 2,
+      "incident_count": 1,
+      "activity_count": 0,
+      "indicator_count": 1,
+      "assessment_count": 0,
+      "score_total": 57,
+      "average_score": 28.5,
+      "highest_score": 45,
+      "operational_index": 45.0,
+      "early_warning_index": 12.0,
+      "threat_index": 38.4,
+      "overall_level": "guarded",
+      "categories": {
+        "sabotage": 2
+      },
+      "actors": {
+        "Russia": 2
+      }
+    },
+    "Regional": {
+      "country": "Regional",
       "event_count": 1,
-      "incident_count": 0,
+      "incident_count": 1,
       "activity_count": 0,
       "indicator_count": 0,
-      "assessment_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0,
-      "operational_index": 0.0,
+      "assessment_count": 0,
+      "score_total": 20,
+      "average_score": 20.0,
+      "highest_score": 20,
+      "operational_index": 20.0,
       "early_warning_index": 0.0,
-      "threat_index": 0.0,
+      "threat_index": 16.0,
       "overall_level": "low",
-      "categories": {},
+      "categories": {
+        "cyber": 1
+      },
       "actors": {
         "Russia": 1
       }
     }
   },
-  "category_summary": {},
+  "category_summary": {
+    "sabotage": {
+      "event_count": 2,
+      "score_total": 57,
+      "average_score": 28.5,
+      "highest_score": 45
+    },
+    "cyber": {
+      "event_count": 1,
+      "score_total": 20,
+      "average_score": 20.0,
+      "highest_score": 20
+    }
+  },
   "actor_summary": {
     "Russia": {
-      "event_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 3,
+      "score_total": 77,
+      "average_score": 25.67,
+      "highest_score": 45
     }
   },
   "subtype_summary": {
     "incident": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 2,
+      "score_total": 65,
+      "average_score": 32.5,
+      "highest_score": 45
     },
     "activity": {
       "event_count": 0,
@@ -74,13 +110,13 @@
       "highest_score": 0
     },
     "indicator": {
-      "event_count": 0,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "event_count": 1,
+      "score_total": 12,
+      "average_score": 12.0,
+      "highest_score": 12
     },
     "assessment": {
-      "event_count": 1,
+      "event_count": 0,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
@@ -88,75 +124,201 @@
   },
   "scope_summary": {
     "direct": {
+      "event_count": 2,
+      "score_total": 57,
+      "average_score": 28.5,
+      "highest_score": 45
+    },
+    "external_context": {
       "event_count": 1,
-      "score_total": 0,
-      "average_score": 0.0,
-      "highest_score": 0
+      "score_total": 20,
+      "average_score": 20.0,
+      "highest_score": 20
     }
   },
   "hotspot": {
-    "location": "Estonia",
-    "score": 0,
-    "event_count": 1
+    "location": "Poland",
+    "score": 57,
+    "event_count": 2
   },
-  "key_driver": null,
+  "key_driver": "sabotage",
   "dominant_actor": "Russia",
   "top_events": [
     {
-      "event_id": "f7df8e335767ef77",
-      "title": "Grey Zone Guest Paper Series | Estonia’s Preparedness to Counter Russian Hybrid Threats - The Hague Centre for Strategic Studies",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQTkpZamRUMTl5RVpXeE12akhtMmR1Z19FTEw5ZHVHdG5May1QTGQycUhwZlZlUnRHc244eWdoR3hlRTFrSzVnNnVHWkZqRWNEbHFHWW10eDhwOXBVeG1qemdqWk9qN1pZbUJVN1dvRHBvSWRYSHc0TUNEQXdRV1RFc1hzUzF5Zw?oc=5",
-      "published_at": "2026-11-17T14:05:50+00:00",
-      "primary_country": "Estonia",
+      "event_id": "dd846ae780d44a69",
+      "title": "Russia reportedly planned mass-casualty sabotage attack in Poland to be blamed on Ukraine - Українська правда",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1WT3BwUk1aTG90aXd0U3JZVEtZSF9HMjlIYlVHMnhxSzdnN3BfeXc1N2pBNmlIOHpCamE3ajJLT3M0YVZPNFpzbFlZMG1VaUtfNXVxWmZneDl4Zjhvek5zUzNINE3SAXBBVV95cUxObVl3SDV3Y0ZHR2hMLTJpcWI4aTJ0Z1VMT0JCdE9Qa2xhcmRMZ2VBOGJRRjMwMXFqOGQwdXhWVlRsRFFxU2JRN1J1bHFjQ2p5bmpMSWR4d2VTWGRDSHhNR1ZOTXVlRm8tSXNQZWVtU3lo?oc=5",
+      "published_at": "2026-11-18T09:05:00+00:00",
+      "primary_country": "Poland",
       "countries": [
-        "Estonia"
+        "Poland"
       ],
-      "categories": [],
+      "categories": [
+        "sabotage"
+      ],
       "actors": [
         "Russia"
       ],
       "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
+      "event_type": "operational",
+      "event_subtype": "incident",
       "analysis_layer": null,
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 0,
+      "hybrid_threat_score": 45,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "4fb3f72cd30d129b",
+      "title": "Ice hockey governing body website defaced amid dispute over Russia's exclusion",
+      "url": "https://therecord.media/russia-hockey-cyberattack-championships",
+      "published_at": "2026-11-18T13:45:00+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "cyber"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 20,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "The Record Cybersecurity"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "23b4c6696d03ae10",
+      "title": "Russian intelligence services planned sabotage in Poland to blame Ukraine - media - Mezha.net",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQby1uejFiMnFNT3NNUlFiMW1ac1ZOVVc3WGM2MUFHd2ZrZE82czRTZUM1aGx5MlNXblZMRWFYejdxZUh5MFZfV1AwVmk3eWpHYzZfSW5HcDc2U0N0TFh2RVFUWFpTd20tVTEwLWE0MVkwYUtuOU55bThYZkdqYi1IYkRhNm9aNW5wVFdkdzkxR1ZFdw?oc=5",
+      "published_at": "2026-11-18T09:31:25+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 12,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic Russia hybrid threat"
+        "Google News - Baltic sabotage Russia"
       ],
       "related_item_count": 1
     }
   ],
   "events": [
     {
-      "event_id": "f7df8e335767ef77",
-      "title": "Grey Zone Guest Paper Series | Estonia’s Preparedness to Counter Russian Hybrid Threats - The Hague Centre for Strategic Studies",
-      "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQTkpZamRUMTl5RVpXeE12akhtMmR1Z19FTEw5ZHVHdG5May1QTGQycUhwZlZlUnRHc244eWdoR3hlRTFrSzVnNnVHWkZqRWNEbHFHWW10eDhwOXBVeG1qemdqWk9qN1pZbUJVN1dvRHBvSWRYSHc0TUNEQXdRV1RFc1hzUzF5Zw?oc=5",
-      "published_at": "2026-11-17T14:05:50+00:00",
-      "primary_country": "Estonia",
-      "countries": [
-        "Estonia"
+      "event_id": "4fb3f72cd30d129b",
+      "title": "Ice hockey governing body website defaced amid dispute over Russia's exclusion",
+      "url": "https://therecord.media/russia-hockey-cyberattack-championships",
+      "published_at": "2026-11-18T13:45:00+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "cyber"
       ],
-      "categories": [],
       "actors": [
         "Russia"
       ],
       "locations": [],
-      "event_type": "background",
-      "event_subtype": "assessment",
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 20,
+      "hybrid_threat_level": "guarded",
+      "source_names": [
+        "The Record Cybersecurity"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "23b4c6696d03ae10",
+      "title": "Russian intelligence services planned sabotage in Poland to blame Ukraine - media - Mezha.net",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQby1uejFiMnFNT3NNUlFiMW1ac1ZOVVc3WGM2MUFHd2ZrZE82czRTZUM1aGx5MlNXblZMRWFYejdxZUh5MFZfV1AwVmk3eWpHYzZfSW5HcDc2U0N0TFh2RVFUWFpTd20tVTEwLWE0MVkwYUtuOU55bThYZkdqYi1IYkRhNm9aNW5wVFdkdzkxR1ZFdw?oc=5",
+      "published_at": "2026-11-18T09:31:25+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
       "analysis_layer": null,
       "geographic_scope": "direct",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 0,
+      "hybrid_threat_score": 12,
       "hybrid_threat_level": "low",
       "source_names": [
-        "Google News - Baltic Russia hybrid threat"
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "dd846ae780d44a69",
+      "title": "Russia reportedly planned mass-casualty sabotage attack in Poland to be blamed on Ukraine - Українська правда",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1WT3BwUk1aTG90aXd0U3JZVEtZSF9HMjlIYlVHMnhxSzdnN3BfeXc1N2pBNmlIOHpCamE3ajJLT3M0YVZPNFpzbFlZMG1VaUtfNXVxWmZneDl4Zjhvek5zUzNINE3SAXBBVV95cUxObVl3SDV3Y0ZHR2hMLTJpcWI4aTJ0Z1VMT0JCdE9Qa2xhcmRMZ2VBOGJRRjMwMXFqOGQwdXhWVlRsRFFxU2JRN1J1bHFjQ2p5bmpMSWR4d2VTWGRDSHhNR1ZOTXVlRm8tSXNQZWVtU3lo?oc=5",
+      "published_at": "2026-11-18T09:05:00+00:00",
+      "primary_country": "Poland",
+      "countries": [
+        "Poland"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "operational",
+      "event_subtype": "incident",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 45,
+      "hybrid_threat_level": "elevated",
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia"
       ],
       "related_item_count": 1
     }
