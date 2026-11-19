@@ -2,8 +2,8 @@
   "project": "baltic-hybrid-monitor",
   "region": "Baltic states and Poland",
   "created_at": "2026-08-28T08:05:16.786041+00:00",
-  "updated_at": "2026-11-18T14:16:27.244510+00:00",
-  "record_count": 110,
+  "updated_at": "2026-11-19T14:31:22.466559+00:00",
+  "record_count": 111,
   "method": {
     "description": "Historical Baltic hybrid-threat backfill using the unified daily and rolling threat schema.",
     "warning": "Historical records are reconstructed from currently available scored items using published_at dates. The backfill is not a complete historical archive if older source items are no longer available.",
@@ -63323,6 +63323,526 @@
             "confidence": "low",
             "hybrid_threat_score": 40,
             "hybrid_threat_level": "elevated"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-11-19",
+      "generated_at": "2026-11-19T14:31:22.466407+00:00",
+      "input_generated_at": "2026-11-19T14:31:21.876723+00:00",
+      "daily_activity": {
+        "description": "Calculated only from events published on this calendar day.",
+        "overall": {
+          "event_count": 2,
+          "incident_count": 1,
+          "activity_count": 0,
+          "indicator_count": 0,
+          "assessment_count": 1,
+          "score_total": 17,
+          "average_score": 8.5,
+          "highest_score": 17,
+          "overall_level": "low"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 1,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 1,
+            "score_total": 17,
+            "average_score": 17.0,
+            "highest_score": 17,
+            "level": "low",
+            "categories": {
+              "espionage": 1
+            }
+          }
+        },
+        "categories": {
+          "espionage": {
+            "category": "espionage",
+            "event_count": 1,
+            "score_total": 17,
+            "average_score": 17.0,
+            "highest_score": 17
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 1,
+            "score_total": 17,
+            "average_score": 17.0,
+            "highest_score": 17,
+            "level": "low"
+          },
+          "assessment": {
+            "event_count": 1,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Regional",
+          "score": 17,
+          "event_count": 1
+        },
+        "key_driver": "espionage",
+        "trend": "decreasing",
+        "top_items": [
+          {
+            "id": null,
+            "title": "Russian charged with spying on Palantir employees for Moscow",
+            "url": "https://therecord.media/russian-charged-with-spying-on-palantir-for-moscow",
+            "published_at": "2026-11-19T00:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "espionage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 17,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Poland ‘foiled Russian false flag plot’ echoing Nazi hoax that triggered Second World War - The Independent",
+            "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOTFh4OUM2dG5Ga1RMUkFRMFBqRXd1X2tXUkNoRGg5RzRZMzRrbnh3QzV5NG54UXo1WUVCRVFRRDdObnBSUlF6bUUwZUROYXIxVWUxcHpGN3NFc2dpMi0xSkNlamIxakp5eGM5S3NZeWxncWJZVGRJTGlEMFBGemJpM3hnUmNIaUtIVlNtZjJfb25jVG45WUtXeVRCcTNQYVQtSGw4RmRaOGUtYllzWmg4?oc=5",
+            "published_at": "2026-11-19T07:21:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "assessment",
+            "analytical_layer": "assessment",
+            "confidence": "low",
+            "hybrid_threat_score": 0,
+            "hybrid_threat_level": "low"
+          }
+        ]
+      },
+      "rolling_threat": {
+        "description": "Rolling threat environment ending on this calendar day.",
+        "window": {
+          "days": 14,
+          "start_date": "2026-11-06",
+          "end_date": "2026-11-19"
+        },
+        "overall": {
+          "event_count": 12,
+          "incident_count": 6,
+          "activity_count": 0,
+          "indicator_count": 3,
+          "assessment_count": 3,
+          "score_total": 286,
+          "average_score": 23.83,
+          "highest_score": 86,
+          "overall_level": "guarded"
+        },
+        "countries": {
+          "Estonia": {
+            "country": "Estonia",
+            "event_count": 9,
+            "score_total": 266,
+            "average_score": 29.56,
+            "highest_score": 86,
+            "level": "guarded",
+            "categories": {
+              "sabotage": 6,
+              "espionage": 2
+            }
+          },
+          "Latvia": {
+            "country": "Latvia",
+            "event_count": 1,
+            "score_total": 42,
+            "average_score": 42.0,
+            "highest_score": 42,
+            "level": "elevated",
+            "categories": {
+              "sabotage": 1
+            }
+          },
+          "Lithuania": {
+            "country": "Lithuania",
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Poland": {
+            "country": "Poland",
+            "event_count": 1,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low",
+            "categories": {}
+          },
+          "Regional": {
+            "country": "Regional",
+            "event_count": 3,
+            "score_total": 62,
+            "average_score": 20.67,
+            "highest_score": 42,
+            "level": "guarded",
+            "categories": {
+              "sabotage": 1,
+              "espionage": 1,
+              "disinformation": 1
+            }
+          }
+        },
+        "categories": {
+          "sabotage": {
+            "category": "sabotage",
+            "event_count": 6,
+            "score_total": 230,
+            "average_score": 38.33,
+            "highest_score": 86
+          },
+          "espionage": {
+            "category": "espionage",
+            "event_count": 3,
+            "score_total": 139,
+            "average_score": 46.33,
+            "highest_score": 86
+          },
+          "disinformation": {
+            "category": "disinformation",
+            "event_count": 1,
+            "score_total": 3,
+            "average_score": 3.0,
+            "highest_score": 3
+          }
+        },
+        "layers": {
+          "information": {
+            "event_count": 0,
+            "score_total": 0,
+            "average_score": 0,
+            "highest_score": 0,
+            "level": "low"
+          },
+          "early_warning": {
+            "event_count": 3,
+            "score_total": 27,
+            "average_score": 9.0,
+            "highest_score": 12,
+            "level": "low"
+          },
+          "operational": {
+            "event_count": 6,
+            "score_total": 259,
+            "average_score": 43.17,
+            "highest_score": 86,
+            "level": "elevated"
+          },
+          "assessment": {
+            "event_count": 3,
+            "score_total": 0,
+            "average_score": 0.0,
+            "highest_score": 0,
+            "level": "low"
+          }
+        },
+        "hotspot": {
+          "location": "Estonia",
+          "score": 224,
+          "event_count": 8
+        },
+        "top_items": [
+          {
+            "id": null,
+            "title": "Estonia to close Russia border crossings after attempted drone factory arson attack - BBC",
+            "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5MM3o1ZXMwSEozY3ZMd3lyUE1fRWI2Qlk3RmFJRnJRMTVMcmxpSkRWa09QOUpwTlRTOUR2U2FLUWMyd2k0V1l4WTB1MnpSSkVvWGl5eHZ1NzhjNTVhX1E?oc=5",
+            "published_at": "2026-11-16T14:22:36+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage",
+              "espionage"
+            ],
+            "actors": [
+              "Russia",
+              "GRU"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "medium",
+            "hybrid_threat_score": 86,
+            "hybrid_threat_level": "critical"
+          },
+          {
+            "id": null,
+            "title": "Estonian security chief: 'I hope Latvia will take sufficient measures'",
+            "url": "https://eng.lsm.lv/article/society/defence/16.11.2026-estonian-security-chief-i-hope-latvia-will-take-sufficient-measures.a672073/?utm_source=rss&utm_campaign=rss&utm_medium=links",
+            "published_at": "2026-11-16T08:09:08+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [
+              "Estonia",
+              "Latvia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 42,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Estonia summons Russian diplomat following accusations of Russian sabotage attempt on drone manufacturer - The Kyiv Independent",
+            "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNNDgzQ0VVWXJ5ekF6ZzJsMVg3WWlpRlRRNDFQVUZaYXZ4bUxVT256dHVqRmc3VU5UOWdOdWZ6R09Jbk9sMWxlQnJBdGI3WWF4dHpZNFM2aFY5c09LQXZTOTM4TFA4ZUVaRUJrc0ZsdHJFLTkzWFFrS2c3UEE5UEtQY0doZkpoVk5razNuSm1nLXVvRTZCeU5RSklBS0ZWNTVYcUNaVlNvdzQ?oc=5",
+            "published_at": "2026-11-16T15:59:57+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 40,
+            "hybrid_threat_level": "elevated"
+          },
+          {
+            "id": null,
+            "title": "Estonian drone company targeted in alleged Russian sabotage attempt - Breaking Defense",
+            "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPR1JzU1JvTzlvVE9BTVowVnduaEVsYVZUN3ZUczgta05FQTZtVlZabk9aYmlQTVYybWZybzB6S3ktM3FqcW5zTWR5cFZhbWJZMmoya2VHSjM5Z0k5WFVydkR1V0k5QWRXdE9UR242blRJcWRBT0phR1FyR0NJanFvYV9XSjFBMmMwTklRMWY4dVFwNGhFWUNlZHZJbkg5dzdFTWNIMWRoa3JtYlRZSWduelZ4RlhpSEQzbTJNTExZYVJ4amF1dzhyYWg1dmlQaXBzdjNOR3lyQlhPRXhWNEpta0RHNlVaU0R1NnFZ?oc=5",
+            "published_at": "2026-11-16T16:28:28+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 38,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "8 detained after GRU-linked arson at Estonian drone company Threod Systems - ERR",
+            "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQSW5Fd3VhcmlUUkhlOGZhNVFVaHhqMTVHS2djTFB0dGQxNFhONFRlbzZZM3VrOFBFSmRnNzVLTG9reWF5a2pYMlA5dG04bGd2cGRhSVZyYWpZYmZlejRCRk1ESWplMWtTTUdQNW9HaXhGcy1wWU91N2MyZHNmT0Q0SG5mQnJaSmdMWm04VEtpSXFpX0k1aHQ4QU9mZGNEMmJ0MzFRc1VzNnY?oc=5",
+            "published_at": "2026-11-15T10:06:00+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "espionage"
+            ],
+            "actors": [
+              "GRU"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 36,
+            "hybrid_threat_level": "guarded"
+          },
+          {
+            "id": null,
+            "title": "Russian charged with spying on Palantir employees for Moscow",
+            "url": "https://therecord.media/russian-charged-with-spying-on-palantir-for-moscow",
+            "published_at": "2026-11-19T00:00:00+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "espionage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "incident",
+            "analytical_layer": "operational",
+            "confidence": "low",
+            "hybrid_threat_score": 17,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Russia Plotted to Torch Threod Systems’ Drone Factory in Estonia. How Far Has the Sabotage Spread? - UNITED24 Media",
+            "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxQSm9JUlFYLWpHT3hFV1ZqWVl5VVFRMTBoV3NFYjNfaGE2XzNVUjJyaGhHTC12YklPRkJORDRyR1d1azI5X3VFZTU5Zm1aY1lPQVhobnlFYWpqczRfNG92ZUUycHdNYU5QcUlEU1FELVRhNFBZeXoxcjlLSlpYQVpYQXo1YU9wbHNwakMyU2hNbkFXNGVlejc1aEQ2T3BreXd3RnN0dTNhV1NHOHdGOEdKaUdzd3AwcHM4Y3BUY2VQbGpTNVVyeFdUV0tR?oc=5",
+            "published_at": "2026-11-16T13:04:02+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 12,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Estonia foils Russian ‘sabotage’ at drone factory - The Straits Times",
+            "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQVHh2V2JCb3BUV1cyNFFLNmNObTIwYVBhZHdLb29FVGVBWDRhRng2dThScjFYUmxEeXhKSng1YTRiWTUzdXlzbG4xM280YlpFV3VLQUhjdGMwVGx4aEJSeEg0d2tiQ0RnUkdLZHp1N3VHZmFKazZfak1fLW53VURoZUNXRF9iT0JJWXNFTEtLS1FRMGM?oc=5",
+            "published_at": "2026-11-15T15:01:00+00:00",
+            "source_name": null,
+            "primary_country": "Estonia",
+            "countries": [
+              "Estonia"
+            ],
+            "categories": [
+              "sabotage"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 12,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Peace on Moscow’s terms: disinformation ahead of the Abu Dhabi talks",
+            "url": "https://euvsdisinfo.eu/peace-on-moscows-terms-disinformation-ahead-of-the-abu-dhabi-talks/",
+            "published_at": "2026-11-13T10:25:55+00:00",
+            "source_name": null,
+            "primary_country": "Regional",
+            "countries": [],
+            "categories": [
+              "disinformation"
+            ],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "indicator",
+            "analytical_layer": "early_warning",
+            "confidence": "low",
+            "hybrid_threat_score": 3,
+            "hybrid_threat_level": "low"
+          },
+          {
+            "id": null,
+            "title": "Poland ‘foiled Russian false flag plot’ echoing Nazi hoax that triggered Second World War - The Independent",
+            "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOTFh4OUM2dG5Ga1RMUkFRMFBqRXd1X2tXUkNoRGg5RzRZMzRrbnh3QzV5NG54UXo1WUVCRVFRRDdObnBSUlF6bUUwZUROYXIxVWUxcHpGN3NFc2dpMi0xSkNlamIxakp5eGM5S3NZeWxncWJZVGRJTGlEMFBGemJpM3hnUmNIaUtIVlNtZjJfb25jVG45WUtXeVRCcTNQYVQtSGw4RmRaOGUtYllzWmg4?oc=5",
+            "published_at": "2026-11-19T07:21:00+00:00",
+            "source_name": null,
+            "primary_country": "Poland",
+            "countries": [
+              "Poland"
+            ],
+            "categories": [],
+            "actors": [
+              "Russia"
+            ],
+            "locations": [],
+            "event_subtype": "assessment",
+            "analytical_layer": "assessment",
+            "confidence": "low",
+            "hybrid_threat_score": 0,
+            "hybrid_threat_level": "low"
           }
         ]
       }
