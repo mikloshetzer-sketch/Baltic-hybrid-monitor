@@ -2,23 +2,23 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Intelligence Matrix History",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-11-19T14:31:22.287013+00:00",
+  "generated_at": "2026-11-20T14:08:48.352408+00:00",
   "history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "record_count": 102,
+  "record_count": 103,
   "first_snapshot_date": "2026-08-01",
-  "last_snapshot_date": "2026-11-19",
+  "last_snapshot_date": "2026-11-20",
   "last_update": {
     "mode": "daily_snapshot",
     "action": "inserted",
-    "updated_at": "2026-11-19T14:31:22.287013+00:00",
+    "updated_at": "2026-11-20T14:08:48.352408+00:00",
     "processed_records": 1,
     "inserted_count": 1,
     "replaced_count": 0,
     "inserted_dates": [
-      "2026-11-19"
+      "2026-11-20"
     ],
     "replaced_dates": [],
-    "source_snapshot_generated_at": "2026-11-19T14:31:22.225222+00:00",
+    "source_snapshot_generated_at": "2026-11-20T14:08:48.258531+00:00",
     "source_snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
     "source_score_engine_version": "threat_score_v3_2_current_historical_split"
   },
@@ -23527,6 +23527,1085 @@
           "hybrid_threat_level": "low",
           "source_names": [
             "The Record Cybersecurity"
+          ],
+          "related_item_count": 1
+        }
+      ]
+    },
+    {
+      "project": "baltic-hybrid-monitor",
+      "title": "Baltic Hybrid Threat Daily Snapshot",
+      "region": "Baltic states and Poland",
+      "generated_at": "2026-11-20T14:08:48.258531+00:00",
+      "snapshot_date": "2026-11-20",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "source_generated_at": "2026-11-20T14:08:47.948497+00:00",
+      "method": {
+        "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
+        "time_basis": "UTC calendar day",
+        "rolling_window_used": false,
+        "rolling_window_days": 0,
+        "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used. Lifecycle v4 index-ineligible events are excluded from index calculations.",
+        "assessment_handling": "Assessment events remain visible in counts and event lists but do not contribute to operational or early-warning indices.",
+        "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
+      },
+      "overall_summary": {
+        "event_count": 15,
+        "incident_count": 9,
+        "activity_count": 1,
+        "indicator_count": 3,
+        "assessment_count": 2,
+        "score_total": 429,
+        "average_score": 33.0,
+        "highest_score": 60,
+        "operational_index": 48.8,
+        "early_warning_index": 12.67,
+        "threat_index": 41.57,
+        "overall_level": "elevated"
+      },
+      "country_summary": {
+        "Estonia": {
+          "country": "Estonia",
+          "event_count": 4,
+          "incident_count": 1,
+          "activity_count": 0,
+          "indicator_count": 2,
+          "assessment_count": 1,
+          "score_total": 86,
+          "average_score": 28.67,
+          "highest_score": 60,
+          "operational_index": 60.0,
+          "early_warning_index": 13.0,
+          "threat_index": 50.6,
+          "overall_level": "elevated",
+          "categories": {
+            "sabotage": 3,
+            "espionage": 3,
+            "disinformation": 1
+          },
+          "actors": {
+            "Russia": 4,
+            "GRU": 3
+          }
+        },
+        "Poland": {
+          "country": "Poland",
+          "event_count": 11,
+          "incident_count": 8,
+          "activity_count": 1,
+          "indicator_count": 1,
+          "assessment_count": 1,
+          "score_total": 343,
+          "average_score": 34.3,
+          "highest_score": 51,
+          "operational_index": 44.6,
+          "early_warning_index": 12.0,
+          "threat_index": 38.08,
+          "overall_level": "guarded",
+          "categories": {
+            "drone_incident": 8,
+            "military_provocation": 1
+          },
+          "actors": {
+            "Russia": 8,
+            "NATO": 1
+          }
+        }
+      },
+      "category_summary": {
+        "drone_incident": {
+          "event_count": 8,
+          "score_total": 320,
+          "average_score": 40.0,
+          "highest_score": 51
+        },
+        "espionage": {
+          "event_count": 3,
+          "score_total": 80,
+          "average_score": 26.67,
+          "highest_score": 60
+        },
+        "sabotage": {
+          "event_count": 3,
+          "score_total": 80,
+          "average_score": 26.67,
+          "highest_score": 60
+        },
+        "military_provocation": {
+          "event_count": 1,
+          "score_total": 12,
+          "average_score": 12.0,
+          "highest_score": 12
+        },
+        "disinformation": {
+          "event_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "actor_summary": {
+        "Russia": {
+          "event_count": 12,
+          "score_total": 332,
+          "average_score": 27.67,
+          "highest_score": 60
+        },
+        "GRU": {
+          "event_count": 3,
+          "score_total": 80,
+          "average_score": 26.67,
+          "highest_score": 60
+        },
+        "NATO": {
+          "event_count": 1,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 9,
+          "score_total": 380,
+          "average_score": 42.22,
+          "highest_score": 60
+        },
+        "activity": {
+          "event_count": 1,
+          "score_total": 11,
+          "average_score": 11.0,
+          "highest_score": 11
+        },
+        "indicator": {
+          "event_count": 3,
+          "score_total": 38,
+          "average_score": 12.67,
+          "highest_score": 20
+        },
+        "assessment": {
+          "event_count": 2,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 15,
+          "score_total": 429,
+          "average_score": 28.6,
+          "highest_score": 60
+        }
+      },
+      "hotspot": {
+        "location": "Poland",
+        "score": 343,
+        "event_count": 11
+      },
+      "key_driver": "drone_incident",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "a042a26dbe95318a",
+          "title": "Estonia’s border closure makes Russia pay a price for alleged arson, as sabotage attacks spread across the EU - EUobserver",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQS2Y0aGZDcWNVRm5QMlRNSnJnZTVVWldqZ3dRbmZlWDM5bVIxWTJQM3Y5WnBaSE5UdWNFNXBQUmNMUjh0djFESGZZMVFhaVpTVElsdmxVVkZReHNtZGVLYXE3UHNKb0hKOHFNbkJrSzVrdUNpRGRlaGVCQnBCaDgzcFI3TEhDTWVrempmZHhuSEpua3FXdnVJeEtIcGlVYTlydGdLZEp1eEhfbHZFaWhIY1NIU1JqeTF3eVRUUHdCR0llLTdBVk9YanRQTDZKRXgyN0VwYQ?oc=5",
+          "published_at": "2026-11-20T13:29:36+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage",
+            "espionage"
+          ],
+          "actors": [
+            "Russia",
+            "GRU"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 60,
+          "hybrid_threat_level": "high",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "7c57860626d6638c",
+          "title": "Russian Kh-101 missiles and jet-powered drone crash in Poland during major attack on Ukraine - EUalive",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPaWg2OHFoUWpoV3VLclpGOGgtMWZTUktsOC1NWXNBeTJXUWdvNEhvZkl3Z3N6WUwtZlZfaHQ3ejBkNWNwVVBpQVNEd3FhLThhdHhRYllXUnNic3hYV3hYWHgteTRtNU1IQm16RVJ1cXc0SWFEVkptWThDNXFYZlBVd1ZjMXBGQ0ZXTDlmXzB4X2ROdWptaEVNMUtPQkNmcTEyM1pEWXdPRnpwa0hiM2N0Nk0xbw?oc=5",
+          "published_at": "2026-11-20T11:37:59+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "medium",
+          "confidence_score": 51,
+          "hybrid_threat_score": 51,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic drone incident Russia",
+            "Polish Radio English"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "22a1a663326655cc",
+          "title": "Russian attack on Ukraine: Moldova reports airspace violation – Rubryka - Rubryka",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPcDlsaS1Ia1NhZkpPdElaZU56Y0pIZkd4S0xSVFVDS2xyYnlwejJVU3pKdmI2c3R6RXRPUHl1XzgyLW1pWDhVQVhuYjFHQkFUMlM1Z3JhQ3ZmcHhOMVNCaVJSRndWRGdJb0ZOZVRpUEZzdzFPV0Q4Uy13Rmdob1lpNkFrZWMzLVdCWmdXb2VwUWlSWmVUblczVF9HYWpFMkxfelVEcTItVm1nRzZSQXBWUUF3?oc=5",
+          "published_at": "2026-11-20T12:41:36+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 46,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 4
+        },
+        {
+          "event_id": "73fe3b4e0b25ebcc",
+          "title": "Russia hits 3 Kyiv bridges in major attack, while Poland reports airspace violation - POLITICO.eu",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc3hrR3FsNmpQYlVac3VVeGphWWV1dVhucmkyT290U0FLRjZEcXpRYnhhR2NiRlEtekRadzFZWjh3dnprb20xOGExSGdndFpBRkV6RUhZVGJtMkdoamtGbjlteXlEaWU5QzZEQXdfSWxJMmM0eGd6bkN2Z3hTMFA3eTJnUWdpQi1BZUY4X3JadGs3VURzVHdWLUZHZ0U5dFNMdm1KRmc4ekMySEdqNDNJcVpEY25Ydw?oc=5",
+          "published_at": "2026-11-20T08:39:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 46,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic critical infrastructure Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "0a89959a12860fcd",
+          "title": "Poland Says Two Russian Missiles, Drone Crashed on Its Soil - Bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOS2hqSGpDTC16LXRuX2lTODRKUDlOZWFQQzBrU25xMEVNWm9NTHJWdG1qcnpEVWhHa1E3SktEUjgyYWVNZTc4MmJKcF9LWllQMFJxTWYwaS1OSjR4b2FVV1EwZ3NiTzlPRHM1MFJZOWpiMy1LMzFkc3FucnFqNWszcWRpenMyU3pjb04xYW5BUlZIM3p0TTZwWllSOXl6ZTJ4UGpUcWFEVDV0UHJIZkE?oc=5",
+          "published_at": "2026-11-20T12:44:40+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "low",
+          "confidence_score": 46,
+          "hybrid_threat_score": 41,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia",
+            "Google News - Baltic drone incident Russia"
+          ],
+          "related_item_count": 3
+        },
+        {
+          "event_id": "383ac707c4af8748",
+          "title": "Poland condemns Russian 'provocation' after three airspace violations - Reuters",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPejRoNTB3Y2hjdXRxMmNON0lac2xkWldNSmQ5RXFTM0NrMDFJaEE3QWxsOHJoYTgwLTFUN1A5MGRkU0h6ejNsLXdraFB0MjhNTkVROEJjNG5WWm00azhpbUNDN2FRUW1uRXplazJmU08za2gtYlc0bEc5bk9XMEpfbndzU3VVTVB3LUNyR3llYW1rdkI5UmtzeFNsZmhNNllGY3g1WnF5ZDZpLTRGZ0Q5RUstaGJuSnFESFJCZ2d0RG41RDcyZW9QZmV3?oc=5",
+          "published_at": "2026-11-20T13:08:24+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 39,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - NATO Eastern Flank Baltic Poland"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "26c1f50f63378128",
+          "title": "Polish Military Probes Suspected Airspace Violation Near Ukraine - cwibc.co.id",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE0wN1hFc2pwYnU3aGh2dkJhMnU1dHNNRTk4Z1FaZ0xZMzZLNWZrQzFzRW9sVkMxemJoR3U2aEpRTEZZaFBrRERjOGdHb1RmaXk2ejhQTy1qY1l0eVNtem9JbURISEliZEFkNjhZa0NnTQ?oc=5",
+          "published_at": "2026-11-20T11:06:29+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 33,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "d2b99feaee83d3e7",
+          "title": "Ukraine cooperating with Poland in probe into airspace violation – FM Sybiha - Ukrinform",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxObVZmVW1jZ0xhYm9XVEpoOUlHaTZ6MmR0bWloSTBqTEU3ZTkyZmdsYUhoeGtoZllha1E4RDUySjBXUHVocFpnQk5xMlI2WWtzMzJqVVJmUW1hM0xmWGtldDIzYmV3b3JyT1RpbEhid1VzY2tqVThneUlydW5yRjVOZ2RYVmdubjNhMEtTUHM0enk1aFJmMmtjblFGSl9tMWZ2R0NhWlh3NUFONlE0VEpRRXp3S0hTZXUxTzdGdVEyZzBISHlSU1lfd9IBzgFBVV95cUxPazF1cHJVQ3I3d0NSWi1hNHNzd2VsbWFLd0VhVnE5ZWZ0TVhHN2ttTkVnYmRoRXhGeG5BM3N6b0FHRVJoTmZvVkZNNVBFcFhSMlZhaWtuU3VKR0ltellCWk01NTZXY2oyNTJFU1EzWkhjOEV0MHNJclVleTRsQnhyNk5fWFJKTmRUUzdSY2UxWm1aT3p6THYxWGR2NHNCRTlOTHRrWFdqeFN2SGlTbTdXNzZ2T1NzZEhnZVc1S0VyQjNTTkdQR1llbm5oSnlXQQ?oc=5",
+          "published_at": "2026-11-20T10:50:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 32,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "261777dddcfbea52",
+          "title": "Poland investigates possible airspace violation after unidentified objects reportedly fall near Ukrainian border - Hromadske",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNOGpyczhSOEIxN1F6X0xxemJvQmZHWUhBeThablNRa1JEdHhnaEtkODY3MGk2OUFXUlJ0TllUTXloRVNhTnJ0TjJWQ3J4TUFScTR4S1NNSkRBM2M2ZUZTalMxNnNNajFyZ2JfV1ZnTnhSdGRQR25xZDZPcUR2T29xSjlqcm5yUVlDNm5WcldzaDREOXM4YU5BTTZsVWxMVXdxcW9pLVZVOTdpQ2xFSTEtOXJHN1Q5Q0ZMdklDRmpHT19udUcwcDkzQVlYa2Jvd2k0bUFtRF9OdnpIdlk4TGlNY9IB5gFBVV95cUxPZWl0Wm9Wb09XRTU5ekR1MDZfU1dLVHlseC03T3FYcjM2X053UkdNU3FoUzk3LXdVWjdYaGdOWFBYYWg2RGZXSS1jUGlwdDNSYW9qdjhXU2pPVFlhSFNja0lEM0JCNlpMRTFyQVpNSGFUaUNoMllDdVdsWjYzRTZnZGZ1LU1LYUQybndmRnFGYW81ZmloY2pJZE5WNExzeEl5UEhmcW1YRzI2bTFPZGNlNkpFMmg0TVpQX3JXNUhaejVBQmZ3WGVfbGtpeWZnRVZQNzI5X3UxZ19uMFR6ZzhwcmxSZmU0UQ?oc=5",
+          "published_at": "2026-11-20T08:27:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 32,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "db89d1d139de3356",
+          "title": "Estonia shuts border with Russia for six months over alleged sabotage plots - The Jerusalem Post",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQUWlIdU1Mc3JxWmhka3ZOR2J6dWsyY1NuUlRBVnYtWlNpbnBuWFE4TDZnbXRJRlpmRnAxSVMyeEdOMmNxTVU0Yk8wSTFldGRsRTZwU0pwSmVEOGdCb0VJLXJ3TnhzSDNWMEdLSW1ReFN1LXNZQjlCZjNIU1gzamtHMlU1a2FFbldzUGc?oc=5",
+          "published_at": "2026-11-20T11:49:37+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage",
+            "espionage"
+          ],
+          "actors": [
+            "Russia",
+            "GRU"
+          ],
+          "locations": [
+            "Narva"
+          ],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 20,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 8
+        },
+        {
+          "event_id": "9c32a6c480c7f9bc",
+          "title": "Tusk: Russian cruise missile incursion into Poland seems ‘intentional’ - POLITICO.eu",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNRzRRbkdZbVVhYXA3bUR6aWZJcHFWZFcybUJNMTdDdUJBWExXOHdja3VaUDdNTWYyVXdCSHM4YUhrQk1kZGlHQTJ3V0Z6MnJOaFBBV0FKa3I4VExYSGh1Y1h5d2ozYXNHUVhwSU84T1pnb3FXUF91YmhPMWI4ZE9lZ3R4TjhqZFh6M3lOSGFCWFRYaGtrdTl3bEZVYzhldjA?oc=5",
+          "published_at": "2026-11-20T12:43:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "military_provocation"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 12,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic drone incident Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "5010bbc3ac31355f",
+          "title": "Russian missile hits Poland as Ukraine's allies hold military exercise, says Tusk - BBC",
+          "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBOMy1DM20xRHlCa2dHcXVjQWZxMWdNSEpzZzI2VDhJeTd5NEN3SWlMYW8zdXVPSTZnVkRtVy1EdHRLSFl3UXhZelNMdnZOMjFQNW1peS1Gd1NOQWdjcnc?oc=5",
+          "published_at": "2026-11-20T12:09:29+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "activity",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 11,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "26e88cb58bbb5e19",
+          "title": "Estonia Warns of Russian Threat at Stanford Event - Wisevoter",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOZ1dtZk1URUdfZy1LdVlJdEJkSTBmNnhPUG4wU3QweXdLdEtxWm9TZnhaSmR0dTc5Q1NudGJEd0JZQ05WcUtVSHhuRzVuaXpBNnQwRUtENGdaM3VFMEFWeVR2Q1ZqTjJDY085bTRCN2FjUm5FeUItd0tmdlRpLWkzS0ZNOTZFQW1USW51ZVhnU1VEbGM?oc=5",
+          "published_at": "2026-11-20T11:58:02+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - CERT Estonia cyber threat"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "540b00b51838456d",
+          "title": "Russian breach of Polish airspace proves Moscow threatens all of NATO — FM Sybiha - The New Voice of Ukraine",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPcTZ1a0s1NkRQQlJwaEVmWDRJNlpabG1nbzZmYjlOSE1TN2dRY0NCZWtqdWtJdGJaSVY4dlh2RUFnTXNIQmN4SWp1TGhUUXFjeFBxQXB1RFZlcW1wMHUtckc5aF9Cd2dFd052UGFxR09nRUZrbGtLZ3RDSjRlSks0WlF0VU5kcU96VzZrbFU4RVRxMkljR0VBdTZIMVBHcEXSAZsBQVVfeXFMUHBzZkM5RmZaa3ZzbUI5M01SeEp2b3NEQVRqSTFnVHdSN1dlQWVGby1RVkJUaGhnaVF2N3FlS21kRFpOeXpBajc2U3JQWkxTZVQ5YU5vcG9YbmZLbjFaUzN0NXpRYnlkN21ScFZXX3ZIalZjWHVpQ2xscDBCWHI5REZNc1hma3ROUWl2R2tXUl9LYnVkTEp0b1hQUjA?oc=5",
+          "published_at": "2026-11-20T11:32:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "a87edaa6075e602d",
+          "title": "Martin Herem: An information operation built on sabotage",
+          "url": "https://news.err.ee/1610201365/martin-herem-an-information-operation-built-on-sabotage",
+          "published_at": "2026-11-20T08:11:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "disinformation",
+            "espionage",
+            "sabotage"
+          ],
+          "actors": [
+            "Russia",
+            "GRU"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
+          ],
+          "related_item_count": 1
+        }
+      ],
+      "events": [
+        {
+          "event_id": "a042a26dbe95318a",
+          "title": "Estonia’s border closure makes Russia pay a price for alleged arson, as sabotage attacks spread across the EU - EUobserver",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxQS2Y0aGZDcWNVRm5QMlRNSnJnZTVVWldqZ3dRbmZlWDM5bVIxWTJQM3Y5WnBaSE5UdWNFNXBQUmNMUjh0djFESGZZMVFhaVpTVElsdmxVVkZReHNtZGVLYXE3UHNKb0hKOHFNbkJrSzVrdUNpRGRlaGVCQnBCaDgzcFI3TEhDTWVrempmZHhuSEpua3FXdnVJeEtIcGlVYTlydGdLZEp1eEhfbHZFaWhIY1NIU1JqeTF3eVRUUHdCR0llLTdBVk9YanRQTDZKRXgyN0VwYQ?oc=5",
+          "published_at": "2026-11-20T13:29:36+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage",
+            "espionage"
+          ],
+          "actors": [
+            "Russia",
+            "GRU"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 60,
+          "hybrid_threat_level": "high",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "383ac707c4af8748",
+          "title": "Poland condemns Russian 'provocation' after three airspace violations - Reuters",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPejRoNTB3Y2hjdXRxMmNON0lac2xkWldNSmQ5RXFTM0NrMDFJaEE3QWxsOHJoYTgwLTFUN1A5MGRkU0h6ejNsLXdraFB0MjhNTkVROEJjNG5WWm00azhpbUNDN2FRUW1uRXplazJmU08za2gtYlc0bEc5bk9XMEpfbndzU3VVTVB3LUNyR3llYW1rdkI5UmtzeFNsZmhNNllGY3g1WnF5ZDZpLTRGZ0Q5RUstaGJuSnFESFJCZ2d0RG41RDcyZW9QZmV3?oc=5",
+          "published_at": "2026-11-20T13:08:24+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 39,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - NATO Eastern Flank Baltic Poland"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "0a89959a12860fcd",
+          "title": "Poland Says Two Russian Missiles, Drone Crashed on Its Soil - Bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOS2hqSGpDTC16LXRuX2lTODRKUDlOZWFQQzBrU25xMEVNWm9NTHJWdG1qcnpEVWhHa1E3SktEUjgyYWVNZTc4MmJKcF9LWllQMFJxTWYwaS1OSjR4b2FVV1EwZ3NiTzlPRHM1MFJZOWpiMy1LMzFkc3FucnFqNWszcWRpenMyU3pjb04xYW5BUlZIM3p0TTZwWllSOXl6ZTJ4UGpUcWFEVDV0UHJIZkE?oc=5",
+          "published_at": "2026-11-20T12:44:40+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "low",
+          "confidence_score": 46,
+          "hybrid_threat_score": 41,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia",
+            "Google News - Baltic drone incident Russia"
+          ],
+          "related_item_count": 3
+        },
+        {
+          "event_id": "9c32a6c480c7f9bc",
+          "title": "Tusk: Russian cruise missile incursion into Poland seems ‘intentional’ - POLITICO.eu",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxNRzRRbkdZbVVhYXA3bUR6aWZJcHFWZFcybUJNMTdDdUJBWExXOHdja3VaUDdNTWYyVXdCSHM4YUhrQk1kZGlHQTJ3V0Z6MnJOaFBBV0FKa3I4VExYSGh1Y1h5d2ozYXNHUVhwSU84T1pnb3FXUF91YmhPMWI4ZE9lZ3R4TjhqZFh6M3lOSGFCWFRYaGtrdTl3bEZVYzhldjA?oc=5",
+          "published_at": "2026-11-20T12:43:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "military_provocation"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 12,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic drone incident Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "22a1a663326655cc",
+          "title": "Russian attack on Ukraine: Moldova reports airspace violation – Rubryka - Rubryka",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPcDlsaS1Ia1NhZkpPdElaZU56Y0pIZkd4S0xSVFVDS2xyYnlwejJVU3pKdmI2c3R6RXRPUHl1XzgyLW1pWDhVQVhuYjFHQkFUMlM1Z3JhQ3ZmcHhOMVNCaVJSRndWRGdJb0ZOZVRpUEZzdzFPV0Q4Uy13Rmdob1lpNkFrZWMzLVdCWmdXb2VwUWlSWmVUblczVF9HYWpFMkxfelVEcTItVm1nRzZSQXBWUUF3?oc=5",
+          "published_at": "2026-11-20T12:41:36+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 46,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 4
+        },
+        {
+          "event_id": "5010bbc3ac31355f",
+          "title": "Russian missile hits Poland as Ukraine's allies hold military exercise, says Tusk - BBC",
+          "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTFBOMy1DM20xRHlCa2dHcXVjQWZxMWdNSEpzZzI2VDhJeTd5NEN3SWlMYW8zdXVPSTZnVkRtVy1EdHRLSFl3UXhZelNMdnZOMjFQNW1peS1Gd1NOQWdjcnc?oc=5",
+          "published_at": "2026-11-20T12:09:29+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "activity",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 11,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "26e88cb58bbb5e19",
+          "title": "Estonia Warns of Russian Threat at Stanford Event - Wisevoter",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOZ1dtZk1URUdfZy1LdVlJdEJkSTBmNnhPUG4wU3QweXdLdEtxWm9TZnhaSmR0dTc5Q1NudGJEd0JZQ05WcUtVSHhuRzVuaXpBNnQwRUtENGdaM3VFMEFWeVR2Q1ZqTjJDY085bTRCN2FjUm5FeUItd0tmdlRpLWkzS0ZNOTZFQW1USW51ZVhnU1VEbGM?oc=5",
+          "published_at": "2026-11-20T11:58:02+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 48,
+          "hybrid_threat_score": 6,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - CERT Estonia cyber threat"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "db89d1d139de3356",
+          "title": "Estonia shuts border with Russia for six months over alleged sabotage plots - The Jerusalem Post",
+          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQUWlIdU1Mc3JxWmhka3ZOR2J6dWsyY1NuUlRBVnYtWlNpbnBuWFE4TDZnbXRJRlpmRnAxSVMyeEdOMmNxTVU0Yk8wSTFldGRsRTZwU0pwSmVEOGdCb0VJLXJ3TnhzSDNWMEdLSW1ReFN1LXNZQjlCZjNIU1gzamtHMlU1a2FFbldzUGc?oc=5",
+          "published_at": "2026-11-20T11:49:37+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "sabotage",
+            "espionage"
+          ],
+          "actors": [
+            "Russia",
+            "GRU"
+          ],
+          "locations": [
+            "Narva"
+          ],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 20,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic sabotage Russia"
+          ],
+          "related_item_count": 8
+        },
+        {
+          "event_id": "7c57860626d6638c",
+          "title": "Russian Kh-101 missiles and jet-powered drone crash in Poland during major attack on Ukraine - EUalive",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxPaWg2OHFoUWpoV3VLclpGOGgtMWZTUktsOC1NWXNBeTJXUWdvNEhvZkl3Z3N6WUwtZlZfaHQ3ejBkNWNwVVBpQVNEd3FhLThhdHhRYllXUnNic3hYV3hYWHgteTRtNU1IQm16RVJ1cXc0SWFEVkptWThDNXFYZlBVd1ZjMXBGQ0ZXTDlmXzB4X2ROdWptaEVNMUtPQkNmcTEyM1pEWXdPRnpwa0hiM2N0Nk0xbw?oc=5",
+          "published_at": "2026-11-20T11:37:59+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "medium",
+          "confidence_score": 51,
+          "hybrid_threat_score": 51,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic drone incident Russia",
+            "Polish Radio English"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "540b00b51838456d",
+          "title": "Russian breach of Polish airspace proves Moscow threatens all of NATO — FM Sybiha - The New Voice of Ukraine",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPcTZ1a0s1NkRQQlJwaEVmWDRJNlpabG1nbzZmYjlOSE1TN2dRY0NCZWtqdWtJdGJaSVY4dlh2RUFnTXNIQmN4SWp1TGhUUXFjeFBxQXB1RFZlcW1wMHUtckc5aF9Cd2dFd052UGFxR09nRUZrbGtLZ3RDSjRlSks0WlF0VU5kcU96VzZrbFU4RVRxMkljR0VBdTZIMVBHcEXSAZsBQVVfeXFMUHBzZkM5RmZaa3ZzbUI5M01SeEp2b3NEQVRqSTFnVHdSN1dlQWVGby1RVkJUaGhnaVF2N3FlS21kRFpOeXpBajc2U3JQWkxTZVQ5YU5vcG9YbmZLbjFaUzN0NXpRYnlkN21ScFZXX3ZIalZjWHVpQ2xscDBCWHI5REZNc1hma3ROUWl2R2tXUl9LYnVkTEp0b1hQUjA?oc=5",
+          "published_at": "2026-11-20T11:32:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "26c1f50f63378128",
+          "title": "Polish Military Probes Suspected Airspace Violation Near Ukraine - cwibc.co.id",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE0wN1hFc2pwYnU3aGh2dkJhMnU1dHNNRTk4Z1FaZ0xZMzZLNWZrQzFzRW9sVkMxemJoR3U2aEpRTEZZaFBrRERjOGdHb1RmaXk2ejhQTy1qY1l0eVNtem9JbURISEliZEFkNjhZa0NnTQ?oc=5",
+          "published_at": "2026-11-20T11:06:29+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 33,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 2
+        },
+        {
+          "event_id": "d2b99feaee83d3e7",
+          "title": "Ukraine cooperating with Poland in probe into airspace violation – FM Sybiha - Ukrinform",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxObVZmVW1jZ0xhYm9XVEpoOUlHaTZ6MmR0bWloSTBqTEU3ZTkyZmdsYUhoeGtoZllha1E4RDUySjBXUHVocFpnQk5xMlI2WWtzMzJqVVJmUW1hM0xmWGtldDIzYmV3b3JyT1RpbEhid1VzY2tqVThneUlydW5yRjVOZ2RYVmdubjNhMEtTUHM0enk1aFJmMmtjblFGSl9tMWZ2R0NhWlh3NUFONlE0VEpRRXp3S0hTZXUxTzdGdVEyZzBISHlSU1lfd9IBzgFBVV95cUxPazF1cHJVQ3I3d0NSWi1hNHNzd2VsbWFLd0VhVnE5ZWZ0TVhHN2ttTkVnYmRoRXhGeG5BM3N6b0FHRVJoTmZvVkZNNVBFcFhSMlZhaWtuU3VKR0ltellCWk01NTZXY2oyNTJFU1EzWkhjOEV0MHNJclVleTRsQnhyNk5fWFJKTmRUUzdSY2UxWm1aT3p6THYxWGR2NHNCRTlOTHRrWFdqeFN2SGlTbTdXNzZ2T1NzZEhnZVc1S0VyQjNTTkdQR1llbm5oSnlXQQ?oc=5",
+          "published_at": "2026-11-20T10:50:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 32,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "73fe3b4e0b25ebcc",
+          "title": "Russia hits 3 Kyiv bridges in major attack, while Poland reports airspace violation - POLITICO.eu",
+          "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOc3hrR3FsNmpQYlVac3VVeGphWWV1dVhucmkyT290U0FLRjZEcXpRYnhhR2NiRlEtekRadzFZWjh3dnprb20xOGExSGdndFpBRkV6RUhZVGJtMkdoamtGbjlteXlEaWU5QzZEQXdfSWxJMmM0eGd6bkN2Z3hTMFA3eTJnUWdpQi1BZUY4X3JadGs3VURzVHdWLUZHZ0U5dFNMdm1KRmc4ekMySEdqNDNJcVpEY25Ydw?oc=5",
+          "published_at": "2026-11-20T08:39:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 46,
+          "hybrid_threat_level": "elevated",
+          "source_names": [
+            "Google News - Baltic critical infrastructure Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "261777dddcfbea52",
+          "title": "Poland investigates possible airspace violation after unidentified objects reportedly fall near Ukrainian border - Hromadske",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNOGpyczhSOEIxN1F6X0xxemJvQmZHWUhBeThablNRa1JEdHhnaEtkODY3MGk2OUFXUlJ0TllUTXloRVNhTnJ0TjJWQ3J4TUFScTR4S1NNSkRBM2M2ZUZTalMxNnNNajFyZ2JfV1ZnTnhSdGRQR25xZDZPcUR2T29xSjlqcm5yUVlDNm5WcldzaDREOXM4YU5BTTZsVWxMVXdxcW9pLVZVOTdpQ2xFSTEtOXJHN1Q5Q0ZMdklDRmpHT19udUcwcDkzQVlYa2Jvd2k0bUFtRF9OdnpIdlk4TGlNY9IB5gFBVV95cUxPZWl0Wm9Wb09XRTU5ekR1MDZfU1dLVHlseC03T3FYcjM2X053UkdNU3FoUzk3LXdVWjdYaGdOWFBYYWg2RGZXSS1jUGlwdDNSYW9qdjhXU2pPVFlhSFNja0lEM0JCNlpMRTFyQVpNSGFUaUNoMllDdVdsWjYzRTZnZGZ1LU1LYUQybndmRnFGYW81ZmloY2pJZE5WNExzeEl5UEhmcW1YRzI2bTFPZGNlNkpFMmg0TVpQX3JXNUhaejVBQmZ3WGVfbGtpeWZnRVZQNzI5X3UxZ19uMFR6ZzhwcmxSZmU0UQ?oc=5",
+          "published_at": "2026-11-20T08:27:00+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "drone_incident"
+          ],
+          "actors": [],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "incident",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 32,
+          "hybrid_threat_level": "guarded",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "a87edaa6075e602d",
+          "title": "Martin Herem: An information operation built on sabotage",
+          "url": "https://news.err.ee/1610201365/martin-herem-an-information-operation-built-on-sabotage",
+          "published_at": "2026-11-20T08:11:00+00:00",
+          "primary_country": "Estonia",
+          "countries": [
+            "Estonia"
+          ],
+          "categories": [
+            "disinformation",
+            "espionage",
+            "sabotage"
+          ],
+          "actors": [
+            "Russia",
+            "GRU"
+          ],
+          "locations": [],
+          "event_type": "background",
+          "event_subtype": "assessment",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 0,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "ERR News Estonia"
           ],
           "related_item_count": 1
         }
