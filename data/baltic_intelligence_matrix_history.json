@@ -2,23 +2,23 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Intelligence Matrix History",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-11-21T13:34:13.663914+00:00",
+  "generated_at": "2026-11-22T13:27:23.341320+00:00",
   "history_version": "baltic_intelligence_matrix_history_v1_1_backfill_safe",
-  "record_count": 104,
+  "record_count": 105,
   "first_snapshot_date": "2026-08-01",
-  "last_snapshot_date": "2026-11-21",
+  "last_snapshot_date": "2026-11-22",
   "last_update": {
     "mode": "daily_snapshot",
     "action": "inserted",
-    "updated_at": "2026-11-21T13:34:13.663914+00:00",
+    "updated_at": "2026-11-22T13:27:23.341320+00:00",
     "processed_records": 1,
     "inserted_count": 1,
     "replaced_count": 0,
     "inserted_dates": [
-      "2026-11-21"
+      "2026-11-22"
     ],
     "replaced_dates": [],
-    "source_snapshot_generated_at": "2026-11-21T13:34:13.607640+00:00",
+    "source_snapshot_generated_at": "2026-11-22T13:27:23.274002+00:00",
     "source_snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
     "source_score_engine_version": "threat_score_v3_2_current_historical_split"
   },
@@ -25030,6 +25030,250 @@
           "hybrid_threat_level": "guarded",
           "source_names": [
             "Google News - Baltic drone incident Russia"
+          ],
+          "related_item_count": 3
+        }
+      ]
+    },
+    {
+      "project": "baltic-hybrid-monitor",
+      "title": "Baltic Hybrid Threat Daily Snapshot",
+      "region": "Baltic states and Poland",
+      "generated_at": "2026-11-22T13:27:23.274002+00:00",
+      "snapshot_date": "2026-11-22",
+      "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
+      "score_engine_version": "threat_score_v3_2_current_historical_split",
+      "source_generated_at": "2026-11-22T13:27:22.882761+00:00",
+      "method": {
+        "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
+        "time_basis": "UTC calendar day",
+        "rolling_window_used": false,
+        "rolling_window_days": 0,
+        "threat_index_method": "Operational Index = average of top 5 incident/activity scores. Early Warning Index = average of top 8 indicator scores. Daily Threat Index = 80% operational + 20% early warning when operational events exist; otherwise the early-warning index is used. Lifecycle v4 index-ineligible events are excluded from index calculations.",
+        "assessment_handling": "Assessment events remain visible in counts and event lists but do not contribute to operational or early-warning indices.",
+        "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
+      },
+      "overall_summary": {
+        "event_count": 2,
+        "incident_count": 0,
+        "activity_count": 1,
+        "indicator_count": 1,
+        "assessment_count": 0,
+        "score_total": 28,
+        "average_score": 14.0,
+        "highest_score": 15,
+        "operational_index": 13.0,
+        "early_warning_index": 15.0,
+        "threat_index": 13.4,
+        "overall_level": "low"
+      },
+      "country_summary": {
+        "Poland": {
+          "country": "Poland",
+          "event_count": 2,
+          "incident_count": 0,
+          "activity_count": 1,
+          "indicator_count": 1,
+          "assessment_count": 0,
+          "score_total": 28,
+          "average_score": 14.0,
+          "highest_score": 15,
+          "operational_index": 13.0,
+          "early_warning_index": 15.0,
+          "threat_index": 13.4,
+          "overall_level": "low",
+          "categories": {
+            "military_provocation": 1
+          },
+          "actors": {
+            "Russia": 2,
+            "NATO": 1
+          }
+        }
+      },
+      "category_summary": {
+        "military_provocation": {
+          "event_count": 1,
+          "score_total": 15,
+          "average_score": 15.0,
+          "highest_score": 15
+        }
+      },
+      "actor_summary": {
+        "Russia": {
+          "event_count": 2,
+          "score_total": 28,
+          "average_score": 14.0,
+          "highest_score": 15
+        },
+        "NATO": {
+          "event_count": 1,
+          "score_total": 15,
+          "average_score": 15.0,
+          "highest_score": 15
+        }
+      },
+      "subtype_summary": {
+        "incident": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        },
+        "activity": {
+          "event_count": 1,
+          "score_total": 13,
+          "average_score": 13.0,
+          "highest_score": 13
+        },
+        "indicator": {
+          "event_count": 1,
+          "score_total": 15,
+          "average_score": 15.0,
+          "highest_score": 15
+        },
+        "assessment": {
+          "event_count": 0,
+          "score_total": 0,
+          "average_score": 0.0,
+          "highest_score": 0
+        }
+      },
+      "scope_summary": {
+        "direct": {
+          "event_count": 2,
+          "score_total": 28,
+          "average_score": 14.0,
+          "highest_score": 15
+        }
+      },
+      "hotspot": {
+        "location": "Poland",
+        "score": 28,
+        "event_count": 2
+      },
+      "key_driver": "military_provocation",
+      "dominant_actor": "Russia",
+      "top_events": [
+        {
+          "event_id": "04418f1b042dff5c",
+          "title": "NATO Calls Emergency Brussels Meeting After Russian Missile Incursion into Poland - EU Today",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBVbWpNWUM0VHpidG4tOWVnOXA1a19mRzhVVEhrOWdfcGdFRE5ORHNWdEtlVUVqMDFhRTVoTjRLX1Z2VXNYZnZZaC1JaU1SLXBSUHhtUi02Ri1sT0ZMOFFvYjdB?oc=5",
+          "published_at": "2026-11-22T10:56:06+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "military_provocation"
+          ],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 15,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "aa060c2fc3402d70",
+          "title": "Russian Missiles Land in Poland Near European Military Drills - cwibc.co.id",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1VTDVIMnpHMHVHWFVGMG9GSzlCQ1dMXzI3bFRWR2p2XzgzaDFDMThTU3ZYdUVDbExKdXpHYU1WWnVjWmtmcjlIeU9ZOXV1YWxIeGFRVTRvX1RtS2tMNzhGMA?oc=5",
+          "published_at": "2026-11-22T03:06:57+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "activity",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "low",
+          "confidence_score": 46,
+          "hybrid_threat_score": 13,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic drone incident Russia",
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 3
+        }
+      ],
+      "events": [
+        {
+          "event_id": "04418f1b042dff5c",
+          "title": "NATO Calls Emergency Brussels Meeting After Russian Missile Incursion into Poland - EU Today",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBVbWpNWUM0VHpidG4tOWVnOXA1a19mRzhVVEhrOWdfcGdFRE5ORHNWdEtlVUVqMDFhRTVoTjRLX1Z2VXNYZnZZaC1JaU1SLXBSUHhtUi02Ri1sT0ZMOFFvYjdB?oc=5",
+          "published_at": "2026-11-22T10:56:06+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [
+            "military_provocation"
+          ],
+          "actors": [
+            "Russia",
+            "NATO"
+          ],
+          "locations": [],
+          "event_type": "warning",
+          "event_subtype": "indicator",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 1,
+          "confidence": "low",
+          "confidence_score": 38,
+          "hybrid_threat_score": 15,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic airspace violation Russia"
+          ],
+          "related_item_count": 1
+        },
+        {
+          "event_id": "aa060c2fc3402d70",
+          "title": "Russian Missiles Land in Poland Near European Military Drills - cwibc.co.id",
+          "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1VTDVIMnpHMHVHWFVGMG9GSzlCQ1dMXzI3bFRWR2p2XzgzaDFDMThTU3ZYdUVDbExKdXpHYU1WWnVjWmtmcjlIeU9ZOXV1YWxIeGFRVTRvX1RtS2tMNzhGMA?oc=5",
+          "published_at": "2026-11-22T03:06:57+00:00",
+          "primary_country": "Poland",
+          "countries": [
+            "Poland"
+          ],
+          "categories": [],
+          "actors": [
+            "Russia"
+          ],
+          "locations": [],
+          "event_type": "operational",
+          "event_subtype": "activity",
+          "analysis_layer": null,
+          "geographic_scope": "direct",
+          "source_count": 2,
+          "confidence": "low",
+          "confidence_score": 46,
+          "hybrid_threat_score": 13,
+          "hybrid_threat_level": "low",
+          "source_names": [
+            "Google News - Baltic drone incident Russia",
+            "Google News - Baltic airspace violation Russia"
           ],
           "related_item_count": 3
         }
