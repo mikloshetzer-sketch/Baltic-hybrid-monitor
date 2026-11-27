@@ -2,11 +2,11 @@
   "project": "baltic-hybrid-monitor",
   "title": "Baltic Hybrid Threat Daily Snapshot",
   "region": "Baltic states and Poland",
-  "generated_at": "2026-11-26T15:28:13.411391+00:00",
-  "snapshot_date": "2026-11-26",
+  "generated_at": "2026-11-27T15:17:24.024495+00:00",
+  "snapshot_date": "2026-11-27",
   "snapshot_version": "baltic_daily_snapshot_v1_1_exact_day",
   "score_engine_version": "threat_score_v3_2_current_historical_split",
-  "source_generated_at": "2026-11-26T15:28:12.953636+00:00",
+  "source_generated_at": "2026-11-27T15:17:23.558983+00:00",
   "method": {
     "description": "Exact UTC calendar-day snapshot built only from scored events whose published_at date equals snapshot_date.",
     "time_basis": "UTC calendar day",
@@ -17,17 +17,17 @@
     "retention_role": "This file is the current exact-day snapshot. Long-term retention belongs to the history and future intelligence matrix history datasets."
   },
   "overall_summary": {
-    "event_count": 2,
+    "event_count": 6,
     "incident_count": 0,
     "activity_count": 0,
-    "indicator_count": 2,
-    "assessment_count": 0,
-    "score_total": 19,
-    "average_score": 9.5,
-    "highest_score": 11,
+    "indicator_count": 5,
+    "assessment_count": 1,
+    "score_total": 42,
+    "average_score": 8.4,
+    "highest_score": 12,
     "operational_index": 0.0,
-    "early_warning_index": 9.5,
-    "threat_index": 9.5,
+    "early_warning_index": 8.4,
+    "threat_index": 8.4,
     "overall_level": "low"
   },
   "country_summary": {
@@ -38,62 +38,84 @@
       "activity_count": 0,
       "indicator_count": 1,
       "assessment_count": 0,
-      "score_total": 11,
-      "average_score": 11.0,
-      "highest_score": 11,
+      "score_total": 12,
+      "average_score": 12.0,
+      "highest_score": 12,
       "operational_index": 0.0,
-      "early_warning_index": 11.0,
-      "threat_index": 11.0,
+      "early_warning_index": 12.0,
+      "threat_index": 12.0,
       "overall_level": "low",
       "categories": {
-        "espionage": 1
+        "sabotage": 1
       },
       "actors": {
         "Russia": 1
       }
     },
-    "Latvia": {
-      "country": "Latvia",
+    "Poland": {
+      "country": "Poland",
       "event_count": 1,
       "incident_count": 0,
       "activity_count": 0,
       "indicator_count": 1,
       "assessment_count": 0,
-      "score_total": 8,
-      "average_score": 8.0,
-      "highest_score": 8,
+      "score_total": 12,
+      "average_score": 12.0,
+      "highest_score": 12,
       "operational_index": 0.0,
-      "early_warning_index": 8.0,
-      "threat_index": 8.0,
+      "early_warning_index": 12.0,
+      "threat_index": 12.0,
       "overall_level": "low",
       "categories": {
-        "disinformation": 1
+        "sabotage": 1
       },
       "actors": {
         "Russia": 1
       }
+    },
+    "Regional": {
+      "country": "Regional",
+      "event_count": 4,
+      "incident_count": 0,
+      "activity_count": 0,
+      "indicator_count": 3,
+      "assessment_count": 1,
+      "score_total": 18,
+      "average_score": 6.0,
+      "highest_score": 9,
+      "operational_index": 0.0,
+      "early_warning_index": 6.0,
+      "threat_index": 6.0,
+      "overall_level": "low",
+      "categories": {
+        "sabotage": 3,
+        "disinformation": 1
+      },
+      "actors": {
+        "Russia": 4
+      }
     }
   },
   "category_summary": {
-    "espionage": {
-      "event_count": 1,
-      "score_total": 11,
-      "average_score": 11.0,
-      "highest_score": 11
+    "sabotage": {
+      "event_count": 5,
+      "score_total": 39,
+      "average_score": 7.8,
+      "highest_score": 12
     },
     "disinformation": {
       "event_count": 1,
-      "score_total": 8,
-      "average_score": 8.0,
-      "highest_score": 8
+      "score_total": 3,
+      "average_score": 3.0,
+      "highest_score": 3
     }
   },
   "actor_summary": {
     "Russia": {
-      "event_count": 2,
-      "score_total": 19,
-      "average_score": 9.5,
-      "highest_score": 11
+      "event_count": 6,
+      "score_total": 42,
+      "average_score": 7.0,
+      "highest_score": 12
     }
   },
   "subtype_summary": {
@@ -110,13 +132,13 @@
       "highest_score": 0
     },
     "indicator": {
-      "event_count": 2,
-      "score_total": 19,
-      "average_score": 9.5,
-      "highest_score": 11
+      "event_count": 5,
+      "score_total": 42,
+      "average_score": 8.4,
+      "highest_score": 12
     },
     "assessment": {
-      "event_count": 0,
+      "event_count": 1,
       "score_total": 0,
       "average_score": 0.0,
       "highest_score": 0
@@ -125,30 +147,36 @@
   "scope_summary": {
     "direct": {
       "event_count": 2,
-      "score_total": 19,
-      "average_score": 9.5,
-      "highest_score": 11
+      "score_total": 24,
+      "average_score": 12.0,
+      "highest_score": 12
+    },
+    "external_context": {
+      "event_count": 4,
+      "score_total": 18,
+      "average_score": 4.5,
+      "highest_score": 9
     }
   },
   "hotspot": {
-    "location": "Estonia",
-    "score": 11,
-    "event_count": 1
+    "location": "Regional",
+    "score": 18,
+    "event_count": 4
   },
-  "key_driver": "espionage",
+  "key_driver": "sabotage",
   "dominant_actor": "Russia",
   "top_events": [
     {
-      "event_id": "4099b8e4b084bfa1",
-      "title": "Estonia expels Russian oil plant worker over intelligence service ties",
-      "url": "https://news.err.ee/1610206810/estonia-expels-russian-oil-plant-worker-over-intelligence-service-ties",
-      "published_at": "2026-11-26T07:04:00+00:00",
+      "event_id": "6e3d2f98a60ad2cc",
+      "title": "Estonia's defense tech sector accelerates innovation amid war in Ukraine",
+      "url": "https://news.err.ee/1610208820/estonia-s-defense-tech-sector-accelerates-innovation-amid-war-in-ukraine",
+      "published_at": "2026-11-27T12:12:00+00:00",
       "primary_country": "Estonia",
       "countries": [
         "Estonia"
       ],
       "categories": [
-        "espionage"
+        "sabotage"
       ],
       "actors": [
         "Russia"
@@ -161,7 +189,7 @@
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 11,
+      "hybrid_threat_score": 12,
       "hybrid_threat_level": "low",
       "source_names": [
         "ERR News Estonia"
@@ -169,14 +197,100 @@
       "related_item_count": 1
     },
     {
-      "event_id": "468370d50af0d61c",
-      "title": "Russian embassy claims are nonsense, explains Latvia",
-      "url": "https://eng.lsm.lv/article/politics/diplomacy/26.11.2026-russian-embassy-claims-are-nonsense-explains-latvia.a673553/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-      "published_at": "2026-11-26T08:33:00+00:00",
-      "primary_country": "Latvia",
+      "event_id": "13cf984cb8f17cc7",
+      "title": "Russia’s Europe‑wide Sabotage Surge Hits 16%, Targeting Germany, Poland and Ukrainian Grain Shipping - Forth.News",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBFZWpxMUtFdk5LbS1IVlpJbXRxdHdQYTgtLXJ0cklEWWs3Mml0OGRyQ01yUTNHZFFHbGdOMm9lN1EzVi1hU091ak1ZaHBCbXY4Tnk2YXp6NVNkeEJPMDQ1M3ZR?oc=5",
+      "published_at": "2026-11-27T08:21:10+00:00",
+      "primary_country": "Poland",
       "countries": [
-        "Latvia"
+        "Poland"
       ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 12,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "b9df1134ea81e8cd",
+      "title": "IISS Warns Russia Intensifies Sabotage Across Europe - cwibc.co.id",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE8zLWV4RGhvdmNEbVFacjhkQTNTcExqOWJpLTkyVGc0SUVyM3NLOUJ6elpfVC1ZQXhxY21oVDlxZkwwVWFmTVhwZFpfZHZORnZyWGs2bEZoMlpwX3FIVEJXbjJB?oc=5",
+      "published_at": "2026-11-27T13:28:17+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 3,
+      "confidence": "medium",
+      "confidence_score": 64,
+      "hybrid_threat_score": 9,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia",
+        "Google News - NATO Baltic hybrid threat",
+        "Google News - Baltic Sea infrastructure sabotage"
+      ],
+      "related_item_count": 3
+    },
+    {
+      "event_id": "5000cbfe40bbc375",
+      "title": "Russian sabotage attacks in Europe up 16%, IISS says - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOeDlfWnppQVVFampWVVNJc25wbDRpS0VxOUJtV1g4TDY0T3RuMmZfS1JQX2pOT2N1NnBVLWRfbHJVdWVKb29JVXNMNFc2X2I5dE9tcXRjZTA5ZHJ3aG9HemhOWEpqMURiZGg4cmlBRExqUTFQNlNESU1hOVd2RkFFY01Sd1RCb1VzRnV6LXJtRmpxc25GdWZXRmY0ZW56dFR5Sm5oZUFfSlptQk5NWUNz?oc=5",
+      "published_at": "2026-11-27T08:17:03+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 6,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "4f8018ca4b20eea3",
+      "title": "EDF intel chief: Russia's response to border closure more threats",
+      "url": "https://news.err.ee/1610209048/edf-intel-chief-russia-s-response-to-border-closure-more-threats",
+      "published_at": "2026-11-27T11:42:00+00:00",
+      "primary_country": "Regional",
+      "countries": [],
       "categories": [
         "disinformation"
       ],
@@ -187,28 +301,142 @@
       "event_type": "warning",
       "event_subtype": "indicator",
       "analysis_layer": null,
-      "geographic_scope": "direct",
+      "geographic_scope": "external_context",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 8,
+      "hybrid_threat_score": 3,
       "hybrid_threat_level": "low",
       "source_names": [
-        "LSM English Latvia"
+        "ERR News Estonia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "045ac8d395ac072c",
+      "title": "Russian sabotage attacks across Europe fall short of strategic goals, threats remain, report says - The Kyiv Independent",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPc3UxdVAtTC1nLUJlT1JqVU8zaUw3WW1BYUt3b2xoZFlUamdjcUdaOS1vNUo1UzZCY0dLMk92aEoweHdpZDI4LTJNNXNhUzAyQTdibU1uREZNdXNlQTBDam5RdlJrQ055NEtBdmNWZHY3cVJWOThQaGxNX1FBdjlkNW5fSGc1cFhwZ0lGWWdqYmdYZ2hmVVNhMThfUlZ0cGpLb0R6SHBmNk9HUktXOVB1OVJEbHRneFNOVlY3YmpfVW9hUQ?oc=5",
+      "published_at": "2026-11-27T12:17:34+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia"
       ],
       "related_item_count": 1
     }
   ],
   "events": [
     {
-      "event_id": "468370d50af0d61c",
-      "title": "Russian embassy claims are nonsense, explains Latvia",
-      "url": "https://eng.lsm.lv/article/politics/diplomacy/26.11.2026-russian-embassy-claims-are-nonsense-explains-latvia.a673553/?utm_source=rss&utm_campaign=rss&utm_medium=links",
-      "published_at": "2026-11-26T08:33:00+00:00",
-      "primary_country": "Latvia",
-      "countries": [
-        "Latvia"
+      "event_id": "b9df1134ea81e8cd",
+      "title": "IISS Warns Russia Intensifies Sabotage Across Europe - cwibc.co.id",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE8zLWV4RGhvdmNEbVFacjhkQTNTcExqOWJpLTkyVGc0SUVyM3NLOUJ6elpfVC1ZQXhxY21oVDlxZkwwVWFmTVhwZFpfZHZORnZyWGs2bEZoMlpwX3FIVEJXbjJB?oc=5",
+      "published_at": "2026-11-27T13:28:17+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
       ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 3,
+      "confidence": "medium",
+      "confidence_score": 64,
+      "hybrid_threat_score": 9,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia",
+        "Google News - NATO Baltic hybrid threat",
+        "Google News - Baltic Sea infrastructure sabotage"
+      ],
+      "related_item_count": 3
+    },
+    {
+      "event_id": "045ac8d395ac072c",
+      "title": "Russian sabotage attacks across Europe fall short of strategic goals, threats remain, report says - The Kyiv Independent",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxPc3UxdVAtTC1nLUJlT1JqVU8zaUw3WW1BYUt3b2xoZFlUamdjcUdaOS1vNUo1UzZCY0dLMk92aEoweHdpZDI4LTJNNXNhUzAyQTdibU1uREZNdXNlQTBDam5RdlJrQ055NEtBdmNWZHY3cVJWOThQaGxNX1FBdjlkNW5fSGc1cFhwZ0lGWWdqYmdYZ2hmVVNhMThfUlZ0cGpLb0R6SHBmNk9HUktXOVB1OVJEbHRneFNOVlY3YmpfVW9hUQ?oc=5",
+      "published_at": "2026-11-27T12:17:34+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "background",
+      "event_subtype": "assessment",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 0,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "6e3d2f98a60ad2cc",
+      "title": "Estonia's defense tech sector accelerates innovation amid war in Ukraine",
+      "url": "https://news.err.ee/1610208820/estonia-s-defense-tech-sector-accelerates-innovation-amid-war-in-ukraine",
+      "published_at": "2026-11-27T12:12:00+00:00",
+      "primary_country": "Estonia",
+      "countries": [
+        "Estonia"
+      ],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "direct",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 12,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "ERR News Estonia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "4f8018ca4b20eea3",
+      "title": "EDF intel chief: Russia's response to border closure more threats",
+      "url": "https://news.err.ee/1610209048/edf-intel-chief-russia-s-response-to-border-closure-more-threats",
+      "published_at": "2026-11-27T11:42:00+00:00",
+      "primary_country": "Regional",
+      "countries": [],
       "categories": [
         "disinformation"
       ],
@@ -219,28 +447,28 @@
       "event_type": "warning",
       "event_subtype": "indicator",
       "analysis_layer": null,
-      "geographic_scope": "direct",
+      "geographic_scope": "external_context",
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 8,
+      "hybrid_threat_score": 3,
       "hybrid_threat_level": "low",
       "source_names": [
-        "LSM English Latvia"
+        "ERR News Estonia"
       ],
       "related_item_count": 1
     },
     {
-      "event_id": "4099b8e4b084bfa1",
-      "title": "Estonia expels Russian oil plant worker over intelligence service ties",
-      "url": "https://news.err.ee/1610206810/estonia-expels-russian-oil-plant-worker-over-intelligence-service-ties",
-      "published_at": "2026-11-26T07:04:00+00:00",
-      "primary_country": "Estonia",
+      "event_id": "13cf984cb8f17cc7",
+      "title": "Russia’s Europe‑wide Sabotage Surge Hits 16%, Targeting Germany, Poland and Ukrainian Grain Shipping - Forth.News",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBFZWpxMUtFdk5LbS1IVlpJbXRxdHdQYTgtLXJ0cklEWWs3Mml0OGRyQ01yUTNHZFFHbGdOMm9lN1EzVi1hU091ak1ZaHBCbXY4Tnk2YXp6NVNkeEJPMDQ1M3ZR?oc=5",
+      "published_at": "2026-11-27T08:21:10+00:00",
+      "primary_country": "Poland",
       "countries": [
-        "Estonia"
+        "Poland"
       ],
       "categories": [
-        "espionage"
+        "sabotage"
       ],
       "actors": [
         "Russia"
@@ -253,10 +481,38 @@
       "source_count": 1,
       "confidence": "low",
       "confidence_score": 38,
-      "hybrid_threat_score": 11,
+      "hybrid_threat_score": 12,
       "hybrid_threat_level": "low",
       "source_names": [
-        "ERR News Estonia"
+        "Google News - Baltic sabotage Russia"
+      ],
+      "related_item_count": 1
+    },
+    {
+      "event_id": "5000cbfe40bbc375",
+      "title": "Russian sabotage attacks in Europe up 16%, IISS says - Reuters",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOeDlfWnppQVVFampWVVNJc25wbDRpS0VxOUJtV1g4TDY0T3RuMmZfS1JQX2pOT2N1NnBVLWRfbHJVdWVKb29JVXNMNFc2X2I5dE9tcXRjZTA5ZHJ3aG9HemhOWEpqMURiZGg4cmlBRExqUTFQNlNESU1hOVd2RkFFY01Sd1RCb1VzRnV6LXJtRmpxc25GdWZXRmY0ZW56dFR5Sm5oZUFfSlptQk5NWUNz?oc=5",
+      "published_at": "2026-11-27T08:17:03+00:00",
+      "primary_country": "Regional",
+      "countries": [],
+      "categories": [
+        "sabotage"
+      ],
+      "actors": [
+        "Russia"
+      ],
+      "locations": [],
+      "event_type": "warning",
+      "event_subtype": "indicator",
+      "analysis_layer": null,
+      "geographic_scope": "external_context",
+      "source_count": 1,
+      "confidence": "low",
+      "confidence_score": 38,
+      "hybrid_threat_score": 6,
+      "hybrid_threat_level": "low",
+      "source_names": [
+        "Google News - Baltic critical infrastructure Russia"
       ],
       "related_item_count": 1
     }
